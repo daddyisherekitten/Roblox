@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Classic ready protocol, bidirectional transfer and isolated globals",
+    "values": "detached:0|7,undefined,undefined,true|7,9",
+    "passed": true
+  },
+  {
+    "name": "Handler after top-level await loses early messages",
+    "values": "ready|after",
+    "passed": true
+  },
+  {
+    "name": "Handler before top-level await already receives messages",
+    "values": "early|ready",
+    "passed": true
+  },
+  {
+    "name": "A classic startup runtime exception leaves installed handlers alive",
+    "values": "error|alive",
+    "passed": true
+  },
+  {
+    "name": "Canceling the worker's own error prevents parent propagation",
+    "values": "handled",
+    "passed": true
+  },
+  {
+    "name": "Legacy global onerror uses five arguments and true cancels reporting",
+    "values": "string|string|number|number|local",
+    "passed": true
+  },
+  {
+    "name": "close completes the current task and its microtasks only",
+    "values": "last|micro",
+    "passed": true
+  },
+  {
+    "name": "Modules have no importScripts and their own location",
+    "values": "42|TypeError|module.js|isolated",
+    "passed": true
+  }
+]

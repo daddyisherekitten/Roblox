@@ -1,0 +1,935 @@
+{
+  "source": "function xmlSerializationChecks() {\n  const records = [], XML = 'http://www.w3.org/XML/1998/namespace', XMLNS = 'http://www.w3.org/2000/xmlns/', HTML = 'http://www.w3.org/1999/xhtml';\n  function record(name, value) { records.push({name: name, value: value}); }\n  function attempt(action) { try { return {value: action()}; } catch (error) { return {error: error.name}; } }\n  function run(name, make) {\n    const d = document.implementation.createDocument(null, 'root', null);\n    const node = make(d);\n    record(name, [attempt(function () { return new XMLSerializer().serializeToString(node); }),\n      attempt(function () { return node.outerHTML; }), attempt(function () { return node.innerHTML; })]);\n  }\n  run('unprefixed-attribute', d => { const n=d.createElementNS('urn:element','root'); n.setAttributeNS('urn:attribute','flag','yes'); return n; });\n  run('element-attribute-prefix-conflict', d => { const n=d.createElementNS('urn:element','p:root'); n.setAttributeNS('urn:attribute','p:flag','yes'); return n; });\n  run('element-local-prefix-conflict', d => { const n=d.createElementNS('urn:element','p:root'); n.setAttributeNS(XMLNS,'xmlns:p','urn:other'); return n; });\n  run('element-default-conflict', d => { const n=d.createElementNS('urn:element','root'); n.setAttributeNS(XMLNS,'xmlns','urn:other'); return n; });\n  run('prefix-candidates-last', d => { const n=d.createElementNS('urn:element','root'); n.setAttributeNS(XMLNS,'xmlns:a','urn:element'); n.setAttributeNS(XMLNS,'xmlns:b','urn:element'); return n; });\n  run('prefix-preferred', d => { const n=d.createElementNS('urn:element','a:root'); n.setAttributeNS(XMLNS,'xmlns:a','urn:element'); n.setAttributeNS(XMLNS,'xmlns:b','urn:element'); return n; });\n  run('xml-element-prefix', d => d.createElementNS(XML,'p:root'));\n  run('xml-attribute-prefix', d => { const n=d.createElement('root'); n.setAttributeNS(XML,'p:lang','de'); return n; });\n  run('prefix-inherited-remap', d => { const n=d.createElementNS('urn:root','root'); n.setAttributeNS(XMLNS,'xmlns:a','urn:child'); n.append(d.createElementNS('urn:child','b:child')); return n; });\n  run('inherited-element-attribute-prefix-conflict', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:p','urn:a');const c=d.createElementNS('urn:a','p:child');c.setAttributeNS('urn:b','p:flag','x');n.append(c);return n; });\n  run('default-reset', d => { const n=d.createElementNS('urn:root','root'), c=d.createElement('child'); c.append(d.createElementNS('urn:root','grand')); n.append(c); return n; });\n  run('generated-prefix-collision', d => { const n=d.createElement('root'); n.setAttributeNS(XMLNS,'xmlns:ns1','urn:occupied'); n.setAttributeNS('urn:new','flag','x'); return n; });\n  run('generated-prefix-siblings', d => { const n=d.createElement('root'); for(let i=0;i<2;i++){const c=d.createElement('child');c.setAttributeNS('urn:'+i,'flag','x');n.append(c);}return n; });\n  run('null-namespace-xmlns', d => { const n=d.createElement('root'); n.setAttribute('xmlns','urn:decl'); return n; });\n  run('unbound-element-local-colon', d => d.createElement('p:name'));\n  run('unbound-attribute-colon', d => { const n=d.createElement('root'); n.setAttribute('p:name','x'); return n; });\n  run('xml-escaped-whitespace', d => { const n=d.createElement('root');n.setAttribute('data','&<>\"\\t\\n\\r\\u00a0');n.textContent='&<>\\u00a0';return n; });\n  run('xml-comment-invalid', d => { const n=d.createElement('root');n.append(d.createComment('x--y-'));return n; });\n  run('xml-text-invalid', d => { const n=d.createElement('root');n.textContent='x\\u0001y';return n; });\n  run('xml-attribute-invalid', d => { const n=d.createElement('root');n.setAttribute('data','x\\u0001y');return n; });\n  run('xml-cdata-invalid', d => { const n=d.createElement('root'),c=d.createCDATASection('ok');c.data='bad]]>data';n.append(c);return n; });\n  run('xml-pi-invalid-target', d => d.createProcessingInstruction('p:target',''));\n  run('xml-pi-empty', d => d.createProcessingInstruction('target',''));\n  run('xml-pi-invalid-data', d => { const n=d.createElement('root'),p=d.createProcessingInstruction('target','ok');p.data='bad?>data';n.append(p);return n; });\n  run('xml-fragment', d => { const f=d.createDocumentFragment();for(let i=0;i<2;i++){const c=d.createElement('child');c.setAttributeNS('urn:'+i,'flag','x');f.append(c);}return f; });\n  run('xml-attr-root', d => { const a=d.createAttributeNS('urn:a','p:flag');a.value='x';return a; });\n  run('html-void', d => d.createElementNS(HTML,'input'));\n  run('html-nonvoid-empty', d => d.createElementNS(HTML,'div'));\n  run('foreign-empty', d => d.createElementNS('urn:a','root'));\n  run('xml-script-escaping', d => { const n=d.createElementNS(HTML,'script');n.textContent='a < b && c > d';return n; });\n  run('xmlns-reserved-value', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:p',XMLNS);return n; });\n  run('xmlns-xml-redundant', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:p',XML);n.setAttributeNS(XMLNS,'xmlns:xml',XML);return n; });\n  run('xmlns-prefix-undeclare', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:p','');return n; });\n  run('xmlns-xml-prefix-rebind', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:xml','urn:other');return n; });\n  run('xmlns-xmlns-prefix-rebind', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:xmlns','urn:other');return n; });\n  run('xmlns-element-namespace', d => d.createElementNS(XMLNS,'xmlns'));\n  run('xmlns-default-reset', d => { const n=d.createElementNS('urn:a','root');const c=d.createElement('child');c.setAttributeNS(XMLNS,'xmlns','');n.append(c);return n; });\n  run('local-default-vs-prefix', d => { const n=d.createElementNS('urn:a','root');n.setAttributeNS(XMLNS,'xmlns','urn:a');n.setAttributeNS(XMLNS,'xmlns:p','urn:a');return n; });\n  run('inherited-prefix-shadowed', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:p','urn:a');const c=d.createElementNS('urn:a','child');c.setAttributeNS(XMLNS,'xmlns:p','urn:b');n.append(c);return n; });\n  run('sibling-prefix-redundancy', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:p','urn:a');for(let i=0;i<2;i++){const c=d.createElementNS('urn:a','p:child');c.setAttributeNS(XMLNS,'xmlns:p','urn:a');n.append(c);}return n; });\n  run('html-template', d => { const n=d.createElementNS(HTML,'h:template');n.innerHTML='<h:span>one &amp; two</h:span>';return n; });\n  run('html-document', d => document.implementation.createHTMLDocument('A & B'));\n  run('empty-document', d => document.implementation.createDocument(null,null,null));\n  run('doctype-public-system', d => document.implementation.createDocumentType('root','a b','x\"y'));\n  run('doctype-both-quotes', d => document.implementation.createDocumentType('root','','x\"y\\'z'));\n  run('unicode-name', d => { const n=d.createElementNS('urn:é','é:名');n.setAttributeNS('urn:ß','ß:值','ü');return n; });\n  run('xml-nested-default-and-prefix', d => { const n=d.createElementNS('urn:a','root');n.setAttributeNS(XMLNS,'xmlns:p','urn:a');const c=d.createElementNS('urn:a','p:child');c.setAttributeNS('urn:b','p:flag','x');c.append(d.createElementNS('urn:a','p:end'));n.append(c);return n; });\n  run('attribute-prefix-order-conflict', d => { const n=d.createElement('root');n.setAttributeNS('urn:a','p:first','one');n.setAttributeNS('urn:b','p:second','two');return n; });\n  run('attribute-later-declaration', d => { const n=d.createElement('root');n.setAttributeNS('urn:a','p:flag','x');n.setAttributeNS(XMLNS,'xmlns:p','urn:b');return n; });\n  run('attribute-inherited-prefix-conflict', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:p','urn:a');const c=d.createElement('child');c.setAttributeNS('urn:b','p:flag','x');n.append(c);return n; });\n  run('unprefixed-attribute-nearest-candidate', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:p','urn:a');n.setAttributeNS(XMLNS,'xmlns:q','urn:a');const c=d.createElement('child');c.setAttributeNS(XMLNS,'xmlns:s','urn:a');c.setAttributeNS('urn:a','flag','x');n.append(c);return n; });\n  run('attribute-shadowed-prefix-candidate', d => { const n=d.createElement('root');n.setAttributeNS(XMLNS,'xmlns:p','urn:a');n.setAttributeNS(XMLNS,'xmlns:q','urn:a');const c=d.createElement('child');c.setAttributeNS(XMLNS,'xmlns:q','urn:b');c.setAttributeNS('urn:a','flag','x');n.append(c);return n; });\n  run('xlink-no-special-prefix', d => { const n=d.createElement('root');n.setAttributeNS('http://www.w3.org/1999/xlink','href','one');n.setAttributeNS('urn:a','xl:flag','two');return n; });\n  run('xml-void-with-children', d => { const n=d.createElementNS(HTML,'img');n.append(d.createElementNS(HTML,'style'));return n; });\n  run('pi-xml-target', d => { const n=d.createElement('root');n.append(d.createProcessingInstruction('XmL','v'));return n; });\n  run('doctype-public-tab', d => document.implementation.createDocumentType('root','a\\tb',''));\n  run('doctype-public-unicode', d => document.implementation.createDocumentType('root','ä',''));\n  run('doctype-system-invalid-character', d => document.implementation.createDocumentType('root','','a\\u0001b'));\n  const d=document.implementation.createDocument('urn:r','r',null), n=d.createElementNS('urn:a','p:item');n.setAttributeNS('urn:b','p:flag','x');d.documentElement.append(n);\n  const clone=n.cloneNode(true), target=document.implementation.createDocument(null,'root',null), imported=target.importNode(n,true);\n  record('clone-import-source-identity',[n.prefix,n.getAttributeNodeNS('urn:b','flag').prefix,new XMLSerializer().serializeToString(n),new XMLSerializer().serializeToString(clone),new XMLSerializer().serializeToString(imported),n.prefix,n.getAttributeNodeNS('urn:b','flag').prefix,n.ownerDocument===d,imported.ownerDocument===target]);\n  const before=n.outerHTML;const bad=d.createComment('bad--comment');n.append(bad);\n  record('strict-error-atomicity',[attempt(()=>n.outerHTML),n.childNodes.length,n.lastChild===bad,n.prefix,n.getAttributeNodeNS('urn:b','flag').prefix]);n.removeChild(bad);record('strict-error-recovery',n.outerHTML===before);\n  const s=new XMLSerializer(), p=XMLSerializer.prototype, method=p.serializeToString, descriptor=Object.getOwnPropertyDescriptor(p,'serializeToString');\n  record('interface-descriptors',[XMLSerializer.name,XMLSerializer.length,method.name,method.length,descriptor.writable,descriptor.enumerable,descriptor.configurable,Object.prototype.toString.call(s),Object.getPrototypeOf(s)===p]);\n  record('interface-brand-arguments',[attempt(()=>XMLSerializer()),attempt(()=>method.call({},d)),attempt(()=>s.serializeToString()),attempt(()=>s.serializeToString(null)),attempt(()=>s.serializeToString({nodeType:1})),attempt(()=>s.serializeToString(d.createTextNode('x')))]);\n  return records;\n}\nfunction xmlCrossRealmChecks(ForeignSerializer, foreignNode) {\n  const local=new XMLSerializer(), foreign=new ForeignSerializer();\n  return [ForeignSerializer.prototype.serializeToString.call(local,foreignNode),\n    XMLSerializer.prototype.serializeToString.call(foreign,foreignNode),\n    foreignNode.prefix,foreignNode.getAttributeNodeNS('urn:b','flag').prefix,\n    foreign instanceof ForeignSerializer,local instanceof XMLSerializer];\n}\nfunction xmlCrossRealmErrors(ForeignSerializer, ForeignTypeError) {\n  const method=ForeignSerializer.prototype.serializeToString, local=new XMLSerializer();\n  const records=[];\n  for(const action of [()=>method.call({},foreignNode),()=>method.call(local,null),()=>method.call(local)]){\n    try{action();records.push('missing');}catch(error){records.push([error.name,error instanceof ForeignTypeError,error instanceof TypeError]);}\n  }\n  return records;\n}\n",
+  "records": [
+    {
+      "name": "unprefixed-attribute",
+      "value": [
+        {
+          "value": "<root xmlns=\"urn:element\" xmlns:ns1=\"urn:attribute\" ns1:flag=\"yes\"/>"
+        },
+        {
+          "value": "<root xmlns=\"urn:element\" xmlns:ns1=\"urn:attribute\" ns1:flag=\"yes\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns=\\\"urn:element\\\" xmlns:ns1=\\\"urn:attribute\\\" ns1:flag=\\\"yes\\\"/>\"},{\"value\":\"<root xmlns=\\\"urn:element\\\" xmlns:ns1=\\\"urn:attribute\\\" ns1:flag=\\\"yes\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "element-attribute-prefix-conflict",
+      "value": [
+        {
+          "value": "<p:root xmlns:p=\"urn:element\" xmlns:ns1=\"urn:attribute\" ns1:flag=\"yes\"/>"
+        },
+        {
+          "value": "<p:root xmlns:p=\"urn:element\" xmlns:ns1=\"urn:attribute\" ns1:flag=\"yes\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<p:root xmlns:p=\\\"urn:element\\\" xmlns:ns1=\\\"urn:attribute\\\" ns1:flag=\\\"yes\\\"/>\"},{\"value\":\"<p:root xmlns:p=\\\"urn:element\\\" xmlns:ns1=\\\"urn:attribute\\\" ns1:flag=\\\"yes\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "element-local-prefix-conflict",
+      "value": [
+        {
+          "value": "<ns1:root xmlns:ns1=\"urn:element\" xmlns:p=\"urn:other\"/>"
+        },
+        {
+          "value": "<ns1:root xmlns:ns1=\"urn:element\" xmlns:p=\"urn:other\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<ns1:root xmlns:ns1=\\\"urn:element\\\" xmlns:p=\\\"urn:other\\\"/>\"},{\"value\":\"<ns1:root xmlns:ns1=\\\"urn:element\\\" xmlns:p=\\\"urn:other\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "element-default-conflict",
+      "value": [
+        {
+          "value": "<root xmlns=\"urn:element\"/>"
+        },
+        {
+          "value": "<root xmlns=\"urn:element\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns=\\\"urn:element\\\"/>\"},{\"value\":\"<root xmlns=\\\"urn:element\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "prefix-candidates-last",
+      "value": [
+        {
+          "value": "<b:root xmlns:a=\"urn:element\" xmlns:b=\"urn:element\"/>"
+        },
+        {
+          "value": "<b:root xmlns:a=\"urn:element\" xmlns:b=\"urn:element\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<b:root xmlns:a=\\\"urn:element\\\" xmlns:b=\\\"urn:element\\\"/>\"},{\"value\":\"<b:root xmlns:a=\\\"urn:element\\\" xmlns:b=\\\"urn:element\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "prefix-preferred",
+      "value": [
+        {
+          "value": "<a:root xmlns:a=\"urn:element\" xmlns:b=\"urn:element\"/>"
+        },
+        {
+          "value": "<a:root xmlns:a=\"urn:element\" xmlns:b=\"urn:element\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<a:root xmlns:a=\\\"urn:element\\\" xmlns:b=\\\"urn:element\\\"/>\"},{\"value\":\"<a:root xmlns:a=\\\"urn:element\\\" xmlns:b=\\\"urn:element\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xml-element-prefix",
+      "value": [
+        {
+          "value": "<xml:root/>"
+        },
+        {
+          "value": "<xml:root/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<xml:root/>\"},{\"value\":\"<xml:root/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xml-attribute-prefix",
+      "value": [
+        {
+          "value": "<root xml:lang=\"de\"/>"
+        },
+        {
+          "value": "<root xml:lang=\"de\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xml:lang=\\\"de\\\"/>\"},{\"value\":\"<root xml:lang=\\\"de\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "prefix-inherited-remap",
+      "value": [
+        {
+          "value": "<root xmlns=\"urn:root\" xmlns:a=\"urn:child\"><a:child/></root>"
+        },
+        {
+          "value": "<root xmlns=\"urn:root\" xmlns:a=\"urn:child\"><a:child/></root>"
+        },
+        {
+          "value": "<b:child xmlns:b=\"urn:child\"/>"
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns=\\\"urn:root\\\" xmlns:a=\\\"urn:child\\\"><a:child/></root>\"},{\"value\":\"<root xmlns=\\\"urn:root\\\" xmlns:a=\\\"urn:child\\\"><a:child/></root>\"},{\"value\":\"<b:child xmlns:b=\\\"urn:child\\\"/>\"}]"
+    },
+    {
+      "name": "inherited-element-attribute-prefix-conflict",
+      "value": [
+        {
+          "value": "<root xmlns:p=\"urn:a\"><p:child xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<root xmlns:p=\"urn:a\"><p:child xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<p:child xmlns:p=\"urn:a\" xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/>"
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:p=\\\"urn:a\\\"><p:child xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/></root>\"},{\"value\":\"<root xmlns:p=\\\"urn:a\\\"><p:child xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/></root>\"},{\"value\":\"<p:child xmlns:p=\\\"urn:a\\\" xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/>\"}]"
+    },
+    {
+      "name": "default-reset",
+      "value": [
+        {
+          "value": "<root xmlns=\"urn:root\"><child xmlns=\"\"><grand xmlns=\"urn:root\"/></child></root>"
+        },
+        {
+          "value": "<root xmlns=\"urn:root\"><child xmlns=\"\"><grand xmlns=\"urn:root\"/></child></root>"
+        },
+        {
+          "value": "<child><grand xmlns=\"urn:root\"/></child>"
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns=\\\"urn:root\\\"><child xmlns=\\\"\\\"><grand xmlns=\\\"urn:root\\\"/></child></root>\"},{\"value\":\"<root xmlns=\\\"urn:root\\\"><child xmlns=\\\"\\\"><grand xmlns=\\\"urn:root\\\"/></child></root>\"},{\"value\":\"<child><grand xmlns=\\\"urn:root\\\"/></child>\"}]"
+    },
+    {
+      "name": "generated-prefix-collision",
+      "value": [
+        {
+          "value": "<root xmlns:ns1=\"urn:occupied\" xmlns:ns2=\"urn:new\" ns2:flag=\"x\"/>"
+        },
+        {
+          "value": "<root xmlns:ns1=\"urn:occupied\" xmlns:ns2=\"urn:new\" ns2:flag=\"x\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:ns1=\\\"urn:occupied\\\" xmlns:ns2=\\\"urn:new\\\" ns2:flag=\\\"x\\\"/>\"},{\"value\":\"<root xmlns:ns1=\\\"urn:occupied\\\" xmlns:ns2=\\\"urn:new\\\" ns2:flag=\\\"x\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "generated-prefix-siblings",
+      "value": [
+        {
+          "value": "<root><child xmlns:ns1=\"urn:0\" ns1:flag=\"x\"/><child xmlns:ns2=\"urn:1\" ns2:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<root><child xmlns:ns1=\"urn:0\" ns1:flag=\"x\"/><child xmlns:ns2=\"urn:1\" ns2:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<child xmlns:ns1=\"urn:0\" ns1:flag=\"x\"/><child xmlns:ns2=\"urn:1\" ns2:flag=\"x\"/>"
+        }
+      ],
+      "json": "[{\"value\":\"<root><child xmlns:ns1=\\\"urn:0\\\" ns1:flag=\\\"x\\\"/><child xmlns:ns2=\\\"urn:1\\\" ns2:flag=\\\"x\\\"/></root>\"},{\"value\":\"<root><child xmlns:ns1=\\\"urn:0\\\" ns1:flag=\\\"x\\\"/><child xmlns:ns2=\\\"urn:1\\\" ns2:flag=\\\"x\\\"/></root>\"},{\"value\":\"<child xmlns:ns1=\\\"urn:0\\\" ns1:flag=\\\"x\\\"/><child xmlns:ns2=\\\"urn:1\\\" ns2:flag=\\\"x\\\"/>\"}]"
+    },
+    {
+      "name": "null-namespace-xmlns",
+      "value": [
+        {
+          "value": "<root xmlns=\"urn:decl\"/>"
+        },
+        {
+          "value": "<root xmlns=\"urn:decl\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns=\\\"urn:decl\\\"/>\"},{\"value\":\"<root xmlns=\\\"urn:decl\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "unbound-element-local-colon",
+      "value": [
+        {
+          "value": "<p:name/>"
+        },
+        {
+          "value": "<p:name/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<p:name/>\"},{\"value\":\"<p:name/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "unbound-attribute-colon",
+      "value": [
+        {
+          "value": "<root p:name=\"x\"/>"
+        },
+        {
+          "value": "<root p:name=\"x\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root p:name=\\\"x\\\"/>\"},{\"value\":\"<root p:name=\\\"x\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xml-escaped-whitespace",
+      "value": [
+        {
+          "value": "<root data=\"&amp;&lt;&gt;&quot;&#9;&#10;&#13; \">&amp;&lt;&gt; </root>"
+        },
+        {
+          "value": "<root data=\"&amp;&lt;&gt;&quot;&#9;&#10;&#13; \">&amp;&lt;&gt; </root>"
+        },
+        {
+          "value": "&amp;&lt;&gt; "
+        }
+      ],
+      "json": "[{\"value\":\"<root data=\\\"&amp;&lt;&gt;&quot;&#9;&#10;&#13; \\\">&amp;&lt;&gt; </root>\"},{\"value\":\"<root data=\\\"&amp;&lt;&gt;&quot;&#9;&#10;&#13; \\\">&amp;&lt;&gt; </root>\"},{\"value\":\"&amp;&lt;&gt; \"}]"
+    },
+    {
+      "name": "xml-comment-invalid",
+      "value": [
+        {
+          "value": "<root><!--x--y---></root>"
+        },
+        {
+          "value": "<root><!--x--y---></root>"
+        },
+        {
+          "value": "<!--x--y--->"
+        }
+      ],
+      "json": "[{\"value\":\"<root><!--x--y---></root>\"},{\"value\":\"<root><!--x--y---></root>\"},{\"value\":\"<!--x--y--->\"}]"
+    },
+    {
+      "name": "xml-text-invalid",
+      "value": [
+        {
+          "value": "<root>x\u0001y</root>"
+        },
+        {
+          "value": "<root>x\u0001y</root>"
+        },
+        {
+          "value": "x\u0001y"
+        }
+      ],
+      "json": "[{\"value\":\"<root>x\\u0001y</root>\"},{\"value\":\"<root>x\\u0001y</root>\"},{\"value\":\"x\\u0001y\"}]"
+    },
+    {
+      "name": "xml-attribute-invalid",
+      "value": [
+        {
+          "value": "<root data=\"x\u0001y\"/>"
+        },
+        {
+          "value": "<root data=\"x\u0001y\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root data=\\\"x\\u0001y\\\"/>\"},{\"value\":\"<root data=\\\"x\\u0001y\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xml-cdata-invalid",
+      "value": [
+        {
+          "value": "<root><![CDATA[bad]]>data]]></root>"
+        },
+        {
+          "value": "<root><![CDATA[bad]]>data]]></root>"
+        },
+        {
+          "value": "<![CDATA[bad]]>data]]>"
+        }
+      ],
+      "json": "[{\"value\":\"<root><![CDATA[bad]]>data]]></root>\"},{\"value\":\"<root><![CDATA[bad]]>data]]></root>\"},{\"value\":\"<![CDATA[bad]]>data]]>\"}]"
+    },
+    {
+      "name": "xml-pi-invalid-target",
+      "value": [
+        {
+          "value": "<?p:target ?>"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"<?p:target ?>\"},{},{}]"
+    },
+    {
+      "name": "xml-pi-empty",
+      "value": [
+        {
+          "value": "<?target ?>"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"<?target ?>\"},{},{}]"
+    },
+    {
+      "name": "xml-pi-invalid-data",
+      "value": [
+        {
+          "value": "<root><?target bad?>data?></root>"
+        },
+        {
+          "value": "<root><?target bad?>data?></root>"
+        },
+        {
+          "value": "<?target bad?>data?>"
+        }
+      ],
+      "json": "[{\"value\":\"<root><?target bad?>data?></root>\"},{\"value\":\"<root><?target bad?>data?></root>\"},{\"value\":\"<?target bad?>data?>\"}]"
+    },
+    {
+      "name": "xml-fragment",
+      "value": [
+        {
+          "value": "<child xmlns:ns1=\"urn:0\" ns1:flag=\"x\"/><child xmlns:ns2=\"urn:1\" ns2:flag=\"x\"/>"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"<child xmlns:ns1=\\\"urn:0\\\" ns1:flag=\\\"x\\\"/><child xmlns:ns2=\\\"urn:1\\\" ns2:flag=\\\"x\\\"/>\"},{},{}]"
+    },
+    {
+      "name": "xml-attr-root",
+      "value": [
+        {
+          "value": "x"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"x\"},{},{}]"
+    },
+    {
+      "name": "html-void",
+      "value": [
+        {
+          "value": "<input xmlns=\"http://www.w3.org/1999/xhtml\" />"
+        },
+        {
+          "value": "<input xmlns=\"http://www.w3.org/1999/xhtml\" />"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<input xmlns=\\\"http://www.w3.org/1999/xhtml\\\" />\"},{\"value\":\"<input xmlns=\\\"http://www.w3.org/1999/xhtml\\\" />\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "html-nonvoid-empty",
+      "value": [
+        {
+          "value": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+        },
+        {
+          "value": "<div xmlns=\"http://www.w3.org/1999/xhtml\"></div>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\"></div>\"},{\"value\":\"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\"></div>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "foreign-empty",
+      "value": [
+        {
+          "value": "<root xmlns=\"urn:a\"/>"
+        },
+        {
+          "value": "<root xmlns=\"urn:a\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns=\\\"urn:a\\\"/>\"},{\"value\":\"<root xmlns=\\\"urn:a\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xml-script-escaping",
+      "value": [
+        {
+          "value": "<script xmlns=\"http://www.w3.org/1999/xhtml\">a &lt; b &amp;&amp; c &gt; d</script>"
+        },
+        {
+          "value": "<script xmlns=\"http://www.w3.org/1999/xhtml\">a &lt; b &amp;&amp; c &gt; d</script>"
+        },
+        {
+          "value": "a &lt; b &amp;&amp; c &gt; d"
+        }
+      ],
+      "json": "[{\"value\":\"<script xmlns=\\\"http://www.w3.org/1999/xhtml\\\">a &lt; b &amp;&amp; c &gt; d</script>\"},{\"value\":\"<script xmlns=\\\"http://www.w3.org/1999/xhtml\\\">a &lt; b &amp;&amp; c &gt; d</script>\"},{\"value\":\"a &lt; b &amp;&amp; c &gt; d\"}]"
+    },
+    {
+      "name": "xmlns-reserved-value",
+      "value": [
+        {
+          "value": "<root p:p=\"http://www.w3.org/2000/xmlns/\"/>"
+        },
+        {
+          "value": "<root p:p=\"http://www.w3.org/2000/xmlns/\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root p:p=\\\"http://www.w3.org/2000/xmlns/\\\"/>\"},{\"value\":\"<root p:p=\\\"http://www.w3.org/2000/xmlns/\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xmlns-xml-redundant",
+      "value": [
+        {
+          "value": "<root xmlns:p=\"http://www.w3.org/XML/1998/namespace\" xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"/>"
+        },
+        {
+          "value": "<root xmlns:p=\"http://www.w3.org/XML/1998/namespace\" xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:p=\\\"http://www.w3.org/XML/1998/namespace\\\" xmlns:xml=\\\"http://www.w3.org/XML/1998/namespace\\\"/>\"},{\"value\":\"<root xmlns:p=\\\"http://www.w3.org/XML/1998/namespace\\\" xmlns:xml=\\\"http://www.w3.org/XML/1998/namespace\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xmlns-prefix-undeclare",
+      "value": [
+        {
+          "value": "<root xmlns:p=\"\"/>"
+        },
+        {
+          "value": "<root xmlns:p=\"\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:p=\\\"\\\"/>\"},{\"value\":\"<root xmlns:p=\\\"\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xmlns-xml-prefix-rebind",
+      "value": [
+        {
+          "value": "<root xmlns:xml=\"urn:other\"/>"
+        },
+        {
+          "value": "<root xmlns:xml=\"urn:other\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:xml=\\\"urn:other\\\"/>\"},{\"value\":\"<root xmlns:xml=\\\"urn:other\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xmlns-xmlns-prefix-rebind",
+      "value": [
+        {
+          "value": "<root xmlns=\"urn:other\"/>"
+        },
+        {
+          "value": "<root xmlns=\"urn:other\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns=\\\"urn:other\\\"/>\"},{\"value\":\"<root xmlns=\\\"urn:other\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xmlns-element-namespace",
+      "value": [
+        {
+          "value": "<xmlns xmlns=\"http://www.w3.org/2000/xmlns/\"/>"
+        },
+        {
+          "value": "<xmlns xmlns=\"http://www.w3.org/2000/xmlns/\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<xmlns xmlns=\\\"http://www.w3.org/2000/xmlns/\\\"/>\"},{\"value\":\"<xmlns xmlns=\\\"http://www.w3.org/2000/xmlns/\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xmlns-default-reset",
+      "value": [
+        {
+          "value": "<root xmlns=\"urn:a\"><child xmlns=\"\"/></root>"
+        },
+        {
+          "value": "<root xmlns=\"urn:a\"><child xmlns=\"\"/></root>"
+        },
+        {
+          "value": "<child xmlns=\"\"/>"
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns=\\\"urn:a\\\"><child xmlns=\\\"\\\"/></root>\"},{\"value\":\"<root xmlns=\\\"urn:a\\\"><child xmlns=\\\"\\\"/></root>\"},{\"value\":\"<child xmlns=\\\"\\\"/>\"}]"
+    },
+    {
+      "name": "local-default-vs-prefix",
+      "value": [
+        {
+          "value": "<root xmlns=\"urn:a\" xmlns:p=\"urn:a\"/>"
+        },
+        {
+          "value": "<root xmlns=\"urn:a\" xmlns:p=\"urn:a\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns=\\\"urn:a\\\" xmlns:p=\\\"urn:a\\\"/>\"},{\"value\":\"<root xmlns=\\\"urn:a\\\" xmlns:p=\\\"urn:a\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "inherited-prefix-shadowed",
+      "value": [
+        {
+          "value": "<root xmlns:p=\"urn:a\"><child xmlns=\"urn:a\" xmlns:p=\"urn:b\"/></root>"
+        },
+        {
+          "value": "<root xmlns:p=\"urn:a\"><child xmlns=\"urn:a\" xmlns:p=\"urn:b\"/></root>"
+        },
+        {
+          "value": "<child xmlns=\"urn:a\" xmlns:p=\"urn:b\"/>"
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:p=\\\"urn:a\\\"><child xmlns=\\\"urn:a\\\" xmlns:p=\\\"urn:b\\\"/></root>\"},{\"value\":\"<root xmlns:p=\\\"urn:a\\\"><child xmlns=\\\"urn:a\\\" xmlns:p=\\\"urn:b\\\"/></root>\"},{\"value\":\"<child xmlns=\\\"urn:a\\\" xmlns:p=\\\"urn:b\\\"/>\"}]"
+    },
+    {
+      "name": "sibling-prefix-redundancy",
+      "value": [
+        {
+          "value": "<root xmlns:p=\"urn:a\"><p:child xmlns:p=\"urn:a\"/><p:child xmlns:p=\"urn:a\"/></root>"
+        },
+        {
+          "value": "<root xmlns:p=\"urn:a\"><p:child xmlns:p=\"urn:a\"/><p:child xmlns:p=\"urn:a\"/></root>"
+        },
+        {
+          "value": "<p:child xmlns:p=\"urn:a\"/><p:child xmlns:p=\"urn:a\"/>"
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:p=\\\"urn:a\\\"><p:child xmlns:p=\\\"urn:a\\\"/><p:child xmlns:p=\\\"urn:a\\\"/></root>\"},{\"value\":\"<root xmlns:p=\\\"urn:a\\\"><p:child xmlns:p=\\\"urn:a\\\"/><p:child xmlns:p=\\\"urn:a\\\"/></root>\"},{\"value\":\"<p:child xmlns:p=\\\"urn:a\\\"/><p:child xmlns:p=\\\"urn:a\\\"/>\"}]"
+    },
+    {
+      "name": "html-template",
+      "value": [
+        {
+          "value": "<h:template xmlns:h=\"http://www.w3.org/1999/xhtml\"><h:span>one &amp; two</h:span></h:template>"
+        },
+        {
+          "value": "<h:template xmlns:h=\"http://www.w3.org/1999/xhtml\"><h:span>one &amp; two</h:span></h:template>"
+        },
+        {
+          "value": "<h:span xmlns:h=\"http://www.w3.org/1999/xhtml\">one &amp; two</h:span>"
+        }
+      ],
+      "json": "[{\"value\":\"<h:template xmlns:h=\\\"http://www.w3.org/1999/xhtml\\\"><h:span>one &amp; two</h:span></h:template>\"},{\"value\":\"<h:template xmlns:h=\\\"http://www.w3.org/1999/xhtml\\\"><h:span>one &amp; two</h:span></h:template>\"},{\"value\":\"<h:span xmlns:h=\\\"http://www.w3.org/1999/xhtml\\\">one &amp; two</h:span>\"}]"
+    },
+    {
+      "name": "html-document",
+      "value": [
+        {
+          "value": "<!DOCTYPE html><html xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>A &amp; B</title></head><body></body></html>"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"<!DOCTYPE html><html xmlns=\\\"http://www.w3.org/1999/xhtml\\\"><head><title>A &amp; B</title></head><body></body></html>\"},{},{}]"
+    },
+    {
+      "name": "empty-document",
+      "value": [
+        {
+          "value": ""
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"\"},{},{}]"
+    },
+    {
+      "name": "doctype-public-system",
+      "value": [
+        {
+          "value": "<!DOCTYPE root PUBLIC \"a b\" \"x\"y\">"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"<!DOCTYPE root PUBLIC \\\"a b\\\" \\\"x\\\"y\\\">\"},{},{}]"
+    },
+    {
+      "name": "doctype-both-quotes",
+      "value": [
+        {
+          "value": "<!DOCTYPE root SYSTEM \"x\"y'z\">"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"<!DOCTYPE root SYSTEM \\\"x\\\"y'z\\\">\"},{},{}]"
+    },
+    {
+      "name": "unicode-name",
+      "value": [
+        {
+          "value": "<é:名 xmlns:é=\"urn:é\" xmlns:ß=\"urn:ß\" ß:值=\"ü\"/>"
+        },
+        {
+          "value": "<é:名 xmlns:é=\"urn:é\" xmlns:ß=\"urn:ß\" ß:值=\"ü\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<é:名 xmlns:é=\\\"urn:é\\\" xmlns:ß=\\\"urn:ß\\\" ß:值=\\\"ü\\\"/>\"},{\"value\":\"<é:名 xmlns:é=\\\"urn:é\\\" xmlns:ß=\\\"urn:ß\\\" ß:值=\\\"ü\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xml-nested-default-and-prefix",
+      "value": [
+        {
+          "value": "<p:root xmlns:p=\"urn:a\"><p:child xmlns:ns1=\"urn:b\" ns1:flag=\"x\"><p:end/></p:child></p:root>"
+        },
+        {
+          "value": "<p:root xmlns:p=\"urn:a\"><p:child xmlns:ns1=\"urn:b\" ns1:flag=\"x\"><p:end/></p:child></p:root>"
+        },
+        {
+          "value": "<p:child xmlns:p=\"urn:a\" xmlns:ns1=\"urn:b\" ns1:flag=\"x\"><p:end/></p:child>"
+        }
+      ],
+      "json": "[{\"value\":\"<p:root xmlns:p=\\\"urn:a\\\"><p:child xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"><p:end/></p:child></p:root>\"},{\"value\":\"<p:root xmlns:p=\\\"urn:a\\\"><p:child xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"><p:end/></p:child></p:root>\"},{\"value\":\"<p:child xmlns:p=\\\"urn:a\\\" xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"><p:end/></p:child>\"}]"
+    },
+    {
+      "name": "attribute-prefix-order-conflict",
+      "value": [
+        {
+          "value": "<root xmlns:p=\"urn:a\" p:first=\"one\" xmlns:ns1=\"urn:b\" ns1:second=\"two\"/>"
+        },
+        {
+          "value": "<root xmlns:p=\"urn:a\" p:first=\"one\" xmlns:ns1=\"urn:b\" ns1:second=\"two\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:p=\\\"urn:a\\\" p:first=\\\"one\\\" xmlns:ns1=\\\"urn:b\\\" ns1:second=\\\"two\\\"/>\"},{\"value\":\"<root xmlns:p=\\\"urn:a\\\" p:first=\\\"one\\\" xmlns:ns1=\\\"urn:b\\\" ns1:second=\\\"two\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "attribute-later-declaration",
+      "value": [
+        {
+          "value": "<root xmlns:ns1=\"urn:a\" ns1:flag=\"x\" xmlns:p=\"urn:b\"/>"
+        },
+        {
+          "value": "<root xmlns:ns1=\"urn:a\" ns1:flag=\"x\" xmlns:p=\"urn:b\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:ns1=\\\"urn:a\\\" ns1:flag=\\\"x\\\" xmlns:p=\\\"urn:b\\\"/>\"},{\"value\":\"<root xmlns:ns1=\\\"urn:a\\\" ns1:flag=\\\"x\\\" xmlns:p=\\\"urn:b\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "attribute-inherited-prefix-conflict",
+      "value": [
+        {
+          "value": "<root xmlns:p=\"urn:a\"><child xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<root xmlns:p=\"urn:a\"><child xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<child xmlns:p=\"urn:b\" p:flag=\"x\"/>"
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:p=\\\"urn:a\\\"><child xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/></root>\"},{\"value\":\"<root xmlns:p=\\\"urn:a\\\"><child xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/></root>\"},{\"value\":\"<child xmlns:p=\\\"urn:b\\\" p:flag=\\\"x\\\"/>\"}]"
+    },
+    {
+      "name": "unprefixed-attribute-nearest-candidate",
+      "value": [
+        {
+          "value": "<root xmlns:p=\"urn:a\" xmlns:q=\"urn:a\"><child xmlns:s=\"urn:a\" s:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<root xmlns:p=\"urn:a\" xmlns:q=\"urn:a\"><child xmlns:s=\"urn:a\" s:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<child xmlns:s=\"urn:a\" s:flag=\"x\"/>"
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:p=\\\"urn:a\\\" xmlns:q=\\\"urn:a\\\"><child xmlns:s=\\\"urn:a\\\" s:flag=\\\"x\\\"/></root>\"},{\"value\":\"<root xmlns:p=\\\"urn:a\\\" xmlns:q=\\\"urn:a\\\"><child xmlns:s=\\\"urn:a\\\" s:flag=\\\"x\\\"/></root>\"},{\"value\":\"<child xmlns:s=\\\"urn:a\\\" s:flag=\\\"x\\\"/>\"}]"
+    },
+    {
+      "name": "attribute-shadowed-prefix-candidate",
+      "value": [
+        {
+          "value": "<root xmlns:p=\"urn:a\" xmlns:q=\"urn:a\"><child xmlns:q=\"urn:b\" p:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<root xmlns:p=\"urn:a\" xmlns:q=\"urn:a\"><child xmlns:q=\"urn:b\" p:flag=\"x\"/></root>"
+        },
+        {
+          "value": "<child xmlns:q=\"urn:b\" xmlns:ns1=\"urn:a\" ns1:flag=\"x\"/>"
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:p=\\\"urn:a\\\" xmlns:q=\\\"urn:a\\\"><child xmlns:q=\\\"urn:b\\\" p:flag=\\\"x\\\"/></root>\"},{\"value\":\"<root xmlns:p=\\\"urn:a\\\" xmlns:q=\\\"urn:a\\\"><child xmlns:q=\\\"urn:b\\\" p:flag=\\\"x\\\"/></root>\"},{\"value\":\"<child xmlns:q=\\\"urn:b\\\" xmlns:ns1=\\\"urn:a\\\" ns1:flag=\\\"x\\\"/>\"}]"
+    },
+    {
+      "name": "xlink-no-special-prefix",
+      "value": [
+        {
+          "value": "<root xmlns:ns1=\"http://www.w3.org/1999/xlink\" ns1:href=\"one\" xmlns:xl=\"urn:a\" xl:flag=\"two\"/>"
+        },
+        {
+          "value": "<root xmlns:ns1=\"http://www.w3.org/1999/xlink\" ns1:href=\"one\" xmlns:xl=\"urn:a\" xl:flag=\"two\"/>"
+        },
+        {
+          "value": ""
+        }
+      ],
+      "json": "[{\"value\":\"<root xmlns:ns1=\\\"http://www.w3.org/1999/xlink\\\" ns1:href=\\\"one\\\" xmlns:xl=\\\"urn:a\\\" xl:flag=\\\"two\\\"/>\"},{\"value\":\"<root xmlns:ns1=\\\"http://www.w3.org/1999/xlink\\\" ns1:href=\\\"one\\\" xmlns:xl=\\\"urn:a\\\" xl:flag=\\\"two\\\"/>\"},{\"value\":\"\"}]"
+    },
+    {
+      "name": "xml-void-with-children",
+      "value": [
+        {
+          "value": "<img xmlns=\"http://www.w3.org/1999/xhtml\"><style></style></img>"
+        },
+        {
+          "value": "<img xmlns=\"http://www.w3.org/1999/xhtml\"><style></style></img>"
+        },
+        {
+          "value": "<style xmlns=\"http://www.w3.org/1999/xhtml\"></style>"
+        }
+      ],
+      "json": "[{\"value\":\"<img xmlns=\\\"http://www.w3.org/1999/xhtml\\\"><style></style></img>\"},{\"value\":\"<img xmlns=\\\"http://www.w3.org/1999/xhtml\\\"><style></style></img>\"},{\"value\":\"<style xmlns=\\\"http://www.w3.org/1999/xhtml\\\"></style>\"}]"
+    },
+    {
+      "name": "pi-xml-target",
+      "value": [
+        {
+          "value": "<root><?XmL v?></root>"
+        },
+        {
+          "value": "<root><?XmL v?></root>"
+        },
+        {
+          "value": "<?XmL v?>"
+        }
+      ],
+      "json": "[{\"value\":\"<root><?XmL v?></root>\"},{\"value\":\"<root><?XmL v?></root>\"},{\"value\":\"<?XmL v?>\"}]"
+    },
+    {
+      "name": "doctype-public-tab",
+      "value": [
+        {
+          "value": "<!DOCTYPE root PUBLIC \"a\tb\">"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"<!DOCTYPE root PUBLIC \\\"a\\tb\\\">\"},{},{}]"
+    },
+    {
+      "name": "doctype-public-unicode",
+      "value": [
+        {
+          "value": "<!DOCTYPE root PUBLIC \"ä\">"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"<!DOCTYPE root PUBLIC \\\"ä\\\">\"},{},{}]"
+    },
+    {
+      "name": "doctype-system-invalid-character",
+      "value": [
+        {
+          "value": "<!DOCTYPE root SYSTEM \"a\u0001b\">"
+        },
+        {},
+        {}
+      ],
+      "json": "[{\"value\":\"<!DOCTYPE root SYSTEM \\\"a\\u0001b\\\">\"},{},{}]"
+    },
+    {
+      "name": "clone-import-source-identity",
+      "value": [
+        "p",
+        "p",
+        "<p:item xmlns:p=\"urn:a\" xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/>",
+        "<p:item xmlns:p=\"urn:a\" xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/>",
+        "<p:item xmlns:p=\"urn:a\" xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/>",
+        "p",
+        "p",
+        true,
+        true
+      ],
+      "json": "[\"p\",\"p\",\"<p:item xmlns:p=\\\"urn:a\\\" xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/>\",\"<p:item xmlns:p=\\\"urn:a\\\" xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/>\",\"<p:item xmlns:p=\\\"urn:a\\\" xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/>\",\"p\",\"p\",true,true]"
+    },
+    {
+      "name": "strict-error-atomicity",
+      "value": [
+        {
+          "value": "<p:item xmlns:p=\"urn:a\" xmlns:ns1=\"urn:b\" ns1:flag=\"x\"><!--bad--comment--></p:item>"
+        },
+        1,
+        true,
+        "p",
+        "p"
+      ],
+      "json": "[{\"value\":\"<p:item xmlns:p=\\\"urn:a\\\" xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"><!--bad--comment--></p:item>\"},1,true,\"p\",\"p\"]"
+    },
+    {
+      "name": "strict-error-recovery",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "interface-descriptors",
+      "value": [
+        "XMLSerializer",
+        0,
+        "serializeToString",
+        1,
+        true,
+        true,
+        true,
+        "[object XMLSerializer]",
+        true
+      ],
+      "json": "[\"XMLSerializer\",0,\"serializeToString\",1,true,true,true,\"[object XMLSerializer]\",true]"
+    },
+    {
+      "name": "interface-brand-arguments",
+      "value": [
+        {
+          "error": "TypeError"
+        },
+        {
+          "error": "TypeError"
+        },
+        {
+          "error": "TypeError"
+        },
+        {
+          "error": "TypeError"
+        },
+        {
+          "error": "TypeError"
+        },
+        {
+          "value": "x"
+        }
+      ],
+      "json": "[{\"error\":\"TypeError\"},{\"error\":\"TypeError\"},{\"error\":\"TypeError\"},{\"error\":\"TypeError\"},{\"error\":\"TypeError\"},{\"value\":\"x\"}]"
+    }
+  ],
+  "crossRealm": [
+    "<p:item xmlns:p=\"urn:a\" xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/>",
+    "<p:item xmlns:p=\"urn:a\" xmlns:ns1=\"urn:b\" ns1:flag=\"x\"/>",
+    "p",
+    "p",
+    true,
+    true
+  ],
+  "crossRealmJSON": "[\"<p:item xmlns:p=\\\"urn:a\\\" xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/>\",\"<p:item xmlns:p=\\\"urn:a\\\" xmlns:ns1=\\\"urn:b\\\" ns1:flag=\\\"x\\\"/>\",\"p\",\"p\",true,true]",
+  "crossRealmErrors": [
+    [
+      "TypeError",
+      true,
+      false
+    ],
+    [
+      "TypeError",
+      true,
+      false
+    ],
+    [
+      "TypeError",
+      true,
+      false
+    ]
+  ],
+  "crossRealmErrorsJSON": "[[\"TypeError\",true,false],[\"TypeError\",true,false],[\"TypeError\",true,false]]",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "references": [
+    "https://w3c.github.io/DOM-Parsing/",
+    "https://html.spec.whatwg.org/multipage/dynamic-markup-insertion.html#xmlserializers"
+  ]
+}

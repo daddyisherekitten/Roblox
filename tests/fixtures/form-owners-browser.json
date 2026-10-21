@@ -1,0 +1,124 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "captured": "2026-10-10",
+  "standards": [
+    "https://html.spec.whatwg.org/multipage/parsing.html#create-an-element-for-the-token",
+    "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#association-of-controls-and-forms",
+    "https://github.com/web-platform-tests/wpt/blob/master/html/syntax/parsing-html-fragments/fragment-parse-form-owner-001.html",
+    "https://html.spec.whatwg.org/multipage/infrastructure.html#html-element-moving-steps"
+  ],
+  "cases": [
+    {
+      "name": "parser table form pointer input",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><input id=e></input></table>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),out=[],record=()=>out.push([e.form?e.form.id:null,e.parentElement?.id||e.parentElement?.localName||null,e.autocapitalize,e.autocorrect,Array.from(f.elements,n=>n.id)]);record();f.id='renamed';record();e.setAttribute('data-x','one');record();const sibling=document.createElement('div');document.body.append(sibling);record();e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[null,\"body\",\"\",true,[]],[null,\"body\",\"\",true,[]]]"
+    },
+    {
+      "name": "parser table form pointer button",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><button id=e></button></table>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),out=[],record=()=>out.push([e.form?e.form.id:null,e.parentElement?.id||e.parentElement?.localName||null,e.autocapitalize,e.autocorrect,Array.from(f.elements,n=>n.id)]);record();f.id='renamed';record();e.setAttribute('data-x','one');record();const sibling=document.createElement('div');document.body.append(sibling);record();e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[null,\"body\",\"\",true,[]],[null,\"body\",\"\",true,[]]]"
+    },
+    {
+      "name": "parser table form pointer textarea",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><textarea id=e></textarea></table>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),out=[],record=()=>out.push([e.form?e.form.id:null,e.parentElement?.id||e.parentElement?.localName||null,e.autocapitalize,e.autocorrect,Array.from(f.elements,n=>n.id)]);record();f.id='renamed';record();e.setAttribute('data-x','one');record();const sibling=document.createElement('div');document.body.append(sibling);record();e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[null,\"body\",\"\",true,[]],[null,\"body\",\"\",true,[]]]"
+    },
+    {
+      "name": "parser table form pointer select",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><select id=e></select></table>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),out=[],record=()=>out.push([e.form?e.form.id:null,e.parentElement?.id||e.parentElement?.localName||null,e.autocapitalize,e.autocorrect,Array.from(f.elements,n=>n.id)]);record();f.id='renamed';record();e.setAttribute('data-x','one');record();const sibling=document.createElement('div');document.body.append(sibling);record();e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[null,\"body\",\"\",true,[]],[null,\"body\",\"\",true,[]]]"
+    },
+    {
+      "name": "parser table form pointer fieldset",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><fieldset id=e></fieldset></table>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),out=[],record=()=>out.push([e.form?e.form.id:null,e.parentElement?.id||e.parentElement?.localName||null,e.autocapitalize,e.autocorrect,Array.from(f.elements,n=>n.id)]);record();f.id='renamed';record();e.setAttribute('data-x','one');record();const sibling=document.createElement('div');document.body.append(sibling);record();e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[null,\"body\",\"\",true,[]],[null,\"body\",\"\",true,[]]]"
+    },
+    {
+      "name": "parser table form pointer object",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><object id=e></object></table>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),out=[],record=()=>out.push([e.form?e.form.id:null,e.parentElement?.id||e.parentElement?.localName||null,e.autocapitalize,e.autocorrect,Array.from(f.elements,n=>n.id)]);record();f.id='renamed';record();e.setAttribute('data-x','one');record();const sibling=document.createElement('div');document.body.append(sibling);record();e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"body\",\"\",true,[\"e\"]],[\"renamed\",\"body\",\"\",true,[\"e\"]],[\"renamed\",\"body\",\"\",true,[\"e\"]],[\"renamed\",\"body\",\"\",true,[\"e\"]],[null,\"body\",\"\",true,[]],[null,\"body\",\"\",true,[]]]"
+    },
+    {
+      "name": "parser table form pointer output",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><output id=e></output></table>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),out=[],record=()=>out.push([e.form?e.form.id:null,e.parentElement?.id||e.parentElement?.localName||null,e.autocapitalize,e.autocorrect,Array.from(f.elements,n=>n.id)]);record();f.id='renamed';record();e.setAttribute('data-x','one');record();const sibling=document.createElement('div');document.body.append(sibling);record();e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[\"renamed\",\"body\",\"words\",false,[\"e\"]],[null,\"body\",\"\",true,[]],[null,\"body\",\"\",true,[]]]"
+    },
+    {
+      "name": "parser association DOM mutations and clone",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><input id=e></table></form><form id=g autocapitalize=characters></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[],record=()=>out.push([e.form?e.form.id:null,e.autocapitalize,e.autocorrect,Array.from(f.elements,n=>n.id)]);record();const clone=e.cloneNode(true);clone.id='clone';document.body.append(clone);out.push(['clone',clone.form?clone.form.id:null,clone.autocapitalize]);e.remove();record();document.body.append(e);record();g.append(e);record();f.append(e);record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"words\",false,[\"e\"]],[\"clone\",null,\"\"],[null,\"\",true,[]],[null,\"\",true,[]],[\"g\",\"characters\",true,[]],[\"f\",\"words\",false,[\"e\"]]]"
+    },
+    {
+      "name": "parser associated form disconnect and reconnect",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><input id=e></table></form><form id=g autocapitalize=characters></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),out=[],record=()=>out.push([e.form?e.form.id:null,e.autocapitalize,e.autocorrect]);record();f.remove();record();document.body.append(f);record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"words\",false],[null,\"\",true],[null,\"\",true]]"
+    },
+    {
+      "name": "parser ancestor move preserves same tree owner until reset",
+      "html": "<!doctype html><form id=f autocapitalize=words><table id=t></form><input id=e></table><div id=other></div>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),t=document.getElementById('t'),out=[],record=()=>out.push([e.form?e.form.id:null,e.parentElement.localName,e.autocapitalize]);record();document.getElementById('other').append(t);record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"form\",\"words\"],[\"f\",\"form\",\"words\"]]"
+    },
+    {
+      "name": "fragment source does not magic-associate nonancestor form",
+      "html": "<!doctype html><form id=f autocapitalize=words><div id=host></div></form>",
+      "action": "(()=>{const host=document.getElementById('host');host.innerHTML='<table><tr><td></form><form id=inner autocapitalize=characters><input id=e></table><input id=after>';return JSON.stringify(['e','after'].map(id=>{const e=document.getElementById(id);return [e.form?e.form.id:null,e.autocapitalize,e.parentElement.localName];}));})()",
+      "expected": "[[\"inner\",\"characters\",\"form\"],[\"f\",\"words\",\"div\"]]"
+    },
+    {
+      "name": "detached DOMParser retains parser association and resets on adoption",
+      "html": "<!doctype html>",
+      "action": "(()=>{const other=new DOMParser().parseFromString('<table><form id=f autocapitalize=words><input id=e></table>','text/html'),e=other.getElementById('e'),out=[[e.form?e.form.id:null,e.autocapitalize]];document.body.append(document.adoptNode(e));out.push([e.form?e.form.id:null,e.autocapitalize]);return JSON.stringify(out);})()",
+      "specExpected": "[[\"f\",\"words\"],[null,\"\"]]",
+      "difference": "Chromium DOMParser omits the exceptional parser owner. The current HTML create-element algorithm and WPT fragment-parse-form-owner-001 require association in a full document parse, including DOMParser.",
+      "expected": "[[null,\"\"],[null,\"\"]]"
+    },
+    {
+      "name": "absent form removal and unrelated changes retain parser owner",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><input id=e></table></form><form id=g autocapitalize=characters></form>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[],record=()=>out.push([e.form?e.form.id:null,e.autocapitalize]);record();e.removeAttribute('form');record();e.id='changed';record();e.style.color='red';record();e.textContent='text';record();try{document.appendChild(e)}catch(error){out.push(error.name)}record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"words\"],[\"f\",\"words\"],[\"f\",\"words\"],[\"f\",\"words\"],[\"f\",\"words\"],\"HierarchyRequestError\",[\"f\",\"words\"]]"
+    },
+    {
+      "name": "associated form disconnect without an intermediate getter",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><input id=e></table></form><form id=g autocapitalize=characters></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f');f.remove();document.body.append(f);return JSON.stringify([e.form?e.form.id:null,e.autocapitalize,Array.from(f.elements,n=>n.id)]);})()",
+      "expected": "[null,\"\",[]]"
+    },
+    {
+      "name": "nonancestor parser owner survives shared ancestor move",
+      "html": "<!doctype html><div id=container><div><form id=f autocapitalize=words></div><input id=e></form></div><div id=other></div>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[[e.form?e.form.id:null,e.autocapitalize]];document.getElementById('other').append(document.getElementById('container'));out.push([e.form?e.form.id:null,e.autocapitalize]);return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"words\"],[\"f\",\"words\"]]"
+    },
+    {
+      "name": "connected and disconnected fragment contexts do not assign parser owners",
+      "html": "<!doctype html><div id=host></div>",
+      "action": "(()=>{const out=[],markup='<div><form id=f></div><input id=e></form>';for(const host of [document.getElementById('host'),document.createElement('div')]){host.innerHTML=markup;const e=host.querySelector('input');out.push([e.form?e.form.id:null,e.closest('form')!==null]);}return JSON.stringify(out);})()",
+      "expected": "[[null,false],[null,false]]"
+    },
+    {
+      "name": "parser owner retained by state preserving control move",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><input id=e></table></form><form id=g autocapitalize=characters></form>",
+      "action": "(()=>{const e=document.getElementById('e');document.getElementById('g').moveBefore(e,null);return JSON.stringify([e.form?e.form.id:null,e.parentElement.id,e.autocapitalize]);})()",
+      "specExpected": "[\"f\",\"g\",\"words\"]",
+      "difference": "Chromium resets ownership to the nearest form on moveBefore. Current HTML moving steps reset a nonnull owner only when control and owner no longer share a tree.",
+      "expected": "[\"g\",\"g\",\"characters\"]"
+    },
+    {
+      "name": "state preserving move across connected shadow scope resets owner",
+      "html": "<!doctype html><table id=t><form id=f autocapitalize=words autocorrect=off><input id=e></table></form><form id=g autocapitalize=characters></form>",
+      "action": "(()=>{const e=document.getElementById('e'),host=document.createElement('div');document.body.append(host);const shadow=host.attachShadow({mode:'open'});shadow.moveBefore(e,null);document.body.moveBefore(e,null);return JSON.stringify([e.form?e.form.id:null,e.autocapitalize]);})()",
+      "expected": "[null,\"\"]"
+    }
+  ]
+}

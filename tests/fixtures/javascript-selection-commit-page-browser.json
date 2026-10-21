@@ -1,0 +1,1482 @@
+[
+  {
+    "action": null,
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "selection-input",
+          "start": 0,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "selection-forward",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 8,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 8 · Ende 12 · forward\nAuswahl: Hang"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "selection-backward",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "backward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 8,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 8 · Ende 12 · backward\nAuswahl: Hang"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "selection-all",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 0,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 0 · Ende 12 · forward\nAuswahl: Haus am Hang"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "selection-reset",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "replacement-select",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 10,
+          "id": "replacement-input",
+          "start": 6,
+          "value": "Holz. Glas. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 6 · Ende 10 · forward\nAuswahl: Glas"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "replacement-start",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 6,
+          "id": "replacement-input",
+          "start": 6,
+          "value": "Holz. Glas. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 6 · Ende 6 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "replacement-end",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 10,
+          "id": "replacement-input",
+          "start": 10,
+          "value": "Holz. Glas. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 10 · Ende 10 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "replacement-reset",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "unicode-select",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 3,
+          "id": "unicode-input",
+          "start": 1,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 1 · Ende 3 · forward\nAuswahl: 🌿"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "unicode-replace",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 5,
+          "id": "unicode-input",
+          "start": 1,
+          "value": "ARaumB"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 1 · Ende 5 · forward\nAuswahl: Raum"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "unicode-reset",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "Noch nicht geprüft."
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "email-check",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "selectionStart: null · InvalidStateError"
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "commit-half",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(109, 86, 61)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "0.725",
+          "transform": "matrix(1, 0, 0, 1, 40, 0)"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "selectionStart: null · InvalidStateError"
+        },
+        {
+          "id": "commit-result",
+          "text": "Pausiert · 50 % · 40 px nach rechts."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "commit-save",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(109, 86, 61)",
+          "id": "commit-box",
+          "inline": "opacity: 0.725; transform: translate(40px); background-color: rgb(109, 86, 61);",
+          "opacity": "0.725",
+          "transform": "matrix(1, 0, 0, 1, 40, 0)"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "selectionStart: null · InvalidStateError"
+        },
+        {
+          "id": "commit-result",
+          "text": "Gespeichert · Keine Animation mehr.\ntranslate(40px) · Deckkraft 0.725"
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "commit-reset",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "selectionStart: null · InvalidStateError"
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  },
+  {
+    "action": "stack-start",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 0, 12)"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "selectionStart: null · InvalidStateError"
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Zwei Effekte · Sichtbar: 12 px nach unten."
+        }
+      ]
+    }
+  },
+  {
+    "action": "stack-save",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "transform: translate(40px);",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 0, 12)"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "selectionStart: null · InvalidStateError"
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Erste gespeichert: translate(40px)\nDie zweite hält weiter 12 px nach unten."
+        }
+      ]
+    }
+  },
+  {
+    "action": "stack-reveal",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "transform: translate(40px);",
+          "opacity": "1",
+          "transform": "matrix(1, 0, 0, 1, 40, 0)"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "selectionStart: null · InvalidStateError"
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Zweite beendet · Inline-Style sichtbar: translate(40px)."
+        }
+      ]
+    }
+  },
+  {
+    "action": "stack-reset",
+    "state": {
+      "boxes": [
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "commit-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        },
+        {
+          "background": "rgb(36, 72, 59)",
+          "id": "stack-box",
+          "inline": "",
+          "opacity": "1",
+          "transform": "none"
+        }
+      ],
+      "fields": [
+        {
+          "direction": "forward",
+          "end": 12,
+          "id": "selection-input",
+          "start": 12,
+          "value": "Haus am Hang"
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "replacement-input",
+          "start": 0,
+          "value": "Holz. Stein. Licht."
+        },
+        {
+          "direction": "forward",
+          "end": 0,
+          "id": "unicode-input",
+          "start": 0,
+          "value": "A🌿B"
+        }
+      ],
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · 2 Ergänzungen · 5 Versuche · derselbe Code in beiden Ansichten"
+        },
+        {
+          "id": "selection-result",
+          "text": "Start 12 · Ende 12 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "replacement-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "unicode-result",
+          "text": "Start 0 · Ende 0 · forward\nAuswahl: leer"
+        },
+        {
+          "id": "email-result",
+          "text": "selectionStart: null · InvalidStateError"
+        },
+        {
+          "id": "commit-result",
+          "text": "Bereit · Die Fläche steht am Anfang."
+        },
+        {
+          "id": "stack-result",
+          "text": "Bereit · Keine Animation aktiv."
+        }
+      ]
+    }
+  }
+]

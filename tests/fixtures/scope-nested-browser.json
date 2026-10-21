@@ -1,0 +1,835 @@
+{
+  "browser": "Chrome/155.0.8059.40",
+  "captured": "2026-10-13",
+  "html": "<!doctype html><html><head><style>[id]{color:rgb(3,7,11)}</style></head><body><section id=\"outer\" class=\"outer root a b\"><p id=\"direct\" class=\"item\">Direct</p><div id=\"child\" class=\"root b\"><p id=\"target\" class=\"item\">Target</p><div id=\"limit\" class=\"limit\"><p id=\"limited\" class=\"item\">Limited</p></div></div><div id=\"outerLimit\" class=\"limit\"><p id=\"otherLimited\" class=\"item\">Other</p></div></section><p id=\"outside\" class=\"item root\">Outside</p></body></html>",
+  "cases": [
+    {
+      "name": "@scope (.outer){@scope (.root){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": "@scope (.outer){@scope (.root){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSScopeRule",
+            "selector": null,
+            "start": ".outer",
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": ".root",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "direct",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "child",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "target",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "@scope (.outer){@scope (&){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": "@scope (.outer){@scope (&){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSScopeRule",
+            "selector": null,
+            "start": ".outer",
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": "&",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "direct",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "child",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "target",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "@scope (.outer){@scope (:scope){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": "@scope (.outer){@scope (:scope){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSScopeRule",
+            "selector": null,
+            "start": ".outer",
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": ":scope",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "direct",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "child",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "target",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": ".outer{@scope (.root){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": ".outer{@scope (.root){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSStyleRule",
+            "selector": ".outer",
+            "start": null,
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": "& .root",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "direct",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "child",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "target",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": ".outer{@scope (&){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": ".outer{@scope (&){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSStyleRule",
+            "selector": ".outer",
+            "start": null,
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": "&",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "direct",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "child",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "target",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": ".outer{@scope (:scope){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": ".outer{@scope (:scope){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSStyleRule",
+            "selector": ".outer",
+            "start": null,
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": "& :scope",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "direct",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "child",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "target",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": ".outer{@scope (.root){body :scope{color:rgb(17,53,91)}}}",
+      "source": ".outer{@scope (.root){body :scope{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSStyleRule",
+            "selector": ".outer",
+            "start": null,
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": "& .root",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": "body :scope",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "direct",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "child",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "target",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": ".outer{@scope (.root) to (& > .limit){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": ".outer{@scope (.root) to (& > .limit){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSStyleRule",
+            "selector": ".outer",
+            "start": null,
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": "& .root",
+                "end": "& > .limit",
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "direct",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "child",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "target",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "@scope (.outer){@scope (.root) to (& > .limit){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": "@scope (.outer){@scope (.root) to (& > .limit){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSScopeRule",
+            "selector": null,
+            "start": ".outer",
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": ".root",
+                "end": "& > .limit",
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "direct",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "child",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "target",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "@scope (.outer){@scope (body .root){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": "@scope (.outer){@scope (body .root){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSScopeRule",
+            "selector": null,
+            "start": ".outer",
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": "body .root",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "direct",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "child",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "target",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "@scope (.outer){@scope (body :scope){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": "@scope (.outer){@scope (body :scope){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSScopeRule",
+            "selector": null,
+            "start": ".outer",
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": "body :scope",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "direct",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "child",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "target",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "@scope (.outer){@scope (> .root){:scope,.item{color:rgb(17,53,91)}}}",
+      "source": "@scope (.outer){@scope (> .root){:scope,.item{color:rgb(17,53,91)}}}",
+      "expected": {
+        "tree": [
+          {
+            "family": "CSSScopeRule",
+            "selector": null,
+            "start": ".outer",
+            "end": null,
+            "rules": [
+              {
+                "family": "CSSScopeRule",
+                "selector": null,
+                "start": "> .root",
+                "end": null,
+                "rules": [
+                  {
+                    "family": "CSSStyleRule",
+                    "selector": ":scope, .item",
+                    "start": null,
+                    "end": null,
+                    "rules": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "colors": [
+          [
+            "outer",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "direct",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "child",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "target",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "limit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "limited",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "outerLimit",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "otherLimited",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "outside",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    }
+  ]
+}

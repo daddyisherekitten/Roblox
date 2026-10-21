@@ -1,0 +1,236 @@
+{
+  "captured": "2026-10-11T21:00:54.458Z",
+  "target": {
+    "targetDate": "2026-10-06",
+    "commit": "ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c",
+    "commitDate": "2026-10-06T09:12:18Z",
+    "source": "https://raw.githubusercontent.com/whatwg/html/ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c/source",
+    "sha256": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f"
+  },
+  "sources": {
+    "webidl": {
+      "commit": "8c65329114411ebd3af025106c2267f5bc00faeb",
+      "source": "https://raw.githubusercontent.com/whatwg/webidl/8c65329114411ebd3af025106c2267f5bc00faeb/index.bs",
+      "sha256": "473fc33b1fa42562ada39bff6565de914be834e571f9b4459f7532fa86ba01c7"
+    },
+    "url": {
+      "commit": "dcd3d6b938b5ca672c06e54716ee0e76a0199f7a",
+      "source": "https://raw.githubusercontent.com/whatwg/url/dcd3d6b938b5ca672c06e54716ee0e76a0199f7a/url.bs",
+      "sha256": "0aa47891131f0c2837698caf53453e857256ce156eda02ad6bb4207812943cb5"
+    }
+  },
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/154.0.8037.98",
+    "revision": "@b859317bf11f6be47f9b7799ec690a0a42a1fb33",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "jsVersion": "15.4.80.20"
+  },
+  "profile": {
+    "preloadDefault": "metadata",
+    "note": "Missing and invalid preload states are implementation-defined. Raw Chrome values remain separate; this bounded engine reflection profile chooses metadata. Background metadata/auto asset loading is unchanged."
+  },
+  "cases": [
+    {
+      "name": "audio defaults and shared descriptors",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('audio'),out=[];for(const key of [\"src\",\"preload\",\"crossOrigin\",\"autoplay\",\"loop\",\"controls\",\"defaultMuted\"]){const d=Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype,key);out.push([key,e[key],d.get.call(e),d.get.name,d.get.length,d.set.name,d.set.length,d.enumerable,d.configurable])}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"\",\"\",\"get src\",0,\"set src\",1,true,true],[\"preload\",\"metadata\",\"metadata\",\"get preload\",0,\"set preload\",1,true,true],[\"crossOrigin\",null,null,\"get crossOrigin\",0,\"set crossOrigin\",1,true,true],[\"autoplay\",false,false,\"get autoplay\",0,\"set autoplay\",1,true,true],[\"loop\",false,false,\"get loop\",0,\"set loop\",1,true,true],[\"controls\",false,false,\"get controls\",0,\"set controls\",1,true,true],[\"defaultMuted\",false,false,\"get defaultMuted\",0,\"set defaultMuted\",1,true,true]]"
+    },
+    {
+      "name": "audio content attribute states",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('audio'),out=[];e.setAttribute('preload','none');for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){e.removeAttribute('src');for(const value of ({\"src\":[null,\"\",\"tone.mp4\",\"../clip.webm#part\",\"data:video/mp4;base64,AA==\"],\"preload\":[null,\"\",\"none\",\"NONE\",\"MeTaDaTa\",\"auto\",\"AUTO\",\"invalid\",\" none \"],\"crossOrigin\":[null,\"\",\"anonymous\",\"ANONYMOUS\",\"Use-Credentials\",\"invalid\",\" anonymous \"]})[key]||[null,'','false','TRUE','invalid']){if(value===null)e.removeAttribute(attr);else e.setAttribute(attr,value);out.push([key,e.getAttribute(attr),e[key]])}}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",null,\"\"],[\"src\",\"\",\"https://media.invalid/root/index.html\"],[\"src\",\"tone.mp4\",\"https://media.invalid/root/tone.mp4\"],[\"src\",\"../clip.webm#part\",\"https://media.invalid/clip.webm#part\"],[\"src\",\"data:video/mp4;base64,AA==\",\"data:video/mp4;base64,AA==\"],[\"preload\",null,\"metadata\"],[\"preload\",\"\",\"auto\"],[\"preload\",\"none\",\"none\"],[\"preload\",\"NONE\",\"none\"],[\"preload\",\"MeTaDaTa\",\"metadata\"],[\"preload\",\"auto\",\"auto\"],[\"preload\",\"AUTO\",\"auto\"],[\"preload\",\"invalid\",\"metadata\"],[\"preload\",\" none \",\"metadata\"],[\"crossOrigin\",null,null],[\"crossOrigin\",\"\",\"anonymous\"],[\"crossOrigin\",\"anonymous\",\"anonymous\"],[\"crossOrigin\",\"ANONYMOUS\",\"anonymous\"],[\"crossOrigin\",\"Use-Credentials\",\"use-credentials\"],[\"crossOrigin\",\"invalid\",\"anonymous\"],[\"crossOrigin\",\" anonymous \",\"anonymous\"],[\"autoplay\",null,false],[\"autoplay\",\"\",true],[\"autoplay\",\"false\",true],[\"autoplay\",\"TRUE\",true],[\"autoplay\",\"invalid\",true],[\"loop\",null,false],[\"loop\",\"\",true],[\"loop\",\"false\",true],[\"loop\",\"TRUE\",true],[\"loop\",\"invalid\",true],[\"controls\",null,false],[\"controls\",\"\",true],[\"controls\",\"false\",true],[\"controls\",\"TRUE\",true],[\"controls\",\"invalid\",true],[\"defaultMuted\",null,false],[\"defaultMuted\",\"\",true],[\"defaultMuted\",\"false\",true],[\"defaultMuted\",\"TRUE\",true],[\"defaultMuted\",\"invalid\",true]]"
+    },
+    {
+      "name": "audio setters and conversion",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('audio'),out=[],order=[];e.setAttribute('preload','none');for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){e.removeAttribute('src');const values=['',false,true,0,3,null,undefined,{[Symbol.toPrimitive](hint){order.push([key,hint]);return 'MeTaDaTa'}},Symbol('value')];if(key==='src')values.push('left\\ud800right');for(const value of values){try{e[key]=value;out.push([key,e.getAttribute(attr),e[key]])}catch(error){out.push([key,'error',error.name,e.getAttribute(attr),e[key]])}}}out.push(['conversion order',order]);return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"\",\"https://media.invalid/root/index.html\"],[\"src\",\"false\",\"https://media.invalid/root/false\"],[\"src\",\"true\",\"https://media.invalid/root/true\"],[\"src\",\"0\",\"https://media.invalid/root/0\"],[\"src\",\"3\",\"https://media.invalid/root/3\"],[\"src\",\"null\",\"https://media.invalid/root/null\"],[\"src\",\"undefined\",\"https://media.invalid/root/undefined\"],[\"src\",\"MeTaDaTa\",\"https://media.invalid/root/MeTaDaTa\"],[\"src\",\"error\",\"TypeError\",\"MeTaDaTa\",\"https://media.invalid/root/MeTaDaTa\"],[\"src\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"preload\",\"\",\"auto\"],[\"preload\",\"false\",\"metadata\"],[\"preload\",\"true\",\"metadata\"],[\"preload\",\"0\",\"metadata\"],[\"preload\",\"3\",\"metadata\"],[\"preload\",\"null\",\"metadata\"],[\"preload\",\"undefined\",\"metadata\"],[\"preload\",\"MeTaDaTa\",\"metadata\"],[\"preload\",\"error\",\"TypeError\",\"MeTaDaTa\",\"metadata\"],[\"crossOrigin\",\"\",\"anonymous\"],[\"crossOrigin\",\"false\",\"anonymous\"],[\"crossOrigin\",\"true\",\"anonymous\"],[\"crossOrigin\",\"0\",\"anonymous\"],[\"crossOrigin\",\"3\",\"anonymous\"],[\"crossOrigin\",null,null],[\"crossOrigin\",null,null],[\"crossOrigin\",\"MeTaDaTa\",\"anonymous\"],[\"crossOrigin\",\"error\",\"TypeError\",\"MeTaDaTa\",\"anonymous\"],[\"autoplay\",null,false],[\"autoplay\",null,false],[\"autoplay\",\"\",true],[\"autoplay\",null,false],[\"autoplay\",\"\",true],[\"autoplay\",null,false],[\"autoplay\",null,false],[\"autoplay\",\"\",true],[\"autoplay\",\"\",true],[\"loop\",null,false],[\"loop\",null,false],[\"loop\",\"\",true],[\"loop\",null,false],[\"loop\",\"\",true],[\"loop\",null,false],[\"loop\",null,false],[\"loop\",\"\",true],[\"loop\",\"\",true],[\"controls\",null,false],[\"controls\",null,false],[\"controls\",\"\",true],[\"controls\",null,false],[\"controls\",\"\",true],[\"controls\",null,false],[\"controls\",null,false],[\"controls\",\"\",true],[\"controls\",\"\",true],[\"defaultMuted\",null,false],[\"defaultMuted\",null,false],[\"defaultMuted\",\"\",true],[\"defaultMuted\",null,false],[\"defaultMuted\",\"\",true],[\"defaultMuted\",null,false],[\"defaultMuted\",null,false],[\"defaultMuted\",\"\",true],[\"defaultMuted\",\"\",true],[\"conversion order\",[[\"src\",\"string\"],[\"preload\",\"string\"],[\"crossOrigin\",\"string\"]]]]"
+    },
+    {
+      "name": "audio borrowed accessors and branding",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const out=[];for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){const d=Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype,key);for(const n of [document.createElement('audio'),document.createElementNS('http://www.w3.org/1999/xhtml','p:audio'),document.createElementNS('urn:foreign','audio'),document.createElementNS(null,'audio'),document.createElement('div'),{}]){try{out.push([key,'get',d.get.call(n)])}catch(error){out.push([key,'get',error.name])}let conversions=0;try{d.set.call(n,{toString(){conversions++;return 'none'}});out.push([key,'set',n.getAttribute(attr),conversions])}catch(error){out.push([key,'set',error.name,conversions])}}}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"get\",\"\"],[\"src\",\"set\",\"none\",1],[\"src\",\"get\",\"\"],[\"src\",\"set\",\"none\",1],[\"src\",\"get\",\"TypeError\"],[\"src\",\"set\",\"TypeError\",0],[\"src\",\"get\",\"TypeError\"],[\"src\",\"set\",\"TypeError\",0],[\"src\",\"get\",\"TypeError\"],[\"src\",\"set\",\"TypeError\",0],[\"src\",\"get\",\"TypeError\"],[\"src\",\"set\",\"TypeError\",0],[\"preload\",\"get\",\"metadata\"],[\"preload\",\"set\",\"none\",1],[\"preload\",\"get\",\"metadata\"],[\"preload\",\"set\",\"none\",1],[\"preload\",\"get\",\"TypeError\"],[\"preload\",\"set\",\"TypeError\",0],[\"preload\",\"get\",\"TypeError\"],[\"preload\",\"set\",\"TypeError\",0],[\"preload\",\"get\",\"TypeError\"],[\"preload\",\"set\",\"TypeError\",0],[\"preload\",\"get\",\"TypeError\"],[\"preload\",\"set\",\"TypeError\",0],[\"crossOrigin\",\"get\",null],[\"crossOrigin\",\"set\",\"none\",1],[\"crossOrigin\",\"get\",null],[\"crossOrigin\",\"set\",\"none\",1],[\"crossOrigin\",\"get\",\"TypeError\"],[\"crossOrigin\",\"set\",\"TypeError\",0],[\"crossOrigin\",\"get\",\"TypeError\"],[\"crossOrigin\",\"set\",\"TypeError\",0],[\"crossOrigin\",\"get\",\"TypeError\"],[\"crossOrigin\",\"set\",\"TypeError\",0],[\"crossOrigin\",\"get\",\"TypeError\"],[\"crossOrigin\",\"set\",\"TypeError\",0],[\"autoplay\",\"get\",false],[\"autoplay\",\"set\",\"\",0],[\"autoplay\",\"get\",false],[\"autoplay\",\"set\",\"\",0],[\"autoplay\",\"get\",\"TypeError\"],[\"autoplay\",\"set\",\"TypeError\",0],[\"autoplay\",\"get\",\"TypeError\"],[\"autoplay\",\"set\",\"TypeError\",0],[\"autoplay\",\"get\",\"TypeError\"],[\"autoplay\",\"set\",\"TypeError\",0],[\"autoplay\",\"get\",\"TypeError\"],[\"autoplay\",\"set\",\"TypeError\",0],[\"loop\",\"get\",false],[\"loop\",\"set\",\"\",0],[\"loop\",\"get\",false],[\"loop\",\"set\",\"\",0],[\"loop\",\"get\",\"TypeError\"],[\"loop\",\"set\",\"TypeError\",0],[\"loop\",\"get\",\"TypeError\"],[\"loop\",\"set\",\"TypeError\",0],[\"loop\",\"get\",\"TypeError\"],[\"loop\",\"set\",\"TypeError\",0],[\"loop\",\"get\",\"TypeError\"],[\"loop\",\"set\",\"TypeError\",0],[\"controls\",\"get\",false],[\"controls\",\"set\",\"\",0],[\"controls\",\"get\",false],[\"controls\",\"set\",\"\",0],[\"controls\",\"get\",\"TypeError\"],[\"controls\",\"set\",\"TypeError\",0],[\"controls\",\"get\",\"TypeError\"],[\"controls\",\"set\",\"TypeError\",0],[\"controls\",\"get\",\"TypeError\"],[\"controls\",\"set\",\"TypeError\",0],[\"controls\",\"get\",\"TypeError\"],[\"controls\",\"set\",\"TypeError\",0],[\"defaultMuted\",\"get\",false],[\"defaultMuted\",\"set\",\"\",0],[\"defaultMuted\",\"get\",false],[\"defaultMuted\",\"set\",\"\",0],[\"defaultMuted\",\"get\",\"TypeError\"],[\"defaultMuted\",\"set\",\"TypeError\",0],[\"defaultMuted\",\"get\",\"TypeError\"],[\"defaultMuted\",\"set\",\"TypeError\",0],[\"defaultMuted\",\"get\",\"TypeError\"],[\"defaultMuted\",\"set\",\"TypeError\",0],[\"defaultMuted\",\"get\",\"TypeError\"],[\"defaultMuted\",\"set\",\"TypeError\",0]]"
+    },
+    {
+      "name": "audio foreign content attributes",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const n=document.createElementNS('http://www.w3.org/1999/xhtml','p:audio'),out=[];for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){n.setAttributeNS('urn:foreign','x:'+attr,'foreign');out.push([key,n[key],n.getAttribute(attr),n.getAttributeNS('urn:foreign',attr)])}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"\",null,\"foreign\"],[\"preload\",\"metadata\",null,\"foreign\"],[\"crossOrigin\",null,null,\"foreign\"],[\"autoplay\",false,null,\"foreign\"],[\"loop\",false,null,\"foreign\"],[\"controls\",false,null,\"foreign\"],[\"defaultMuted\",false,null,\"foreign\"]]"
+    },
+    {
+      "name": "audio URL base mutations and adoption",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const a=document.implementation.createHTMLDocument('a'),b=document.implementation.createHTMLDocument('b');a.head.innerHTML='<base href=\"https://media.invalid/a/\">';b.head.innerHTML='<base href=\"https://media.invalid/b/\">';const n=a.createElement('audio'),out=[],record=()=>out.push([n.src,n.getAttribute('src'),n.baseURI,n.ownerDocument===a]);n.preload='none';record();n.src='clip.mp4#part';record();a.querySelector('base').href='https://media.invalid/new/';record();b.adoptNode(n);record();n.setAttribute('src','');record();n.removeAttribute('src');record();n.src=null;record();return JSON.stringify(out)})()",
+      "expected": "[[\"\",null,\"https://media.invalid/a/\",true],[\"https://media.invalid/a/clip.mp4#part\",\"clip.mp4#part\",\"https://media.invalid/a/\",true],[\"https://media.invalid/new/clip.mp4#part\",\"clip.mp4#part\",\"https://media.invalid/new/\",true],[\"https://media.invalid/b/clip.mp4#part\",\"clip.mp4#part\",\"https://media.invalid/b/\",false],[\"https://media.invalid/b/\",\"\",\"https://media.invalid/b/\",false],[\"\",null,\"https://media.invalid/b/\",false],[\"https://media.invalid/b/null\",\"null\",\"https://media.invalid/b/\",false]]"
+    },
+    {
+      "name": "video defaults and shared descriptors",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('video'),out=[];for(const key of [\"src\",\"preload\",\"crossOrigin\",\"autoplay\",\"loop\",\"controls\",\"defaultMuted\"]){const d=Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype,key);out.push([key,e[key],d.get.call(e),d.get.name,d.get.length,d.set.name,d.set.length,d.enumerable,d.configurable])}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"\",\"\",\"get src\",0,\"set src\",1,true,true],[\"preload\",\"metadata\",\"metadata\",\"get preload\",0,\"set preload\",1,true,true],[\"crossOrigin\",null,null,\"get crossOrigin\",0,\"set crossOrigin\",1,true,true],[\"autoplay\",false,false,\"get autoplay\",0,\"set autoplay\",1,true,true],[\"loop\",false,false,\"get loop\",0,\"set loop\",1,true,true],[\"controls\",false,false,\"get controls\",0,\"set controls\",1,true,true],[\"defaultMuted\",false,false,\"get defaultMuted\",0,\"set defaultMuted\",1,true,true]]"
+    },
+    {
+      "name": "video content attribute states",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('video'),out=[];e.setAttribute('preload','none');for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){e.removeAttribute('src');for(const value of ({\"src\":[null,\"\",\"tone.mp4\",\"../clip.webm#part\",\"data:video/mp4;base64,AA==\"],\"preload\":[null,\"\",\"none\",\"NONE\",\"MeTaDaTa\",\"auto\",\"AUTO\",\"invalid\",\" none \"],\"crossOrigin\":[null,\"\",\"anonymous\",\"ANONYMOUS\",\"Use-Credentials\",\"invalid\",\" anonymous \"]})[key]||[null,'','false','TRUE','invalid']){if(value===null)e.removeAttribute(attr);else e.setAttribute(attr,value);out.push([key,e.getAttribute(attr),e[key]])}}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",null,\"\"],[\"src\",\"\",\"https://media.invalid/root/index.html\"],[\"src\",\"tone.mp4\",\"https://media.invalid/root/tone.mp4\"],[\"src\",\"../clip.webm#part\",\"https://media.invalid/clip.webm#part\"],[\"src\",\"data:video/mp4;base64,AA==\",\"data:video/mp4;base64,AA==\"],[\"preload\",null,\"metadata\"],[\"preload\",\"\",\"auto\"],[\"preload\",\"none\",\"none\"],[\"preload\",\"NONE\",\"none\"],[\"preload\",\"MeTaDaTa\",\"metadata\"],[\"preload\",\"auto\",\"auto\"],[\"preload\",\"AUTO\",\"auto\"],[\"preload\",\"invalid\",\"metadata\"],[\"preload\",\" none \",\"metadata\"],[\"crossOrigin\",null,null],[\"crossOrigin\",\"\",\"anonymous\"],[\"crossOrigin\",\"anonymous\",\"anonymous\"],[\"crossOrigin\",\"ANONYMOUS\",\"anonymous\"],[\"crossOrigin\",\"Use-Credentials\",\"use-credentials\"],[\"crossOrigin\",\"invalid\",\"anonymous\"],[\"crossOrigin\",\" anonymous \",\"anonymous\"],[\"autoplay\",null,false],[\"autoplay\",\"\",true],[\"autoplay\",\"false\",true],[\"autoplay\",\"TRUE\",true],[\"autoplay\",\"invalid\",true],[\"loop\",null,false],[\"loop\",\"\",true],[\"loop\",\"false\",true],[\"loop\",\"TRUE\",true],[\"loop\",\"invalid\",true],[\"controls\",null,false],[\"controls\",\"\",true],[\"controls\",\"false\",true],[\"controls\",\"TRUE\",true],[\"controls\",\"invalid\",true],[\"defaultMuted\",null,false],[\"defaultMuted\",\"\",true],[\"defaultMuted\",\"false\",true],[\"defaultMuted\",\"TRUE\",true],[\"defaultMuted\",\"invalid\",true]]"
+    },
+    {
+      "name": "video setters and conversion",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('video'),out=[],order=[];e.setAttribute('preload','none');for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){e.removeAttribute('src');const values=['',false,true,0,3,null,undefined,{[Symbol.toPrimitive](hint){order.push([key,hint]);return 'MeTaDaTa'}},Symbol('value')];if(key==='src')values.push('left\\ud800right');for(const value of values){try{e[key]=value;out.push([key,e.getAttribute(attr),e[key]])}catch(error){out.push([key,'error',error.name,e.getAttribute(attr),e[key]])}}}out.push(['conversion order',order]);return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"\",\"https://media.invalid/root/index.html\"],[\"src\",\"false\",\"https://media.invalid/root/false\"],[\"src\",\"true\",\"https://media.invalid/root/true\"],[\"src\",\"0\",\"https://media.invalid/root/0\"],[\"src\",\"3\",\"https://media.invalid/root/3\"],[\"src\",\"null\",\"https://media.invalid/root/null\"],[\"src\",\"undefined\",\"https://media.invalid/root/undefined\"],[\"src\",\"MeTaDaTa\",\"https://media.invalid/root/MeTaDaTa\"],[\"src\",\"error\",\"TypeError\",\"MeTaDaTa\",\"https://media.invalid/root/MeTaDaTa\"],[\"src\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"preload\",\"\",\"auto\"],[\"preload\",\"false\",\"metadata\"],[\"preload\",\"true\",\"metadata\"],[\"preload\",\"0\",\"metadata\"],[\"preload\",\"3\",\"metadata\"],[\"preload\",\"null\",\"metadata\"],[\"preload\",\"undefined\",\"metadata\"],[\"preload\",\"MeTaDaTa\",\"metadata\"],[\"preload\",\"error\",\"TypeError\",\"MeTaDaTa\",\"metadata\"],[\"crossOrigin\",\"\",\"anonymous\"],[\"crossOrigin\",\"false\",\"anonymous\"],[\"crossOrigin\",\"true\",\"anonymous\"],[\"crossOrigin\",\"0\",\"anonymous\"],[\"crossOrigin\",\"3\",\"anonymous\"],[\"crossOrigin\",null,null],[\"crossOrigin\",null,null],[\"crossOrigin\",\"MeTaDaTa\",\"anonymous\"],[\"crossOrigin\",\"error\",\"TypeError\",\"MeTaDaTa\",\"anonymous\"],[\"autoplay\",null,false],[\"autoplay\",null,false],[\"autoplay\",\"\",true],[\"autoplay\",null,false],[\"autoplay\",\"\",true],[\"autoplay\",null,false],[\"autoplay\",null,false],[\"autoplay\",\"\",true],[\"autoplay\",\"\",true],[\"loop\",null,false],[\"loop\",null,false],[\"loop\",\"\",true],[\"loop\",null,false],[\"loop\",\"\",true],[\"loop\",null,false],[\"loop\",null,false],[\"loop\",\"\",true],[\"loop\",\"\",true],[\"controls\",null,false],[\"controls\",null,false],[\"controls\",\"\",true],[\"controls\",null,false],[\"controls\",\"\",true],[\"controls\",null,false],[\"controls\",null,false],[\"controls\",\"\",true],[\"controls\",\"\",true],[\"defaultMuted\",null,false],[\"defaultMuted\",null,false],[\"defaultMuted\",\"\",true],[\"defaultMuted\",null,false],[\"defaultMuted\",\"\",true],[\"defaultMuted\",null,false],[\"defaultMuted\",null,false],[\"defaultMuted\",\"\",true],[\"defaultMuted\",\"\",true],[\"conversion order\",[[\"src\",\"string\"],[\"preload\",\"string\"],[\"crossOrigin\",\"string\"]]]]"
+    },
+    {
+      "name": "video borrowed accessors and branding",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const out=[];for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){const d=Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype,key);for(const n of [document.createElement('video'),document.createElementNS('http://www.w3.org/1999/xhtml','p:video'),document.createElementNS('urn:foreign','video'),document.createElementNS(null,'video'),document.createElement('div'),{}]){try{out.push([key,'get',d.get.call(n)])}catch(error){out.push([key,'get',error.name])}let conversions=0;try{d.set.call(n,{toString(){conversions++;return 'none'}});out.push([key,'set',n.getAttribute(attr),conversions])}catch(error){out.push([key,'set',error.name,conversions])}}}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"get\",\"\"],[\"src\",\"set\",\"none\",1],[\"src\",\"get\",\"\"],[\"src\",\"set\",\"none\",1],[\"src\",\"get\",\"TypeError\"],[\"src\",\"set\",\"TypeError\",0],[\"src\",\"get\",\"TypeError\"],[\"src\",\"set\",\"TypeError\",0],[\"src\",\"get\",\"TypeError\"],[\"src\",\"set\",\"TypeError\",0],[\"src\",\"get\",\"TypeError\"],[\"src\",\"set\",\"TypeError\",0],[\"preload\",\"get\",\"metadata\"],[\"preload\",\"set\",\"none\",1],[\"preload\",\"get\",\"metadata\"],[\"preload\",\"set\",\"none\",1],[\"preload\",\"get\",\"TypeError\"],[\"preload\",\"set\",\"TypeError\",0],[\"preload\",\"get\",\"TypeError\"],[\"preload\",\"set\",\"TypeError\",0],[\"preload\",\"get\",\"TypeError\"],[\"preload\",\"set\",\"TypeError\",0],[\"preload\",\"get\",\"TypeError\"],[\"preload\",\"set\",\"TypeError\",0],[\"crossOrigin\",\"get\",null],[\"crossOrigin\",\"set\",\"none\",1],[\"crossOrigin\",\"get\",null],[\"crossOrigin\",\"set\",\"none\",1],[\"crossOrigin\",\"get\",\"TypeError\"],[\"crossOrigin\",\"set\",\"TypeError\",0],[\"crossOrigin\",\"get\",\"TypeError\"],[\"crossOrigin\",\"set\",\"TypeError\",0],[\"crossOrigin\",\"get\",\"TypeError\"],[\"crossOrigin\",\"set\",\"TypeError\",0],[\"crossOrigin\",\"get\",\"TypeError\"],[\"crossOrigin\",\"set\",\"TypeError\",0],[\"autoplay\",\"get\",false],[\"autoplay\",\"set\",\"\",0],[\"autoplay\",\"get\",false],[\"autoplay\",\"set\",\"\",0],[\"autoplay\",\"get\",\"TypeError\"],[\"autoplay\",\"set\",\"TypeError\",0],[\"autoplay\",\"get\",\"TypeError\"],[\"autoplay\",\"set\",\"TypeError\",0],[\"autoplay\",\"get\",\"TypeError\"],[\"autoplay\",\"set\",\"TypeError\",0],[\"autoplay\",\"get\",\"TypeError\"],[\"autoplay\",\"set\",\"TypeError\",0],[\"loop\",\"get\",false],[\"loop\",\"set\",\"\",0],[\"loop\",\"get\",false],[\"loop\",\"set\",\"\",0],[\"loop\",\"get\",\"TypeError\"],[\"loop\",\"set\",\"TypeError\",0],[\"loop\",\"get\",\"TypeError\"],[\"loop\",\"set\",\"TypeError\",0],[\"loop\",\"get\",\"TypeError\"],[\"loop\",\"set\",\"TypeError\",0],[\"loop\",\"get\",\"TypeError\"],[\"loop\",\"set\",\"TypeError\",0],[\"controls\",\"get\",false],[\"controls\",\"set\",\"\",0],[\"controls\",\"get\",false],[\"controls\",\"set\",\"\",0],[\"controls\",\"get\",\"TypeError\"],[\"controls\",\"set\",\"TypeError\",0],[\"controls\",\"get\",\"TypeError\"],[\"controls\",\"set\",\"TypeError\",0],[\"controls\",\"get\",\"TypeError\"],[\"controls\",\"set\",\"TypeError\",0],[\"controls\",\"get\",\"TypeError\"],[\"controls\",\"set\",\"TypeError\",0],[\"defaultMuted\",\"get\",false],[\"defaultMuted\",\"set\",\"\",0],[\"defaultMuted\",\"get\",false],[\"defaultMuted\",\"set\",\"\",0],[\"defaultMuted\",\"get\",\"TypeError\"],[\"defaultMuted\",\"set\",\"TypeError\",0],[\"defaultMuted\",\"get\",\"TypeError\"],[\"defaultMuted\",\"set\",\"TypeError\",0],[\"defaultMuted\",\"get\",\"TypeError\"],[\"defaultMuted\",\"set\",\"TypeError\",0],[\"defaultMuted\",\"get\",\"TypeError\"],[\"defaultMuted\",\"set\",\"TypeError\",0]]"
+    },
+    {
+      "name": "video foreign content attributes",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const n=document.createElementNS('http://www.w3.org/1999/xhtml','p:video'),out=[];for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){n.setAttributeNS('urn:foreign','x:'+attr,'foreign');out.push([key,n[key],n.getAttribute(attr),n.getAttributeNS('urn:foreign',attr)])}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"\",null,\"foreign\"],[\"preload\",\"metadata\",null,\"foreign\"],[\"crossOrigin\",null,null,\"foreign\"],[\"autoplay\",false,null,\"foreign\"],[\"loop\",false,null,\"foreign\"],[\"controls\",false,null,\"foreign\"],[\"defaultMuted\",false,null,\"foreign\"]]"
+    },
+    {
+      "name": "video URL base mutations and adoption",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const a=document.implementation.createHTMLDocument('a'),b=document.implementation.createHTMLDocument('b');a.head.innerHTML='<base href=\"https://media.invalid/a/\">';b.head.innerHTML='<base href=\"https://media.invalid/b/\">';const n=a.createElement('video'),out=[],record=()=>out.push([n.src,n.getAttribute('src'),n.baseURI,n.ownerDocument===a]);n.preload='none';record();n.src='clip.mp4#part';record();a.querySelector('base').href='https://media.invalid/new/';record();b.adoptNode(n);record();n.setAttribute('src','');record();n.removeAttribute('src');record();n.src=null;record();return JSON.stringify(out)})()",
+      "expected": "[[\"\",null,\"https://media.invalid/a/\",true],[\"https://media.invalid/a/clip.mp4#part\",\"clip.mp4#part\",\"https://media.invalid/a/\",true],[\"https://media.invalid/new/clip.mp4#part\",\"clip.mp4#part\",\"https://media.invalid/new/\",true],[\"https://media.invalid/b/clip.mp4#part\",\"clip.mp4#part\",\"https://media.invalid/b/\",false],[\"https://media.invalid/b/\",\"\",\"https://media.invalid/b/\",false],[\"\",null,\"https://media.invalid/b/\",false],[\"https://media.invalid/b/null\",\"null\",\"https://media.invalid/b/\",false]]"
+    },
+    {
+      "name": "audio src Unicode reflection and invalid URL fallback",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('audio'),out=[];e.preload='none';for(const raw of ['left\\ud800right','left\\udc00right','\\ud83d\\ude00','http://[\\ud800']){e.setAttribute('src',raw);out.push(['attribute',e.getAttribute('src'),e.src]);e.src=raw;out.push(['setter',e.getAttribute('src'),e.src])}return JSON.stringify(out)})()",
+      "expected": "[[\"attribute\",\"left\\ud800right\",\"left\\ud800right\"],[\"setter\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"attribute\",\"left\\udc00right\",\"left\\udc00right\"],[\"setter\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"attribute\",\"😀\",\"https://media.invalid/root/%F0%9F%98%80\"],[\"setter\",\"😀\",\"https://media.invalid/root/%F0%9F%98%80\"],[\"attribute\",\"http://[\\ud800\",\"http://[\\ud800\"],[\"setter\",\"http://[�\",\"http://[�\"]]",
+      "targetExpected": "[[\"attribute\",\"left\\ud800right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"setter\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"attribute\",\"left\\udc00right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"setter\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"attribute\",\"😀\",\"https://media.invalid/root/%F0%9F%98%80\"],[\"setter\",\"😀\",\"https://media.invalid/root/%F0%9F%98%80\"],[\"attribute\",\"http://[\\ud800\",\"http://[�\"],[\"setter\",\"http://[�\",\"http://[�\"]]",
+      "targetNote": "Frozen URL parsing takes scalar string input, and USVString reflection converts URL failure fallback to scalar values. Raw Chromium lone-surrogate getter outputs remain above. Audio factory content attributes remain DOMString."
+    },
+    {
+      "name": "audio borrowed setters missing false and throwing conversion",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('audio'),out=[];e.preload='none';for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){const d=Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype,key);d.set.call(e,false);out.push([key,'false',e.getAttribute(attr),e[key]]);try{d.set.call(e);out.push([key,'missing',e.getAttribute(attr),e[key]])}catch(error){out.push([key,'missing',error.name,e.getAttribute(attr),e[key]])}let calls=0;const before=e.getAttribute(attr);try{d.set.call(e,{[Symbol.toPrimitive](){calls++;throw new Error('conversion')}});out.push([key,'boolean',calls,e.getAttribute(attr),e[key]])}catch(error){out.push([key,error.name,calls,e.getAttribute(attr)===before])}}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"false\",\"false\",\"https://media.invalid/root/false\"],[\"src\",\"missing\",\"undefined\",\"https://media.invalid/root/undefined\"],[\"src\",\"Error\",1,true],[\"preload\",\"false\",\"false\",\"metadata\"],[\"preload\",\"missing\",\"undefined\",\"metadata\"],[\"preload\",\"Error\",1,true],[\"crossOrigin\",\"false\",\"false\",\"anonymous\"],[\"crossOrigin\",\"missing\",\"TypeError\",\"false\",\"anonymous\"],[\"crossOrigin\",\"Error\",1,true],[\"autoplay\",\"false\",null,false],[\"autoplay\",\"missing\",\"TypeError\",null,false],[\"autoplay\",\"boolean\",0,\"\",true],[\"loop\",\"false\",null,false],[\"loop\",\"missing\",\"TypeError\",null,false],[\"loop\",\"boolean\",0,\"\",true],[\"controls\",\"false\",null,false],[\"controls\",\"missing\",\"TypeError\",null,false],[\"controls\",\"boolean\",0,\"\",true],[\"defaultMuted\",\"false\",null,false],[\"defaultMuted\",\"missing\",\"TypeError\",null,false],[\"defaultMuted\",\"boolean\",0,\"\",true]]",
+      "targetExpected": "[[\"src\",\"false\",\"false\",\"https://media.invalid/root/false\"],[\"src\",\"missing\",\"undefined\",\"https://media.invalid/root/undefined\"],[\"src\",\"Error\",1,true],[\"preload\",\"false\",\"false\",\"metadata\"],[\"preload\",\"missing\",\"undefined\",\"metadata\"],[\"preload\",\"Error\",1,true],[\"crossOrigin\",\"false\",\"false\",\"anonymous\"],[\"crossOrigin\",\"missing\",null,null],[\"crossOrigin\",\"Error\",1,true],[\"autoplay\",\"false\",null,false],[\"autoplay\",\"missing\",null,false],[\"autoplay\",\"boolean\",0,\"\",true],[\"loop\",\"false\",null,false],[\"loop\",\"missing\",null,false],[\"loop\",\"boolean\",0,\"\",true],[\"controls\",\"false\",null,false],[\"controls\",\"missing\",null,false],[\"controls\",\"boolean\",0,\"\",true],[\"defaultMuted\",\"false\",null,false],[\"defaultMuted\",\"missing\",null,false],[\"defaultMuted\",\"boolean\",0,\"\",true]]",
+      "targetNote": "WebIDL attribute setters convert undefined when called without arguments. Raw Chromium arity exceptions remain above."
+    },
+    {
+      "name": "video src Unicode reflection and invalid URL fallback",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('video'),out=[];e.preload='none';for(const raw of ['left\\ud800right','left\\udc00right','\\ud83d\\ude00','http://[\\ud800']){e.setAttribute('src',raw);out.push(['attribute',e.getAttribute('src'),e.src]);e.src=raw;out.push(['setter',e.getAttribute('src'),e.src])}return JSON.stringify(out)})()",
+      "expected": "[[\"attribute\",\"left\\ud800right\",\"left\\ud800right\"],[\"setter\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"attribute\",\"left\\udc00right\",\"left\\udc00right\"],[\"setter\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"attribute\",\"😀\",\"https://media.invalid/root/%F0%9F%98%80\"],[\"setter\",\"😀\",\"https://media.invalid/root/%F0%9F%98%80\"],[\"attribute\",\"http://[\\ud800\",\"http://[\\ud800\"],[\"setter\",\"http://[�\",\"http://[�\"]]",
+      "targetExpected": "[[\"attribute\",\"left\\ud800right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"setter\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"attribute\",\"left\\udc00right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"setter\",\"left�right\",\"https://media.invalid/root/left%EF%BF%BDright\"],[\"attribute\",\"😀\",\"https://media.invalid/root/%F0%9F%98%80\"],[\"setter\",\"😀\",\"https://media.invalid/root/%F0%9F%98%80\"],[\"attribute\",\"http://[\\ud800\",\"http://[�\"],[\"setter\",\"http://[�\",\"http://[�\"]]",
+      "targetNote": "Frozen URL parsing takes scalar string input, and USVString reflection converts URL failure fallback to scalar values. Raw Chromium lone-surrogate getter outputs remain above. Audio factory content attributes remain DOMString."
+    },
+    {
+      "name": "video borrowed setters missing false and throwing conversion",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const e=document.createElement('video'),out=[];e.preload='none';for(const [key,attr]of Object.entries({\"src\":\"src\",\"preload\":\"preload\",\"crossOrigin\":\"crossorigin\",\"autoplay\":\"autoplay\",\"loop\":\"loop\",\"controls\":\"controls\",\"defaultMuted\":\"muted\"})){const d=Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype,key);d.set.call(e,false);out.push([key,'false',e.getAttribute(attr),e[key]]);try{d.set.call(e);out.push([key,'missing',e.getAttribute(attr),e[key]])}catch(error){out.push([key,'missing',error.name,e.getAttribute(attr),e[key]])}let calls=0;const before=e.getAttribute(attr);try{d.set.call(e,{[Symbol.toPrimitive](){calls++;throw new Error('conversion')}});out.push([key,'boolean',calls,e.getAttribute(attr),e[key]])}catch(error){out.push([key,error.name,calls,e.getAttribute(attr)===before])}}return JSON.stringify(out)})()",
+      "expected": "[[\"src\",\"false\",\"false\",\"https://media.invalid/root/false\"],[\"src\",\"missing\",\"undefined\",\"https://media.invalid/root/undefined\"],[\"src\",\"Error\",1,true],[\"preload\",\"false\",\"false\",\"metadata\"],[\"preload\",\"missing\",\"undefined\",\"metadata\"],[\"preload\",\"Error\",1,true],[\"crossOrigin\",\"false\",\"false\",\"anonymous\"],[\"crossOrigin\",\"missing\",\"TypeError\",\"false\",\"anonymous\"],[\"crossOrigin\",\"Error\",1,true],[\"autoplay\",\"false\",null,false],[\"autoplay\",\"missing\",\"TypeError\",null,false],[\"autoplay\",\"boolean\",0,\"\",true],[\"loop\",\"false\",null,false],[\"loop\",\"missing\",\"TypeError\",null,false],[\"loop\",\"boolean\",0,\"\",true],[\"controls\",\"false\",null,false],[\"controls\",\"missing\",\"TypeError\",null,false],[\"controls\",\"boolean\",0,\"\",true],[\"defaultMuted\",\"false\",null,false],[\"defaultMuted\",\"missing\",\"TypeError\",null,false],[\"defaultMuted\",\"boolean\",0,\"\",true]]",
+      "targetExpected": "[[\"src\",\"false\",\"false\",\"https://media.invalid/root/false\"],[\"src\",\"missing\",\"undefined\",\"https://media.invalid/root/undefined\"],[\"src\",\"Error\",1,true],[\"preload\",\"false\",\"false\",\"metadata\"],[\"preload\",\"missing\",\"undefined\",\"metadata\"],[\"preload\",\"Error\",1,true],[\"crossOrigin\",\"false\",\"false\",\"anonymous\"],[\"crossOrigin\",\"missing\",null,null],[\"crossOrigin\",\"Error\",1,true],[\"autoplay\",\"false\",null,false],[\"autoplay\",\"missing\",null,false],[\"autoplay\",\"boolean\",0,\"\",true],[\"loop\",\"false\",null,false],[\"loop\",\"missing\",null,false],[\"loop\",\"boolean\",0,\"\",true],[\"controls\",\"false\",null,false],[\"controls\",\"missing\",null,false],[\"controls\",\"boolean\",0,\"\",true],[\"defaultMuted\",\"false\",null,false],[\"defaultMuted\",\"missing\",null,false],[\"defaultMuted\",\"boolean\",0,\"\",true]]",
+      "targetNote": "WebIDL attribute setters convert undefined when called without arguments. Raw Chromium arity exceptions remain above."
+    },
+    {
+      "name": "Audio factory keeps DOMString content attributes",
+      "html": "<!doctype html><base href=\"https://media.invalid/root/index.html\"><body></body>",
+      "action": "(()=>{const out=[];for(const raw of ['left\\ud800right','left\\udc00right','\\ud83d\\ude00','http://[\\ud800',false,null,undefined]){const a=new Audio(raw);out.push([a.getAttribute('src'),a.src,a.preload])}const a=new Audio();out.push([a.getAttribute('src'),a.src,a.preload]);return JSON.stringify(out)})()",
+      "expected": "[[\"left\\ud800right\",\"left\\ud800right\",\"auto\"],[\"left\\udc00right\",\"left\\udc00right\",\"auto\"],[\"😀\",\"https://media.invalid/root/%F0%9F%98%80\",\"auto\"],[\"http://[\\ud800\",\"http://[\\ud800\",\"auto\"],[\"false\",\"https://media.invalid/root/false\",\"auto\"],[\"null\",\"https://media.invalid/root/null\",\"auto\"],[null,\"\",\"auto\"],[null,\"\",\"auto\"]]",
+      "targetExpected": "[[\"left\\ud800right\",\"https://media.invalid/root/left%EF%BF%BDright\",\"auto\"],[\"left\\udc00right\",\"https://media.invalid/root/left%EF%BF%BDright\",\"auto\"],[\"😀\",\"https://media.invalid/root/%F0%9F%98%80\",\"auto\"],[\"http://[\\ud800\",\"http://[�\",\"auto\"],[\"false\",\"https://media.invalid/root/false\",\"auto\"],[\"null\",\"https://media.invalid/root/null\",\"auto\"],[null,\"\",\"auto\"],[null,\"\",\"auto\"]]",
+      "targetNote": "Frozen URL parsing takes scalar string input, and USVString reflection converts URL failure fallback to scalar values. Raw Chromium lone-surrogate getter outputs remain above. Audio factory content attributes remain DOMString."
+    }
+  ],
+  "preloadUADefaults": [
+    {
+      "tag": "audio",
+      "raw": null,
+      "property": "metadata"
+    },
+    {
+      "tag": "audio",
+      "raw": "",
+      "property": "auto"
+    },
+    {
+      "tag": "audio",
+      "raw": "unknown",
+      "property": "metadata"
+    },
+    {
+      "tag": "audio",
+      "raw": "NONE",
+      "property": "none"
+    },
+    {
+      "tag": "audio",
+      "raw": "MeTaDaTa",
+      "property": "metadata"
+    },
+    {
+      "tag": "audio",
+      "raw": "AUTO",
+      "property": "auto"
+    },
+    {
+      "tag": "video",
+      "raw": null,
+      "property": "metadata"
+    },
+    {
+      "tag": "video",
+      "raw": "",
+      "property": "auto"
+    },
+    {
+      "tag": "video",
+      "raw": "unknown",
+      "property": "metadata"
+    },
+    {
+      "tag": "video",
+      "raw": "NONE",
+      "property": "none"
+    },
+    {
+      "tag": "video",
+      "raw": "MeTaDaTa",
+      "property": "metadata"
+    },
+    {
+      "tag": "video",
+      "raw": "AUTO",
+      "property": "auto"
+    }
+  ],
+  "mutedContext": [
+    [
+      "audio",
+      true,
+      false,
+      ""
+    ],
+    [
+      "audio",
+      false,
+      false,
+      null
+    ],
+    [
+      "video",
+      true,
+      false,
+      ""
+    ],
+    [
+      "video",
+      false,
+      false,
+      null
+    ]
+  ],
+  "crossRealm": "[[\"https://media.invalid/source/tone.ogg\",\"https://media.invalid/source/tone.ogg\"],[\"https://media.invalid/destination/tone.ogg\",\"https://media.invalid/destination/tone.ogg\"],[\"https://media.invalid/changed/tone.ogg\",\"https://media.invalid/changed/tone.ogg\"]]"
+}

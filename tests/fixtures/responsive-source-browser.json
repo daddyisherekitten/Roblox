@@ -1,0 +1,1584 @@
+{
+  "captured": "2026-10-15T22:16:24.397Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.80",
+    "revision": "@43a195105613ac83c21d3f14de279f4a045c7da0",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.23"
+  },
+  "target": {
+    "revision": "ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c",
+    "sha256": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f",
+    "url": "https://raw.githubusercontent.com/whatwg/html/ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c/source",
+    "lines": {
+      "picture": [
+        33715,
+        33827
+      ],
+      "srcset": [
+        33833,
+        34069
+      ],
+      "sizes": [
+        34076,
+        34147
+      ],
+      "densities": [
+        34163,
+        34198
+      ]
+    }
+  },
+  "image": {
+    "path": "tests/fixtures/object-view-box-source.png",
+    "sha256": "76c65a8fc30dadfcee8f88485c483ca60c49278bd91e2a11a54c84aa4ce1d18c",
+    "width": 200,
+    "height": 100
+  },
+  "scope": "Independent isolated Chromium currentSrc and natural-dimension observations. Fresh unique base for every input; same PNG for all candidate URLs; no renderer expectation projection. Candidate choice is implementation-defined.",
+  "cases": [
+    {
+      "id": "bare",
+      "group": "srcset",
+      "srcset": "a.png",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 0,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/0/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/0/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "exponent",
+      "group": "srcset",
+      "srcset": "a.png 1e0x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 1,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/1/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/1/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "exponent-plus",
+      "group": "srcset",
+      "srcset": "a.png 1E+0x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 2,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/2/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/2/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "fraction",
+      "group": "srcset",
+      "srcset": ".invalid 1.x, a.png .5x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 3,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/3/a.png",
+        "complete": true,
+        "naturalWidth": 400,
+        "naturalHeight": 200,
+        "width": 400,
+        "height": 200,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/3/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "zero-density",
+      "group": "srcset",
+      "srcset": "a.png 0x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 4,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/4/a.png",
+        "complete": true,
+        "naturalWidth": 33554431,
+        "naturalHeight": 33554431,
+        "width": 33554432,
+        "height": 16777216,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/4/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "minus-zero",
+      "group": "srcset",
+      "srcset": "a.png -0x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 5,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/5/a.png",
+        "complete": true,
+        "naturalWidth": 33554431,
+        "naturalHeight": 33554431,
+        "width": 33554432,
+        "height": 16777216,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/5/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "negative-density",
+      "group": "srcset",
+      "srcset": "a.png -1x",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 6,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/6/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/6/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "plus-density",
+      "group": "srcset",
+      "srcset": "a.png +1x",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 7,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/7/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/7/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "trailing-dot",
+      "group": "srcset",
+      "srcset": "a.png 1.x",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 8,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/8/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/8/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "decimal-width",
+      "group": "srcset",
+      "srcset": "a.png 1.5w",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 9,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/9/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/9/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "exponent-width",
+      "group": "srcset",
+      "srcset": "a.png 1e2w",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 10,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/10/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/10/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "plus-width",
+      "group": "srcset",
+      "srcset": "a.png +100w",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 11,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/11/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/11/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "width-height",
+      "group": "srcset",
+      "srcset": "a.png 100w 50h",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 12,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/12/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/12/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "height-width",
+      "group": "srcset",
+      "srcset": "a.png 50h 100w",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 13,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/13/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/13/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "height-only",
+      "group": "srcset",
+      "srcset": "a.png 50h",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 14,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/14/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/14/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "zero-width",
+      "group": "srcset",
+      "srcset": "a.png 0w",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 15,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/15/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/15/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "duplicate-width",
+      "group": "srcset",
+      "srcset": "a.png 100w 100w",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 16,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/16/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/16/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "duplicate-density",
+      "group": "srcset",
+      "srcset": "a.png 1x 1x",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 17,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/17/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/17/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "width-density",
+      "group": "srcset",
+      "srcset": "a.png 100w 1x",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 18,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/18/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/18/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "density-height",
+      "group": "srcset",
+      "srcset": "a.png 1x 50h",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 19,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/19/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/19/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "duplicate-height",
+      "group": "srcset",
+      "srcset": "a.png 100w 50h 50h",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 20,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/20/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/20/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "parens-recovery",
+      "group": "srcset",
+      "srcset": "a.png nope(1,2), b.png 1x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 21,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/21/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/21/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "comma-url",
+      "group": "srcset",
+      "srcset": "a,b.png 1x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 22,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/22/a,b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/22/"
+      },
+      "selected": "a,b.png"
+    },
+    {
+      "id": "trailing-commas",
+      "group": "srcset",
+      "srcset": "a.png,,, b.png 2x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 23,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/23/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/23/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "ascii-whitespace",
+      "group": "srcset",
+      "srcset": "a.png\t1x, b.png\n2x",
+      "src": null,
+      "density": 2,
+      "sizes": "100px",
+      "index": 24,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/24/b.png",
+        "complete": true,
+        "naturalWidth": 100,
+        "naturalHeight": 50,
+        "width": 100,
+        "height": 50,
+        "dpr": 2,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/24/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "vertical-tab-url",
+      "group": "srcset",
+      "srcset": "a\u000bb.png 1x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 25,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/25/a%0Bb.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/25/"
+      },
+      "selected": "a\u000bb.png"
+    },
+    {
+      "id": "vertical-tab-descriptor",
+      "group": "srcset",
+      "srcset": "a.png 1\u000bx",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 26,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/26/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/26/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "duplicate-density-first",
+      "group": "srcset",
+      "srcset": "a.png 1x, b.png 1x",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 27,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/27/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/27/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "duplicate-width-first",
+      "group": "srcset",
+      "srcset": "a.png 100w, b.png 100w",
+      "src": null,
+      "density": 1,
+      "sizes": "100px",
+      "index": 28,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/28/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/28/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "mixed-width-density",
+      "group": "srcset",
+      "srcset": "a.png 10w, b.png 1x",
+      "src": null,
+      "density": 1,
+      "sizes": "20px",
+      "index": 29,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/29/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/29/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "mixed-bare-width",
+      "group": "srcset",
+      "srcset": "a.png, b.png 400w",
+      "src": null,
+      "density": 2,
+      "sizes": "200px",
+      "index": 30,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/30/b.png",
+        "complete": true,
+        "naturalWidth": 100,
+        "naturalHeight": 50,
+        "width": 100,
+        "height": 50,
+        "dpr": 2,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/30/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "img-src-one-x",
+      "group": "srcset",
+      "srcset": "a.png 2x",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 31,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/31/fallback.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/31/"
+      },
+      "selected": "fallback.png"
+    },
+    {
+      "id": "img-src-two-x",
+      "group": "srcset",
+      "srcset": "a.png 2x",
+      "src": "fallback.png",
+      "density": 2,
+      "sizes": "100px",
+      "index": 32,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/32/a.png",
+        "complete": true,
+        "naturalWidth": 100,
+        "naturalHeight": 50,
+        "width": 100,
+        "height": 50,
+        "dpr": 2,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/32/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "img-src-explicit-one",
+      "group": "srcset",
+      "srcset": "a.png 1x, b.png 2x",
+      "src": "fallback.png",
+      "density": 1,
+      "sizes": "100px",
+      "index": 33,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/33/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/33/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-calc",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "calc(50vw - 20px)",
+      "index": 34,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/34/b.png",
+        "complete": true,
+        "naturalWidth": 95,
+        "naturalHeight": 47,
+        "width": 95,
+        "height": 48,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/34/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "sizes-min",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "min(50vw, 300px)",
+      "index": 35,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/35/b.png",
+        "complete": true,
+        "naturalWidth": 75,
+        "naturalHeight": 37,
+        "width": 75,
+        "height": 38,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/35/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "sizes-clamp",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "clamp(200px, 50vw, 500px)",
+      "index": 36,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/36/b.png",
+        "complete": true,
+        "naturalWidth": 100,
+        "naturalHeight": 50,
+        "width": 100,
+        "height": 50,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/36/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "sizes-comma-function",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "min(200px, 80vw), 100vw",
+      "index": 37,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/37/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/37/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-range",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "(width >= 600px) 200px, 100vw",
+      "index": 38,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/38/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/38/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-and",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "(width >= 600px) and (height >= 400px) 200px, 100vw",
+      "index": 39,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/39/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/39/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-or",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "(width < 300px) or (height > 400px) 200px, 100vw",
+      "index": 40,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/40/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/40/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-not",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "not (width < 300px) 200px, 100vw",
+      "index": 41,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/41/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/41/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-inches",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "2in",
+      "index": 42,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/42/a.png",
+        "complete": true,
+        "naturalWidth": 192,
+        "naturalHeight": 96,
+        "width": 192,
+        "height": 96,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/42/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-rem",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "12.5rem",
+      "index": 43,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/43/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/43/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-vh",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "50vh",
+      "index": 44,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/44/b.png",
+        "complete": true,
+        "naturalWidth": 75,
+        "naturalHeight": 37,
+        "width": 75,
+        "height": 38,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/44/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "sizes-zero",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "0",
+      "index": 45,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/45/a.png",
+        "complete": true,
+        "naturalWidth": 0,
+        "naturalHeight": 0,
+        "width": 0,
+        "height": 0,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/45/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-negative",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "-1px, 200px",
+      "index": 46,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/46/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/46/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-calc-negative",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "calc(-1px), 200px",
+      "index": 47,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/47/a.png",
+        "complete": true,
+        "naturalWidth": 0,
+        "naturalHeight": 0,
+        "width": 0,
+        "height": 0,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/47/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-percent",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "50%, 200px",
+      "index": 48,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/48/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/48/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-zero-percent",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "calc(200px + 0%), 100vw",
+      "index": 49,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/49/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/49/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "sizes-invalid-tail",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "(width >= 600px) 200px junk, 100vw",
+      "index": 50,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/50/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/50/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "sizes-type-invalid",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "screen 200px, 100vw",
+      "index": 51,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/51/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/51/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "sizes-comment",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "(width >= 600px)/**/ 200px,100vw",
+      "index": 52,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/52/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/52/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "sizes-eager-auto",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": "auto, 200px",
+      "index": 53,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/53/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 300,
+        "height": 150,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/53/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "sizes-missing",
+      "group": "sizes",
+      "srcset": "a.png 200w, b.png 800w",
+      "src": null,
+      "density": 1,
+      "sizes": null,
+      "index": 54,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/54/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/54/"
+      },
+      "selected": "b.png"
+    }
+  ],
+  "pictureCases": [
+    {
+      "id": "picture-before",
+      "group": "picture",
+      "html": "<picture><source srcset=\"a.png\"><img id=\"image\" src=\"b.png\"></picture>",
+      "density": 1,
+      "index": 55,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/55/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/55/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "picture-after",
+      "group": "picture",
+      "html": "<picture><img id=\"image\" src=\"b.png\"><source srcset=\"a.png\"></picture>",
+      "density": 1,
+      "index": 56,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/56/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/56/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "picture-first",
+      "group": "picture",
+      "html": "<picture><source srcset=\"a.png\"><source srcset=\"b.png\"><img id=\"image\" src=\"c.png\"></picture>",
+      "density": 1,
+      "index": 57,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/57/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/57/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "picture-empty",
+      "group": "picture",
+      "html": "<picture><source srcset=\"\"><source srcset=\"b.png\"><img id=\"image\" src=\"c.png\"></picture>",
+      "density": 1,
+      "index": 58,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/58/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/58/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "picture-media-height",
+      "group": "picture",
+      "html": "<picture><source media=\"(height >= 500px)\" srcset=\"a.png\"><img id=\"image\" src=\"b.png\"></picture>",
+      "density": 1,
+      "index": 59,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/59/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/59/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "picture-media-height-miss",
+      "group": "picture",
+      "html": "<picture><source media=\"(height < 500px)\" srcset=\"a.png\"><img id=\"image\" src=\"b.png\"></picture>",
+      "density": 1,
+      "index": 60,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/60/b.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/60/"
+      },
+      "selected": "b.png"
+    },
+    {
+      "id": "picture-resolution",
+      "group": "picture",
+      "html": "<picture><source media=\"(resolution >= 2dppx)\" srcset=\"a.png 2x\"><img id=\"image\" src=\"b.png\"></picture>",
+      "density": 2,
+      "index": 61,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/61/a.png",
+        "complete": true,
+        "naturalWidth": 100,
+        "naturalHeight": 50,
+        "width": 100,
+        "height": 50,
+        "dpr": 2,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/61/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "picture-other-img",
+      "group": "picture",
+      "html": "<picture><source srcset=\"a.png\"><img src=\"other.png\"><source srcset=\"b.png\"><img id=\"image\" src=\"c.png\"></picture>",
+      "density": 1,
+      "index": 62,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/62/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 200,
+        "height": 100,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/62/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "picture-source-dimensions",
+      "group": "picture",
+      "html": "<picture><source srcset=\"a.png\" width=\"90\" height=\"80\"><img id=\"image\" src=\"b.png\" width=\"60\" height=\"30\"></picture>",
+      "density": 1,
+      "index": 63,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/63/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 90,
+        "height": 80,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/63/"
+      },
+      "selected": "a.png"
+    },
+    {
+      "id": "picture-source-width-only",
+      "group": "picture",
+      "html": "<picture><source srcset=\"a.png\" width=\"90\"><img id=\"image\" src=\"b.png\" width=\"60\" height=\"30\"></picture>",
+      "density": 1,
+      "index": 64,
+      "raw": {
+        "currentSrc": "http://127.0.0.1:60592/64/a.png",
+        "complete": true,
+        "naturalWidth": 200,
+        "naturalHeight": 100,
+        "width": 90,
+        "height": 45,
+        "dpr": 1,
+        "viewport": [
+          800,
+          600
+        ],
+        "baseURI": "http://127.0.0.1:60592/64/"
+      },
+      "selected": "a.png"
+    }
+  ]
+}

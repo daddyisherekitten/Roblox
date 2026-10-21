@@ -1,0 +1,325 @@
+{
+  "snapshot": "function snapshot(){function rule(r){let v={type:r.type};for(let k of ['name','layerName','supportsText','href','namespaceURI','prefix'])if(k in r)v[k]=r[k];if('media' in r)v.media=r.media.mediaText;if('cssRules' in r)v.children=Array.from(r.cssRules,rule);return v;}return Array.from(document.getElementById('style').sheet.cssRules,rule);}",
+  "fixtures": [
+    {
+      "name": "escaped grouping",
+      "css": "@\\6d edia (min-width:1px){#probe{color:rgb(1,2,3)}} @\\73 upports (display:block){#probe{height:27px}}",
+      "expected": "[{\"type\":4,\"media\":\"(min-width: 1px)\",\"children\":[{\"type\":1,\"children\":[]}]},{\"type\":12,\"children\":[{\"type\":1,\"children\":[]}]}]"
+    },
+    {
+      "name": "comment boundary",
+      "css": "@media/**/(min-width:1px){#probe{color:rgb(4,5,6)}} @mediafoo (min-width:1px){#probe{height:99px}}",
+      "expected": "[{\"type\":4,\"media\":\"(min-width: 1px)\",\"children\":[{\"type\":1,\"children\":[]}]}]"
+    },
+    {
+      "name": "Unicode layer",
+      "css": "@\\6c ayer café, \\62 ase; @layer café{#probe{color:red}} @layer base{#probe{color:blue}}",
+      "expected": "[{\"type\":0},{\"type\":0,\"name\":\"café\",\"children\":[{\"type\":1,\"children\":[]}]},{\"type\":0,\"name\":\"base\",\"children\":[{\"type\":1,\"children\":[]}]}]"
+    },
+    {
+      "name": "escaped layer delimiter",
+      "css": "@layer a\\.b, a.b; @layer a\\.b{#probe{color:red}} @layer a.b{#probe{color:blue}}",
+      "expected": "[{\"type\":0},{\"type\":0,\"name\":\"a\\\\.b\",\"children\":[{\"type\":1,\"children\":[]}]},{\"type\":0,\"name\":\"a.b\",\"children\":[{\"type\":1,\"children\":[]}]}]"
+    },
+    {
+      "name": "escaped namespace",
+      "css": "@\\6e amespace s\\76 g u\\72 l(\"http://www.w3.org/2000/svg\"); @namespace \"https://example.test/\\66 oo\"; svg|text{color:red}",
+      "expected": "[{\"type\":10,\"namespaceURI\":\"http://www.w3.org/2000/svg\",\"prefix\":\"svg\"},{\"type\":10,\"namespaceURI\":\"https://example.test/foo\",\"prefix\":\"\"},{\"type\":1,\"children\":[]}]"
+    },
+    {
+      "name": "plain import",
+      "css": "@import \"data:text/css,%23probe%7Bcolor:red%7D\";",
+      "expected": "[{\"type\":3,\"layerName\":null,\"supportsText\":null,\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"\"}]"
+    },
+    {
+      "name": "escaped import",
+      "css": "@\\69 mport u\\72 l(\"data:text/css,%23probe%7Bcolor:red%7D\") l\\61 yer(café) s\\75 pports(display: block) screen;",
+      "expected": "[{\"type\":3,\"layerName\":\"café\",\"supportsText\":\"display: block\",\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"screen\"}]"
+    },
+    {
+      "name": "anonymous layer import",
+      "css": "@import \"data:text/css,%23probe%7Bcolor:red%7D\" layer supports(display: block) screen;",
+      "expected": "[{\"type\":3,\"layerName\":\"\",\"supportsText\":\"display: block\",\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"screen\"}]"
+    },
+    {
+      "name": "continued string",
+      "css": "@import \"data:text/css,%23probe%7Bcolor:\\\nred%7D\";",
+      "expected": "[{\"type\":3,\"layerName\":null,\"supportsText\":null,\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"\"}]"
+    },
+    {
+      "name": "invalid empty layer",
+      "css": "@import \"data:text/css,a\" layer(); #probe{color:blue}",
+      "expected": "[{\"type\":3,\"layerName\":null,\"supportsText\":null,\"href\":\"data:text/css,a\",\"media\":\"layer()\"},{\"type\":1,\"children\":[]}]"
+    },
+    {
+      "name": "invalid newline string",
+      "css": "@import \"data:text/css,a\nb\"; #probe{color:blue}",
+      "expected": "[]"
+    },
+    {
+      "name": "layer statement before import",
+      "css": "@layer base; @import \"data:text/css,%23probe%7Bcolor:red%7D\" layer(base);",
+      "expected": "[{\"type\":0},{\"type\":3,\"layerName\":\"base\",\"supportsText\":null,\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"\"}]"
+    },
+    {
+      "name": "misplaced import",
+      "css": "@namespace \"http://www.w3.org/1999/xhtml\"; @import \"data:text/css,a\"; #probe{color:blue}",
+      "expected": "[{\"type\":10,\"namespaceURI\":\"http://www.w3.org/1999/xhtml\",\"prefix\":\"\"},{\"type\":1,\"children\":[]}]"
+    },
+    {
+      "name": "unknown before import",
+      "css": "@unknown; @import \"data:text/css,%23probe%7Bcolor:red%7D\";",
+      "expected": "[{\"type\":3,\"layerName\":null,\"supportsText\":null,\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"\"}]"
+    },
+    {
+      "name": "unknown block before import",
+      "css": "@unknown {p{color:blue}} @import \"data:text/css,%23probe%7Bcolor:red%7D\";",
+      "expected": "[{\"type\":3,\"layerName\":null,\"supportsText\":null,\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"\"}]"
+    },
+    {
+      "name": "invalid selector before import",
+      "css": ". {color:blue} @import \"data:text/css,%23probe%7Bcolor:red%7D\";",
+      "expected": "[{\"type\":3,\"layerName\":null,\"supportsText\":null,\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"\"}]"
+    },
+    {
+      "name": "invalid layer before import",
+      "css": "@layer a b {p{color:blue}} @import \"data:text/css,%23probe%7Bcolor:red%7D\";",
+      "expected": "[{\"type\":3,\"layerName\":null,\"supportsText\":null,\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"\"}]"
+    },
+    {
+      "name": "invalid supports before import",
+      "css": "@supports nonsense {p{color:blue}} @import \"data:text/css,%23probe%7Bcolor:red%7D\";",
+      "expected": "[{\"type\":3,\"layerName\":null,\"supportsText\":null,\"href\":\"data:text/css,%23probe%7Bcolor:red%7D\",\"media\":\"\"}]"
+    },
+    {
+      "name": "empty import",
+      "css": "@import ; #probe{color:blue}",
+      "expected": "[{\"type\":1,\"children\":[]}]"
+    }
+  ],
+  "mutationFixtures": [
+    {
+      "name": "index before syntax",
+      "css": "",
+      "source": "try{s.insertRule('nonsense',1)}catch(e){record(e.name)}",
+      "expected": [
+        "IndexSizeError",
+        ""
+      ]
+    },
+    {
+      "name": "constructed import index",
+      "css": "",
+      "source": "try{new CSSStyleSheet().insertRule('@import \"a.css\";',1)}catch(e){record(e.name)}",
+      "expected": [
+        "IndexSizeError",
+        ""
+      ]
+    },
+    {
+      "name": "import after style",
+      "css": "p{}",
+      "source": "try{s.insertRule('@import \"a.css\";',1)}catch(e){record(e.name)}",
+      "expected": [
+        "HierarchyRequestError",
+        "1"
+      ]
+    },
+    {
+      "name": "style before import",
+      "css": "@import \"a.css\";",
+      "source": "try{s.insertRule('p{}',0)}catch(e){record(e.name)}",
+      "expected": [
+        "HierarchyRequestError",
+        "3"
+      ]
+    },
+    {
+      "name": "import before layer statement",
+      "css": "@layer first;",
+      "source": "record(s.insertRule('@import \"a.css\";',0))",
+      "expected": [
+        "0",
+        "3,0"
+      ]
+    },
+    {
+      "name": "import after layer statement",
+      "css": "@layer first;",
+      "source": "record(s.insertRule('@import \"a.css\";',1))",
+      "expected": [
+        "uncaught HierarchyRequestError",
+        "0"
+      ],
+      "standardExpected": [
+        "1",
+        "0,3"
+      ],
+      "difference": "CSS Cascade 5 permits import rules between layer statements; Chromium insertRule applies its older strict prelude ordering here."
+    },
+    {
+      "name": "layer statement before import",
+      "css": "@import \"a.css\";",
+      "source": "record(s.insertRule('@layer first;',0))",
+      "expected": [
+        "0",
+        "0,3"
+      ]
+    },
+    {
+      "name": "layer block before import",
+      "css": "@import \"a.css\";",
+      "source": "try{s.insertRule('@layer first{}',0)}catch(e){record(e.name)}",
+      "expected": [
+        "HierarchyRequestError",
+        "3"
+      ]
+    },
+    {
+      "name": "import after namespace",
+      "css": "@namespace svg \"http://www.w3.org/2000/svg\";",
+      "source": "try{s.insertRule('@import \"a.css\";',1)}catch(e){record(e.name)}",
+      "expected": [
+        "HierarchyRequestError",
+        "10"
+      ]
+    },
+    {
+      "name": "namespace before import",
+      "css": "@import \"a.css\";",
+      "source": "try{s.insertRule('@namespace svg \"http://www.w3.org/2000/svg\";',0)}catch(e){record(e.name)}",
+      "expected": [
+        "InvalidStateError",
+        "3"
+      ],
+      "standardExpected": [
+        "HierarchyRequestError",
+        "3"
+      ],
+      "difference": "CSSOM first checks CSS rule ordering, which requires imports before namespaces and namespaces before body rules; Chromium reports InvalidStateError for this ordering violation."
+    },
+    {
+      "name": "namespace after import",
+      "css": "@import \"a.css\";",
+      "source": "record(s.insertRule('@namespace svg \"http://www.w3.org/2000/svg\";',1))",
+      "expected": [
+        "1",
+        "3,10"
+      ]
+    },
+    {
+      "name": "namespace before style",
+      "css": "p{}",
+      "source": "try{s.insertRule('@namespace svg \"http://www.w3.org/2000/svg\";',0)}catch(e){record(e.name)}",
+      "expected": [
+        "InvalidStateError",
+        "1"
+      ]
+    },
+    {
+      "name": "namespace after style",
+      "css": "p{}",
+      "source": "try{s.insertRule('@namespace svg \"http://www.w3.org/2000/svg\";',1)}catch(e){record(e.name)}",
+      "expected": [
+        "InvalidStateError",
+        "1"
+      ],
+      "standardExpected": [
+        "HierarchyRequestError",
+        "1"
+      ],
+      "difference": "CSSOM first checks CSS rule ordering, which requires imports before namespaces and namespaces before body rules; Chromium reports InvalidStateError for this ordering violation."
+    },
+    {
+      "name": "style before namespace",
+      "css": "@namespace svg \"http://www.w3.org/2000/svg\";",
+      "source": "try{s.insertRule('p{}',0)}catch(e){record(e.name)}",
+      "expected": [
+        "HierarchyRequestError",
+        "10"
+      ]
+    },
+    {
+      "name": "delete namespace with style",
+      "css": "@namespace svg \"http://www.w3.org/2000/svg\"; svg|text{}",
+      "source": "try{s.deleteRule(0);record('deleted')}catch(e){record(e.name)}",
+      "expected": [
+        "InvalidStateError",
+        "10,1"
+      ]
+    },
+    {
+      "name": "delete namespace alone",
+      "css": "@namespace svg \"http://www.w3.org/2000/svg\";",
+      "source": "const r=s.cssRules[0];s.deleteRule(0);record(r.parentStyleSheet===null)",
+      "expected": [
+        "true",
+        ""
+      ]
+    },
+    {
+      "name": "insert selector with namespace",
+      "css": "@namespace svg \"http://www.w3.org/2000/svg\";",
+      "source": "s.insertRule('svg|text{}',1);record(s.cssRules[1].selectorText)",
+      "expected": [
+        "svg|text",
+        "10,1"
+      ]
+    },
+    {
+      "name": "selector setter with namespace",
+      "css": "@namespace svg \"http://www.w3.org/2000/svg\"; svg|text{}",
+      "source": "s.cssRules[1].selectorText='svg|rect';record(s.cssRules[1].selectorText);s.cssRules[1].selectorText='bad|circle';record(s.cssRules[1].selectorText)",
+      "expected": [
+        "svg|rect",
+        "svg|rect",
+        "10,1"
+      ]
+    },
+    {
+      "name": "namespace inherited in grouping",
+      "css": "@namespace svg \"http://www.w3.org/2000/svg\"; @media all{}",
+      "source": "s.cssRules[1].insertRule('svg|text{}',0);record(s.cssRules[1].cssRules[0].selectorText)",
+      "expected": [
+        "svg|text",
+        "10,4"
+      ]
+    },
+    {
+      "name": "bad namespace rejected",
+      "css": "@namespace svg \"http://www.w3.org/2000/svg\";",
+      "source": "try{s.insertRule('bad|text{}',1)}catch(e){record(e.name)}",
+      "expected": [
+        "SyntaxError",
+        "10"
+      ]
+    },
+    {
+      "name": "nested import rejected",
+      "css": "@media all{}",
+      "source": "try{s.cssRules[0].insertRule('@import \"a.css\";',0)}catch(e){record(e.name)}",
+      "expected": [
+        "HierarchyRequestError",
+        "4"
+      ]
+    },
+    {
+      "name": "layer before namespace",
+      "css": "@namespace svg \"http://www.w3.org/2000/svg\";",
+      "source": "try{record(s.insertRule('@layer first;',0))}catch(e){record(e.name)}",
+      "expected": [
+        "0",
+        "0,10"
+      ]
+    },
+    {
+      "name": "namespace beside layer",
+      "css": "@layer first;",
+      "source": "try{record(s.insertRule('@namespace svg \"http://www.w3.org/2000/svg\";',1))}catch(e){record(e.name)}",
+      "expected": [
+        "InvalidStateError",
+        "0"
+      ]
+    }
+  ]
+}

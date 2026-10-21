@@ -1,0 +1,112 @@
+{
+  "children": [
+    {
+      "height": 100.703125,
+      "tag": "P",
+      "text": "Ein zusammenhängender Absatz fließt durch mehrere Spalten. Die verfügbare Breite bestimmt, ob zwei oder drei Spalten sinnvoll nebeneinander stehen. Zeilen dürfen an Wortgrenzen umbrechen und bleiben am Spaltenrand lesbar.",
+      "top": 0,
+      "width": 311.5,
+      "words": {
+        " ": 3.625,
+        "Absatz": 39.765625,
+        "Breite": 33.96875,
+        "Die": 19.515625,
+        "Ein": 18.796875,
+        "Spalten": 44.109375,
+        "Spalten.": 47.703125,
+        "Spaltenrand": 70.125,
+        "Wortgrenzen": 74.203125,
+        "Zeilen": 35.421875,
+        "am": 18.0625,
+        "an": 14.46875,
+        "bestimmt,": 56.34375,
+        "bleiben": 41.953125,
+        "drei": 21.6875,
+        "durch": 32.53125,
+        "dürfen": 36.875,
+        "fließt": 28.1875,
+        "lesbar.": 38.3125,
+        "mehrere": 48.421875,
+        "nebeneinander": 86.765625,
+        "ob": 14.46875,
+        "oder": 26.03125,
+        "sinnvoll": 43.375,
+        "stehen.": 42.65625,
+        "umbrechen": 65.0625,
+        "und": 21.703125,
+        "verfügbare": 62.171875,
+        "zusammenhängender": 125.765625,
+        "zwei": 26.03125
+      }
+    },
+    {
+      "height": 33.5,
+      "tag": "H4",
+      "text": "Spaltenübergreifender Titel",
+      "top": 122.703125,
+      "width": 311.5,
+      "words": {
+        " ": 3.625,
+        "Spaltenübergreifender": 138.703125,
+        "Titel": 26.5
+      }
+    },
+    {
+      "height": 80.5625,
+      "tag": "P",
+      "text": "Dieser zweite Absatz prüft den Neustart nach einem überspannenden Element. Unterschiedliche Wortlängen und die sichtbare Spaltentrennlinie machen Abweichungen direkt erkennbar.",
+      "top": 164.203125,
+      "width": 311.5,
+      "words": {
+        " ": 3.625,
+        "Absatz": 39.765625,
+        "Abweichungen": 85.296875,
+        "Dieser": 37.578125,
+        "Element.": 51.328125,
+        "Neustart": 49.15625,
+        "Spaltentrennlinie": 96.859375,
+        "Unterschiedliche": 96.109375,
+        "Wortlängen": 66.25,
+        "den": 21.703125,
+        "die": 17.359375,
+        "direkt": 31.8125,
+        "einem": 35.421875,
+        "erkennbar.": 61.453125,
+        "machen": 46.25,
+        "nach": 28.203125,
+        "prüft": 26.03125,
+        "sichtbare": 52.765625,
+        "und": 21.703125,
+        "zweite": 36.859375,
+        "überspannenden": 97.59375
+      }
+    },
+    {
+      "height": 60.421875,
+      "tag": "P",
+      "text": "Ein abschließender Abschnitt füllt den unteren Teil und erlaubt den Vergleich von Ausgleich, Umbruch und Fragmentierung.",
+      "top": 258.765625,
+      "width": 311.5,
+      "words": {
+        " ": 3.625,
+        "Abschnitt": 53.484375,
+        "Ausgleich,": 59.984375,
+        "Ein": 18.796875,
+        "Fragmentierung.": 95.390625,
+        "Teil": 19.515625,
+        "Umbruch": 52.75,
+        "Vergleich": 53.5,
+        "abschließender": 88.90625,
+        "den": 21.703125,
+        "erlaubt": 39.765625,
+        "füllt": 20.234375,
+        "und": 21.703125,
+        "unteren": 44.109375,
+        "von": 20.96875
+      }
+    }
+  ],
+  "height": 333.1875,
+  "source": "http://localhost:8000/html-css-stress-type/index.html",
+  "width": 311.5
+}

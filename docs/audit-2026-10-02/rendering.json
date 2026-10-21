@@ -1,0 +1,2156 @@
+[
+  {
+    "path": "src/HTMLEngine/Controls/GaugeView.luau",
+    "responsibility": "Progress/meter native GUI and indeterminate animation.",
+    "interfaces": [
+      "View.create(item: any,factory: any)",
+      "View.paint(item: any)",
+      "View.bind(item: any,services: any?)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Retained gauge state, native tween and lifecycle connections.",
+    "resourceOwner": "Control cleanup cancels/destroys animation.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 46,
+    "baselineSHA256": "6a540785ec5ebda8378a4986ef1ab89c5c96f917fb79e268c4e9cc64eebec649",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Controls/NumberView.luau",
+    "responsibility": "Number-input stepper arrows, paint and direction hit test.",
+    "interfaces": [
+      "View.create(item: any,factory: any)",
+      "View.paint(item: any)",
+      "View.direction(c: any,position: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Input/CursorController.luau"
+    ],
+    "mutableState": "Retained arrow GUI and item fields.",
+    "resourceOwner": "Control GUI tree.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 50,
+    "baselineSHA256": "892c078ee3197f6ebf96ed19fc11b1ef404ef58e351c2361c6e587936217754a",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Controls/RangeView.luau",
+    "responsibility": "Range input track/thumb geometry, paint and pointer mapping.",
+    "interfaces": [
+      "View.create(item: any,factory: any)",
+      "View.geometry(item: any)",
+      "View.paint(item: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/RangeValue.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/Input/RangeDrag.luau"
+    ],
+    "mutableState": "Retained range GUI and item fields.",
+    "resourceOwner": "Control GUI tree.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 55,
+    "baselineSHA256": "fa4d1f1d1e4db5ec87d6903cb3b7d08b4518ee9a03e9187a8efbbc3a5785cd82",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Controls/SelectOptions.luau",
+    "responsibility": "Select option/group rows, initial selection and selected-content mirror.",
+    "interfaces": [
+      "Options.read(node: any)",
+      "Options.assignMultiple(c: any, selected: any)",
+      "Options.assign(c: any, index: number)",
+      "Options.next(c: any, index: number, step: number)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/DOM/Node.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Input/SelectPopup.luau"
+    ],
+    "mutableState": "Control option metadata and mutable selection.",
+    "resourceOwner": "Control/form model.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 74,
+    "baselineSHA256": "91b3f32eee117c7eeb05c3a82499284cbc0a825b24db5912f8141219450b611b",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Controls/State.luau",
+    "responsibility": "Initial control state, fieldset disabled inheritance and value metadata.",
+    "interfaces": [
+      "State.disabled(node: any)",
+      "State.create(node: any)",
+      "State.limit(value: string, maximum: number?)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/ColorValue.luau",
+      "src/HTMLEngine/Controls/Defaults.luau",
+      "src/HTMLEngine/Controls/GaugeValue.luau",
+      "src/HTMLEngine/Controls/NumberValue.luau",
+      "src/HTMLEngine/Controls/RangeValue.luau",
+      "src/HTMLEngine/Controls/SelectOptions.luau",
+      "src/HTMLEngine/Controls/TextValue.luau",
+      "src/HTMLEngine/DOM/Node.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/Controls/ValidationMessage.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Control/form state, copied attribute data.",
+    "resourceOwner": "Form model/render tree.",
+    "tests": [
+      "tests/Fieldsets.luau",
+      "tests/Forms.luau",
+      "tests/Gauges.luau",
+      "tests/Number.luau",
+      "tests/Optgroups.luau",
+      "tests/RadioDot.luau",
+      "tests/Select.luau",
+      "tests/Stylesheet.luau",
+      "tests/SVGRuntimePerformance.luau",
+      "tests/TextValidation.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 96,
+    "baselineSHA256": "a64f1696a3ce965a9f2a5550ee5b1fdcd54094c1b00a1145eb992b7e90376758",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Controls/TextareaView.luau",
+    "responsibility": "Textarea resize grip creation, paint and hit testing.",
+    "interfaces": [
+      "View.create(item: any,factory: any,cache: any?)",
+      "View.paint(item: any)",
+      "View.hit(c: any,position: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/ResizeGrip.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/Input/CursorController.luau",
+      "src/HTMLEngine/Input/TextareaResize.luau"
+    ],
+    "mutableState": "Retained resize grip GUI.",
+    "resourceOwner": "Control GUI tree/cache owned by page.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 31,
+    "baselineSHA256": "6c0a5c1d1ac739e9a09c51ad9cc924082a22574a9d29e202d2fbfeb41bf3259b",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Controls/View.luau",
+    "responsibility": "Form-control creation, calibrated metrics, measurement, painting and caret placement.",
+    "interfaces": [
+      "View.metrics(item: any)",
+      "View.paint(item: any)",
+      "View.create(item: any, host: any, factory: any, face: any, radioDot: any?, resizeGrip: any?)",
+      "View.measure(item: any, measure: any, alive: any)",
+      "View.canKeepLayout(item: any, measure: any, alive: any)",
+      "View.align(item: any)",
+      "View.arrange(item: any)",
+      "View.updateCaret(item: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/ColorValue.luau",
+      "src/HTMLEngine/Controls/GaugeView.luau",
+      "src/HTMLEngine/Controls/NumberView.luau",
+      "src/HTMLEngine/Controls/RangeView.luau",
+      "src/HTMLEngine/Controls/SelectOptions.luau",
+      "src/HTMLEngine/Controls/TextValue.luau",
+      "src/HTMLEngine/Controls/TextareaView.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Layout/FontMetrics.luau",
+      "src/HTMLEngine/Rendering/OutlineBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Layout/BlockImage.luau",
+      "src/HTMLEngine/Layout/WordLayout.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau",
+      "src/HTMLEngine/Rendering/ReplacedElement.luau"
+    ],
+    "mutableState": "Control/GUI state, per-control measure key and placed output metrics.",
+    "resourceOwner": "Render item GUI; form model owns control state.",
+    "tests": [
+      "tests/Gauges.luau",
+      "tests/PageLifecycle.luau",
+      "tests/RadioDot.luau",
+      "tests/SVGScript.luau",
+      "tests/TextareaResize.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 362,
+    "baselineSHA256": "ced4e288123b3182f397555371f8b60c55ce32542d5ab4570862559d10ee51fc",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Input/MediaRuntime.luau",
+    "responsibility": "Native sound/video lifecycle, events, controls, playback and fullscreen.",
+    "interfaces": [
+      "MediaRuntime.start(page: any,tree: any,events: any,diagnostic: any,services: any?)",
+      "api:Resolve()",
+      "api:Hover()",
+      "api:Begin()",
+      "api:Move()",
+      "api:Finish()",
+      "api:Cancel()",
+      "api:Activate()",
+      "api:Key()",
+      "api:ExitFullscreen()",
+      "api:Destroy()",
+      "api:Resolve(node: any)",
+      "api:Hover(item: any?,position: any?)",
+      "api:Begin(item: any,position: any)",
+      "api:Move(position: any)",
+      "api:Finish(item: any,position: any)",
+      "api:Activate(item: any,position: any)",
+      "api:Key(item: any,keyCode: any)",
+      "api:Play(id: string)",
+      "api:Pause(id: string)",
+      "api:SetRate(id: string,rate: number)",
+      "api:SetVolume(id: string,volume: number)",
+      "api:SetTextTrack(id: string,selector: any)",
+      "api:EnterFullscreen(id: string)",
+      "api:State(id: string)",
+      "page:PlayMedia(id: string)",
+      "page:PauseMedia(id: string)",
+      "page:SetMediaPlaybackRate(id: string,rate: number)",
+      "page:SetMediaVolume(id: string,volume: number)",
+      "page:SetMediaTextTrack(id: string,selector: any)",
+      "page:EnterMediaFullscreen(id: string)",
+      "page:ExitMediaFullscreen()",
+      "page:GetMediaState(id: string)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/DOM/Node.luau",
+      "src/HTMLEngine/HTML/WebVTT.luau",
+      "src/HTMLEngine/Rendering/MediaBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Native resources, event signals, playback state, periodic heartbeat and fullscreen overlay.",
+    "resourceOwner": "Page cleanup destroys/disconnects native resources.",
+    "tests": [
+      "tests/MediaRuntime.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [
+      "R4"
+    ],
+    "baselineLines": 491,
+    "baselineSHA256": "b97028751ae0870e45ae051fc5b41a5913bc7adab8c3f81be9cbbc769e0bff0b",
+    "findingStatus": {
+      "R4": "implemented retained writes and unchanged-hover skip; paused-heartbeat suspension remains a separate candidate"
+    }
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BackgroundImages.luau",
+    "responsibility": "Retained background image/gradient layers, positions, repeats and fixed backgrounds.",
+    "interfaces": [
+      "BackgroundImages.new(diagnostic: (string)",
+      "renderer:Draw(box: any,width: number,height: number)",
+      "renderer:RefreshFixed()",
+      "renderer:Destroy()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/LengthExpression.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BackgroundPixels.luau",
+      "src/HTMLEngine/Rendering/CornerRadii.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Weak box entries, fixed box registry, gradient LRU (64 / 4M pixels), owned images/connections.",
+    "resourceOwner": "Per renderer; Destroy releases images and signals.",
+    "tests": [
+      "tests/Backgrounds.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 311,
+    "baselineSHA256": "14e7517bff04386d439fa5a702908255aecc52f6dc856c3944ec6e6ed2cc3d4d",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BackgroundPixels.luau",
+    "responsibility": "Background geometry, gradient sampling and RGBA blend rasterization.",
+    "interfaces": [
+      "Pixels.plan(width: number, height: number)",
+      "Pixels.sampler(width: number,height: number,gradient: any,style: any)",
+      "Pixels.render(width: number,height: number,gradient: any,style: any,plan: any)",
+      "Pixels.renderBlend(width: number,height: number,images: {any},modes: {string},style: any,plan: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/LengthExpression.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/BackgroundImages.luau",
+      "src/HTMLEngine/Rendering/BorderImagePixels.luau",
+      "src/HTMLEngine/Rendering/MaskPixels.luau",
+      "src/HTMLEngine/Rendering/PerspectivePixels.luau"
+    ],
+    "mutableState": "Temporary plans and pixel buffers.",
+    "resourceOwner": "Caller owns returned buffers.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 168,
+    "baselineSHA256": "7b0331ffb2b5d29ef3e0dd3d9fda88dfa0f27706786f5ceffec6eaa06d232118",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderBox.luau",
+    "responsibility": "Native and patterned border GUI creation, arrangement and paint.",
+    "interfaces": [
+      "BorderBox.create(style: any, gui: any, factory: any, corners: any?)",
+      "BorderBox.arrange(edges: any, style: any, width: number, height: number, gap: any?)",
+      "BorderBox.repaint(edges: any?, style: any, gui: any, width: number, height: number, gap: any?)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BorderPaint.luau",
+      "src/HTMLEngine/Rendering/BorderPattern.luau",
+      "src/HTMLEngine/Rendering/PaintLayer.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/BlockLayout.luau",
+      "src/HTMLEngine/Layout/InlineFragments.luau",
+      "src/HTMLEngine/Rendering/IFrameBox.luau",
+      "src/HTMLEngine/Rendering/ImageBox.luau",
+      "src/HTMLEngine/Rendering/MediaBox.luau",
+      "src/HTMLEngine/Rendering/OutlineBox.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Weak native-stroke lookup; retained GUI edges.",
+    "resourceOwner": "Render box GUI tree.",
+    "tests": [
+      "tests/BorderCorners.luau",
+      "tests/Columns.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 152,
+    "baselineSHA256": "3951265312e38db1df42b46342c919a64494ef189ecf67c9168ba247b35b32b6",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderCornerPixels.luau",
+    "responsibility": "Corner atlas geometry and pixel generation.",
+    "interfaces": [
+      "Pixels.plan(style: any, width: number, height: number)",
+      "Pixels.render(style: any, plan: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BorderPaint.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/BorderCorners.luau"
+    ],
+    "mutableState": "Per-call plans/buffers.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 70,
+    "baselineSHA256": "28d420fcd0055b13079833ac2b4338bce87d021cf2fd4328b1b7b4cff5962e17",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderCorners.luau",
+    "responsibility": "Cached corner atlases and rounded border masks.",
+    "interfaces": [
+      "Corners.new(diagnostic: any, createImage: any?)",
+      "renderer:Draw(edges: any, style: any, width: number, height: number)",
+      "renderer:CanUseNative(style: any)",
+      "renderer:DrawRadius(box: any,style: any,width: number,height: number)",
+      "renderer:Destroy()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BorderCornerPixels.luau",
+      "src/HTMLEngine/Rendering/BorderPaint.luau",
+      "src/HTMLEngine/Rendering/CornerRadii.luau",
+      "src/HTMLEngine/Rendering/PaintLayer.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "64 atlases / 262144 pixels; rounded image budget; weak box lookup plus explicit owned-image list.",
+    "resourceOwner": "Per renderer, Destroy releases owned entries.",
+    "tests": [
+      "tests/RenderingLifetimes.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "RenderingLifetimes passed three isolated runs and coordinator full rerun unchanged; exact-once ownership verified; native FPS unmeasured.",
+    "findings": [
+      "R9"
+    ],
+    "baselineLines": 239,
+    "baselineSHA256": "afb515768ac31cc0317009001e6fe54ec3c3c0b3a8569f92fda627d3ece28213",
+    "findingStatus": {
+      "R9": "unchanged test passed three isolated runs and full-suite rerun; baseline failure intermittent, no owner leak established"
+    }
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderImagePixels.luau",
+    "responsibility": "Nine-slice border image geometry and rasterization.",
+    "interfaces": [
+      "Pixels.width(value,border,basis,auto)",
+      "Pixels.render(definition,width,height,widths,style,plan)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/LengthExpression.luau",
+      "src/HTMLEngine/Rendering/BackgroundPixels.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/MaskPixels.luau",
+      "src/HTMLEngine/Rendering/VisualEffects.luau"
+    ],
+    "mutableState": "Per-call geometry and RGBA buffers.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 68,
+    "baselineSHA256": "66bd4b09cfa4ed2df41482171fffd5df1dbe1fb515dfea0b84227be07117d8f0",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderPaint.luau",
+    "responsibility": "Edge colors, relief tones and border-pattern selection.",
+    "interfaces": [
+      "BorderPaint.patterned(kind: string)",
+      "BorderPaint.edge(style: any, side: number, band: number?)"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/BorderBox.luau",
+      "src/HTMLEngine/Rendering/BorderCornerPixels.luau",
+      "src/HTMLEngine/Rendering/BorderCorners.luau",
+      "src/HTMLEngine/Rendering/TableBorderPaint.luau"
+    ],
+    "mutableState": "None retained.",
+    "resourceOwner": "Pure helper.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 34,
+    "baselineSHA256": "e2eea2bde61271154c9a8d4fb97d77d7c28bd423d6d7dcf811a8e824a478b717",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderPattern.luau",
+    "responsibility": "Native GUI segment pools for dotted/dashed borders.",
+    "interfaces": [
+      "Pattern.draw(pool: any,factory: any,host: any,kind: string,length: number,thickness: number,horizontal: boolean,offset: number,colorFor: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/ColumnLayout.luau",
+      "src/HTMLEngine/Rendering/BorderBox.luau"
+    ],
+    "mutableState": "Per-edge GUI pools and pattern metadata.",
+    "resourceOwner": "Render box GUI tree.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 34,
+    "baselineSHA256": "3ca91da294b689bac3543ec226b948e52fe6c3932131c9baf749ff181e1aa49f",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderShapePixels.luau",
+    "responsibility": "Geometric border shapes and RGBA coverage.",
+    "interfaces": [
+      "Shapes.geometry(style: any,width: number,height: number)",
+      "Shapes.render(style: any,g: any,plan: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/LengthExpression.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/GroupOpacity.luau",
+      "src/HTMLEngine/Rendering/VisualEffects.luau"
+    ],
+    "mutableState": "Per-call geometry and buffers.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 40,
+    "baselineSHA256": "0dd6e5d53a6e788f2a4a7654901ed7bc325f543fc7e7323e29161c20f6a5c398",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BoxTransform.luau",
+    "responsibility": "CSS transforms, motion paths, pivots, paint pose and scene transforms.",
+    "interfaces": [
+      "BoxTransform.target(box: any)",
+      "BoxTransform.origin(box: any)",
+      "BoxTransform.pathDistance(box: any,value: any)",
+      "BoxTransform.resolve(box: any,operations: any,distanceOverride: any?)",
+      "BoxTransform.paintPosition(box: any,x: number,y: number)",
+      "BoxTransform.paint(box: any,x: number,y: number,rotation: number,scale: number,originX: number?,originY: number?)",
+      "BoxTransform.position(box: any,x: number,y: number,normalX: number,normalY: number)",
+      "BoxTransform.paint3D(box: any,operations: any?,distance: any?)",
+      "BoxTransform.apply(box: any,inheritedPerspective: any?,preserveBase: boolean?)",
+      "BoxTransform.applyTree(box: any,inheritedPerspective: any?,alive: (()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/LengthExpression.luau",
+      "src/HTMLEngine/CSS/Matrix4.luau",
+      "src/HTMLEngine/CSS/MotionPath.luau",
+      "src/HTMLEngine/CSS/Transform2D.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Layout/DirtyLayout.luau",
+      "src/HTMLEngine/Rendering/ClipRect.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/BlockLayout.luau",
+      "src/HTMLEngine/Rendering/HoverFrameDebug.luau",
+      "src/HTMLEngine/Rendering/HTMLAnimations.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau",
+      "src/HTMLEngine/Rendering/ViewportLayer.luau"
+    ],
+    "mutableState": "Box TransformBase and retained paint/scale state.",
+    "resourceOwner": "Render boxes and factory-created modifiers.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 223,
+    "baselineSHA256": "bd8971ab8773b1a3663dd9876a5094c6a87a2b9749559523f029ba05215c8a1e",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasBackground.luau",
+    "responsibility": "Propagate document html/body background onto viewport canvas.",
+    "interfaces": [
+      "CanvasBackground.resolve(document: any, nodeStyles: any)",
+      "CanvasBackground.apply(root: any, document: any, nodeStyles: any?)"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Root GUI color/transparency and source attribute.",
+    "resourceOwner": "Page root.",
+    "tests": [
+      "tests/CanvasBackground.luau",
+      "tests/RenderingAudit.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "RenderingAudit isolated current-source regressions pass; parent targeted RenderingAudit/Canvas2D/CanvasBackground/MediaRuntime/Media/RenderingLifetimes integration passed before final bitmap-reference cleanup assertion. Final combined verification owned by coordinator; native FPS unmeasured.",
+    "findings": [
+      "R3"
+    ],
+    "baselineLines": 49,
+    "baselineSHA256": "3658ef34fbdbd9288b0917e2816dc13b85029b537be0379bb22a307d914f7046",
+    "findingStatus": {
+      "R3": "implemented: restore original root surface after propagation ends"
+    }
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasPNG.luau",
+    "responsibility": "PNG/zlib storage encoding, base64 and data URLs.",
+    "interfaces": [
+      "CanvasPNG.encode(width: number,height: number,pixels: buffer,checkpoint: any?)",
+      "CanvasPNG.base64(source: buffer,checkpoint: any?)",
+      "CanvasPNG.dataURL(width: number,height: number,pixels: buffer,checkpoint: any?)"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/CanvasSurface.luau"
+    ],
+    "mutableState": "Immutable CRC lookup; per-call encoded buffers.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 81,
+    "baselineSHA256": "43f5f2f518bcea5d5c6f73de45f1919f3552d8be05849b7ed247a277645483d1",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasRuntime.luau",
+    "responsibility": "Canvas-scoped JavaScript VM, source images, 2D/WebGL/WebGPU and requestAnimationFrame.",
+    "interfaces": [
+      "CanvasRuntime.start(page,tree,diagnostic,services,workBudgetMS)",
+      "runtime:Destroy()",
+      "page:GetCanvasContext(id)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/CanvasSurface.luau",
+      "src/HTMLEngine/Rendering/CanvasWebGL.luau",
+      "src/HTMLEngine/Rendering/CanvasWebGPU.luau",
+      "src/HTMLEngine/Rendering/WorkBudget.luau",
+      "src/HTMLEngine/SVG/ScriptVM.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "VM, bitmap surfaces, EditableImages, wrappers, RAF queues, callbacks, source cache.",
+    "resourceOwner": "Page cleanup registered before allocation; partial initialization rolls back (R2 fixed).",
+    "tests": [
+      "tests/Canvas2D.luau",
+      "tests/RenderingAudit.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "RenderingAudit isolated current-source regressions pass; parent targeted RenderingAudit/Canvas2D/CanvasBackground/MediaRuntime/Media/RenderingLifetimes integration passed before final bitmap-reference cleanup assertion. Final combined verification owned by coordinator; native FPS unmeasured.",
+    "findings": [
+      "R2",
+      "R8"
+    ],
+    "baselineLines": 167,
+    "baselineSHA256": "5b1eed521fbed46529988e23d2c3df1a5add4e13e6a3ed7fb361aa633346ef62",
+    "findingStatus": {
+      "R2": "implemented: early cleanup, startup rollback, yield/callback alive guards and released bitmap references",
+      "R8": "open lazy source-image decode semantics"
+    }
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasSurface.luau",
+    "responsibility": "CPU Canvas 2D paths, text, pixels, drawing state and compositing.",
+    "interfaces": [
+      "CanvasSurface.new(width: number, height: number,checkpoint: any?)",
+      "result:AddColorStop(offset,color)",
+      "self:Set(key,value)",
+      "self:Get(key)",
+      "self:FillRect(x,y,w,h)",
+      "self:ClearRect(x,y,w,h)",
+      "self:StrokeRect(x,y,w,h)",
+      "self:DrawImage(value,a,b,c,d,e,f,g,h)",
+      "self:BeginPath()",
+      "self:MoveTo(x,y)",
+      "self:LineTo(x,y)",
+      "self:ClosePath()",
+      "self:Rect(x,y,w,h)",
+      "self:QuadraticCurveTo(cpx,cpy,x,y)",
+      "self:BezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y)",
+      "self:Arc(cx,cy,radius,startAngle,endAngle,counterclockwise)",
+      "self:Ellipse(cx,cy,rx,ry,rotation,startAngle,endAngle,counterclockwise)",
+      "self:ArcTo(x1,y1,x2,y2,radius)",
+      "self:Stroke()",
+      "self:Fill(rule)",
+      "self:FillText(value,x,y,maxWidth)",
+      "self:StrokeText(value,x,y,maxWidth)",
+      "self:MeasureText(value)",
+      "self:Clip(rule)",
+      "self:CreateLinearGradient(x0,y0,x1,y1)",
+      "self:CreateRadialGradient(x0,y0,r0,x1,y1,r1)",
+      "self:CreatePattern(value,repetition)",
+      "self:CreateImageData(value,height)",
+      "self:GetImageData(sx,sy,sw,sh)",
+      "self:PutImageData(value,dx,dy,dirtyX,dirtyY,dirtyWidth,dirtyHeight)",
+      "self:EncodePNG()",
+      "self:ToDataURL()",
+      "self:Translate(x,y)",
+      "self:Scale(x,y)",
+      "self:Rotate(angle)",
+      "self:Transform(a,b,c,d,e,f)",
+      "self:SetTransform(a,b,c,d,e,f)",
+      "self:ResetTransform()",
+      "self:Save()",
+      "self:Restore()",
+      "self:MarkDirty(x0,y0,x1,y1)",
+      "self:TakeDirtyRegion()",
+      "self:TakeDirty()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/Color.luau",
+      "src/HTMLEngine/Rendering/CanvasPNG.luau",
+      "src/HTMLEngine/SVG/Path.luau",
+      "src/HTMLEngine/SVG/TextFont/init.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/CanvasRuntime.luau",
+      "src/HTMLEngine/Rendering/PerspectivePixels.luau"
+    ],
+    "mutableState": "RGBA surface, path/state stack; bounded paint and weak glyph caches.",
+    "resourceOwner": "Runtime or raster consumer owns surface.",
+    "tests": [
+      "tests/Canvas2D.luau",
+      "tests/RenderingAudit.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "RenderingAudit isolated current-source regressions pass; parent targeted RenderingAudit/Canvas2D/CanvasBackground/MediaRuntime/Media/RenderingLifetimes integration passed before final bitmap-reference cleanup assertion. Final combined verification owned by coordinator; native FPS unmeasured.",
+    "findings": [
+      "R1"
+    ],
+    "baselineLines": 582,
+    "baselineSHA256": "2ed4fd43a92e9957b65bab30d05bae14de66f251a33075b2b1c3df076570d8df",
+    "findingStatus": {
+      "R1": "implemented: constant-time angle normalization, 65536-point limit and checkpoints; explicit compatibility limit documented"
+    }
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasTriangle.luau",
+    "responsibility": "Triangle clear/raster operations for CPU GPU subsets.",
+    "interfaces": [
+      "Triangle.clear(surface: any,r: number,g: number,b: number,a: number)",
+      "Triangle.draw(surface: any,a: any,b: any,c: any)"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/CanvasWebGL.luau",
+      "src/HTMLEngine/Rendering/CanvasWebGPU.luau"
+    ],
+    "mutableState": "Mutates passed surface and dirty region.",
+    "resourceOwner": "Caller owns surface.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 30,
+    "baselineSHA256": "ad5a09a2548ed403be352d451917db48b1d71f1a4e588796ae4e89193cc64dfd",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasWebGL.luau",
+    "responsibility": "Canvas CPU WebGL subset state, buffers and draw calls.",
+    "interfaces": [
+      "WebGL.new(surface: any,version: number)",
+      "methods.createShader(args)",
+      "methods.shaderSource(args)",
+      "methods.compileShader(args)",
+      "methods.getShaderParameter(args)",
+      "methods.getShaderInfoLog(args)",
+      "methods.deleteShader(args)",
+      "methods.createProgram()",
+      "methods.attachShader(args)",
+      "methods.linkProgram(args)",
+      "methods.getProgramParameter(args)",
+      "methods.getProgramInfoLog(args)",
+      "methods.useProgram(args)",
+      "methods.deleteProgram(args)",
+      "methods.getAttribLocation(args)",
+      "methods.createBuffer()",
+      "methods.bindBuffer(args)",
+      "methods.bufferData(args)",
+      "methods.deleteBuffer(args)",
+      "methods.enableVertexAttribArray(args)",
+      "methods.disableVertexAttribArray(args)",
+      "methods.vertexAttribPointer(args)",
+      "methods.clearColor(args)",
+      "methods.clear(args)",
+      "methods.viewport(args)",
+      "methods.drawArrays(args)",
+      "methods.drawElements(args)",
+      "methods.getParameter(args)",
+      "methods.getContextAttributes()",
+      "methods.getError()",
+      "methods.flush()",
+      "methods.finish()",
+      "methods.enable()",
+      "methods.disable()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/CanvasTriangle.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/CanvasRuntime.luau"
+    ],
+    "mutableState": "Per-context buffer/shader/program objects and GL state.",
+    "resourceOwner": "Canvas runtime context.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 61,
+    "baselineSHA256": "6091ebf8d2d928b46b09ffff23c9d6558b667466a527bbf1bd84f489024a2aff",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasWebGPU.luau",
+    "responsibility": "Canvas CPU WebGPU subset devices, queues, passes and contexts.",
+    "interfaces": [
+      "WebGPU.new(defer: any,undefined: any)",
+      "deviceMethods.createShaderModule(args)",
+      "deviceMethods.createBuffer(args)",
+      "deviceMethods.createRenderPipeline(args)",
+      "deviceMethods.createRenderPipelineAsync(args)",
+      "deviceMethods.createCommandEncoder()",
+      "encoderMethods.beginRenderPass(args)",
+      "methods.setPipeline(callArgs)",
+      "methods.setVertexBuffer(callArgs)",
+      "methods.draw(callArgs)",
+      "methods.endPass()",
+      "encoderMethods.finish()",
+      "manager:CreateContext(surface)",
+      "methods.configure(args)",
+      "methods.unconfigure()",
+      "methods.getCurrentTexture()",
+      "manager:Destroy()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/CanvasTriangle.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/CanvasRuntime.luau"
+    ],
+    "mutableState": "Manager devices/buffers/context state and deferred callbacks.",
+    "resourceOwner": "Canvas runtime; explicit Destroy.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 77,
+    "baselineSHA256": "c1a664abacc434cbdccf75a0a37749e636f043b4478a289ac55bbcf969d78614",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ClipRect.luau",
+    "responsibility": "Legacy rectangular clip viewport placement and bounds.",
+    "interfaces": [
+      "Clip.bounds(style,width,height)",
+      "Clip.apply(box,x,y)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/LengthExpression.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/BoxTransform.luau"
+    ],
+    "mutableState": "Retained box clip viewport/group.",
+    "resourceOwner": "Render box GUI tree.",
+    "tests": [
+      "tests/VisualCompleteness.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 31,
+    "baselineSHA256": "f89a497274c7ed840af16283a479438b109ad1d2cbe0cfb36e10f554c6ea1458",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CornerRadii.luau",
+    "responsibility": "Resolve corner radii and apply native uniform corner.",
+    "interfaces": [
+      "CornerRadii.native(style: any)",
+      "CornerRadii.resolve(style: any,width: number,height: number)",
+      "CornerRadii.apply(corner: any,resolved: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/LengthExpression.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/BlockLayout.luau",
+      "src/HTMLEngine/Rendering/BackgroundImages.luau",
+      "src/HTMLEngine/Rendering/BorderCorners.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Writes retained UICorner state.",
+    "resourceOwner": "Render box modifiers.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 41,
+    "baselineSHA256": "14148fdc3cc2b731856eca946ca5689da097d6786ab271f63e5e6bc7c7d5d5f1",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/DecorationPatterns.luau",
+    "responsibility": "Cache native image patterns for text decorations.",
+    "interfaces": [
+      "DecorationPatterns.new(diagnostic: (string)",
+      "cache:Get(style: string, thickness: number)",
+      "cache:Destroy()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/DecorationPixels.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "16 entries / 65536 pixels; owned EditableImages.",
+    "resourceOwner": "Per-page cache Destroy.",
+    "tests": [
+      "tests/DecorationStyles.luau",
+      "tests/PageLifecycle.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 50,
+    "baselineSHA256": "e3362fb249760e71ec00595b056a9d800ae0c2afef54a5e13bb4ccf69b1822d6",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/DecorationPixels.luau",
+    "responsibility": "Decoration pattern dimensions and pixels.",
+    "interfaces": [
+      "Pixels.size(style: string, thickness: number)",
+      "Pixels.render(style: string, thickness: number)"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/DecorationPatterns.luau"
+    ],
+    "mutableState": "Per-call buffers.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 45,
+    "baselineSHA256": "bc3342a62a4040e34dc23c5bf623b99c95971276563bbc9d08b69604504e8dc8",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/Dialog.luau",
+    "responsibility": "Dialog DOM state, modal/nonmodal behavior and top layer.",
+    "interfaces": [
+      "Dialog.host(root: any, factory: any)",
+      "Dialog.attachViewport(tree: any, root: any)",
+      "Dialog.destroyHost(tree: any)",
+      "Dialog.new(node: any, box: any, host: any)",
+      "Dialog.apply(tree: any)",
+      "Dialog.surfaceAt(tree: any, objects: any)",
+      "Dialog.open(tree: any, target: any, modal: boolean?)",
+      "Dialog.close(tree: any, target: any, returnValue: any?)",
+      "Dialog.command(tree: any, control: any)",
+      "Dialog.closeForm(tree: any, form: any, submitter: any?)",
+      "Dialog.cancel(tree: any)",
+      "Dialog.dismissAt(tree: any, position: any)",
+      "Dialog.hidden(tree: any, node: any)",
+      "Dialog.allows(tree: any, node: any)",
+      "Dialog.arrange(tree: any, root: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/DOM/Node.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Open/order/return-value state and retained top-layer GUI.",
+    "resourceOwner": "Page input/render tree and cleanup.",
+    "tests": [
+      "tests/Dialog.luau",
+      "tests/Forms.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 187,
+    "baselineSHA256": "c37838ad957f2abb23d791a9e6c7ddcd1bd512d3d605fc604b699354f21ee228",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/Disclosure.luau",
+    "responsibility": "Details/summary open state, marker and fallback view.",
+    "interfaces": [
+      "Disclosure.new(node: any)",
+      "Disclosure.marker(d: any, parent: any, factory: any, icons: any?)",
+      "marker:SetOpen(open: boolean)",
+      "marker:Repaint(style: any)",
+      "marker:Arrange(style: any,baseline: number,left: number)",
+      "Disclosure.apply(d: any)",
+      "Disclosure.toggle(d: any)",
+      "Disclosure.hidden(node: any, disclosures: any?)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/DOM/Node.luau",
+      "src/HTMLEngine/Layout/FontMetrics.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "DOM/control disclosure state, marker GUI.",
+    "resourceOwner": "Render tree.",
+    "tests": [
+      "tests/Details.luau",
+      "tests/DisclosureIcons.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 100,
+    "baselineSHA256": "662c8366838eef70e7bfd87b035c2f7e180bd80fb64edddb4cba56b2fbc3d85c",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/DisclosureIcons.luau",
+    "responsibility": "Lazily create disclosure triangle mask textures.",
+    "interfaces": [
+      "Icons.new(diagnostic: any, createImage: any?)",
+      "cache:Get(open: boolean)",
+      "cache:Destroy()"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "At most two owned masks per page.",
+    "resourceOwner": "Per-page cache Destroy.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 66,
+    "baselineSHA256": "42737e4fd82d02bce48561ca029121bf138be8667182c98ba3a55947056b7fb2",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/FontPreload.luau",
+    "responsibility": "Preload font faces using existing labels and alive-guarded completion.",
+    "interfaces": [
+      "FontPreload.start(targets: { any }?, alive: ()"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Per-page target list and deferred task.",
+    "resourceOwner": "Page lifecycle; no extra measurement labels.",
+    "tests": [
+      "tests/PageLifecycle.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 25,
+    "baselineSHA256": "89c807330095b88a42217ec77d23c68ea373f9c62e27c933f6fc0a69550b9d0e",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/GroupOpacity.luau",
+    "responsibility": "Group-opacity CanvasGroup setup, paint, bounds and members.",
+    "interfaces": [
+      "GroupOpacity.untrack(item: any)",
+      "GroupOpacity.create(parent: any, opacity: number, factory: any)",
+      "GroupOpacity.paint(group: any,style: any,opacity: number?)",
+      "GroupOpacity.opacity(group: any,style: any)",
+      "GroupOpacity.image(item: any)",
+      "GroupOpacity.arrange(box: any, alive: (()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/Filter.luau",
+      "src/HTMLEngine/Layout/DirtyLayout.luau",
+      "src/HTMLEngine/Rendering/BorderShapePixels.luau",
+      "src/HTMLEngine/Rendering/MaskGradient.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/BlockImage.luau",
+      "src/HTMLEngine/Layout/BlockLayout.luau",
+      "src/HTMLEngine/Layout/OverflowWrap.luau",
+      "src/HTMLEngine/Rendering/HTMLAnimations.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/ImageBox.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Group children/members and layout-dirty bounds cache.",
+    "resourceOwner": "Render tree GUI ownership.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 154,
+    "baselineSHA256": "04655d634bc6650385ee390a1b23fb2ae704c76e0cca2864142b494ff5e9c800",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/GuiFactory.luau",
+    "responsibility": "Central instance/modifier creation, property validation and safe failure cleanup.",
+    "interfaces": [
+      "GuiFactory.modifier(className: string, parent: Instance, properties: {[string]: any})",
+      "GuiFactory.create(className: string, parent: Instance?, properties: { [string]: any })"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/init.luau",
+      "src/HTMLEngine/Input/SelectPopup.luau",
+      "src/HTMLEngine/Input/TextSelection.luau",
+      "src/HTMLEngine/Input/ValidationPopup.luau",
+      "src/HTMLEngine/Layout/TextDecoration.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "No retained module state.",
+    "resourceOwner": "Caller owns successfully created instances.",
+    "tests": [
+      "tests/FontReport.luau",
+      "tests/PageLifecycle.luau",
+      "tests/Smoke.luau",
+      "tests/SVGEmbeddingController.luau",
+      "tests/SVGIntegrationController.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 58,
+    "baselineSHA256": "dd05d44121c1248ab2195f712efee5675f151474207099fc4ffc3c54a5c4a6c4",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/HoverFrameDebug.luau",
+    "responsibility": "Opt-in frame-position diagnostics for animation targets.",
+    "interfaces": [
+      "Debug.start(page: any, tree: any, enabled: boolean?, services: any?)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/BoxTransform.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Post-animation hook and tracked targets when enabled.",
+    "resourceOwner": "Page cleanup removes hook; disabled by default.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 53,
+    "baselineSHA256": "94b59672240d86c4b0ed6b628f4d556d6460f95d4db30ba9134a32a56893088f",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/HTMLAnimations.luau",
+    "responsibility": "CSS transitions/keyframes, easing, motion paths and scroll-driven progress.",
+    "interfaces": [
+      "HTMLAnimations.start(page: any,tree: any,diagnostic: (string)",
+      "self:BeforeStyleChange(nodes: any,trigger: string?)",
+      "self:StyleChanged(nodes: any)",
+      "self:AfterLayout()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/Matrix4.luau",
+      "src/HTMLEngine/CSS/Motion.luau",
+      "src/HTMLEngine/CSS/Transform2D.luau",
+      "src/HTMLEngine/Rendering/BoxTransform.luau",
+      "src/HTMLEngine/Rendering/GroupOpacity.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Snapshots, transitions, keyframe items, cooperative queue, active frame connection.",
+    "resourceOwner": "Page cleanup disconnects and clears timeline.",
+    "tests": [
+      "tests/Animations.luau",
+      "tests/CombinationStates.luau",
+      "tests/HoverTests.luau",
+      "tests/HoverTransitionGeometry.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [
+      "R6"
+    ],
+    "baselineLines": 416,
+    "baselineSHA256": "b3c256a7fd41d6f09f249746ee8203ec16912726330bf683902b6b235a5bb8da",
+    "findingStatus": {
+      "R6": "open broader animation list/scroll-sampling behavior"
+    }
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/IFrameBox.luau",
+    "responsibility": "Iframe replaced element GUI, fallback/status and sizing.",
+    "interfaces": [
+      "IFrameBox.create(item: any, parent: any, factory: any, corners: any?)",
+      "IFrameBox.status(item: any, message: string?)",
+      "IFrameBox.arrange(item: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BorderBox.luau",
+      "src/HTMLEngine/Rendering/OutlineBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/BlockImage.luau",
+      "src/HTMLEngine/Layout/WordLayout.luau",
+      "src/HTMLEngine/Rendering/IFrameRuntime.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau",
+      "src/HTMLEngine/Rendering/ReplacedElement.luau"
+    ],
+    "mutableState": "Retained child-page host/status GUI.",
+    "resourceOwner": "Render tree GUI ownership.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 65,
+    "baselineSHA256": "e7f270662fd5c97b93665fa2d34df135e2cd24c290048195bae4e2e63e1c311f",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/IFrameRuntime.luau",
+    "responsibility": "Nested iframe page loading, navigation, depth cap and cleanup.",
+    "interfaces": [
+      "IFrameRuntime.start(page: any, tree: any, diagnostic: any, mount: any, options: any?)",
+      "api:Reload(item: any)",
+      "api:Destroy()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/IFrameBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Child pages, load generations and navigation callbacks.",
+    "resourceOwner": "Page cleanup destroys child pages.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 148,
+    "baselineSHA256": "a67079cb382be512af43a15729605b4772d6fbbf17a62e989dfaeaec533295da",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageBlur.luau",
+    "responsibility": "Async source/result blur and drop-shadow image processing.",
+    "interfaces": [
+      "Blur.start(items: any,alive: any,diagnostic: any,changed: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/ImageBlurPixels.luau",
+      "src/HTMLEngine/Rendering/ImageBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/ImageFilters.luau"
+    ],
+    "mutableState": "Jobs, 16 entries / 4M pixels, UpdateBlur hook.",
+    "resourceOwner": "Page cleanup cancels jobs/releases images.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 124,
+    "baselineSHA256": "8b21c177af065be030b246c963fe8bd71f1cacb295a41a9ae0f2e6e5cf617d3d",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageBlurPixels.luau",
+    "responsibility": "Blur/drop-shadow raster plans and premultiplied RGBA channel passes.",
+    "interfaces": [
+      "Blur.plan(item: any, sourceSize: any)",
+      "Blur.render(source: buffer,sourceSize: any,filter: any,plan: any,check: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Layout/ImageFit.luau",
+      "src/HTMLEngine/Rendering/ImageFilterPixels.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/ImageBlur.luau"
+    ],
+    "mutableState": "Temporary pixel/channel buffers; cooperative checkpoint callbacks.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 174,
+    "baselineSHA256": "443e6885f519027a049efbcedb58ac0180486b926e611b7da350e7b1d8afa209",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageBox.luau",
+    "responsibility": "Image/canvas replaced GUI, clipping, native rounds, status and layout.",
+    "interfaces": [
+      "ImageBox.updateFallback(item: any)",
+      "ImageBox.create(item: any, parent: any, factory: any, font: any, name: string, corners: any?)",
+      "ImageBox.arrange(item: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Layout/ImageFit.luau",
+      "src/HTMLEngine/Rendering/BorderBox.luau",
+      "src/HTMLEngine/Rendering/GroupOpacity.luau",
+      "src/HTMLEngine/Rendering/OutlineBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/BlockImage.luau",
+      "src/HTMLEngine/Layout/WordLayout.luau",
+      "src/HTMLEngine/Rendering/ImageBlur.luau",
+      "src/HTMLEngine/Rendering/ImageFilters.luau",
+      "src/HTMLEngine/Rendering/ImageLoad.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau",
+      "src/HTMLEngine/Rendering/ReplacedElement.luau"
+    ],
+    "mutableState": "Retained item GUI and image crop state.",
+    "resourceOwner": "Render tree GUI ownership.",
+    "tests": [
+      "tests/BorderSides.luau",
+      "tests/ImageBlur.luau",
+      "tests/RemainingVisuals.luau",
+      "tests/Visibility.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 147,
+    "baselineSHA256": "49f68e0c172da31cd53e8f8cd1f2c623b18a3affb789a150da7b4dafdad64129",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageDimensions.luau",
+    "responsibility": "Demanded image intrinsic-size metadata resolution.",
+    "interfaces": [
+      "ImageDimensions.start(items: {any}?,alive: ()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/ImageFit.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Source groups, pending jobs and RequestDimensions hook.",
+    "resourceOwner": "Temporary EditableImages destroyed; page cleanup cancels consumers.",
+    "tests": [
+      "tests/PageLifecycle.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 58,
+    "baselineSHA256": "18bf57a14a94b816a7ce17652f99a85ea77d1f5db84be0cc3cc302fe2eb46739",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageFilterPixels.luau",
+    "responsibility": "CSS color filter matrix composition and pixel application.",
+    "interfaces": [
+      "Pixels.render(source: buffer, filter: any, checkpoint: (()"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/ImageBlurPixels.luau",
+      "src/HTMLEngine/Rendering/ImageFilters.luau",
+      "src/HTMLEngine/Rendering/SVGImages.luau"
+    ],
+    "mutableState": "Per-call matrix/buffer with checkpoints.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 46,
+    "baselineSHA256": "afad7cd85537dc8203e1d923c2d21f40e26d7da448e5a644d3a904e88c18d5c8",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageFilters.luau",
+    "responsibility": "Initial async image filter variants and ImageBlur integration.",
+    "interfaces": [
+      "ImageFilters.start(items: any, alive: ()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/ImageBlur.luau",
+      "src/HTMLEngine/Rendering/ImageBox.luau",
+      "src/HTMLEngine/Rendering/ImageFilterPixels.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Jobs/cache (16 entries / 8M pixels), blur child runtime.",
+    "resourceOwner": "Page cleanup releases outputs and child runtime.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 101,
+    "baselineSHA256": "3c382837cc9acf140aecf64db0ced281351df6380277f8d79dbb1f189111fadb",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageLoad.luau",
+    "responsibility": "Preload existing image labels and update loading/fallback states.",
+    "interfaces": [
+      "ImageLoad.start(items: {any}?, alive: ()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/ImageBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "IsLoaded connections, target groups, alive guard.",
+    "resourceOwner": "Page cleanup disconnects; native GUI owns content references.",
+    "tests": [
+      "tests/ImageDimensions.luau",
+      "tests/PageLifecycle.luau",
+      "tests/Visibility.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 62,
+    "baselineSHA256": "c742174dc2c2475c7dcc98de82f19c79dfdc396a5bd2842e0a4887e1c3fa244c",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageSources.luau",
+    "responsibility": "Snapshot asset maps and parse inline/file SVG image sources.",
+    "interfaces": [
+      "ImageSources.newResolver(assets: any?)",
+      "ImageSources.newSVGResolver(sources: any?)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/HTML/Parser.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/init.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Snapshot maps; fresh parsed SVG documents.",
+    "resourceOwner": "Caller owns document snapshots.",
+    "tests": [
+      "tests/Media.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 61,
+    "baselineSHA256": "d03f097b049352ee0fd5e6d13368e573734072abbd02ce7d7d4ba00bc0282add",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/InsetShadowPixels.luau",
+    "responsibility": "Inset shadow plans and RGBA coverage.",
+    "interfaces": [
+      "Pixels.plan(width: number, height: number, style: any)",
+      "Pixels.render(width: number, height: number, style: any, plan: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/Color.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/InsetShadows.luau"
+    ],
+    "mutableState": "Per-call buffers.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 135,
+    "baselineSHA256": "ae1843dbac297560e9c5b0370035e947a1a8e65f0d31107ccb5b6ce0c8d36b7c",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/InsetShadows.luau",
+    "responsibility": "Retained inset shadow texture cache and draw placement.",
+    "interfaces": [
+      "InsetShadows.new(diagnostic: (string)",
+      "renderer:Draw(box: any, width: number, height: number)",
+      "renderer:Destroy()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/InsetShadowPixels.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "32 entries / 4M pixels plus owned EditableImages.",
+    "resourceOwner": "Per-renderer Destroy.",
+    "tests": [
+      "tests/PageLifecycle.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 65,
+    "baselineSHA256": "c6a71eff04891309df9aecf7ca0bb8c6a25e19f083fdba8fa9820618963cd6c4",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/MaskGradient.luau",
+    "responsibility": "Native mask gradient sequences and mask-box placement.",
+    "interfaces": [
+      "MaskGradient.sequence(style: any,mask: any,width: number?,height: number?)",
+      "MaskGradient.update(box: any,width: number,height: number)",
+      "MaskGradient.clip(box: any,bounds: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/BlockLayout.luau",
+      "src/HTMLEngine/Rendering/GroupOpacity.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Retained UIGradient and related GUI settings.",
+    "resourceOwner": "Render box GUI tree.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 92,
+    "baselineSHA256": "5f1d2027bb6d4fd6a3f25b351137614de9512b4f8007bb4f310a1e65c0844e9d",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/MaskPixels.luau",
+    "responsibility": "Gradient and border-mask alpha sampling/compositing.",
+    "interfaces": [
+      "MaskPixels.compose(source: number,destination: number,operator: string)",
+      "MaskPixels.render(style: any,definition: any,width: number,height: number,plan: any)",
+      "MaskPixels.apply(pixels: buffer,alpha: buffer)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/LengthExpression.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BackgroundPixels.luau",
+      "src/HTMLEngine/Rendering/BorderImagePixels.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/VisualEffects.luau"
+    ],
+    "mutableState": "Per-call plans and buffers.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [
+      "tests/HTMLMasks.luau",
+      "tests/VisualCompleteness.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 106,
+    "baselineSHA256": "76f7988231c5488564bd289d4508ce7110b287529720c7a8dbe5c5df6df457b1",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/MediaBox.luau",
+    "responsibility": "Audio/video controls creation, geometry, paint, hit actions and fullscreen layout.",
+    "interfaces": [
+      "MediaBox.create(item: any, parent: any, factory: any, corners: any?)",
+      "MediaBox.paint(item: any)",
+      "MediaBox.arrange(item: any)",
+      "MediaBox.action(item: any, position: any)",
+      "MediaBox.dragValue(item: any, action: string, position: any)",
+      "MediaBox.fullscreen(item: any, width: number, height: number)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BorderBox.luau",
+      "src/HTMLEngine/Rendering/OutlineBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Input/MediaRuntime.luau",
+      "src/HTMLEngine/Layout/BlockImage.luau",
+      "src/HTMLEngine/Layout/WordLayout.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau",
+      "src/HTMLEngine/Rendering/ReplacedElement.luau"
+    ],
+    "mutableState": "Retained GUI and media item UI state.",
+    "resourceOwner": "Render tree; MediaRuntime owns playback resources.",
+    "tests": [
+      "tests/MediaRuntime.luau",
+      "tests/RenderingAudit.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "RenderingAudit isolated current-source regressions pass; parent targeted RenderingAudit/Canvas2D/CanvasBackground/MediaRuntime/Media/RenderingLifetimes integration passed before final bitmap-reference cleanup assertion. Final combined verification owned by coordinator; native FPS unmeasured.",
+    "findings": [
+      "R4"
+    ],
+    "baselineLines": 447,
+    "baselineSHA256": "a62b38a490dbe0402295f428e2fd03649eef8130ac5b5ddb3a757fc1911df7dc",
+    "findingStatus": {
+      "R4": "implemented retained writes and unchanged-hover skip; paused-heartbeat suspension remains a separate candidate"
+    }
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/MediaSources.luau",
+    "responsibility": "Media source/track resolution from immutable asset snapshots.",
+    "interfaces": [
+      "MediaSources.new(audio: any?, videos: any?, tracks: any?)",
+      "resolver:Asset(kind: string, source: string)",
+      "resolver:Track(source: string)",
+      "MediaSources.select(node: any, kind: string, resolver: any)",
+      "MediaSources.tracks(node: any, resolver: any)"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Copied source and text-track metadata.",
+    "resourceOwner": "Page/render item.",
+    "tests": [
+      "tests/Media.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 96,
+    "baselineSHA256": "ddda8b9e0188cbc037223665013254df629b4c4880018d3f519f5c9a260c9551",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/OutlineBox.luau",
+    "responsibility": "Retained outline GUI creation, paint and arrangement.",
+    "interfaces": [
+      "OutlineBox.create(style: any, parent: any, factory: any, corners: any?, dynamic: boolean?)",
+      "OutlineBox.update(box: any, style: any, factory: any, corners: any?)",
+      "OutlineBox.arrange(outline: any, width: number, height: number)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/BorderBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/Layout/BlockLayout.luau",
+      "src/HTMLEngine/Rendering/IFrameBox.luau",
+      "src/HTMLEngine/Rendering/ImageBox.luau",
+      "src/HTMLEngine/Rendering/MediaBox.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Outline GUI pool/settings.",
+    "resourceOwner": "Render box GUI tree.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 64,
+    "baselineSHA256": "5d99fccf4bf37d92e0c0f434d58228f34330a2b27049bce85b53a3e442c44d05",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/PaintLayer.luau",
+    "responsibility": "Mark decorative GUI for input pass-through.",
+    "interfaces": [
+      "PaintLayer.create(factory: any,class: string,parent: any,properties: any)"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/BorderBox.luau",
+      "src/HTMLEngine/Rendering/BorderCorners.luau",
+      "src/HTMLEngine/Rendering/TableBorderPaint.luau",
+      "src/HTMLEngine/Rendering/VisualEffects.luau"
+    ],
+    "mutableState": "GUI attributes only.",
+    "resourceOwner": "Render tree GUI ownership.",
+    "tests": [
+      "tests/Cursors.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 10,
+    "baselineSHA256": "27a6623129c455f9105aa164d4b05bc9ae8e8569285d83841e32709f206696c5",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/PerspectivePixels.luau",
+    "responsibility": "3D projected planes, CPU texture snapshots and depth compositing.",
+    "interfaces": [
+      "PerspectivePixels.project(width: number,height: number,matrix: any)",
+      "PerspectivePixels.bounds(planes: any)",
+      "PerspectivePixels.renderScene(planes: any,bounds: any,plan: any)",
+      "PerspectivePixels.scene(root: any)",
+      "PerspectivePixels.sceneKey(node: any)",
+      "PerspectivePixels.flat(box: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/Matrix4.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BackgroundPixels.luau",
+      "src/HTMLEngine/Rendering/CanvasSurface.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/VisualEffects.luau"
+    ],
+    "mutableState": "Weak box source cache, per-scene depth/RGBA buffers.",
+    "resourceOwner": "Caller owns result; weak cache currently lacks explicit byte accounting.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [
+      "R7"
+    ],
+    "baselineLines": 234,
+    "baselineSHA256": "25a998f840f87f9446a28bfb9d7e7ede9187930ec13101e0db541a4e7a84516f",
+    "findingStatus": {
+      "R7": "open perspective content invalidation and transient raster accounting"
+    }
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/Popover.luau",
+    "responsibility": "Popover state, auto/manual group closing and top-layer GUI.",
+    "interfaces": [
+      "Popover.host(root: any, factory: any)",
+      "Popover.attachViewport(tree: any, root: any)",
+      "Popover.destroyHost(tree: any)",
+      "Popover.new(node: any, box: any, host: any)",
+      "Popover.apply(tree: any)",
+      "Popover.show(tree: any, target: any, source: any?)",
+      "Popover.hide(tree: any, target: any)",
+      "Popover.command(tree: any, control: any)",
+      "Popover.cancel(tree: any)",
+      "Popover.dismissAt(tree: any, position: any, target: any?)",
+      "Popover.hidden(tree: any, node: any)",
+      "Popover.arrange(tree: any, root: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/DOM/Node.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Open order, invoker and retained top-layer states.",
+    "resourceOwner": "Page input/render tree.",
+    "tests": [
+      "tests/Popover.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 167,
+    "baselineSHA256": "e93e81fc627fc379985f705bd30329095573189b79b1838e9cb038f76c5895b8",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/RadioDot.luau",
+    "responsibility": "Calibrated radio-dot raster mask.",
+    "interfaces": [
+      "RadioDot.new(diagnostic: any, createImage: any?)",
+      "cache:Get()",
+      "cache:Destroy()"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "One lazily created image per page.",
+    "resourceOwner": "Per-page cache Destroy.",
+    "tests": [
+      "tests/PageLifecycle.luau",
+      "tests/RadioDot.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 62,
+    "baselineSHA256": "e36bdcdf8cb24f5f23cd7bdfed6afc38086b7d822612f611e06d57236f51996c",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ReplacedElement.luau",
+    "responsibility": "Stable derived-style refresh and repaint dispatch for replaced elements.",
+    "interfaces": [
+      "ReplacedElement.refreshStyle(box: any, sizing: any?)",
+      "ReplacedElement.paint(box: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/IFrameBox.luau",
+      "src/HTMLEngine/Rendering/ImageBox.luau",
+      "src/HTMLEngine/Rendering/MediaBox.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/BlockImage.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Item PaintOwner and derived mutable style.",
+    "resourceOwner": "Render box/item.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 54,
+    "baselineSHA256": "0940c01c3ac9fac4b0afcbb5bd7bf4dcee2cadbc7712b5d7b688089aa3d23c39",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ResizeGrip.luau",
+    "responsibility": "Calibrated textarea resize-grip mask.",
+    "interfaces": [
+      "Grip.new(diagnostic: any,createImage: any?)",
+      "cache:Get()",
+      "cache:Destroy()"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Controls/TextareaView.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "One lazily created image per page.",
+    "resourceOwner": "Per-page cache Destroy.",
+    "tests": [
+      "tests/HTMLPageDemo.luau",
+      "tests/TextareaResize.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 42,
+    "baselineSHA256": "ea6cbe4d35303b04124ffd50f615fa8dab1873bbdc2f4ee154312f5ad25d526f",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ShapeImages.luau",
+    "responsibility": "Async alpha masks for shape-outside images.",
+    "interfaces": [
+      "ShapeImages.start(page: any,tree: any,diagnostic: (string)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/ShapeImage.luau",
+      "src/HTMLEngine/Rendering/WorkBudget.luau",
+      "src/HTMLEngine/SVG/Embedded.luau",
+      "src/HTMLEngine/SVG/Raster.luau",
+      "src/HTMLEngine/SVG/Sizing.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "32 source / 8MB budget, four threshold variants, jobs and provider hooks.",
+    "resourceOwner": "Page cleanup cancels sources/hooks.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 111,
+    "baselineSHA256": "38b99dfae45f58cb51096eab73161b45caf62de30b9c5ed821ee60cccc8a010d",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/SVGImages.luau",
+    "responsibility": "Embedded SVG render queue, hover states, hit testing and prewarming.",
+    "interfaces": [
+      "SVGImages.start(page: any,tree: any,diagnostic: any,services: any?)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/ImageFilterPixels.luau",
+      "src/HTMLEngine/SVG/Embedded.luau",
+      "src/HTMLEngine/SVG/HitTest.luau",
+      "src/HTMLEngine/SVG/Raster.luau",
+      "src/HTMLEngine/SVG/RenderQueue.luau",
+      "src/HTMLEngine/SVG/Style.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Per-image states, queue/caches and page hooks.",
+    "resourceOwner": "Page cleanup disposes queue/rendered images/hooks.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [
+      "R5"
+    ],
+    "baselineLines": 158,
+    "baselineSHA256": "8f641acdad3f5bc0719a531a5d8fec35c11b4af8a9011436ee309bc33183d030",
+    "findingStatus": {
+      "R5": "open; coordinate with SVG auditor, do not claim performance repair"
+    }
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/TableBorderPaint.luau",
+    "responsibility": "Collapsed table border conflict cuts and GUI pools.",
+    "interfaces": [
+      "TableBorderPaint.create(box: any,factory: any,registry: any)",
+      "TableBorderPaint.arrange(box: any,widths: any,heights: any,left: number,top: number)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Layout/TableBorders.luau",
+      "src/HTMLEngine/Rendering/BorderPaint.luau",
+      "src/HTMLEngine/Rendering/PaintLayer.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/TableLayout.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Retained segment registry/pools.",
+    "resourceOwner": "Render table GUI tree.",
+    "tests": [
+      "tests/TableCollapse.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 138,
+    "baselineSHA256": "8db55df7c3105d6ab0e6268e229086170f3a27bea4ec7ccb69e0805b3e5818a5",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/TableColumnPaint.luau",
+    "responsibility": "Row/column/background paint and empty-cell visibility.",
+    "interfaces": [
+      "Paint.create(box: any,factory: any,registry: any)",
+      "Paint.arrange(cell: any, gridHeight: number?)",
+      "Paint.updateEmpty(cell: any)"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Layout/TableLayout.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Retained background GUI layers.",
+    "resourceOwner": "Render table GUI tree.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 60,
+    "baselineSHA256": "1657eb708f806694d31044be7e2b7700d3dbd3cbb9594cb3cd00250ca1dbdbb5",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/TextShadows.luau",
+    "responsibility": "Sharp duplicate text shadow labels without new measurements.",
+    "interfaces": [
+      "TextShadows.enabled(style: any)",
+      "TextShadows.create(item: any, create: any)",
+      "TextShadows.arrange(item: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/Color.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Layout/VerticalText.luau",
+      "src/HTMLEngine/Layout/WordLayout.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Retained per-run shadow labels.",
+    "resourceOwner": "Render tree GUI ownership.",
+    "tests": [
+      "tests/SimpleAdditions.luau",
+      "tests/TextShadows.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 53,
+    "baselineSHA256": "5d4400da23c121f4d12092b979554687b3231add27b6850b991d2d2f76e1b51e",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ViewportLayer.luau",
+    "responsibility": "Fixed/sticky viewport overlays and position refresh.",
+    "interfaces": [
+      "ViewportLayer.attach(tree: any,root: any,factory: any)",
+      "ViewportLayer.update(tree: any,root: any,changedScrollBox: any?)",
+      "ViewportLayer.destroy(tree: any)",
+      "ViewportLayer.start(page: any,tree: any,root: any,services: any?)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BoxTransform.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Sticky active frame connection, overlay nodes and layout samples.",
+    "resourceOwner": "Page cleanup removes overlay/connection.",
+    "tests": [
+      "tests/Animations.luau",
+      "tests/CombinationPainting.luau",
+      "tests/CombinationPositioning.luau",
+      "tests/Positioning.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 142,
+    "baselineSHA256": "d4dfc6e353424eb5ff22ee1bcd25a7dd5f2165c0bbbe5e4eaa6df82d233cb8d7",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/VisualEffectPixels.luau",
+    "responsibility": "Bounded effect raster plans and shape/gradient coverage.",
+    "interfaces": [
+      "Pixels.plan(width: number, height: number)",
+      "Pixels.renderClip(clip: any, width: number, height: number, outside: Color3, plan: any)",
+      "Pixels.renderBorder(definition: any, width: number, height: number, widths: {number}, plan: any)"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/LengthExpression.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/VisualEffects.luau"
+    ],
+    "mutableState": "Per-call plans and RGBA buffers.",
+    "resourceOwner": "Caller owns outputs.",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "Parent owns full baseline and integration suites; isolated rendering repros tracked in rendering.md. Native Roblox rendering/FPS remains unmeasured.",
+    "findings": [],
+    "baselineLines": 133,
+    "baselineSHA256": "e0aeaeb6650f08810511727d8152db0fd94fb45481819f666c6d3a0b71673873",
+    "findingStatus": {}
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/VisualEffects.luau",
+    "responsibility": "Mask/border-image/3D effect textures and retained slots.",
+    "interfaces": [
+      "VisualEffects.new(diagnostic: (string)",
+      "renderer:Draw(box: any, width: number, height: number)",
+      "renderer:DrawScene(box: any,node: any)",
+      "renderer:ClearScene(box: any)",
+      "renderer:DrawMask(box: any)",
+      "renderer:ClearMask(box: any)",
+      "renderer:Destroy()"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/BorderGeometry.luau",
+      "src/HTMLEngine/Rendering/BorderImagePixels.luau",
+      "src/HTMLEngine/Rendering/BorderShapePixels.luau",
+      "src/HTMLEngine/Rendering/MaskPixels.luau",
+      "src/HTMLEngine/Rendering/PaintLayer.luau",
+      "src/HTMLEngine/Rendering/PerspectivePixels.luau",
+      "src/HTMLEngine/Rendering/VisualEffectPixels.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "64 images / 2M pixels, weak lookup plus explicit owned slots.",
+    "resourceOwner": "Renderer Destroy releases images even after owner collection.",
+    "tests": [
+      "tests/CSSExpansion.luau",
+      "tests/HTMLMasks.luau",
+      "tests/RenderingLifetimes.luau",
+      "tests/ThreeDTransforms.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Implementation, direct require dependencies/callers and relevant lifetime/paint/async integration paths reviewed; test references are lexical mappings, not assertions of runtime coverage.",
+    "testStatus": "RenderingLifetimes passed three isolated runs and coordinator full rerun unchanged; exact-once ownership verified; native FPS unmeasured.",
+    "findings": [
+      "R7",
+      "R9"
+    ],
+    "baselineLines": 275,
+    "baselineSHA256": "58ab1d35b9ca755026e57ba008310314752408af81639b4692fc221eda4d6e67",
+    "findingStatus": {
+      "R7": "open perspective content invalidation and transient raster accounting",
+      "R9": "unchanged test passed three isolated runs and full-suite rerun; baseline failure intermittent, no owner leak established"
+    }
+  }
+]

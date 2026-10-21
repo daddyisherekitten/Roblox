@@ -1,0 +1,205 @@
+[
+  {
+    "name": "dialog defaults and closedBy reflection",
+    "values": [
+      "false||none",
+      "any|ANY",
+      "none",
+      "true|closerequest|true",
+      "false|done|none"
+    ],
+    "pass": true
+  },
+  {
+    "name": "same-mode idempotence and cross-mode exceptions",
+    "values": [
+      "InvalidStateError|true",
+      "InvalidStateError|true",
+      "true"
+    ],
+    "pass": true
+  },
+  {
+    "name": "cancelable opening and request-close cancellation",
+    "values": [
+      "false",
+      "true|",
+      "false|saved"
+    ],
+    "pass": true
+  },
+  {
+    "name": "dialog event order and task coalescing",
+    "values": [
+      "before:closed>open|true|false|true|true",
+      "cancel:true|false",
+      "before:open>closed|false|false|true|true",
+      "before:closed>open|true|false|true|true",
+      "sync:true",
+      "close",
+      "toggle:closed>open"
+    ],
+    "pass": true
+  },
+  {
+    "name": "direct dialog open attribute emits no close or toggle",
+    "values": [
+      "true|false",
+      "false|0",
+      "kept"
+    ],
+    "pass": true
+  },
+  {
+    "name": "detached dialogs and requestClose do not force connection",
+    "values": [
+      "true",
+      "true|",
+      "InvalidStateError",
+      "false"
+    ],
+    "pass": true
+  },
+  {
+    "name": "dialog methods brand and conversion",
+    "values": [
+      "show|0|0",
+      "TypeError",
+      "object",
+      "TypeError|true",
+      "object"
+    ],
+    "pass": true
+  },
+  {
+    "name": "beforetoggle can change open or detach modal",
+    "values": [
+      "true|false",
+      "false|false"
+    ],
+    "pass": true
+  },
+  {
+    "name": "popover reflection and no-op return",
+    "values": [
+      "auto",
+      "auto",
+      "manual|INVALID",
+      "auto",
+      "true",
+      "true",
+      "false",
+      "false",
+      "null"
+    ],
+    "pass": true
+  },
+  {
+    "name": "invalid missing detached and modal popovers",
+    "values": [
+      "NotSupportedError|true",
+      "InvalidStateError",
+      "true",
+      "false",
+      "InvalidStateError"
+    ],
+    "pass": true
+  },
+  {
+    "name": "popover source and event source clearing on hide",
+    "values": [
+      "closed>open|true|true",
+      "open>closed|false|false",
+      "toggle:closed>closed|true"
+    ],
+    "pass": true
+  },
+  {
+    "name": "popover opening cancellation and closing cannot be canceled",
+    "values": [
+      "false",
+      "false"
+    ],
+    "pass": true
+  },
+  {
+    "name": "popover dictionary conversion and method brands",
+    "values": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "showPopover|0|0"
+    ],
+    "pass": true
+  },
+  {
+    "name": "auto manual and hint stacks",
+    "values": [
+      "true|true|true",
+      "false|true|false|true"
+    ],
+    "pass": true
+  },
+  {
+    "name": "source relationship keeps parent auto open",
+    "values": [
+      "true|true",
+      "false|false"
+    ],
+    "pass": true
+  },
+  {
+    "name": "same popover enum mutation stays open",
+    "values": [
+      "true",
+      "true",
+      "false"
+    ],
+    "pass": true
+  },
+  {
+    "name": "popover attribute removed inside opening event",
+    "values": [
+      "NotSupportedError",
+      "false"
+    ],
+    "pass": true
+  },
+  {
+    "name": "dialog showing hides unrelated auto but keeps manual",
+    "values": [
+      "true|false|true"
+    ],
+    "pass": true
+  },
+  {
+    "name": "dialog cannot become modal while showing as popover",
+    "values": [
+      "InvalidStateError",
+      "false|true",
+      "true|true"
+    ],
+    "pass": true
+  },
+  {
+    "name": "ToggleEvent defaults conversion inheritance and readonly",
+    "values": [
+      "||null|false|false|true",
+      "null|7|true",
+      "TypeError",
+      "TypeError",
+      "null"
+    ],
+    "pass": true
+  },
+  {
+    "name": "popover recursive same-node show terminates without duplicate events",
+    "values": [
+      "1|true"
+    ],
+    "pass": true
+  }
+]

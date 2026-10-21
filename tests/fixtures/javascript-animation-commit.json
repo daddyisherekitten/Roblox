@@ -1,0 +1,233 @@
+[
+  {
+    "name": "foreign namespace rejects before rendering check",
+    "source": "const box=document.getElementById('box');const a=box.animate({opacity:[0,1]},100);a.pause();a.currentTime=50;a.effect.target=document.createElementNS('http://example.org/test','test');try{a.commitStyles()}catch(e){record(e.name)}a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();",
+    "expected": [
+      "NoModificationAllowedError"
+    ],
+    "browserOnly": true
+  },
+  {
+    "name": "multi-property commit, one mutation, cancel retention",
+    "source": "const box=document.getElementById('box');box.style.opacity='0.1';const observer=new MutationObserver(()=>{});observer.observe(box,{attributes:true,attributeOldValue:true});const a=box.animate({opacity:[0.2,0.7],backgroundColor:['red','blue'],transform:['translate(0px, 0px)','translate(50px, -10px)']},{duration:100,fill:'both'});a.pause();a.currentTime=50;a.commitStyles();record(box.style.opacity);record(box.style.backgroundColor);record(box.style.transform);const records=observer.takeRecords();record(records.length);record(records[0].attributeName);record(records[0].oldValue);record(a.playState);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();record(box.style.opacity);record(document.getAnimations().length);",
+    "expected": [
+      "0.45",
+      "rgb(128, 0, 128)",
+      "translate(25px, -5px)",
+      "1",
+      "style",
+      "opacity: 0.1;",
+      "paused",
+      "0.45",
+      "0"
+    ],
+    "paint": {
+      "opacity": 0.45,
+      "background": [
+        128,
+        0,
+        128
+      ],
+      "x": 25,
+      "y": -5
+    }
+  },
+  {
+    "name": "redundant commit suppresses mutation",
+    "source": "const box=document.getElementById('box');box.style.opacity='0.2';const observer=new MutationObserver(()=>{});observer.observe(box,{attributes:true});const a=box.animate({opacity:[0.2,0.2]},100);a.finish();a.commitStyles();record(observer.takeRecords().length);record(box.style.opacity);record(a.playState);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();",
+    "expected": [
+      "0",
+      "0.2",
+      "finished"
+    ],
+    "paint": {
+      "opacity": 0.2
+    }
+  },
+  {
+    "name": "null targets and absent effect reject with no modification",
+    "source": "const box=document.getElementById('box');const empty=new Animation();try{empty.commitStyles()}catch(e){record(e.name)}const effect=new KeyframeEffect(null,{opacity:1},100);const a=new Animation(effect);a.currentTime=50;try{a.commitStyles()}catch(e){record(e.name)}record(box.getAttribute('style'));record(a.currentTime);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();",
+    "expected": [
+      "NoModificationAllowedError",
+      "NoModificationAllowedError",
+      "null",
+      "50"
+    ]
+  },
+  {
+    "name": "empty and invalid keyframes",
+    "source": "const box=document.getElementById('box');const observer=new MutationObserver(()=>{});observer.observe(box,{attributes:true});const empty=box.animate([],100);empty.finish();empty.commitStyles();record(box.getAttribute('style'));record(observer.takeRecords().length);empty.finished.catch(()=>{});empty.ready.catch(()=>{});empty.cancel();box.style.opacity='0.3';observer.takeRecords();const bad=box.animate({opacity:['bogus','bogus']},100);bad.finish();bad.commitStyles();record(box.style.opacity);record(observer.takeRecords().length);bad.finished.catch(()=>{});bad.ready.catch(()=>{});bad.cancel();",
+    "expected": [
+      "null",
+      "0",
+      "0.3",
+      "0"
+    ],
+    "paint": {
+      "opacity": 0.3
+    }
+  },
+  {
+    "name": "endpoint inclusive, outside intervals and reverse",
+    "source": "const box=document.getElementById('box');box.style.opacity='0.1';const a=box.animate({opacity:[0.2,0.8]},{duration:1000,delay:1000});a.pause();a.currentTime=500;a.commitStyles();record(box.style.opacity);a.currentTime=2100;a.commitStyles();record(box.style.opacity);a.currentTime=2000;a.commitStyles();record(box.style.opacity);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();const b=box.animate({opacity:[0.2,0.8]},1000);b.playbackRate=-1;b.finish();b.commitStyles();record(box.style.opacity);b.finished.catch(()=>{});b.ready.catch(()=>{});b.cancel();",
+    "expected": [
+      "0.1",
+      "0.1",
+      "0.8",
+      "0.2"
+    ],
+    "paint": {
+      "opacity": 0.2
+    }
+  },
+  {
+    "name": "partial replacement stack excludes higher effects",
+    "source": "const box=document.getElementById('box');box.style.opacity='0.1';const a=box.animate({opacity:[0.2,0.4]},{duration:100,fill:'both'});a.pause();a.currentTime=50;const b=box.animate({opacity:0.8},{duration:100,fill:'both'});b.pause();b.currentTime=50;const c=box.animate({opacity:1},{duration:100,fill:'both'});c.pause();c.currentTime=50;b.commitStyles();record(box.style.opacity);a.commitStyles();record(box.style.opacity);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();b.finished.catch(()=>{});b.ready.catch(()=>{});b.cancel();c.finished.catch(()=>{});c.ready.catch(()=>{});c.cancel();record(box.style.opacity);",
+    "expected": [
+      "0.55",
+      "0.3",
+      "0.3"
+    ],
+    "paint": {
+      "opacity": 0.3
+    }
+  },
+  {
+    "name": "inline importance is cleared, unrelated declarations survive",
+    "source": "const box=document.getElementById('box');box.style.cssText='opacity: 0.1 !important; color: red !important; width: 200px;';const a=box.animate({opacity:[0.2,0.8]},100);a.pause();a.currentTime=50;a.commitStyles();record(box.style.opacity);record(box.style.getPropertyPriority('opacity'));record(box.style.color);record(box.style.getPropertyPriority('color'));record(box.style.width);a.persist();record(a.replaceState);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();record(a.replaceState);record(box.style.opacity);",
+    "expected": [
+      "0.1",
+      "",
+      "red",
+      "important",
+      "200px",
+      "persisted",
+      "persisted",
+      "0.1"
+    ],
+    "paint": {
+      "opacity": 0.1
+    }
+  },
+  {
+    "name": "pending styles and rendered-target errors",
+    "source": "const box=document.getElementById('box');const a=box.animate({opacity:[0,1]},100);a.pause();a.currentTime=50;box.style.visibility='hidden';a.commitStyles();record(box.style.opacity);box.style.visibility='visible';box.style.display='none';try{a.commitStyles()}catch(e){record(e.name)}box.style.display='block';document.getElementById('parent').style.display='none';try{a.commitStyles()}catch(e){record(e.name)}document.getElementById('parent').style.display='block';box.remove();try{a.commitStyles()}catch(e){record(e.name)}document.getElementById('parent').append(box);a.commitStyles();record(box.style.opacity);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();",
+    "expected": [
+      "0.5",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "0.5"
+    ],
+    "geometry": true,
+    "paint": {
+      "opacity": 0.5
+    }
+  },
+  {
+    "name": "computed variables and relative lengths freeze",
+    "source": "const box=document.getElementById('box');box.style.fontSize='20px';box.style.setProperty('--end','0.8');const a=box.animate({opacity:['0','var(--end)'],transform:['translate(0px, 0px)','translate(2em, 0px)']},100);a.pause();a.currentTime=50;a.commitStyles();a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();record(box.style.opacity);record(box.style.transform);box.style.setProperty('--end','1');box.style.fontSize='40px';record(box.style.opacity);record(box.style.transform);",
+    "expected": [
+      "0.4",
+      "translate(20px)",
+      "0.4",
+      "translate(20px)"
+    ],
+    "geometry": true,
+    "paint": {
+      "opacity": 0.4,
+      "x": 20,
+      "y": 0
+    }
+  },
+  {
+    "name": "alpha colors use premultiplied interpolation",
+    "source": "const box=document.getElementById('box');const a=box.animate({backgroundColor:['transparent','red']},100);a.pause();a.currentTime=50;a.commitStyles();a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();record(box.style.backgroundColor);",
+    "expected": [
+      "rgba(255, 0, 0, 0.5)"
+    ],
+    "paint": {
+      "background": [
+        255,
+        0,
+        0
+      ],
+      "alpha": 0.5
+    }
+  },
+  {
+    "name": "percent translations remain a transform list",
+    "source": "const box=document.getElementById('box');const a=box.animate({transform:['translate(0%, 0px)','translate(100%, 0px)']},100);a.pause();a.currentTime=50;a.commitStyles();a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();record(box.style.transform);",
+    "expected": [
+      "translate(50%)"
+    ],
+    "paint": {
+      "x": 100,
+      "y": 0
+    }
+  },
+  {
+    "name": "none transform stays none and method receiver is branded",
+    "source": "const box=document.getElementById('box');const a=box.animate({transform:['none','none']},100);a.pause();a.currentTime=50;a.commitStyles();a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();record(box.style.transform);try{Animation.prototype.commitStyles.call({})}catch(e){record(e.name)}record(Animation.prototype.commitStyles.length);",
+    "expected": [
+      "none",
+      "TypeError",
+      "0"
+    ],
+    "paint": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "name": "wide inherit reads parent while unset is initial",
+    "source": "const box=document.getElementById('box');document.getElementById('parent').style.opacity='0.2';box.style.opacity='0.8';const a=box.animate({opacity:['inherit','inherit']},100);a.pause();a.currentTime=50;a.commitStyles();record(box.style.opacity);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();const b=box.animate({opacity:['unset','unset']},100);b.pause();b.currentTime=50;b.commitStyles();record(box.style.opacity);b.finished.catch(()=>{});b.ready.catch(()=>{});b.cancel();",
+    "expected": [
+      "0.2",
+      "1"
+    ]
+  },
+  {
+    "name": "lower paused CSS animation supplies neutral underlying",
+    "css": "@keyframes lower{from{opacity:.2}to{opacity:.6}}#box{animation:lower 100ms linear -50ms both paused}",
+    "source": "const box=document.getElementById('box');const a=box.animate({opacity:.8},100);a.pause();a.currentTime=50;a.commitStyles();record(box.style.opacity);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();",
+    "expected": [
+      "0.6"
+    ],
+    "paint": {
+      "opacity": 0.4
+    }
+  },
+  {
+    "name": "lower CSS alpha color and partial script keyframe",
+    "css": "@keyframes lower{from{background-color:transparent}to{background-color:red}}#box{animation:lower 100ms linear -50ms both paused}",
+    "source": "const box=document.getElementById('box');const a=box.animate({backgroundColor:'blue'},100);a.pause();a.currentTime=50;a.commitStyles();record(box.style.backgroundColor);a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();",
+    "expected": [
+      "rgba(85, 0, 170, 0.75)"
+    ],
+    "paint": {
+      "background": [
+        255,
+        0,
+        0
+      ],
+      "alpha": 0.5
+    },
+    "browserExpected": [
+      "rgba(128, 0, 255, 0.5)"
+    ],
+    "browserDifference": "Chromium native reference keeps the lower CSS animation alpha at 0.5 while combining a single-keyframe script color. The current Web Animations implicit underlying-value keyframe algorithm and premultiplied CSS Color interpolation give rgba(85, 0, 170, 0.75); the engine intentionally follows that algorithm."
+  },
+  {
+    "name": "numeric canonical redundancy does not write raw attribute",
+    "source": "const box=document.getElementById('box');box.setAttribute('style','opacity: .5;');const observer=new MutationObserver(()=>{});observer.observe(box,{attributes:true});const a=box.animate({opacity:[0.5,0.5]},100);a.finish();a.commitStyles();record(observer.takeRecords().length);record(box.style.opacity);record(box.getAttribute('style'));a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();",
+    "expected": [
+      "0",
+      "0.5",
+      "opacity: .5;"
+    ],
+    "paint": {
+      "opacity": 0.5
+    }
+  }
+]

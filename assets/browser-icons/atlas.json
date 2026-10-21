@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "file": "browser-icons.png",
+  "width": 512,
+  "height": 256,
+  "cellSize": 64,
+  "cropSize": 48,
+  "padding": 8,
+  "logicalSize": 24,
+  "assetId": "72168208218331",
+  "figma": "https://www.figma.com/design/OoJD4SuaMjKuOXYfxqzJp9?node-id=4-123",
+  "icons": {
+    "back": {
+      "x": 8,
+      "y": 8,
+      "width": 48,
+      "height": 48
+    },
+    "forward": {
+      "x": 72,
+      "y": 8,
+      "width": 48,
+      "height": 48
+    },
+    "up": {
+      "x": 136,
+      "y": 8,
+      "width": 48,
+      "height": 48
+    },
+    "down": {
+      "x": 200,
+      "y": 8,
+      "width": 48,
+      "height": 48
+    },
+    "plus": {
+      "x": 264,
+      "y": 8,
+      "width": 48,
+      "height": 48
+    },
+    "close": {
+      "x": 328,
+      "y": 8,
+      "width": 48,
+      "height": 48
+    },
+    "search": {
+      "x": 392,
+      "y": 8,
+      "width": 48,
+      "height": 48
+    },
+    "site-controls": {
+      "x": 456,
+      "y": 8,
+      "width": 48,
+      "height": 48
+    },
+    "home": {
+      "x": 8,
+      "y": 72,
+      "width": 48,
+      "height": 48
+    },
+    "reload": {
+      "x": 72,
+      "y": 72,
+      "width": 48,
+      "height": 48
+    },
+    "bookmark": {
+      "x": 136,
+      "y": 72,
+      "width": 48,
+      "height": 48
+    },
+    "folder": {
+      "x": 200,
+      "y": 72,
+      "width": 48,
+      "height": 48
+    },
+    "menu": {
+      "x": 264,
+      "y": 72,
+      "width": 48,
+      "height": 48
+    },
+    "overflow": {
+      "x": 328,
+      "y": 72,
+      "width": 48,
+      "height": 48
+    },
+    "vertical-menu": {
+      "x": 392,
+      "y": 72,
+      "width": 48,
+      "height": 48
+    },
+    "overflow-forward": {
+      "x": 456,
+      "y": 72,
+      "width": 48,
+      "height": 48
+    },
+    "settings": {
+      "x": 8,
+      "y": 136,
+      "width": 48,
+      "height": 48
+    },
+    "history": {
+      "x": 72,
+      "y": 136,
+      "width": 48,
+      "height": 48
+    },
+    "edit": {
+      "x": 136,
+      "y": 136,
+      "width": 48,
+      "height": 48
+    },
+    "delete": {
+      "x": 200,
+      "y": 136,
+      "width": 48,
+      "height": 48
+    },
+    "move": {
+      "x": 264,
+      "y": 136,
+      "width": 48,
+      "height": 48
+    },
+    "check": {
+      "x": 328,
+      "y": 136,
+      "width": 48,
+      "height": 48
+    },
+    "external": {
+      "x": 392,
+      "y": 136,
+      "width": 48,
+      "height": 48
+    },
+    "warning": {
+      "x": 456,
+      "y": 136,
+      "width": 48,
+      "height": 48
+    },
+    "logo": {
+      "x": 8,
+      "y": 200,
+      "width": 48,
+      "height": 48
+    },
+    "guide": {
+      "x": 72,
+      "y": 200,
+      "width": 48,
+      "height": 48
+    }
+  }
+}

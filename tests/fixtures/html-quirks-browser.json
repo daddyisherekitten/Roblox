@@ -1,0 +1,70 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "standards": [
+    "https://www.w3.org/TR/selectors-4/#id-selectors",
+    "https://dom.spec.whatwg.org/#concept-getelementsbyclassname"
+  ],
+  "cases": [
+    {
+      "name": "Standards",
+      "html": "<!doctype html><html><head></head><body><div id=\"MiXeD\" class=\"ToNe ÜBER X&#11;Y\"><span class=\"ToNe\">Child</span></div><p id=\"next\">Next</p><svg><rect id=\"Shape\" class=\"ToNe\"></rect></svg></body></html>",
+      "code": "\nconst p=document.getElementById('MiXeD'),n=document.getElementById('next');\nrecord(document.compatMode,p.matches('#mixed.tone'),p.matches('[id=\"mixed\"]'),p.matches('[class~=\"tone\"]'),p.matches('[id=\"mixed\" i]'));\nrecord(document.querySelectorAll('.tone').length,document.getElementsByClassName('tone').length,document.getElementById('mixed')===null,p.classList.contains('tone'));\nrecord(p.matches('.über'),p.matches('.ÜBER'),p.matches('.X'),p.matches('.X\\\\b Y'));\nrecord(n.matches('.tone + p'),p.matches(':has(> .tone)'),p.firstChild.matches(':nth-child(1 of .tone)'));\nrecord(document.querySelector('svg rect').matches('#shape.tone'));\nconst live=p.getElementsByClassName('tone');record(live.length);p.firstChild.className='TONE';record(live.length);\np.remove();record(p.matches('#mixed.tone'),live.length);\nconst other=new DOMParser().parseFromString(document.compatMode==='BackCompat'?'<!doctype html><body></body>':'<body></body>','text/html');\nother.adoptNode(p);record(p.matches('#mixed.tone'),live.length);other.body.append(p);record(other.querySelectorAll('.tone').length);\n",
+      "expected": [
+        "CSS1Compat|false|false|false|true",
+        "0|0|true|false",
+        "false|true|false|true",
+        "false|false|false",
+        "false",
+        "0",
+        "0",
+        "false|0",
+        "true|1",
+        "2"
+      ]
+    },
+    {
+      "name": "Almost Standards",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"MiXeD\" class=\"ToNe ÜBER X&#11;Y\"><span class=\"ToNe\">Child</span></div><p id=\"next\">Next</p><svg><rect id=\"Shape\" class=\"ToNe\"></rect></svg></body></html>",
+      "code": "\nconst p=document.getElementById('MiXeD'),n=document.getElementById('next');\nrecord(document.compatMode,p.matches('#mixed.tone'),p.matches('[id=\"mixed\"]'),p.matches('[class~=\"tone\"]'),p.matches('[id=\"mixed\" i]'));\nrecord(document.querySelectorAll('.tone').length,document.getElementsByClassName('tone').length,document.getElementById('mixed')===null,p.classList.contains('tone'));\nrecord(p.matches('.über'),p.matches('.ÜBER'),p.matches('.X'),p.matches('.X\\\\b Y'));\nrecord(n.matches('.tone + p'),p.matches(':has(> .tone)'),p.firstChild.matches(':nth-child(1 of .tone)'));\nrecord(document.querySelector('svg rect').matches('#shape.tone'));\nconst live=p.getElementsByClassName('tone');record(live.length);p.firstChild.className='TONE';record(live.length);\np.remove();record(p.matches('#mixed.tone'),live.length);\nconst other=new DOMParser().parseFromString(document.compatMode==='BackCompat'?'<!doctype html><body></body>':'<body></body>','text/html');\nother.adoptNode(p);record(p.matches('#mixed.tone'),live.length);other.body.append(p);record(other.querySelectorAll('.tone').length);\n",
+      "expected": [
+        "CSS1Compat|false|false|false|true",
+        "0|0|true|false",
+        "false|true|false|true",
+        "false|false|false",
+        "false",
+        "0",
+        "0",
+        "false|0",
+        "true|1",
+        "2"
+      ]
+    },
+    {
+      "name": "Quirks",
+      "html": "<html><head></head><body><div id=\"MiXeD\" class=\"ToNe ÜBER X&#11;Y\"><span class=\"ToNe\">Child</span></div><p id=\"next\">Next</p><svg><rect id=\"Shape\" class=\"ToNe\"></rect></svg></body></html>",
+      "code": "\nconst p=document.getElementById('MiXeD'),n=document.getElementById('next');\nrecord(document.compatMode,p.matches('#mixed.tone'),p.matches('[id=\"mixed\"]'),p.matches('[class~=\"tone\"]'),p.matches('[id=\"mixed\" i]'));\nrecord(document.querySelectorAll('.tone').length,document.getElementsByClassName('tone').length,document.getElementById('mixed')===null,p.classList.contains('tone'));\nrecord(p.matches('.über'),p.matches('.ÜBER'),p.matches('.X'),p.matches('.X\\\\b Y'));\nrecord(n.matches('.tone + p'),p.matches(':has(> .tone)'),p.firstChild.matches(':nth-child(1 of .tone)'));\nrecord(document.querySelector('svg rect').matches('#shape.tone'));\nconst live=p.getElementsByClassName('tone');record(live.length);p.firstChild.className='TONE';record(live.length);\np.remove();record(p.matches('#mixed.tone'),live.length);\nconst other=new DOMParser().parseFromString(document.compatMode==='BackCompat'?'<!doctype html><body></body>':'<body></body>','text/html');\nother.adoptNode(p);record(p.matches('#mixed.tone'),live.length);other.body.append(p);record(other.querySelectorAll('.tone').length);\n",
+      "expected": [
+        "BackCompat|true|false|false|true",
+        "3|3|true|false",
+        "false|true|false|true",
+        "true|true|true",
+        "true",
+        "1",
+        "1",
+        "true|1",
+        "false|0",
+        "0"
+      ]
+    },
+    {
+      "name": "XML remains case-sensitive",
+      "html": "<root><item id=\"MiXeD\" class=\"ToNe\"/></root>",
+      "mime": "application/xml",
+      "code": "const p=document.documentElement.firstChild;record(document.compatMode,p.matches('#mixed.tone'),p.matches('#MiXeD.ToNe'),document.getElementsByClassName('tone').length);",
+      "expected": [
+        "CSS1Compat|false|true|0"
+      ]
+    }
+  ]
+}

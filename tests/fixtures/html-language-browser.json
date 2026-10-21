@@ -1,0 +1,94 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "standard": "https://html.spec.whatwg.org/multipage/semantics.html#pragma-set-default-language",
+  "cases": [
+    {
+      "name": "Pragma token and ancestors",
+      "html": "<!doctype html><head><meta http-equiv=\"CONTENT-LANGUAGE\" content=\"  fr-CH en \"></head><body><p id=\"probe\">Probe</p></body>",
+      "code": "\nconst p=document.getElementById('probe');record(p.matches(':lang(fr)'),p.matches(':lang(en)'));\np.lang='';record(p.matches(':lang(fr)'));p.removeAttribute('lang');document.documentElement.lang='de';record(p.matches(':lang(de)'));\ndocument.documentElement.removeAttribute('lang');const detached=document.createElement('p');record(detached.matches(':lang(fr)'));\n",
+      "expected": [
+        "false|false",
+        "false",
+        "true",
+        "false"
+      ],
+      "standardExpected": [
+        "true|false",
+        "false",
+        "true",
+        "true"
+      ],
+      "difference": "The standard consumes the first whitespace-delimited content token; Chromium uses the entire string."
+    },
+    {
+      "name": "Comma and empty pragmas preserve previous default",
+      "html": "<!doctype html><head><meta http-equiv=\"content-language\" content=\"de\"><meta http-equiv=\"content-language\" content=\"fr,en\"><meta http-equiv=\"content-language\" content=\" \t \"></head><body><p id=\"probe\">Probe</p></body>",
+      "code": "\nrecord(document.getElementById('probe').matches(':lang(de)'));",
+      "expected": [
+        "false"
+      ],
+      "standardExpected": [
+        "true"
+      ],
+      "difference": "The standard ignores an empty pragma; Chromium clears the previous language."
+    },
+    {
+      "name": "Attributes and removals do not undo insertion",
+      "html": "<!doctype html><head><meta id=\"meta\" http-equiv=\"content-language\" content=\"en-US\"></head><body><p id=\"probe\">Probe</p></body>",
+      "code": "\nconst p=document.getElementById('probe'),m=document.getElementById('meta');m.content='de';record(p.matches(':lang(en)'));m.remove();record(p.matches(':lang(en)'));\ndocument.head.append(m);record(p.matches(':lang(de)'));m.httpEquiv='none';record(p.matches(':lang(de)'));",
+      "expected": [
+        "false",
+        "false",
+        "true",
+        "true"
+      ],
+      "standardExpected": [
+        "true",
+        "true",
+        "true",
+        "true"
+      ],
+      "difference": "The standard runs the pragma on insertion; Chromium also applies content mutations."
+    },
+    {
+      "name": "Only a matching pragma on insertion",
+      "html": "<!doctype html><head></head><body><p id=\"probe\">Probe</p></body>",
+      "code": "\nconst p=document.getElementById('probe'),m=document.createElement('meta');document.head.append(m);m.httpEquiv='content-language';m.content='it';record(p.matches(':lang(it)'),p.matches(':lang(en)'));\nm.remove();document.head.append(m);record(p.matches(':lang(it)'));",
+      "expected": [
+        "true|false",
+        "true"
+      ],
+      "standardExpected": [
+        "false|false",
+        "true"
+      ],
+      "difference": "The standard does not process later attribute edits until reinsertion; Chromium processes the changed pragma immediately."
+    },
+    {
+      "name": "Template shadow and foreign meta stay separate",
+      "html": "<!doctype html><head><meta http-equiv=\"content-language\" content=\"en\"><template><meta http-equiv=\"content-language\" content=\"fr\"></template></head><body><p id=\"probe\">Probe</p></body>",
+      "code": "\nconst p=document.getElementById('probe'),host=document.createElement('div');document.body.append(host);const shadow=host.attachShadow({mode:'open'});\nshadow.innerHTML='<meta http-equiv=\"content-language\" content=\"de\"><p id=\"inside\">Inside</p>';record(p.matches(':lang(en)'),shadow.querySelector('#inside').matches(':lang(en)'));\nconst foreign=document.createElementNS('http://www.w3.org/2000/svg','meta');foreign.setAttribute('http-equiv','content-language');foreign.setAttribute('content','fr');document.body.append(foreign);record(p.matches(':lang(en)'));\n",
+      "expected": [
+        "true|true",
+        "true"
+      ]
+    },
+    {
+      "name": "Batch insertion runs in tree order",
+      "html": "<!doctype html><head></head><body><p id=\"probe\">Probe</p></body>",
+      "code": "\nconst wrapper=document.createElement('div');wrapper.innerHTML='<meta http-equiv=\"content-language\" content=\"de\"><meta http-equiv=\"content-language\" content=\"it\">';document.body.append(wrapper);\nrecord(document.getElementById('probe').matches(':lang(it)'));",
+      "expected": [
+        "true"
+      ]
+    },
+    {
+      "name": "Unknown language is preserved",
+      "html": "<!doctype html><head><meta http-equiv=\"content-language\" content=\"xyzzy\"></head><body><p id=\"probe\">Probe</p></body>",
+      "code": "\nrecord(document.getElementById('probe').matches(':lang(xyzzy)'));",
+      "expected": [
+        "true"
+      ]
+    }
+  ]
+}

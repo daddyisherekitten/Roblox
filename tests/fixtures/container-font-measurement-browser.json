@@ -1,0 +1,385 @@
+{
+  "captured": "2026-10-10",
+  "scope": "Actual Atelier CSS/markup, container-dependent font and Grid columns; text advances are native controls, not Roblox shaping parity.",
+  "states": [
+    {
+      "width": 423,
+      "shell": [
+        0,
+        18,
+        423,
+        268
+      ],
+      "story": [
+        1,
+        19,
+        421,
+        266
+      ],
+      "image": [
+        19,
+        37,
+        181.5,
+        230
+      ],
+      "copy": [
+        222.5,
+        46.578125,
+        181.5,
+        210.84375
+      ],
+      "heading": [
+        222.5,
+        73.078125,
+        181.5,
+        63.15625
+      ],
+      "display": "grid",
+      "columns": "181.5px 181.5px",
+      "fontSize": 25.26,
+      "letterSpacing": -0.6315,
+      "advance": {
+        "Platz": 52.140625,
+        "verändert": 102.859375,
+        "Perspektiven.": 143.453125
+      }
+    },
+    {
+      "width": 560,
+      "shell": [
+        0,
+        18,
+        560,
+        268
+      ],
+      "story": [
+        1,
+        19,
+        558,
+        266
+      ],
+      "image": [
+        19,
+        37,
+        250,
+        230
+      ],
+      "copy": [
+        291,
+        47.03125,
+        250,
+        209.9375
+      ],
+      "heading": [
+        291,
+        73.53125,
+        250,
+        83.6875
+      ],
+      "display": "grid",
+      "columns": "250px 250px",
+      "fontSize": 33.48,
+      "letterSpacing": -0.837,
+      "advance": {
+        "Platz": 69.109375,
+        "verändert": 136.328125,
+        "Perspektiven.": 190.140625
+      }
+    },
+    {
+      "width": 422,
+      "shell": [
+        0,
+        18,
+        422,
+        405.59375
+      ],
+      "story": [
+        1,
+        19,
+        420,
+        403.59375
+      ],
+      "image": [
+        19,
+        37,
+        384,
+        232.71875
+      ],
+      "copy": [
+        19,
+        289.71875,
+        384,
+        114.875
+      ],
+      "heading": [
+        19,
+        316.21875,
+        384,
+        31.5
+      ],
+      "display": "block",
+      "columns": "none",
+      "fontSize": 25.2,
+      "letterSpacing": -0.63,
+      "advance": {
+        "Platz": 52.015625,
+        "verändert": 102.625,
+        "Perspektiven.": 143.109375
+      }
+    },
+    {
+      "width": 421,
+      "shell": [
+        0,
+        18,
+        421,
+        404.90625
+      ],
+      "story": [
+        1,
+        19,
+        419,
+        402.90625
+      ],
+      "image": [
+        19,
+        37,
+        383,
+        232.109375
+      ],
+      "copy": [
+        19,
+        289.109375,
+        383,
+        114.796875
+      ],
+      "heading": [
+        19,
+        315.609375,
+        383,
+        31.421875
+      ],
+      "display": "block",
+      "columns": "none",
+      "fontSize": 25.14,
+      "letterSpacing": -0.6285,
+      "advance": {
+        "Platz": 51.890625,
+        "verändert": 102.375,
+        "Perspektiven.": 142.78125
+      }
+    },
+    {
+      "width": 300,
+      "shell": [
+        0,
+        18,
+        300,
+        403.03125
+      ],
+      "story": [
+        1,
+        19,
+        298,
+        401.03125
+      ],
+      "image": [
+        19,
+        37,
+        262,
+        158.78125
+      ],
+      "copy": [
+        19,
+        215.78125,
+        262,
+        186.25
+      ],
+      "heading": [
+        19,
+        242.28125,
+        262,
+        60
+      ],
+      "display": "block",
+      "columns": "none",
+      "fontSize": 24,
+      "letterSpacing": -0.6,
+      "advance": {
+        "Platz": 49.546875,
+        "verändert": 97.734375,
+        "Perspektiven.": 136.296875
+      }
+    },
+    {
+      "width": 600,
+      "shell": [
+        0,
+        18,
+        600,
+        268
+      ],
+      "story": [
+        1,
+        19,
+        598,
+        266
+      ],
+      "image": [
+        19,
+        37,
+        270,
+        230
+      ],
+      "copy": [
+        311,
+        44.03125,
+        270,
+        215.9375
+      ],
+      "heading": [
+        311,
+        70.53125,
+        270,
+        89.6875
+      ],
+      "display": "grid",
+      "columns": "270px 270px",
+      "fontSize": 35.88,
+      "letterSpacing": -0.897,
+      "advance": {
+        "Platz": 74.0625,
+        "verändert": 146.109375,
+        "Perspektiven.": 203.765625
+      }
+    },
+    {
+      "width": 780,
+      "shell": [
+        0,
+        18,
+        780,
+        274.25
+      ],
+      "story": [
+        1,
+        19,
+        778,
+        272.25
+      ],
+      "image": [
+        19,
+        37,
+        360,
+        236.25
+      ],
+      "copy": [
+        401,
+        50.21875,
+        360,
+        209.8125
+      ],
+      "heading": [
+        401,
+        76.71875,
+        360,
+        105
+      ],
+      "display": "grid",
+      "columns": "360px 360px",
+      "fontSize": 42,
+      "letterSpacing": -1.05,
+      "advance": {
+        "Platz": 86.6875,
+        "verändert": 171.03125,
+        "Perspektiven.": 238.515625
+      }
+    },
+    {
+      "width": 420,
+      "shell": [
+        0,
+        18,
+        420,
+        404.21875
+      ],
+      "story": [
+        1,
+        19,
+        418,
+        402.21875
+      ],
+      "image": [
+        19,
+        37,
+        382,
+        231.5
+      ],
+      "copy": [
+        19,
+        288.5,
+        382,
+        114.71875
+      ],
+      "heading": [
+        19,
+        315,
+        382,
+        31.34375
+      ],
+      "display": "block",
+      "columns": "none",
+      "fontSize": 25.08,
+      "letterSpacing": -0.627,
+      "advance": {
+        "Platz": 51.765625,
+        "verändert": 102.125,
+        "Perspektiven.": 142.4375
+      }
+    },
+    {
+      "width": 423,
+      "shell": [
+        0,
+        18,
+        423,
+        268
+      ],
+      "story": [
+        1,
+        19,
+        421,
+        266
+      ],
+      "image": [
+        19,
+        37,
+        181.5,
+        230
+      ],
+      "copy": [
+        222.5,
+        46.578125,
+        181.5,
+        210.84375
+      ],
+      "heading": [
+        222.5,
+        73.078125,
+        181.5,
+        63.15625
+      ],
+      "display": "grid",
+      "columns": "181.5px 181.5px",
+      "fontSize": 25.26,
+      "letterSpacing": -0.6315,
+      "advance": {
+        "Platz": 52.140625,
+        "verändert": 102.859375,
+        "Perspektiven.": 143.453125
+      }
+    }
+  ],
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+}

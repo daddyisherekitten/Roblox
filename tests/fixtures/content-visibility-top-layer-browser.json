@@ -1,0 +1,850 @@
+{
+  "standard": "https://drafts.csswg.org/css-contain-2/#content-visibility",
+  "htmlStandard": "https://html.spec.whatwg.org/multipage/interaction.html#modal-dialogs-and-inert-subtrees",
+  "source": "<!doctype html><style>\nbody{margin:0;background:white;font:16px/20px Arial}\n#outside{position:absolute;left:10px;top:10px;width:90px;height:24px}\n#owner{position:absolute;left:10px;top:50px;width:180px;height:80px;background:lime}\ndialog,[popover]{box-sizing:border-box;width:140px;height:80px;margin:auto;padding:8px;border:2px solid black;background:white}\n</style><input id=outside><div id=owner><dialog id=dialog closedby=any><input id=inside></dialog><div id=popover popover=auto tabindex=0>Popover</div></div><script></script>",
+  "states": [
+    {
+      "name": "modal-visible",
+      "operation": "outside.focus();dialog.showModal()",
+      "active": "inside",
+      "ownerVisibility": "visible",
+      "dialog": {
+        "open": true,
+        "modal": true,
+        "rect": [
+          330,
+          260,
+          140,
+          80
+        ],
+        "rectCount": 1,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "dialog",
+      "centerHit": "dialog",
+      "outsideHit": "dialog",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-visible.png",
+      "cornerPixel": [
+        229,
+        229,
+        229
+      ]
+    },
+    {
+      "name": "modal-hidden",
+      "operation": "owner.style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": true,
+        "modal": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "html",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-hidden.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "modal-hidden-outside-focus",
+      "operation": "outside.focus()",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": true,
+        "modal": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "html",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-hidden-outside-focus.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "modal-hidden-inside-focus",
+      "operation": "inside.focus()",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": true,
+        "modal": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "html",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-hidden-inside-focus.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "modal-hidden-pointer",
+      "operation": "native pointer at (4,4)",
+      "active": "outside",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-hidden-pointer.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "modal-hidden-reopen",
+      "operation": "dialog.showModal()",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": true,
+        "modal": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "html",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-hidden-reopen.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "modal-revealed",
+      "operation": "owner.style.contentVisibility=\"visible\"",
+      "active": "body",
+      "ownerVisibility": "visible",
+      "dialog": {
+        "open": true,
+        "modal": true,
+        "rect": [
+          330,
+          260,
+          140,
+          80
+        ],
+        "rectCount": 1,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "dialog",
+      "centerHit": "dialog",
+      "outsideHit": "dialog",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-revealed.png",
+      "cornerPixel": [
+        229,
+        229,
+        229
+      ]
+    },
+    {
+      "name": "modal-self-hidden",
+      "operation": "dialog.style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "ownerVisibility": "visible",
+      "dialog": {
+        "open": true,
+        "modal": true,
+        "rect": [
+          330,
+          260,
+          140,
+          80
+        ],
+        "rectCount": 1,
+        "contentVisibility": "hidden"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "dialog",
+      "centerHit": "dialog",
+      "outsideHit": "dialog",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-self-hidden.png",
+      "cornerPixel": [
+        229,
+        229,
+        229
+      ]
+    },
+    {
+      "name": "modal-self-revealed",
+      "operation": "dialog.style.contentVisibility=\"visible\"",
+      "active": "body",
+      "ownerVisibility": "visible",
+      "dialog": {
+        "open": true,
+        "modal": true,
+        "rect": [
+          330,
+          260,
+          140,
+          80
+        ],
+        "rectCount": 1,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "dialog",
+      "centerHit": "dialog",
+      "outsideHit": "dialog",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-self-revealed.png",
+      "cornerPixel": [
+        229,
+        229,
+        229
+      ]
+    },
+    {
+      "name": "modal-hidden-escape-before",
+      "operation": "owner.style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": true,
+        "modal": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "html",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-hidden-escape-before.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "modal-hidden-escape-after",
+      "operation": "native Escape",
+      "active": "outside",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-modal-hidden-escape-after.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-hidden-open",
+      "operation": "popover.showPopover()",
+      "active": "outside",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-hidden-open.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-hidden-focus",
+      "operation": "popover.focus()",
+      "active": "outside",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-hidden-focus.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-hidden-pointer",
+      "operation": "native pointer at (4,4)",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-hidden-pointer.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-hidden-reopen",
+      "operation": "popover.matches(\":popover-open\")||popover.showPopover()",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-hidden-reopen.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-revealed",
+      "operation": "owner.style.contentVisibility=\"visible\"",
+      "active": "body",
+      "ownerVisibility": "visible",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": true,
+        "rect": [
+          330,
+          260,
+          140,
+          80
+        ],
+        "rectCount": 1,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "popover",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-revealed.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-self-hidden",
+      "operation": "popover.style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "ownerVisibility": "visible",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": true,
+        "rect": [
+          330,
+          260,
+          140,
+          80
+        ],
+        "rectCount": 1,
+        "contentVisibility": "hidden"
+      },
+      "cornerHit": "html",
+      "centerHit": "popover",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-self-hidden.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-hidden-escape-before",
+      "operation": "popover.style.contentVisibility=\"visible\";owner.style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-hidden-escape-before.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-hidden-escape-after",
+      "operation": "native Escape",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-hidden-escape-after.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-center-visible",
+      "operation": "owner.style.contentVisibility=\"visible\";popover.showPopover()",
+      "active": "body",
+      "ownerVisibility": "visible",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": true,
+        "rect": [
+          330,
+          260,
+          140,
+          80
+        ],
+        "rectCount": 1,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "popover",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-center-visible.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-center-hidden",
+      "operation": "owner.style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": true,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-center-hidden.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "name": "popover-hidden-center-pointer",
+      "operation": "native pointer at (400,300)",
+      "active": "body",
+      "ownerVisibility": "hidden",
+      "dialog": {
+        "open": false,
+        "modal": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "popover": {
+        "open": false,
+        "rect": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "rectCount": 0,
+        "contentVisibility": "visible"
+      },
+      "cornerHit": "html",
+      "centerHit": "html",
+      "outsideHit": "outside",
+      "cornerScreenshot": "build/content-visibility-top-layer-popover-hidden-center-pointer.png",
+      "cornerPixel": [
+        255,
+        255,
+        255
+      ]
+    }
+  ],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/154.0.8037.98",
+    "revision": "@b859317bf11f6be47f9b7799ec690a0a42a1fb33",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "jsVersion": "15.4.80.20"
+  }
+}

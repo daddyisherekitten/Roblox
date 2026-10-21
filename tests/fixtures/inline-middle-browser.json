@@ -1,0 +1,4771 @@
+{
+  "captured": "2026-10-19T01:20:28.441Z",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "scope": "Isolated native Chromium neutral geometry reference.",
+  "baseCSS": "*{box-sizing:border-box}html,body{margin:0;padding:0}body{font:16px/16px Arial}#container{width:100%;padding-bottom:25px}.column{display:inline-block;vertical-align:middle;width:30%;padding:10px}.left{float:left;width:48%}.right{float:right;width:48%}.clear{clear:both;height:25px}.row{padding-bottom:25px;margin-bottom:40px}",
+  "textMetrics": {
+    "font": "16px Arial",
+    "fontSize": 16,
+    "lineHeight": 16,
+    "baseline": 13,
+    "inlineTextTop": -1,
+    "inlineTextHeight": 17,
+    "xHeight": 8.296875,
+    "spaceWidth": 4.4453125,
+    "fontBoundingBoxAscent": 14,
+    "fontBoundingBoxDescent": 3,
+    "actualBoundingBoxAscent": 12,
+    "actualBoundingBoxDescent": 3
+  },
+  "cases": [
+    {
+      "name": "three middle blocks 80 160 240",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 80,
+            "width": 96,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 40,
+            "width": 96,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "three middle blocks 240 80 160",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:240px\"></div> <div class=\"column\" id=\"column2\" style=\"height:80px\"></div> <div class=\"column\" id=\"column3\" style=\"height:160px\"></div>",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 80,
+            "width": 96,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 40,
+            "width": 96,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "middle with one top block",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": "#column1{vertical-align:top}",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 40,
+            "width": 96,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "middle with one bottom block",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": "#column3{vertical-align:bottom}",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 120,
+            "width": 96,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 80,
+            "width": 96,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "text top blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:text-top}",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 0,
+            "width": 96,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "text bottom blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:text-bottom}",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 96,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 80,
+            "width": 96,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "positive length blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:12px}",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 280,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 96,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "12px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 80,
+            "width": 96,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "12px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "12px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "negative length blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:-8px}",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 96,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "-8px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 80,
+            "width": 96,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "-8px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "-8px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "nested floats and clear rows",
+      "body": "<div class=\"column\" id=\"column1\"><div class=\"row\" id=\"row1_0\"><div class=\"left\" style=\"height:40px\"></div><div class=\"right\" style=\"height:40px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column2\"><div class=\"row\" id=\"row2_0\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row2_1\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column3\"><div class=\"row\" id=\"row3_0\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row3_1\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div></div>",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 545,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 185,
+            "width": 96,
+            "height": 150,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 10,
+                "y": 195,
+                "width": 76,
+                "height": 90,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 10,
+                    "y": 195,
+                    "width": 36.46875,
+                    "height": 40,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 49.53125,
+                    "y": 195,
+                    "width": 36.46875,
+                    "height": 40,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 10,
+                    "y": 235,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 0,
+            "width": 96,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 110.453125,
+                "y": 10,
+                "width": 76,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 110.453125,
+                    "y": 10,
+                    "width": 36.46875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 149.984375,
+                    "y": 10,
+                    "width": 36.46875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 110.453125,
+                    "y": 170,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 110.453125,
+                "y": 260,
+                "width": 76,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 110.453125,
+                    "y": 260,
+                    "width": 36.46875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 149.984375,
+                    "y": 260,
+                    "width": 36.46875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 110.453125,
+                    "y": 420,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 210.90625,
+                "y": 10,
+                "width": 76,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 210.90625,
+                    "y": 10,
+                    "width": 36.46875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 250.4375,
+                    "y": 10,
+                    "width": 36.46875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 210.90625,
+                    "y": 170,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 210.90625,
+                "y": 260,
+                "width": 76,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 210.90625,
+                    "y": 260,
+                    "width": 36.46875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 250.4375,
+                    "y": 260,
+                    "width": 36.46875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 210.90625,
+                    "y": 420,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "nested wrapping floats and clear rows",
+      "body": "<div class=\"column\" id=\"column1\"><div class=\"row\" id=\"row1_0\"><div class=\"left\" style=\"height:40px\"></div><div class=\"right\" style=\"height:40px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column2\"><div class=\"row\" id=\"row2_0\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row2_1\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column3\"><div class=\"row\" id=\"row3_0\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row3_1\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div></div>",
+      "css": ".left,.right{width:80px}",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 705,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 245,
+            "width": 96,
+            "height": 190,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 10,
+                "y": 255,
+                "width": 76,
+                "height": 130,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 10,
+                    "y": 255,
+                    "width": 80,
+                    "height": 40,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 6,
+                    "y": 295,
+                    "width": 80,
+                    "height": 40,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 10,
+                    "y": 335,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 0,
+            "width": 96,
+            "height": 680,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 110.453125,
+                "y": 10,
+                "width": 76,
+                "height": 290,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 110.453125,
+                    "y": 10,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 106.453125,
+                    "y": 90,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 110.453125,
+                    "y": 250,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 110.453125,
+                "y": 340,
+                "width": 76,
+                "height": 290,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 110.453125,
+                    "y": 340,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 106.453125,
+                    "y": 420,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 110.453125,
+                    "y": 580,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 680,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 210.90625,
+                "y": 10,
+                "width": 76,
+                "height": 290,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 210.90625,
+                    "y": 10,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 206.90625,
+                    "y": 170,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 210.90625,
+                    "y": 250,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 210.90625,
+                "y": 340,
+                "width": 76,
+                "height": 290,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 210.90625,
+                    "y": 340,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 206.90625,
+                    "y": 500,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 210.90625,
+                    "y": 580,
+                    "width": 76,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "wrapped middle blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{width:42%}",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 425,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 40,
+            "width": 134.390625,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 138.84375,
+            "y": 0,
+            "width": 134.390625,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 0,
+            "y": 160,
+            "width": 134.390625,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "baseline blocks contrast",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:baseline}",
+      "width": 320,
+      "geometry": {
+        "viewport": {
+          "width": 320,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 320,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 268,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 96,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "baseline",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 100.453125,
+            "y": 80,
+            "width": 96,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "baseline",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 200.90625,
+            "y": 0,
+            "width": 96,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "baseline",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "three middle blocks 80 160 240",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 80,
+            "width": 180,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 40,
+            "width": 180,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "three middle blocks 240 80 160",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:240px\"></div> <div class=\"column\" id=\"column2\" style=\"height:80px\"></div> <div class=\"column\" id=\"column3\" style=\"height:160px\"></div>",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 0,
+            "width": 180,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 80,
+            "width": 180,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 40,
+            "width": 180,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "middle with one top block",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": "#column1{vertical-align:top}",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 0,
+            "width": 180,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 40,
+            "width": 180,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "middle with one bottom block",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": "#column3{vertical-align:bottom}",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 120,
+            "width": 180,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 80,
+            "width": 180,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "text top blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:text-top}",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 0,
+            "width": 180,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 0,
+            "width": 180,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "text bottom blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:text-bottom}",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 180,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 80,
+            "width": 180,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "positive length blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:12px}",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 280,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 180,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "12px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 80,
+            "width": 180,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "12px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "12px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "negative length blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:-8px}",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 180,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "-8px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 80,
+            "width": 180,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "-8px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "-8px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "nested floats and clear rows",
+      "body": "<div class=\"column\" id=\"column1\"><div class=\"row\" id=\"row1_0\"><div class=\"left\" style=\"height:40px\"></div><div class=\"right\" style=\"height:40px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column2\"><div class=\"row\" id=\"row2_0\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row2_1\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column3\"><div class=\"row\" id=\"row3_0\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row3_1\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div></div>",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 545,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 185,
+            "width": 180,
+            "height": 150,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 10,
+                "y": 195,
+                "width": 160,
+                "height": 90,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 10,
+                    "y": 195,
+                    "width": 76.796875,
+                    "height": 40,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 93.203125,
+                    "y": 195,
+                    "width": 76.796875,
+                    "height": 40,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 10,
+                    "y": 235,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 0,
+            "width": 180,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 194.453125,
+                "y": 10,
+                "width": 160,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 194.453125,
+                    "y": 10,
+                    "width": 76.796875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 277.65625,
+                    "y": 10,
+                    "width": 76.796875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 194.453125,
+                    "y": 170,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 194.453125,
+                "y": 260,
+                "width": 160,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 194.453125,
+                    "y": 260,
+                    "width": 76.796875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 277.65625,
+                    "y": 260,
+                    "width": 76.796875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 194.453125,
+                    "y": 420,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 378.90625,
+                "y": 10,
+                "width": 160,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 378.90625,
+                    "y": 10,
+                    "width": 76.796875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 462.109375,
+                    "y": 10,
+                    "width": 76.796875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 378.90625,
+                    "y": 170,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 378.90625,
+                "y": 260,
+                "width": 160,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 378.90625,
+                    "y": 260,
+                    "width": 76.796875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 462.109375,
+                    "y": 260,
+                    "width": 76.796875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 378.90625,
+                    "y": 420,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "nested wrapping floats and clear rows",
+      "body": "<div class=\"column\" id=\"column1\"><div class=\"row\" id=\"row1_0\"><div class=\"left\" style=\"height:40px\"></div><div class=\"right\" style=\"height:40px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column2\"><div class=\"row\" id=\"row2_0\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row2_1\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column3\"><div class=\"row\" id=\"row3_0\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row3_1\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div></div>",
+      "css": ".left,.right{width:80px}",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 545,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 185,
+            "width": 180,
+            "height": 150,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 10,
+                "y": 195,
+                "width": 160,
+                "height": 90,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 10,
+                    "y": 195,
+                    "width": 80,
+                    "height": 40,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 90,
+                    "y": 195,
+                    "width": 80,
+                    "height": 40,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 10,
+                    "y": 235,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 0,
+            "width": 180,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 194.453125,
+                "y": 10,
+                "width": 160,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 194.453125,
+                    "y": 10,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 274.453125,
+                    "y": 10,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 194.453125,
+                    "y": 170,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 194.453125,
+                "y": 260,
+                "width": 160,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 194.453125,
+                    "y": 260,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 274.453125,
+                    "y": 260,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 194.453125,
+                    "y": 420,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 378.90625,
+                "y": 10,
+                "width": 160,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 378.90625,
+                    "y": 10,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 458.90625,
+                    "y": 10,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 378.90625,
+                    "y": 170,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 378.90625,
+                "y": 260,
+                "width": 160,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 378.90625,
+                    "y": 260,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 458.90625,
+                    "y": 260,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 378.90625,
+                    "y": 420,
+                    "width": 160,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "wrapped middle blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{width:42%}",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 425,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 40,
+            "width": 252,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 256.453125,
+            "y": 0,
+            "width": 252,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 0,
+            "y": 160,
+            "width": 252,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "baseline blocks contrast",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:baseline}",
+      "width": 600,
+      "geometry": {
+        "viewport": {
+          "width": 600,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 600,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 268,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 180,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "baseline",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 184.453125,
+            "y": 80,
+            "width": 180,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "baseline",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 368.90625,
+            "y": 0,
+            "width": 180,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "baseline",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "three middle blocks 80 160 240",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 80,
+            "width": 330,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 40,
+            "width": 330,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "three middle blocks 240 80 160",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:240px\"></div> <div class=\"column\" id=\"column2\" style=\"height:80px\"></div> <div class=\"column\" id=\"column3\" style=\"height:160px\"></div>",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 0,
+            "width": 330,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 80,
+            "width": 330,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 40,
+            "width": 330,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "middle with one top block",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": "#column1{vertical-align:top}",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 0,
+            "width": 330,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 40,
+            "width": 330,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "middle with one bottom block",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": "#column3{vertical-align:bottom}",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 120,
+            "width": 330,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 80,
+            "width": 330,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "text top blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:text-top}",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 0,
+            "width": 330,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 0,
+            "width": 330,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-top",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "text bottom blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:text-bottom}",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 330,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 80,
+            "width": 330,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "text-bottom",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "positive length blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:12px}",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 280,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 330,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "12px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 80,
+            "width": 330,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "12px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "12px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "negative length blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:-8px}",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 265,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 330,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "-8px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 80,
+            "width": 330,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "-8px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "-8px",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "nested floats and clear rows",
+      "body": "<div class=\"column\" id=\"column1\"><div class=\"row\" id=\"row1_0\"><div class=\"left\" style=\"height:40px\"></div><div class=\"right\" style=\"height:40px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column2\"><div class=\"row\" id=\"row2_0\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row2_1\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column3\"><div class=\"row\" id=\"row3_0\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row3_1\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div></div>",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 545,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 185,
+            "width": 330,
+            "height": 150,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 10,
+                "y": 195,
+                "width": 310,
+                "height": 90,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 10,
+                    "y": 195,
+                    "width": 148.796875,
+                    "height": 40,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 171.203125,
+                    "y": 195,
+                    "width": 148.796875,
+                    "height": 40,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 10,
+                    "y": 235,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 0,
+            "width": 330,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 344.453125,
+                "y": 10,
+                "width": 310,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 344.453125,
+                    "y": 10,
+                    "width": 148.796875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 505.65625,
+                    "y": 10,
+                    "width": 148.796875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 344.453125,
+                    "y": 170,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 344.453125,
+                "y": 260,
+                "width": 310,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 344.453125,
+                    "y": 260,
+                    "width": 148.796875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 505.65625,
+                    "y": 260,
+                    "width": 148.796875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 344.453125,
+                    "y": 420,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 678.90625,
+                "y": 10,
+                "width": 310,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 678.90625,
+                    "y": 10,
+                    "width": 148.796875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 840.109375,
+                    "y": 10,
+                    "width": 148.796875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 678.90625,
+                    "y": 170,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 678.90625,
+                "y": 260,
+                "width": 310,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 678.90625,
+                    "y": 260,
+                    "width": 148.796875,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 840.109375,
+                    "y": 260,
+                    "width": 148.796875,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 678.90625,
+                    "y": 420,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "nested wrapping floats and clear rows",
+      "body": "<div class=\"column\" id=\"column1\"><div class=\"row\" id=\"row1_0\"><div class=\"left\" style=\"height:40px\"></div><div class=\"right\" style=\"height:40px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column2\"><div class=\"row\" id=\"row2_0\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row2_1\"><div class=\"left\" style=\"height:80px\"></div><div class=\"right\" style=\"height:160px\"></div><div class=\"clear\"></div></div></div> <div class=\"column\" id=\"column3\"><div class=\"row\" id=\"row3_0\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div><div class=\"row\" id=\"row3_1\"><div class=\"left\" style=\"height:160px\"></div><div class=\"right\" style=\"height:80px\"></div><div class=\"clear\"></div></div></div>",
+      "css": ".left,.right{width:80px}",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 545,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 185,
+            "width": 330,
+            "height": 150,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 10,
+                "y": 195,
+                "width": 310,
+                "height": 90,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 10,
+                    "y": 195,
+                    "width": 80,
+                    "height": 40,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 240,
+                    "y": 195,
+                    "width": 80,
+                    "height": 40,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 10,
+                    "y": 235,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 0,
+            "width": 330,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 344.453125,
+                "y": 10,
+                "width": 310,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 344.453125,
+                    "y": 10,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 574.453125,
+                    "y": 10,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 344.453125,
+                    "y": 170,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 344.453125,
+                "y": 260,
+                "width": 310,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 344.453125,
+                    "y": 260,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 574.453125,
+                    "y": 260,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 344.453125,
+                    "y": 420,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 520,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": [
+              {
+                "index": 1,
+                "x": 678.90625,
+                "y": 10,
+                "width": 310,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 678.90625,
+                    "y": 10,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 908.90625,
+                    "y": 10,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 678.90625,
+                    "y": 170,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              },
+              {
+                "index": 2,
+                "x": 678.90625,
+                "y": 260,
+                "width": 310,
+                "height": 210,
+                "display": "block",
+                "float": "none",
+                "verticalAlign": "baseline",
+                "lineHeight": "16px",
+                "paddingTop": "0px",
+                "paddingBottom": "25px",
+                "marginTop": "0px",
+                "marginBottom": "40px",
+                "children": [
+                  {
+                    "index": 1,
+                    "x": 678.90625,
+                    "y": 260,
+                    "width": 80,
+                    "height": 160,
+                    "display": "block",
+                    "float": "left",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 2,
+                    "x": 908.90625,
+                    "y": 260,
+                    "width": 80,
+                    "height": 80,
+                    "display": "block",
+                    "float": "right",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  },
+                  {
+                    "index": 3,
+                    "x": 678.90625,
+                    "y": 420,
+                    "width": 310,
+                    "height": 25,
+                    "display": "block",
+                    "float": "none",
+                    "verticalAlign": "baseline",
+                    "lineHeight": "16px",
+                    "paddingTop": "0px",
+                    "paddingBottom": "0px",
+                    "marginTop": "0px",
+                    "marginBottom": "0px"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "wrapped middle blocks",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{width:42%}",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 425,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 40,
+            "width": 462,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 466.453125,
+            "y": 0,
+            "width": 462,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 0,
+            "y": 160,
+            "width": 462,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "middle",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "baseline blocks contrast",
+      "body": "<div class=\"column\" id=\"column1\" style=\"height:80px\"></div> <div class=\"column\" id=\"column2\" style=\"height:160px\"></div> <div class=\"column\" id=\"column3\" style=\"height:240px\"></div>",
+      "css": ".column{vertical-align:baseline}",
+      "width": 1100,
+      "geometry": {
+        "viewport": {
+          "width": 1100,
+          "height": 1000
+        },
+        "document": {
+          "scrollWidth": 1100,
+          "scrollHeight": 1000
+        },
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 268,
+          "display": "block",
+          "float": "none",
+          "verticalAlign": "baseline",
+          "lineHeight": "16px",
+          "paddingTop": "0px",
+          "paddingBottom": "25px",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        "columns": [
+          {
+            "index": 1,
+            "x": 0,
+            "y": 160,
+            "width": 330,
+            "height": 80,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "baseline",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 2,
+            "x": 334.453125,
+            "y": 80,
+            "width": 330,
+            "height": 160,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "baseline",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          },
+          {
+            "index": 3,
+            "x": 668.90625,
+            "y": 0,
+            "width": 330,
+            "height": 240,
+            "display": "inline-block",
+            "float": "none",
+            "verticalAlign": "baseline",
+            "lineHeight": "16px",
+            "paddingTop": "10px",
+            "paddingBottom": "10px",
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "children": []
+          }
+        ]
+      }
+    }
+  ]
+}

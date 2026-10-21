@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Times New Roman ↔ PT Serif · Schriftvergleich</title>
+  <link rel="stylesheet" href="font-comparison.css">
+  <style>
+    @font-face { font-family: 'Comparison Times'; src: local('Times New Roman'); font-weight: 400; font-style: normal; }
+    .sample { font-synthesis: none; }
+    h1 { font-size: 20px; }
+  </style>
+</head>
+<body class="font-pending" data-font-label="Times New Roman normal" data-web-font="Comparison Times" data-sizes="10,20,30,40,50" data-test-factor="1.2238622386223863">
+  <h1>Browser: Times New Roman · Roblox: PT Serif</h1>
+  <p id="font-status" role="status">Lokale Times New Roman wird geladen …</p>
+  <p>Vergleich zweier verschiedener Schriftfamilien. PT Serif ist jetzt die Standardschrift der Engine und besitzt ein eigenes Profil.</p>
+  <p>Browserzoom mit Strg + 0 auf 100 % stellen. Für erneute Messungen StudioDemoConfig auf FontLab stellen, dann Stop → Play.</p>
+  <p>HTML bleibt bei 10, 20, 30, 40 und 50 px. Roblox-Testfaktor: 1990 / 1626 ≈ 1,22386.
+    Mit Aufrunden ergeben sich TextSize 13, 25, 37, 49 und 62. Diese Größe wurde im Sichtvergleich bestätigt.</p>
+  <p>Zielhöhen des sichtbaren H im Browser: 7, 13, 20, 27 und 33 px.
+    Gemessene Roblox-Höhen vor der Korrektur: 6, 11, 16, 22 und 27 px.</p>
+  <p>Im Roblox-Labor starten die Linien jetzt mit dem Modell aus deinem FONT_REPORT.
+    Die Browserlinien bleiben manuell einstellbar. Zwischenwerte des Roblox-Modells sind Näherungen;
+    die p-Unterkante weicht bei TextSize 25 um 1 px vom Messwert ab.</p>
+  <button id="visibility" type="button" aria-pressed="false">Hilfslinien ausblenden</button>
+  <textarea id="results" readonly aria-label="Manuelle Browser-Vergleichswerte"></textarea>
+  <main id="samples"></main>
+  <script src="font-comparison.js"></script>
+</body>
+</html>

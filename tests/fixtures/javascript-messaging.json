@@ -1,0 +1,302 @@
+[
+  {
+    "name": "MessageEvent dictionary conversion visits getters once in order",
+    "group": "messaging",
+    "source": "const order=[];const init={};for(const key of ['source','ports','origin','lastEventId','data','composed','cancelable','bubbles'])Object.defineProperty(init,key,{get:function(){order.push(key);return undefined;}});const e=new MessageEvent('message',init);record(order.join(','));record(e.data===null);",
+    "expected": [
+      "bubbles,cancelable,composed,data,lastEventId,origin,ports,source",
+      "true"
+    ]
+  },
+  {
+    "name": "ErrorEvent defaults inheritance and readonly fields",
+    "group": "messaging",
+    "source": "const reason={x:1};const e=new ErrorEvent('error',{message:'bad',filename:'task.js',lineno:3,colno:4,error:reason});record(e instanceof Event);record(e.message);record(e.filename);record(e.lineno);record(e.colno);record(e.error===reason);e.message='ignored';record(e.message);record(new ErrorEvent('error').error===undefined);",
+    "expected": [
+      "true",
+      "bad",
+      "task.js",
+      "3",
+      "4",
+      "true",
+      "bad",
+      "true"
+    ]
+  },
+  {
+    "name": "Clone cycles shared identity holes and primitive values",
+    "group": "messaging",
+    "source": "const shared={n:2};const a={left:shared,right:shared};a.self=a;a.holes=[,3,,];const b=structuredClone(a);record(b!==a);record(b.self===b);record(b.left===b.right);record(b.left!==shared);record(b.holes.length);record(0 in b.holes);record(1 in b.holes);record(2 in b.holes);record(Object.is(structuredClone(-0),-0));record(Number.isNaN(structuredClone(NaN)));",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "3",
+      "false",
+      "true",
+      "false",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "Clone flattens getters and custom prototypes",
+    "group": "messaging",
+    "source": "let calls=0;const a=Object.create({inherited:1});Object.defineProperty(a,\"x\",{get:function(){calls++;return 7;},enumerable:true});Object.defineProperty(a,\"hidden\",{value:2});a[Symbol(\"s\")]=3;const b=structuredClone(a);record(calls);record(b.x);record(b.inherited===undefined);record(b.hidden===undefined);record(Object.getOwnPropertySymbols(b).length);const d=Object.getOwnPropertyDescriptor(b,\"x\");record(d.writable&&d.enumerable&&d.configurable);record(Object.getPrototypeOf(b)===Object.prototype);",
+    "expected": [
+      "1",
+      "7",
+      "true",
+      "true",
+      "0",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "Clone Map Set Date boxed primitives and cycles",
+    "group": "messaging",
+    "source": "const key={x:1};const map=new Map([[key,key]]);const set=new Set([key,map]);map.set(\"self\",map);const b=structuredClone({map:map,set:set,key:key,date:new Date(1234),boxed:new Number(7)});record(b.map.get(b.key)===b.key);record(b.map.get(\"self\")===b.map);record(b.set.has(b.key));record(b.set.has(b.map));record(b.date.getTime());record(b.boxed.valueOf());",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "1234",
+      "7"
+    ]
+  },
+  {
+    "name": "Clone snapshots map entries before key getters mutate source",
+    "group": "messaging",
+    "source": "const map=new Map();const key={};Object.defineProperty(key,\"x\",{enumerable:true,get:function(){map.set(\"later\",3);return 1;}});map.set(key,2);const copy=structuredClone(map);record(copy.size);record(map.size);",
+    "expected": [
+      "1",
+      "2"
+    ]
+  },
+  {
+    "name": "Clone Error cause cycles and DOMException",
+    "group": "messaging",
+    "source": "const e=new TypeError(\"bad\",{cause:{code:3}});e.cause.error=e;const c=structuredClone(e);record(c instanceof TypeError);record(c.message);record(c.cause.code);record(c.cause.error===c);const d=structuredClone(new DOMException(\"stop\",\"AbortError\"));record(d.name);record(d.message);record(d.code);",
+    "expected": [
+      "true",
+      "bad",
+      "3",
+      "true",
+      "AbortError",
+      "stop",
+      "20"
+    ]
+  },
+  {
+    "name": "Clone Blob File immutable data",
+    "group": "messaging",
+    "source": "const file=new File([\"hi\"],\"note.txt\",{type:\"text/plain\",lastModified:123});const b=structuredClone(file);record(b.name);record(b.lastModified);record(b.type);record(b.size);b.text().then(record);",
+    "expected": [
+      "note.txt",
+      "123",
+      "text/plain",
+      "2",
+      "hi"
+    ]
+  },
+  {
+    "name": "Clone binary aliasing without detach",
+    "group": "messaging",
+    "source": "const buffer=new ArrayBuffer(8);const u=new Uint8Array(buffer,2,3);u.set([1,2,3]);const d=new DataView(buffer,1,5);const c=structuredClone({buffer:buffer,u:u,d:d});record(c.buffer!==buffer);record(c.u.buffer===c.buffer);record(c.d.buffer===c.buffer);record(c.u.byteOffset);record(c.d.byteLength);record(c.u.join(\",\"));c.u[0]=9;record(u[0]);",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "2",
+      "5",
+      "1,2,3",
+      "1"
+    ]
+  },
+  {
+    "name": "Clone transfer detaches source buffer and views",
+    "group": "messaging",
+    "source": "const buffer=new ArrayBuffer(4);const u=new Uint8Array(buffer);u.set([1,2,3,4]);const d=new DataView(buffer);const c=structuredClone({buffer:buffer,u:u},{transfer:[buffer]});record(buffer.byteLength);record(buffer.detached);record(u.length);record(u.byteOffset);record(u[0]===undefined);record(c.u.buffer===c.buffer);record(c.u.join(\",\"));try{u.slice();}catch(e){record(e.name);}try{record(d.byteLength);}catch(e){record(e.name);}",
+    "expected": [
+      "0",
+      "true",
+      "0",
+      "0",
+      "true",
+      "true",
+      "1,2,3,4",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Transfer failure is atomic for other ArrayBuffers",
+    "group": "messaging",
+    "source": "const b=new ArrayBuffer(4);try{structuredClone({f:function(){}},{transfer:[b]});}catch(e){record(e.name);}record(b.byteLength);try{structuredClone({}, {transfer:[b,b]});}catch(e){record(e.name);}record(b.byteLength);try{structuredClone({}, {transfer:[new Uint8Array(1)]});}catch(e){record(e.name);}",
+    "expected": [
+      "DataCloneError",
+      "4",
+      "DataCloneError",
+      "4",
+      "DataCloneError"
+    ]
+  },
+  {
+    "name": "Transferred buffer bytes reflect getter side effects",
+    "group": "messaging",
+    "source": "const b=new ArrayBuffer(1);const view=new Uint8Array(b);view[0]=1;const source={buffer:b};Object.defineProperty(source,\"after\",{enumerable:true,get:function(){view[0]=9;return 2;}});const copy=structuredClone(source,{transfer:[b]});record(new Uint8Array(copy.buffer)[0]);record(b.byteLength);",
+    "expected": [
+      "9",
+      "0"
+    ]
+  },
+  {
+    "name": "ArrayBuffer transfer grow shrink and detached rejection",
+    "group": "messaging",
+    "source": "const b=new Uint8Array([1,2,3]).buffer;const c=b.transfer(5);record(b.detached);record(new Uint8Array(c).join(\",\"));const d=c.transferToFixedLength(2);record(new Uint8Array(d).join(\",\"));try{structuredClone(b);}catch(e){record(e.name);}try{new Uint8Array(b);}catch(e){record(e.name);}",
+    "expected": [
+      "true",
+      "1,2,3,0,0",
+      "1,2",
+      "DataCloneError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Clone rejects functions symbols weak collections and promises",
+    "group": "messaging",
+    "source": "for(const value of [function(){},Symbol(\"x\"),new WeakMap(),Promise.resolve(1)]){try{structuredClone(value);}catch(e){record(e.name);}}",
+    "expected": [
+      "DataCloneError",
+      "DataCloneError",
+      "DataCloneError",
+      "DataCloneError"
+    ]
+  },
+  {
+    "name": "MessageEvent defaults readonly data and frozen ports",
+    "group": "messaging",
+    "source": "const e=new MessageEvent(\"message\",{data:{n:2},origin:\"https://example.com\",lastEventId:\"id\"});record(e instanceof Event);record(e.data.n);record(e.origin);record(e.lastEventId);record(e.source===null);record(e.ports.length);record(Object.isFrozen(e.ports));e.origin=\"wrong\";record(e.origin);",
+    "expected": [
+      "true",
+      "2",
+      "https://example.com",
+      "id",
+      "true",
+      "0",
+      "true",
+      "https://example.com"
+    ]
+  },
+  {
+    "name": "MessageChannel delivery is a task and clones data",
+    "group": "messaging",
+    "source": "const c=new MessageChannel();const data={n:1};c.port2.onmessage=function(e){record(e.data.n);record(e.isTrusted);record(e.target===c.port2);record(e.ports.length);c.port1.close();c.port2.close();};c.port1.postMessage(data);data.n=9;Promise.resolve().then(function(){record(\"micro\");});record(\"sync\");",
+    "expected": [
+      "sync",
+      "micro",
+      "1",
+      "true",
+      "true",
+      "0"
+    ]
+  },
+  {
+    "name": "MessagePort addEventListener needs start",
+    "group": "messaging",
+    "source": "const c=new MessageChannel();c.port2.addEventListener(\"message\",function(e){record(e.data);c.port1.close();c.port2.close();});c.port1.postMessage(\"queued\");setTimeout(function(){record(\"start\");c.port2.start();},0);",
+    "expected": [
+      "start",
+      "queued"
+    ]
+  },
+  {
+    "name": "MessagePort close drops queued delivery",
+    "group": "messaging",
+    "source": "const c=new MessageChannel();c.port2.onmessage=function(){record(\"unexpected\");};c.port1.postMessage(\"drop\");c.port2.close();c.port1.close();record(\"closed\");",
+    "expected": [
+      "closed"
+    ]
+  },
+  {
+    "name": "Transferred MessagePort retains connection and exposes ports",
+    "group": "messaging",
+    "source": "const carrier=new MessageChannel();const channel=new MessageChannel();carrier.port2.onmessage=function(e){record(e.ports.length);record(e.data.port===e.ports[0]);const received=e.data.port;received.onmessage=function(msg){record(msg.data);received.close();channel.port1.close();carrier.port1.close();carrier.port2.close();};channel.port1.postMessage(\"connected\");};carrier.port1.postMessage({port:channel.port2},[channel.port2]);",
+    "expected": [
+      "1",
+      "true",
+      "connected"
+    ]
+  },
+  {
+    "name": "Untransferred ports and self transfer are rejected",
+    "group": "messaging",
+    "source": "const c=new MessageChannel();try{structuredClone(c.port1);}catch(e){record(e.name);}try{c.port1.postMessage(\"x\",[c.port1]);}catch(e){record(e.name);}try{structuredClone({p:c.port2,f:function(){}},{transfer:[c.port2]});}catch(e){record(e.name);}c.port2.onmessage=function(e){record(e.data);c.port1.close();c.port2.close();};c.port1.postMessage(\"still connected\");",
+    "expected": [
+      "DataCloneError",
+      "DataCloneError",
+      "DataCloneError",
+      "still connected"
+    ]
+  },
+  {
+    "name": "BroadcastChannel skips sender and clones payload",
+    "group": "messaging",
+    "source": "const a=new BroadcastChannel(\"test-broadcast-1\");const b=new BroadcastChannel(\"test-broadcast-1\");a.onmessage=function(){record(\"unexpected\");};b.onmessage=function(e){record(e.data.n);record(e.source===null);a.close();b.close();};const value={n:2};a.postMessage(value);value.n=3;record(\"sync\");",
+    "expected": [
+      "sync",
+      "2",
+      "true"
+    ]
+  },
+  {
+    "name": "BroadcastChannel close and clone errors",
+    "group": "messaging",
+    "source": "const c=new BroadcastChannel(\"test-broadcast-2\");try{c.postMessage(function(){});}catch(e){record(e.name);}c.close();try{c.postMessage(\"x\");}catch(e){record(e.name);}",
+    "expected": [
+      "DataCloneError",
+      "InvalidStateError"
+    ]
+  },
+  {
+    "name": "Window postMessage self source and task order",
+    "group": "messaging",
+    "source": "window.onmessage=function(e){record(e.data);record(e.source===window);record(e.isTrusted);window.onmessage=null;};window.postMessage(\"self\",\"*\");record(\"sync\");",
+    "expected": [
+      "sync",
+      "self",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "FileList clones preserve repeated File identity with fresh target wrappers",
+    "source": "const f=new File(['body'],'a.txt',{type:'text/plain',lastModified:123});const list=makeFileList([f]);const c=structuredClone({files:list,file:f,again:list});record(c.files instanceof FileList);record(c.files!==list);record(c.files===c.again);record(c.files[0]===c.file);record(c.file!==f);record(c.file.name);record(c.file.size);record(c.file.lastModified);record(Object.prototype.toString.call(c.files));",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "a.txt",
+      "4",
+      "123",
+      "[object FileList]"
+    ],
+    "browserExpected": [
+      "true",
+      "true",
+      "true",
+      "false",
+      "true",
+      "a.txt",
+      "4",
+      "123",
+      "[object FileList]"
+    ],
+    "browserDifference": "Chromium FileList cloning creates a distinct File for the nested list entry; File API sub-serialization shares HTML structured-clone memory."
+  }
+]

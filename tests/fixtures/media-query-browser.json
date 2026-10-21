@@ -1,0 +1,4773 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "source": "https://drafts.csswg.org/mediaqueries-5/",
+  "cases": [
+    {
+      "name": "desktop",
+      "environment": {
+        "name": "desktop",
+        "width": 800,
+        "height": 600,
+        "scale": 1,
+        "type": "screen",
+        "features": []
+      },
+      "metrics": {
+        "width": 800,
+        "height": 600,
+        "deviceWidth": 800,
+        "deviceHeight": 600,
+        "resolution": 1
+      },
+      "features": {
+        "orientation": [
+          "landscape"
+        ],
+        "hover": [
+          "hover"
+        ],
+        "any-hover": [
+          "hover"
+        ],
+        "pointer": [
+          "fine"
+        ],
+        "any-pointer": [
+          "fine"
+        ],
+        "prefers-color-scheme": [
+          "dark"
+        ],
+        "forced-colors": [
+          "none"
+        ],
+        "prefers-reduced-motion": [
+          "no-preference"
+        ],
+        "prefers-reduced-transparency": [
+          "reduce"
+        ],
+        "prefers-reduced-data": [],
+        "prefers-contrast": [
+          "no-preference"
+        ],
+        "update": [
+          "fast"
+        ],
+        "overflow-block": [
+          "scroll"
+        ],
+        "overflow-inline": [
+          "scroll"
+        ],
+        "scripting": [
+          "enabled"
+        ],
+        "scan": [],
+        "color-gamut": [
+          "srgb"
+        ],
+        "video-color-gamut": [],
+        "dynamic-range": [
+          "standard"
+        ],
+        "video-dynamic-range": [],
+        "display-mode": [
+          "browser"
+        ],
+        "inverted-colors": [],
+        "environment-blending": [],
+        "nav-controls": []
+      },
+      "unsupported": [
+        "prefers-reduced-data",
+        "video-color-gamut",
+        "video-dynamic-range",
+        "inverted-colors",
+        "environment-blending",
+        "nav-controls"
+      ],
+      "queries": [
+        {
+          "source": "",
+          "media": "",
+          "matches": true
+        },
+        {
+          "source": " ",
+          "media": "",
+          "matches": true
+        },
+        {
+          "source": "(",
+          "media": "(",
+          "matches": false
+        },
+        {
+          "source": "()",
+          "media": "()",
+          "matches": false
+        },
+        {
+          "source": "all",
+          "media": "all",
+          "matches": true
+        },
+        {
+          "source": "screen",
+          "media": "screen",
+          "matches": true
+        },
+        {
+          "source": "print",
+          "media": "print",
+          "matches": false
+        },
+        {
+          "source": "speech",
+          "media": "speech",
+          "matches": false
+        },
+        {
+          "source": "unknown",
+          "media": "unknown",
+          "matches": false
+        },
+        {
+          "source": "not unknown",
+          "media": "not unknown",
+          "matches": true
+        },
+        {
+          "source": "not all",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "only screen",
+          "media": "only screen",
+          "matches": true
+        },
+        {
+          "source": "only (width)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not (width: 800px)",
+          "media": "not (width: 800px)",
+          "matches": false
+        },
+        {
+          "source": "not (width: 800px) and (height: 600px)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not ((width: 800px) and (height: 600px))",
+          "media": "not ((width: 800px) and (height: 600px))",
+          "matches": false
+        },
+        {
+          "source": "screen and (width:800px)",
+          "media": "screen and (width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "screen and (width:800px) or (height:600px)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "or and (color)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "and",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "only",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "screen,",
+          "media": "screen, not all",
+          "matches": true
+        },
+        {
+          "source": " , screen",
+          "media": "not all, screen",
+          "matches": true
+        },
+        {
+          "source": "bad!, screen",
+          "media": "not all, screen",
+          "matches": true
+        },
+        {
+          "source": "screen, bad!",
+          "media": "screen, not all",
+          "matches": true
+        },
+        {
+          "source": "(width:bogus), screen",
+          "media": "(width:bogus), screen",
+          "matches": true
+        },
+        {
+          "source": "(unknown)",
+          "media": "(unknown)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "media": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "not screen and (unknown)",
+          "media": "not screen and (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width > 0px)",
+          "media": "(unknown) or (width > 0px)",
+          "matches": true
+        },
+        {
+          "source": "(unknown) and (width < 0px)",
+          "media": "(unknown) and (width < 0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width < 0px))",
+          "media": "not ((unknown) and (width < 0px))",
+          "matches": true
+        },
+        {
+          "source": "not ((unknown) or (width > 0px))",
+          "media": "not ((unknown) or (width > 0px))",
+          "matches": false
+        },
+        {
+          "source": "unknown(function)",
+          "media": "unknown(function)",
+          "matches": false
+        },
+        {
+          "source": "not unknown(function)",
+          "media": "not unknown(function)",
+          "matches": false
+        },
+        {
+          "source": "(unknown(function))",
+          "media": "(unknown(function))",
+          "matches": false
+        },
+        {
+          "source": "((width>0px) or unknown(function))",
+          "media": "((width > 0px) or unknown(function))",
+          "matches": true
+        },
+        {
+          "source": "(min-orientation:portrait)",
+          "media": "(min-orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "not (min-orientation:portrait)",
+          "media": "not (min-orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(orientation > portrait)",
+          "media": "(orientation > portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:800px",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "(width:800px)),screen",
+          "media": "not all, screen",
+          "matches": true
+        },
+        {
+          "source": "(width:800px), (height:600px)",
+          "media": "(width: 800px), (height: 600px)",
+          "matches": true
+        },
+        {
+          "source": "(width > 0px) or (height > 0px) and (color)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(1px < width > 100px)",
+          "media": "(1px < width > 100px)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8.5)",
+          "media": "(color: 8.5)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8.0)",
+          "media": "(color: 8.0)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8e0)",
+          "media": "(color: 8e0)",
+          "matches": false
+        },
+        {
+          "source": "(color: -1)",
+          "media": "(color: -1)",
+          "matches": false
+        },
+        {
+          "source": "not (color: -1)",
+          "media": "not (color: -1)",
+          "matches": true
+        },
+        {
+          "source": "(grid:0)",
+          "media": "(grid: 0)",
+          "matches": true
+        },
+        {
+          "source": "(grid:1)",
+          "media": "(grid: 1)",
+          "matches": false
+        },
+        {
+          "source": "(grid:2)",
+          "media": "(grid:2)",
+          "matches": false
+        },
+        {
+          "source": "(grid)",
+          "media": "(grid)",
+          "matches": false
+        },
+        {
+          "source": "(width:0)",
+          "media": "(width: 0)",
+          "matches": false
+        },
+        {
+          "source": "(width:800)",
+          "media": "(width:800)",
+          "matches": false
+        },
+        {
+          "source": "(width:8e2px)",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "(width:800.px)",
+          "media": "(width:800.px)",
+          "matches": false
+        },
+        {
+          "source": "(width:-1px)",
+          "media": "(width: -1px)",
+          "matches": false
+        },
+        {
+          "source": "not (width:-1px)",
+          "media": "not (width: -1px)",
+          "matches": true
+        },
+        {
+          "source": "(width > -1px)",
+          "media": "(width > -1px)",
+          "matches": true
+        },
+        {
+          "source": "(width <= -1px)",
+          "media": "(width <= -1px)",
+          "matches": false
+        },
+        {
+          "source": "(min-width:-1px)",
+          "media": "(min-width: -1px)",
+          "matches": true
+        },
+        {
+          "source": "(max-width:-1px)",
+          "media": "(max-width: -1px)",
+          "matches": false
+        },
+        {
+          "source": "(width > 100000000px)",
+          "media": "(width > 1e+08px)",
+          "matches": false
+        },
+        {
+          "source": "(width:50em)",
+          "media": "(width: 50em)",
+          "matches": true
+        },
+        {
+          "source": "(width:50rem)",
+          "media": "(width: 50rem)",
+          "matches": true
+        },
+        {
+          "source": "(width:100vw)",
+          "media": "(width: 100vw)",
+          "matches": true
+        },
+        {
+          "source": "(width:100svw)",
+          "media": "(width: 100svw)",
+          "matches": true
+        },
+        {
+          "source": "(width:100cqw)",
+          "media": "(width: 100cqw)",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px + 400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:min(900px,800px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:var(--size))",
+          "media": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:4/3)",
+          "media": "(aspect-ratio: 4 / 3)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:1.3333333333333333)",
+          "media": "(aspect-ratio: 1.33333 / 1)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:1/0)",
+          "media": "(aspect-ratio: 1 / 0)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:0/0)",
+          "media": "(aspect-ratio: 1 / 0)",
+          "matches": false
+        },
+        {
+          "source": "not (aspect-ratio:1/0)",
+          "media": "not (aspect-ratio: 1 / 0)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio < 1/0)",
+          "media": "(aspect-ratio < 1 / 0)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio: -1/1)",
+          "media": "(aspect-ratio: -1/1)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:1/-1)",
+          "media": "(aspect-ratio:1/-1)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:1dppx)",
+          "media": "(resolution: 1dppx)",
+          "matches": true
+        },
+        {
+          "source": "(resolution:96dpi)",
+          "media": "(resolution: 96dpi)",
+          "matches": true
+        },
+        {
+          "source": "(resolution:37.79527559055118dpcm)",
+          "media": "(resolution: 37.7953dpcm)",
+          "matches": true
+        },
+        {
+          "source": "(resolution:1x)",
+          "media": "(resolution: 1x)",
+          "matches": true
+        },
+        {
+          "source": "(resolution:0)",
+          "media": "(resolution:0)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:300dpi)",
+          "media": "(resolution: 300dpi)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:-1dpi)",
+          "media": "(resolution:-1dpi)",
+          "matches": false,
+          "normativeMedia": "(resolution: -1dpi)",
+          "deviation": "MQ5 accepts negative resolution; Chromium preserves an unknown component value."
+        },
+        {
+          "source": "not (resolution:-1dpi)",
+          "media": "not (resolution:-1dpi)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "not (resolution: -1dpi)",
+          "deviation": "MQ5 accepts negative resolution as a known false value; Chromium treats it as unknown."
+        },
+        {
+          "source": "(resolution:infinite)",
+          "media": "(resolution:infinite)",
+          "matches": false,
+          "normativeMedia": "(resolution: infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution:calc(2dppx / 2))",
+          "media": "(resolution: calc(1dppx))",
+          "matches": true
+        },
+        {
+          "source": "(400px <= width <= 800px)",
+          "media": "(400px <= width <= 800px)",
+          "matches": true
+        },
+        {
+          "source": "(800px >= width > 400px)",
+          "media": "(800px >= width > 400px)",
+          "matches": true
+        },
+        {
+          "source": "(width = 800px)",
+          "media": "(width = 800px)",
+          "matches": true
+        },
+        {
+          "source": "(800px = width)",
+          "media": "(800px = width)",
+          "matches": true
+        },
+        {
+          "source": "(width < = 800px)",
+          "media": "(width < = 800px)",
+          "matches": false
+        },
+        {
+          "source": "(width => 800px)",
+          "media": "(width => 800px)",
+          "matches": false
+        },
+        {
+          "source": "(800px <= width < 800px)",
+          "media": "(800px <= width < 800px)",
+          "matches": false
+        },
+        {
+          "source": "(w\\69 dth:800px)",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "scre\\65 n and (COLOR)",
+          "media": "screen and (color)",
+          "matches": true
+        },
+        {
+          "source": "(WIDTH/**/:/**/800px)",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "(min-/**/width:1px)",
+          "media": "(min-/**/width:1px)",
+          "matches": false
+        },
+        {
+          "source": "(orientation)",
+          "media": "(orientation)",
+          "matches": true
+        },
+        {
+          "source": "(hover)",
+          "media": "(hover)",
+          "matches": true
+        },
+        {
+          "source": "(any-hover)",
+          "media": "(any-hover)",
+          "matches": true
+        },
+        {
+          "source": "(pointer)",
+          "media": "(pointer)",
+          "matches": true
+        },
+        {
+          "source": "(any-pointer)",
+          "media": "(any-pointer)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-color-scheme)",
+          "media": "(prefers-color-scheme)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors)",
+          "media": "(forced-colors)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-motion)",
+          "media": "(prefers-reduced-motion)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency)",
+          "media": "(prefers-reduced-transparency)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-data)",
+          "media": "(prefers-reduced-data)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast)",
+          "media": "(prefers-contrast)",
+          "matches": false
+        },
+        {
+          "source": "(update)",
+          "media": "(update)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-block)",
+          "media": "(overflow-block)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-inline)",
+          "media": "(overflow-inline)",
+          "matches": true
+        },
+        {
+          "source": "(scripting)",
+          "media": "(scripting)",
+          "matches": true
+        },
+        {
+          "source": "(scan)",
+          "media": "(scan)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut)",
+          "media": "(color-gamut)",
+          "matches": true
+        },
+        {
+          "source": "(dynamic-range)",
+          "media": "(dynamic-range)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "MQ5 boolean features match a supported nonzero/non-none value; Chromium returns false for standard dynamic range."
+        },
+        {
+          "source": "(display-mode)",
+          "media": "(display-mode)",
+          "matches": true
+        },
+        {
+          "source": "(inverted-colors)",
+          "media": "(inverted-colors)",
+          "matches": false
+        },
+        {
+          "source": "(device-aspect-ratio:4/3)",
+          "media": "(device-aspect-ratio: 4 / 3)",
+          "matches": true
+        },
+        {
+          "source": "not (resolution:infinite)",
+          "media": "not (resolution:infinite)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "not (resolution: infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution < infinite)",
+          "media": "(resolution < infinite)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "(resolution < infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution > infinite)",
+          "media": "(resolution > infinite)",
+          "matches": false,
+          "normativeMedia": "(resolution > infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "not print and (unknown)",
+          "media": "not print and (unknown)",
+          "matches": true
+        },
+        {
+          "source": "not screen and (unknown)",
+          "media": "not screen and (unknown)",
+          "matches": false
+        },
+        {
+          "source": "not (width:1%)",
+          "media": "not (width:1%)",
+          "matches": false
+        },
+        {
+          "source": "(color:calc(8))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(8.0))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(8/**/))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(7.5))",
+          "media": "(color: calc(7.5))",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:calc(4)/3)",
+          "media": "(aspect-ratio: calc(4) / 3)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:4/calc(3))",
+          "media": "(aspect-ratio: 4 / calc(3))",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:calc(4 / 3))",
+          "media": "(aspect-ratio: calc(1.33333) / 1)",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px+400px))",
+          "media": "(width:calc(400px+400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px +400px))",
+          "media": "(width:calc(400px +400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px+ 400px))",
+          "media": "(width:calc(400px+ 400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px/**/+/**/400px))",
+          "media": "(width:calc(400px/**/+/**/400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px /*gap*/+ /*gap*/400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(4e2px + 400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px + /*gap*/400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px 400px))",
+          "media": "(width:calc(400px 400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:min(800px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc((400px + 400px)))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "future(\"line\nbreak\"), screen",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(future:\"line\nbreak\"), screen",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(future:\"line\nbreak\")",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "((width:800px))",
+          "media": "((width: 800px))",
+          "matches": true
+        },
+        {
+          "source": "(unknown [)])",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(width:800px]",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(width:800px),,print",
+          "media": "(width: 800px), not all, print",
+          "matches": true
+        },
+        {
+          "source": "(orientation:portrait)",
+          "media": "(orientation: portrait)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "media": "(orientation: landscape)",
+          "matches": true
+        },
+        {
+          "source": "(hover:none)",
+          "media": "(hover: none)",
+          "matches": false
+        },
+        {
+          "source": "(hover:hover)",
+          "media": "(hover: hover)",
+          "matches": true
+        },
+        {
+          "source": "(any-hover:none)",
+          "media": "(any-hover: none)",
+          "matches": false
+        },
+        {
+          "source": "(any-hover:hover)",
+          "media": "(any-hover: hover)",
+          "matches": true
+        },
+        {
+          "source": "(pointer:none)",
+          "media": "(pointer: none)",
+          "matches": false
+        },
+        {
+          "source": "(pointer:fine)",
+          "media": "(pointer: fine)",
+          "matches": true
+        },
+        {
+          "source": "(pointer:coarse)",
+          "media": "(pointer: coarse)",
+          "matches": false
+        },
+        {
+          "source": "(any-pointer:none)",
+          "media": "(any-pointer: none)",
+          "matches": false
+        },
+        {
+          "source": "(any-pointer:fine)",
+          "media": "(any-pointer: fine)",
+          "matches": true
+        },
+        {
+          "source": "(any-pointer:coarse)",
+          "media": "(any-pointer: coarse)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-color-scheme:light)",
+          "media": "(prefers-color-scheme: light)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-color-scheme:dark)",
+          "media": "(prefers-color-scheme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors:none)",
+          "media": "(forced-colors: none)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors:active)",
+          "media": "(forced-colors: active)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-motion:no-preference)",
+          "media": "(prefers-reduced-motion: no-preference)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-motion:reduce)",
+          "media": "(prefers-reduced-motion: reduce)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency:no-preference)",
+          "media": "(prefers-reduced-transparency: no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency:reduce)",
+          "media": "(prefers-reduced-transparency: reduce)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-data:no-preference)",
+          "media": "(prefers-reduced-data:no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-data:reduce)",
+          "media": "(prefers-reduced-data:reduce)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:no-preference)",
+          "media": "(prefers-contrast: no-preference)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-contrast:less)",
+          "media": "(prefers-contrast: less)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:more)",
+          "media": "(prefers-contrast: more)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:custom)",
+          "media": "(prefers-contrast: custom)",
+          "matches": false
+        },
+        {
+          "source": "(update:none)",
+          "media": "(update: none)",
+          "matches": false
+        },
+        {
+          "source": "(update:slow)",
+          "media": "(update: slow)",
+          "matches": false
+        },
+        {
+          "source": "(update:fast)",
+          "media": "(update: fast)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-block:none)",
+          "media": "(overflow-block: none)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-block:scroll)",
+          "media": "(overflow-block: scroll)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-block:paged)",
+          "media": "(overflow-block: paged)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-inline:none)",
+          "media": "(overflow-inline: none)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-inline:scroll)",
+          "media": "(overflow-inline: scroll)",
+          "matches": true
+        },
+        {
+          "source": "(scripting:none)",
+          "media": "(scripting: none)",
+          "matches": false
+        },
+        {
+          "source": "(scripting:initial-only)",
+          "media": "(scripting: initial-only)",
+          "matches": false
+        },
+        {
+          "source": "(scripting:enabled)",
+          "media": "(scripting: enabled)",
+          "matches": true
+        },
+        {
+          "source": "(scan:interlace)",
+          "media": "(scan: interlace)",
+          "matches": false
+        },
+        {
+          "source": "(scan:progressive)",
+          "media": "(scan: progressive)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut:srgb)",
+          "media": "(color-gamut: srgb)",
+          "matches": true
+        },
+        {
+          "source": "(color-gamut:p3)",
+          "media": "(color-gamut: p3)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut:rec2020)",
+          "media": "(color-gamut: rec2020)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:srgb)",
+          "media": "(video-color-gamut:srgb)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:p3)",
+          "media": "(video-color-gamut:p3)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:rec2020)",
+          "media": "(video-color-gamut:rec2020)",
+          "matches": false
+        },
+        {
+          "source": "(dynamic-range:standard)",
+          "media": "(dynamic-range: standard)",
+          "matches": true
+        },
+        {
+          "source": "(dynamic-range:high)",
+          "media": "(dynamic-range: high)",
+          "matches": false
+        },
+        {
+          "source": "(video-dynamic-range:standard)",
+          "media": "(video-dynamic-range:standard)",
+          "matches": false
+        },
+        {
+          "source": "(video-dynamic-range:high)",
+          "media": "(video-dynamic-range:high)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:browser)",
+          "media": "(display-mode: browser)",
+          "matches": true
+        },
+        {
+          "source": "(display-mode:fullscreen)",
+          "media": "(display-mode: fullscreen)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:standalone)",
+          "media": "(display-mode: standalone)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:minimal-ui)",
+          "media": "(display-mode: minimal-ui)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:picture-in-picture)",
+          "media": "(display-mode: picture-in-picture)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:window-controls-overlay)",
+          "media": "(display-mode: window-controls-overlay)",
+          "matches": false
+        },
+        {
+          "source": "(inverted-colors:none)",
+          "media": "(inverted-colors:none)",
+          "matches": false
+        },
+        {
+          "source": "(inverted-colors:inverted)",
+          "media": "(inverted-colors:inverted)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:opaque)",
+          "media": "(environment-blending:opaque)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:additive)",
+          "media": "(environment-blending:additive)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:subtractive)",
+          "media": "(environment-blending:subtractive)",
+          "matches": false
+        },
+        {
+          "source": "(nav-controls:none)",
+          "media": "(nav-controls:none)",
+          "matches": false
+        },
+        {
+          "source": "(nav-controls:back)",
+          "media": "(nav-controls:back)",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "name": "portrait and preferences",
+      "environment": {
+        "name": "portrait and preferences",
+        "width": 400,
+        "height": 800,
+        "scale": 2,
+        "type": "screen",
+        "features": [
+          {
+            "name": "prefers-color-scheme",
+            "value": "dark"
+          },
+          {
+            "name": "prefers-reduced-motion",
+            "value": "reduce"
+          },
+          {
+            "name": "prefers-reduced-transparency",
+            "value": "reduce"
+          },
+          {
+            "name": "prefers-contrast",
+            "value": "more"
+          }
+        ]
+      },
+      "metrics": {
+        "width": 400,
+        "height": 800,
+        "deviceWidth": 800,
+        "deviceHeight": 600,
+        "resolution": 2
+      },
+      "features": {
+        "orientation": [
+          "portrait"
+        ],
+        "hover": [
+          "hover"
+        ],
+        "any-hover": [
+          "hover"
+        ],
+        "pointer": [
+          "fine"
+        ],
+        "any-pointer": [
+          "fine"
+        ],
+        "prefers-color-scheme": [
+          "dark"
+        ],
+        "forced-colors": [
+          "none"
+        ],
+        "prefers-reduced-motion": [
+          "reduce"
+        ],
+        "prefers-reduced-transparency": [
+          "reduce"
+        ],
+        "prefers-reduced-data": [],
+        "prefers-contrast": [
+          "more"
+        ],
+        "update": [
+          "fast"
+        ],
+        "overflow-block": [
+          "scroll"
+        ],
+        "overflow-inline": [
+          "scroll"
+        ],
+        "scripting": [
+          "enabled"
+        ],
+        "scan": [],
+        "color-gamut": [
+          "srgb"
+        ],
+        "video-color-gamut": [],
+        "dynamic-range": [
+          "standard"
+        ],
+        "video-dynamic-range": [],
+        "display-mode": [
+          "browser"
+        ],
+        "inverted-colors": [],
+        "environment-blending": [],
+        "nav-controls": []
+      },
+      "unsupported": [
+        "prefers-reduced-data",
+        "video-color-gamut",
+        "video-dynamic-range",
+        "inverted-colors",
+        "environment-blending",
+        "nav-controls"
+      ],
+      "queries": [
+        {
+          "source": "",
+          "media": "",
+          "matches": true
+        },
+        {
+          "source": " ",
+          "media": "",
+          "matches": true
+        },
+        {
+          "source": "(",
+          "media": "(",
+          "matches": false
+        },
+        {
+          "source": "()",
+          "media": "()",
+          "matches": false
+        },
+        {
+          "source": "all",
+          "media": "all",
+          "matches": true
+        },
+        {
+          "source": "screen",
+          "media": "screen",
+          "matches": true
+        },
+        {
+          "source": "print",
+          "media": "print",
+          "matches": false
+        },
+        {
+          "source": "speech",
+          "media": "speech",
+          "matches": false
+        },
+        {
+          "source": "unknown",
+          "media": "unknown",
+          "matches": false
+        },
+        {
+          "source": "not unknown",
+          "media": "not unknown",
+          "matches": true
+        },
+        {
+          "source": "not all",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "only screen",
+          "media": "only screen",
+          "matches": true
+        },
+        {
+          "source": "only (width)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not (width: 800px)",
+          "media": "not (width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "not (width: 800px) and (height: 600px)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not ((width: 800px) and (height: 600px))",
+          "media": "not ((width: 800px) and (height: 600px))",
+          "matches": true
+        },
+        {
+          "source": "screen and (width:800px)",
+          "media": "screen and (width: 800px)",
+          "matches": false
+        },
+        {
+          "source": "screen and (width:800px) or (height:600px)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "or and (color)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "and",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "only",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "screen,",
+          "media": "screen, not all",
+          "matches": true
+        },
+        {
+          "source": " , screen",
+          "media": "not all, screen",
+          "matches": true
+        },
+        {
+          "source": "bad!, screen",
+          "media": "not all, screen",
+          "matches": true
+        },
+        {
+          "source": "screen, bad!",
+          "media": "screen, not all",
+          "matches": true
+        },
+        {
+          "source": "(width:bogus), screen",
+          "media": "(width:bogus), screen",
+          "matches": true
+        },
+        {
+          "source": "(unknown)",
+          "media": "(unknown)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "media": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "not screen and (unknown)",
+          "media": "not screen and (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width > 0px)",
+          "media": "(unknown) or (width > 0px)",
+          "matches": true
+        },
+        {
+          "source": "(unknown) and (width < 0px)",
+          "media": "(unknown) and (width < 0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width < 0px))",
+          "media": "not ((unknown) and (width < 0px))",
+          "matches": true
+        },
+        {
+          "source": "not ((unknown) or (width > 0px))",
+          "media": "not ((unknown) or (width > 0px))",
+          "matches": false
+        },
+        {
+          "source": "unknown(function)",
+          "media": "unknown(function)",
+          "matches": false
+        },
+        {
+          "source": "not unknown(function)",
+          "media": "not unknown(function)",
+          "matches": false
+        },
+        {
+          "source": "(unknown(function))",
+          "media": "(unknown(function))",
+          "matches": false
+        },
+        {
+          "source": "((width>0px) or unknown(function))",
+          "media": "((width > 0px) or unknown(function))",
+          "matches": true
+        },
+        {
+          "source": "(min-orientation:portrait)",
+          "media": "(min-orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "not (min-orientation:portrait)",
+          "media": "not (min-orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(orientation > portrait)",
+          "media": "(orientation > portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:800px",
+          "media": "(width: 800px)",
+          "matches": false
+        },
+        {
+          "source": "(width:800px)),screen",
+          "media": "not all, screen",
+          "matches": true
+        },
+        {
+          "source": "(width:800px), (height:600px)",
+          "media": "(width: 800px), (height: 600px)",
+          "matches": false
+        },
+        {
+          "source": "(width > 0px) or (height > 0px) and (color)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(1px < width > 100px)",
+          "media": "(1px < width > 100px)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8.5)",
+          "media": "(color: 8.5)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8.0)",
+          "media": "(color: 8.0)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8e0)",
+          "media": "(color: 8e0)",
+          "matches": false
+        },
+        {
+          "source": "(color: -1)",
+          "media": "(color: -1)",
+          "matches": false
+        },
+        {
+          "source": "not (color: -1)",
+          "media": "not (color: -1)",
+          "matches": true
+        },
+        {
+          "source": "(grid:0)",
+          "media": "(grid: 0)",
+          "matches": true
+        },
+        {
+          "source": "(grid:1)",
+          "media": "(grid: 1)",
+          "matches": false
+        },
+        {
+          "source": "(grid:2)",
+          "media": "(grid:2)",
+          "matches": false
+        },
+        {
+          "source": "(grid)",
+          "media": "(grid)",
+          "matches": false
+        },
+        {
+          "source": "(width:0)",
+          "media": "(width: 0)",
+          "matches": false
+        },
+        {
+          "source": "(width:800)",
+          "media": "(width:800)",
+          "matches": false
+        },
+        {
+          "source": "(width:8e2px)",
+          "media": "(width: 800px)",
+          "matches": false
+        },
+        {
+          "source": "(width:800.px)",
+          "media": "(width:800.px)",
+          "matches": false
+        },
+        {
+          "source": "(width:-1px)",
+          "media": "(width: -1px)",
+          "matches": false
+        },
+        {
+          "source": "not (width:-1px)",
+          "media": "not (width: -1px)",
+          "matches": true
+        },
+        {
+          "source": "(width > -1px)",
+          "media": "(width > -1px)",
+          "matches": true
+        },
+        {
+          "source": "(width <= -1px)",
+          "media": "(width <= -1px)",
+          "matches": false
+        },
+        {
+          "source": "(min-width:-1px)",
+          "media": "(min-width: -1px)",
+          "matches": true
+        },
+        {
+          "source": "(max-width:-1px)",
+          "media": "(max-width: -1px)",
+          "matches": false
+        },
+        {
+          "source": "(width > 100000000px)",
+          "media": "(width > 1e+08px)",
+          "matches": false
+        },
+        {
+          "source": "(width:50em)",
+          "media": "(width: 50em)",
+          "matches": false
+        },
+        {
+          "source": "(width:50rem)",
+          "media": "(width: 50rem)",
+          "matches": false
+        },
+        {
+          "source": "(width:100vw)",
+          "media": "(width: 100vw)",
+          "matches": true
+        },
+        {
+          "source": "(width:100svw)",
+          "media": "(width: 100svw)",
+          "matches": true
+        },
+        {
+          "source": "(width:100cqw)",
+          "media": "(width: 100cqw)",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px + 400px))",
+          "media": "(width: calc(800px))",
+          "matches": false
+        },
+        {
+          "source": "(width:min(900px,800px))",
+          "media": "(width: calc(800px))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "media": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:4/3)",
+          "media": "(aspect-ratio: 4 / 3)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:1.3333333333333333)",
+          "media": "(aspect-ratio: 1.33333 / 1)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:1/0)",
+          "media": "(aspect-ratio: 1 / 0)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:0/0)",
+          "media": "(aspect-ratio: 1 / 0)",
+          "matches": false
+        },
+        {
+          "source": "not (aspect-ratio:1/0)",
+          "media": "not (aspect-ratio: 1 / 0)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio < 1/0)",
+          "media": "(aspect-ratio < 1 / 0)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio: -1/1)",
+          "media": "(aspect-ratio: -1/1)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:1/-1)",
+          "media": "(aspect-ratio:1/-1)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:1dppx)",
+          "media": "(resolution: 1dppx)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:96dpi)",
+          "media": "(resolution: 96dpi)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:37.79527559055118dpcm)",
+          "media": "(resolution: 37.7953dpcm)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:1x)",
+          "media": "(resolution: 1x)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:0)",
+          "media": "(resolution:0)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:300dpi)",
+          "media": "(resolution: 300dpi)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:-1dpi)",
+          "media": "(resolution:-1dpi)",
+          "matches": false,
+          "normativeMedia": "(resolution: -1dpi)",
+          "deviation": "MQ5 accepts negative resolution; Chromium preserves an unknown component value."
+        },
+        {
+          "source": "not (resolution:-1dpi)",
+          "media": "not (resolution:-1dpi)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "not (resolution: -1dpi)",
+          "deviation": "MQ5 accepts negative resolution as a known false value; Chromium treats it as unknown."
+        },
+        {
+          "source": "(resolution:infinite)",
+          "media": "(resolution:infinite)",
+          "matches": false,
+          "normativeMedia": "(resolution: infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution:calc(2dppx / 2))",
+          "media": "(resolution: calc(1dppx))",
+          "matches": false
+        },
+        {
+          "source": "(400px <= width <= 800px)",
+          "media": "(400px <= width <= 800px)",
+          "matches": true
+        },
+        {
+          "source": "(800px >= width > 400px)",
+          "media": "(800px >= width > 400px)",
+          "matches": false
+        },
+        {
+          "source": "(width = 800px)",
+          "media": "(width = 800px)",
+          "matches": false
+        },
+        {
+          "source": "(800px = width)",
+          "media": "(800px = width)",
+          "matches": false
+        },
+        {
+          "source": "(width < = 800px)",
+          "media": "(width < = 800px)",
+          "matches": false
+        },
+        {
+          "source": "(width => 800px)",
+          "media": "(width => 800px)",
+          "matches": false
+        },
+        {
+          "source": "(800px <= width < 800px)",
+          "media": "(800px <= width < 800px)",
+          "matches": false
+        },
+        {
+          "source": "(w\\69 dth:800px)",
+          "media": "(width: 800px)",
+          "matches": false
+        },
+        {
+          "source": "scre\\65 n and (COLOR)",
+          "media": "screen and (color)",
+          "matches": true
+        },
+        {
+          "source": "(WIDTH/**/:/**/800px)",
+          "media": "(width: 800px)",
+          "matches": false
+        },
+        {
+          "source": "(min-/**/width:1px)",
+          "media": "(min-/**/width:1px)",
+          "matches": false
+        },
+        {
+          "source": "(orientation)",
+          "media": "(orientation)",
+          "matches": true
+        },
+        {
+          "source": "(hover)",
+          "media": "(hover)",
+          "matches": true
+        },
+        {
+          "source": "(any-hover)",
+          "media": "(any-hover)",
+          "matches": true
+        },
+        {
+          "source": "(pointer)",
+          "media": "(pointer)",
+          "matches": true
+        },
+        {
+          "source": "(any-pointer)",
+          "media": "(any-pointer)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-color-scheme)",
+          "media": "(prefers-color-scheme)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors)",
+          "media": "(forced-colors)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-motion)",
+          "media": "(prefers-reduced-motion)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-transparency)",
+          "media": "(prefers-reduced-transparency)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-data)",
+          "media": "(prefers-reduced-data)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast)",
+          "media": "(prefers-contrast)",
+          "matches": true
+        },
+        {
+          "source": "(update)",
+          "media": "(update)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-block)",
+          "media": "(overflow-block)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-inline)",
+          "media": "(overflow-inline)",
+          "matches": true
+        },
+        {
+          "source": "(scripting)",
+          "media": "(scripting)",
+          "matches": true
+        },
+        {
+          "source": "(scan)",
+          "media": "(scan)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut)",
+          "media": "(color-gamut)",
+          "matches": true
+        },
+        {
+          "source": "(dynamic-range)",
+          "media": "(dynamic-range)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "MQ5 boolean features match a supported nonzero/non-none value; Chromium returns false for standard dynamic range."
+        },
+        {
+          "source": "(display-mode)",
+          "media": "(display-mode)",
+          "matches": true
+        },
+        {
+          "source": "(inverted-colors)",
+          "media": "(inverted-colors)",
+          "matches": false
+        },
+        {
+          "source": "(device-aspect-ratio:4/3)",
+          "media": "(device-aspect-ratio: 4 / 3)",
+          "matches": true
+        },
+        {
+          "source": "not (resolution:infinite)",
+          "media": "not (resolution:infinite)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "not (resolution: infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution < infinite)",
+          "media": "(resolution < infinite)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "(resolution < infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution > infinite)",
+          "media": "(resolution > infinite)",
+          "matches": false,
+          "normativeMedia": "(resolution > infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "not print and (unknown)",
+          "media": "not print and (unknown)",
+          "matches": true
+        },
+        {
+          "source": "not screen and (unknown)",
+          "media": "not screen and (unknown)",
+          "matches": false
+        },
+        {
+          "source": "not (width:1%)",
+          "media": "not (width:1%)",
+          "matches": false
+        },
+        {
+          "source": "(color:calc(8))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(8.0))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(8/**/))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(7.5))",
+          "media": "(color: calc(7.5))",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:calc(4)/3)",
+          "media": "(aspect-ratio: calc(4) / 3)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:4/calc(3))",
+          "media": "(aspect-ratio: 4 / calc(3))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:calc(4 / 3))",
+          "media": "(aspect-ratio: calc(1.33333) / 1)",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px+400px))",
+          "media": "(width:calc(400px+400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px +400px))",
+          "media": "(width:calc(400px +400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px+ 400px))",
+          "media": "(width:calc(400px+ 400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px/**/+/**/400px))",
+          "media": "(width:calc(400px/**/+/**/400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px /*gap*/+ /*gap*/400px))",
+          "media": "(width: calc(800px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(4e2px + 400px))",
+          "media": "(width: calc(800px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px + /*gap*/400px))",
+          "media": "(width: calc(800px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px 400px))",
+          "media": "(width:calc(400px 400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:min(800px))",
+          "media": "(width: calc(800px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc((400px + 400px)))",
+          "media": "(width: calc(800px))",
+          "matches": false
+        },
+        {
+          "source": "future(\"line\nbreak\"), screen",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(future:\"line\nbreak\"), screen",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(future:\"line\nbreak\")",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "((width:800px))",
+          "media": "((width: 800px))",
+          "matches": false
+        },
+        {
+          "source": "(unknown [)])",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(width:800px]",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(width:800px),,print",
+          "media": "(width: 800px), not all, print",
+          "matches": false
+        },
+        {
+          "source": "(orientation:portrait)",
+          "media": "(orientation: portrait)",
+          "matches": true
+        },
+        {
+          "source": "(orientation:landscape)",
+          "media": "(orientation: landscape)",
+          "matches": false
+        },
+        {
+          "source": "(hover:none)",
+          "media": "(hover: none)",
+          "matches": false
+        },
+        {
+          "source": "(hover:hover)",
+          "media": "(hover: hover)",
+          "matches": true
+        },
+        {
+          "source": "(any-hover:none)",
+          "media": "(any-hover: none)",
+          "matches": false
+        },
+        {
+          "source": "(any-hover:hover)",
+          "media": "(any-hover: hover)",
+          "matches": true
+        },
+        {
+          "source": "(pointer:none)",
+          "media": "(pointer: none)",
+          "matches": false
+        },
+        {
+          "source": "(pointer:fine)",
+          "media": "(pointer: fine)",
+          "matches": true
+        },
+        {
+          "source": "(pointer:coarse)",
+          "media": "(pointer: coarse)",
+          "matches": false
+        },
+        {
+          "source": "(any-pointer:none)",
+          "media": "(any-pointer: none)",
+          "matches": false
+        },
+        {
+          "source": "(any-pointer:fine)",
+          "media": "(any-pointer: fine)",
+          "matches": true
+        },
+        {
+          "source": "(any-pointer:coarse)",
+          "media": "(any-pointer: coarse)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-color-scheme:light)",
+          "media": "(prefers-color-scheme: light)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-color-scheme:dark)",
+          "media": "(prefers-color-scheme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors:none)",
+          "media": "(forced-colors: none)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors:active)",
+          "media": "(forced-colors: active)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-motion:no-preference)",
+          "media": "(prefers-reduced-motion: no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-motion:reduce)",
+          "media": "(prefers-reduced-motion: reduce)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-transparency:no-preference)",
+          "media": "(prefers-reduced-transparency: no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency:reduce)",
+          "media": "(prefers-reduced-transparency: reduce)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-data:no-preference)",
+          "media": "(prefers-reduced-data:no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-data:reduce)",
+          "media": "(prefers-reduced-data:reduce)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:no-preference)",
+          "media": "(prefers-contrast: no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:less)",
+          "media": "(prefers-contrast: less)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:more)",
+          "media": "(prefers-contrast: more)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-contrast:custom)",
+          "media": "(prefers-contrast: custom)",
+          "matches": false
+        },
+        {
+          "source": "(update:none)",
+          "media": "(update: none)",
+          "matches": false
+        },
+        {
+          "source": "(update:slow)",
+          "media": "(update: slow)",
+          "matches": false
+        },
+        {
+          "source": "(update:fast)",
+          "media": "(update: fast)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-block:none)",
+          "media": "(overflow-block: none)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-block:scroll)",
+          "media": "(overflow-block: scroll)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-block:paged)",
+          "media": "(overflow-block: paged)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-inline:none)",
+          "media": "(overflow-inline: none)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-inline:scroll)",
+          "media": "(overflow-inline: scroll)",
+          "matches": true
+        },
+        {
+          "source": "(scripting:none)",
+          "media": "(scripting: none)",
+          "matches": false
+        },
+        {
+          "source": "(scripting:initial-only)",
+          "media": "(scripting: initial-only)",
+          "matches": false
+        },
+        {
+          "source": "(scripting:enabled)",
+          "media": "(scripting: enabled)",
+          "matches": true
+        },
+        {
+          "source": "(scan:interlace)",
+          "media": "(scan: interlace)",
+          "matches": false
+        },
+        {
+          "source": "(scan:progressive)",
+          "media": "(scan: progressive)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut:srgb)",
+          "media": "(color-gamut: srgb)",
+          "matches": true
+        },
+        {
+          "source": "(color-gamut:p3)",
+          "media": "(color-gamut: p3)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut:rec2020)",
+          "media": "(color-gamut: rec2020)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:srgb)",
+          "media": "(video-color-gamut:srgb)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:p3)",
+          "media": "(video-color-gamut:p3)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:rec2020)",
+          "media": "(video-color-gamut:rec2020)",
+          "matches": false
+        },
+        {
+          "source": "(dynamic-range:standard)",
+          "media": "(dynamic-range: standard)",
+          "matches": true
+        },
+        {
+          "source": "(dynamic-range:high)",
+          "media": "(dynamic-range: high)",
+          "matches": false
+        },
+        {
+          "source": "(video-dynamic-range:standard)",
+          "media": "(video-dynamic-range:standard)",
+          "matches": false
+        },
+        {
+          "source": "(video-dynamic-range:high)",
+          "media": "(video-dynamic-range:high)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:browser)",
+          "media": "(display-mode: browser)",
+          "matches": true
+        },
+        {
+          "source": "(display-mode:fullscreen)",
+          "media": "(display-mode: fullscreen)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:standalone)",
+          "media": "(display-mode: standalone)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:minimal-ui)",
+          "media": "(display-mode: minimal-ui)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:picture-in-picture)",
+          "media": "(display-mode: picture-in-picture)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:window-controls-overlay)",
+          "media": "(display-mode: window-controls-overlay)",
+          "matches": false
+        },
+        {
+          "source": "(inverted-colors:none)",
+          "media": "(inverted-colors:none)",
+          "matches": false
+        },
+        {
+          "source": "(inverted-colors:inverted)",
+          "media": "(inverted-colors:inverted)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:opaque)",
+          "media": "(environment-blending:opaque)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:additive)",
+          "media": "(environment-blending:additive)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:subtractive)",
+          "media": "(environment-blending:subtractive)",
+          "matches": false
+        },
+        {
+          "source": "(nav-controls:none)",
+          "media": "(nav-controls:none)",
+          "matches": false
+        },
+        {
+          "source": "(nav-controls:back)",
+          "media": "(nav-controls:back)",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "name": "forced colors",
+      "environment": {
+        "name": "forced colors",
+        "width": 800,
+        "height": 600,
+        "scale": 1,
+        "type": "screen",
+        "features": [
+          {
+            "name": "forced-colors",
+            "value": "active"
+          },
+          {
+            "name": "prefers-contrast",
+            "value": "custom"
+          }
+        ]
+      },
+      "metrics": {
+        "width": 800,
+        "height": 600,
+        "deviceWidth": 800,
+        "deviceHeight": 600,
+        "resolution": 1
+      },
+      "features": {
+        "orientation": [
+          "landscape"
+        ],
+        "hover": [
+          "hover"
+        ],
+        "any-hover": [
+          "hover"
+        ],
+        "pointer": [
+          "fine"
+        ],
+        "any-pointer": [
+          "fine"
+        ],
+        "prefers-color-scheme": [
+          "dark"
+        ],
+        "forced-colors": [
+          "active"
+        ],
+        "prefers-reduced-motion": [
+          "no-preference"
+        ],
+        "prefers-reduced-transparency": [
+          "reduce"
+        ],
+        "prefers-reduced-data": [],
+        "prefers-contrast": [
+          "custom"
+        ],
+        "update": [
+          "fast"
+        ],
+        "overflow-block": [
+          "scroll"
+        ],
+        "overflow-inline": [
+          "scroll"
+        ],
+        "scripting": [
+          "enabled"
+        ],
+        "scan": [],
+        "color-gamut": [
+          "srgb"
+        ],
+        "video-color-gamut": [],
+        "dynamic-range": [
+          "standard"
+        ],
+        "video-dynamic-range": [],
+        "display-mode": [
+          "browser"
+        ],
+        "inverted-colors": [],
+        "environment-blending": [],
+        "nav-controls": []
+      },
+      "unsupported": [
+        "prefers-reduced-data",
+        "video-color-gamut",
+        "video-dynamic-range",
+        "inverted-colors",
+        "environment-blending",
+        "nav-controls"
+      ],
+      "queries": [
+        {
+          "source": "",
+          "media": "",
+          "matches": true
+        },
+        {
+          "source": " ",
+          "media": "",
+          "matches": true
+        },
+        {
+          "source": "(",
+          "media": "(",
+          "matches": false
+        },
+        {
+          "source": "()",
+          "media": "()",
+          "matches": false
+        },
+        {
+          "source": "all",
+          "media": "all",
+          "matches": true
+        },
+        {
+          "source": "screen",
+          "media": "screen",
+          "matches": true
+        },
+        {
+          "source": "print",
+          "media": "print",
+          "matches": false
+        },
+        {
+          "source": "speech",
+          "media": "speech",
+          "matches": false
+        },
+        {
+          "source": "unknown",
+          "media": "unknown",
+          "matches": false
+        },
+        {
+          "source": "not unknown",
+          "media": "not unknown",
+          "matches": true
+        },
+        {
+          "source": "not all",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "only screen",
+          "media": "only screen",
+          "matches": true
+        },
+        {
+          "source": "only (width)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not (width: 800px)",
+          "media": "not (width: 800px)",
+          "matches": false
+        },
+        {
+          "source": "not (width: 800px) and (height: 600px)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not ((width: 800px) and (height: 600px))",
+          "media": "not ((width: 800px) and (height: 600px))",
+          "matches": false
+        },
+        {
+          "source": "screen and (width:800px)",
+          "media": "screen and (width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "screen and (width:800px) or (height:600px)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "or and (color)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "and",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "only",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "screen,",
+          "media": "screen, not all",
+          "matches": true
+        },
+        {
+          "source": " , screen",
+          "media": "not all, screen",
+          "matches": true
+        },
+        {
+          "source": "bad!, screen",
+          "media": "not all, screen",
+          "matches": true
+        },
+        {
+          "source": "screen, bad!",
+          "media": "screen, not all",
+          "matches": true
+        },
+        {
+          "source": "(width:bogus), screen",
+          "media": "(width:bogus), screen",
+          "matches": true
+        },
+        {
+          "source": "(unknown)",
+          "media": "(unknown)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "media": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "not screen and (unknown)",
+          "media": "not screen and (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width > 0px)",
+          "media": "(unknown) or (width > 0px)",
+          "matches": true
+        },
+        {
+          "source": "(unknown) and (width < 0px)",
+          "media": "(unknown) and (width < 0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width < 0px))",
+          "media": "not ((unknown) and (width < 0px))",
+          "matches": true
+        },
+        {
+          "source": "not ((unknown) or (width > 0px))",
+          "media": "not ((unknown) or (width > 0px))",
+          "matches": false
+        },
+        {
+          "source": "unknown(function)",
+          "media": "unknown(function)",
+          "matches": false
+        },
+        {
+          "source": "not unknown(function)",
+          "media": "not unknown(function)",
+          "matches": false
+        },
+        {
+          "source": "(unknown(function))",
+          "media": "(unknown(function))",
+          "matches": false
+        },
+        {
+          "source": "((width>0px) or unknown(function))",
+          "media": "((width > 0px) or unknown(function))",
+          "matches": true
+        },
+        {
+          "source": "(min-orientation:portrait)",
+          "media": "(min-orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "not (min-orientation:portrait)",
+          "media": "not (min-orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(orientation > portrait)",
+          "media": "(orientation > portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:800px",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "(width:800px)),screen",
+          "media": "not all, screen",
+          "matches": true
+        },
+        {
+          "source": "(width:800px), (height:600px)",
+          "media": "(width: 800px), (height: 600px)",
+          "matches": true
+        },
+        {
+          "source": "(width > 0px) or (height > 0px) and (color)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(1px < width > 100px)",
+          "media": "(1px < width > 100px)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8.5)",
+          "media": "(color: 8.5)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8.0)",
+          "media": "(color: 8.0)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8e0)",
+          "media": "(color: 8e0)",
+          "matches": false
+        },
+        {
+          "source": "(color: -1)",
+          "media": "(color: -1)",
+          "matches": false
+        },
+        {
+          "source": "not (color: -1)",
+          "media": "not (color: -1)",
+          "matches": true
+        },
+        {
+          "source": "(grid:0)",
+          "media": "(grid: 0)",
+          "matches": true
+        },
+        {
+          "source": "(grid:1)",
+          "media": "(grid: 1)",
+          "matches": false
+        },
+        {
+          "source": "(grid:2)",
+          "media": "(grid:2)",
+          "matches": false
+        },
+        {
+          "source": "(grid)",
+          "media": "(grid)",
+          "matches": false
+        },
+        {
+          "source": "(width:0)",
+          "media": "(width: 0)",
+          "matches": false
+        },
+        {
+          "source": "(width:800)",
+          "media": "(width:800)",
+          "matches": false
+        },
+        {
+          "source": "(width:8e2px)",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "(width:800.px)",
+          "media": "(width:800.px)",
+          "matches": false
+        },
+        {
+          "source": "(width:-1px)",
+          "media": "(width: -1px)",
+          "matches": false
+        },
+        {
+          "source": "not (width:-1px)",
+          "media": "not (width: -1px)",
+          "matches": true
+        },
+        {
+          "source": "(width > -1px)",
+          "media": "(width > -1px)",
+          "matches": true
+        },
+        {
+          "source": "(width <= -1px)",
+          "media": "(width <= -1px)",
+          "matches": false
+        },
+        {
+          "source": "(min-width:-1px)",
+          "media": "(min-width: -1px)",
+          "matches": true
+        },
+        {
+          "source": "(max-width:-1px)",
+          "media": "(max-width: -1px)",
+          "matches": false
+        },
+        {
+          "source": "(width > 100000000px)",
+          "media": "(width > 1e+08px)",
+          "matches": false
+        },
+        {
+          "source": "(width:50em)",
+          "media": "(width: 50em)",
+          "matches": true
+        },
+        {
+          "source": "(width:50rem)",
+          "media": "(width: 50rem)",
+          "matches": true
+        },
+        {
+          "source": "(width:100vw)",
+          "media": "(width: 100vw)",
+          "matches": true
+        },
+        {
+          "source": "(width:100svw)",
+          "media": "(width: 100svw)",
+          "matches": true
+        },
+        {
+          "source": "(width:100cqw)",
+          "media": "(width: 100cqw)",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px + 400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:min(900px,800px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:var(--size))",
+          "media": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:4/3)",
+          "media": "(aspect-ratio: 4 / 3)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:1.3333333333333333)",
+          "media": "(aspect-ratio: 1.33333 / 1)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:1/0)",
+          "media": "(aspect-ratio: 1 / 0)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:0/0)",
+          "media": "(aspect-ratio: 1 / 0)",
+          "matches": false
+        },
+        {
+          "source": "not (aspect-ratio:1/0)",
+          "media": "not (aspect-ratio: 1 / 0)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio < 1/0)",
+          "media": "(aspect-ratio < 1 / 0)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio: -1/1)",
+          "media": "(aspect-ratio: -1/1)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:1/-1)",
+          "media": "(aspect-ratio:1/-1)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:1dppx)",
+          "media": "(resolution: 1dppx)",
+          "matches": true
+        },
+        {
+          "source": "(resolution:96dpi)",
+          "media": "(resolution: 96dpi)",
+          "matches": true
+        },
+        {
+          "source": "(resolution:37.79527559055118dpcm)",
+          "media": "(resolution: 37.7953dpcm)",
+          "matches": true
+        },
+        {
+          "source": "(resolution:1x)",
+          "media": "(resolution: 1x)",
+          "matches": true
+        },
+        {
+          "source": "(resolution:0)",
+          "media": "(resolution:0)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:300dpi)",
+          "media": "(resolution: 300dpi)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:-1dpi)",
+          "media": "(resolution:-1dpi)",
+          "matches": false,
+          "normativeMedia": "(resolution: -1dpi)",
+          "deviation": "MQ5 accepts negative resolution; Chromium preserves an unknown component value."
+        },
+        {
+          "source": "not (resolution:-1dpi)",
+          "media": "not (resolution:-1dpi)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "not (resolution: -1dpi)",
+          "deviation": "MQ5 accepts negative resolution as a known false value; Chromium treats it as unknown."
+        },
+        {
+          "source": "(resolution:infinite)",
+          "media": "(resolution:infinite)",
+          "matches": false,
+          "normativeMedia": "(resolution: infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution:calc(2dppx / 2))",
+          "media": "(resolution: calc(1dppx))",
+          "matches": true
+        },
+        {
+          "source": "(400px <= width <= 800px)",
+          "media": "(400px <= width <= 800px)",
+          "matches": true
+        },
+        {
+          "source": "(800px >= width > 400px)",
+          "media": "(800px >= width > 400px)",
+          "matches": true
+        },
+        {
+          "source": "(width = 800px)",
+          "media": "(width = 800px)",
+          "matches": true
+        },
+        {
+          "source": "(800px = width)",
+          "media": "(800px = width)",
+          "matches": true
+        },
+        {
+          "source": "(width < = 800px)",
+          "media": "(width < = 800px)",
+          "matches": false
+        },
+        {
+          "source": "(width => 800px)",
+          "media": "(width => 800px)",
+          "matches": false
+        },
+        {
+          "source": "(800px <= width < 800px)",
+          "media": "(800px <= width < 800px)",
+          "matches": false
+        },
+        {
+          "source": "(w\\69 dth:800px)",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "scre\\65 n and (COLOR)",
+          "media": "screen and (color)",
+          "matches": true
+        },
+        {
+          "source": "(WIDTH/**/:/**/800px)",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "(min-/**/width:1px)",
+          "media": "(min-/**/width:1px)",
+          "matches": false
+        },
+        {
+          "source": "(orientation)",
+          "media": "(orientation)",
+          "matches": true
+        },
+        {
+          "source": "(hover)",
+          "media": "(hover)",
+          "matches": true
+        },
+        {
+          "source": "(any-hover)",
+          "media": "(any-hover)",
+          "matches": true
+        },
+        {
+          "source": "(pointer)",
+          "media": "(pointer)",
+          "matches": true
+        },
+        {
+          "source": "(any-pointer)",
+          "media": "(any-pointer)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-color-scheme)",
+          "media": "(prefers-color-scheme)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors)",
+          "media": "(forced-colors)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-motion)",
+          "media": "(prefers-reduced-motion)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency)",
+          "media": "(prefers-reduced-transparency)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-data)",
+          "media": "(prefers-reduced-data)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast)",
+          "media": "(prefers-contrast)",
+          "matches": true
+        },
+        {
+          "source": "(update)",
+          "media": "(update)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-block)",
+          "media": "(overflow-block)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-inline)",
+          "media": "(overflow-inline)",
+          "matches": true
+        },
+        {
+          "source": "(scripting)",
+          "media": "(scripting)",
+          "matches": true
+        },
+        {
+          "source": "(scan)",
+          "media": "(scan)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut)",
+          "media": "(color-gamut)",
+          "matches": true
+        },
+        {
+          "source": "(dynamic-range)",
+          "media": "(dynamic-range)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "MQ5 boolean features match a supported nonzero/non-none value; Chromium returns false for standard dynamic range."
+        },
+        {
+          "source": "(display-mode)",
+          "media": "(display-mode)",
+          "matches": true
+        },
+        {
+          "source": "(inverted-colors)",
+          "media": "(inverted-colors)",
+          "matches": false
+        },
+        {
+          "source": "(device-aspect-ratio:4/3)",
+          "media": "(device-aspect-ratio: 4 / 3)",
+          "matches": true
+        },
+        {
+          "source": "not (resolution:infinite)",
+          "media": "not (resolution:infinite)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "not (resolution: infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution < infinite)",
+          "media": "(resolution < infinite)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "(resolution < infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution > infinite)",
+          "media": "(resolution > infinite)",
+          "matches": false,
+          "normativeMedia": "(resolution > infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "not print and (unknown)",
+          "media": "not print and (unknown)",
+          "matches": true
+        },
+        {
+          "source": "not screen and (unknown)",
+          "media": "not screen and (unknown)",
+          "matches": false
+        },
+        {
+          "source": "not (width:1%)",
+          "media": "not (width:1%)",
+          "matches": false
+        },
+        {
+          "source": "(color:calc(8))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(8.0))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(8/**/))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(7.5))",
+          "media": "(color: calc(7.5))",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:calc(4)/3)",
+          "media": "(aspect-ratio: calc(4) / 3)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:4/calc(3))",
+          "media": "(aspect-ratio: 4 / calc(3))",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:calc(4 / 3))",
+          "media": "(aspect-ratio: calc(1.33333) / 1)",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px+400px))",
+          "media": "(width:calc(400px+400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px +400px))",
+          "media": "(width:calc(400px +400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px+ 400px))",
+          "media": "(width:calc(400px+ 400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px/**/+/**/400px))",
+          "media": "(width:calc(400px/**/+/**/400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px /*gap*/+ /*gap*/400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(4e2px + 400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px + /*gap*/400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px 400px))",
+          "media": "(width:calc(400px 400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:min(800px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc((400px + 400px)))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "future(\"line\nbreak\"), screen",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(future:\"line\nbreak\"), screen",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(future:\"line\nbreak\")",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "((width:800px))",
+          "media": "((width: 800px))",
+          "matches": true
+        },
+        {
+          "source": "(unknown [)])",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(width:800px]",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(width:800px),,print",
+          "media": "(width: 800px), not all, print",
+          "matches": true
+        },
+        {
+          "source": "(orientation:portrait)",
+          "media": "(orientation: portrait)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "media": "(orientation: landscape)",
+          "matches": true
+        },
+        {
+          "source": "(hover:none)",
+          "media": "(hover: none)",
+          "matches": false
+        },
+        {
+          "source": "(hover:hover)",
+          "media": "(hover: hover)",
+          "matches": true
+        },
+        {
+          "source": "(any-hover:none)",
+          "media": "(any-hover: none)",
+          "matches": false
+        },
+        {
+          "source": "(any-hover:hover)",
+          "media": "(any-hover: hover)",
+          "matches": true
+        },
+        {
+          "source": "(pointer:none)",
+          "media": "(pointer: none)",
+          "matches": false
+        },
+        {
+          "source": "(pointer:fine)",
+          "media": "(pointer: fine)",
+          "matches": true
+        },
+        {
+          "source": "(pointer:coarse)",
+          "media": "(pointer: coarse)",
+          "matches": false
+        },
+        {
+          "source": "(any-pointer:none)",
+          "media": "(any-pointer: none)",
+          "matches": false
+        },
+        {
+          "source": "(any-pointer:fine)",
+          "media": "(any-pointer: fine)",
+          "matches": true
+        },
+        {
+          "source": "(any-pointer:coarse)",
+          "media": "(any-pointer: coarse)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-color-scheme:light)",
+          "media": "(prefers-color-scheme: light)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-color-scheme:dark)",
+          "media": "(prefers-color-scheme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors:none)",
+          "media": "(forced-colors: none)",
+          "matches": false
+        },
+        {
+          "source": "(forced-colors:active)",
+          "media": "(forced-colors: active)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-motion:no-preference)",
+          "media": "(prefers-reduced-motion: no-preference)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-motion:reduce)",
+          "media": "(prefers-reduced-motion: reduce)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency:no-preference)",
+          "media": "(prefers-reduced-transparency: no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency:reduce)",
+          "media": "(prefers-reduced-transparency: reduce)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-data:no-preference)",
+          "media": "(prefers-reduced-data:no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-data:reduce)",
+          "media": "(prefers-reduced-data:reduce)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:no-preference)",
+          "media": "(prefers-contrast: no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:less)",
+          "media": "(prefers-contrast: less)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:more)",
+          "media": "(prefers-contrast: more)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:custom)",
+          "media": "(prefers-contrast: custom)",
+          "matches": true
+        },
+        {
+          "source": "(update:none)",
+          "media": "(update: none)",
+          "matches": false
+        },
+        {
+          "source": "(update:slow)",
+          "media": "(update: slow)",
+          "matches": false
+        },
+        {
+          "source": "(update:fast)",
+          "media": "(update: fast)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-block:none)",
+          "media": "(overflow-block: none)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-block:scroll)",
+          "media": "(overflow-block: scroll)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-block:paged)",
+          "media": "(overflow-block: paged)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-inline:none)",
+          "media": "(overflow-inline: none)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-inline:scroll)",
+          "media": "(overflow-inline: scroll)",
+          "matches": true
+        },
+        {
+          "source": "(scripting:none)",
+          "media": "(scripting: none)",
+          "matches": false
+        },
+        {
+          "source": "(scripting:initial-only)",
+          "media": "(scripting: initial-only)",
+          "matches": false
+        },
+        {
+          "source": "(scripting:enabled)",
+          "media": "(scripting: enabled)",
+          "matches": true
+        },
+        {
+          "source": "(scan:interlace)",
+          "media": "(scan: interlace)",
+          "matches": false
+        },
+        {
+          "source": "(scan:progressive)",
+          "media": "(scan: progressive)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut:srgb)",
+          "media": "(color-gamut: srgb)",
+          "matches": true
+        },
+        {
+          "source": "(color-gamut:p3)",
+          "media": "(color-gamut: p3)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut:rec2020)",
+          "media": "(color-gamut: rec2020)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:srgb)",
+          "media": "(video-color-gamut:srgb)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:p3)",
+          "media": "(video-color-gamut:p3)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:rec2020)",
+          "media": "(video-color-gamut:rec2020)",
+          "matches": false
+        },
+        {
+          "source": "(dynamic-range:standard)",
+          "media": "(dynamic-range: standard)",
+          "matches": true
+        },
+        {
+          "source": "(dynamic-range:high)",
+          "media": "(dynamic-range: high)",
+          "matches": false
+        },
+        {
+          "source": "(video-dynamic-range:standard)",
+          "media": "(video-dynamic-range:standard)",
+          "matches": false
+        },
+        {
+          "source": "(video-dynamic-range:high)",
+          "media": "(video-dynamic-range:high)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:browser)",
+          "media": "(display-mode: browser)",
+          "matches": true
+        },
+        {
+          "source": "(display-mode:fullscreen)",
+          "media": "(display-mode: fullscreen)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:standalone)",
+          "media": "(display-mode: standalone)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:minimal-ui)",
+          "media": "(display-mode: minimal-ui)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:picture-in-picture)",
+          "media": "(display-mode: picture-in-picture)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:window-controls-overlay)",
+          "media": "(display-mode: window-controls-overlay)",
+          "matches": false
+        },
+        {
+          "source": "(inverted-colors:none)",
+          "media": "(inverted-colors:none)",
+          "matches": false
+        },
+        {
+          "source": "(inverted-colors:inverted)",
+          "media": "(inverted-colors:inverted)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:opaque)",
+          "media": "(environment-blending:opaque)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:additive)",
+          "media": "(environment-blending:additive)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:subtractive)",
+          "media": "(environment-blending:subtractive)",
+          "matches": false
+        },
+        {
+          "source": "(nav-controls:none)",
+          "media": "(nav-controls:none)",
+          "matches": false
+        },
+        {
+          "source": "(nav-controls:back)",
+          "media": "(nav-controls:back)",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "name": "print",
+      "environment": {
+        "name": "print",
+        "width": 800,
+        "height": 600,
+        "scale": 1,
+        "type": "print",
+        "features": []
+      },
+      "metrics": {
+        "width": 800,
+        "height": 600,
+        "deviceWidth": 800,
+        "deviceHeight": 600,
+        "resolution": 1
+      },
+      "features": {
+        "orientation": [
+          "landscape"
+        ],
+        "hover": [
+          "hover"
+        ],
+        "any-hover": [
+          "hover"
+        ],
+        "pointer": [
+          "fine"
+        ],
+        "any-pointer": [
+          "fine"
+        ],
+        "prefers-color-scheme": [
+          "dark"
+        ],
+        "forced-colors": [
+          "none"
+        ],
+        "prefers-reduced-motion": [
+          "no-preference"
+        ],
+        "prefers-reduced-transparency": [
+          "reduce"
+        ],
+        "prefers-reduced-data": [],
+        "prefers-contrast": [
+          "no-preference"
+        ],
+        "update": [
+          "none"
+        ],
+        "overflow-block": [
+          "paged"
+        ],
+        "overflow-inline": [
+          "none"
+        ],
+        "scripting": [
+          "enabled"
+        ],
+        "scan": [],
+        "color-gamut": [
+          "srgb"
+        ],
+        "video-color-gamut": [],
+        "dynamic-range": [
+          "standard"
+        ],
+        "video-dynamic-range": [],
+        "display-mode": [
+          "browser"
+        ],
+        "inverted-colors": [],
+        "environment-blending": [],
+        "nav-controls": []
+      },
+      "unsupported": [
+        "prefers-reduced-data",
+        "video-color-gamut",
+        "video-dynamic-range",
+        "inverted-colors",
+        "environment-blending",
+        "nav-controls"
+      ],
+      "queries": [
+        {
+          "source": "",
+          "media": "",
+          "matches": true
+        },
+        {
+          "source": " ",
+          "media": "",
+          "matches": true
+        },
+        {
+          "source": "(",
+          "media": "(",
+          "matches": false
+        },
+        {
+          "source": "()",
+          "media": "()",
+          "matches": false
+        },
+        {
+          "source": "all",
+          "media": "all",
+          "matches": true
+        },
+        {
+          "source": "screen",
+          "media": "screen",
+          "matches": false
+        },
+        {
+          "source": "print",
+          "media": "print",
+          "matches": true
+        },
+        {
+          "source": "speech",
+          "media": "speech",
+          "matches": false
+        },
+        {
+          "source": "unknown",
+          "media": "unknown",
+          "matches": false
+        },
+        {
+          "source": "not unknown",
+          "media": "not unknown",
+          "matches": true
+        },
+        {
+          "source": "not all",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "only screen",
+          "media": "only screen",
+          "matches": false
+        },
+        {
+          "source": "only (width)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not (width: 800px)",
+          "media": "not (width: 800px)",
+          "matches": false
+        },
+        {
+          "source": "not (width: 800px) and (height: 600px)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not ((width: 800px) and (height: 600px))",
+          "media": "not ((width: 800px) and (height: 600px))",
+          "matches": false
+        },
+        {
+          "source": "screen and (width:800px)",
+          "media": "screen and (width: 800px)",
+          "matches": false
+        },
+        {
+          "source": "screen and (width:800px) or (height:600px)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "or and (color)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "and",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "only",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "not",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "screen,",
+          "media": "screen, not all",
+          "matches": false
+        },
+        {
+          "source": " , screen",
+          "media": "not all, screen",
+          "matches": false
+        },
+        {
+          "source": "bad!, screen",
+          "media": "not all, screen",
+          "matches": false
+        },
+        {
+          "source": "screen, bad!",
+          "media": "screen, not all",
+          "matches": false
+        },
+        {
+          "source": "(width:bogus), screen",
+          "media": "(width:bogus), screen",
+          "matches": false
+        },
+        {
+          "source": "(unknown)",
+          "media": "(unknown)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "media": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "not screen and (unknown)",
+          "media": "not screen and (unknown)",
+          "matches": true
+        },
+        {
+          "source": "(unknown) or (width > 0px)",
+          "media": "(unknown) or (width > 0px)",
+          "matches": true
+        },
+        {
+          "source": "(unknown) and (width < 0px)",
+          "media": "(unknown) and (width < 0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width < 0px))",
+          "media": "not ((unknown) and (width < 0px))",
+          "matches": true
+        },
+        {
+          "source": "not ((unknown) or (width > 0px))",
+          "media": "not ((unknown) or (width > 0px))",
+          "matches": false
+        },
+        {
+          "source": "unknown(function)",
+          "media": "unknown(function)",
+          "matches": false
+        },
+        {
+          "source": "not unknown(function)",
+          "media": "not unknown(function)",
+          "matches": false
+        },
+        {
+          "source": "(unknown(function))",
+          "media": "(unknown(function))",
+          "matches": false
+        },
+        {
+          "source": "((width>0px) or unknown(function))",
+          "media": "((width > 0px) or unknown(function))",
+          "matches": true
+        },
+        {
+          "source": "(min-orientation:portrait)",
+          "media": "(min-orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "not (min-orientation:portrait)",
+          "media": "not (min-orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(orientation > portrait)",
+          "media": "(orientation > portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:800px",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "(width:800px)),screen",
+          "media": "not all, screen",
+          "matches": false
+        },
+        {
+          "source": "(width:800px), (height:600px)",
+          "media": "(width: 800px), (height: 600px)",
+          "matches": true
+        },
+        {
+          "source": "(width > 0px) or (height > 0px) and (color)",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(1px < width > 100px)",
+          "media": "(1px < width > 100px)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8.5)",
+          "media": "(color: 8.5)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8.0)",
+          "media": "(color: 8.0)",
+          "matches": false
+        },
+        {
+          "source": "(color: 8e0)",
+          "media": "(color: 8e0)",
+          "matches": false
+        },
+        {
+          "source": "(color: -1)",
+          "media": "(color: -1)",
+          "matches": false
+        },
+        {
+          "source": "not (color: -1)",
+          "media": "not (color: -1)",
+          "matches": true
+        },
+        {
+          "source": "(grid:0)",
+          "media": "(grid: 0)",
+          "matches": true
+        },
+        {
+          "source": "(grid:1)",
+          "media": "(grid: 1)",
+          "matches": false
+        },
+        {
+          "source": "(grid:2)",
+          "media": "(grid:2)",
+          "matches": false
+        },
+        {
+          "source": "(grid)",
+          "media": "(grid)",
+          "matches": false
+        },
+        {
+          "source": "(width:0)",
+          "media": "(width: 0)",
+          "matches": false
+        },
+        {
+          "source": "(width:800)",
+          "media": "(width:800)",
+          "matches": false
+        },
+        {
+          "source": "(width:8e2px)",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "(width:800.px)",
+          "media": "(width:800.px)",
+          "matches": false
+        },
+        {
+          "source": "(width:-1px)",
+          "media": "(width: -1px)",
+          "matches": false
+        },
+        {
+          "source": "not (width:-1px)",
+          "media": "not (width: -1px)",
+          "matches": true
+        },
+        {
+          "source": "(width > -1px)",
+          "media": "(width > -1px)",
+          "matches": true
+        },
+        {
+          "source": "(width <= -1px)",
+          "media": "(width <= -1px)",
+          "matches": false
+        },
+        {
+          "source": "(min-width:-1px)",
+          "media": "(min-width: -1px)",
+          "matches": true
+        },
+        {
+          "source": "(max-width:-1px)",
+          "media": "(max-width: -1px)",
+          "matches": false
+        },
+        {
+          "source": "(width > 100000000px)",
+          "media": "(width > 1e+08px)",
+          "matches": false
+        },
+        {
+          "source": "(width:50em)",
+          "media": "(width: 50em)",
+          "matches": true
+        },
+        {
+          "source": "(width:50rem)",
+          "media": "(width: 50rem)",
+          "matches": true
+        },
+        {
+          "source": "(width:100vw)",
+          "media": "(width: 100vw)",
+          "matches": true
+        },
+        {
+          "source": "(width:100svw)",
+          "media": "(width: 100svw)",
+          "matches": true
+        },
+        {
+          "source": "(width:100cqw)",
+          "media": "(width: 100cqw)",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px + 400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:min(900px,800px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:var(--size))",
+          "media": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:4/3)",
+          "media": "(aspect-ratio: 4 / 3)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:1.3333333333333333)",
+          "media": "(aspect-ratio: 1.33333 / 1)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:1/0)",
+          "media": "(aspect-ratio: 1 / 0)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:0/0)",
+          "media": "(aspect-ratio: 1 / 0)",
+          "matches": false
+        },
+        {
+          "source": "not (aspect-ratio:1/0)",
+          "media": "not (aspect-ratio: 1 / 0)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio < 1/0)",
+          "media": "(aspect-ratio < 1 / 0)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio: -1/1)",
+          "media": "(aspect-ratio: -1/1)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:1/-1)",
+          "media": "(aspect-ratio:1/-1)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:1dppx)",
+          "media": "(resolution: 1dppx)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:96dpi)",
+          "media": "(resolution: 96dpi)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:37.79527559055118dpcm)",
+          "media": "(resolution: 37.7953dpcm)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:1x)",
+          "media": "(resolution: 1x)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:0)",
+          "media": "(resolution:0)",
+          "matches": false
+        },
+        {
+          "source": "(resolution:300dpi)",
+          "media": "(resolution: 300dpi)",
+          "matches": true
+        },
+        {
+          "source": "(resolution:-1dpi)",
+          "media": "(resolution:-1dpi)",
+          "matches": false,
+          "normativeMedia": "(resolution: -1dpi)",
+          "deviation": "MQ5 accepts negative resolution; Chromium preserves an unknown component value."
+        },
+        {
+          "source": "not (resolution:-1dpi)",
+          "media": "not (resolution:-1dpi)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "not (resolution: -1dpi)",
+          "deviation": "MQ5 accepts negative resolution as a known false value; Chromium treats it as unknown."
+        },
+        {
+          "source": "(resolution:infinite)",
+          "media": "(resolution:infinite)",
+          "matches": false,
+          "normativeMedia": "(resolution: infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution:calc(2dppx / 2))",
+          "media": "(resolution: calc(1dppx))",
+          "matches": false
+        },
+        {
+          "source": "(400px <= width <= 800px)",
+          "media": "(400px <= width <= 800px)",
+          "matches": true
+        },
+        {
+          "source": "(800px >= width > 400px)",
+          "media": "(800px >= width > 400px)",
+          "matches": true
+        },
+        {
+          "source": "(width = 800px)",
+          "media": "(width = 800px)",
+          "matches": true
+        },
+        {
+          "source": "(800px = width)",
+          "media": "(800px = width)",
+          "matches": true
+        },
+        {
+          "source": "(width < = 800px)",
+          "media": "(width < = 800px)",
+          "matches": false
+        },
+        {
+          "source": "(width => 800px)",
+          "media": "(width => 800px)",
+          "matches": false
+        },
+        {
+          "source": "(800px <= width < 800px)",
+          "media": "(800px <= width < 800px)",
+          "matches": false
+        },
+        {
+          "source": "(w\\69 dth:800px)",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "scre\\65 n and (COLOR)",
+          "media": "screen and (color)",
+          "matches": false
+        },
+        {
+          "source": "(WIDTH/**/:/**/800px)",
+          "media": "(width: 800px)",
+          "matches": true
+        },
+        {
+          "source": "(min-/**/width:1px)",
+          "media": "(min-/**/width:1px)",
+          "matches": false
+        },
+        {
+          "source": "(orientation)",
+          "media": "(orientation)",
+          "matches": true
+        },
+        {
+          "source": "(hover)",
+          "media": "(hover)",
+          "matches": true
+        },
+        {
+          "source": "(any-hover)",
+          "media": "(any-hover)",
+          "matches": true
+        },
+        {
+          "source": "(pointer)",
+          "media": "(pointer)",
+          "matches": true
+        },
+        {
+          "source": "(any-pointer)",
+          "media": "(any-pointer)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-color-scheme)",
+          "media": "(prefers-color-scheme)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors)",
+          "media": "(forced-colors)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-motion)",
+          "media": "(prefers-reduced-motion)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency)",
+          "media": "(prefers-reduced-transparency)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-data)",
+          "media": "(prefers-reduced-data)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast)",
+          "media": "(prefers-contrast)",
+          "matches": false
+        },
+        {
+          "source": "(update)",
+          "media": "(update)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-block)",
+          "media": "(overflow-block)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-inline)",
+          "media": "(overflow-inline)",
+          "matches": false
+        },
+        {
+          "source": "(scripting)",
+          "media": "(scripting)",
+          "matches": true
+        },
+        {
+          "source": "(scan)",
+          "media": "(scan)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut)",
+          "media": "(color-gamut)",
+          "matches": true
+        },
+        {
+          "source": "(dynamic-range)",
+          "media": "(dynamic-range)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "MQ5 boolean features match a supported nonzero/non-none value; Chromium returns false for standard dynamic range."
+        },
+        {
+          "source": "(display-mode)",
+          "media": "(display-mode)",
+          "matches": true
+        },
+        {
+          "source": "(inverted-colors)",
+          "media": "(inverted-colors)",
+          "matches": false
+        },
+        {
+          "source": "(device-aspect-ratio:4/3)",
+          "media": "(device-aspect-ratio: 4 / 3)",
+          "matches": true
+        },
+        {
+          "source": "not (resolution:infinite)",
+          "media": "not (resolution:infinite)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "not (resolution: infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution < infinite)",
+          "media": "(resolution < infinite)",
+          "matches": false,
+          "normativeMatches": true,
+          "normativeMedia": "(resolution < infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "(resolution > infinite)",
+          "media": "(resolution > infinite)",
+          "matches": false,
+          "normativeMedia": "(resolution > infinite)",
+          "deviation": "MQ5 recognizes infinite resolution; Chromium preserves an unknown value."
+        },
+        {
+          "source": "not print and (unknown)",
+          "media": "not print and (unknown)",
+          "matches": false
+        },
+        {
+          "source": "not screen and (unknown)",
+          "media": "not screen and (unknown)",
+          "matches": true
+        },
+        {
+          "source": "not (width:1%)",
+          "media": "not (width:1%)",
+          "matches": false
+        },
+        {
+          "source": "(color:calc(8))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(8.0))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(8/**/))",
+          "media": "(color: calc(8))",
+          "matches": true
+        },
+        {
+          "source": "(color:calc(7.5))",
+          "media": "(color: calc(7.5))",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:calc(4)/3)",
+          "media": "(aspect-ratio: calc(4) / 3)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:4/calc(3))",
+          "media": "(aspect-ratio: 4 / calc(3))",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:calc(4 / 3))",
+          "media": "(aspect-ratio: calc(1.33333) / 1)",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px+400px))",
+          "media": "(width:calc(400px+400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px +400px))",
+          "media": "(width:calc(400px +400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px+ 400px))",
+          "media": "(width:calc(400px+ 400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px/**/+/**/400px))",
+          "media": "(width:calc(400px/**/+/**/400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(400px /*gap*/+ /*gap*/400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(4e2px + 400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px + /*gap*/400px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc(400px 400px))",
+          "media": "(width:calc(400px 400px))",
+          "matches": false
+        },
+        {
+          "source": "(width:min(800px))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "(width:calc((400px + 400px)))",
+          "media": "(width: calc(800px))",
+          "matches": true
+        },
+        {
+          "source": "future(\"line\nbreak\"), screen",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(future:\"line\nbreak\"), screen",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(future:\"line\nbreak\")",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "((width:800px))",
+          "media": "((width: 800px))",
+          "matches": true
+        },
+        {
+          "source": "(unknown [)])",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(width:800px]",
+          "media": "not all",
+          "matches": false
+        },
+        {
+          "source": "(width:800px),,print",
+          "media": "(width: 800px), not all, print",
+          "matches": true
+        },
+        {
+          "source": "(orientation:portrait)",
+          "media": "(orientation: portrait)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "media": "(orientation: landscape)",
+          "matches": true
+        },
+        {
+          "source": "(hover:none)",
+          "media": "(hover: none)",
+          "matches": false
+        },
+        {
+          "source": "(hover:hover)",
+          "media": "(hover: hover)",
+          "matches": true
+        },
+        {
+          "source": "(any-hover:none)",
+          "media": "(any-hover: none)",
+          "matches": false
+        },
+        {
+          "source": "(any-hover:hover)",
+          "media": "(any-hover: hover)",
+          "matches": true
+        },
+        {
+          "source": "(pointer:none)",
+          "media": "(pointer: none)",
+          "matches": false
+        },
+        {
+          "source": "(pointer:fine)",
+          "media": "(pointer: fine)",
+          "matches": true
+        },
+        {
+          "source": "(pointer:coarse)",
+          "media": "(pointer: coarse)",
+          "matches": false
+        },
+        {
+          "source": "(any-pointer:none)",
+          "media": "(any-pointer: none)",
+          "matches": false
+        },
+        {
+          "source": "(any-pointer:fine)",
+          "media": "(any-pointer: fine)",
+          "matches": true
+        },
+        {
+          "source": "(any-pointer:coarse)",
+          "media": "(any-pointer: coarse)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-color-scheme:light)",
+          "media": "(prefers-color-scheme: light)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-color-scheme:dark)",
+          "media": "(prefers-color-scheme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors:none)",
+          "media": "(forced-colors: none)",
+          "matches": true
+        },
+        {
+          "source": "(forced-colors:active)",
+          "media": "(forced-colors: active)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-motion:no-preference)",
+          "media": "(prefers-reduced-motion: no-preference)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-motion:reduce)",
+          "media": "(prefers-reduced-motion: reduce)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency:no-preference)",
+          "media": "(prefers-reduced-transparency: no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-transparency:reduce)",
+          "media": "(prefers-reduced-transparency: reduce)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-reduced-data:no-preference)",
+          "media": "(prefers-reduced-data:no-preference)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-reduced-data:reduce)",
+          "media": "(prefers-reduced-data:reduce)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:no-preference)",
+          "media": "(prefers-contrast: no-preference)",
+          "matches": true
+        },
+        {
+          "source": "(prefers-contrast:less)",
+          "media": "(prefers-contrast: less)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:more)",
+          "media": "(prefers-contrast: more)",
+          "matches": false
+        },
+        {
+          "source": "(prefers-contrast:custom)",
+          "media": "(prefers-contrast: custom)",
+          "matches": false
+        },
+        {
+          "source": "(update:none)",
+          "media": "(update: none)",
+          "matches": true
+        },
+        {
+          "source": "(update:slow)",
+          "media": "(update: slow)",
+          "matches": false
+        },
+        {
+          "source": "(update:fast)",
+          "media": "(update: fast)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-block:none)",
+          "media": "(overflow-block: none)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-block:scroll)",
+          "media": "(overflow-block: scroll)",
+          "matches": false
+        },
+        {
+          "source": "(overflow-block:paged)",
+          "media": "(overflow-block: paged)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-inline:none)",
+          "media": "(overflow-inline: none)",
+          "matches": true
+        },
+        {
+          "source": "(overflow-inline:scroll)",
+          "media": "(overflow-inline: scroll)",
+          "matches": false
+        },
+        {
+          "source": "(scripting:none)",
+          "media": "(scripting: none)",
+          "matches": false
+        },
+        {
+          "source": "(scripting:initial-only)",
+          "media": "(scripting: initial-only)",
+          "matches": false
+        },
+        {
+          "source": "(scripting:enabled)",
+          "media": "(scripting: enabled)",
+          "matches": true
+        },
+        {
+          "source": "(scan:interlace)",
+          "media": "(scan: interlace)",
+          "matches": false
+        },
+        {
+          "source": "(scan:progressive)",
+          "media": "(scan: progressive)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut:srgb)",
+          "media": "(color-gamut: srgb)",
+          "matches": true
+        },
+        {
+          "source": "(color-gamut:p3)",
+          "media": "(color-gamut: p3)",
+          "matches": false
+        },
+        {
+          "source": "(color-gamut:rec2020)",
+          "media": "(color-gamut: rec2020)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:srgb)",
+          "media": "(video-color-gamut:srgb)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:p3)",
+          "media": "(video-color-gamut:p3)",
+          "matches": false
+        },
+        {
+          "source": "(video-color-gamut:rec2020)",
+          "media": "(video-color-gamut:rec2020)",
+          "matches": false
+        },
+        {
+          "source": "(dynamic-range:standard)",
+          "media": "(dynamic-range: standard)",
+          "matches": true
+        },
+        {
+          "source": "(dynamic-range:high)",
+          "media": "(dynamic-range: high)",
+          "matches": false
+        },
+        {
+          "source": "(video-dynamic-range:standard)",
+          "media": "(video-dynamic-range:standard)",
+          "matches": false
+        },
+        {
+          "source": "(video-dynamic-range:high)",
+          "media": "(video-dynamic-range:high)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:browser)",
+          "media": "(display-mode: browser)",
+          "matches": true
+        },
+        {
+          "source": "(display-mode:fullscreen)",
+          "media": "(display-mode: fullscreen)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:standalone)",
+          "media": "(display-mode: standalone)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:minimal-ui)",
+          "media": "(display-mode: minimal-ui)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:picture-in-picture)",
+          "media": "(display-mode: picture-in-picture)",
+          "matches": false
+        },
+        {
+          "source": "(display-mode:window-controls-overlay)",
+          "media": "(display-mode: window-controls-overlay)",
+          "matches": false
+        },
+        {
+          "source": "(inverted-colors:none)",
+          "media": "(inverted-colors:none)",
+          "matches": false
+        },
+        {
+          "source": "(inverted-colors:inverted)",
+          "media": "(inverted-colors:inverted)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:opaque)",
+          "media": "(environment-blending:opaque)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:additive)",
+          "media": "(environment-blending:additive)",
+          "matches": false
+        },
+        {
+          "source": "(environment-blending:subtractive)",
+          "media": "(environment-blending:subtractive)",
+          "matches": false
+        },
+        {
+          "source": "(nav-controls:none)",
+          "media": "(nav-controls:none)",
+          "matches": false
+        },
+        {
+          "source": "(nav-controls:back)",
+          "media": "(nav-controls:back)",
+          "matches": false
+        }
+      ]
+    }
+  ]
+}

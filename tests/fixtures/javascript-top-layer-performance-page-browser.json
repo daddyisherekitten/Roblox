@@ -1,0 +1,2077 @@
+[
+  {
+    "action": null,
+    "state": {
+      "active": "",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Noch keine Entscheidung."
+        },
+        {
+          "id": "guard-result",
+          "text": "Bereit · Noch keine Schließanfrage."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "dialog-open",
+    "state": {
+      "active": "project-note",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": true,
+          "open": true
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Offen · modal: true\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Bereit · Noch keine Schließanfrage."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "dialog-confirm",
+    "state": {
+      "active": "dialog-open",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · close empfangen\nRückgabewert: bestaetigt · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Bereit · Noch keine Schließanfrage."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "dialog-reset",
+    "state": {
+      "active": "dialog-reset",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Bereit · Noch keine Schließanfrage."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "guard-open",
+    "state": {
+      "active": "guard-allow",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": true,
+          "open": true
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Offen · Schließen ist zunächst gesperrt."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "guard-request",
+    "state": {
+      "active": "guard-request",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": true,
+          "open": true
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "cancel 1 · verhindert"
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Anfrage 1 · verhindert"
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "guard-allow",
+    "state": {
+      "active": "guard-allow",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": true
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": true,
+          "open": true
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "cancel 1 · verhindert"
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Anfrage 1 · verhindert"
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "guard-request",
+    "state": {
+      "active": "guard-open",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": true
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Geschlossen · freigegeben · Anfragen: 2"
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Anfrage 2 · freigegeben"
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "guard-open",
+    "state": {
+      "active": "guard-allow",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": true,
+          "open": true
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Offen · Schließen ist zunächst gesperrt."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "guard-force",
+    "state": {
+      "active": "guard-open",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Geschlossen · direkt · Anfragen: 0"
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "nonmodal-open",
+    "state": {
+      "active": "nonmodal-close",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": true
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal offen · modal: false"
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "nonmodal-close",
+    "state": {
+      "active": "nonmodal-open",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "popover-material",
+    "state": {
+      "active": "popover-material",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": true
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: offen · Lieferzeit: geschlossen\nmaterial-popover: closed → open · Quelle: popover-material"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "popover-delivery",
+    "state": {
+      "active": "popover-delivery",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": true
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: offen\ndelivery-popover: closed → open · Quelle: popover-delivery"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "delivery-hide",
+    "state": {
+      "active": "popover-delivery",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · Noch kein Wechsel."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "manual-toggle",
+    "state": {
+      "active": "manual-toggle",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": true
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Offen · closed → open · Quelle: manual-toggle"
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "manual-hide",
+    "state": {
+      "active": "",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · open → closed · Quelle: keine"
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "popover-block",
+    "state": {
+      "active": "popover-block",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": true
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · open → closed · Quelle: keine"
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "manual-toggle",
+    "state": {
+      "active": "manual-toggle",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": true
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Öffnen verhindert · beforetoggle abgebrochen."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "popover-block",
+    "state": {
+      "active": "popover-block",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Öffnen verhindert · beforetoggle abgebrochen."
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "popover-batch",
+    "state": {
+      "active": "popover-batch",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · closed → closed · Quelle: keine"
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "timing-record",
+    "state": {
+      "active": "timing-record",
+      "bar": true,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · closed → closed · Quelle: keine"
+        },
+        {
+          "id": "timing-result",
+          "text": "mark start: Start 100 ms · Dauer 0 ms · Haus am Hang\nmeasure entwurf: Start 100 ms · Dauer 40 ms · Haus am Hang\nmark ende: Start 140 ms · Dauer 0 ms"
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer-Aufgabe 1: mark start (0 ms) · measure entwurf (40 ms) · mark ende (0 ms)"
+        }
+      ]
+    }
+  },
+  {
+    "action": "timing-buffered",
+    "state": {
+      "active": "timing-buffered",
+      "bar": true,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · closed → closed · Quelle: keine"
+        },
+        {
+          "id": "timing-result",
+          "text": "mark start: Start 100 ms · Dauer 0 ms · Haus am Hang\nmeasure entwurf: Start 100 ms · Dauer 40 ms · Haus am Hang\nmark ende: Start 140 ms · Dauer 0 ms"
+        },
+        {
+          "id": "observer-result",
+          "text": "Buffered: entwurf · 40 ms"
+        }
+      ]
+    }
+  },
+  {
+    "action": "timing-take",
+    "state": {
+      "active": "timing-take",
+      "bar": true,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · closed → closed · Quelle: keine"
+        },
+        {
+          "id": "timing-result",
+          "text": "mark start: Start 100 ms · Dauer 0 ms · Haus am Hang\nmeasure entwurf: Start 100 ms · Dauer 40 ms · Haus am Hang\nmark ende: Start 140 ms · Dauer 0 ms\nmark abgeholt: Start 160 ms · Dauer 0 ms"
+        },
+        {
+          "id": "observer-result",
+          "text": "takeRecords: abgeholt · sofort abgeholt; kein Callback für diese Einträge."
+        }
+      ]
+    }
+  },
+  {
+    "action": "timing-clear",
+    "state": {
+      "active": "timing-clear",
+      "bar": false,
+      "checked": [
+        {
+          "id": "guard-allow",
+          "value": false
+        },
+        {
+          "id": "popover-block",
+          "value": false
+        }
+      ],
+      "dialogs": [
+        {
+          "id": "project-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "guard-dialog",
+          "modal": false,
+          "open": false
+        },
+        {
+          "id": "nonmodal-dialog",
+          "modal": false,
+          "open": false
+        }
+      ],
+      "popovers": [
+        {
+          "id": "material-popover",
+          "open": false
+        },
+        {
+          "id": "delivery-popover",
+          "open": false
+        },
+        {
+          "id": "manual-popover",
+          "open": false
+        }
+      ],
+      "project": "Haus am Hang",
+      "results": [
+        {
+          "id": "js-status",
+          "text": "Bereit · Dialoge, Popover und Zeitmessung sind verbunden."
+        },
+        {
+          "id": "dialog-result",
+          "text": "Geschlossen · Zurückgesetzt\nRückgabewert: leer · Projekt: Haus am Hang"
+        },
+        {
+          "id": "guard-result",
+          "text": "Nichtmodal geschlossen."
+        },
+        {
+          "id": "guard-dialog-result",
+          "text": "Noch keine Anfrage."
+        },
+        {
+          "id": "popover-result",
+          "text": "Material: geschlossen · Lieferzeit: geschlossen\ndelivery-popover: open → closed · Quelle: delivery-hide"
+        },
+        {
+          "id": "manual-result",
+          "text": "Geschlossen · closed → closed · Quelle: keine"
+        },
+        {
+          "id": "timing-result",
+          "text": "Bereit · Keine Zeitmarken gespeichert."
+        },
+        {
+          "id": "observer-result",
+          "text": "Observer wartet auf neue Einträge."
+        }
+      ]
+    }
+  }
+]

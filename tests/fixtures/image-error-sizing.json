@@ -1,0 +1,20 @@
+[
+  {"name":"inline-attributes","style":"","attributes":"width=60 height=40","alt":"Missing"},
+  {"name":"inline-css","style":"width:300px;min-width:300px;height:100px;border:1px solid gray;padding:3px;margin:9px 2px","attributes":"width=200 height=80","alt":"Missing"},
+  {"name":"inline-block-attributes","style":"display:inline-block","attributes":"width=60 height=40","alt":"Missing"},
+  {"name":"block-attributes","style":"display:block","attributes":"width=60 height=40","alt":"Missing"},
+  {"name":"block-auto","style":"display:block","attributes":"","alt":"Missing"},
+  {"name":"block-responsive-attributes","style":"display:block;width:100%;height:auto","attributes":"width=480 height=240","alt":"Missing"},
+  {"name":"block-responsive-ratio","style":"display:block;width:100%;height:auto;aspect-ratio:2;object-fit:cover","attributes":"width=480 height=240","alt":"Missing"},
+  {"name":"block-css-ratio","style":"display:block;width:120px;height:auto;aspect-ratio:2","attributes":"","alt":"Missing"},
+  {"name":"block-ratio-auto-width","style":"display:block;aspect-ratio:2","attributes":"","alt":"Missing"},
+  {"name":"block-ratio-box-sizing","style":"display:block;width:120px;height:auto;aspect-ratio:2;box-sizing:border-box;border:2px solid black;padding:4px","attributes":"","alt":"Missing"},
+  {"name":"inline-empty-alt","style":"","attributes":"width=60 height=40","alt":""},
+  {"name":"block-empty-alt","style":"display:block;width:100%;height:auto;aspect-ratio:2","attributes":"width=480 height=240","alt":""},
+  {"name":"block-no-alt","style":"display:block;width:120px;height:60px","attributes":""},
+  {"name":"inline-css-ratio","style":"width:120px;height:auto;aspect-ratio:2","attributes":"","alt":"Missing"},
+  {"name":"inline-min-size","style":"min-width:100px;min-height:60px","attributes":"","alt":"Missing"},
+  {"name":"inline-max-size","style":"max-width:30px;max-height:10px","attributes":"","alt":"Missing"},
+  {"name":"inline-fixed-size","style":"width:120px;height:60px","attributes":"","alt":"Missing"},
+  {"name":"inline-block-auto","style":"display:inline-block","attributes":"","alt":"Missing"}
+]

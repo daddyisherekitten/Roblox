@@ -1,0 +1,981 @@
+{
+  "captured": "2026-10-10",
+  "standard": "https://html.spec.whatwg.org/multipage/input.html#show-the-picker-if-applicable",
+  "cases": [
+    {
+      "name": "auto/normal",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s><option>A</option><option>B</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/no-activation",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s><option>A</option></select>",
+      "prepare": "",
+      "activation": false,
+      "expected": {
+        "error": "NotAllowedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/disabled",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s disabled><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/disabled-no-activation",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s disabled><option>A</option></select>",
+      "prepare": "",
+      "activation": false,
+      "expected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/fieldset-disabled",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><fieldset disabled><select id=s><option>A</option></select></fieldset>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/first-legend",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><fieldset disabled><legend><select id=s><option>A</option></select></legend></fieldset>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/hidden",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s hidden><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "NotSupportedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/parent-hidden",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><div hidden><select id=s><option>A</option></select></div>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "NotSupportedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/hidden-no-activation",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s hidden><option>A</option></select>",
+      "prepare": "",
+      "activation": false,
+      "expected": {
+        "error": "NotAllowedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/visibility-hidden",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s style=\"visibility:hidden\"><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/contents",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s style=\"display:contents\"><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "NotSupportedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/detached",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s><option>A</option></select>",
+      "prepare": "s.remove()",
+      "activation": true,
+      "expected": {
+        "error": "NotSupportedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/readonly",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s readonly><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/multiple",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s multiple><option>A</option><option>B</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/size-two",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s size=2><option>A</option><option>B</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/empty",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/inert",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><div inert><select id=s><option>A</option></select></div>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "auto/zero",
+      "html": "<!doctype html><style>select{appearance:auto}select::picker(select){appearance:auto}</style><select id=s style=\"width:0;height:0;padding:0;border:0\"><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/normal",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s><option>A</option><option>B</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "option",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/no-activation",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s><option>A</option></select>",
+      "prepare": "",
+      "activation": false,
+      "expected": {
+        "error": "NotAllowedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/disabled",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s disabled><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/disabled-no-activation",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s disabled><option>A</option></select>",
+      "prepare": "",
+      "activation": false,
+      "expected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/fieldset-disabled",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><fieldset disabled><select id=s><option>A</option></select></fieldset>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/first-legend",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><fieldset disabled><legend><select id=s><option>A</option></select></legend></fieldset>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "option",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/hidden",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s hidden><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "NotSupportedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/parent-hidden",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><div hidden><select id=s><option>A</option></select></div>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "NotSupportedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/hidden-no-activation",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s hidden><option>A</option></select>",
+      "prepare": "",
+      "activation": false,
+      "expected": {
+        "error": "NotAllowedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/visibility-hidden",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s style=\"visibility:hidden\"><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/contents",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s style=\"display:contents\"><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "NotSupportedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/detached",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s><option>A</option></select>",
+      "prepare": "s.remove()",
+      "activation": true,
+      "expected": {
+        "error": "NotSupportedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/readonly",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s readonly><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "option",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/multiple",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s multiple><option>A</option><option>B</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/size-two",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s size=2><option>A</option><option>B</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/empty",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/inert",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><div inert><select id=s><option>A</option></select></div>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "base-select/zero",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}</style><select id=s style=\"width:0;height:0;padding:0;border:0\"><option>A</option></select>",
+      "prepare": "",
+      "activation": true,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "option",
+        "events": []
+      }
+    }
+  ],
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "descriptors": {
+    "name": "showPicker",
+    "length": 0,
+    "writable": true,
+    "enumerable": true,
+    "configurable": true,
+    "borrowed": "TypeError",
+    "same": true
+  },
+  "frames": [
+    {
+      "name": "srcdoc/false/false",
+      "kind": "srcdoc",
+      "activation": false,
+      "disabled": false,
+      "expected": {
+        "error": "NotAllowedError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "srcdoc/false/true",
+      "kind": "srcdoc",
+      "activation": false,
+      "disabled": true,
+      "expected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "srcdoc/true/false",
+      "kind": "srcdoc",
+      "activation": true,
+      "disabled": false,
+      "expected": {
+        "error": "",
+        "exception": false,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": false,
+        "open": true,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "srcdoc/true/true",
+      "kind": "srcdoc",
+      "activation": true,
+      "disabled": true,
+      "expected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "sandbox-srcdoc/false/false",
+      "kind": "sandbox-srcdoc",
+      "activation": false,
+      "disabled": false,
+      "expected": {
+        "error": "SecurityError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "sandbox-srcdoc/false/true",
+      "kind": "sandbox-srcdoc",
+      "activation": false,
+      "disabled": true,
+      "expected": {
+        "error": "SecurityError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      },
+      "specExpected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "sandbox-srcdoc/true/false",
+      "kind": "sandbox-srcdoc",
+      "activation": true,
+      "disabled": false,
+      "expected": {
+        "error": "SecurityError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "sandbox-srcdoc/true/true",
+      "kind": "sandbox-srcdoc",
+      "activation": true,
+      "disabled": true,
+      "expected": {
+        "error": "SecurityError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      },
+      "specExpected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "data/false/false",
+      "kind": "data",
+      "activation": false,
+      "disabled": false,
+      "expected": {
+        "error": "SecurityError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "data/false/true",
+      "kind": "data",
+      "activation": false,
+      "disabled": true,
+      "expected": {
+        "error": "SecurityError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      },
+      "specExpected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": false,
+        "activeAfter": false,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "data/true/false",
+      "kind": "data",
+      "activation": true,
+      "disabled": false,
+      "expected": {
+        "error": "SecurityError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    },
+    {
+      "name": "data/true/true",
+      "kind": "data",
+      "activation": true,
+      "disabled": true,
+      "expected": {
+        "error": "SecurityError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      },
+      "specExpected": {
+        "error": "InvalidStateError",
+        "exception": true,
+        "resultUndefined": true,
+        "before": true,
+        "activeAfter": true,
+        "open": false,
+        "activeElement": "body",
+        "events": []
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "name": "auto/escape",
+      "appearance": "auto",
+      "action": "escape",
+      "states": [
+        {
+          "open": true,
+          "focus": "button",
+          "value": "a",
+          "events": []
+        },
+        {
+          "open": false,
+          "focus": "button",
+          "value": "a",
+          "events": []
+        }
+      ]
+    },
+    {
+      "name": "auto/commit",
+      "appearance": "auto",
+      "action": "commit",
+      "states": [
+        {
+          "open": true,
+          "focus": "button",
+          "value": "a",
+          "events": []
+        },
+        {
+          "open": true,
+          "focus": "button",
+          "value": "a",
+          "events": []
+        },
+        {
+          "open": false,
+          "focus": "button",
+          "value": "b",
+          "events": [
+            "input:select",
+            "change:select"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "auto/repeat",
+      "appearance": "auto",
+      "action": "repeat",
+      "states": [
+        {
+          "open": true,
+          "focus": "button",
+          "value": "a",
+          "events": []
+        },
+        {
+          "open": true,
+          "focus": "button",
+          "value": "a",
+          "events": []
+        }
+      ]
+    },
+    {
+      "name": "base-select/escape",
+      "appearance": "base-select",
+      "action": "escape",
+      "states": [
+        {
+          "open": true,
+          "focus": "option",
+          "value": "a",
+          "events": [
+            "focus:option"
+          ]
+        },
+        {
+          "open": false,
+          "focus": "select",
+          "value": "a",
+          "events": [
+            "focus:option",
+            "blur:option",
+            "focus:select"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "base-select/commit",
+      "appearance": "base-select",
+      "action": "commit",
+      "states": [
+        {
+          "open": true,
+          "focus": "option",
+          "value": "a",
+          "events": [
+            "focus:option"
+          ]
+        },
+        {
+          "open": true,
+          "focus": "option",
+          "value": "a",
+          "events": [
+            "focus:option",
+            "blur:option",
+            "focus:option"
+          ]
+        },
+        {
+          "open": false,
+          "focus": "select",
+          "value": "b",
+          "events": [
+            "focus:option",
+            "blur:option",
+            "focus:option",
+            "input:select",
+            "change:select",
+            "blur:option",
+            "focus:select"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "base-select/repeat",
+      "appearance": "base-select",
+      "action": "repeat",
+      "states": [
+        {
+          "open": true,
+          "focus": "option",
+          "value": "a",
+          "events": [
+            "focus:option"
+          ]
+        },
+        {
+          "open": true,
+          "focus": "option",
+          "value": "a",
+          "events": [
+            "focus:option"
+          ]
+        }
+      ]
+    }
+  ]
+}

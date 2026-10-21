@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180">
+  <title>Geometrische Testgrafik</title>
+  <defs><linearGradient id="sky" x2="1" y2="1"><stop stop-color="#dff2cf"/><stop offset="1" stop-color="#82beb0"/></linearGradient></defs>
+  <path fill="url(#sky)" d="M0 0H320V180H0z"/>
+  <path d="M0 30H320M0 60H320M0 90H320M0 120H320M0 150H320M40 0V180M80 0V180M120 0V180M160 0V180M200 0V180M240 0V180M280 0V180" fill="none" stroke="#173630" stroke-opacity=".12"/>
+  <circle cx="233" cy="66" r="39" fill="#fa7b43"/>
+  <path d="M32 140 90 54 154 140Z" fill="#087f72"/>
+  <rect x="166" y="109" width="110" height="30" rx="6" fill="#173630"/>
+  <path d="M15 163 305 17" stroke="#fff" stroke-width="3"/>
+</svg>

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta name="description" content="CSS zum Anfassen: neun Bereiche mit echten Browserbeispielen für Kaskade, Selektoren, Layout, Text, Effekte und Animationen.">
+  <title>CSS Atelier — Sehen, bewegen, verstehen.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="namespaces.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <header class="site-header page-width">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>css atelier<span class="brand-dot">.</span></a>
+    <span class="header-note">Sehen. Bewegen. Verstehen.</span>
+    <a class="text-link" href="../main/index.html">Zu Spielraum ↗</a>
+  </header>
+
+  <main class="page-width" id="inhalt">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Der CSS-Vergleich / Ausgabe 02</p>
+        <h1>Was CSS kann.<br>Und wie es sich<br><em>anfühlt.</em></h1>
+        <p class="hero-description">Eine Schrift wird schmaler. Eine Karte reagiert auf ihren Platz. Zwei Bewegungen werden zu einer. Hier werden abstrakte CSS-Begriffe zu Dingen, die du selbst ausprobieren kannst.</p>
+        <a class="button primary" href="#kaskade">Das Atelier erkunden <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-grid"></div><div class="art-orbit"></div><div class="art-disc"></div>
+        <div class="art-ticket"><span>FORM</span><strong>&amp;</strong><span>FLOW</span></div>
+        <div class="art-label">9 Perspektiven auf dieselbe Seite</div>
+      </div>
+    </section>
+
+    <div class="intro-grid">
+      <p class="intro-title">Nicht neun Baustellen<br>bei null.</p>
+      <div><p>Unsere Engine hat bereits viele Grundlagen dieser Bereiche. Die offene Liste betrifft zusätzliche Werte, genaue Browserregeln und Kombinationen. Die Beispiele hier zeigen das <strong>echte Browserverhalten</strong>; sie sind keine Aussage, dass uns jedes gezeigte Feature vollständig fehlt.</p>
+        <p class="quiet">Ändere Breiten, klicke Buttons und benutze auch die Tab-Taste. Dieselbe Seite lässt sich im Browser und in Roblox vergleichen. Die Anzeigen prüfen die verfügbare Syntax oder API; fehlende Funktionen sind gekennzeichnet.</p></div>
+    </div>
+    <noscript><p class="notice">Die CSS-Beispiele bleiben sichtbar. Für Regler, Umschalter und die Browserprüfung bitte JavaScript aktivieren.</p></noscript>
+
+    <nav class="chapter-nav" aria-label="Die neun CSS-Bereiche">
+      <a href="#kaskade">01 Kaskade</a><a href="#selektoren">02 Selektoren</a><a href="#masse">03 Maße</a>
+      <a href="#text">04 Text</a><a href="#layout">05 Layout</a><a href="#effekte">06 Effekte</a>
+      <a href="#eingabe">07 Eingabe</a><a href="#animationen">08 Animation</a><a href="#apis">09 APIs</a>
+    </nav>
+
+    <section class="chapter" id="kaskade" aria-labelledby="title-01">
+      <div class="chapter-heading"><p class="eyebrow">01 / Syntax und Kaskade</p><h2 id="title-01">Welche Regel gewinnt?</h2><p>CSS sammelt Regeln, verwirft Ungültiges und bestimmt einen Wert. Die letzte Zeile gewinnt dabei nicht immer.</p></div>
+      <div class="demo-grid">
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Priorität</span><span class="support" data-feature="layers">Browserprüfung …</span></div>
+          <h3>Ein Thema schlägt eine ID.</h3>
+          <div class="stage layer-panel" id="layer-panel"><div class="layer-sample" id="layer-sample"><span>Die spätere Theme-Ebene gewinnt</span><strong>BLÜTE</strong></div></div>
+          <button class="button" id="layer-toggle" type="button" aria-pressed="false">Oberste Farbe mit revert-layer zurücknehmen</button>
+          <p class="expect">Zuerst blau, nach dem Klick die korallene Basis. Die Basis hat einen stärkeren Selektor; die Reihenfolge der Ebenen entscheidet trotzdem.</p>
+          <details class="code-details"><summary>Die entscheidende CSS-Regel</summary><pre><code>@layer basis, thema;
+@layer basis { #layer-sample { background: coral; } }
+@layer thema {
+  .layer-sample { background: royalblue; }
+  .zurueck .layer-sample { background: revert-layer; }
+}</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Vererbung &amp; Fehler</span><span class="support" data-feature="variables">Browserprüfung …</span></div>
+          <h3>Ein ungültiger Wert kommt spät.</h3>
+          <div class="stage var-panel" id="var-panel"><p class="var-sample">Ich erbe das Blau.</p><span class="unicode-label café">Café — ein Unicode-Klassenname</span></div>
+          <label class="check-control"><input type="checkbox" id="valid-variable"> Die Variable auf eine gültige Farbe setzen</label>
+          <p class="expect">Mit <code>--farbe: 18px</code> wird <code>color: var(--farbe)</code> erst nach der Ersetzung ungültig. Der Text erbt Blau; er springt nicht zur früheren roten Deklaration zurück. Mit gültigem Korall wird er korallenfarben.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>.eltern { color: royalblue; --farbe: 18px; }
+.text { color: coral; color: var(--farbe); }
+.caf\e9 { border: 1px solid currentColor; }
+/* Der Escape trifft die HTML-Klasse „café“. */</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">CSS-weite Werte</span></div><h3>Was wird zurückgesetzt?</h3>
+          <div class="stage keyword-parent"><span class="keyword-sample" id="keyword-sample">Ein Text, verschiedene Ursprünge.</span></div>
+          <label class="field-label" for="wide-keyword">Wert für color</label><select id="wide-keyword"><option value="">Eigene korallene Farbe</option><option>inherit</option><option>initial</option><option>unset</option><option>revert</option><option>revert-layer</option></select>
+          <output class="readout" id="wide-result">Berechnete Farbe wird angezeigt.</output>
+          <p class="expect">Der Elterntext ist blau. Vererben, zum Anfangswert gehen und eine Kaskadenstufe zurückgehen sind unterschiedliche Vorgänge. Ein echtes User-Stylesheet kann diese normale Seite nicht selbst einschleusen.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Import &amp; Namespaces</span></div><h3>Gleicher Name, anderer Baum.</h3>
+          <div class="stage namespace-preview"><span class="import-dot"></span><span>HTML-Text</span><svg viewBox="0 0 230 64" role="img" aria-label="SVG-Text ist korallenfarben"><text x="12" y="43">SVG-Text</text></svg></div>
+          <p class="expect">Der Punkt erhält seine Farbe aus einer importierten CSS-Datei. Der SVG-Text wird über den Namespace-Präfix angesprochen. Der HTML-Text bleibt davon unberührt.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>@import url("tokens.css") layer(referenz);
+/* In einer separaten Stylesheetdatei: */
+@namespace svg url("http://www.w3.org/2000/svg");
+.namespace-preview svg|text { fill: coral; }</code></pre></details>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter" id="selektoren" aria-labelledby="title-02">
+      <div class="chapter-heading"><p class="eyebrow">02 / Selektoren</p><h2 id="title-02">CSS erkennt Beziehungen.</h2><p>Ein Selektor kann nach Kindern, Sprache, Richtung oder einem interaktiven Zustand fragen.</p></div>
+      <div class="demo-grid">
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">:has &amp; nth-child of</span><span class="support" data-feature="selectors">Browserprüfung …</span></div><h3>Nur passende Einträge zählen.</h3>
+          <div class="stage relation-demo"><label class="check-control"><input type="checkbox" id="relation-check"> Diese Gruppe ist aktiv</label><ol class="filtered-list"><li class="picked">Eine Idee</li><li class="muted-row">Eine Notiz — zählt nicht mit</li><li class="picked">Zweite passende Idee</li><li class="picked">Dritte passende Idee</li><li class="picked">Vierte passende Idee</li></ol></div>
+          <p class="expect">Jede zweite <em>passende</em> Idee bekommt Blau. Die Notiz wird beim Zählen übersprungen. Der Haken verändert den Rahmen der gesamten Gruppe über <code>:has()</code>.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>.gruppe:has(input:checked) { border-color: royalblue; }
+li:nth-child(2n of .picked) { background: royalblue; }</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Sprache &amp; Richtung</span></div><h3>Ein Satz reist weiter.</h3>
+          <div class="stage language-demo"><q lang="de">Guten Morgen</q><q lang="fr">Bonjour</q><q lang="en">Good morning</q><p dir="rtl" lang="ar">مرحبًا بالعالم <bdi>CSS 2026</bdi></p></div>
+          <p class="expect">Die Anführungszeichen wechseln durch <code>:lang()</code>. Die arabische Zeile läuft von rechts nach links; <code>:dir(rtl)</code> markiert sie. Die lateinische Einfügung bleibt getrennt lesbar.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>q:lang(de) { quotes: "„" "“"; }
+q:lang(fr) { quotes: "« " " »"; }
+p:dir(rtl) { border-inline-start: 4px solid coral; }</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Ziel &amp; Offen-Zustand</span></div><h3>Die Adresse gehört zum Zustand.</h3>
+          <a class="button" href="#target-note">Diese Notiz zum Linkziel machen</a>
+          <div class="target-note" id="target-note">Als aktuelles Linkziel leuchte ich gelb.</div>
+          <details class="open-demo"><summary>Ein weiterer Zustand: offen</summary><p>Jetzt bekommt dieser Bereich einen blauen Hintergrund. Der Browser verwaltet den Offen-Zustand selbst.</p></details>
+          <p class="expect"><code>:target</code> folgt dem Fragment in der Adresse. <code>[open]</code> beziehungsweise der neuere <code>:open</code>-Selektor reagieren auf einen geöffneten Bereich.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Shadow DOM</span><span class="support" data-feature="shadow">Browserprüfung …</span></div><h3>Ein Baustein mit eigener Grenze.</h3>
+          <div class="stage shadow-stage"><atelier-chip><span>Ein Inhalt im Slot</span></atelier-chip></div>
+          <button class="button" id="shadow-toggle" type="button" aria-pressed="false">Äußeres Thema wechseln</button>
+          <p class="expect">Das Bauteil besitzt eigene Styles. Außen wird nur der freigegebene <code>::part(surface)</code> verändert; innen erhält der eingelegte Inhalt Farbe über <code>::slotted()</code>.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>atelier-chip::part(surface) { border-radius: 24px; }
+/* Innerhalb des Shadow-Baums: */
+::slotted(span) { color: royalblue; }</code></pre></details>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter" id="masse" aria-labelledby="title-03">
+      <div class="chapter-heading"><p class="eyebrow">03 / Maße und responsive Regeln</p><h2 id="title-03">Es kommt auf den Platz an.</h2><p>Nicht jede Größe hängt am Fenster. Ein Container, eine Schrift oder der sichtbare Bildschirm können der Maßstab sein.</p></div>
+      <div class="demo-grid">
+        <article class="demo-card wide-card">
+          <div class="card-top"><span class="demo-tag">Container Query &amp; cqw</span><span class="support" data-feature="container">Browserprüfung …</span></div><h3>Verkleinere nur diese Karte.</h3>
+          <div class="control-row"><label for="container-width">Gewünschte Breite</label><input id="container-width" type="range" min="230" max="780" value="560"><output id="container-size">560 px</output></div>
+          <div class="container-shell" id="container-shell"><div class="container-story"><img src="morning.svg" alt="Eine geometrische Landschaft mit Bergen und einem See"><div><span class="eyebrow">Ein Ort für Ideen</span><h4>Platz verändert Perspektiven.</h4><p>Über 420 px liegen Bild und Text nebeneinander. Darunter stehen sie untereinander. Die Überschrift verwendet Container-Einheiten.</p></div></div></div>
+          <p class="expect">Die Seite bleibt gleich breit. Nur der Rahmen des Beispiels ändert sich. Bei einem schmalen Fenster kann die tatsächliche Breite kleiner als die gewünschte sein.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>.rahmen { container: karte / inline-size; }
+.titel { font-size: clamp(24px, 6cqw, 42px); }
+@container karte (width &gt; 420px) {
+  .inhalt { display: grid; grid-template-columns: 1fr 1fr; }
+}</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Einheiten</span></div><h3>Ein Zoll, viele Schreibweisen.</h3>
+          <div class="stage unit-demo"><div class="unit-row"><code>1in</code><span style="width:1in"></span></div><div class="unit-row"><code>2.54cm</code><span style="width:2.54cm"></span></div><div class="unit-row"><code>96px</code><span style="width:96px"></span></div><div class="unit-row"><code>8rem</code><span style="width:8rem"></span></div><div class="unit-row"><code>12ch</code><span style="width:12ch"></span></div><div class="unit-row"><code>12ex</code><span style="width:12ex"></span></div><div class="unit-row"><code>30vi</code><span style="width:30vi"></span></div><div class="unit-row"><code>30dvw</code><span style="width:30dvw"></span></div></div>
+          <p class="expect">Die ersten drei Balken sind gleich lang: CSS-Zoll ist hier 96 CSS-Pixel, kein verlässliches Lineal für deinen Monitor. <code>ch</code>/<code>ex</code> hängen an der Schrift. <code>vi</code>/<code>dvw</code> beziehen sich auf das Fenster.</p>
+          <details class="code-details"><summary>Kleine, große und dynamische Viewports</summary><p><code>svh</code>, <code>lvh</code> und <code>dvh</code> unterscheiden sich vor allem auf Mobilgeräten mit ein- und ausblendender Browserleiste. Auf einem Desktop dürfen sie gleich aussehen.</p></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Media Queries</span><span class="support" data-feature="media-range">Browserprüfung …</span></div><h3>Was weiß die Seite über dein Fenster?</h3>
+          <div class="stage media-demo"><div class="media-width-badge">Fenster zwischen 500 und 900 px</div><dl class="readout-list"><div><dt>Fensterbreite</dt><dd id="viewport-readout">…</dd></div><div><dt>Bewegung reduzieren</dt><dd id="motion-readout">…</dd></div><div><dt>Hover möglich</dt><dd id="hover-readout">…</dd></div><div><dt>System-Kontrastmodus</dt><dd id="contrast-readout">…</dd></div></dl></div>
+          <p class="expect">Verändere das Browserfenster. Im genannten Bereich wird das obere Feld blau. Betriebssystem- und Eingabepräferenzen sind echte Abfragen und werden hier nicht vorgetäuscht.</p>
+          <details class="code-details"><summary>Die entscheidende CSS-Regel</summary><pre><code>@media (500px &lt;= width &lt;= 900px) {
+  .anzeige { background: royalblue; color: white; }
+}</code></pre></details>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter" id="text" aria-labelledby="title-04">
+      <div class="chapter-heading"><p class="eyebrow">04 / Text und Schriften</p><h2 id="title-04">Text hat mehr als eine Richtung.</h2><p>Formung, Sprache, Zahlen und Schriftachsen beeinflussen sowohl das Aussehen als auch die gemessene Größe.</p></div>
+      <div class="demo-grid">
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Bidi &amp; Schreibmodus</span></div><h3>Dieselbe Geschichte, anders gelesen.</h3>
+          <label class="field-label" for="writing-mode">Schreibrichtung</label><select id="writing-mode"><option value="horizontal-tb">Horizontal</option><option value="vertical-rl">Vertikal, rechts nach links</option><option value="vertical-lr">Vertikal, links nach rechts</option></select>
+          <div class="stage writing-stage"><p id="writing-sample">Form folgt der Sprache.<br><span lang="ja">文字と余白</span><br><span lang="ar" dir="rtl">مرحبا بالعالم</span></p></div>
+          <p class="expect">Zeilen werden im vertikalen Modus zu Spalten. Japanische und lateinische Zeichen können unterschiedliche Orientierung haben. Arabische Zeichen werden durch die Schrift zu verbundenen Formen.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Variable Font</span><span class="support" id="font-support">Schrift lädt …</span></div><h3>Eine Schrift. Viele Formen.</h3>
+          <div class="stage font-stage"><span id="variable-sample">Aa<br>Formgefühl</span></div>
+          <div class="control-row"><label for="font-weight">Gewicht</label><input id="font-weight" type="range" min="100" max="900" value="480"><output id="weight-value">480</output></div>
+          <div class="control-row"><label for="font-width">Breite</label><input id="font-width" type="range" min="75" max="100" value="100"><output id="width-value">100 %</output></div>
+          <p class="expect">Die lokale Roboto-Datei besitzt echte Gewichts- und Breitenachsen. Der Browser formt dieselben Buchstaben neu; der Regler skaliert kein Bild.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>@font-face {
+  font-family: "Atelier Variable";
+  src: url("fonts/Roboto-Variable.ttf");
+  font-weight: 100 900; font-stretch: 75% 100%;
+}
+.text { font-variation-settings: "wght" 480, "wdth" 100; }</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">OpenType &amp; Umbruch</span></div><h3>Auch Ziffern brauchen Platz.</h3>
+          <div class="stage typography-stage"><div><span class="tiny-label">Proportionale Ziffern</span><p class="proportional-nums">1111,11<br>8888,88</p></div><div><span class="tiny-label">Tabellarische Ziffern</span><p class="tabular-nums">1111,11<br>8888,88</p></div></div>
+          <div class="hyphen-preview" lang="de">Eine außergewöhnliche Gestaltungsidee braucht manchmal eine passende Silbentrennung.</div>
+          <p class="expect">Tabellarische Ziffern haben gleiche Breiten. Darunter darf der Browser lange deutsche Wörter sprachabhängig trennen. Schriftfunktionen und Trennwörterbücher gehören zur tatsächlichen Textdarstellung.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Initial Letter &amp; Text Box</span><span class="support" data-feature="text-box">Browserprüfung …</span></div><h3>Der Anfang darf groß sein.</h3>
+          <div class="stage dropcap-stage"><p class="dropcap">Ein erster Buchstabe gibt diesem Absatz einen eigenen Rhythmus. Die Zeilen fließen neben ihm weiter. Platz, Grundlinie und Höhe gehören zusammen.</p></div>
+          <div class="trim-comparison"><div><span class="tiny-label">Normale Zeilenbox</span><span class="trim-text">Hamburg</span></div><div><span class="tiny-label">Text Box getrimmt</span><span class="trim-text trimmed">Hamburg</span></div></div>
+          <p class="expect">Die rosa Flächen zeigen den Platz über und unter den Buchstaben. Mit Text Box Trim wird er enger. Ohne Unterstützung bleibt die zweite Box unverändert; der große Anfangsbuchstabe hat einen klassischen Float-Fallback.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter" id="layout" aria-labelledby="title-05">
+      <div class="chapter-heading"><p class="eyebrow">05 / Layout</p><h2 id="title-05">Inhalt ordnet den Raum.</h2><p>Breiten, Grundlinien, Raster und Umbrüche bestimmen, wo Dinge stehen — und was sich bei einer Änderung mitbewegen muss.</p></div>
+      <div class="demo-grid">
+        <article class="demo-card wide-card">
+          <div class="card-top"><span class="demo-tag">Grid &amp; Subgrid</span><span class="support" data-feature="subgrid">Browserprüfung …</span></div><h3>Karten teilen ihre Zeilen.</h3>
+          <div class="product-grid"><article class="product-card"><h4>Die kurze Idee.</h4><p>Wenig Text. Gleicher Rhythmus.</p><a class="text-link" href="#layout">Mehr erfahren ↗</a></article><article class="product-card"><h4>Eine längere Überschrift braucht etwas mehr Platz.</h4><p>Die Beschreibung beginnt trotzdem auf derselben Rasterzeile. Ebenso der Link am Ende.</p><a class="text-link" href="#layout">Mehr erfahren ↗</a></article><article class="product-card"><h4>Ein dritter Blick.</h4><p>Subgrid lässt innere Karten die Zeilen des äußeren Rasters übernehmen.</p><a class="text-link" href="#layout">Mehr erfahren ↗</a></article></div>
+          <p class="expect">Vergleiche den Beginn der Beschreibungen und die Position der Links. Bei schmalem Fenster wird aus dem gemeinsamen Raster eine Folge einzelner Karten.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>.raster { display: grid; grid-template-columns: repeat(3, 1fr); }
+.karte {
+  display: grid; grid-row: span 3;
+  grid-template-rows: subgrid;
+}</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Flex &amp; Intrinsic Sizing</span></div><h3>Die Grundlinie hält zusammen.</h3>
+          <div class="stage baseline-stage" id="baseline-stage"><span class="baseline-big">Aa</span><span>kleiner Text</span><button class="baseline-native" type="button">Button</button></div>
+          <label class="field-label" for="align-items">Ausrichtung</label><select id="align-items"><option value="baseline">Gemeinsame Grundlinie</option><option value="center">Boxen mittig</option><option value="flex-start">Boxen oben</option></select>
+          <div class="intrinsic-stage"><div class="intrinsic-min">min-content<br>Form und Gefühl</div><div class="intrinsic-max">max-content · Form und Gefühl bleiben in einer Zeile.</div></div>
+          <p class="expect">Die Boxmitte und die Textgrundlinie sind verschiedene Bezugspunkte. Unten ist <code>min-content</code> so schmal wie die längste untrennbare Einheit; <code>max-content</code> vermeidet den Umbruch. Du kannst dort horizontal scrollen.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Float &amp; Fragmentierung</span></div><h3>Text geht um eine Form herum.</h3>
+          <div class="stage float-stage"><div class="float-circle" aria-hidden="true"></div><p>Eine runde Fläche liegt im Text. Die Zeilen folgen ihrer Rundung, statt nur neben einem Rechteck zu stehen. Das ist ein Zusammenspiel von Float und <code>shape-outside</code>.</p></div>
+          <div class="column-preview"><p>Manche Geschichten brauchen mehrere Spalten. Der Browser verteilt den Text und bildet neue Fragmente, sobald der Platz einer Spalte endet.</p><p>Auch das Verhalten an einer Grenze gehört zum Layout. Eine Überschrift, ein Absatz oder eine Karte soll nicht beliebig auseinandergerissen werden.</p></div>
+          <p class="expect">Oben ändern sich Zeilenbreiten entlang des Kreises. Unten fließt der Text in zwei Spalten. Fragmentierung ist mehr als eine Reihe nebeneinanderliegender Boxen.</p>
+        </article>
+        <article class="demo-card wide-card">
+          <div class="card-top"><span class="demo-tag">Tabelle, Spans &amp; Prozent</span></div><h3>Mehrere Zellen, eine gemeinsame Größe.</h3>
+          <div class="table-scroll"><table class="sample-table"><caption>Ein kleiner Wochenplan</caption><thead><tr><th scope="col">Raum</th><th scope="col">Vormittag</th><th scope="col">Nachmittag</th></tr></thead><tbody><tr><th scope="row" rowspan="2">Atelier</th><td>Skizzen &amp; Ideen</td><td>Materialien</td></tr><tr><td colspan="2">Ein gemeinsamer Workshop über beide Zeiträume</td></tr><tr><th scope="row">Bibliothek</th><td>Freies Lesen</td><td>Besprechung</td></tr></tbody></table></div>
+          <div class="percent-parent"><span class="percent-child">50 % von einer definierten Höhe</span></div>
+          <p class="expect">Tabellenspalten teilen ihre Breiten; verbundene Zellen beeinflussen mehrere Zeilen oder Spalten. Die blaue Box darunter hat genau die halbe Höhe ihres 120-px-Elternblocks. Ohne definierte Bezugshöhe kann derselbe Prozentwert anders aufgelöst werden.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter" id="effekte" aria-labelledby="title-06">
+      <div class="chapter-heading"><p class="eyebrow">06 / Bilder, Farben und Effekte</p><h2 id="title-06">Eine Fläche kann mehr.</h2><p>Farbräume, Formen und Perspektive verändern das gemalte Bild. Das normale Layout bleibt dabei häufig gleich.</p></div>
+      <div class="demo-grid">
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Clip, Maske &amp; Filter</span></div><h3>Dasselbe Bild, drei Eingriffe.</h3>
+          <div class="stage image-stage"><img class="effect-image" id="effect-image" src="morning.svg" alt="Berglandschaft als Filterbeispiel"></div>
+          <div class="check-row"><label class="check-control"><input type="checkbox" id="clip-check"> Polygon-Ausschnitt</label><label class="check-control"><input type="checkbox" id="mask-check"> Verlauf als Maske</label></div>
+          <div class="control-row"><label for="blur-range">Unschärfe</label><input id="blur-range" type="range" min="0" max="8" step="0.5" value="0"><output id="blur-value">0 px</output></div>
+          <p class="expect">Clipping schneidet eine harte Form aus. Die Maske macht Pixel stufenweise transparent; der karierte Hintergrund wird sichtbar. Der Filter verändert die Bildpixel, nicht die reservierte Boxgröße.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
+mask-image: linear-gradient(to right, black 40%, transparent);
+filter: blur(4px);</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Farbräume &amp; Compositing</span><span class="support" data-feature="colors">Browserprüfung …</span></div><h3>Eine Mischung ist nicht immer dieselbe.</h3>
+          <div class="color-swatches"><div><span class="swatch srgb"></span><code>sRGB</code></div><div><span class="swatch oklab"></span><code>OKLab</code></div><div><span class="swatch oklch"></span><code>OKLCH</code></div></div>
+          <div class="blend-stage" id="blend-stage"><span></span><span></span></div>
+          <label class="field-label" for="blend-mode">Mischmodus der oberen Fläche</label><select id="blend-mode"><option>multiply</option><option>screen</option><option>difference</option><option>normal</option></select>
+          <p class="expect">Oben werden dieselben zwei Farben in unterschiedlichen Räumen gemischt. Unten entsteht eine dritte Farbe nur dort, wo sich die Flächen überlagern. Die Gruppe ist mit <code>isolation: isolate</code> vom übrigen Hintergrund getrennt.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">3D &amp; Backface</span></div><h3>Die Rückseite hat ein Gesicht.</h3>
+          <div class="flip-stage"><button class="flip-card" id="flip-card" type="button" aria-label="Karte wenden" aria-pressed="false"><span class="flip-face front"><span>FORM</span><small>Vorderseite · anklicken</small></span><span class="flip-face back"><span>FLOW</span><small>Rückseite · erneut anklicken</small></span></button></div>
+          <p class="expect">Die Karte dreht sich in echter Perspektive. Die Rückseite des vorderen Texts wird nicht spiegelverkehrt durchgemalt. Vorder- und Rückseite belegen weiterhin dieselbe Layoutbox.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>.buehne { perspective: 800px; }
+.karte { transform-style: preserve-3d; }
+.seite { backface-visibility: hidden; }
+.rueckseite { transform: rotateY(180deg); }</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Bildquelle &amp; image-set</span><span class="support" data-feature="image-set">Browserprüfung …</span></div><h3>Der Browser wählt die Quelle.</h3>
+          <div class="source-preview" role="img" aria-label="Bildquelle mit Kennzeichnung für die Pixeldichte"></div>
+          <output class="readout" id="density-readout">Pixeldichte wird angezeigt.</output>
+          <p class="expect">Die SVG-Varianten tragen sichtbar „1×“ oder „2×“. <code>image-set()</code> wählt die passende Quelle anhand der Pixeldichte; Browserzoom kann die Auswahl beeinflussen. Beide Varianten reservieren denselben Platz.</p>
+          <details class="code-details"><summary>Die entscheidende CSS-Regel</summary><pre><code>background-image: image-set(
+  url("density-1.svg") 1x,
+  url("density-2.svg") 2x
+);</code></pre></details>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter" id="eingabe" aria-labelledby="title-07">
+      <div class="chapter-heading"><p class="eyebrow">07 / Eingabe und Scrolling</p><h2 id="title-07">Eine Seite antwortet.</h2><p>Fokus, native Controls, Scrollen und Verankerung sind sichtbares Verhalten — keine bloßen Farbwerte.</p></div>
+      <div class="demo-grid">
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Fokus &amp; native Darstellung</span></div><h3>Versuch es mit der Tab-Taste.</h3>
+          <div class="stage native-panel" id="native-panel"><label for="sample-email">E-Mail-Adresse</label><input class="sample-email" id="sample-email" type="email" placeholder="hallo@atelier.de" required><label for="sample-date">Ein nativer Kalender</label><input id="sample-date" type="date" value="2026-10-12"><label class="check-control"><input type="checkbox" checked> Ein Haken mit accent-color</label></div>
+          <button class="button" id="scheme-toggle" type="button" aria-pressed="false">Dunkle Controldarstellung</button>
+          <p class="expect">Ein falscher E-Mail-Wert markiert das Feld. Tastaturfokus bekommt einen sichtbaren Ring. Der Kalender bleibt ein echter Browserpicker; <code>color-scheme</code> verändert die native Darstellung.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Snap &amp; Sticky</span></div><h3>Scrollen mit Haltepunkten.</h3>
+          <div class="snap-stage" tabindex="0" aria-label="Drei horizontal scrollbare Karten"><div>01<br><strong>Entdecken.</strong></div><div>02<br><strong>Ausprobieren.</strong></div><div>03<br><strong>Verstehen.</strong></div></div>
+          <p class="expect">Scrolle horizontal oder nutze mit Fokus die Pfeiltasten. Die Karten rasten ein. Im nächsten Beispiel bleibt die Überschrift beim vertikalen Scrollen am oberen Rand ihres eigenen Fensters.</p>
+          <details class="code-details"><summary>Die entscheidenden Regeln</summary><pre><code>.fenster { overflow-x: auto; scroll-snap-type: x mandatory; }
+.karte { scroll-snap-align: start; }
+.ueberschrift { position: sticky; top: 0; }</code></pre></details>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Scroll- &amp; View-Timeline</span><span class="support" data-feature="scroll-timeline">Browserprüfung …</span></div><h3>Scrollposition wird zur Zeit.</h3>
+          <div class="reading-window" tabindex="0" aria-label="Vertikal scrollbares Beispiel mit Fortschrittsbalken"><div class="reading-header">Ein kleiner Lesespaziergang<div class="reading-progress"></div></div><div class="reading-content"><p>Scrolle dieses Fenster. Der Balken oben wächst mit dem Weg, den du schon zurückgelegt hast.</p><div class="reading-spacer">Weiter unten wartet eine Karte ↓</div><div class="view-card">Ich reagiere auf meinen Eintritt ins Sichtfenster.</div><p>Die Scroll-Timeline gehört zum Scrollcontainer. Die View-Timeline gehört zur sichtbaren Reise eines einzelnen Elements.</p><p>Am Ende ist der obere Balken vollständig. Der Rest der Website musste dafür nicht mitgescrollt werden.</p></div></div>
+          <p class="expect">Die Animation folgt dem Scrollen und läuft nicht unabhängig nach einer Uhr. Wenn dein Browser das Feature nicht anbietet, zeigt er normalen Inhalt ohne vorgetäuschten Fortschritt.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Anchor &amp; Zoom</span><span class="support" data-feature="anchor">Browserprüfung …</span></div><h3>Das Menü gehört an den Button.</h3>
+          <div class="stage anchor-stage"><button class="button primary" id="anchor-trigger" type="button" popovertarget="anchor-menu">Ein kleines Menü öffnen</button><div id="anchor-menu" class="anchor-menu" popover><strong>Direkt am Auslöser.</strong><p>Verankert, mit Ausweichpositionen bei Platzmangel.</p><button class="button" type="button" popovertarget="anchor-menu" popovertargetaction="hide">Schließen</button></div></div>
+          <div class="control-row"><label for="zoom-range">CSS-Zoom</label><input id="zoom-range" type="range" min="75" max="150" value="100"><output id="zoom-value">100 %</output></div><div class="zoom-stage"><span id="zoom-sample">Mehr Raum für Details.</span></div>
+          <p class="expect">Mit Anchor-Unterstützung bleibt das Menü am Auslöser, auch wenn du die Seite bewegst. Sonst nutzt es die native Popoverposition. Der Regler zoomt nur das Beispiel; Browserzoom über Strg +/− wirkt auf die gesamte Seite.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter" id="animationen" aria-labelledby="title-08">
+      <div class="chapter-heading"><p class="eyebrow">08 / Animationen</p><h2 id="title-08">Nicht jede Bewegung fühlt sich gleich an.</h2><p>Geschwindigkeit, Layoutgrößen, Komposition und Zeitsteuerung gehören zu einer Animation dazu.</p></div>
+      <div class="demo-grid">
+        <article class="demo-card wide-card">
+          <div class="card-top"><span class="demo-tag">Easing</span></div><h3>Gleiche Strecke. Gleiche Zeit. Anderes Gefühl.</h3>
+          <div class="easing-demo" id="easing-demo"><div class="easing-row"><code>linear</code><div class="motion-track"><span class="motion-dot" style="--curve:linear"></span></div></div><div class="easing-row"><code>ease</code><div class="motion-track"><span class="motion-dot" style="--curve:ease"></span></div></div><div class="easing-row"><code>cubic-bezier</code><div class="motion-track"><span class="motion-dot" style="--curve:cubic-bezier(.16,1,.3,1)"></span></div></div></div>
+          <button class="button primary" id="easing-toggle" type="button" aria-pressed="false">Bewegung starten</button>
+          <p class="expect">Alle drei Punkte brauchen 1,2 Sekunden. Linear bleibt gleichmäßig; die anderen bremsen unterschiedlich ab. Ein erneuter Klick kehrt die Bewegung um.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Intrinsische Layoutgrößen</span><span class="support" data-feature="interpolate-size">Browserprüfung …</span></div><h3>Von null zu „so viel wie nötig“.</h3>
+          <button class="button" id="height-toggle" type="button" aria-expanded="false" aria-controls="auto-panel">Inhalt aufklappen</button>
+          <div class="auto-panel" id="auto-panel"><div><strong>Diese Höhe ist auto.</strong><p>Die Größe kommt vom Inhalt. Während die Box wächst, bewegt sich die Notiz darunter mit — sie wird nicht einfach überdeckt.</p></div></div>
+          <div class="following-note">Ich liege im normalen Fluss und werde mitverschoben.</div>
+          <p class="expect"><code>interpolate-size: allow-keywords</code> erlaubt den Übergang zwischen 0 und auto. Ohne Unterstützung springt die Box auf ihre Inhaltsgröße; das Feature wird nicht mit einem anderen Effekt imitiert.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">replace / add / accumulate</span><span class="support" data-feature="composition">Browserprüfung …</span></div><h3>Eine Bewegung kommt dazu.</h3>
+          <div class="composition-demo" id="composition-demo"><div><code>replace</code><div class="composition-track"><span style="animation-composition:replace"></span></div></div><div><code>add</code><div class="composition-track"><span style="animation-composition:add"></span></div></div><div><code>accumulate</code><div class="composition-track"><span style="animation-composition:accumulate"></span></div></div></div>
+          <button class="button" id="composition-start" type="button">Komposition vergleichen</button>
+          <p class="expect">Alle Boxen haben zunächst dieselbe Verschiebung und Drehung. Die Animation ersetzt diese Basis oder kombiniert sich mit ihr. Bei anderen Eigenschaftstypen können add und accumulate deutlich anders auseinanderlaufen.</p>
+        </article>
+        <article class="demo-card wide-card">
+          <div class="card-top"><span class="demo-tag">Web Animations API</span><span class="support" data-feature="waapi">Browserprüfung …</span></div><h3>Du bestimmst den Zeitpunkt.</h3>
+          <div class="scrub-track"><span id="scrub-object">Zeit</span></div><div class="control-row"><label for="time-range">Animationszeit</label><input id="time-range" type="range" min="0" max="100" value="0"><output id="time-value">0 ms</output></div>
+          <p class="expect">Die Animation ist pausiert. Der Regler setzt ihre <code>currentTime</code> zwischen 0 und 1.500 ms. CSS-Easing wirkt trotzdem auf die angezeigte Pose.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter" id="apis" aria-labelledby="title-09">
+      <div class="chapter-heading"><p class="eyebrow">09 / CSSOM, Typed OM und Übergänge</p><h2 id="title-09">Styles werden zu Objekten.</h2><p>JavaScript kann Regeln bearbeiten, Werte mit Einheiten verwenden und ganze Zustandswechsel dem Browser übergeben.</p></div>
+      <div class="demo-grid">
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">CSSOM &amp; Typed OM</span><span class="support" data-feature="typed-om">Browserprüfung …</span></div><h3>Eine Regel wird live verändert.</h3>
+          <div class="stage cssom-stage"><div class="cssom-tile" id="cssom-tile">Eine echte Stylesheetregel.</div></div>
+          <button class="button" id="cssom-toggle" type="button" aria-pressed="false">Regelfarbe wechseln</button>
+          <div class="control-row"><label for="typed-width">Breite</label><input id="typed-width" type="range" min="100" max="260" value="210"><output id="typed-value">210 px</output></div>
+          <p class="expect">Der Button verändert <code>CSSStyleRule.style</code>. Die Breite wird, wenn verfügbar, als <code>CSS.px()</code>-Objekt gesetzt und aus <code>computedStyleMap()</code> gelesen. Sonst zeigt die Ausgabe ausdrücklich den klassischen CSSOM-Pfad.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">View Transition</span><span class="support" data-feature="view-transition">Browserprüfung …</span></div><h3>Eine neue Ansicht, ein weicher Wechsel.</h3>
+          <div class="transition-scene" id="transition-scene"><img id="transition-photo" src="morning.svg" alt="Eine helle Berglandschaft"><div><span class="tiny-label" id="transition-time">Morgens</span><h4 id="transition-title">Ein neuer Blick.</h4></div></div>
+          <button class="button" id="view-toggle" type="button">Zur Abendansicht wechseln</button>
+          <p class="expect">Bildquelle, Text und Anordnung wechseln gemeinsam. Die View Transition verbindet alte und neue Ansicht mit Browser-Snapshots. Ohne API erfolgt derselbe Zustandswechsel sofort.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Custom Highlight</span><span class="support" data-feature="highlight">Browserprüfung …</span></div><h3>Eine Markierung ohne neue Spans.</h3>
+          <div class="stage highlight-stage"><p id="highlight-text">Eine Auswahl kann Wörter hervorheben, während der ursprüngliche Textknoten derselbe bleibt. Eine Markierung muss das Dokument nicht umbauen.</p></div>
+          <button class="button" id="highlight-toggle" type="button" aria-pressed="false">„Auswahl“ markieren</button>
+          <p class="expect">Die Highlight-API legt eine markierte Range über den vorhandenen Text. Layout und DOM-Inhalt bleiben erhalten. Dieses Beispiel fügt keine farbigen Ersatz-Spans ein.</p>
+        </article>
+        <article class="demo-card">
+          <div class="card-top"><span class="demo-tag">Paint Worklet</span><span class="support" data-feature="paint-worklet">Browserprüfung …</span></div><h3>CSS lässt selbst zeichnen.</h3>
+          <div class="stage paint-stage" id="paint-stage"><span>Ein eigenes Raster.</span></div>
+          <button class="button" id="paint-start" type="button">Echten Paint Worklet laden</button><p class="quiet" id="paint-result" role="status">Wird erst durch deinen Klick geladen.</p>
+          <p class="expect">Ein kleines separates Standard-JavaScriptmodul malt den CSS-Hintergrund. Ohne Paint-API bleibt die Fläche neutral. Layout- und Animation-Worklets sind weitere, separat verfügbare API-Familien; diese Demo emuliert sie nicht.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing-note"><p class="eyebrow">Was dieser Vergleich leistet</p><h2>Das Beispiel ist der Anfang.<br>Die Kombination ist der Test.</h2><p>Ein Browser kann eine Syntax kennen, ohne jeden Wert und jeden Sonderfall gleich umzusetzen. Ein einzelnes gelungenes Beispiel beweist keine vollständige Kategorie. Importfehler, alle Namespace-Kombinationen, Schriftfallbacks, Quirks, Prozentzyklen, Forced Colors und seltene Animationsfälle brauchen eigene Vergleiche.</p><p>Die Verfügbarkeitsanzeigen prüfen konkrete Syntax oder API-Präsenz. Das sichtbare Ergebnis prüfst du selbst. Keine Anzeige bewertet damit schon unsere Roblox-Engine.</p><a class="text-link" href="#inhalt">Zurück zum Anfang ↑</a></section>
+  </main>
+  <footer class="site-footer page-width"><span class="brand">css atelier.</span><p>Standard-HTML, CSS &amp; JavaScript. Ohne Bibliotheken.</p><a href="https://www.w3.org/TR/2026/NOTE-css-2026-20260622/" target="_blank" rel="noopener">CSS-Referenz ↗</a></footer>
+</body>
+</html>

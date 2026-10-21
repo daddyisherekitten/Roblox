@@ -1,0 +1,1919 @@
+{
+  "captured": "2026-10-15T22:12:28.291Z",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "viewport": [
+    800,
+    600
+  ],
+  "references": [
+    "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+    "https://www.w3.org/TR/css-display-3/#transformations"
+  ],
+  "scope": "Raw native PNG RGBA and computed styles for root blockification and single propagated inline-body paint, with separate descendant background.",
+  "rows": [
+    {
+      "id": "inline-body",
+      "css": "body{display:inline;background:rgba(20,80,140,.5)}",
+      "text": "AAAA",
+      "operations": [
+        "document.documentElement.style.backgroundColor='white'",
+        "document.documentElement.style.backgroundColor='transparent'"
+      ],
+      "html": "<!doctype html><html><head><style>html,body{margin:0;padding:0}html{font:20px/30px Arial}body{color:transparent}body{display:inline;background:rgba(20,80,140,.5)}</style></head><body>AAAA</body></html>",
+      "initial": {
+        "snapshot": {
+          "root": {
+            "display": "block",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              0,
+              800,
+              30
+            ]
+          },
+          "body": {
+            "display": "inline",
+            "backgroundColor": "rgba(20, 80, 140, 0.5)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              4,
+              53.359375,
+              22
+            ]
+          }
+        },
+        "pixels": [
+          {
+            "point": [
+              5,
+              10
+            ],
+            "rgba": [
+              78,
+              123,
+              168,
+              255
+            ]
+          },
+          {
+            "point": [
+              400,
+              300
+            ],
+            "rgba": [
+              137,
+              167,
+              197,
+              255
+            ]
+          }
+        ],
+        "normativeSinglePaint": {
+          "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+          "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "dynamic": [
+        {
+          "script": "document.documentElement.style.backgroundColor='white'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                255,
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgb(255, 255, 255)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "inline",
+                "backgroundColor": "rgba(20, 80, 140, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  255,
+                  255,
+                  255,
+                  255
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "script": "document.documentElement.style.backgroundColor='transparent'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                78,
+                123,
+                168,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgba(20, 80, 140, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "inline",
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "inline-root",
+      "css": "html{display:inline;background:rgba(20,80,140,.5)}",
+      "text": "AAAA",
+      "operations": [
+        "document.documentElement.style.display='block'",
+        "document.documentElement.style.display='inline'"
+      ],
+      "html": "<!doctype html><html><head><style>html,body{margin:0;padding:0}html{font:20px/30px Arial}body{color:transparent}html{display:inline;background:rgba(20,80,140,.5)}</style></head><body>AAAA</body></html>",
+      "initial": {
+        "snapshot": {
+          "root": {
+            "display": "block",
+            "backgroundColor": "rgba(20, 80, 140, 0.5)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              0,
+              800,
+              30
+            ]
+          },
+          "body": {
+            "display": "block",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              0,
+              800,
+              30
+            ]
+          }
+        },
+        "pixels": [
+          {
+            "point": [
+              5,
+              10
+            ],
+            "rgba": [
+              137,
+              167,
+              197,
+              255
+            ]
+          },
+          {
+            "point": [
+              400,
+              300
+            ],
+            "rgba": [
+              137,
+              167,
+              197,
+              255
+            ]
+          }
+        ],
+        "normativeSinglePaint": {
+          "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+          "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "block",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "dynamic": [
+        {
+          "script": "document.documentElement.style.display='block'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "block",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgba(20, 80, 140, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "block",
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "script": "document.documentElement.style.display='inline'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "block",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgba(20, 80, 140, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "block",
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "inline-body-descendant",
+      "css": "body{display:inline;background:rgba(20,80,140,.5)}span{background:rgba(200,10,10,.5)}",
+      "text": "<span>AAAA</span>",
+      "operations": [
+        "document.body.style.backgroundColor='transparent'",
+        "document.body.style.backgroundColor='rgba(20,80,140,.5)'"
+      ],
+      "html": "<!doctype html><html><head><style>html,body{margin:0;padding:0}html{font:20px/30px Arial}body{color:transparent}body{display:inline;background:rgba(20,80,140,.5)}span{background:rgba(200,10,10,.5)}</style></head><body><span>AAAA</span></body></html>",
+      "initial": {
+        "snapshot": {
+          "root": {
+            "display": "block",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              0,
+              800,
+              30
+            ]
+          },
+          "body": {
+            "display": "inline",
+            "backgroundColor": "rgba(20, 80, 140, 0.5)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              4,
+              53.359375,
+              22
+            ]
+          },
+          "span": {
+            "display": "inline",
+            "backgroundColor": "rgba(200, 10, 10, 0.5)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              4,
+              53.359375,
+              22
+            ]
+          }
+        },
+        "pixels": [
+          {
+            "point": [
+              5,
+              10
+            ],
+            "rgba": [
+              139,
+              66,
+              89,
+              255
+            ]
+          },
+          {
+            "point": [
+              400,
+              300
+            ],
+            "rgba": [
+              137,
+              167,
+              197,
+              255
+            ]
+          }
+        ],
+        "normativeSinglePaint": {
+          "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+          "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            },
+            "span": {
+              "display": "inline",
+              "backgroundColor": "rgba(200, 10, 10, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                168,
+                88,
+                103,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "dynamic": [
+        {
+          "script": "document.body.style.backgroundColor='transparent'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            },
+            "span": {
+              "display": "inline",
+              "backgroundColor": "rgba(200, 10, 10, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                227,
+                132,
+                132,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                255,
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "inline",
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              },
+              "span": {
+                "display": "inline",
+                "backgroundColor": "rgba(200, 10, 10, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  227,
+                  132,
+                  132,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  255,
+                  255,
+                  255,
+                  255
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "script": "document.body.style.backgroundColor='rgba(20,80,140,.5)'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            },
+            "span": {
+              "display": "inline",
+              "backgroundColor": "rgba(200, 10, 10, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                139,
+                66,
+                89,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgba(20, 80, 140, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "inline",
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              },
+              "span": {
+                "display": "inline",
+                "backgroundColor": "rgba(200, 10, 10, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  168,
+                  88,
+                  103,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "inline-body-opaque-descendant",
+      "css": "body{display:inline;background:rgba(20,80,140,.5)}span{background:rgb(60,100,140)}em{background:rgba(200,10,10,.5)}",
+      "text": "<span><em>AAAA</em></span>",
+      "operations": [
+        "document.documentElement.style.backgroundColor='white'",
+        "document.documentElement.style.backgroundColor='transparent'"
+      ],
+      "html": "<!doctype html><html><head><style>html,body{margin:0;padding:0}html{font:20px/30px Arial}body{color:transparent}body{display:inline;background:rgba(20,80,140,.5)}span{background:rgb(60,100,140)}em{background:rgba(200,10,10,.5)}</style></head><body><span><em>AAAA</em></span></body></html>",
+      "initial": {
+        "snapshot": {
+          "root": {
+            "display": "block",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              0,
+              800,
+              30
+            ]
+          },
+          "body": {
+            "display": "inline",
+            "backgroundColor": "rgba(20, 80, 140, 0.5)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              4,
+              53.359375,
+              22
+            ]
+          },
+          "span": {
+            "display": "inline",
+            "backgroundColor": "rgb(60, 100, 140)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              4,
+              53.359375,
+              22
+            ]
+          }
+        },
+        "pixels": [
+          {
+            "point": [
+              5,
+              10
+            ],
+            "rgba": [
+              130,
+              55,
+              75,
+              255
+            ]
+          },
+          {
+            "point": [
+              400,
+              300
+            ],
+            "rgba": [
+              137,
+              167,
+              197,
+              255
+            ]
+          }
+        ],
+        "normativeSinglePaint": {
+          "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+          "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            },
+            "span": {
+              "display": "inline",
+              "backgroundColor": "rgb(60, 100, 140)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                130,
+                55,
+                75,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "dynamic": [
+        {
+          "script": "document.documentElement.style.backgroundColor='white'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            },
+            "span": {
+              "display": "inline",
+              "backgroundColor": "rgb(60, 100, 140)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                130,
+                55,
+                75,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                255,
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgb(255, 255, 255)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "inline",
+                "backgroundColor": "rgba(20, 80, 140, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              },
+              "span": {
+                "display": "inline",
+                "backgroundColor": "rgb(60, 100, 140)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  130,
+                  55,
+                  75,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  255,
+                  255,
+                  255,
+                  255
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "script": "document.documentElement.style.backgroundColor='transparent'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            },
+            "span": {
+              "display": "inline",
+              "backgroundColor": "rgb(60, 100, 140)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                130,
+                55,
+                75,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgba(20, 80, 140, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "inline",
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              },
+              "span": {
+                "display": "inline",
+                "backgroundColor": "rgb(60, 100, 140)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  130,
+                  55,
+                  75,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "inline-body-late-background",
+      "css": "html{background:white}body{display:inline}",
+      "text": "AAAA",
+      "operations": [
+        "document.body.style.backgroundColor='rgba(20,80,140,.5)'",
+        "document.body.style.backgroundColor='transparent'",
+        "document.body.style.backgroundColor='rgba(20,80,140,.5)'"
+      ],
+      "html": "<!doctype html><html><head><style>html,body{margin:0;padding:0}html{font:20px/30px Arial}body{color:transparent}html{background:white}body{display:inline}</style></head><body>AAAA</body></html>",
+      "initial": {
+        "snapshot": {
+          "root": {
+            "display": "block",
+            "backgroundColor": "rgb(255, 255, 255)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              0,
+              800,
+              30
+            ]
+          },
+          "body": {
+            "display": "inline",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "backgroundImage": "none",
+            "rect": [
+              0,
+              4,
+              53.359375,
+              22
+            ]
+          }
+        },
+        "pixels": [
+          {
+            "point": [
+              5,
+              10
+            ],
+            "rgba": [
+              255,
+              255,
+              255,
+              255
+            ]
+          },
+          {
+            "point": [
+              400,
+              300
+            ],
+            "rgba": [
+              255,
+              255,
+              255,
+              255
+            ]
+          }
+        ],
+        "normativeSinglePaint": {
+          "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+          "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                255,
+                255,
+                255,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                255,
+                255,
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      },
+      "dynamic": [
+        {
+          "script": "document.body.style.backgroundColor='rgba(20,80,140,.5)'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                255,
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgb(255, 255, 255)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "inline",
+                "backgroundColor": "rgba(20, 80, 140, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  255,
+                  255,
+                  255,
+                  255
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "script": "document.body.style.backgroundColor='transparent'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(0, 0, 0, 0)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                255,
+                255,
+                255,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                255,
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgb(255, 255, 255)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "inline",
+                "backgroundColor": "rgba(0, 0, 0, 0)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  255,
+                  255,
+                  255,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  255,
+                  255,
+                  255,
+                  255
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "script": "document.body.style.backgroundColor='rgba(20,80,140,.5)'",
+          "snapshot": {
+            "root": {
+              "display": "block",
+              "backgroundColor": "rgb(255, 255, 255)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                0,
+                800,
+                30
+              ]
+            },
+            "body": {
+              "display": "inline",
+              "backgroundColor": "rgba(20, 80, 140, 0.5)",
+              "backgroundImage": "none",
+              "rect": [
+                0,
+                4,
+                53.359375,
+                22
+              ]
+            }
+          },
+          "pixels": [
+            {
+              "point": [
+                5,
+                10
+              ],
+              "rgba": [
+                137,
+                167,
+                197,
+                255
+              ]
+            },
+            {
+              "point": [
+                400,
+                300
+              ],
+              "rgba": [
+                255,
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "normativeSinglePaint": {
+            "explanation": "Explicit canvas-owner equivalent: the same background is on the root, with initial transparent body used paint. Original raw inline-body observations remain separate.",
+            "reference": "https://www.w3.org/TR/2024/CRD-css-backgrounds-3-20240311/#special-backgrounds",
+            "snapshot": {
+              "root": {
+                "display": "block",
+                "backgroundColor": "rgb(255, 255, 255)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  0,
+                  800,
+                  30
+                ]
+              },
+              "body": {
+                "display": "inline",
+                "backgroundColor": "rgba(20, 80, 140, 0.5)",
+                "backgroundImage": "none",
+                "rect": [
+                  0,
+                  4,
+                  53.359375,
+                  22
+                ]
+              }
+            },
+            "pixels": [
+              {
+                "point": [
+                  5,
+                  10
+                ],
+                "rgba": [
+                  137,
+                  167,
+                  197,
+                  255
+                ]
+              },
+              {
+                "point": [
+                  400,
+                  300
+                ],
+                "rgba": [
+                  255,
+                  255,
+                  255,
+                  255
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "normativeCaptured": "2026-10-16T04:32:21.470Z",
+  "opaqueDescendantCaptured": "2026-10-16T04:32:14.103Z",
+  "lateBackgroundCaptured": "2026-10-16T04:36:47.932Z",
+  "normativeAppendedCaptured": "2026-10-16T04:36:49.276Z"
+}

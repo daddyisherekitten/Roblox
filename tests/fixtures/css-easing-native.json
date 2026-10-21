@@ -1,0 +1,223 @@
+{
+  "reference": "Chromium 154.0.8037.95 headless, 5 October 2026; native CSS validation and paused KeyframeEffect.getComputedTiming().progress",
+  "standards": [
+    "https://www.w3.org/TR/css-easing-1/",
+    "https://drafts.csswg.org/css-easing-2/"
+  ],
+  "inputProgress": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "samples": [
+    {
+      "source": "steps(4)",
+      "valid": true,
+      "serialization": "steps(4)",
+      "samples": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ]
+    },
+    {
+      "source": "steps(4,jump-start)",
+      "valid": true,
+      "serialization": "steps(4, jump-start)",
+      "samples": [
+        0.25,
+        0.5,
+        0.75,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "steps(4,jump-end)",
+      "valid": true,
+      "serialization": "steps(4)",
+      "samples": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ]
+    },
+    {
+      "source": "steps(4,jump-none)",
+      "valid": true,
+      "serialization": "steps(4, jump-none)",
+      "samples": [
+        0,
+        0.3333333333333333,
+        0.6666666666666666,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "steps(4,jump-both)",
+      "valid": true,
+      "serialization": "steps(4, jump-both)",
+      "samples": [
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ]
+    },
+    {
+      "source": "steps(1,jump-none)",
+      "valid": false,
+      "serialization": ""
+    },
+    {
+      "source": "steps(1,jump-both)",
+      "valid": true,
+      "serialization": "steps(1, jump-both)",
+      "samples": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        1
+      ]
+    },
+    {
+      "source": "steps(+4)",
+      "valid": true,
+      "serialization": "steps(4)",
+      "samples": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ]
+    },
+    {
+      "source": "linear(0,.25,1)",
+      "valid": true,
+      "serialization": "linear(0 0%, 0.25 50%, 1 100%)",
+      "samples": [
+        0,
+        0.125,
+        0.25,
+        0.625,
+        1
+      ]
+    },
+    {
+      "source": "linear(0,.25 25% 75%,1)",
+      "valid": true,
+      "serialization": "linear(0 0%, 0.25 25%, 0.25 75%, 1 100%)",
+      "samples": [
+        0,
+        0.25,
+        0.25,
+        0.25,
+        1
+      ]
+    },
+    {
+      "source": "linear(0 20%,.5 10%,1)",
+      "valid": true,
+      "serialization": "linear(0 20%, 0.5 20%, 1 100%)",
+      "samples": [
+        0.5,
+        0.53125,
+        0.6875,
+        0.84375,
+        1
+      ]
+    },
+    {
+      "source": "linear(0,0 50%,1 50%,1)",
+      "valid": true,
+      "serialization": "linear(0 0%, 0 50%, 1 50%, 1 100%)",
+      "samples": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "linear(0 50%,1 50%)",
+      "valid": true,
+      "serialization": "linear(0 50%, 1 50%)",
+      "samples": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "linear(0 50%,1 50%,.5 100%)",
+      "valid": true,
+      "serialization": "linear(0 50%, 1 50%, 0.5 100%)",
+      "samples": [
+        1,
+        1,
+        1,
+        0.75,
+        0.5
+      ]
+    },
+    {
+      "source": "linear(0 0%,0 50%,1 50%)",
+      "valid": true,
+      "serialization": "linear(0 0%, 0 50%, 1 50%)",
+      "samples": [
+        0,
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "linear(0 0%,1 0%,1)",
+      "valid": true,
+      "serialization": "linear(0 0%, 1 0%, 1 100%)",
+      "samples": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "linear(0)",
+      "valid": false,
+      "serialization": ""
+    },
+    {
+      "source": "linear(0e0,1e0)",
+      "valid": true,
+      "serialization": "linear(0 0%, 1 100%)",
+      "samples": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ]
+    },
+    {
+      "source": "linear(0,1,)",
+      "valid": false,
+      "serialization": ""
+    }
+  ]
+}

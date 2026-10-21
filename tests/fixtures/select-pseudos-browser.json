@@ -1,0 +1,40 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "standard": "https://html.spec.whatwg.org/multipage/rendering.html#the-select-element-2",
+  "cases": [
+    {
+      "name": "Author picker icon and reversible content/style changes",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}#pseudoSelect::picker-icon{content:\"v\";color:red;width:18px;height:20px}#pseudoSelect.changed::picker-icon{content:\"up\";color:blue;width:30px}</style><select id=pseudoSelect><button><selectedcontent></selectedcontent></button><option>A</option><option>B</option></select>",
+      "code": "const s=document.getElementById('pseudoSelect');const snapshot=()=>{const p=getComputedStyle(s,'::picker-icon');record(p.content,p.color,p.width,p.height,p.display);};snapshot();s.className='changed';snapshot();s.className='';snapshot();",
+      "expected": [
+        "\"v\"|rgb(255, 0, 0)|18px|20px|block",
+        "\"up\"|rgb(0, 0, 255)|30px|20px|block",
+        "\"v\"|rgb(255, 0, 0)|18px|20px|block"
+      ]
+    },
+    {
+      "name": "Checkmark inherits option styling and follows live selectedness",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}option{color:green}option::checkmark{content:\"+\"}option:checked::checkmark{color:red}</style><select id=pseudoSelect><button><selectedcontent></selectedcontent></button><option value=a>A</option><option value=b>B</option></select>",
+      "code": "const s=document.getElementById('pseudoSelect');const snapshot=()=>{for(const o of s.options){const p=getComputedStyle(o,'::checkmark');record(o.value,o.selected,p.content,p.color,p.visibility);}};snapshot();s.value='b';snapshot();s.value='a';snapshot();",
+      "expected": [
+        "a|true|\"+\"|rgb(255, 0, 0)|visible",
+        "b|false|\"+\"|rgb(0, 128, 0)|hidden",
+        "a|false|\"+\"|rgb(0, 128, 0)|hidden",
+        "b|true|\"+\"|rgb(255, 0, 0)|visible",
+        "a|true|\"+\"|rgb(255, 0, 0)|visible",
+        "b|false|\"+\"|rgb(0, 128, 0)|hidden"
+      ]
+    },
+    {
+      "name": "Pseudo variables and layer rollback",
+      "html": "<!doctype html><style>select{appearance:base-select}select::picker(select){appearance:base-select}@layer low,high;@layer low{#pseudoSelect::picker-icon{content:\"v\";color:var(--icon,red)}}@layer high{#pseudoSelect::picker-icon{content:revert-layer;color:revert-layer}}#pseudoSelect{--icon:blue}#pseudoSelect.changed{--icon:green}</style><select id=pseudoSelect><button><selectedcontent></selectedcontent></button><option>A</option></select>",
+      "code": "const s=document.getElementById('pseudoSelect');const snapshot=()=>{const p=getComputedStyle(s,'::picker-icon');record(p.content,p.color);};snapshot();s.className='changed';snapshot();s.className='';snapshot();",
+      "expected": [
+        "\"v\"|rgb(0, 0, 255)",
+        "\"v\"|rgb(0, 128, 0)",
+        "\"v\"|rgb(0, 0, 255)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1255 @@
+{
+  "captured": "2026-10-10",
+  "standard": "https://drafts.csswg.org/css-anchor-position/",
+  "cases": [
+    {
+      "name": "Implicit originating element supplies coordinates and size",
+      "markup": "<select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "css": "select::picker(select){position-anchor:auto;left:calc(anchor(left) + 7px);top:calc(anchor(bottom) + 5px);width:anchor-size(width)}",
+      "steps": [
+        {},
+        {
+          "styles": {
+            "s": "left:140px;top:100px;width:260px"
+          }
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:auto;left:calc(anchor(left) + 7px);top:calc(anchor(bottom) + 5px);width:anchor-size(width)}</style><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "expected": [
+        {
+          "open": true,
+          "width": 200,
+          "height": 50,
+          "x": 107,
+          "y": 189,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              108,
+              190,
+              198,
+              24
+            ],
+            "b": [
+              108,
+              214,
+              198,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "auto",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 260,
+          "height": 50,
+          "x": 147,
+          "y": 139,
+          "boxes": {
+            "s": [
+              140,
+              100,
+              260,
+              34
+            ],
+            "a": [
+              148,
+              140,
+              258,
+              24
+            ],
+            "b": [
+              148,
+              164,
+              258,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "auto",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    },
+    {
+      "name": "None removes implicit anchor and its minimum width",
+      "markup": "<select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "css": "select::picker(select){position-anchor:none;left:20px;top:25px;width:180px}",
+      "steps": [
+        {},
+        {
+          "picker": "position-anchor:none;left:35px;top:45px;width:120px"
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:none;left:20px;top:25px;width:180px}</style><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "expected": [
+        {
+          "open": true,
+          "width": 180,
+          "height": 50,
+          "x": 20,
+          "y": 25,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              21,
+              26,
+              178,
+              24
+            ],
+            "b": [
+              21,
+              50,
+              178,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 120,
+          "height": 50,
+          "x": 35,
+          "y": 45,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              36,
+              46,
+              118,
+              24
+            ],
+            "b": [
+              36,
+              70,
+              118,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    },
+    {
+      "name": "Explicit named anchor below top layer wins even later in tree order",
+      "markup": "<select id=s><option id=a>Alpha</option><option id=b>Beta</option></select><div id=other style=\"anchor-name:--target;position:absolute;left:450px;top:50px;width:140px;height:30px\"></div>",
+      "css": "select::picker(select){position-anchor:--target;left:anchor(left);top:anchor(bottom);width:anchor-size(width)}",
+      "steps": [
+        {},
+        {
+          "styles": {
+            "other": "anchor-name:--target;position:absolute;left:370px;top:70px;width:170px;height:40px"
+          }
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:--target;left:anchor(left);top:anchor(bottom);width:anchor-size(width)}</style><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select><div id=other style=\"anchor-name:--target;position:absolute;left:450px;top:50px;width:140px;height:30px\"></div>",
+      "expected": [
+        {
+          "open": true,
+          "width": 140,
+          "height": 50,
+          "x": 450,
+          "y": 80,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              451,
+              81,
+              138,
+              24
+            ],
+            "b": [
+              451,
+              105,
+              138,
+              24
+            ],
+            "other": [
+              450,
+              50,
+              140,
+              30
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--target",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 170,
+          "height": 50,
+          "x": 370,
+          "y": 110,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              371,
+              111,
+              168,
+              24
+            ],
+            "b": [
+              371,
+              135,
+              168,
+              24
+            ],
+            "other": [
+              370,
+              70,
+              170,
+              40
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--target",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    },
+    {
+      "name": "Missing default uses anchor function fallback and zero UA minimum",
+      "markup": "<select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "css": "select::picker(select){position-anchor:--missing;left:anchor(left,50px);top:anchor(bottom,60px);width:180px}",
+      "steps": [
+        {},
+        {
+          "picker": "position-anchor:--missing;left:anchor(left,25%);top:anchor(bottom,10%);width:20%"
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:--missing;left:anchor(left,50px);top:anchor(bottom,60px);width:180px}</style><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "expected": [
+        {
+          "open": true,
+          "width": 180,
+          "height": 50,
+          "x": 50,
+          "y": 60,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              51,
+              61,
+              178,
+              24
+            ],
+            "b": [
+              51,
+              85,
+              178,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--missing",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 160,
+          "height": 50,
+          "x": 200,
+          "y": 60,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              201,
+              61,
+              158,
+              24
+            ],
+            "b": [
+              201,
+              85,
+              158,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--missing",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    },
+    {
+      "name": "Named scope selects component anchor and changes dynamically",
+      "markup": "<section id=scope style=\"anchor-scope:all\"><div id=local style=\"anchor-name:--target;position:absolute;left:300px;top:50px;width:120px;height:30px\"></div><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select></section><div id=outside style=\"anchor-name:--target;position:absolute;left:500px;top:50px;width:90px;height:30px\"></div>",
+      "css": "select::picker(select){position-anchor:--target;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,110px)}",
+      "steps": [
+        {},
+        {
+          "styles": {
+            "scope": "anchor-scope:none"
+          }
+        },
+        {
+          "styles": {
+            "scope": "anchor-scope:--target"
+          }
+        },
+        {
+          "styles": {
+            "scope": "anchor-scope:all"
+          }
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:--target;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,110px)}</style><section id=scope style=\"anchor-scope:all\"><div id=local style=\"anchor-name:--target;position:absolute;left:300px;top:50px;width:120px;height:30px\"></div><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select></section><div id=outside style=\"anchor-name:--target;position:absolute;left:500px;top:50px;width:90px;height:30px\"></div>",
+      "expected": [
+        {
+          "open": true,
+          "width": 120,
+          "height": 50,
+          "x": 300,
+          "y": 80,
+          "boxes": {
+            "scope": [
+              0,
+              0,
+              800,
+              0
+            ],
+            "local": [
+              300,
+              50,
+              120,
+              30
+            ],
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              301,
+              81,
+              118,
+              24
+            ],
+            "b": [
+              301,
+              105,
+              118,
+              24
+            ],
+            "outside": [
+              500,
+              50,
+              90,
+              30
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--target",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 90,
+          "height": 50,
+          "x": 500,
+          "y": 80,
+          "boxes": {
+            "scope": [
+              0,
+              0,
+              800,
+              0
+            ],
+            "local": [
+              300,
+              50,
+              120,
+              30
+            ],
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              501,
+              81,
+              88,
+              24
+            ],
+            "b": [
+              501,
+              105,
+              88,
+              24
+            ],
+            "outside": [
+              500,
+              50,
+              90,
+              30
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--target",
+          "positionArea": "none",
+          "stayedOpen": true
+        },
+        {
+          "open": true,
+          "width": 120,
+          "height": 50,
+          "x": 300,
+          "y": 80,
+          "boxes": {
+            "scope": [
+              0,
+              0,
+              800,
+              0
+            ],
+            "local": [
+              300,
+              50,
+              120,
+              30
+            ],
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              301,
+              81,
+              118,
+              24
+            ],
+            "b": [
+              301,
+              105,
+              118,
+              24
+            ],
+            "outside": [
+              500,
+              50,
+              90,
+              30
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--target",
+          "positionArea": "none",
+          "stayedOpen": true
+        },
+        {
+          "open": true,
+          "width": 120,
+          "height": 50,
+          "x": 300,
+          "y": 80,
+          "boxes": {
+            "scope": [
+              0,
+              0,
+              800,
+              0
+            ],
+            "local": [
+              300,
+              50,
+              120,
+              30
+            ],
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              301,
+              81,
+              118,
+              24
+            ],
+            "b": [
+              301,
+              105,
+              118,
+              24
+            ],
+            "outside": [
+              500,
+              50,
+              90,
+              30
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--target",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    },
+    {
+      "name": "Self scope includes its originating select anchor",
+      "markup": "<select id=s style=\"anchor-name:--self;anchor-scope:--self\"><option id=a>Alpha</option><option id=b>Beta</option></select><div id=outside style=\"anchor-name:--self;position:absolute;left:500px;top:50px;width:90px;height:30px\"></div>",
+      "css": "select::picker(select){position-anchor:--self;left:anchor(left);top:anchor(bottom);width:anchor-size(width)}",
+      "steps": [
+        {},
+        {
+          "styles": {
+            "s": "anchor-name:--self;anchor-scope:none;left:100px;top:150px;width:200px"
+          }
+        },
+        {
+          "styles": {
+            "s": "anchor-name:--self;anchor-scope:--self;left:100px;top:150px;width:200px"
+          }
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:--self;left:anchor(left);top:anchor(bottom);width:anchor-size(width)}</style><select id=s style=\"anchor-name:--self;anchor-scope:--self\"><option id=a>Alpha</option><option id=b>Beta</option></select><div id=outside style=\"anchor-name:--self;position:absolute;left:500px;top:50px;width:90px;height:30px\"></div>",
+      "expected": [
+        {
+          "open": true,
+          "width": 200,
+          "height": 50,
+          "x": 100,
+          "y": 184,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              101,
+              185,
+              198,
+              24
+            ],
+            "b": [
+              101,
+              209,
+              198,
+              24
+            ],
+            "outside": [
+              500,
+              50,
+              90,
+              30
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--self",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 90,
+          "height": 50,
+          "x": 500,
+          "y": 80,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              501,
+              81,
+              88,
+              24
+            ],
+            "b": [
+              501,
+              105,
+              88,
+              24
+            ],
+            "outside": [
+              500,
+              50,
+              90,
+              30
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--self",
+          "positionArea": "none",
+          "stayedOpen": true,
+          "normative": {
+            "x": 100,
+            "y": 184,
+            "width": 200,
+            "boxes": {
+              "s": [
+                100,
+                150,
+                200,
+                34
+              ],
+              "a": [
+                101,
+                185,
+                198,
+                24
+              ],
+              "b": [
+                101,
+                209,
+                198,
+                24
+              ],
+              "outside": [
+                500,
+                50,
+                90,
+                30
+              ]
+            }
+          },
+          "deviation": "The current draft chooses the nearest acceptable ancestor before the last anchor in tree order. The originating select is the picker pseudo-element ancestor; Chromium instead chooses the later outside element when the self scope is removed."
+        },
+        {
+          "open": true,
+          "width": 200,
+          "height": 50,
+          "x": 100,
+          "y": 184,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              101,
+              185,
+              198,
+              24
+            ],
+            "b": [
+              101,
+              209,
+              198,
+              24
+            ],
+            "outside": [
+              500,
+              50,
+              90,
+              30
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--self",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    },
+    {
+      "name": "Two named anchor expressions share actual viewport geometry",
+      "markup": "<div id=one style=\"anchor-name:--one;position:absolute;left:260px;top:50px;width:100px;height:30px\"></div><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select><div id=two style=\"anchor-name:--two;position:absolute;left:410px;top:50px;width:80px;height:30px\"></div>",
+      "css": "select::picker(select){position-anchor:none;min-width:0;left:calc(anchor(--one right) + 7px);top:calc(anchor(--two bottom) + 5px);width:calc(anchor-size(--one width) + anchor-size(--two width))}",
+      "steps": [
+        {},
+        {
+          "styles": {
+            "two": "anchor-name:--two;position:absolute;left:420px;top:90px;width:50px;height:40px"
+          }
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:none;min-width:0;left:calc(anchor(--one right) + 7px);top:calc(anchor(--two bottom) + 5px);width:calc(anchor-size(--one width) + anchor-size(--two width))}</style><div id=one style=\"anchor-name:--one;position:absolute;left:260px;top:50px;width:100px;height:30px\"></div><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select><div id=two style=\"anchor-name:--two;position:absolute;left:410px;top:50px;width:80px;height:30px\"></div>",
+      "expected": [
+        {
+          "open": true,
+          "width": 180,
+          "height": 50,
+          "x": 367,
+          "y": 85,
+          "boxes": {
+            "one": [
+              260,
+              50,
+              100,
+              30
+            ],
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              368,
+              86,
+              178,
+              24
+            ],
+            "b": [
+              368,
+              110,
+              178,
+              24
+            ],
+            "two": [
+              410,
+              50,
+              80,
+              30
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 150,
+          "height": 50,
+          "x": 367,
+          "y": 135,
+          "boxes": {
+            "one": [
+              260,
+              50,
+              100,
+              30
+            ],
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              368,
+              136,
+              148,
+              24
+            ],
+            "b": [
+              368,
+              160,
+              148,
+              24
+            ],
+            "two": [
+              420,
+              90,
+              50,
+              40
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    },
+    {
+      "name": "Named position try fits after explicit anchor overflow",
+      "markup": "<div id=edge style=\"anchor-name:--target;position:absolute;left:740px;top:50px;width:40px;height:30px\"></div><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "css": "select::picker(select){position-anchor:--target;left:anchor(right);top:anchor(bottom);width:120px;min-width:0;position-try-fallbacks:--left}@position-try --left{left:auto;right:anchor(left);top:anchor(top);bottom:auto}",
+      "steps": [
+        {},
+        {
+          "styles": {
+            "edge": "anchor-name:--target;position:absolute;left:580px;top:50px;width:40px;height:30px"
+          }
+        },
+        {
+          "styles": {
+            "edge": "anchor-name:--target;position:absolute;left:740px;top:50px;width:40px;height:30px"
+          }
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:--target;left:anchor(right);top:anchor(bottom);width:120px;min-width:0;position-try-fallbacks:--left}@position-try --left{left:auto;right:anchor(left);top:anchor(top);bottom:auto}</style><div id=edge style=\"anchor-name:--target;position:absolute;left:740px;top:50px;width:40px;height:30px\"></div><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "expected": [
+        {
+          "open": true,
+          "width": 120,
+          "height": 50,
+          "x": 620,
+          "y": 50,
+          "boxes": {
+            "edge": [
+              740,
+              50,
+              40,
+              30
+            ],
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              621,
+              51,
+              118,
+              24
+            ],
+            "b": [
+              621,
+              75,
+              118,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--target",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 120,
+          "height": 50,
+          "x": 460,
+          "y": 50,
+          "boxes": {
+            "edge": [
+              580,
+              50,
+              40,
+              30
+            ],
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              461,
+              51,
+              118,
+              24
+            ],
+            "b": [
+              461,
+              75,
+              118,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--target",
+          "positionArea": "none",
+          "stayedOpen": true
+        },
+        {
+          "open": true,
+          "width": 120,
+          "height": 50,
+          "x": 620,
+          "y": 50,
+          "boxes": {
+            "edge": [
+              740,
+              50,
+              40,
+              30
+            ],
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              621,
+              51,
+              118,
+              24
+            ],
+            "b": [
+              621,
+              75,
+              118,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "--target",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    },
+    {
+      "name": "Viewport percentages and auto margins retain CSS overconstraint",
+      "markup": "<select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "css": "select::picker(select){position-anchor:none;left:10%;right:20%;top:5%;width:180px;min-width:0;margin:0 auto}",
+      "steps": [
+        {},
+        {
+          "viewport": {
+            "width": 650,
+            "height": 480
+          }
+        },
+        {
+          "viewport": {
+            "width": 800,
+            "height": 600
+          }
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:none;left:10%;right:20%;top:5%;width:180px;min-width:0;margin:0 auto}</style><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "expected": [
+        {
+          "open": true,
+          "width": 180,
+          "height": 50,
+          "x": 270,
+          "y": 30,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              271,
+              31,
+              178,
+              24
+            ],
+            "b": [
+              271,
+              55,
+              178,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 180,
+          "height": 50,
+          "x": 202.5,
+          "y": 24,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              203.5,
+              25,
+              178,
+              24
+            ],
+            "b": [
+              203.5,
+              49,
+              178,
+              24
+            ]
+          },
+          "viewport": [
+            650,
+            480
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": true
+        },
+        {
+          "open": true,
+          "width": 180,
+          "height": 50,
+          "x": 270,
+          "y": 30,
+          "boxes": {
+            "s": [
+              100,
+              150,
+              200,
+              34
+            ],
+            "a": [
+              271,
+              31,
+              178,
+              24
+            ],
+            "b": [
+              271,
+              55,
+              178,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    },
+    {
+      "name": "Author positioned picker is independent of visible anchor free space",
+      "markup": "<select id=s style=\"top:-10px;height:620px\"><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "css": "select::picker(select){position-anchor:none;left:40px;top:30px;width:160px;min-width:0}",
+      "steps": [
+        {},
+        {
+          "styles": {
+            "s": "left:100px;top:900px;width:200px;height:34px"
+          }
+        },
+        {
+          "styles": {
+            "s": "left:100px;top:-1000px;width:200px;height:34px"
+          }
+        }
+      ],
+      "html": "<!doctype html><style id=reference>html,body{margin:0;padding:0}select{appearance:base-select;position:absolute;left:100px;top:150px;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none;position-area:none;position-try-fallbacks:none;inset:auto}select::picker(select){position-anchor:none;left:40px;top:30px;width:160px;min-width:0}</style><select id=s style=\"top:-10px;height:620px\"><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "expected": [
+        {
+          "open": true,
+          "width": 160,
+          "height": 50,
+          "x": 40,
+          "y": 30,
+          "boxes": {
+            "s": [
+              100,
+              -10,
+              200,
+              620
+            ],
+            "a": [
+              41,
+              31,
+              158,
+              24
+            ],
+            "b": [
+              41,
+              55,
+              158,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": false
+        },
+        {
+          "open": true,
+          "width": 160,
+          "height": 50,
+          "x": 40,
+          "y": 30,
+          "boxes": {
+            "s": [
+              100,
+              900,
+              200,
+              34
+            ],
+            "a": [
+              41,
+              31,
+              158,
+              24
+            ],
+            "b": [
+              41,
+              55,
+              158,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": true
+        },
+        {
+          "open": true,
+          "width": 160,
+          "height": 50,
+          "x": 40,
+          "y": 30,
+          "boxes": {
+            "s": [
+              100,
+              -1000,
+              200,
+              34
+            ],
+            "a": [
+              41,
+              31,
+              158,
+              24
+            ],
+            "b": [
+              41,
+              55,
+              158,
+              24
+            ]
+          },
+          "viewport": [
+            800,
+            600
+          ],
+          "positionAnchor": "none",
+          "positionArea": "none",
+          "stayedOpen": true
+        }
+      ]
+    }
+  ],
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+}

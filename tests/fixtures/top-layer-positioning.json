@@ -1,0 +1,170 @@
+[
+  {
+    "name": "nonmodal absolute in ordinary ancestor",
+    "tag": "dialog",
+    "action": "show",
+    "host": "width:260px;height:180px;margin:180px 0 0 40px"
+  },
+  {
+    "name": "nonmodal absolute in positioned ancestor",
+    "tag": "dialog",
+    "action": "show",
+    "host": "position:relative;width:260px;height:180px;margin:180px 0 0 40px"
+  },
+  {
+    "name": "nonmodal fixed centered above page",
+    "tag": "dialog",
+    "action": "show",
+    "style": "position:fixed;top:30px",
+    "host": "position:relative;width:260px;height:180px;margin:180px 0 0 40px;overflow:hidden"
+  },
+  {
+    "name": "nonmodal fixed in transformed containing block",
+    "tag": "dialog",
+    "action": "show",
+    "style": "position:fixed;top:30px",
+    "host": "transform:translateX(10px);width:260px;height:180px;margin:180px 0 0 40px"
+  },
+  {
+    "name": "nonmodal author static in flow",
+    "tag": "dialog",
+    "action": "show",
+    "style": "position:static",
+    "host": "width:260px;height:180px;margin:180px 0 0 40px"
+  },
+  {
+    "name": "nonmodal inset auto overrides UA centering",
+    "tag": "dialog",
+    "action": "show",
+    "style": "position:fixed;top:30px;left:20px;right:auto;margin:0"
+  },
+  {
+    "name": "modal default viewport center",
+    "tag": "dialog",
+    "action": "showModal",
+    "host": "position:relative;width:260px;height:180px;margin:180px 0 0 40px;overflow:hidden"
+  },
+  {
+    "name": "modal escapes transformed ancestor",
+    "tag": "dialog",
+    "action": "showModal",
+    "host": "transform:translateX(10px);width:260px;height:180px;margin:180px 0 0 40px;overflow:hidden"
+  },
+  {
+    "name": "modal honors author insets",
+    "tag": "dialog",
+    "action": "showModal",
+    "style": "top:30px;bottom:auto;left:20px;right:auto;margin:0"
+  },
+  {
+    "name": "modal author absolute scrolls with document",
+    "tag": "dialog",
+    "action": "showModal",
+    "style": "position:absolute"
+  },
+  {
+    "name": "modal author static becomes absolute",
+    "tag": "dialog",
+    "action": "showModal",
+    "style": "position:static"
+  },
+  {
+    "name": "modal constrained to short viewport",
+    "tag": "dialog",
+    "action": "showModal",
+    "style": "width:1000px;height:600px"
+  },
+  {
+    "name": "popover default viewport center",
+    "tag": "div",
+    "action": "showPopover",
+    "popover": "manual",
+    "host": "position:relative;width:260px;height:180px;margin:180px 0 0 40px;overflow:hidden"
+  },
+  {
+    "name": "popover escapes transformed ancestor",
+    "tag": "div",
+    "action": "showPopover",
+    "popover": "manual",
+    "host": "transform:translateX(10px);width:260px;height:180px;margin:180px 0 0 40px;overflow:hidden"
+  },
+  {
+    "name": "popover fixed corner honors margins",
+    "tag": "div",
+    "action": "showPopover",
+    "popover": "manual",
+    "style": "top:80px;bottom:auto;right:20px;left:auto;margin:0"
+  },
+  {
+    "name": "popover absolute ignores positioned ancestor",
+    "tag": "div",
+    "action": "showPopover",
+    "popover": "manual",
+    "style": "position:absolute;top:30px;left:20px;right:auto;bottom:auto;margin:0",
+    "host": "position:relative;width:260px;height:180px;margin:180px 0 0 40px"
+  },
+  {
+    "name": "popover author static becomes absolute",
+    "tag": "div",
+    "action": "showPopover",
+    "popover": "manual",
+    "style": "position:static"
+  },
+  {
+    "name": "dialog shown as popover uses popover defaults",
+    "tag": "dialog",
+    "action": "showPopover",
+    "popover": "manual"
+  },
+  {
+    "name": "nonmodal dialog with popover attribute uses fixed defaults",
+    "tag": "dialog",
+    "action": "show",
+    "popover": "manual"
+  },
+  {
+    "name": "ordinary fixed shares CSS auto margins",
+    "tag": "div",
+    "style": "position:fixed;top:30px;left:0;right:0;margin:auto",
+    "host": "position:relative;width:260px;height:180px;margin:180px 0 0 40px"
+  },
+  {
+    "name": "ordinary fixed transformed containing block",
+    "tag": "div",
+    "style": "position:fixed;top:30px;left:0;right:0;margin:auto",
+    "host": "transform:translateX(10px);width:260px;height:180px;margin:180px 0 0 40px"
+  },
+  {
+    "name": "modal max-size follows author font",
+    "tag": "dialog",
+    "action": "showModal",
+    "style": "font-size:32px;width:1000px;height:600px"
+  },
+  {
+    "name": "modal author max-size overrides defaults",
+    "tag": "dialog",
+    "action": "showModal",
+    "style": "font-size:32px;width:1000px;height:600px;max-width:200px;max-height:100px"
+  },
+  {
+    "name": "dialog default padding follows font",
+    "tag": "dialog",
+    "action": "show",
+    "base": "width:120px;height:110px;box-sizing:border-box",
+    "style": "font-size:32px;padding-left:5px"
+  },
+  {
+    "name": "popover default padding follows font",
+    "tag": "div",
+    "popover": "manual",
+    "action": "showPopover",
+    "base": "width:120px;height:80px;box-sizing:border-box",
+    "style": "font-size:32px;padding-right:3px"
+  },
+  {
+    "name": "popover paragraph overrides normal margins",
+    "tag": "p",
+    "popover": "manual",
+    "action": "showPopover"
+  }
+]

@@ -1,0 +1,160 @@
+[
+  {
+    "name": "initial before and after versus element and marker",
+    "css": "",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"::before\").content);record(getComputedStyle(box,\"::after\").content);record(getComputedStyle(box,\"\").content);record(getComputedStyle(box,\"::marker\").content);",
+    "expected": [
+      "none",
+      "none",
+      "normal",
+      "normal"
+    ]
+  },
+  {
+    "name": "explicit normal computes differently on before and marker",
+    "css": "#box::before{content:normal}#box::marker{content:normal}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"::before\").content);record(getComputedStyle(box,\"::marker\").content);",
+    "expected": [
+      "none",
+      "normal"
+    ]
+  },
+  {
+    "name": "explicit none remains none",
+    "css": "#box::before{content:none}#box::after{content:none}#box::marker{content:none}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"::before\").content);record(getComputedStyle(box,\"::after\").content);record(getComputedStyle(box,\"::marker\").content);",
+    "expected": [
+      "none",
+      "none",
+      "none"
+    ]
+  },
+  {
+    "name": "text preserves token boundaries and quotes canonically",
+    "css": "#box::before{content:'Alpha' \" Beta\" '森'}#box::after{content:\"\"}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"::before\").content);record(getComputedStyle(box,\"::after\").content);",
+    "expected": [
+      "\"Alpha Beta森\"",
+      "\"\""
+    ]
+  },
+  {
+    "name": "attribute content resolves current and missing values",
+    "css": "#box::before{content:attr(data-note) \" / \" attr(data-missing)}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "box.setAttribute('data-note','First');record(getComputedStyle(box,\"::before\").content);box.setAttribute('data-note','Second 森');record(getComputedStyle(box,\"::before\").content);box.removeAttribute('data-note');record(getComputedStyle(box,\"::before\").content);",
+    "expected": [
+      "\"First / \"",
+      "\"Second 森 / \"",
+      "\" / \""
+    ]
+  },
+  {
+    "name": "attribute strings serialize CSS escapes",
+    "css": "#box::before{content:attr(data-note)}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "box.setAttribute('data-note','\"\\\\'+String.fromCharCode(0,1,9,10,12,13,31,127)+'森');record(getComputedStyle(box,\"::before\").content);",
+    "expected": [
+      "\"\\\"\\\\�\\1 \\9 \\a \\c \\d \\1f \\7f 森\""
+    ]
+  },
+  {
+    "name": "counter serialization does not resolve displayed digits",
+    "css": "#box{counter-reset:part 4}#box::before{content:counter(part) \". \"}#box::after{content:counter(part, upper-roman)}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"::before\").content);record(getComputedStyle(box,\"::after\").content);",
+    "expected": [
+      "counter(part) \". \"",
+      "counter(part, upper-roman)"
+    ]
+  },
+  {
+    "name": "counters serialize separators and formats",
+    "css": "#box::before{content:counters(part, \".\")}#box::after{content:counters(part, \" / \", lower-alpha)}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"::before\").content);record(getComputedStyle(box,\"::after\").content);",
+    "expected": [
+      "counters(part, \".\")",
+      "counters(part, \" / \", lower-alpha)"
+    ]
+  },
+  {
+    "name": "explicit decimal format normalizes to implicit decimal",
+    "css": "#box::before{content:counter(part, decimal)}#box::after{content:counters(part, \":\", decimal)}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"::before\").content);record(getComputedStyle(box,\"::after\").content);",
+    "expected": [
+      "counter(part)",
+      "counters(part, \":\")"
+    ]
+  },
+  {
+    "name": "quote keywords remain keywords",
+    "css": "#box::before{content:open-quote \"Hello\" close-quote no-open-quote no-close-quote}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"::before\").content);",
+    "expected": [
+      "open-quote \"Hello\" close-quote no-open-quote no-close-quote"
+    ]
+  },
+  {
+    "name": "native ordered marker remains normal and custom marker remains counter",
+    "css": "#box::marker{content:counter(list-item) \") \"}",
+    "markup": "<ol><li id=\"box\">Body</li><li id=\"plain\">Plain</li></ol>",
+    "source": "record(getComputedStyle(box,\"::marker\").content);record(getComputedStyle(document.getElementById('plain'),'::marker').content);",
+    "expected": [
+      "counter(list-item) \") \"",
+      "normal"
+    ]
+  },
+  {
+    "name": "pseudo content is distinct from owner content",
+    "css": "#box{content:\"Owner\"}#box::before{content:\"Before\"}#box::after{content:\"After\"}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"\").content);record(getComputedStyle(box,\"::before\").content);record(getComputedStyle(box,\"::after\").content);",
+    "expected": [
+      "\"Owner\"",
+      "\"Before\"",
+      "\"After\""
+    ]
+  },
+  {
+    "name": "inherit and unset respect content inheritance rules",
+    "css": "#box{content:\"Owner\"}#box::before{content:inherit}#box::after{content:unset}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\"::before\").content);record(getComputedStyle(box,\"::after\").content);",
+    "expected": [
+      "none",
+      "none"
+    ],
+    "nativeExpected": [
+      "none",
+      "none"
+    ],
+    "engineExpected": [
+      "\"Owner\"",
+      "none"
+    ],
+    "profile": "Explicit content:inherit follows CSS Cascade and WPT; captured Chromium suppresses this content (WebKit bug18587).",
+    "sources": [
+      "https://www.w3.org/TR/css-cascade-5/#inherit",
+      "https://github.com/web-platform-tests/wpt/blob/master/css/CSS2/generated-content/content-inherit-001.xht",
+      "https://bugs.webkit.org/show_bug.cgi?id=18587"
+    ]
+  },
+  {
+    "name": "legacy pseudo aliases and invalid pseudo return values",
+    "css": "#box::before{content:\"Before\"}",
+    "markup": "<div id=\"box\">Body</div>",
+    "source": "record(getComputedStyle(box,\":before\").content);record(getComputedStyle(box,\"::BEFORE\").content);record(getComputedStyle(box,\"::unknown\").content);",
+    "expected": [
+      "\"Before\"",
+      "\"Before\"",
+      ""
+    ]
+  }
+]

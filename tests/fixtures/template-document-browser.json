@@ -1,0 +1,478 @@
+{
+  "source": "function templateDocumentChecks() {\n  const records = [];\n  function record(name, value) { records.push({ name: name, value: value }); }\n  const ns = 'http://www.w3.org/1999/xhtml';\n  const impl = document.implementation;\n  const html = impl.createHTMLDocument('outer');\n  const xml = impl.createDocument('urn:root', 'r', null);\n  const documents = [html, xml];\n  for (let d = 0; d < documents.length; d++) {\n    const doc = documents[d], key = d === 0 ? 'html' : 'xml';\n    const a = doc.createElementNS(ns, 'template');\n    const b = doc.createElementNS(ns, 'h:template');\n    const owner = a.content.ownerDocument;\n    record(key + '-inert-metadata', [owner !== doc, owner === b.content.ownerDocument,\n      owner.nodeType, owner.defaultView === null, owner.location === null, owner.URL,\n      owner.contentType, owner.compatMode, owner.documentElement === null, owner.childNodes.length,\n      owner instanceof HTMLDocument, owner instanceof XMLDocument]);\n    record(key + '-identity', [a instanceof HTMLTemplateElement, b instanceof HTMLTemplateElement,\n      a.content === a.content, b.content === b.content, b.localName, b.prefix,\n      a.content.parentNode === null, a.content.isConnected]);\n    const nested = owner.createElementNS(ns, 'template');\n    record(key + '-nested-owner-reuse', nested.content.ownerDocument === owner);\n    const negative = [doc.createElementNS(null, 'template'), doc.createElementNS('urn:other', 'template'),\n      doc.createElementNS(ns, 'Template'), doc.createElement('h:template')];\n    record(key + '-negative', negative.map(function (node) { return [node instanceof HTMLTemplateElement, node.content === undefined]; }));\n    const light = doc.createElementNS(ns, 'span'); light.textContent = 'light'; b.append(light);\n    b.innerHTML = d === 0 ? '<b>inside</b><template><i>nested</i></template>' : '<h:b>inside</h:b><h:template><h:i>nested</h:i></h:template>';\n    const inner = b.content.lastChild;\n    record(key + '-inner-html', [b.children.length, b.textContent, b.innerHTML,\n      b.content.children.length, b.content.firstChild.ownerDocument === owner,\n      inner.content.ownerDocument === owner, inner.content.firstChild.ownerDocument === owner,\n      b.content.querySelector('i') === null]);\n    const clone = b.cloneNode(true), shallow = b.cloneNode(false);\n    record(key + '-clone', [clone !== b, clone.ownerDocument === doc,\n      clone.content !== b.content, clone.content.ownerDocument === owner,\n      clone.content.firstChild !== b.content.firstChild,\n      clone.content.firstChild.ownerDocument === owner,\n      clone.content.lastChild.content.ownerDocument === owner,\n      clone.firstChild !== light, clone.textContent, clone.innerHTML,\n      shallow.childNodes.length, shallow.content.childNodes.length,\n      shallow.content.ownerDocument === owner]);\n    const contentClone = b.content.cloneNode(true);\n    record(key + '-content-clone', [contentClone.ownerDocument === owner,\n      contentClone.lastChild.content.ownerDocument === owner]);\n    const other = impl.createHTMLDocument('target');\n    const targetOwner = other.createElement('template').content.ownerDocument;\n    const oldContent = b.content, oldChild = b.content.firstChild;\n    other.adoptNode(b);\n    record(key + '-adopt', [b.ownerDocument === other, b.content === oldContent,\n      b.content.ownerDocument === targetOwner, oldChild.ownerDocument === targetOwner,\n      inner.ownerDocument === targetOwner, inner.content.ownerDocument === targetOwner,\n      light.ownerDocument === other]);\n    const imported = doc.importNode(b, true);\n    record(key + '-import', [imported.ownerDocument === doc, imported.content.ownerDocument === owner,\n      imported.content.firstChild.ownerDocument === owner,\n      imported.content.lastChild.content.ownerDocument === owner,\n      imported.firstChild.ownerDocument === doc, b.ownerDocument === other]);\n    other.body.append(b.content);\n    record(key + '-extract', [b.content.childNodes.length, oldChild.ownerDocument === other,\n      oldChild.isConnected, inner.ownerDocument === other, inner.content.ownerDocument === targetOwner,\n      inner.content.firstChild.ownerDocument === targetOwner]);\n    const detachedClone = doc.cloneNode(true);\n    record(key + '-document-clone', detachedClone.createElementNS(ns, 'template').content.ownerDocument !== owner);\n    const ownerClone = owner.cloneNode(true);\n    record(key + '-inert-document-clone', [ownerClone instanceof Document,\n      ownerClone instanceof HTMLDocument, ownerClone instanceof XMLDocument,\n      ownerClone.contentType, ownerClone.createElementNS(ns, 'template').content.ownerDocument !== ownerClone]);\n  }\n  const parser = new DOMParser();\n  const parsedHTML = parser.parseFromString('<!doctype html><template id=\"t\"><span>A</span><template><b>B</b></template></template>', 'text/html');\n  const t = parsedHTML.getElementById('t');\n  record('html-parser', [t.childNodes.length, t.content.childNodes.length,\n    t.content.ownerDocument !== parsedHTML, t.content.firstChild.ownerDocument === t.content.ownerDocument,\n    t.content.lastChild.content.ownerDocument === t.content.ownerDocument,\n    parsedHTML.querySelector('span') === null, t.innerHTML]);\n  const parsedXML = parser.parseFromString('<r xmlns:h=\"http://www.w3.org/1999/xhtml\"><h:template id=\"x\"><h:span>A</h:span><h:template><h:b>B</h:b></h:template></h:template><template>C</template></r>', 'application/xml');\n  const xt = parsedXML.getElementsByTagNameNS(ns, 'template')[0];\n  record('xml-parser', [xt instanceof HTMLTemplateElement, xt.childNodes.length,\n    xt.content.childNodes.length, xt.content.ownerDocument !== parsedXML,\n    xt.content.firstChild.ownerDocument === xt.content.ownerDocument,\n    xt.content.lastChild.content.ownerDocument === xt.content.ownerDocument,\n    parsedXML.getElementsByTagNameNS(ns, 'span').length,\n    parsedXML.getElementsByTagName('template')[0].content === undefined]);\n  xt.innerHTML = '<h:span data-x=\"one\"/><h:template><h:i>inner</h:i></h:template>';\n  record('xml-prefixed-fragment', [xt.content.firstChild.namespaceURI,\n    xt.content.firstChild.prefix, xt.content.lastChild.content.firstChild.localName,\n    xt.content.firstChild.ownerDocument === xt.content.ownerDocument,\n    xt.childNodes.length, xt.content.childNodes.length]);\n  const before = xt.innerHTML; let syntax = '';\n  try { xt.innerHTML = '<h:span>'; } catch (error) { syntax = error.name; }\n  record('xml-fragment-error', [syntax, xt.innerHTML === before]);\n  const prefixed = html.createElementNS(ns, 'h:template');\n  prefixed.innerHTML = '<tr><td>cell</td></tr><template><p>nested</p></template>';\n  record('html-prefixed-template-fragment', [prefixed.content.firstChild.localName,\n    prefixed.content.firstChild.firstChild.localName, prefixed.innerHTML,\n    prefixed.content.lastChild.content.firstChild.localName]);\n  const descriptor = Object.getOwnPropertyDescriptor(HTMLTemplateElement.prototype, 'content');\n  let brandErrors = 0;\n  for (const receiver of [{}, html.createElement('div'), html.createElementNS('urn:other', 'template')]) {\n    try { descriptor.get.call(receiver); } catch (error) { if (error.name === 'TypeError') brandErrors++; }\n  }\n  record('content-descriptor', [typeof descriptor.get, descriptor.set === undefined,\n    descriptor.enumerable, descriptor.configurable, descriptor.get.call(prefixed) === prefixed.content,\n    brandErrors]);\n  const primary = document.createElement('template'), primaryOwner = primary.content.ownerDocument;\n  record('primary-inert-metadata', [primaryOwner !== document, primaryOwner.URL,\n    primaryOwner.baseURI, primaryOwner.defaultView === null, primaryOwner.location === null]);\n  const inertCreated = primaryOwner.createElement('template');\n  record('inert-created-template', inertCreated.content.ownerDocument === primaryOwner);\n  let constructions = 0, connections = 0;\n  class TemplateProbe extends HTMLElement {\n    constructor() { super(); constructions++; }\n    connectedCallback() { connections++; }\n  }\n  customElements.define('x-template-probe', TemplateProbe);\n  const customTemplate = document.createElement('template');\n  customTemplate.innerHTML = '<x-template-probe></x-template-probe><template><x-template-probe></x-template-probe></template>';\n  const customClone = customTemplate.cloneNode(true);\n  const inertCustom = customTemplate.content.ownerDocument.createElement('x-template-probe');\n  record('custom-inert', [constructions, connections,\n    customTemplate.content.firstChild instanceof TemplateProbe,\n    customClone.content.firstChild instanceof TemplateProbe, inertCustom instanceof TemplateProbe]);\n  const activeImport = document.importNode(customTemplate.content, true);\n  record('custom-active-import', [constructions, connections,\n    activeImport.firstChild instanceof TemplateProbe,\n    activeImport.lastChild.content.firstChild instanceof TemplateProbe]);\n  document.body.append(activeImport);\n  record('custom-active-insertion', [constructions, connections]);\n  const preservedContent = customTemplate.content, preservedCustom = preservedContent.firstChild;\n  document.adoptNode(preservedCustom);\n  record('custom-adopt-before-insert', [constructions, connections, preservedCustom instanceof TemplateProbe,\n    preservedCustom.ownerDocument === document]);\n  document.body.append(preservedCustom);\n  record('custom-adopt-insert', [constructions, connections, preservedCustom instanceof TemplateProbe]);\n  document.body.append(customClone);\n  record('custom-mounted-template-stays-inert', [constructions, connections,\n    customClone.content.lastChild.content.firstChild.isConnected]);\n  const independent = document.createElement('div'); independent.content = 'ordinary expando';\n  const foreignTemplate = document.createElementNS('urn:foreign', 'template'); foreignTemplate.content = 7;\n  let readonlyError = '';\n  try { (function () { 'use strict'; primary.content = document.createDocumentFragment(); })(); }\n  catch (error) { readonlyError = error.name; }\n  record('content-assignment', [independent.content, foreignTemplate.content, readonlyError,\n    primary.content.ownerDocument === primaryOwner]);\n  const inertFragment = primaryOwner.createDocumentFragment();\n  const orphan = primaryOwner.createElement('span'); inertFragment.append(orphan);\n  document.adoptNode(inertFragment);\n  record('direct-contents-document-adoption', [inertFragment.ownerDocument === document,\n    orphan.ownerDocument === document, inertCreated.content.ownerDocument === primaryOwner]);\n  return records;\n}\n",
+  "records": [
+    {
+      "name": "html-inert-metadata",
+      "value": [
+        true,
+        true,
+        9,
+        true,
+        true,
+        "about:blank",
+        "text/html",
+        "CSS1Compat",
+        true,
+        0,
+        true,
+        false
+      ],
+      "json": "[true,true,9,true,true,\"about:blank\",\"text/html\",\"CSS1Compat\",true,0,true,false]"
+    },
+    {
+      "name": "html-identity",
+      "value": [
+        true,
+        true,
+        true,
+        true,
+        "template",
+        "h",
+        true,
+        false
+      ],
+      "json": "[true,true,true,true,\"template\",\"h\",true,false]"
+    },
+    {
+      "name": "html-nested-owner-reuse",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "html-negative",
+      "value": [
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "json": "[[false,true],[false,true],[false,true],[false,true]]"
+    },
+    {
+      "name": "html-inner-html",
+      "value": [
+        1,
+        "light",
+        "<b>inside</b><template><i>nested</i></template>",
+        2,
+        true,
+        true,
+        true,
+        true
+      ],
+      "json": "[1,\"light\",\"<b>inside</b><template><i>nested</i></template>\",2,true,true,true,true]"
+    },
+    {
+      "name": "html-clone",
+      "value": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        "light",
+        "<b>inside</b><template><i>nested</i></template>",
+        0,
+        0,
+        true
+      ],
+      "json": "[true,true,true,true,true,true,true,true,\"light\",\"<b>inside</b><template><i>nested</i></template>\",0,0,true]"
+    },
+    {
+      "name": "html-content-clone",
+      "value": [
+        true,
+        true
+      ],
+      "json": "[true,true]"
+    },
+    {
+      "name": "html-adopt",
+      "value": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "json": "[true,true,true,true,true,true,true]"
+    },
+    {
+      "name": "html-import",
+      "value": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "json": "[true,true,true,true,true,true]"
+    },
+    {
+      "name": "html-extract",
+      "value": [
+        0,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "json": "[0,true,true,true,true,true]"
+    },
+    {
+      "name": "html-document-clone",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "html-inert-document-clone",
+      "value": [
+        true,
+        true,
+        false,
+        "text/html",
+        true
+      ],
+      "json": "[true,true,false,\"text/html\",true]"
+    },
+    {
+      "name": "xml-inert-metadata",
+      "value": [
+        true,
+        true,
+        9,
+        true,
+        true,
+        "about:blank",
+        "application/xml",
+        "CSS1Compat",
+        true,
+        0,
+        false,
+        false
+      ],
+      "json": "[true,true,9,true,true,\"about:blank\",\"application/xml\",\"CSS1Compat\",true,0,false,false]"
+    },
+    {
+      "name": "xml-identity",
+      "value": [
+        true,
+        true,
+        true,
+        true,
+        "template",
+        "h",
+        true,
+        false
+      ],
+      "json": "[true,true,true,true,\"template\",\"h\",true,false]"
+    },
+    {
+      "name": "xml-nested-owner-reuse",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "xml-negative",
+      "value": [
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ],
+      "json": "[[false,true],[false,true],[false,true],[false,true]]"
+    },
+    {
+      "name": "xml-inner-html",
+      "value": [
+        1,
+        "light",
+        "<h:b xmlns:h=\"http://www.w3.org/1999/xhtml\">inside</h:b><h:template xmlns:h=\"http://www.w3.org/1999/xhtml\"><h:i>nested</h:i></h:template>",
+        2,
+        true,
+        true,
+        true,
+        true
+      ],
+      "json": "[1,\"light\",\"<h:b xmlns:h=\\\"http://www.w3.org/1999/xhtml\\\">inside</h:b><h:template xmlns:h=\\\"http://www.w3.org/1999/xhtml\\\"><h:i>nested</h:i></h:template>\",2,true,true,true,true]"
+    },
+    {
+      "name": "xml-clone",
+      "value": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        "light",
+        "<h:b xmlns:h=\"http://www.w3.org/1999/xhtml\">inside</h:b><h:template xmlns:h=\"http://www.w3.org/1999/xhtml\"><h:i>nested</h:i></h:template>",
+        0,
+        0,
+        true
+      ],
+      "json": "[true,true,true,true,true,true,true,true,\"light\",\"<h:b xmlns:h=\\\"http://www.w3.org/1999/xhtml\\\">inside</h:b><h:template xmlns:h=\\\"http://www.w3.org/1999/xhtml\\\"><h:i>nested</h:i></h:template>\",0,0,true]"
+    },
+    {
+      "name": "xml-content-clone",
+      "value": [
+        true,
+        true
+      ],
+      "json": "[true,true]"
+    },
+    {
+      "name": "xml-adopt",
+      "value": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "json": "[true,true,true,true,true,true,true]"
+    },
+    {
+      "name": "xml-import",
+      "value": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "json": "[true,true,true,true,true,true]"
+    },
+    {
+      "name": "xml-extract",
+      "value": [
+        0,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "json": "[0,true,true,true,true,true]"
+    },
+    {
+      "name": "xml-document-clone",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "xml-inert-document-clone",
+      "value": [
+        true,
+        false,
+        false,
+        "application/xml",
+        true
+      ],
+      "json": "[true,false,false,\"application/xml\",true]"
+    },
+    {
+      "name": "html-parser",
+      "value": [
+        0,
+        2,
+        true,
+        true,
+        true,
+        true,
+        "<span>A</span><template><b>B</b></template>"
+      ],
+      "json": "[0,2,true,true,true,true,\"<span>A</span><template><b>B</b></template>\"]"
+    },
+    {
+      "name": "xml-parser",
+      "value": [
+        true,
+        0,
+        2,
+        true,
+        true,
+        true,
+        0,
+        true
+      ],
+      "json": "[true,0,2,true,true,true,0,true]"
+    },
+    {
+      "name": "xml-prefixed-fragment",
+      "value": [
+        "http://www.w3.org/1999/xhtml",
+        "h",
+        "i",
+        true,
+        0,
+        2
+      ],
+      "json": "[\"http://www.w3.org/1999/xhtml\",\"h\",\"i\",true,0,2]"
+    },
+    {
+      "name": "xml-fragment-error",
+      "value": [
+        "SyntaxError",
+        true
+      ],
+      "json": "[\"SyntaxError\",true]"
+    },
+    {
+      "name": "html-prefixed-template-fragment",
+      "value": [
+        "tr",
+        "td",
+        "<tr><td>cell</td></tr><template><p>nested</p></template>",
+        "p"
+      ],
+      "json": "[\"tr\",\"td\",\"<tr><td>cell</td></tr><template><p>nested</p></template>\",\"p\"]"
+    },
+    {
+      "name": "content-descriptor",
+      "value": [
+        "function",
+        true,
+        true,
+        true,
+        true,
+        3
+      ],
+      "json": "[\"function\",true,true,true,true,3]"
+    },
+    {
+      "name": "primary-inert-metadata",
+      "value": [
+        true,
+        "about:blank",
+        "about:blank",
+        true,
+        true
+      ],
+      "json": "[true,\"about:blank\",\"about:blank\",true,true]"
+    },
+    {
+      "name": "inert-created-template",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "custom-inert",
+      "value": [
+        0,
+        0,
+        false,
+        false,
+        false
+      ],
+      "json": "[0,0,false,false,false]"
+    },
+    {
+      "name": "custom-active-import",
+      "value": [
+        1,
+        0,
+        true,
+        false
+      ],
+      "json": "[1,0,true,false]"
+    },
+    {
+      "name": "custom-active-insertion",
+      "value": [
+        1,
+        1
+      ],
+      "json": "[1,1]"
+    },
+    {
+      "name": "custom-adopt-before-insert",
+      "value": [
+        1,
+        1,
+        false,
+        true
+      ],
+      "json": "[1,1,false,true]"
+    },
+    {
+      "name": "custom-adopt-insert",
+      "value": [
+        2,
+        2,
+        true
+      ],
+      "json": "[2,2,true]"
+    },
+    {
+      "name": "custom-mounted-template-stays-inert",
+      "value": [
+        2,
+        2,
+        false
+      ],
+      "json": "[2,2,false]"
+    },
+    {
+      "name": "content-assignment",
+      "value": [
+        "ordinary expando",
+        7,
+        "TypeError",
+        true
+      ],
+      "json": "[\"ordinary expando\",7,\"TypeError\",true]"
+    },
+    {
+      "name": "direct-contents-document-adoption",
+      "value": [
+        true,
+        true,
+        true
+      ],
+      "json": "[true,true,true]"
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "references": [
+    "https://html.spec.whatwg.org/multipage/scripting.html#the-template-element",
+    "https://html.spec.whatwg.org/multipage/dynamic-markup-insertion.html#dom-element-innerhtml",
+    "https://dom.spec.whatwg.org/#concept-node-adopt"
+  ]
+}

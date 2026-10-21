@@ -1,0 +1,289 @@
+[
+  {
+    "name": "no doctype",
+    "html": "<title>Child</title><p>A &amp; B</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "Child",
+      "A & B"
+    ]
+  },
+  {
+    "name": "HTML doctype",
+    "html": "<!doctype html><p>Standard</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Standard"
+    ]
+  },
+  {
+    "name": "non HTML doctype",
+    "html": "<!doctype wrong><p>Still standard</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Still standard"
+    ]
+  },
+  {
+    "name": "limited quirks doctype",
+    "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><p>Standard</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Standard"
+    ]
+  },
+  {
+    "name": "quirks public doctype",
+    "html": "<!DOCTYPE HTML PUBLIC \"-//W3O//DTD W3 HTML Strict 3.0//EN//\"><p>Standard</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Standard"
+    ]
+  },
+  {
+    "name": "leading comments and implicit body",
+    "html": "<!--Comment-->Plain text",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Plain text"
+    ]
+  },
+  {
+    "name": "relative first base",
+    "html": "<base href=\"../other/\"><base href=\"https://ignored.test/\"><p>Relative</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/other/",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Relative"
+    ]
+  },
+  {
+    "name": "absolute base",
+    "html": "<base href=\"https://remote.test/folder/\"><p>Absolute</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://remote.test/folder/",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Absolute"
+    ]
+  },
+  {
+    "name": "data base uses fallback",
+    "html": "<base href=\"data:text/plain,example\"><p>Fallback</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Fallback"
+    ]
+  },
+  {
+    "name": "javascript base uses fallback",
+    "html": "<base href=\"javascript:example\"><p>Fallback</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Fallback"
+    ]
+  },
+  {
+    "name": "invalid base uses fallback",
+    "html": "<base href=\"http://[\"><p>Fallback</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "about:blank",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Fallback"
+    ],
+    "standardExpected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Fallback"
+    ],
+    "nativeDifference": "Chromium freezes about:blank on URL parse failure; current HTML frozen-base algorithm uses the fallback base URL."
+  },
+  {
+    "name": "canonical special host and default port",
+    "html": "<base href=\"HTTPS://Example.TEST:443/a/../b/?q=a b#c d\"><p>Canonical</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://example.test/b/?q=a%20b#c%20d",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Canonical"
+    ]
+  },
+  {
+    "name": "IPv6 base",
+    "html": "<base href=\"http://[2001:db8::1]:8080/a\"><p>IPv6</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "http://[2001:db8::1]:8080/a",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "IPv6"
+    ]
+  },
+  {
+    "name": "IDNA and encoded dots",
+    "html": "<base href=\"https://bücher.example/x/%2e%2e/日本\"><p>IDNA</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://xn--bcher-kva.example/%E6%97%A5%E6%9C%AC",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "IDNA"
+    ]
+  },
+  {
+    "name": "invalid base port",
+    "html": "<base href=\"https://example.test:70000/\"><p>Fallback</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "about:blank",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Fallback"
+    ],
+    "standardExpected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Fallback"
+    ],
+    "nativeDifference": "Chromium freezes about:blank on URL parse failure; current HTML frozen-base algorithm uses the fallback base URL."
+  },
+  {
+    "name": "invalid escaped host",
+    "html": "<base href=\"https://exa%23mple.test/\"><p>Fallback</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "about:blank",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Fallback"
+    ],
+    "standardExpected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Fallback"
+    ],
+    "nativeDifference": "Chromium freezes about:blank on URL parse failure; current HTML frozen-base algorithm uses the fallback base URL."
+  },
+  {
+    "name": "opaque custom base",
+    "html": "<base href=\"custom:hello world\"><p>Opaque</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "custom:hello world",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Opaque"
+    ]
+  },
+  {
+    "name": "absolute hostless base",
+    "html": "<base href=\"custom:/folder/../next\"><p>Hostless</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "custom:/next",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Hostless"
+    ]
+  },
+  {
+    "name": "empty first base prevents later base",
+    "html": "<base href=\"\"><base href=\"https://ignored.test/\"><p>Empty</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Empty"
+    ]
+  },
+  {
+    "name": "charset meta cannot change srcdoc Unicode",
+    "html": "<meta charset=\"windows-1252\"><p>Häuser 日本</p>",
+    "fallbackBaseURL": "https://docs.test/assets/root.html",
+    "expected": [
+      "about:srcdoc",
+      "https://docs.test/assets/root.html",
+      "CSS1Compat",
+      "UTF-8",
+      "",
+      "Häuser 日本"
+    ]
+  }
+]

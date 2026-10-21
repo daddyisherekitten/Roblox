@@ -1,0 +1,3888 @@
+[
+  {
+    "name": "inline parser script waits for CSS",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ><script>console.log('inline',document.getElementById('sheet').sheet!==null,document.styleSheets.length,document.getElementById('future')===null);</script></head><body><p id=future>Later</p>",
+    "expected": [
+      "inline true 1 true",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "external parser script waits for CSS",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ><script src=\"/defer.js\"></script></head><body><p id=future>Later</p>",
+    "expected": [
+      "defer true false",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "deferred script waits for CSS",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ><script defer src=\"/defer.js\"></script></head><body><p id=future>Later</p>",
+    "expected": [
+      "defer true true",
+      "dcl interactive",
+      "sheet load true",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "module script waits for CSS",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ><script type=module>console.log(\"module\",document.getElementById(\"sheet\").sheet!==null,document.getElementById(\"future\")!==null);</script></head><body><p id=future>Later</p>",
+    "expected": [
+      "module true true",
+      "dcl interactive",
+      "sheet load true",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "async script passes CSS barrier",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ><script async src=\"/async.js\"></script></head><body><p id=future>Later</p>",
+    "expected": [
+      "dcl interactive",
+      "async true true",
+      "sheet load true",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "nonmatching media does not block parser",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous media=print><script>console.log('print',document.getElementById('sheet').sheet===null);</script></head><body>",
+    "expected": [
+      "print true",
+      "dcl interactive",
+      "sheet load true",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "initial disabled stylesheet does not block",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous disabled><script>console.log('disabled',document.getElementById('sheet').sheet===null);</script></head><body>",
+    "expected": [
+      "disabled true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "CSS HTTP error releases parser",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/missing.css\" crossorigin=anonymous ><script>console.log('after error',document.getElementById('sheet').sheet===null);</script></head><body>",
+    "expected": [
+      "after error false",
+      "sheet error false",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    },
+    "standardExpected": [
+      "after error true",
+      "sheet error true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "difference": "HTML linked stylesheet failure creates no associated sheet; Chromium retains an empty sheet after HTTP error."
+  },
+  {
+    "name": "CSS MIME error releases parser",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/wrong.css\" crossorigin=anonymous ><script>console.log('after MIME',document.getElementById('sheet').sheet===null);</script></head><body>",
+    "expected": [
+      "after MIME false",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    },
+    "standardExpected": [
+      "after MIME true",
+      "sheet error true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "difference": "HTML requires text/css MIME; Chromium accepted this same-origin text/plain response without nosniff."
+  },
+  {
+    "name": "CSS completion before parser and microtask",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><script>document.addEventListener('load',e=>{if(e.target.localName==='link')Promise.resolve().then(()=>console.log('sheet microtask'))},true);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ><script>console.log('after sheet task');</script></head><body>",
+    "expected": [
+      "after sheet task",
+      "sheet load true",
+      "sheet microtask",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "two CSS barriers complete out of order",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=slow rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ><link id=fast rel=stylesheet href=\"/fast.css\" crossorigin=anonymous ><script>console.log('both',document.styleSheets.length);</script></head><body>",
+    "expected": [
+      "fast load true",
+      "both 2",
+      "slow load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "dynamic stylesheet delays load without blocking parser",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><script>const s=document.createElement('link');s.id='sheet';s.rel='stylesheet';s.href='/slow.css';s.crossOrigin='anonymous';document.head.append(s);</script><script>console.log('dynamic next',document.getElementById('sheet').sheet===null);</script></head><body>",
+    "expected": [
+      "dynamic next true",
+      "dcl interactive",
+      "sheet load true",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "remove pending sheet releases parser",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><script>setTimeout(()=>document.getElementById('sheet')?.remove(),10);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ><script>console.log('after removed',document.getElementById('sheet')===null);</script></head><body>",
+    "expected": [
+      "after removed true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "replace pending stylesheet URL",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><script>setTimeout(()=>document.getElementById('sheet').href='/fast.css',10);</script><link id=sheet rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ><script>console.log('replaced',document.getElementById('sheet').sheet!==null);</script></head><body>",
+    "expected": [
+      "replaced false",
+      "dcl interactive",
+      "sheet load true",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    },
+    "standardExpected": [
+      "replaced true",
+      "dcl interactive",
+      "sheet load true",
+      "load complete"
+    ],
+    "difference": "Parser-created enabled stylesheet remains script-blocking for its replacement fetch in the HTML profile; Chromium releases the original barrier early."
+  },
+  {
+    "name": "cross-origin CSS rules are protected",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"https://cross.styles.test/slow.css\" ><script>const s=document.getElementById('sheet').sheet;for(const method of ['cssRules','insertRule','deleteRule']){try{if(method==='cssRules')s.cssRules;else if(method==='insertRule')s.insertRule('p{color:red}');else s.deleteRule(0);console.log(method,'incorrect')}catch(e){console.log(method,e.name)}}</script></head><body>",
+    "expected": [
+      "cssRules SecurityError",
+      "insertRule SecurityError",
+      "deleteRule SecurityError",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": false
+      }
+    }
+  },
+  {
+    "name": "CORS-clean CSS rules are accessible",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"https://cross.styles.test/slow.css\" crossorigin=anonymous ><script>console.log('clean rules',document.getElementById('sheet').sheet.cssRules.length);</script></head><body>",
+    "expected": [
+      "clean rules 1",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "shadow CSS delays load without blocking document scripts",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script></head><body><div id=host><template shadowrootmode=open><link id=shadow rel=stylesheet href=\"/slow.css\" crossorigin=anonymous ></template></div><script>const s=document.getElementById('host').shadowRoot.getElementById('shadow');s.addEventListener('load',()=>console.log('shadow load',s.sheet!==null));console.log('shadow next',s.sheet===null,document.styleSheets.length);</script>",
+    "expected": [
+      "shadow next false 0",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    },
+    "standardExpected": [
+      "shadow next true 0",
+      "dcl interactive",
+      "shadow load true",
+      "load complete"
+    ],
+    "difference": "Current HTML script-blocking conditions require the stylesheet element root to be Document; Chromium also blocks outer scripts on this declarative-shadow stylesheet."
+  },
+  {
+    "name": "imported CSS keeps parser barrier",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/import.css\" crossorigin=anonymous ><script>const s=document.getElementById('sheet').sheet;console.log('import rules',s.cssRules.length,s.cssRules[0].styleSheet.cssRules.length);</script></head><body>",
+    "expected": [
+      "import rules 2 1",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "inline CSS import keeps parser barrier",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><style id=sheet>@import \"slow.css\"; #root {color:red}</style><script>const s=document.getElementById('sheet').sheet;console.log('inline import',s.cssRules[0].styleSheet.cssRules.length);</script></head><body>",
+    "expected": [
+      "inline import 1",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "nested CSS imports keep parser barrier",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/nested.css\" crossorigin=anonymous ><script>const s=document.getElementById('sheet').sheet;console.log('nested imports',s.cssRules[0].styleSheet.cssRules[0].styleSheet.cssRules.length);</script></head><body>",
+    "expected": [
+      "nested imports 1",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "failed CSS import releases parent barrier",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/failed-import.css\" crossorigin=anonymous ><script>const s=document.getElementById('sheet').sheet;console.log('failed import',s.cssRules.length,s.cssRules[0].styleSheet===null);</script></head><body>",
+    "expected": [
+      "failed import 2 false",
+      "sheet error false",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "unsupported import supports avoids request",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/conditional-import.css\" crossorigin=anonymous ><script>console.log('conditional import',document.getElementById('sheet').sheet.cssRules[0].styleSheet===null);</script></head><body>",
+    "expected": [
+      "conditional import false",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    },
+    "standardExpected": [
+      "conditional import true",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "difference": "CSS Cascade requires a false supports condition to expose null CSSImportRule.styleSheet; Chromium retains an empty associated sheet."
+  },
+  {
+    "name": "nonmatching imported media still loads",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/print-import.css\" crossorigin=anonymous ><script>console.log('print import',document.getElementById('sheet').sheet.cssRules[0].styleSheet===null);</script></head><body>",
+    "expected": [
+      "print import false",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "cyclic import does not recur forever",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/cycle-a.css\" crossorigin=anonymous ><script>const s=document.getElementById('sheet').sheet;console.log('cycle',s.cssRules[0].styleSheet.cssRules[0].styleSheet===null);</script></head><body>",
+    "expected": [
+      "cycle true",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "remove owner cancels imported barrier",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><script>setTimeout(()=>document.getElementById('sheet')?.remove(),20);</script><link id=sheet rel=stylesheet href=\"/import.css\" crossorigin=anonymous ><script>console.log('removed import',document.getElementById('sheet')===null);</script></head><body>",
+    "expected": [
+      "removed import true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "duplicate imports own separate sheets",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/duplicate-import.css\" crossorigin=anonymous ><script>const s=document.getElementById('sheet').sheet,a=s.cssRules[0],b=s.cssRules[1],v=a.styleSheet;console.log('import identities',v!==b.styleSheet,v===a.styleSheet,v.ownerRule===a,v.parentStyleSheet===s,v.ownerNode===null,v.media===a.media);</script></head><body>",
+    "expected": [
+      "import identities true true true true true false",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    },
+    "standardExpected": [
+      "import identities true true true true true true",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "difference": "CSSOM specifies CSSImportRule.media returning the associated sheet media value; Chromium exposes a separate MediaList object."
+  },
+  {
+    "name": "redirected CSS imports use response base",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/redirect.css\" crossorigin=anonymous ><script>const s=document.getElementById('sheet').sheet,c=s.cssRules[0].styleSheet;console.log('redirect base',new URL(s.href).pathname,new URL(c.href).pathname,c.cssRules.length);</script></head><body>",
+    "expected": [
+      "redirect base /redirect.css /folder/child.css 1",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "linked sheet preserves association during import completion",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/import.css\" crossorigin=anonymous ><script async src=\"/inspect-import.js\"></script><script>console.log('loaded import',pendingOwner===document.getElementById('sheet').sheet,pendingRule===pendingOwner.cssRules[0],pendingRule.styleSheet.cssRules.length);</script></head><body>",
+    "expected": [
+      "pending import owner true true",
+      "loaded import true true 1",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "CSSOM import insertion begins asynchronous load",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><style id=sheet></style><script>const s=document.getElementById('sheet').sheet;s.insertRule('@import \"slow.css\";',0);const r=s.cssRules[0];console.log('insert sync',r.styleSheet!==null);document.addEventListener('load',e=>{if(e.target.localName==='style')console.log('style loaded',r.styleSheet===null?'none':r.styleSheet.cssRules.length)},true);</script><script>console.log('after inserted import',document.getElementById('sheet').sheet.cssRules[0].styleSheet===null);</script></head><body>",
+    "expected": [
+      "insert sync false",
+      "style loaded none",
+      "after inserted import false",
+      "style loaded 1",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "CSSOM removes pending inserted import",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><style id=sheet></style><script>const s=document.getElementById('sheet').sheet;s.insertRule('@import \"slow.css\";',0);const r=s.cssRules[0];s.deleteRule(0);document.addEventListener('load',e=>{if(e.target.localName==='style')console.log('deleted owner load',r.styleSheet===null)},true);console.log('deleted inserted',s.cssRules.length,r.parentStyleSheet===null,r.styleSheet===null);</script><script>console.log('after deleted insert');</script></head><body>",
+    "expected": [
+      "deleted inserted 0 true true",
+      "deleted owner load true"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    },
+    "timeout": true,
+    "profileExpected": [
+      "deleted inserted 0 true true",
+      "deleted owner load true",
+      "after deleted insert",
+      "dcl interactive",
+      "load complete"
+    ],
+    "difference": "Chromium stalled its document parser after a pending import was removed through CSSOM. The engine cancellation profile releases removed import requests and preserves document progress; the observed browser timeout is retained separately."
+  },
+  {
+    "name": "CSSOM removes pending original import",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/import.css\" crossorigin=anonymous ><script async src=\"/delete-import.js\"></script><script>console.log('after deleted original',document.getElementById('sheet').sheet.cssRules.length);</script></head><body>",
+    "expected": [
+      "delete import 1 true true"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    },
+    "timeout": true,
+    "profileExpected": [
+      "delete import 1 true true",
+      "sheet load true",
+      "after deleted original 1",
+      "dcl interactive",
+      "load complete"
+    ],
+    "difference": "Chromium stalled its document parser after a pending import was removed through CSSOM. The engine cancellation profile releases removed import requests and preserves document progress; the observed browser timeout is retained separately."
+  },
+  {
+    "name": "CSSOM removes loaded original import",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><link id=sheet rel=stylesheet href=\"/import.css\" crossorigin=anonymous ><script>const s=document.getElementById('sheet').sheet,r=s.cssRules[0],c=r.styleSheet;s.deleteRule(0);console.log('deleted loaded',r.styleSheet===c,c.parentStyleSheet===s,c.ownerRule===r,r.parentStyleSheet===null);</script></head><body>",
+    "expected": [
+      "deleted loaded true false true true",
+      "sheet load true",
+      "dcl interactive",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  },
+  {
+    "name": "CSSOM insertion owner removal cancels load",
+    "html": "<!doctype html><html><head><script>document.addEventListener('DOMContentLoaded',()=>console.log('dcl',document.readyState));window.addEventListener('load',()=>console.log('load',document.readyState));document.addEventListener('load',e=>{if(e.target.localName==='link'){console.log((e.target.id==='sheet'?'sheet':e.target.id)+' load',e.target.sheet!==null)}},true);document.addEventListener('error',e=>{if(e.target.localName==='link')console.log('sheet error',e.target.sheet===null)},true);</script><style id=sheet></style><script>const node=document.getElementById('sheet'),s=node.sheet;s.insertRule('@import \"slow.css\";',0);node.addEventListener('load',()=>console.log('obsolete owner load'));node.remove();console.log('removed insert',document.styleSheets.length);</script><script>console.log('after removed insert');</script></head><body>",
+    "expected": [
+      "removed insert 0",
+      "after removed insert",
+      "dcl interactive",
+      "obsolete owner load",
+      "load complete"
+    ],
+    "resources": {
+      "https://styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60
+      },
+      "https://styles.test/fast.css": {
+        "Source": "#probe { color: rgb(78, 90, 12); }",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/wrong.css": {
+        "Source": "not CSS",
+        "MIME": "text/plain",
+        "Delay": 20
+      },
+      "https://styles.test/missing.css": {
+        "Source": "missing",
+        "MIME": "text/css",
+        "Delay": 20,
+        "Status": 404
+      },
+      "https://styles.test/async.js": {
+        "Source": "console.log('async',document.getElementById('future')!==null,document.getElementById('sheet').sheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/defer.js": {
+        "Source": "console.log('defer',document.getElementById('sheet').sheet!==null,document.getElementById('future')!==null);",
+        "MIME": "text/javascript",
+        "Delay": 10
+      },
+      "https://styles.test/import.css": {
+        "Source": "@import \"slow.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/nested.css": {
+        "Source": "@import \"import.css\"; #outer {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/failed-import.css": {
+        "Source": "@import \"missing.css\"; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/conditional-import.css": {
+        "Source": "@import \"slow.css\" supports(unknown-property: no); #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/print-import.css": {
+        "Source": "@import \"slow.css\" print; #root {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-a.css": {
+        "Source": "@import \"cycle-b.css\"; #a {color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/cycle-b.css": {
+        "Source": "@import \"cycle-a.css\"; #b {color:blue}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/duplicate-import.css": {
+        "Source": "@import \"slow.css\"; @import \"slow.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/redirect.css": {
+        "Source": "@import \"child.css\";",
+        "URL": "https://styles.test/folder/root.css",
+        "Redirect": "/folder/root.css",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/root.css": {
+        "Source": "@import \"child.css\";",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/folder/child.css": {
+        "Source": "#probe{color:red}",
+        "MIME": "text/css",
+        "Delay": 10
+      },
+      "https://styles.test/inspect-import.js": {
+        "Source": "globalThis.pendingOwner=document.getElementById('sheet').sheet;globalThis.pendingRule=pendingOwner?.cssRules[0];console.log('pending import owner',pendingOwner!==null,pendingRule?.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://styles.test/delete-import.js": {
+        "Source": "const s=document.getElementById('sheet').sheet;globalThis.removedRule=s.cssRules[0];s.deleteRule(0);console.log('delete import',s.cssRules.length,removedRule.parentStyleSheet===null,removedRule.styleSheet===null);",
+        "MIME": "text/javascript",
+        "Delay": 20
+      },
+      "https://cross.styles.test/slow.css": {
+        "Source": "#probe { color: rgb(12, 34, 56); }",
+        "MIME": "text/css",
+        "Delay": 60,
+        "OriginClean": true
+      }
+    }
+  }
+]

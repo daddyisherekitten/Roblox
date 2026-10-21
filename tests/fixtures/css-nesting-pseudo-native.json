@@ -1,0 +1,51 @@
+{
+  "reference": "Chromium 154.0.8037.95 headless, 5 October 2026; native nested CSS and computed pseudo styles",
+  "standards": [
+    "https://drafts.csswg.org/css-nesting-1/",
+    "https://www.w3.org/TR/selectors-4/"
+  ],
+  "samples": [
+    {
+      "name": "pseudo-parent maximum specificity",
+      "css": ".p,#missing::before{&{color:red}}.p{color:green}",
+      "color": "rgb(0, 128, 0)",
+      "beforeColor": "rgb(0, 128, 0)",
+      "beforeContent": "none"
+    },
+    {
+      "name": "pseudo-parent direct trailing declarations",
+      "css": ".p,.p::before{color:red;&{color:blue}color:orange;content:\"X\"}",
+      "color": "rgb(255, 165, 0)",
+      "beforeColor": "rgb(255, 165, 0)",
+      "beforeContent": "\"X\""
+    },
+    {
+      "name": "is forgiving pseudo branch",
+      "css": ":is(.p,#missing::before){color:red}.p{color:green}",
+      "color": "rgb(0, 128, 0)",
+      "beforeColor": "rgb(0, 128, 0)",
+      "beforeContent": "none"
+    },
+    {
+      "name": "only pseudo parent child",
+      "css": ".p::before{content:\"X\";&{color:red}color:blue}",
+      "color": "rgb(0, 0, 0)",
+      "beforeColor": "rgb(0, 0, 255)",
+      "beforeContent": "\"X\""
+    },
+    {
+      "name": "forgiving invalid branch",
+      "css": ":is(.p,:unknown()){color:red}.p{color:green}",
+      "color": "rgb(0, 128, 0)",
+      "beforeColor": "rgb(0, 128, 0)",
+      "beforeContent": "none"
+    },
+    {
+      "name": "nesting all-pseudo group declarations",
+      "css": ".p::before{content:\"X\";@media(min-width:0px){color:purple}}",
+      "color": "rgb(0, 0, 0)",
+      "beforeColor": "rgb(128, 0, 128)",
+      "beforeContent": "\"X\""
+    }
+  ]
+}

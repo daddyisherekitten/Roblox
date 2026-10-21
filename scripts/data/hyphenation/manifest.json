@@ -1,0 +1,172 @@
+[
+  {
+    "language": "en-us",
+    "module": "enUS",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-en-us.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 4938,
+    "texSHA256": "f4ffcd96c5cbc886bdad23f95dcae8edc3cd3620eae62f7946eceda97c4e68f8",
+    "patternsSHA256": "0f57318b878b132547ae92db39a6e1d1cf2a05d9008874955d6ecb910007a463",
+    "exceptionsSHA256": "5e785c27e151f878c312991d937b5582615b77737ab30bac413d5967d6aa21da"
+  },
+  {
+    "language": "en-gb",
+    "module": "enGB",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-en-gb.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 8527,
+    "texSHA256": "e95bb4ab350f620c41c231c4785d7bdb4f91949d3e631b30e08b3ead3c340a52",
+    "patternsSHA256": "651b89b4a0d4051995db8586e81ab109a4c7395d7706c06483893ebab5af013b",
+    "exceptionsSHA256": "947b7b8e76f6a0d8ebe296178ff92ad624e4912ffbaaf59b26f81a395124e366"
+  },
+  {
+    "language": "de-1996",
+    "module": "de1996",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-de-1996.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 36709,
+    "texSHA256": "374ad1ce3263f8a2791ec070ef9b516c532dae64456f3fb656e617e8ae53a9d3",
+    "patternsSHA256": "0570839683e4843a6210b188e2a586fe06f2b6b73952ec8106a634209d735adb",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "de-1901",
+    "module": "de1901",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-de-1901.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 36397,
+    "texSHA256": "fe3cc8f71d5bce07ca8bbaf7396ece6da004d5cd88a02a448467956cd34b7482",
+    "patternsSHA256": "24a5c91566116120625ccd79beb46deec28f89cf382f08afd1a9b1c871b4a83e",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "de-ch-1901",
+    "module": "deCH1901",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-de-ch-1901.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 35840,
+    "texSHA256": "5a72deec0543bf428d073a40f9abf626baaab5f58b75e620b9504309f1980bf3",
+    "patternsSHA256": "dd77dff72013d0a0b2fe628da94a6ba95b206ea3dd3108e214b5eb401f994bf5",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "fr",
+    "module": "fr",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-fr.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 1216,
+    "texSHA256": "526cad6fe8f52fcd3caa3fcaf667cb1740cfc14bca198680e00dc343a84594de",
+    "patternsSHA256": "fd40a89e9e8eb0784a0919e50378814843e44afa41c5beaf0a85f6562820f6c2",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "es",
+    "module": "es",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-es.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 4694,
+    "texSHA256": "6a2e5f39a991a23d1cd8a23dbd0f6fe96a9f07561a6695f4f3320f47030e236c",
+    "patternsSHA256": "7ae8fa8d6a61ea4111c4a0412d019b62e7c07a62673121d0b711c5bc08d8e00c",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "it",
+    "module": "it",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-it.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 384,
+    "texSHA256": "6ce56ed6ed2ca7c0688838e366e6595e0429f984f4fc6e96ec045cebb1e76a47",
+    "patternsSHA256": "ce650cffad4e81ecaf04591f3274a8ed909e82c587698c55e33b00e2aa7746de",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "nl",
+    "module": "nl",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-nl.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 12724,
+    "texSHA256": "d21499bfbee53e4d50e867ef92a41fd28b65725d7c91c980e4f8f02889bf6b2a",
+    "patternsSHA256": "ac5795c1d6cd7027e6ec3a9e58e173789f999669e40ffd81755a4db7d3214165",
+    "exceptionsSHA256": "5902ba4d760815a51a972b6d05f514dde1842c16fa2859b907e2d299edbb3299"
+  },
+  {
+    "language": "pt",
+    "module": "pt",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-pt.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 427,
+    "texSHA256": "c110a39e501db372d1d755e1c64464321a2efa7d8e9617f66001000389b941f2",
+    "patternsSHA256": "37cab85eee09030843f74d7e34453422b69404491abb0d8fa61ad42539b22ee8",
+    "exceptionsSHA256": "5c093a9e48dc8f87624693f31b8da7d090ed1e6eeb07fce7bcfd5689d7f941a8"
+  },
+  {
+    "language": "da",
+    "module": "da",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-da.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 1144,
+    "texSHA256": "23e0a50f0c20d632be06f973e700323463961eac737bb14f6c3787675a4f5575",
+    "patternsSHA256": "a093ef99375717fe34d261b05d2fdc8e64f8a9f741578c020204374f4c39a20c",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "uk",
+    "module": "uk",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-uk.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 4565,
+    "texSHA256": "9f57d9593f4b8a93e033f7f9649aaf3abb49d17117cbd987692b626e13374c55",
+    "patternsSHA256": "48c8640eb073bee879fb3d57cd91068bf70129b0bb8f7f5db6ecf9e056b57d1e",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "pl",
+    "module": "pl",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-pl.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 4053,
+    "texSHA256": "83ddbbd21bc06a44bc4f4a4c49c38782e809cff5f026b764c044daa29e818843",
+    "patternsSHA256": "4b9c3583f176efb76dccee7e630ac7516567abd96dcbc3ebaa2388e795774b48",
+    "exceptionsSHA256": "0e3fd28ea45ec144f5f1438a7bbfb5b55c14dd0cccfefe4ddfbe95fee14d82cf"
+  },
+  {
+    "language": "sl",
+    "module": "sl",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-sl.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 1068,
+    "texSHA256": "27da982d03b881fe84f1c4fb42ba0948f33e01a3a44eaa5ebd07e01d20c72691",
+    "patternsSHA256": "7a08718a42e1bfbfc0547ec117d82b51c55987c46f7445cf14f1af3cffd69c39",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "et",
+    "module": "et",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-et.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 3691,
+    "texSHA256": "617abc528446e33c1690a3d13ae7629292d2f00557b1b4ec96cb2a1d790ac090",
+    "patternsSHA256": "e04675ba1851dca1cdaab9fe5cb8dea2f7b04dfc9bf89820fc6bc9ef7eb7fd16",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "lt",
+    "module": "lt",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-lt.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 1546,
+    "texSHA256": "6162b566620367abb827ba1457567e7a79680596919886a7138e48b346e983d1",
+    "patternsSHA256": "38e3ac46376bc32db4197facffedff4ee442c3871f0244e08cd520d62665d56d",
+    "exceptionsSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "language": "af",
+    "module": "af",
+    "source": "https://raw.githubusercontent.com/hyphenation/tex-hyphen/5684c0f51c0b81133db2efbe60a408b4155a3ff5/hyph-utf8/tex/generic/hyph-utf8/patterns/tex/hyph-af.tex",
+    "revision": "5684c0f51c0b81133db2efbe60a408b4155a3ff5",
+    "patterns": 10349,
+    "texSHA256": "a5de62ec8e5fd38251de838d8ebbdc44b21c76d30e9b486005fbfa641a93abe6",
+    "patternsSHA256": "094be0ccc966cb8a9919abffb4d481566bbc25d62bb182647be9feb431de5b5b",
+    "exceptionsSHA256": "f1a77063f393d227aa29b085279307d2c728f4200e54c41e4507707ae5aca6b8"
+  }
+]

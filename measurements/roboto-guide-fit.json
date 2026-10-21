@@ -1,0 +1,54 @@
+{
+  "font": "Roboto normal",
+  "fontFamily": "rbxasset://fonts/families/Roboto.json",
+  "fontWeight": "Regular",
+  "text": "H x p",
+  "lineHeight": 1,
+  "scale": 1.13,
+  "textSizeRounding": "ceil",
+  "method": "linear least squares per guide against ceil(htmlSize * scale), matching reported robloxTextSize; rounded once for display",
+  "training": [
+    {
+      "htmlSize": 10,
+      "robloxTextSize": 12,
+      "Top": 1,
+      "XHeight": 3,
+      "Baseline": 10,
+      "Bottom": 12
+    },
+    {
+      "htmlSize": 20,
+      "robloxTextSize": 23,
+      "Top": 4,
+      "XHeight": 7,
+      "Baseline": 19,
+      "Bottom": 23
+    },
+    {
+      "htmlSize": 30,
+      "robloxTextSize": 34,
+      "Top": 5,
+      "XHeight": 11,
+      "Baseline": 28,
+      "Bottom": 34
+    },
+    {
+      "htmlSize": 40,
+      "robloxTextSize": 46,
+      "Top": 7,
+      "XHeight": 14,
+      "Baseline": 37,
+      "Bottom": 45
+    },
+    {
+      "htmlSize": 50,
+      "robloxTextSize": 57,
+      "Top": 9,
+      "XHeight": 19,
+      "Baseline": 46,
+      "Bottom": 56
+    }
+  ],
+  "heldOut": [],
+  "notes": "Manual FONT_REPORT received after enabling ceil. Origin: TextLabel top, pixels downward. Maximum training error 1 px. User subsequently confirmed the size comparison with Chrome after ceil: ja grösse passt. Intermediate and outside sizes not visually validated. Guide distances are not independent glyph-height counts."
+}

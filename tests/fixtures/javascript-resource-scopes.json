@@ -1,0 +1,339 @@
+[
+  {
+    "name": "Using block captures disposer once and releases LIFO",
+    "source": "const log=[];const a={get [Symbol.dispose](){log.push('get a');return function(){log.push('a:'+this.id)}},id:1},b={[Symbol.dispose](){log.push('b')}};{using x=a;using y=b;Object.defineProperty(a,Symbol.dispose,{value(){log.push('wrong')}});log.push('body')}record(log.join('|'))",
+    "expected": [
+      "get a|body|b|a:1"
+    ]
+  },
+  {
+    "name": "Using null and undefined are inert and primitive rejected",
+    "source": "{using a=null;using b=undefined;record('body')}try{{using x=1}}catch(e){record(e.name)}try{{using x={}}}catch(e){record(e.name)}",
+    "expected": [
+      "body",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Using return break and continue release their scope",
+    "source": "function f(){using x={[Symbol.dispose](){record('return disposed')}};return 4}record(f());for(let i=0;i<2;i++){using x={[Symbol.dispose](){record('loop '+i)}};if(i===0)continue;break}record('done')",
+    "expected": [
+      "return disposed",
+      "4",
+      "loop 0",
+      "loop 1",
+      "done"
+    ]
+  },
+  {
+    "name": "Using binding is lexical constant with TDZ",
+    "source": "try{{record(x);using x=null}}catch(e){record(e.name)}try{{using x=null;x=4}}catch(e){record(e.name)}record(typeof x)",
+    "expected": [
+      "ReferenceError",
+      "TypeError",
+      "undefined"
+    ]
+  },
+  {
+    "name": "Using initializers register separately before later failure",
+    "source": "try{using a={[Symbol.dispose](){record('a')}};using b={get [Symbol.dispose](){record('get b');throw 'getter'}}}catch(e){record(e)}",
+    "expected": [
+      "get b",
+      "a",
+      "getter"
+    ]
+  },
+  {
+    "name": "Using body throw composes suppressed disposal errors",
+    "source": "try{using a={[Symbol.dispose](){throw 'a'}},b={[Symbol.dispose](){throw 'b'}};throw 'body'}catch(e){record(e.name);record(e.error);record(e.suppressed.name);record(e.suppressed.error);record(e.suppressed.suppressed)}",
+    "expected": [
+      "SuppressedError",
+      "a",
+      "SuppressedError",
+      "b",
+      "body"
+    ]
+  },
+  {
+    "name": "Using thrown undefined remains an abrupt completion",
+    "source": "try{using x={[Symbol.dispose](){throw 'dispose'}};throw undefined}catch(e){record(e.name);record(e.error);record(e.suppressed===undefined)}try{{using x=null;throw undefined}}catch(e){record(e===undefined)}",
+    "expected": [
+      "SuppressedError",
+      "dispose",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "Using ignores disposer result thenables",
+    "source": "{using x={[Symbol.dispose](){record('dispose');return {get then(){record('wrong then getter')}}}};record('body')}record('after')",
+    "expected": [
+      "body",
+      "dispose",
+      "after"
+    ]
+  },
+  {
+    "name": "Using does not depend on mutable public stack APIs",
+    "source": "DisposableStack.prototype.use=function(){throw 'wrong use'};DisposableStack.prototype.dispose=function(){throw 'wrong dispose'};DisposableStack=function(){throw 'wrong constructor'};SuppressedError=function(){throw 'wrong error'};try{using x={[Symbol.dispose](){throw 'dispose'}};throw 'body'}catch(e){record(e.name);record(e.error);record(e.suppressed)}",
+    "expected": [
+      "SuppressedError",
+      "dispose",
+      "body"
+    ]
+  },
+  {
+    "name": "Using finally may override disposed return",
+    "source": "function f(){try{using x={[Symbol.dispose](){record('dispose')}};return 1}finally{record('finally');return 2}}record(f())",
+    "expected": [
+      "dispose",
+      "finally",
+      "2"
+    ]
+  },
+  {
+    "name": "Generator resources survive yield and dispose on return",
+    "source": "function* f(){using x={[Symbol.dispose](){record('dispose')}};try{yield 1}finally{record('finally')}}const g=f();record(JSON.stringify(g.next()));record('suspended');record(JSON.stringify(g.return(4)));record(JSON.stringify(g.next()))",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "suspended",
+      "finally",
+      "dispose",
+      "{\"value\":4,\"done\":true}",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator resource errors suppress injected throw",
+    "source": "function* f(){using x={[Symbol.dispose](){throw 'dispose'}};yield 1}const g=f();g.next();try{g.throw('body')}catch(e){record(e.name);record(e.error);record(e.suppressed)}",
+    "expected": [
+      "SuppressedError",
+      "dispose",
+      "body"
+    ]
+  },
+  {
+    "name": "Await using awaits async disposer and exits FIFO",
+    "source": "async function f(){await using a={[Symbol.asyncDispose](){record('a');return Promise.resolve().then(()=>record('a done'))}};await using b={[Symbol.asyncDispose](){record('b');return Promise.resolve().then(()=>record('b done'))}};record('body');return 4}f().then(v=>record('result '+v));record('sync')",
+    "expected": [
+      "body",
+      "b",
+      "sync",
+      "b done",
+      "a",
+      "a done",
+      "result 4"
+    ]
+  },
+  {
+    "name": "Await using falls back to sync and ignores returned thenable",
+    "source": "async function f(){await using x={[Symbol.dispose](){record('dispose');return {get then(){record('wrong then')}}}};record('body')}f().then(()=>record('done'));record('sync')",
+    "expected": [
+      "body",
+      "dispose",
+      "sync",
+      "done"
+    ]
+  },
+  {
+    "name": "Mixed using never awaits sync disposer thenable",
+    "source": "async function f(){using a={[Symbol.dispose](){record('a');return {get then(){record('wrong then')}}}};await using b={[Symbol.asyncDispose](){record('b');return Promise.resolve().then(()=>record('b done'))}};record('body')}f().then(()=>record('done'));record('sync')",
+    "expected": [
+      "body",
+      "b",
+      "sync",
+      "b done",
+      "a",
+      "done"
+    ]
+  },
+  {
+    "name": "Await using null awaits before following sync resource disposal",
+    "source": "async function f(){using a={[Symbol.dispose](){record('a')}};await using b=null;record('body')}f().then(()=>record('done'));record('sync');Promise.resolve().then(()=>record('microtask'))",
+    "expected": [
+      "body",
+      "sync",
+      "a",
+      "microtask",
+      "done"
+    ]
+  },
+  {
+    "name": "Await using null preceding async resource retains native boundary",
+    "source": "async function f(){await using a={[Symbol.asyncDispose](){record('a')}};await using b=null;record('body')}f().then(()=>record('done'));record('sync');Promise.resolve().then(()=>record('microtask'))",
+    "expected": [
+      "body",
+      "a",
+      "sync",
+      "microtask",
+      "done"
+    ]
+  },
+  {
+    "name": "Await using sync fallback throw rejects and suppresses body error",
+    "source": "async function f(){await using a={[Symbol.dispose](){throw 'dispose'}};throw 'body'}f().catch(e=>{record(e.name);record(e.error);record(e.suppressed)});record('sync')",
+    "expected": [
+      "sync",
+      "SuppressedError",
+      "dispose",
+      "body"
+    ]
+  },
+  {
+    "name": "Await using disposal continues after rejected promise",
+    "source": "async function f(){await using a={[Symbol.asyncDispose](){record('a');throw 'a'}};await using b={[Symbol.asyncDispose](){record('b');return Promise.reject('b')}};throw 'body'}f().catch(e=>{record(e.name);record(e.error);record(e.suppressed.error);record(e.suppressed.suppressed)});record('sync')",
+    "expected": [
+      "b",
+      "sync",
+      "a",
+      "SuppressedError",
+      "a",
+      "b",
+      "body"
+    ]
+  },
+  {
+    "name": "Await using await method getter and sync fallback capture order",
+    "source": "async function f(){const x={get [Symbol.asyncDispose](){record('async getter');return null},get [Symbol.dispose](){record('sync getter');return function(){record('dispose')}}};await using r=x;record('body')}f().then(()=>record('done'));record('sync')",
+    "expected": [
+      "async getter",
+      "sync getter",
+      "body",
+      "dispose",
+      "sync",
+      "done"
+    ]
+  },
+  {
+    "name": "Await using async generator resources release under queued return",
+    "source": "async function* f(){await using x={[Symbol.asyncDispose](){record('dispose');return Promise.resolve().then(()=>record('disposed'))}};yield 1}const g=f();g.next().then(v=>record(JSON.stringify(v)));g.return(4).then(v=>record(JSON.stringify(v)));g.next().then(v=>record(JSON.stringify(v)));record('sync')",
+    "expected": [
+      "sync",
+      "{\"value\":1,\"done\":false}",
+      "dispose",
+      "disposed",
+      "{\"value\":4,\"done\":true}",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Using syntax early errors require initializer identifier and no statement position",
+    "source": "for(const code of ['using x;','using {x}={};','if(true) using x=null;','await using x=null;'])try{Function(code)}catch(e){record(code+':'+e.name)}",
+    "expected": [
+      "using x;:SyntaxError",
+      "using {x}={};:SyntaxError",
+      "if(true) using x=null;:SyntaxError",
+      "await using x=null;:SyntaxError"
+    ]
+  },
+  {
+    "name": "Using for-of disposes each iteration before continue and break",
+    "source": "let i=0;function* source(){try{for(let n=0;n<3;n++)yield {n,[Symbol.dispose](){record('dispose '+n)}}}finally{record('iterator close')}}for(using x of source()){record('body '+x.n);if(i++===0)continue;break}record('done')",
+    "expected": [
+      "body 0",
+      "dispose 0",
+      "body 1",
+      "dispose 1",
+      "iterator close",
+      "done"
+    ]
+  },
+  {
+    "name": "Using for-of disposal failure closes iterator with original error",
+    "source": "function* source(){try{yield {[Symbol.dispose](){throw 'dispose'}};record('wrong next')}finally{record('iterator close')}}try{for(using x of source()){record('body')}}catch(e){record(e)}",
+    "expected": [
+      "body",
+      "iterator close",
+      "dispose"
+    ]
+  },
+  {
+    "name": "Using for initialization disposes only once at loop exit",
+    "source": "for(using x={[Symbol.dispose](){record('dispose')}};true;){record('body');break}record('done')",
+    "expected": [
+      "body",
+      "dispose",
+      "dispose",
+      "done"
+    ],
+    "browserExpected": [
+      "body",
+      "dispose",
+      "done"
+    ]
+  },
+  {
+    "name": "Using switch case requires an explicit lexical block",
+    "source": "try{Function(\"switch(1){case 1:using a=null;break}\")}catch(e){record(e.name)}switch(1){case 1:{using a={[Symbol.dispose](){record('dispose')}};record('body');break}default:record('wrong')}record('after')",
+    "expected": [
+      "SyntaxError",
+      "body",
+      "dispose",
+      "after"
+    ]
+  },
+  {
+    "name": "Using nested labeled break releases scopes inside out",
+    "source": "outer:{using a={[Symbol.dispose](){record('a')}};{using b={[Symbol.dispose](){record('b')}};break outer}}record('done')",
+    "expected": [
+      "b",
+      "a",
+      "done"
+    ]
+  },
+  {
+    "name": "Await using for-of waits before next iteration",
+    "source": "async function f(){for(await using x of [{n:1,[Symbol.asyncDispose](){record('dispose 1');return Promise.resolve().then(()=>record('done 1'))}},{n:2,[Symbol.asyncDispose](){record('dispose 2')}}]){record('body '+x.n)}}f().then(()=>record('done'));record('sync')",
+    "expected": [
+      "body 1",
+      "dispose 1",
+      "sync",
+      "done 1",
+      "body 2",
+      "dispose 2",
+      "done"
+    ]
+  },
+  {
+    "name": "For-await await using closes resources before iterator on break",
+    "source": "async function* source(){try{yield {[Symbol.asyncDispose](){record('dispose');return Promise.resolve().then(()=>record('disposed'))}}}finally{record('iterator close')}}async function f(){for await(await using x of source()){record('body');break}record('after')}f().then(()=>record('done'));record('sync')",
+    "expected": [
+      "sync",
+      "body",
+      "dispose",
+      "disposed",
+      "iterator close",
+      "after",
+      "done"
+    ]
+  },
+  {
+    "name": "Using initializer failure disposes earlier declarator before catch",
+    "source": "function fail(){throw 'init'}try{using a={[Symbol.dispose](){record('a')}},b=fail()}catch(e){record(e)}",
+    "expected": [
+      "a",
+      "init"
+    ]
+  },
+  {
+    "name": "Await using null scope boundary relative to body microtasks",
+    "source": "async function f(){await using x=null;Promise.resolve().then(()=>record('body microtask'));record('body')}f().then(()=>record('done'));record('sync');Promise.resolve().then(()=>record('outer microtask'))",
+    "expected": [
+      "body",
+      "sync",
+      "body microtask",
+      "outer microtask",
+      "done"
+    ]
+  },
+  {
+    "name": "Using remains a contextual identifier",
+    "source": "let using=3;record(using);const o={using:4};record(o.using);function f(using){return using+1}record(f(5))",
+    "expected": [
+      "3",
+      "4",
+      "6"
+    ]
+  }
+]

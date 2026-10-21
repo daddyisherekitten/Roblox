@@ -1,0 +1,25 @@
+{
+  "Node": "24.16.0",
+  "ICU": "78.3",
+  "CLDR": "48.0",
+  "TZ": "2026b",
+  "Unicode": "17.0",
+  "Locales": [
+    "de-DE",
+    "en-US",
+    "en-GB"
+  ],
+  "Zones": [
+    "Europe/Berlin",
+    "Europe/London",
+    "America/New_York",
+    "America/Los_Angeles",
+    "America/Chicago",
+    "Asia/Tokyo",
+    "Asia/Kolkata",
+    "Australia/Sydney",
+    "Pacific/Auckland"
+  ],
+  "Start": -2208988800000,
+  "End": 4133980800000
+}

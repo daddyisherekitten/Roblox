@@ -1,0 +1,334 @@
+{
+  "basic": {
+    "before": [
+      "root",
+      true,
+      true,
+      true
+    ],
+    "forward": [
+      "root",
+      "a",
+      "a1",
+      "a2",
+      "s1",
+      "r1",
+      "z"
+    ],
+    "reverse": [
+      "z",
+      "r1",
+      "s1",
+      "a2",
+      "a1",
+      "a",
+      "root"
+    ],
+    "walked": [
+      "a",
+      "a1",
+      "a2",
+      "s1",
+      "z"
+    ],
+    "walkedBack": [
+      "s1",
+      "a2",
+      "a1",
+      "a",
+      "root"
+    ],
+    "exhausted": true,
+    "all": [
+      "root",
+      "a",
+      "#text:A",
+      "a1",
+      "#text:one",
+      "a2",
+      "#text:two",
+      "skip",
+      "s1",
+      "#text:three",
+      "reject",
+      "r1",
+      "#text:four",
+      "#comment:note",
+      "z",
+      "#text:Z"
+    ]
+  },
+  "navigation": {
+    "steps": [
+      [
+        "firstChild",
+        "a",
+        "a"
+      ],
+      [
+        "firstChild",
+        "a1",
+        "a1"
+      ],
+      [
+        "nextSibling",
+        "a2",
+        "a2"
+      ],
+      [
+        "previousSibling",
+        "a1",
+        "a1"
+      ],
+      [
+        "parentNode",
+        "a",
+        "a"
+      ],
+      [
+        "nextSibling",
+        "s1",
+        "s1"
+      ],
+      [
+        "parentNode",
+        "root",
+        "root"
+      ],
+      [
+        "lastChild",
+        "z",
+        "z"
+      ],
+      [
+        "previousSibling",
+        "s1",
+        "s1"
+      ],
+      [
+        "previousSibling",
+        "a",
+        "a"
+      ],
+      [
+        "parentNode",
+        "root",
+        "root"
+      ],
+      [
+        "previousNode",
+        null,
+        "root"
+      ],
+      [
+        "parent-rejected",
+        "root"
+      ],
+      [
+        "outside-root-parent",
+        "ASIDE:null",
+        true
+      ]
+    ],
+    "nullCurrent": "TypeError",
+    "unchanged": true
+  },
+  "filterConversion": {
+    "deferred": 0,
+    "reads": 2,
+    "receiver": true,
+    "found": "a",
+    "identity": true,
+    "callableThis": true,
+    "converted": 4294967295,
+    "nullMask": null,
+    "zeroMask": null,
+    "badObject": "TypeError",
+    "badPrimitive": "TypeError",
+    "bigMask": "TypeError",
+    "symbolMask": "TypeError",
+    "numericFilter": "root"
+  },
+  "masksAndUnknownResult": {
+    "text": [
+      "#text:A",
+      "#text:one",
+      "#text:two",
+      "#text:three",
+      "#text:four",
+      "#text:Z"
+    ],
+    "calls": 6,
+    "comments": [
+      "#comment:note"
+    ],
+    "child": "skip",
+    "next": "a1",
+    "fragment": [
+      "#document-fragment:null"
+    ],
+    "attributes": []
+  },
+  "deepNavigation": {
+    "steps": [
+      [
+        "firstChild",
+        "accept-deep",
+        "accept-deep"
+      ],
+      [
+        "nextSibling",
+        "accept-outer",
+        "accept-outer"
+      ],
+      [
+        "previousSibling",
+        "accept-deep",
+        "accept-deep"
+      ],
+      [
+        "nextNode",
+        "accept-outer",
+        "accept-outer"
+      ],
+      [
+        "parentNode",
+        "deep-root",
+        "deep-root"
+      ],
+      [
+        "lastChild",
+        "end",
+        "end"
+      ],
+      [
+        "previousSibling",
+        "accept-outer",
+        "accept-outer"
+      ],
+      [
+        "previousNode",
+        "accept-deep",
+        "accept-deep"
+      ],
+      [
+        "parentNode",
+        "deep-root",
+        "deep-root"
+      ]
+    ],
+    "forward": [
+      "accept-deep",
+      "accept-outer",
+      "end"
+    ]
+  },
+  "removals": {
+    "afterPosition": [
+      "root",
+      false,
+      "skip"
+    ],
+    "beforePosition": [
+      "skip",
+      true,
+      "skip"
+    ],
+    "lastPosition": [
+      "z",
+      true,
+      "z"
+    ],
+    "movePosition": [
+      "root",
+      false,
+      "skip",
+      true
+    ],
+    "retainedPosition": [
+      "a",
+      "a1",
+      true
+    ]
+  },
+  "filterMutation": {
+    "first": "root",
+    "candidate": "a",
+    "detached": true,
+    "adjusted": [
+      "root",
+      false
+    ],
+    "next": "skip",
+    "skipFirst": "root",
+    "skipNext": "skip",
+    "walkerCurrent": "a",
+    "walkerDetached": true,
+    "walkerNext": "a1"
+  },
+  "replacementPaths": {
+    "text": [
+      "DIV:null",
+      false,
+      "#text:new"
+    ],
+    "markup": [
+      "root",
+      "fresh"
+    ],
+    "normal": [
+      "#text:leftright",
+      false,
+      null,
+      1
+    ]
+  },
+  "identityAndDescriptors": {
+    "usable": true,
+    "readOnly": [
+      true,
+      true,
+      true
+    ],
+    "strict": "TypeError",
+    "instance": true,
+    "tag": "[object TreeWalker]",
+    "identity": true,
+    "property": [
+      "function",
+      "function",
+      true,
+      true
+    ],
+    "constant": [
+      4294967295,
+      false,
+      true,
+      false
+    ],
+    "constructor": "TypeError",
+    "callable": "TypeError",
+    "noPrototype": true,
+    "receiver": "TypeError",
+    "factoryReceiver": "TypeError"
+  },
+  "errorsAndReentrancy": {
+    "identity": true,
+    "afterFailure": [
+      "root",
+      true
+    ],
+    "recovered": "root",
+    "recursiveError": "InvalidStateError",
+    "outer": "root",
+    "outerPosition": [
+      "root",
+      false
+    ],
+    "walked": "a",
+    "walkerError": "InvalidStateError",
+    "nestedParent": null,
+    "coerced": "root",
+    "coercionError": "InvalidStateError"
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "actual": [
+      "set0:true:true:true",
+      "set9:true:true:true",
+      "define0null:true:true:true",
+      "define0write:true:true:true",
+      "define0get:true:true:true",
+      "define9:true:true:true",
+      "delete9:true:true:true",
+      "strict0:TypeError",
+      "strict9:TypeError"
+    ],
+    "expected": [],
+    "match": false,
+    "name": "TouchList indexed operations"
+  }
+]

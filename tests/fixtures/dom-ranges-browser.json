@@ -1,0 +1,568 @@
+{
+  "construction": {
+    "initial": [
+      true,
+      true,
+      0,
+      0,
+      true
+    ],
+    "text": "onetwothree",
+    "common": true,
+    "identity": true,
+    "clone": "onetwothree",
+    "instance": true,
+    "tags": [
+      "[object Range]",
+      "[object Range]"
+    ],
+    "construct": "TypeError",
+    "abstract": "TypeError"
+  },
+  "boundaries": {
+    "snapshots": [
+      [
+        [
+          "#text:abc",
+          1
+        ],
+        [
+          "#text:abc",
+          1
+        ],
+        true
+      ],
+      [
+        [
+          "#text:abc",
+          1
+        ],
+        [
+          "#text:def",
+          2
+        ],
+        false
+      ],
+      [
+        [
+          "#text:def",
+          3
+        ],
+        [
+          "#text:def",
+          3
+        ],
+        true
+      ],
+      [
+        [
+          "#text:abc",
+          0
+        ],
+        [
+          "#text:abc",
+          0
+        ],
+        true
+      ],
+      [
+        [
+          "range-root",
+          0
+        ],
+        [
+          "range-root",
+          2
+        ],
+        false
+      ],
+      [
+        [
+          "range-root",
+          2
+        ],
+        [
+          "range-root",
+          2
+        ],
+        true
+      ],
+      [
+        [
+          "range-root",
+          1
+        ],
+        [
+          "range-root",
+          2
+        ],
+        false
+      ],
+      [
+        [
+          "range-root",
+          1
+        ],
+        [
+          "range-root",
+          1
+        ],
+        true
+      ],
+      [
+        true,
+        true,
+        true
+      ]
+    ],
+    "orphan": "InvalidNodeTypeError",
+    "document": "InvalidNodeTypeError",
+    "unchanged": true
+  },
+  "comparisons": {
+    "comparisons": [
+      -1,
+      1,
+      -1,
+      -1
+    ],
+    "reverse": [
+      1,
+      1,
+      1,
+      -1
+    ],
+    "points": [
+      -1,
+      0,
+      0,
+      1
+    ],
+    "inclusive": [
+      true,
+      true,
+      false
+    ],
+    "detached": false,
+    "wrongRoot": "WrongDocumentError",
+    "wrongRange": "WrongDocumentError",
+    "invalidHow": "NotSupportedError",
+    "modulo": -1,
+    "intersections": [
+      true,
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  "stringification": {
+    "all": "😀BCDEFZ",
+    "partial": "😀BCDE",
+    "element": "BCDEF",
+    "contents": "A😀BCDEFZ",
+    "comment": "",
+    "lone": [
+      1,
+      55357
+    ],
+    "length": 3
+  },
+  "characterData": {
+    "snapshots": [
+      [
+        [
+          "#text:abcdef",
+          2
+        ],
+        [
+          "#text:abcdef",
+          5
+        ],
+        false
+      ],
+      [
+        [
+          "#text:aXYbcdef",
+          4
+        ],
+        [
+          "#text:aXYbcdef",
+          7
+        ],
+        false
+      ],
+      [
+        [
+          "#text:aXYdef",
+          3
+        ],
+        [
+          "#text:aXYdef",
+          5
+        ],
+        false
+      ],
+      [
+        [
+          "#text:aXQef",
+          2
+        ],
+        [
+          "#text:aXQef",
+          4
+        ],
+        false
+      ],
+      [
+        [
+          "#text:aXQeftail",
+          2
+        ],
+        [
+          "#text:aXQeftail",
+          4
+        ],
+        false
+      ],
+      [
+        [
+          "#text:aXQeftail",
+          0
+        ],
+        [
+          "#text:aXQeftail",
+          0
+        ],
+        true
+      ]
+    ],
+    "selected": "Qe",
+    "commentPoint": [
+      [
+        "#comment:aXYcd",
+        1
+      ],
+      [
+        "#comment:aXYcd",
+        4
+      ],
+      false
+    ],
+    "commentString": ""
+  },
+  "structuralMutations": {
+    "snapshots": [
+      [
+        [
+          "range-root",
+          1
+        ],
+        [
+          "range-root",
+          3
+        ],
+        false
+      ],
+      [
+        [
+          "range-root",
+          1
+        ],
+        [
+          "range-root",
+          5
+        ],
+        false
+      ],
+      [
+        [
+          "range-root",
+          1
+        ],
+        [
+          "range-root",
+          4
+        ],
+        false
+      ],
+      [
+        [
+          "range-root",
+          0
+        ],
+        [
+          "range-root",
+          3
+        ],
+        false
+      ],
+      [
+        [
+          "range-root",
+          0
+        ],
+        [
+          "range-root",
+          0
+        ],
+        true
+      ],
+      [
+        [
+          "range-root",
+          0
+        ],
+        [
+          "range-root",
+          0
+        ],
+        true
+      ]
+    ],
+    "removed": [
+      [
+        "range-root",
+        3
+      ],
+      [
+        "range-root",
+        3
+      ],
+      true
+    ],
+    "retained": true,
+    "other": true
+  },
+  "splitText": {
+    "attached": {
+      "range": [
+        [
+          "#text:abc",
+          2
+        ],
+        [
+          "#text:def",
+          2
+        ],
+        false
+      ],
+      "at": [
+        [
+          "#text:abc",
+          3
+        ],
+        [
+          "#text:abc",
+          3
+        ],
+        true
+      ],
+      "parent": [
+        [
+          "range-root",
+          2
+        ],
+        [
+          "range-root",
+          3
+        ],
+        false
+      ],
+      "text": "cde",
+      "identity": true
+    },
+    "detached": [
+      [
+        "#text:abc",
+        2
+      ],
+      [
+        "#text:abc",
+        3
+      ],
+      false
+    ],
+    "orphanIdentity": true,
+    "invalid": "IndexSizeError"
+  },
+  "normalize": {
+    "normalized": {
+      "middle": [
+        [
+          "#text:abcdef",
+          3
+        ],
+        [
+          "#text:abcdef",
+          5
+        ],
+        false
+      ],
+      "gap": [
+        [
+          "#text:abcdef",
+          2
+        ],
+        [
+          "#text:abcdef",
+          2
+        ],
+        true
+      ],
+      "empty": [
+        [
+          "#text:abcdef",
+          2
+        ],
+        [
+          "#text:abcdef",
+          2
+        ],
+        true
+      ],
+      "text": "de",
+      "retained": true,
+      "count": 1,
+      "removed": true
+    },
+    "leading": [
+      [
+        "range-root",
+        0
+      ],
+      [
+        "range-root",
+        0
+      ],
+      true
+    ],
+    "word": true,
+    "trailing": [
+      [
+        "range-root",
+        1
+      ],
+      [
+        "range-root",
+        1
+      ],
+      true
+    ],
+    "trailingIdentity": false
+  },
+  "staticRange": {
+    "order": [
+      "endContainer",
+      "endOffset",
+      "endNumber",
+      "startContainer",
+      "startOffset",
+      "startNumber"
+    ],
+    "stale": [
+      [
+        "#text:f",
+        1
+      ],
+      [
+        "#text:f",
+        4
+      ],
+      false
+    ],
+    "invalidOffsets": [
+      999,
+      4294967295
+    ],
+    "instance": true,
+    "tag": "[object StaticRange]",
+    "methods": [
+      "undefined",
+      "undefined"
+    ],
+    "descriptor": [
+      "function",
+      true,
+      true,
+      true
+    ],
+    "readonly": true,
+    "strict": "TypeError",
+    "missing": "TypeError",
+    "primitive": "TypeError",
+    "called": "TypeError"
+  },
+  "constructorTargets": {
+    "custom": true,
+    "static": true,
+    "order": [
+      "prototype",
+      "endContainer",
+      "endOffset",
+      "startContainer",
+      "startOffset"
+    ],
+    "fallback": false,
+    "identity": true,
+    "functionKeys": [
+      "length",
+      "name"
+    ],
+    "constructorKeys": [
+      "length",
+      "name",
+      "prototype"
+    ]
+  },
+  "conversionsAndBrand": {
+    "after": [
+      [
+        "#text:ab",
+        1
+      ],
+      [
+        "#text:ab",
+        1
+      ],
+      true
+    ],
+    "count": 1,
+    "identity": true,
+    "invalid": "TypeError",
+    "noConversion": true,
+    "fake": "TypeError",
+    "missing": "TypeError",
+    "symbol": "TypeError",
+    "bigint": "TypeError",
+    "negative": "IndexSizeError",
+    "invalidNode": "TypeError",
+    "source": "TypeError",
+    "detached": "ab",
+    "prototype": false,
+    "constructorInheritance": false,
+    "accessorShape": [
+      true,
+      false,
+      false
+    ],
+    "descriptor": [
+      true,
+      true,
+      true
+    ],
+    "constant": [
+      0,
+      false,
+      true,
+      false
+    ],
+    "lengths": [
+      0,
+      1,
+      2,
+      2,
+      0
+    ]
+  }
+}

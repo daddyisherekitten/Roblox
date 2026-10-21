@@ -1,0 +1,217 @@
+{
+  "names": {
+    "ids": [
+      "one",
+      "two"
+    ],
+    "empty": [
+      "empty"
+    ],
+    "upper": [
+      "upper"
+    ],
+    "undefined": [
+      "undef"
+    ],
+    "null": [
+      "null"
+    ],
+    "bigint": [
+      "big"
+    ],
+    "tag": "[object NodeList]",
+    "named": "undefined",
+    "ownName": true,
+    "item": true,
+    "missing": true,
+    "elementAPI": "undefined"
+  },
+  "liveNameMutation": {
+    "snapshots": [
+      [
+        "one"
+      ],
+      [
+        "one",
+        "two"
+      ],
+      [
+        "two",
+        "one"
+      ],
+      [
+        "two"
+      ],
+      [],
+      [
+        "two"
+      ],
+      [
+        "three"
+      ]
+    ],
+    "identity": true,
+    "staticOldNode": true,
+    "updatedItem": true
+  },
+  "namespaces": {
+    "html": [
+      "html-div",
+      ""
+    ],
+    "svg": [
+      "svg-root",
+      "gradient",
+      "group",
+      "circle"
+    ],
+    "both": [
+      "html-div",
+      "svg-root",
+      "gradient",
+      "group",
+      "circle",
+      ""
+    ],
+    "exact": [
+      "gradient"
+    ],
+    "wrongCase": [],
+    "upperHTML": [],
+    "null": [],
+    "empty": [],
+    "undefined": [],
+    "unknown": [],
+    "descendantsOnly": [],
+    "scoped": [
+      "gradient",
+      "group",
+      "circle"
+    ],
+    "documentRoot": true,
+    "htmlTag": [
+      "html-div"
+    ],
+    "svgTag": [
+      "gradient"
+    ],
+    "svgTagWrongCase": []
+  },
+  "liveNamespaceMutation": {
+    "snapshots": [
+      [
+        "first"
+      ],
+      [
+        "first",
+        "second"
+      ],
+      [
+        "second",
+        "first"
+      ],
+      [
+        "second"
+      ],
+      [
+        "second",
+        "first"
+      ]
+    ],
+    "identity": true,
+    "tag": "[object HTMLCollection]",
+    "scope": true
+  },
+  "classAndNamedItems": {
+    "initial": [
+      "one",
+      "foreign-id"
+    ],
+    "changed": [
+      "foreign-id"
+    ],
+    "empty": 0,
+    "nbsp": 0,
+    "htmlName": true,
+    "svgId": true,
+    "svgName": true,
+    "svgProperty": true,
+    "missing": true,
+    "nodeIdentity": true
+  },
+  "requiredArguments": {
+    "name": "TypeError",
+    "tag": "TypeError",
+    "class": "TypeError",
+    "namespace": "TypeError",
+    "local": "TypeError",
+    "noConversion": true,
+    "symbolName": "TypeError",
+    "symbolTag": "TypeError",
+    "symbolNamespace": "TypeError",
+    "symbolLocal": "TypeError",
+    "ignoredExtra": true
+  },
+  "conversionAndGetters": {
+    "order": [
+      "string",
+      "get-namespace",
+      "namespace",
+      "get-local",
+      "local"
+    ],
+    "converts": 1,
+    "before": [
+      "converted"
+    ],
+    "after": [
+      "converted"
+    ],
+    "total": 2,
+    "identical": true,
+    "shortCircuit": true
+  },
+  "receiverAndMetadata": {
+    "wrongDocument": "TypeError",
+    "wrongElement": "TypeError",
+    "invalid": "TypeError",
+    "unbound": "TypeError",
+    "noConversion": true,
+    "borrowed": [
+      "nested"
+    ],
+    "stable": true,
+    "name": "getElementsByName",
+    "lengths": [
+      1,
+      1,
+      2,
+      1
+    ],
+    "descriptor": [
+      false,
+      false,
+      true
+    ],
+    "nonconstructible": "TypeError"
+  },
+  "liveIteration": {
+    "first": "one",
+    "removed": true,
+    "staysDone": true,
+    "all": [
+      "one",
+      "three"
+    ],
+    "visits": [
+      [
+        "one",
+        0,
+        true
+      ]
+    ],
+    "final": [
+      "one"
+    ]
+  }
+}

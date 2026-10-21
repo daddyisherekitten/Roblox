@@ -1,0 +1,673 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "standard": "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#the-constraint-validation-api",
+  "cases": [
+    {
+      "name": "Eligibility and custom validity: text",
+      "html": "<!doctype html><input id=p type=\"text\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: search",
+      "html": "<!doctype html><input id=p type=\"search\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: url",
+      "html": "<!doctype html><input id=p type=\"url\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: tel",
+      "html": "<!doctype html><input id=p type=\"tel\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: email",
+      "html": "<!doctype html><input id=p type=\"email\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: password",
+      "html": "<!doctype html><input id=p type=\"password\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: number",
+      "html": "<!doctype html><input id=p type=\"number\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: range",
+      "html": "<!doctype html><input id=p type=\"range\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|true|false|false|false|false|false|true|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|true|false|false|false|false|false|true|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: color",
+      "html": "<!doctype html><input id=p type=\"color\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|true|false|false|false|false|false|true|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|true|false|false|false|false|false|true|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: date",
+      "html": "<!doctype html><input id=p type=\"date\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: month",
+      "html": "<!doctype html><input id=p type=\"month\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: week",
+      "html": "<!doctype html><input id=p type=\"week\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: time",
+      "html": "<!doctype html><input id=p type=\"time\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: datetime-local",
+      "html": "<!doctype html><input id=p type=\"datetime-local\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: checkbox",
+      "html": "<!doctype html><input id=p type=\"checkbox\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|true|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|false|true|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: radio",
+      "html": "<!doctype html><input id=p type=\"radio\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|true|false|false|false|false|false|true|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|true|false|false|false|false|false|true|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: file",
+      "html": "<!doctype html><input id=p type=\"file\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|true|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|false|true|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: hidden",
+      "html": "<!doctype html><input id=p type=\"hidden\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: submit",
+      "html": "<!doctype html><input id=p type=\"submit\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|true|false|false|false|false|false|true|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|true|false|false|false|false|false|true|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: reset",
+      "html": "<!doctype html><input id=p type=\"reset\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: button",
+      "html": "<!doctype html><input id=p type=\"button\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Eligibility and custom validity: image",
+      "html": "<!doctype html><input id=p type=\"image\" required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Textarea",
+      "html": "<!doctype html><textarea id=p required></textarea>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Dropdown placeholder",
+      "html": "<!doctype html><select id=p required><option value=\"\">Choose</option><option value=b>B</option></select>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|false|true|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Grouped empty value is a valid option",
+      "html": "<!doctype html><select id=p required><optgroup label=X><option value=\"\" selected>Empty</option></optgroup></select>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|true|false|false|false|false|false|true|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|true|false|false|false|false|false|true|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "List empty value is a valid option",
+      "html": "<!doctype html><select id=p required size=3><option value=\"\" selected>Empty</option></select>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|true|false|false|false|false|false|true|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|true|false|false|false|false|false|true|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Multiple no selected option",
+      "html": "<!doctype html><select id=p required multiple><option>A</option></select>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|false|true|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Submit button",
+      "html": "<!doctype html><button id=p>Submit</button>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|true|false|false|false|false|false|true|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|true|false|false|false|false|false|true|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Reset button",
+      "html": "<!doctype html><button id=p type=reset>Reset</button>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Plain button",
+      "html": "<!doctype html><button id=p type=button>Button</button>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Disabled fieldset",
+      "html": "<!doctype html><fieldset disabled><input id=p required></fieldset>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "First legend exemption",
+      "html": "<!doctype html><fieldset disabled><legend><input id=p required></legend></fieldset>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Datalist excludes validation",
+      "html": "<!doctype html><datalist><input id=p required></datalist>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "false|false|true|false|false|false|false|false|false|true",
+        "false|false|true|false|false|false|true|false|false|true",
+        "false|false|false|false|false|false|true|false|false|true",
+        "false|false|true|false|false|false|true|false|false|true",
+        "false|false|true|false|false|false|false|false|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Number underflow",
+      "html": "<!doctype html><input id=p type=number min=3 max=7 value=2>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|false|true|false|false|false|false|true|false",
+        "true|false|false|true|false|false|true|false|true|false",
+        "false|false|false|true|false|false|true|false|false|true",
+        "true|false|false|true|false|false|true|false|true|false",
+        "true|false|false|true|false|false|false|false|true|false",
+        "false|false|false|true|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Number step mismatch",
+      "html": "<!doctype html><input id=p type=number min=3 max=7 step=2 value=4>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|false|false|false|true|false|false|true|false",
+        "true|false|false|false|false|true|true|false|true|false",
+        "false|false|false|false|false|true|true|false|false|true",
+        "true|false|false|false|false|true|true|false|true|false",
+        "true|false|false|false|false|true|false|false|true|false",
+        "false|false|false|false|false|true|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Range inverted limits",
+      "html": "<!doctype html><input id=p type=range min=20 max=10 value=15>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|true|false|false|false|false|false|true|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|true|false|false|false|false|false|true|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ],
+      "standardExpected": [
+        "true|false|false|false|true|false|false|false|true|false",
+        "true|false|false|false|true|false|true|false|true|false",
+        "false|false|false|false|true|false|true|false|false|true",
+        "true|false|false|false|true|false|true|false|true|false",
+        "true|false|false|false|true|false|false|false|true|false",
+        "false|false|false|false|true|false|false|false|false|true"
+      ],
+      "standardDifference": "The maximum remains 10 when min=20. Sanitization keeps min=20, which suffers overflow; Chromium 154 suppresses that flag. Readonly/disabled still bar validation and both CSS states."
+    },
+    {
+      "name": "Radio group required on a peer",
+      "html": "<!doctype html><input id=p type=radio name=g><input type=radio name=g required>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|false|true|false|false|false|false|false|true|false",
+        "true|false|true|false|false|false|true|false|true|false",
+        "false|false|true|false|false|false|true|false|false|true",
+        "true|false|true|false|false|false|true|false|true|false",
+        "true|false|true|false|false|false|false|false|true|false",
+        "false|false|true|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Radio group selected peer",
+      "html": "<!doctype html><input id=p type=radio name=g required><input type=radio name=g checked>",
+      "code": "const p=document.getElementById('p');\nfunction snapshot(){const v=p.validity;record(p.willValidate,v.valid,v.valueMissing,v.rangeUnderflow,v.rangeOverflow,v.stepMismatch,v.customError,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}\nsnapshot();p.setCustomValidity('custom');snapshot();p.setAttribute('readonly','');snapshot();p.removeAttribute('readonly');snapshot();p.setCustomValidity('');snapshot();p.disabled=true;snapshot();",
+      "expected": [
+        "true|true|false|false|false|false|false|true|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "false|false|false|false|false|false|true|false|false|true",
+        "true|false|false|false|false|false|true|false|true|false",
+        "true|true|false|false|false|false|false|true|false|true",
+        "false|true|false|false|false|false|false|false|false|true"
+      ]
+    },
+    {
+      "name": "Pattern: Whole value anchoring",
+      "html": "<!doctype html><input id=p type=text pattern=\"[A-Z]{2}\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"AB\",\"ZAB\",\"ABZ\",\"A\",\"\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "AB|false|false|true|true|false|true",
+        "ZAB|true|false|false|false|true|false",
+        "ABZ|true|false|false|false|true|false",
+        "A|true|false|false|false|true|false",
+        "|false|false|true|true|false|true"
+      ]
+    },
+    {
+      "name": "Pattern: Empty pattern",
+      "html": "<!doctype html><input id=p type=text pattern=\"\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"\",\"A\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "|false|false|true|true|false|true",
+        "A|true|false|false|false|true|false"
+      ]
+    },
+    {
+      "name": "Pattern: Invalid standalone pattern",
+      "html": "<!doctype html><input id=p type=text pattern=\")$|^(?:a\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"a\",\"b\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "a|false|false|true|true|false|true",
+        "b|false|false|true|true|false|true"
+      ]
+    },
+    {
+      "name": "Pattern: Invalid character class",
+      "html": "<!doctype html><input id=p type=text pattern=\"[\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"a\",\"b\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "a|false|false|true|true|false|true",
+        "b|false|false|true|true|false|true"
+      ]
+    },
+    {
+      "name": "Pattern: Unicode property intersection",
+      "html": "<!doctype html><input id=p type=text pattern=\"[\\p{Letter}&amp;&amp;\\p{ASCII}]+\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"A\",\"é\",\"42\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "A|false|false|true|true|false|true",
+        "é|true|false|false|false|true|false",
+        "42|true|false|false|false|true|false"
+      ]
+    },
+    {
+      "name": "Pattern: Unicode class subtraction",
+      "html": "<!doctype html><input id=p type=text pattern=\"[a-z--[aeiou]]+\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"bcdf\",\"abc\",\"ae\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "bcdf|false|false|true|true|false|true",
+        "abc|false|false|true|true|false|true",
+        "ae|false|false|true|true|false|true"
+      ]
+    },
+    {
+      "name": "Pattern: Unicode strings",
+      "html": "<!doctype html><input id=p type=text pattern=\"[\\q{ab|cd}]+\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"ab\",\"cdab\",\"ac\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "ab|false|false|true|true|false|true",
+        "cdab|false|false|true|true|false|true",
+        "ac|true|false|false|false|true|false"
+      ]
+    },
+    {
+      "name": "Pattern: Astral Unicode code point",
+      "html": "<!doctype html><input id=p type=text pattern=\"\\p{Emoji}\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"😀\",\"😀😀\",\"A\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "😀|false|false|true|true|false|true",
+        "😀😀|true|false|false|false|true|false",
+        "A|true|false|false|false|true|false"
+      ]
+    },
+    {
+      "name": "Pattern: Email list checks each value",
+      "html": "<!doctype html><input id=p type=email pattern=\".+@example\\.test\" multiple>",
+      "code": "const p=document.getElementById('p');for(const value of [\"a@example.test,b@example.test\",\"a@example.test,b@other.test\",\"\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "a@example.test,b@example.test|false|false|true|true|false|true",
+        "a@example.test,b@other.test|true|false|false|false|true|false",
+        "|false|false|true|true|false|true"
+      ]
+    },
+    {
+      "name": "Pattern: Multiple ignored for text",
+      "html": "<!doctype html><input id=p type=text pattern=\"a,b\" multiple>",
+      "code": "const p=document.getElementById('p');for(const value of [\"a,b\",\"a\",\"b\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "a,b|false|false|true|true|false|true",
+        "a|true|false|false|false|true|false",
+        "b|true|false|false|false|true|false"
+      ]
+    },
+    {
+      "name": "Pattern: Number ignores pattern",
+      "html": "<!doctype html><input id=p type=number pattern=\"[A-Z]+\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"12\",\"34\",\"\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "12|false|false|true|true|false|true",
+        "34|false|false|true|true|false|true",
+        "|false|false|true|true|false|true"
+      ]
+    },
+    {
+      "name": "Pattern: Search uses pattern",
+      "html": "<!doctype html><input id=p type=search pattern=\"a+\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"a\",\"aaa\",\"b\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "a|false|false|true|true|false|true",
+        "aaa|false|false|true|true|false|true",
+        "b|true|false|false|false|true|false"
+      ]
+    },
+    {
+      "name": "Pattern: URL uses pattern",
+      "html": "<!doctype html><input id=p type=url pattern=\"https://.+\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"https://example.test\",\"http://example.test\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "https://example.test|false|false|true|true|false|true",
+        "http://example.test|true|false|false|false|true|false"
+      ]
+    },
+    {
+      "name": "Pattern: Telephone uses pattern",
+      "html": "<!doctype html><input id=p type=tel pattern=\"[0-9]{3}\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"123\",\"12\",\"abc\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "123|false|false|true|true|false|true",
+        "12|true|false|false|false|true|false",
+        "abc|true|false|false|false|true|false"
+      ]
+    },
+    {
+      "name": "Pattern: Password uses pattern",
+      "html": "<!doctype html><input id=p type=password pattern=\".{3}\">",
+      "code": "const p=document.getElementById('p');for(const value of [\"123\",\"12\",\"😀A\"]){p.value=value;const v=p.validity;record(p.value,v.patternMismatch,v.typeMismatch,v.valid,p.matches(':valid'),p.matches(':invalid'),p.checkValidity());}",
+      "expected": [
+        "123|false|false|true|true|false|true",
+        "12|true|false|false|false|true|false",
+        "😀A|true|false|false|false|true|false"
+      ]
+    },
+    {
+      "name": "Pattern: attribute/type changes and poisoned user RegExp",
+      "html": "<!doctype html><input id=p pattern=\"[A-Z]+\" value=AB>",
+      "code": "const p=document.getElementById('p'),oldRegExp=globalThis.RegExp,oldExec=RegExp.prototype.exec;function snapshot(){record(p.validity.patternMismatch,p.validity.valid,p.matches(':invalid'));}snapshot();p.pattern='[0-9]+';snapshot();p.pattern='[';snapshot();p.pattern='[A-Z]+';snapshot();RegExp.prototype.exec=()=>null;globalThis.RegExp=function(){throw new Error('User replacement must not be called');};snapshot();globalThis.RegExp=oldRegExp;RegExp.prototype.exec=oldExec;p.type='number';snapshot();p.type='text';p.value='AB';snapshot();p.removeAttribute('pattern');snapshot();",
+      "expected": [
+        "false|true|false",
+        "true|false|true",
+        "false|true|false",
+        "false|true|false",
+        "false|true|false",
+        "false|true|false",
+        "false|true|false",
+        "false|true|false"
+      ]
+    }
+  ]
+}

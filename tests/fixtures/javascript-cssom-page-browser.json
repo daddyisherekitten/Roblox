@@ -1,0 +1,2320 @@
+[
+  {
+    "action": null,
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Die Liste bleibt dieselbe."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "rule-insert",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(107, 61, 37)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "2 Regeln · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "rule-move",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(107, 61, 37)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "2 Regeln · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "rule-delete",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "declaration-color",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: important · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "declaration-space",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "30px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: important · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "declaration-reset",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "media-toggle",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: not all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "group-edit",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: not all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "media-toggle",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Noch nicht übernommen."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "sheet-adopt",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Übernommen · 1 eigene Regel."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "sheet-sync",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Sofort ersetzt · wirkt im Dokument."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "sheet-async",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(217, 230, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Promise erfüllt · Dasselbe Blatt: ja."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "sheet-remove",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Freigegeben · Die eigene Farbe fällt weg."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "owner-disable",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Freigegeben · Die eigene Farbe fällt weg."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet deaktiviert."
+      }
+    ]
+  },
+  {
+    "action": "owner-disable",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Freigegeben · Die eigene Farbe fällt weg."
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Verbunden · Stylesheet aktiv."
+      }
+    ]
+  },
+  {
+    "action": "owner-text",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Freigegeben · Die eigene Farbe fällt weg."
+      },
+      {
+        "background": "rgb(217, 230, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Neues Blatt: ja · Alte Regel lesbar: 1."
+      }
+    ]
+  },
+  {
+    "action": "owner-detach",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Freigegeben · Die eigene Farbe fällt weg."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Entfernt · Keine Wirkung im Dokument."
+      }
+    ]
+  },
+  {
+    "action": "owner-detach",
+    "state": [
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(189, 207, 180)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "js-status",
+        "padding": "8px 12px",
+        "text": "Bereit · 5 Versuche · derselbe Code in beiden Ansichten"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(36, 72, 59)",
+        "id": "rule-left",
+        "padding": "18px",
+        "text": "Haus am Hang"
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-right",
+        "padding": "18px",
+        "text": "Haus am See"
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "rule-result",
+        "padding": "12px",
+        "text": "1 Regel · Liste identisch: ja"
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-preview",
+        "padding": "18px",
+        "text": "Raum für gute Ideen."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "declaration-result",
+        "padding": "12px",
+        "text": "Priorität: normal · Style-Text unverändert · DOM-Berichte: 0"
+      },
+      {
+        "background": "rgb(237, 216, 185)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "media-preview",
+        "padding": "18px",
+        "text": "Diese Farbe kommt aus @media."
+      },
+      {
+        "background": "rgb(225, 234, 217)",
+        "borderColor": "rgb(182, 100, 62)",
+        "borderWidth": "3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "supports-preview",
+        "padding": "18px",
+        "text": "Dieser Rahmen kommt aus @supports."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "group-result",
+        "padding": "12px",
+        "text": "Media: all · Unterstützte Bedingung aktiv."
+      },
+      {
+        "background": "rgb(244, 246, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-preview",
+        "padding": "18px",
+        "text": "Ein Blatt ohne HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "constructed-result",
+        "padding": "12px",
+        "text": "Freigegeben · Die eigene Farbe fällt weg."
+      },
+      {
+        "background": "rgb(217, 230, 239)",
+        "borderColor": "rgb(196, 209, 191)",
+        "borderWidth": "1px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-preview",
+        "padding": "18px",
+        "text": "Das Blatt begleitet seinen HTML-Knoten."
+      },
+      {
+        "background": "rgb(238, 242, 231)",
+        "borderColor": "rgb(34, 60, 52) rgb(34, 60, 52) rgb(34, 60, 52) rgb(155, 173, 143)",
+        "borderWidth": "0px 0px 0px 3px",
+        "color": "rgb(34, 60, 52)",
+        "id": "owner-result",
+        "padding": "12px",
+        "text": "Wieder verbunden · Stylesheet aktiv."
+      }
+    ]
+  }
+]

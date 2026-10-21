@@ -1,0 +1,215 @@
+[
+  {
+    "name": "translate-identity",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const v of [NaN,Infinity,-Infinity,-0]){snap(\"x:\"+str(v),new DOMMatrix().translateSelf(v,0,0));snap(\"y:\"+str(v),new DOMMatrix().translateSelf(0,v,0));snap(\"z:\"+str(v),new DOMMatrix().translateSelf(0,0,v));}",
+    "expected": [
+      "x:NaN|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "y:NaN|true|1,0,0,0,0,1,0,0,0,0,1,0,0,NaN,0,1",
+      "z:NaN|false|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "x:+Inf|true|1,0,0,0,0,1,0,0,0,0,1,0,+Inf,0,0,1",
+      "y:+Inf|true|1,0,0,0,0,1,0,0,0,0,1,0,0,+Inf,0,1",
+      "z:+Inf|false|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,+Inf,NaN",
+      "x:-Inf|true|1,0,0,0,0,1,0,0,0,0,1,0,-Inf,0,0,1",
+      "y:-Inf|true|1,0,0,0,0,1,0,0,0,0,1,0,0,-Inf,0,1",
+      "z:-Inf|false|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,-Inf,NaN",
+      "x:-0|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "y:-0|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "z:-0|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1"
+    ]
+  },
+  {
+    "name": "translate-affine",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const a of [[2,0,0,3,5,7],[2,1,4,3,5,7],[1,0,0,1,NaN,0]])for(const v of [NaN,Infinity,-0])snap(a.join(\",\")+\":\"+str(v),new DOMMatrix(a).translateSelf(v,0,0));",
+    "expected": [
+      "2,0,0,3,5,7:NaN|true|2,0,0,0,0,3,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "2,0,0,3,5,7:+Inf|true|2,0,0,0,0,3,0,0,0,0,1,0,+Inf,NaN,NaN,NaN",
+      "2,0,0,3,5,7:-0|true|2,0,0,0,0,3,0,0,0,0,1,0,5,7,0,1",
+      "2,1,4,3,5,7:NaN|true|2,1,0,0,4,3,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "2,1,4,3,5,7:+Inf|true|2,1,0,0,4,3,0,0,0,0,1,0,+Inf,+Inf,NaN,NaN",
+      "2,1,4,3,5,7:-0|true|2,1,0,0,4,3,0,0,0,0,1,0,5,7,0,1",
+      "1,0,0,1,NaN,0:NaN|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "1,0,0,1,NaN,0:+Inf|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "1,0,0,1,NaN,0:-0|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1"
+    ]
+  },
+  {
+    "name": "translate-3d",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const v of [NaN,Infinity,-0]){const m=new DOMMatrix();m.m13=2;m.m14=3;m.m23=4;m.m24=5;snap(str(v),m.translateSelf(v,0,0));}",
+    "expected": [
+      "NaN|false|1,0,2,3,0,1,4,5,0,0,1,0,NaN,NaN,NaN,NaN",
+      "+Inf|false|1,0,2,3,0,1,4,5,0,0,1,0,+Inf,NaN,+Inf,+Inf",
+      "-0|false|1,0,2,3,0,1,4,5,0,0,1,0,0,0,0,1"
+    ]
+  },
+  {
+    "name": "scale-identity",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const v of [NaN,Infinity,-Infinity,-0]){snap(\"x:\"+str(v),new DOMMatrix().scaleSelf(v,1,1));snap(\"y:\"+str(v),new DOMMatrix().scaleSelf(1,v,1));snap(\"z:\"+str(v),new DOMMatrix().scaleSelf(1,1,v));snap(\"all:\"+str(v),new DOMMatrix().scale3dSelf(v));}",
+    "expected": [
+      "x:NaN|true|NaN,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "y:NaN|true|1,0,0,0,0,NaN,0,0,0,0,1,0,0,0,0,1",
+      "z:NaN|false|1,0,0,0,0,1,0,0,NaN,NaN,NaN,NaN,0,0,0,1",
+      "all:NaN|false|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "x:+Inf|true|+Inf,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "y:+Inf|true|1,0,0,0,0,+Inf,0,0,0,0,1,0,0,0,0,1",
+      "z:+Inf|false|1,0,0,0,0,1,0,0,NaN,NaN,+Inf,NaN,0,0,0,1",
+      "all:+Inf|false|+Inf,NaN,NaN,NaN,NaN,+Inf,NaN,NaN,NaN,NaN,+Inf,NaN,0,0,0,1",
+      "x:-Inf|true|-Inf,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "y:-Inf|true|1,0,0,0,0,-Inf,0,0,0,0,1,0,0,0,0,1",
+      "z:-Inf|false|1,0,0,0,0,1,0,0,NaN,NaN,-Inf,NaN,0,0,0,1",
+      "all:-Inf|false|-Inf,NaN,NaN,NaN,NaN,-Inf,NaN,NaN,NaN,NaN,-Inf,NaN,0,0,0,1",
+      "x:-0|true|-0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "y:-0|true|1,0,0,0,0,-0,0,0,0,0,1,0,0,0,0,1",
+      "z:-0|false|1,0,0,0,0,1,0,0,-0,-0,-0,-0,0,0,0,1",
+      "all:-0|false|-0,-0,-0,-0,-0,-0,-0,-0,-0,-0,-0,-0,0,0,0,1"
+    ]
+  },
+  {
+    "name": "scale-affine-origin",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const a of [[2,0,0,3,5,7],[2,1,4,3,5,7]]){snap(\"scale:\"+a.join(\",\"),new DOMMatrix(a).scaleSelf(NaN,2,1));snap(\"origin:\"+a.join(\",\"),new DOMMatrix(a).scaleSelf(2,3,1,NaN,0,0));}snap(\"originz\",new DOMMatrix().scaleSelf(1,1,1,0,0,NaN));",
+    "expected": [
+      "scale:2,0,0,3,5,7|true|NaN,NaN,NaN,NaN,0,6,0,0,0,0,1,0,5,7,0,1",
+      "origin:2,0,0,3,5,7|true|4,0,0,0,0,9,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "scale:2,1,4,3,5,7|true|NaN,NaN,NaN,NaN,8,6,0,0,0,0,1,0,5,7,0,1",
+      "origin:2,1,4,3,5,7|true|4,2,0,0,12,9,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "originz|false|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1"
+    ]
+  },
+  {
+    "name": "rotate-axis",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const v of [NaN,Infinity,-Infinity,-0]){snap(\"z:\"+str(v),new DOMMatrix().rotateSelf(v));snap(\"x:\"+str(v),new DOMMatrix().rotateSelf(v,0,0));snap(\"y:\"+str(v),new DOMMatrix().rotateSelf(0,v,0));}",
+    "expected": [
+      "z:NaN|true|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,1,0,0,0,0,1",
+      "x:NaN|false|1,0,0,0,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "y:NaN|false|NaN,NaN,NaN,NaN,0,1,0,0,NaN,NaN,NaN,NaN,0,0,0,1",
+      "z:+Inf|true|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,1,0,0,0,0,1",
+      "x:+Inf|false|1,0,0,0,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "y:+Inf|false|NaN,NaN,NaN,NaN,0,1,0,0,NaN,NaN,NaN,NaN,0,0,0,1",
+      "z:-Inf|true|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,1,0,0,0,0,1",
+      "x:-Inf|false|1,0,0,0,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "y:-Inf|false|NaN,NaN,NaN,NaN,0,1,0,0,NaN,NaN,NaN,NaN,0,0,0,1",
+      "z:-0|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "x:-0|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "y:-0|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1"
+    ]
+  },
+  {
+    "name": "rotate-axis-vector",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const a of [[0,0,0,NaN],[0,0,1,NaN],[1,0,0,NaN],[0,1,0,NaN],[1,1,0,NaN],[NaN,0,1,30],[Infinity,0,1,30],[1e-200,0,0,90],[0,0,1e200,90]])snap(a.map(str).join(\",\"),new DOMMatrix().rotateAxisAngleSelf(...a));",
+    "expected": [
+      "0,0,0,NaN|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "0,0,1,NaN|true|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,1,0,0,0,0,1",
+      "1,0,0,NaN|false|1,0,0,0,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "0,1,0,NaN|false|NaN,NaN,NaN,NaN,0,1,0,0,NaN,NaN,NaN,NaN,0,0,0,1",
+      "1,1,0,NaN|false|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "NaN,0,1,30|false|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "+Inf,0,1,30|false|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "1e-200,0,0,90|false|1,0,0,0,0,0,1,0,0,-1,0,0,0,0,0,1",
+      "0,0,1e+200,90|true|0,1,0,0,-1,0,0,0,0,0,1,0,0,0,0,1"
+    ],
+    "nativeExpected": [
+      "0,0,0,NaN|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "0,0,1,NaN|true|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,1,0,0,0,0,1",
+      "1,0,0,NaN|false|1,0,0,0,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "0,1,0,NaN|false|NaN,NaN,NaN,NaN,0,1,0,0,NaN,NaN,NaN,NaN,0,0,0,1",
+      "1,1,0,NaN|false|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "NaN,0,1,30|false|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "+Inf,0,1,30|false|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,0,1",
+      "1e-200,0,0,90|false|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "0,0,1e+200,90|true|0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1"
+    ],
+    "nativeDifference": "Chromium underflows/overflows squared axis lengths near 1e-200 and 1e200. The engine keeps robust finite-axis normalization."
+  },
+  {
+    "name": "skew-vector",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const v of [NaN,Infinity,-0]){snap(\"skewx:\"+str(v),new DOMMatrix().skewXSelf(v));snap(\"skewy:\"+str(v),new DOMMatrix().skewYSelf(v));snap(\"vector:\"+str(v),new DOMMatrix().rotateFromVectorSelf(v,0));}",
+    "expected": [
+      "skewx:NaN|true|1,0,0,0,NaN,NaN,NaN,NaN,0,0,1,0,0,0,0,1",
+      "skewy:NaN|true|NaN,NaN,NaN,NaN,0,1,0,0,0,0,1,0,0,0,0,1",
+      "vector:NaN|true|NaN,NaN,NaN,NaN,NaN,NaN,NaN,NaN,0,0,1,0,0,0,0,1",
+      "skewx:+Inf|true|1,0,0,0,NaN,NaN,NaN,NaN,0,0,1,0,0,0,0,1",
+      "skewy:+Inf|true|NaN,NaN,NaN,NaN,0,1,0,0,0,0,1,0,0,0,0,1",
+      "vector:+Inf|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "skewx:-0|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "skewy:-0|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "vector:-0|true|-1,0,0,0,-0,-1,-0,-0,0,0,1,0,0,0,0,1"
+    ]
+  },
+  {
+    "name": "multiply-affine",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const pair of [[[1,0,0,1,0,0],[NaN,0,0,1,0,0]],[[2,0,0,3,5,7],[NaN,0,0,1,0,0]],[[2,1,4,3,5,7],[NaN,0,0,1,0,0]],[[1,0,0,1,NaN,0],[1,0,0,1,0,0]],[[1,0,0,1,0,0],[1,0,0,1,NaN,0]]]){snap(\"post:\"+pair.join(\";\"),new DOMMatrix(pair[0]).multiplySelf(new DOMMatrix(pair[1])));snap(\"pre:\"+pair.join(\";\"),new DOMMatrix(pair[0]).preMultiplySelf(new DOMMatrix(pair[1])));}",
+    "expected": [
+      "post:1,0,0,1,0,0;NaN,0,0,1,0,0|true|NaN,NaN,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "pre:1,0,0,1,0,0;NaN,0,0,1,0,0|true|NaN,0,0,0,NaN,1,0,0,0,0,1,0,NaN,0,0,1",
+      "post:2,0,0,3,5,7;NaN,0,0,1,0,0|true|NaN,NaN,0,0,0,3,0,0,0,0,1,0,5,7,0,1",
+      "pre:2,0,0,3,5,7;NaN,0,0,1,0,0|true|NaN,0,0,0,NaN,3,0,0,0,0,1,0,NaN,7,0,1",
+      "post:2,1,4,3,5,7;NaN,0,0,1,0,0|true|NaN,NaN,0,0,4,3,0,0,0,0,1,0,5,7,0,1",
+      "pre:2,1,4,3,5,7;NaN,0,0,1,0,0|true|NaN,1,0,0,NaN,3,0,0,0,0,1,0,NaN,7,0,1",
+      "post:1,0,0,1,NaN,0;1,0,0,1,0,0|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "pre:1,0,0,1,NaN,0;1,0,0,1,0,0|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,0,1",
+      "post:1,0,0,1,0,0;1,0,0,1,NaN,0|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,0,1",
+      "pre:1,0,0,1,0,0;1,0,0,1,NaN,0|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1"
+    ]
+  },
+  {
+    "name": "multiply-3d",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));const a=new DOMMatrix();a.m13=2;const b=new DOMMatrix();b.m11=NaN;snap(\"post\",a.multiply(b));snap(\"pre\",a.preMultiplySelf(b));const c=new DOMMatrix();c.m13=1;c.m13=0;snap(\"identity3d\",c.multiply(b));",
+    "expected": [
+      "post|false|NaN,NaN,NaN,NaN,0,1,0,0,0,0,1,0,0,0,0,1",
+      "pre|false|NaN,0,2,0,NaN,1,0,0,NaN,0,1,0,NaN,0,0,1",
+      "identity3d|false|NaN,NaN,0,0,0,1,0,0,0,0,1,0,0,0,0,1"
+    ]
+  },
+  {
+    "name": "signedzero",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));const a=new DOMMatrix([1,-0,-0,1,-0,-0]);snap(\"construct\",a);snap(\"translate0\",a.translate(-0,-0));snap(\"scale1\",a.scale(1));snap(\"flipx\",a.flipX());snap(\"flipy\",a.flipY());snap(\"rotate0\",a.rotate(-0));snap(\"multiplyidentity\",a.multiply(new DOMMatrix()));snap(\"identitymultiply\",new DOMMatrix().multiply(a));",
+    "expected": [
+      "construct|true|1,-0,0,0,-0,1,0,0,0,0,1,0,-0,-0,0,1",
+      "translate0|true|1,-0,0,0,-0,1,0,0,0,0,1,0,-0,-0,0,1",
+      "scale1|true|1,-0,0,0,-0,1,0,0,0,0,1,0,-0,-0,0,1",
+      "flipx|true|-1,0,-0,-0,-0,1,0,0,0,0,1,0,-0,-0,0,1",
+      "flipy|true|1,-0,0,0,0,-1,-0,-0,0,0,1,0,-0,-0,0,1",
+      "rotate0|true|1,-0,0,0,-0,1,0,0,0,0,1,0,-0,-0,0,1",
+      "multiplyidentity|true|1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1",
+      "identitymultiply|true|1,-0,0,0,-0,1,0,0,0,0,1,0,0,0,0,1"
+    ]
+  },
+  {
+    "name": "constructor-state",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const v of [undefined,'','none','translate(0px)','scale(2)','rotate(0deg)','rotate(360deg)','skewX(0deg)','matrix(1,0,0,1,0,0)','matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)','translate3d(0px,0px,0px)','scale3d(1,1,1)'])snap(String(v),new DOMMatrix(v).translateSelf(NaN,0));snap('fromMatrix',DOMMatrix.fromMatrix().translateSelf(NaN,0));",
+    "expected": [
+      "undefined|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "none|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "translate(0px)|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "scale(2)|true|2,0,0,0,0,2,0,0,0,0,1,0,NaN,0,0,1",
+      "rotate(0deg)|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "rotate(360deg)|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "skewX(0deg)|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "matrix(1,0,0,1,0,0)|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)|false|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "translate3d(0px,0px,0px)|false|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "scale3d(1,1,1)|false|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "fromMatrix|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN"
+    ]
+  },
+  {
+    "name": "mutation-state",
+    "source": "const str=v=>Number.isNaN(v)?\"NaN\":v===Infinity?\"+Inf\":v===-Infinity?\"-Inf\":Object.is(v,-0)?\"-0\":String(v);const snap=(label,m)=>record(label+\"|\"+m.is2D+\"|\"+Array.from(m.toFloat64Array()).map(str).join(\",\"));for(const action of ['e=0','a=1','m13=0','translateSelf(2,3)','scaleSelf(2,3)','rotateSelf(0)','rotateSelf(360)','skewXSelf(0)','invertSelf()','multiplySelf()','preMultiplySelf()']){const m=new DOMMatrix();Function('m','m.'+action)(m);snap(action,m.translateSelf(NaN,0));}snap('translate-copy',new DOMMatrix().translate().translateSelf(NaN,0));snap('inverse-copy',new DOMMatrix().inverse().translateSelf(NaN,0));snap('flip-copy',new DOMMatrix().flipX().translateSelf(NaN,0));",
+    "expected": [
+      "e=0|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "a=1|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "m13=0|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "translateSelf(2,3)|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,3,0,1",
+      "scaleSelf(2,3)|true|2,0,0,0,0,3,0,0,0,0,1,0,NaN,0,0,1",
+      "rotateSelf(0)|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "rotateSelf(360)|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "skewXSelf(0)|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "invertSelf()|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "multiplySelf()|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "preMultiplySelf()|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN",
+      "translate-copy|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "inverse-copy|true|1,0,0,0,0,1,0,0,0,0,1,0,NaN,0,0,1",
+      "flip-copy|true|-1,-0,-0,-0,0,1,0,0,0,0,1,0,NaN,NaN,NaN,NaN"
+    ]
+  }
+]

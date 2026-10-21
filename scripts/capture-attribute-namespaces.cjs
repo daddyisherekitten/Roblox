@@ -1,0 +1,77 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const {openBrowser}=require('./native-browser.cjs');
+const root=path.resolve(__dirname,'..'),file=path.join(root,'tests/fixtures/attribute-namespaces-browser.json'),cases=[];
+const setup="const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);";
+function add(name,action,html='<div id=e></div>'){cases.push({name,html:'<!doctype html>'+html,action:'(()=>{'+setup+action+'})()'});}
+add('same qualified name three expanded identities',"e.setAttributeNS(A,'title','one');e.setAttributeNS(B,'title','two');e.title='plain';return JSON.stringify([attrs(),e.title,e.getAttribute('title'),e.getAttributeNS(A,'title'),e.getAttributeNS(B,'title'),e.getAttributeNames(),e.outerHTML]);");
+add('qualified setters removals and toggles choose first identity',"e.setAttributeNS(A,'title','one');e.setAttributeNS(B,'title','two');e.title='plain';const out=[];e.setAttribute('TITLE','changed');out.push(attrs());e.removeAttribute('title');out.push(attrs());e.toggleAttribute('title',false);out.push(attrs());e.toggleAttribute('title',true);out.push(attrs());return JSON.stringify(out);");
+add('prefix does not change when namespace setter changes only value',"e.setAttributeNS(A,'p:thing','one');const a=e.getAttributeNodeNS(A,'thing');e.setAttributeNS(A,'q:thing','two');a.value='three';return JSON.stringify([attrs(),a===e.getAttributeNodeNS(A,'thing'),e.getAttribute('p:thing'),e.getAttribute('q:thing'),a.value,a.cloneNode().value]);");
+add('same prefix name across namespaces',"e.setAttributeNS(A,'p:thing','one');e.setAttributeNS(B,'p:thing','two');e.setAttribute('p:thing','changed');return JSON.stringify([attrs(),e.getAttribute('p:thing'),e.getAttributeNS(B,'thing'),e.getAttributeNames(),e.outerHTML]);");
+for(const method of ['setAttributeNode','setAttributeNodeNS'])add(method+' replaces expanded identity and retains position',"e.setAttribute('before','a');e.setAttributeNS(A,'p:thing','one');e.setAttribute('after','b');const old=e.getAttributeNodeNS(A,'thing'),next=document.createAttributeNS(A,'q:thing');next.value='two';const result=e."+method+"(next);return JSON.stringify([attrs(),result===old,old.ownerElement===null,next.ownerElement===e,old.name,old.value,next.name,e.getAttribute('q:thing'),e.getAttribute('p:thing')]);");
+add('attr replacement keeps independent null namespace identity',"e.setAttributeNS(A,'title','one');e.title='plain';const next=document.createAttributeNS(A,'title');next.value='two';const old=e.attributes.setNamedItem(next);return JSON.stringify([attrs(),e.title,old.value,old.ownerElement===null,e.attributes.getNamedItem('title')===next]);");
+add('attr node removal and detached value independence',"e.setAttributeNS(A,'title','one');e.title='plain';const a=e.getAttributeNodeNS(A,'title');e.removeAttributeNode(a);a.value='detached';return JSON.stringify([attrs(),a.value,a.ownerElement===null,e.title,e.getAttributeNodeNS(A,'title')]);");
+add('namespace removals empty namespace and retained named map',"const map=e.attributes;e.setAttributeNS(A,'title','one');e.title='plain';const a=e.getAttributeNodeNS(null,'title');e.removeAttributeNS('','title');return JSON.stringify([attrs(),map===e.attributes,map.length,a.ownerElement===null,a.value,e.hasAttribute('title'),e.hasAttributeNS(null,'title'),e.hasAttributeNS(A,'title')]);");
+add('null namespace colon name coexists with qualified foreign name',"e.setAttributeNS(A,'p:thing','one');const a=document.createAttribute('p:thing');a.value='plain';e.setAttributeNode(a);return JSON.stringify([attrs(),e.getAttribute('p:thing'),e.getAttributeNS(null,'p:thing'),e.outerHTML]);");
+add('clone keeps order identities and independently materialized attrs',"e.setAttributeNS(A,'title','one');e.title='plain';const clone=e.cloneNode(true);clone.getAttributeNodeNS(A,'title').value='clone';return JSON.stringify([attrs(),Array.from(clone.attributes,a=>[a.name,a.namespaceURI,a.value]),clone.getAttributeNames(),e.outerHTML,clone.outerHTML]);");
+add('known namespaces use canonical HTML serialization prefixes',"e.setAttributeNS('http://www.w3.org/XML/1998/namespace','p:lang','de');e.setAttributeNS('http://www.w3.org/1999/xlink','q:href','a');e.setAttributeNS('http://www.w3.org/2000/xmlns/','xmlns:r','urn:r');return JSON.stringify([attrs(),e.outerHTML]);");
+for(const property of ['title','lang','dir','autocapitalize','writingSuggestions'])add(property+' reflection excludes foreign attributes',"e.setAttributeNS(A,'"+(property==='writingSuggestions'?'writingsuggestions':property)+"','false');const before=e."+property+";e."+property+"='words';return JSON.stringify([before,e."+property+",attrs()]);");
+add('ID and class null namespace with qualified dataset semantics',"e.setAttributeNS(A,'id','wrong');e.setAttributeNS(A,'class','wrong');e.setAttributeNS(A,'data-x','wrong');const before=[e.id,e.className,e.classList.length,e.dataset.x,document.getElementById('wrong')===e];e.id='right';e.classList.add('right');e.dataset.x='right';return JSON.stringify([before,e.id,e.className,e.dataset.x,document.getElementById('right')===e,attrs()]);");
+add('foreign form does not reset exceptional parser ownership',"e.setAttributeNS(A,'form','missing');const out=[e.form?e.form.id:null,e.autocapitalize];e.removeAttributeNS(A,'form');out.push(e.form?e.form.id:null,e.autocapitalize);return JSON.stringify(out);",'<table><form id=f autocapitalize=words><input id=e></table>');
+add('ordinary control ignores foreign disabled checked value and type',"e.setAttributeNS(A,'disabled','');e.setAttributeNS(A,'checked','');e.setAttributeNS(A,'value','foreign');e.setAttributeNS(A,'type','password');return JSON.stringify([e.disabled,e.checked,e.defaultValue,e.value,e.type,attrs()]);",'<input id=e value=plain>');
+add('foreign ID does not become a form identity',"document.getElementById('f').setAttributeNS(A,'id','fake');e.setAttribute('form','fake');return JSON.stringify([e.form?e.form.id:null,e.autocapitalize,document.getElementById('fake')!==null]);",'<form id=f autocapitalize=words><input id=e></form>');
+add('selectors consider every attribute in wildcard namespace',"e.setAttributeNS(A,'title','one two');e.setAttributeNS(B,'title','THREE');e.title='plain';return JSON.stringify(['[title=plain]','[title=THREE]','[*|title=THREE]','[*|title=three i]','[*|title~=two]','[*|title^=one]','[*|title$=two]','[*|title*=HR]','[*|title|=plain]','[|title=plain]'].map(s=>e.matches(s)));");
+add('namespaced onclick is inert with independent real handler',"globalThis.calls=[];e.setAttributeNS(A,'onclick',\"calls.push('foreign')\");e.click();e.onclick=()=>calls.push('real');e.click();e.removeAttributeNS(A,'onclick');e.click();return JSON.stringify(calls);",'<button id=e>Go</button>');
+add('custom element namespace callbacks and mutation records',"globalThis.log=[];customElements.define('x-fields',class extends HTMLElement{static get observedAttributes(){return ['title']}attributeChangedCallback(name,old,value,namespace){log.push(['ce',name,old,value,namespace])}});const x=document.createElement('x-fields');document.body.append(x);const observer=new MutationObserver(()=>{});observer.observe(x,{attributes:true,attributeOldValue:true});x.setAttributeNS(A,'p:title','one');x.title='plain';x.setAttributeNS(A,'q:title','two');x.removeAttributeNS(A,'title');log.push(observer.takeRecords().map(r=>[r.attributeName,r.attributeNamespace,r.oldValue]));return JSON.stringify(log);");
+add('named map upper case names omitted only on HTML elements',"e.setAttributeNS(A,'Upper','one');e.setAttributeNS(A,'lower','two');const map=e.attributes;const svg=document.createElementNS('http://www.w3.org/2000/svg','g');svg.setAttributeNS(A,'Upper','one');return JSON.stringify([map.Upper===undefined,map.lower===e.getAttributeNodeNS(A,'lower'),Reflect.ownKeys(map),map.getNamedItem('Upper'),svg.attributes.Upper===svg.getAttributeNodeNS(A,'Upper'),Reflect.ownKeys(svg.attributes)]);");
+add('attribute equality ignores namespace prefix and insertion order',"e.setAttributeNS(A,'p:thing','one');e.setAttributeNS(B,'thing','two');const other=document.createElement('div');other.setAttributeNS(B,'thing','two');other.setAttributeNS(A,'q:thing','one');other.id='e';const a=e.getAttributeNodeNS(A,'thing'),b=other.getAttributeNodeNS(A,'thing');const before=[e.isEqualNode(other),a.isEqualNode(b),e.isEqualNode(e.cloneNode()),e.isEqualNode(null)];b.value='changed';return JSON.stringify([before,e.isEqualNode(other),a.isEqualNode(b)]);");
+add('attribute equality compares namespace count and attached values',"const a=document.createElement('div'),b=document.createElementNS('http://www.w3.org/1999/xhtml','div');a.setAttributeNS(A,'p:thing','one');b.setAttributeNS(B,'p:thing','one');const out=[a.isEqualNode(b)];b.removeAttributeNS(B,'thing');b.setAttributeNS(A,'p:thing','one');out.push(a.isEqualNode(b));b.setAttribute('thing','one');out.push(a.isEqualNode(b));return JSON.stringify(out);");
+add('element equality compares element prefixes',"const a=document.createElementNS('http://www.w3.org/2000/svg','p:g'),b=document.createElementNS('http://www.w3.org/2000/svg','q:g');return JSON.stringify([a.isEqualNode(b),a.isEqualNode(a.cloneNode())]);");
+add('HTML serialization uses local names and HTML void rules',"const html='http://www.w3.org/1999/xhtml',svg='http://www.w3.org/2000/svg';const a=document.createElementNS(html,'p:input'),b=document.createElementNS(svg,'p:g'),c=document.createElement('p:input');a.setAttribute('value','x');a.append(document.createTextNode('ignored'));b.append(document.createElementNS(svg,'q:circle'));c.append(document.createTextNode('kept'));return JSON.stringify([a.outerHTML,a.innerHTML,b.outerHTML,c.outerHTML]);");
+add('HTML raw serialization uses expanded element identity',"const a=document.createElementNS('http://www.w3.org/1999/xhtml','p:script'),b=document.createElementNS('http://www.w3.org/2000/svg','q:script');a.textContent='x<1&&y>0';b.textContent='x<1&&y>0';return JSON.stringify([a.outerHTML,a.innerHTML,b.outerHTML]);");
+add('HTML serialization void legacy elements discard children',"return JSON.stringify(['basefont','bgsound','frame','keygen','param','br','input'].map(name=>{const a=document.createElement(name);a.append(document.createTextNode('ignored'));return [a.outerHTML,a.innerHTML]}));");
+add('HTML serialization covers processing instructions and imported CDATA',"const xml=new DOMParser().parseFromString('<root/>','application/xml');const p=xml.createProcessingInstruction('target',''),c=xml.createCDATASection('x<1&&y>0');e.append(document.importNode(p),document.importNode(c));const s=document.createElementNS('http://www.w3.org/2000/svg','script');s.append(document.importNode(c));return JSON.stringify([e.innerHTML,s.outerHTML]);");
+add('attribute replacement publishes identity before synchronous reactions',"globalThis.log=[];globalThis.next=null;globalThis.old=null;customElements.define('x-fields',class extends HTMLElement{static get observedAttributes(){return ['title']}attributeChangedCallback(name,previous,value,namespace){if(next)log.push([next.ownerElement===this,this.getAttributeNodeNS(A,'title')===next,old.ownerElement===null,old.value,value,namespace])}});const x=document.createElement('x-fields');document.body.append(x);x.setAttributeNS(A,'p:title','one');old=x.getAttributeNodeNS(A,'title');next=document.createAttributeNS(A,'q:title');next.value='two';x.setAttributeNode(next);return JSON.stringify(log);");
+add('attribute replacement preserves reentrant removal',"globalThis.next=null;customElements.define('x-fields',class extends HTMLElement{static get observedAttributes(){return ['title']}attributeChangedCallback(){if(next&&next.ownerElement===this)this.removeAttributeNode(next)}});const x=document.createElement('x-fields');x.setAttributeNS(A,'p:title','one');const old=x.getAttributeNodeNS(A,'title');next=document.createAttributeNS(A,'q:title');next.value='two';const returned=x.setAttributeNode(next);return JSON.stringify([returned===old,old.ownerElement===null,next.ownerElement===null,x.hasAttributeNS(A,'title'),next.value,old.value]);");
+function applyNormativeDifference(item){
+ const expected=JSON.parse(item.expected);
+ if(item.name.startsWith('setAttributeNode')){
+  expected[7]='two';expected[8]=null;
+  item.difference='Chromium exposes the replacement Attr with the new q prefix but qualified-name lookup retains the old p prefix. DOM replace replaces the attribute-list entry, and qualified-name lookup must read that new entry.';
+ }else if(item.name==='null namespace colon name coexists with qualified foreign name'){
+  expected[1]='one';
+  item.difference='Chromium qualified lookup prefers the newly attached Attr despite its second position. DOM getAttribute by qualified name returns the first matching attribute-list entry.';
+ }else if(item.name==='ID and class null namespace with qualified dataset semantics'){
+  expected[3]='wrong';expected[5].find(a=>a[0]==='data-x')[4]='wrong';expected[5].push(['data-x','data-x',null,null,'right']);
+  item.difference='The DOMStringMap getter includes qualifying foreign names, but its setter is specified to set an attribute value with null namespace. Chromium instead changes the existing foreign attribute.';
+ }else if(item.name==='HTML serialization uses local names and HTML void rules'){
+  item.specExpected=JSON.stringify(['<input value="x">','','<g><circle></circle></g>','<p:input>kept</p:input>']);
+  item.difference='Chromium serializes explicit prefixes for HTML/SVG elements. HTML fragment serialization uses local names in HTML, SVG and MathML namespaces.';
+ }else if(item.name==='HTML raw serialization uses expanded element identity'){
+  item.specExpected=JSON.stringify(['<script>x<1&&y>0</script>','x<1&&y>0','<script>x&lt;1&amp;&amp;y&gt;0</script>']);
+  item.difference='Chromium uses explicit prefixes and escapes prefixed HTML script text. HTML fragment serialization uses local names and the HTML script element raw-text rule.';
+ }
+ if(item.difference&&!item.specExpected)item.specExpected=JSON.stringify(expected);
+}
+(async()=>{
+ const browser=await openBrowser(path.join(root,'build'));
+ try{
+  const version=await browser.send('Browser.getVersion');
+  for(const item of cases){
+   await browser.load(item.html);
+   try{item.expected=await browser.evaluate(item.action);applyNormativeDifference(item);}
+   catch(error){throw new Error(item.name+': '+error.message);}
+  }
+  const fixture={browser:version.product,captured:'2026-10-10',standards:[
+   'https://dom.spec.whatwg.org/#concept-element-attributes-set',
+   'https://dom.spec.whatwg.org/#concept-element-attributes-set-value',
+   'https://dom.spec.whatwg.org/#concept-node-equals',
+   'https://dom.spec.whatwg.org/#dom-namednodemap',
+   'https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes',
+   'https://html.spec.whatwg.org/multipage/parsing.html#serialising-html-fragments',
+   'https://drafts.csswg.org/selectors-4/#attribute-selectors'
+  ],cases};
+  if(process.argv.includes('--update'))fs.writeFileSync(file,JSON.stringify(fixture,null,2)+'\n');
+  else assert.deepEqual(fixture,JSON.parse(fs.readFileSync(file,'utf8')));
+  console.log('Attribute namespaces: '+cases.length+' native identity/reflection/selector/reaction cases captured.');
+ }finally{await browser.close();}
+})().catch(error=>{console.error(error);process.exitCode=1});

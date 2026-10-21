@@ -1,0 +1,34 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+  "passed": true,
+  "reactions": [
+    "disconnected",
+    "adopted:true",
+    "connected",
+    "form:destination",
+    "connected",
+    "form:destination",
+    "disconnected",
+    "form:none"
+  ],
+  "checks": [
+    "retained scoped registry/prototype",
+    "destination FormData",
+    "fresh cloned internals",
+    "global registry reassociation",
+    "destination clone upgrade",
+    "global/null shadow registry adoption/clone",
+    "lifecycle order",
+    "late registry upgrade"
+  ],
+  "details": [
+    "initial-null|true|true|true|true",
+    "scoped-adoption|true|true|true|true|retained",
+    "scoped-clone|true|true|true|true|retained|fresh",
+    "global-adoption|true|true|source",
+    "global-clone|false|true|true",
+    "adopted-null|true|true|true|false|true",
+    "shadow-registry|true|true|true|false|false|true",
+    "cloned-null|true|true|true"
+  ]
+}

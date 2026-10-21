@@ -1,0 +1,381 @@
+[
+  {
+    "name": "Constructor flags source descriptors and identity",
+    "source": "const r=new RegExp('a/b','mig');record(r.flags);record(r.source);record(r.toString());record(RegExp(r)===r);record(new RegExp(r)!==r);record(new RegExp(r).flags);record(new RegExp().source);const d=Object.getOwnPropertyDescriptor(r,'lastIndex');record(d.writable&&!d.enumerable&&!d.configurable);",
+    "expected": [
+      "gim",
+      "a\\/b",
+      "/a\\/b/gim",
+      "true",
+      "true",
+      "gim",
+      "(?:)",
+      "true"
+    ]
+  },
+  {
+    "name": "Exec captures index input and unmatched groups",
+    "source": "const r=new RegExp('(a)(b)?');const m=r.exec('xxa');record(m.join('|'));record(m.index);record(m.input);record(m[2]===undefined);record(m.groups===undefined);record(r.lastIndex);record(r.exec('z')===null);",
+    "expected": [
+      "a|a|",
+      "2",
+      "xxa",
+      "true",
+      "true",
+      "0",
+      "true"
+    ]
+  },
+  {
+    "name": "Global and sticky lastIndex transitions",
+    "source": "const r=new RegExp('a','g');record(r.exec('baab').index);record(r.lastIndex);record(r.exec('baab').index);record(r.lastIndex);record(r.exec('baab')===null);record(r.lastIndex);const s=new RegExp('a','y');record(s.test('ba'));s.lastIndex=1;record(s.test('ba'));record(s.lastIndex);",
+    "expected": [
+      "1",
+      "2",
+      "2",
+      "3",
+      "true",
+      "0",
+      "false",
+      "true",
+      "2"
+    ]
+  },
+  {
+    "name": "Greedy lazy bounded and zero-length quantifiers",
+    "source": "for(const pattern of ['a+','a+?','a{2,3}','a{2,3}?','a*','a?'])record(new RegExp(pattern).exec('aaaa')[0]);record(new RegExp('a{0}').exec('x')[0]);",
+    "expected": [
+      "aaaa",
+      "a",
+      "aaa",
+      "aa",
+      "aaaa",
+      "a",
+      ""
+    ]
+  },
+  {
+    "name": "Alternation backtracks and resets repeated captures",
+    "source": "record(new RegExp('(ab|a)b').exec('ab').join('|'));const m=new RegExp('(a|(b))+').exec('aba');record(m.join('|'));record(m[2]===undefined);record(new RegExp('(a*)*').exec('')[1]===undefined);record(new RegExp('()+').exec('')[1]);",
+    "expected": [
+      "ab|a",
+      "aba|a|",
+      "true",
+      "true",
+      ""
+    ]
+  },
+  {
+    "name": "Numeric named forward and unmatched backreferences",
+    "source": "record(new RegExp('(a+)b\\\\1').exec('zaabaa')[0]);record(new RegExp('(?<word>ab)-\\\\k<word>').exec('ab-ab').groups.word);record(new RegExp('\\\\1(a)').exec('a')[0]);record(new RegExp('(a|(b))\\\\2c').test('ac'));",
+    "expected": [
+      "aabaa",
+      "ab",
+      "a",
+      "true"
+    ]
+  },
+  {
+    "name": "Lookahead lookbehind negative and backward greedy captures",
+    "source": "record(new RegExp('a(?=b)').exec('ab')[0]);record(new RegExp('a(?!b)').exec('ac')[0]);record(new RegExp('(?<=a)b').exec('ab').index);record(new RegExp('(?<!a)b').test('cb'));record(new RegExp('(?<=([ab]+)([bc]+))$').exec('abc').join('|'));",
+    "expected": [
+      "a",
+      "a",
+      "1",
+      "true",
+      "|a|bc"
+    ]
+  },
+  {
+    "name": "Lookahead is atomic and can capture for later references",
+    "source": "const m=new RegExp('(?=(a+))a*b\\\\1').exec('baabac');record(m[0]);record(m[1]);",
+    "expected": [
+      "aba",
+      "a"
+    ]
+  },
+  {
+    "name": "Anchors multiline dotAll and word boundaries",
+    "source": "record(new RegExp('^a$','m').test('x\\na\\ny'));record(new RegExp('^a$').test('a\\n'));record(new RegExp('a.b').test('a\\nb'));record(new RegExp('a.b','s').test('a\\nb'));record(new RegExp('\\\\bcat\\\\b').test('a cat!'));record(new RegExp('\\\\Bcat').test('scat'));",
+    "expected": [
+      "true",
+      "false",
+      "false",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "Character classes complements ranges and whitespace",
+    "source": "record(new RegExp('[a-c]+').exec('abcd')[0]);record(new RegExp('[^a-c]+').exec('abcdZ')[0]);record(new RegExp('[\\\\d-]+').exec('x2-3')[0]);record(new RegExp('\\\\s').test('\\uFEFF'));record(new RegExp('\\\\s').test('\\u0085'));record(new RegExp('[]').test('a'));record(new RegExp('[^]').test('\\n'));",
+    "expected": [
+      "abc",
+      "dZ",
+      "2-3",
+      "true",
+      "false",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "Unicode code points UTF16 indices and surrogate escapes",
+    "source": "const text='a😀b';record(new RegExp('.','gu')[Symbol.match](text).join('|'));record(new RegExp('.','g')[Symbol.match](text).length);record(new RegExp('\\\\u{1F600}','u').exec(text).index);record(new RegExp('\\\\uD83D\\\\uDE00','u').test(text));const r=new RegExp('😀','du');const m=r.exec(text);record(m.indices[0].join(','));",
+    "expected": [
+      "a|😀|b",
+      "4",
+      "1",
+      "true",
+      "1,3"
+    ]
+  },
+  {
+    "name": "Unicode property general category script extensions and binary",
+    "source": "record(new RegExp('\\\\p{Letter}+','u').exec('123αβЖ')[0]);record(new RegExp('\\\\p{Script=Greek}+','u').exec('abαβ')[0]);record(new RegExp('\\\\p{Script_Extensions=Hira}','u').test('ー'));record(new RegExp('\\\\p{Emoji}','u').test('😀'));record(new RegExp('\\\\P{ASCII}+','u').exec('abcä中')[0]);",
+    "expected": [
+      "αβЖ",
+      "αβ",
+      "true",
+      "true",
+      "ä中"
+    ]
+  },
+  {
+    "name": "Unicode versus legacy case folding",
+    "source": "record(new RegExp('k','iu').test('K'));record(new RegExp('k','i').test('K'));record(new RegExp('s','iu').test('ſ'));record(new RegExp('[a-z]','iu').test('K'));record(new RegExp('ß','iu').test('ẞ'));record(new RegExp('ß','i').test('ss'));record(new RegExp('σ','iu').test('ς'));",
+    "expected": [
+      "true",
+      "false",
+      "true",
+      "true",
+      "true",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "Unicode set intersection subtraction and strings",
+    "source": "record(new RegExp('[\\\\p{ASCII}&&\\\\p{Letter}]+','v').exec('123abcä')[0]);record(new RegExp('[[a-z]--[aeiou]]+','v').exec('aeibcdf')[0]);record(new RegExp('[\\\\q{ab|abc|x}]+','v').exec('abcxab')[0]);record(new RegExp('\\\\P{Lowercase_Letter}','iu').test('a'));record(new RegExp('\\\\P{Lowercase_Letter}','iv').test('a'));",
+    "expected": [
+      "abc",
+      "bcdf",
+      "abcxab",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "Scoped flags affect only the group",
+    "source": "record(new RegExp('a(?i:b)c').test('aBc'));record(new RegExp('a(?i:b)c').test('ABc'));record(new RegExp('a(?-i:b)c','i').test('AbC'));record(new RegExp('a(?-i:b)c','i').test('ABC'));",
+    "expected": [
+      "true",
+      "false",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "Named captures and indices share spans",
+    "source": "const m=new RegExp('(?<a>x)(?<b>y)?','d').exec('zx');record(Object.getPrototypeOf(m.groups)===null);record(m.groups.a);record(m.groups.b===undefined);record(m.indices.groups.a===m.indices[1]);record(m.indices.groups.a.join(','));record(m.indices.groups.b===undefined);",
+    "expected": [
+      "true",
+      "x",
+      "true",
+      "true",
+      "1,2",
+      "true"
+    ]
+  },
+  {
+    "name": "String match and matchAll empty advancement",
+    "source": "record('aba'.match(new RegExp('a','g')).join(','));record('aba'.match(new RegExp('z','g'))===null);const r=new RegExp('','gu');record(Array.from('😀'.matchAll(r)).map(function(m){return m.index;}).join(','));record(r.lastIndex);",
+    "expected": [
+      "a,a",
+      "true",
+      "0,2",
+      "0"
+    ]
+  },
+  {
+    "name": "matchAll preserves source lastIndex and non-global rejection",
+    "source": "const r=new RegExp('a','g');r.lastIndex=1;record(Array.from('aba'.matchAll(r)).map(function(m){return m.index;}).join(','));record(r.lastIndex);try{'a'.matchAll(new RegExp('a'));}catch(e){record(e.name);}try{'a'.replaceAll(new RegExp('a'),'b');}catch(e){record(e.name);}",
+    "expected": [
+      "2",
+      "1",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Search restores lastIndex",
+    "source": "const r=new RegExp('b','g');r.lastIndex=12;record('abc'.search(r));record(r.lastIndex);r.lastIndex=-0;record(r[Symbol.search]('abc'));record(Object.is(r.lastIndex,-0));",
+    "expected": [
+      "1",
+      "12",
+      "1",
+      "true"
+    ]
+  },
+  {
+    "name": "Replacement capture substitutions named groups and context",
+    "source": "record('ab cd'.replace(new RegExp('(?<first>[a-z])([a-z])','g'),'$2$<first>'));record('xabz'.replace(new RegExp('(a)(b)'),\"$$:$&:$1:$2:$`:$'\"));record('a'.replace(new RegExp('(a)(b)?'),'[$2]'));",
+    "expected": [
+      "ba dc",
+      "x$:ab:a:b:x:zz",
+      "[]"
+    ]
+  },
+  {
+    "name": "Functional replacement order and original lastIndex",
+    "source": "const r=new RegExp('(a)','g');record('aba'.replace(r,function(m,c,index,input){record(index+':'+r.lastIndex);return c.toUpperCase();}));record('aba'.replaceAll(new RegExp('a','g'),'x'));",
+    "expected": [
+      "0:0",
+      "2:0",
+      "AbA",
+      "xbx"
+    ]
+  },
+  {
+    "name": "Split captures limits empty matches and Unicode",
+    "source": "record('a1b2'.split(new RegExp('(\\\\d)')).join('|'));record('a1b2'.split(new RegExp('(\\\\d)'),3).join('|'));record('😀x'.split(new RegExp('(?:)','u')).join('|'));record(''.split(new RegExp('x')).length);record(''.split(new RegExp('')).length);",
+    "expected": [
+      "a|1|b|2|",
+      "a|1|b",
+      "😀|x",
+      "1",
+      "0"
+    ]
+  },
+  {
+    "name": "Custom exec and String symbol methods",
+    "source": "const r=new RegExp('a');r.exec=function(s){return {0:'!',index:2,length:1};};record(r.test('abc'));record(r[Symbol.search]('abc'));const p={};p[Symbol.match]=function(s){return 'custom:'+s;};record('abc'.match(p));p[Symbol.replace]=function(s,r){return s+':'+r;};record('abc'.replace(p,'x'));",
+    "expected": [
+      "true",
+      "2",
+      "custom:abc",
+      "abc:x"
+    ]
+  },
+  {
+    "name": "String predicates reject regular expressions unless opted out",
+    "source": "const r=new RegExp('a');for(const name of ['includes','startsWith','endsWith']){try{'abc'[name](r);}catch(e){record(e.name);}}r[Symbol.match]=false;record('/a/'.includes(r));",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "true"
+    ]
+  },
+  {
+    "name": "RegExp escape punctuation leading digits and Unicode",
+    "source": "record(RegExp.escape('foo.bar-baz'));record(RegExp.escape('1+1=2'));record(RegExp.escape('a b\\n'));record(RegExp.escape('😀'));record(RegExp.escape('\\uD800'));try{RegExp.escape(2);}catch(e){record(e.name);}",
+    "expected": [
+      "\\x66oo\\.bar\\x2dbaz",
+      "\\x31\\+1\\x3d2",
+      "\\x61\\x20b\\n",
+      "😀",
+      "\\ud800",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Invalid syntax rejects rather than reinterpreting",
+    "source": "for(const p of ['[z-a]','(','*a','a{3,2}','(?<x>a)\\\\k<bad>','\\\\p{Bad_Property}']){try{new RegExp(p,'u');}catch(e){record(e.name);}}for(const f of ['gg','uv','z']){try{new RegExp('',f);}catch(e){record(e.name);}}",
+    "expected": [
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "Legacy decimal escapes and escaped sources",
+    "source": "record(new RegExp('\\\\1').test('\\x01'));record(new RegExp('\\\\8').test('8'));record(new RegExp('[\\\\0]').test('\\0'));record(new RegExp('\\\\n').source);record(new RegExp('[a/b]').source);",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "\\n",
+      "[a/b]"
+    ]
+  },
+  {
+    "name": "Readonly lastIndex throws only when execution changes it",
+    "source": "const a=new RegExp('a');Object.defineProperty(a,'lastIndex',{writable:false});record(a.test('a'));const g=new RegExp('a','g');Object.defineProperty(g,'lastIndex',{writable:false});try{g.test('a');}catch(e){record(e.name);}try{g.test('z');}catch(e){record(e.name);}",
+    "expected": [
+      "true",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Duplicate names in disjoint alternatives and named backreferences",
+    "source": "const r=new RegExp('(?:(?<x>a)|(?<x>b))\\\\k<x>','d');record(r.exec('bb').groups.x);record(r.exec('aa').indices.groups.x.join(','));try{new RegExp('(?<x>a)(?<x>b)');}catch(e){record(e.name);}",
+    "expected": [
+      "b",
+      "0,1",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "Unicode string properties and invalid complements",
+    "source": "record(new RegExp('\\\\p{RGI_Emoji}','v').exec('x👩‍💻y')[0]);record(new RegExp('\\\\p{RGI_Emoji_Flag_Sequence}','v').test('🇩🇪'));record(new RegExp('\\\\p{Basic_Emoji}','v').test('😀'));for(const p of ['[a-z--[aeiou]]','[^\\\\q{ab}]','\\\\P{RGI_Emoji}']){try{new RegExp(p,'v');}catch(e){record(e.name);}}",
+    "expected": [
+      "👩‍💻",
+      "true",
+      "true",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "RegExp literals division and fresh literal evaluation",
+    "source": "const r=/a[\\/]b/gi;record(r.source);record(r.flags);record(r.test('A/b'));record(12/3/2);record(({x:6}).x/2);function make(){return /a/g;}record(make()!==make());if(true)/x/.test('x')&&record('control');record((function(){return 8;})()/2);",
+    "expected": [
+      "a[\\/]b",
+      "gi",
+      "true",
+      "2",
+      "3",
+      "true",
+      "control",
+      "4"
+    ]
+  },
+  {
+    "name": "Unicode lastIndex inside surrogate pair",
+    "source": "const r=new RegExp('.','uy');r.lastIndex=1;const m=r.exec('😀');record(m&&m.index);record(m&&m[0]);record(r.lastIndex);",
+    "expected": [
+      "0",
+      "😀",
+      "2"
+    ]
+  },
+  {
+    "name": "Legacy compile updates source flags and index",
+    "source": "const r=/a/g;r.lastIndex=2;record(r.compile(/b/i)===r);record(r.source);record(r.flags);record(r.lastIndex);record(r.test('B'));try{r.compile(/x/,'g');}catch(e){record(e.name);}",
+    "expected": [
+      "true",
+      "b",
+      "i",
+      "0",
+      "true",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "ASI before declaration and restricted statement regex goals",
+    "source": "var n=1\nfunction f(){} /x/.test('x')&&record('declaration');while(false){break\n/x/.test('x');}label:while(false){break label\n/x/.test('x');}record(4/2);",
+    "expected": [
+      "declaration",
+      "2"
+    ]
+  }
+]

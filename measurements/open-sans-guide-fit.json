@@ -1,0 +1,54 @@
+{
+  "font": "Open Sans normal",
+  "fontFamily": "rbxassetid://11598121416",
+  "fontWeight": "Regular",
+  "text": "H x p",
+  "lineHeight": 1,
+  "scale": 1.34,
+  "textSizeRounding": "ceil",
+  "method": "linear least squares per guide against ceil(htmlSize * scale), matching reported robloxTextSize; rounded once for display",
+  "training": [
+    {
+      "htmlSize": 10,
+      "robloxTextSize": 14,
+      "Top": 3,
+      "XHeight": 5,
+      "Baseline": 12,
+      "Bottom": 15
+    },
+    {
+      "htmlSize": 20,
+      "robloxTextSize": 27,
+      "Top": 6,
+      "XHeight": 9,
+      "Baseline": 22,
+      "Bottom": 27
+    },
+    {
+      "htmlSize": 30,
+      "robloxTextSize": 41,
+      "Top": 10,
+      "XHeight": 15,
+      "Baseline": 33,
+      "Bottom": 40
+    },
+    {
+      "htmlSize": 40,
+      "robloxTextSize": 54,
+      "Top": 13,
+      "XHeight": 21,
+      "Baseline": 43,
+      "Bottom": 53
+    },
+    {
+      "htmlSize": 50,
+      "robloxTextSize": 67,
+      "Top": 16,
+      "XHeight": 25,
+      "Baseline": 53,
+      "Bottom": 65
+    }
+  ],
+  "heldOut": [],
+  "notes": "Manual FONT_REPORT. Origin: TextLabel top, pixels downward. Maximum rounded training error 1 px. Size comparison after ceil has not been explicitly confirmed. Intermediate and outside sizes not visually validated. Guide distances are not independent glyph-height counts."
+}

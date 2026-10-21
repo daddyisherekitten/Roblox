@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Labor · Browser &amp; Roblox</title>
+  <link rel="stylesheet" href="javascript-labor-classic.css">
+</head>
+<body>
+  <header class="topbar"><a href="../../examples/websites/main/index.html">Studio / Labor</a><a href="../../examples/websites/hover-tests/index.html">Hover-Vergleich</a></header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">01 / Interaktion</p>
+      <h1>Eine Seite.<br>Zwei Laufzeiten.</h1>
+      <p class="lead">Zählen, suchen und umschalten. Diese Seite verwendet im Browser und in Roblox denselben HTML-, CSS- und JavaScript-Code.</p>
+      <p id="js-status" class="status">JavaScript startet …</p>
+      <p class="hint">Nach einer Größenänderung bleiben Zähler, Suchtext und Auswahl erhalten.</p>
+    </section>
+    <div class="tests">
+      <section class="test">
+        <p class="eyebrow">01 / Zustand &amp; Text</p><h2>Ein Klick zählt.</h2>
+        <p>Jeder Klick verändert den Text. Das Layout passt sich an, die Seite bleibt dieselbe.</p>
+        <p id="count" class="number">0</p>
+        <div class="actions"><button id="increment" type="button">Weiterzählen</button><button id="reset" type="button" class="secondary">Zurücksetzen</button></div>
+      </section>
+      <section class="test">
+        <p class="eyebrow">02 / Klassen &amp; Sichtbarkeit</p><h2>Mehr erfahren.</h2>
+        <p>Der Bereich bekommt seinen Platz im Dokument zurück, sobald er sichtbar wird.</p>
+        <button id="toggle" type="button" aria-expanded="false">Details öffnen</button>
+        <div id="details" class="details" hidden><h3>Hallo aus dem DOM.</h3><p>Dieser Bereich wird mit der Eigenschaft <strong>hidden</strong> ein- und ausgeblendet. Der Text darunter rückt mit.</p></div>
+        <p id="below-panel" class="hint">Ich bleibe unter dem Detailbereich.</p>
+      </section>
+    </div>
+    <section class="test search-test">
+      <p class="eyebrow">03 / Eingaben &amp; Auswahl</p><h2>Was interessiert Sie?</h2>
+      <label for="search">Projekte durchsuchen</label>
+      <input id="search" type="search" placeholder="Zum Beispiel Holz oder Haus" autocomplete="off">
+      <p id="matches" class="hint">4 Projekte</p>
+      <div id="projects" class="projects">
+        <article class="project-card" data-name="Haus am Hang Holz"><p class="tag">Wohnen / Holz</p><h3>Haus am Hang</h3><p>Licht, Weite und ein ruhiger Ort zum Ankommen.</p></article>
+        <article class="project-card" data-name="Atelier im Garten Holz"><p class="tag">Arbeiten / Holz</p><h3>Atelier im Garten</h3><p>Ein kleiner Raum für große Ideen.</p></article>
+        <article class="project-card" data-name="Stadthaus Stein"><p class="tag">Umbau / Stein</p><h3>Das Stadthaus</h3><p>Alte Substanz, neue Perspektiven.</p></article>
+        <article class="project-card" data-name="Pavillon am Wasser Glas"><p class="tag">Freiraum / Glas</p><h3>Am Wasser</h3><p>Eine leichte Konstruktion am Ufer.</p></article>
+      </div>
+      <p id="empty" class="empty" hidden>Keine Projekte gefunden. Versuchen Sie einen anderen Suchbegriff.</p>
+    </section>
+    <div class="tests">
+      <section class="test">
+        <p class="eyebrow">04 / Stil &amp; Formular</p><h2>Eine kleine Auswahl.</h2>
+        <p id="color-preview" class="preview">Meine Farbe kommt aus JavaScript.</p>
+        <div class="actions"><button id="color" type="button">Farbe wechseln</button><button id="class-toggle" type="button" class="secondary">Hervorheben</button></div>
+        <form id="contact">
+          <label for="name">Ihr Name</label><input id="name" name="name" placeholder="Name eingeben">
+          <label class="check"><input id="news" type="checkbox" name="news"> Neuigkeiten erhalten</label>
+          <p id="selection" class="hint">Neuigkeiten: nein</p>
+          <button type="submit">Lokal bestätigen</button>
+          <p id="form-result" class="hint">Noch nichts bestätigt.</p>
+        </form>
+      </section>
+      <section class="test" id="event-area">
+        <p class="eyebrow">05 / Ereignisse</p><h2>Einmal ist einmal.</h2>
+        <p>Dieser Listener läuft genau einmal. Ein zweiter Klick verändert seinen Text nicht mehr.</p>
+        <button id="once" type="button">Einmal auslösen</button>
+        <p id="once-result" class="hint">Noch nicht ausgelöst.</p>
+        <p id="event-result" class="hint">Klicken Sie auch auf diesen Bereich: Das Ereignis erreicht das Elternelement.</p>
+      </section>
+    </div>
+    <section class="test dom-test">
+      <p class="eyebrow">06 / Elemente &amp; Reihenfolge</p><h2>Eine Liste wächst mit.</h2>
+      <p>Erstellen, einfügen, verschieben und entfernen. Schreiben Sie etwas in ein Feld und verschieben Sie seinen Eintrag: Der eingegebene Text bleibt erhalten.</p>
+      <div class="actions">
+        <button id="dom-add" type="button">Eintrag hinzufügen</button>
+        <button id="dom-prepend" type="button" class="secondary">Am Anfang einfügen</button>
+        <button id="dom-batch" type="button" class="secondary">Drei hinzufügen</button>
+        <button id="dom-rotate" type="button" class="secondary">Ersten nach hinten</button>
+        <button id="dom-remove" type="button" class="secondary">Ersten entfernen</button>
+        <button id="dom-archive" type="button" class="secondary">Ersten archivieren</button>
+        <button id="dom-restore" type="button" class="secondary">Aus Archiv zurück</button>
+      </div>
+      <div class="dom-columns">
+        <div><h3>Aktive Einträge</h3><ol id="dom-list" class="dom-list">
+          <li class="dom-row"><p>Entwurf 1</p><input class="dom-note" aria-label="Notiz zu Entwurf 1" placeholder="Ihre Notiz"><button type="button" class="secondary">Entfernen</button></li>
+          <li class="dom-row"><p>Entwurf 2</p><input class="dom-note" aria-label="Notiz zu Entwurf 2" placeholder="Ihre Notiz"><button type="button" class="secondary">Entfernen</button></li>
+        </ol></div>
+        <div><h3>Archiv</h3><ol id="dom-archive-list" class="dom-list"></ol></div>
+      </div>
+      <p id="dom-result" class="hint">2 aktiv · 0 im Archiv</p>
+      <p class="hint">Die Schaltfläche „Entfernen“ gehört zum Eintrag und funktioniert auch nach dem Verschieben. Änderungen an dieser Liste lassen die Eingaben weiter oben auf der Seite erhalten.</p>
+    </section>
+    <div class="tests">
+      <section class="test">
+        <p class="eyebrow">07 / Zeitsteuerung</p><h2>Jetzt und gleich danach.</h2>
+        <p>Eine Meldung erscheint nach einer Sekunde. Erneutes Starten ersetzt den vorherigen Auftrag.</p>
+        <div class="actions"><button id="timeout-start" type="button">Meldung planen</button><button id="timeout-cancel" type="button" class="secondary">Abbrechen</button></div>
+        <p id="timeout-result" class="hint">Noch keine Meldung geplant.</p>
+        <h3>Ein Zähler mit Pause.</h3>
+        <p>Er zählt alle 500 Millisekunden weiter. Wiederholtes Starten erzeugt keinen zweiten Zähler.</p>
+        <p id="timer-count" class="number">0</p>
+        <div class="actions"><button id="interval-start" type="button">Zähler starten</button><button id="interval-stop" type="button" class="secondary">Zähler stoppen</button></div>
+      </section>
+      <section class="test">
+        <p class="eyebrow">08 / Animation Frames</p><h2>Bewegung im nächsten Bild.</h2>
+        <p>Die Fläche bewegt sich in zwei Sekunden nach rechts. Ihre Position wird aus der vergangenen Zeit berechnet.</p>
+        <div class="frame-stage"><div id="frame-box" class="frame-box"></div></div>
+        <div class="actions"><button id="frame-start" type="button">Animation starten</button><button id="frame-stop" type="button" class="secondary">Animation stoppen</button></div>
+        <p id="frame-result" class="hint">Bereit für die Animation.</p>
+      </section>
+    </div>
+    <section class="test">
+      <p class="eyebrow">09 / Reihenfolge</p><h2>Eine Aufgabe nach der anderen.</h2>
+      <p>Zuerst läuft der aktuelle Code fertig, danach folgen Microtasks und zuletzt der Timer.</p>
+      <button id="queue-test" type="button">Reihenfolge prüfen</button>
+      <p id="queue-result" class="hint">Noch nicht geprüft.</p>
+    </section>
+    <div class="tests">
+      <section class="test">
+        <p class="eyebrow" id="promises">10 / Promises</p><h2>Schritt für Schritt.</h2>
+        <p>Der Executor startet sofort. Nach einer dreiviertel Sekunde folgt die Kette: Wert übernehmen, verdoppeln und aufräumen.</p>
+        <div class="actions">
+          <button id="promise-start" type="button">Kette starten</button>
+          <button id="promise-fail" type="button" class="secondary">Ablehnung abfangen</button>
+          <button id="promise-throw" type="button" class="secondary">Fehler werfen</button>
+          <button id="promise-cancel" type="button" class="secondary">Kette abbrechen</button>
+        </div>
+        <p id="promise-result" class="hint" aria-live="polite">Bereit für die Promise-Kette.</p>
+        <p class="hint">Erfolg oder Fehler: Am Ende läuft immer finally. Ein neuer Start ersetzt die vorherige Aufgabe.</p>
+      </section>
+      <section class="test">
+        <p class="eyebrow">11 / Promise &amp; Microtask</p><h2>Eine gemeinsame Warteschlange.</h2>
+        <p>Auch eine bereits erfüllte Promise wartet, bis der synchrone Code fertig ist. Der zweite then-Schritt reiht sich hinter der Microtask ein.</p>
+        <button id="promise-order" type="button">Promise-Reihenfolge prüfen</button>
+        <p id="promise-order-result" class="hint">Noch nicht geprüft.</p>
+        <p class="hint">Erwartet: Start → synchron → then(7) → Microtask → then(8).</p>
+      </section>
+    </div>
+    <div class="tests">
+      <section class="test">
+        <p class="eyebrow" id="promise-combinations">12 / Gemeinsam fertig</p><h2>Alle Ergebnisse sammeln.</h2>
+        <p>Drei Aufgaben enden nach 900, 300 und 600 Millisekunden. Ihre Ergebnisse erscheinen trotzdem in der ursprünglichen Reihenfolge.</p>
+        <div class="actions">
+          <button id="promise-all" type="button">Alle erfolgreich</button>
+          <button id="promise-all-reject" type="button" class="secondary">Eine Ablehnung</button>
+          <button id="promise-settled" type="button" class="secondary">Alle Abschlüsse sammeln</button>
+        </div>
+        <p id="promise-all-result" class="hint" aria-live="polite">Noch keine Aufgaben gestartet.</p>
+        <p class="hint">all: A, B, C. Bei einer Ablehnung: Abgefangen: B. allSettled: fulfilled: A | rejected: B | fulfilled: C.</p>
+      </section>
+      <section class="test">
+        <p class="eyebrow">13 / Wer ist zuerst?</p><h2>Der erste Abschluss zählt.</h2>
+        <p>A wird nach 300 Millisekunden abgelehnt. B ist nach 600 Millisekunden erfolgreich, C nach 900. race nimmt den ersten Abschluss; any wartet auf den ersten Erfolg.</p>
+        <div class="actions">
+          <button id="promise-race" type="button">race starten</button>
+          <button id="promise-any" type="button" class="secondary">any starten</button>
+          <button id="promise-any-reject" type="button" class="secondary">Alle ablehnen</button>
+        </div>
+        <p id="promise-race-result" class="hint" aria-live="polite">Noch kein Rennen gestartet.</p>
+        <p class="hint">race: Abgefangen: A. any: Erfolg: B. Bei drei Ablehnungen: AggregateError: A, B, C.</p>
+      </section>
+    </div>
+    <div class="tests">
+      <section class="test">
+        <p class="eyebrow" id="exceptions">14 / try, catch &amp; finally</p><h2>Auch bei einem Fehler weiter.</h2>
+        <p>Ein Fehler springt in catch. finally räumt danach auf, bevor der Code unter dem Block weiterläuft. Verschachtelte Blöcke können einen Fehler weiterreichen.</p>
+        <div class="actions">
+          <button id="try-success" type="button">Ohne Fehler</button>
+          <button id="try-throw" type="button" class="secondary">Fehler abfangen</button>
+          <button id="try-runtime" type="button" class="secondary">Laufzeitfehler</button>
+          <button id="try-optional" type="button" class="secondary">catch ohne Variable</button>
+          <button id="try-nested" type="button" class="secondary">Fehler weiterreichen</button>
+        </div>
+        <p id="try-result" class="hint" aria-live="polite">Noch kein Block ausgeführt.</p>
+        <p class="hint">Beim geworfenen Fehler: try → catch: Beispiel-Fehler → finally → weiter.</p>
+      </section>
+      <section class="test">
+        <p class="eyebrow">15 / Rücksprung &amp; Aufräumen</p><h2>finally läuft noch vorher.</h2>
+        <p>Auch return, break und continue führen vorher finally aus. Ein eigener Rücksprung aus finally ersetzt das vorige Ergebnis.</p>
+        <div class="actions">
+          <button id="finally-return" type="button">return erhalten</button>
+          <button id="finally-override" type="button" class="secondary">return überschreiben</button>
+          <button id="finally-loop" type="button" class="secondary">Schleife verlassen</button>
+          <button id="finally-throw" type="button" class="secondary">finally wirft</button>
+        </div>
+        <p id="finally-result" class="hint" aria-live="polite">Noch kein Rücksprung ausgeführt.</p>
+        <p class="hint">Die Schleife zeigt: try 0 → finally 0 → try 1 → finally 1 → fertig. Beim zweiten Durchlauf beendet break die Schleife.</p>
+      </section>
+    </div>
+    <div class="tests">
+      <section class="test">
+        <p class="eyebrow">16 / Leere Eingaben &amp; Werte</p><h2>Es braucht nicht immer einen Timer.</h2>
+        <p>Leere Eingaben, gewöhnliche Werte und Strings gehören ebenfalls dazu. Die Reaktionen laufen nach dem synchronen Code.</p>
+        <div class="actions">
+          <button id="promise-empty" type="button">Leere Eingaben</button>
+          <button id="promise-values" type="button" class="secondary">Werte &amp; Thenable</button>
+          <button id="promise-string" type="button" class="secondary">String mit Emoji</button>
+          <button id="promise-invalid" type="button" class="secondary">Ungültige Eingabe</button>
+        </div>
+        <p id="promise-edge-result" class="hint" aria-live="polite">Noch kein Sonderfall ausgeführt.</p>
+        <p class="hint">all und allSettled liefern bei leeren Eingaben eine leere Liste, any einen AggregateError. race bleibt offen. Der String A🌿B liefert drei Zeichen.</p>
+      </section>
+      <section class="test">
+        <p class="eyebrow">17 / Fehler in einem Handler</p><h2>Beide Wege zusammen.</h2>
+        <p>try/catch behandelt einen Fehler direkt im Promise-Handler. Wird der Fehler weitergeworfen, erreicht er stattdessen die catch-Methode der Kette.</p>
+        <div class="actions">
+          <button id="promise-try-recover" type="button">Im Handler abfangen</button>
+          <button id="promise-try-rethrow" type="button" class="secondary">An die Kette weitergeben</button>
+        </div>
+        <p id="promise-try-result" class="hint" aria-live="polite">Bereit für beide Wege.</p>
+        <p class="hint">Beide Wege führen erst das finally des Blocks und später das finally der Promise-Kette aus.</p>
+      </section>
+    </div>
+    <footer><p>JavaScript Labor / DOM, Zeit, Promises &amp; Interaktion</p><p><a href="../../examples/websites/main/index.html">Zurück zum Studio</a></p></footer>
+  </main>
+  <script>
+    "use strict";
+    function delayedResult(value, milliseconds, rejected, timers) {
+      return new Promise(function (resolve, reject) {
+        const timer = setTimeout(function () {
+          if (rejected) { reject(value); }
+          else { resolve(value); }
+        }, milliseconds);
+        timers.push(timer);
+      });
+    }
+    let allRun = 0;
+    let allTimers = [];
+    const allResult = document.getElementById("promise-all-result");
+    function startAll(mode) {
+      allRun += 1;
+      const run = allRun;
+      allTimers.forEach(function (timer) { clearTimeout(timer); });
+      allTimers = [];
+      allResult.textContent = "Die Aufgaben laufen …";
+      const tasks = [
+        delayedResult("A", 900, false, allTimers),
+        delayedResult("B", 300, mode !== "all", allTimers),
+        delayedResult("C", 600, false, allTimers)
+      ];
+      const operation = mode === "settled" ? Promise.allSettled(tasks) : Promise.all(tasks);
+      operation.then(function (results) {
+        if (run !== allRun) { return; }
+        if (mode === "settled") {
+          allResult.textContent = results.map(function (item) {
+            return item.status + ": " + (item.status === "fulfilled" ? item.value : item.reason);
+          }).join(" | ");
+        } else { allResult.textContent = results.join(", "); }
+      }).catch(function (error) {
+        if (run === allRun) { allResult.textContent = "Abgefangen: " + error; }
+      });
+    }
+    document.getElementById("promise-all").addEventListener("click", function () { startAll("all"); });
+    document.getElementById("promise-all-reject").addEventListener("click", function () { startAll("reject"); });
+    document.getElementById("promise-settled").addEventListener("click", function () { startAll("settled"); });
+    let raceRun = 0;
+    let raceTimers = [];
+    const raceResult = document.getElementById("promise-race-result");
+    function startRace(mode) {
+      raceRun += 1;
+      const run = raceRun;
+      raceTimers.forEach(function (timer) { clearTimeout(timer); });
+      raceTimers = [];
+      raceResult.textContent = "Das Rennen läuft …";
+      const tasks = [
+        delayedResult("A", 300, true, raceTimers),
+        delayedResult("B", 600, mode === "reject", raceTimers),
+        delayedResult("C", 900, mode === "reject", raceTimers)
+      ];
+      const operation = mode === "race" ? Promise.race(tasks) : Promise.any(tasks);
+      operation.then(function (value) {
+        if (run === raceRun) { raceResult.textContent = "Erfolg: " + value; }
+      }).catch(function (error) {
+        if (run !== raceRun) { return; }
+        raceResult.textContent = mode === "reject" ? error.name + ": " + error.errors.join(", ") : "Abgefangen: " + error;
+      });
+    }
+    document.getElementById("promise-race").addEventListener("click", function () { startRace("race"); });
+    document.getElementById("promise-any").addEventListener("click", function () { startRace("any"); });
+    document.getElementById("promise-any-reject").addEventListener("click", function () { startRace("reject"); });
+    const tryResult = document.getElementById("try-result");
+    function runTry(mode) {
+      const trace = [];
+      try {
+        trace.push("try");
+        if (mode === "throw") { throw new Error("Beispiel-Fehler"); }
+        if (mode === "runtime") {
+          const missing = null;
+          missing.value;
+        }
+        trace.push("Erfolg");
+      } catch (error) {
+        trace.push(mode === "runtime" ? "catch: " + error.name : "catch: " + error.message);
+      } finally { trace.push("finally"); }
+      trace.push("weiter");
+      tryResult.textContent = trace.join(" → ");
+    }
+    document.getElementById("try-success").addEventListener("click", function () { runTry("success"); });
+    document.getElementById("try-throw").addEventListener("click", function () { runTry("throw"); });
+    document.getElementById("try-runtime").addEventListener("click", function () { runTry("runtime"); });
+    document.getElementById("try-optional").addEventListener("click", function () {
+      const trace = [];
+      try { trace.push("try"); throw "Ohne Fehlerobjekt"; }
+      catch { trace.push("catch ohne Variable"); }
+      finally { trace.push("finally"); }
+      trace.push("weiter");
+      tryResult.textContent = trace.join(" → ");
+    });
+    document.getElementById("try-nested").addEventListener("click", function () {
+      const trace = [];
+      try {
+        try { trace.push("inneres try"); throw new Error("Original"); }
+        catch (error) { trace.push("inneres catch"); throw error; }
+        finally { trace.push("inneres finally"); }
+      } catch (error) { trace.push("äußeres catch: " + error.message); }
+      finally { trace.push("äußeres finally"); }
+      tryResult.textContent = trace.join(" → ");
+    });
+    const finallyResult = document.getElementById("finally-result");
+    function finallyValue(override, trace) {
+      try { trace.push("try"); return "A"; }
+      finally {
+        trace.push("finally");
+        if (override) { return "B"; }
+      }
+    }
+    function showFinally(override) {
+      const trace = [];
+      const value = finallyValue(override, trace);
+      trace.push("Ergebnis: " + value);
+      finallyResult.textContent = trace.join(" → ");
+    }
+    document.getElementById("finally-return").addEventListener("click", function () { showFinally(false); });
+    document.getElementById("finally-override").addEventListener("click", function () { showFinally(true); });
+    document.getElementById("finally-loop").addEventListener("click", function () {
+      const trace = [];
+      for (let i = 0; i < 3; i++) {
+        try {
+          trace.push("try " + i);
+          if (i === 0) { continue; }
+          break;
+        } finally { trace.push("finally " + i); }
+      }
+      trace.push("fertig");
+      finallyResult.textContent = trace.join(" → ");
+    });
+    document.getElementById("finally-throw").addEventListener("click", function () {
+      const trace = [];
+      function failFinally() {
+        try { trace.push("try"); return "A"; }
+        finally { trace.push("finally"); throw new Error("Aufräumfehler"); }
+      }
+      try { failFinally(); }
+      catch (error) { trace.push("catch: " + error.message); }
+      finallyResult.textContent = trace.join(" → ");
+    });
+    const edgeResult = document.getElementById("promise-edge-result");
+    let edgeRun = 0;
+    let edgeTimer = 0;
+    document.getElementById("promise-empty").addEventListener("click", function () {
+      edgeRun += 1;
+      const run = edgeRun;
+      clearTimeout(edgeTimer);
+      edgeResult.textContent = "Start";
+      let raceFinished = false;
+      Promise.all([]).then(function (items) {
+        if (run === edgeRun) { edgeResult.textContent += " → all: " + items.length; }
+      });
+      Promise.allSettled([]).then(function (items) {
+        if (run === edgeRun) { edgeResult.textContent += " → allSettled: " + items.length; }
+      });
+      Promise.any([]).catch(function (error) {
+        if (run === edgeRun) { edgeResult.textContent += " → any: " + error.name + " (" + error.errors.length + ")"; }
+      });
+      Promise.race([]).then(function () { raceFinished = true; });
+      edgeResult.textContent += " → synchron";
+      edgeTimer = setTimeout(function () {
+        edgeTimer = 0;
+        if (run === edgeRun) { edgeResult.textContent += raceFinished ? " → race: abgeschlossen" : " → race: offen"; }
+      }, 100);
+    });
+    document.getElementById("promise-values").addEventListener("click", function () {
+      edgeRun += 1;
+      const run = edgeRun;
+      clearTimeout(edgeTimer);
+      edgeResult.textContent = "Start";
+      const thenable = { then: function (resolve) { resolve("Thenable"); resolve("zweiter Aufruf"); } };
+      Promise.all([1, Promise.resolve(2), thenable]).then(function (items) {
+        if (run === edgeRun) { edgeResult.textContent += " → " + items.join(", "); }
+      });
+      edgeResult.textContent += " → synchron";
+    });
+    document.getElementById("promise-string").addEventListener("click", function () {
+      edgeRun += 1;
+      const run = edgeRun;
+      clearTimeout(edgeTimer);
+      edgeResult.textContent = "Start";
+      Promise.all("A🌿B").then(function (items) {
+        if (run === edgeRun) { edgeResult.textContent += " → " + items.join(" | ") + " (" + items.length + " Zeichen)"; }
+      });
+      edgeResult.textContent += " → synchron";
+    });
+    document.getElementById("promise-invalid").addEventListener("click", function () {
+      edgeRun += 1;
+      const run = edgeRun;
+      clearTimeout(edgeTimer);
+      edgeResult.textContent = "Start";
+      Promise.all(42).catch(function (error) {
+        if (run === edgeRun) { edgeResult.textContent += " → catch: " + error.name; }
+      });
+      edgeResult.textContent += " → synchron";
+    });
+    const promiseTryResult = document.getElementById("promise-try-result");
+    let promiseTryRun = 0;
+    function startPromiseTry(rethrow) {
+      promiseTryRun += 1;
+      const run = promiseTryRun;
+      const trace = ["Start"];
+      Promise.resolve(7).then(function (value) {
+        try { trace.push("try(" + value + ")"); throw new Error("Handler-Fehler"); }
+        catch (error) {
+          trace.push("catch im Block");
+          if (rethrow) { throw error; }
+          return value * 2;
+        } finally { trace.push("finally im Block"); }
+      }).then(function (value) { trace.push("Ergebnis: " + value); })
+      .catch(function (error) { trace.push("catch der Kette: " + error.message); })
+      .finally(function () {
+        trace.push("finally der Kette");
+        if (run === promiseTryRun) { promiseTryResult.textContent = trace.join(" → "); }
+      });
+      trace.push("synchron");
+      promiseTryResult.textContent = trace.join(" → ");
+    }
+    document.getElementById("promise-try-recover").addEventListener("click", function () { startPromiseTry(false); });
+    document.getElementById("promise-try-rethrow").addEventListener("click", function () { startPromiseTry(true); });
+    let promiseTimer = 0;
+    let promiseRun = 0;
+    let rejectPrevious = null;
+    const promiseResult = document.getElementById("promise-result");
+    function startPromise(mode) {
+      promiseRun += 1;
+      const run = promiseRun;
+      clearTimeout(promiseTimer);
+      if (rejectPrevious !== null) { rejectPrevious(new Error("Ersetzt")); }
+      promiseResult.textContent = "Start";
+      const operation = new Promise(function (resolve, reject) {
+        rejectPrevious = reject;
+        promiseResult.textContent += " → Executor";
+        promiseTimer = setTimeout(function () {
+          if (mode === "reject") { reject(new Error("Beispiel-Ablehnung")); }
+          else { resolve(7); }
+        }, 750);
+      });
+      operation.then(function (value) {
+        if (run !== promiseRun) { return value; }
+        if (mode === "throw") { throw new Error("Beispiel-Fehler im Handler"); }
+        promiseResult.textContent += " → Wert: " + value;
+        return Promise.resolve(value * 2);
+      }).then(function (value) {
+        if (run === promiseRun) { promiseResult.textContent += " → Ergebnis: " + value; }
+      }).catch(function (error) {
+        if (run === promiseRun) { promiseResult.textContent += " → Abgefangen: " + error.message; }
+      }).finally(function () {
+        if (run === promiseRun) {
+          promiseTimer = 0;
+          rejectPrevious = null;
+          promiseResult.textContent += " → Aufgeräumt";
+        }
+      });
+      promiseResult.textContent += " → synchron";
+    }
+    document.getElementById("promise-start").addEventListener("click", function () { startPromise("resolve"); });
+    document.getElementById("promise-fail").addEventListener("click", function () { startPromise("reject"); });
+    document.getElementById("promise-throw").addEventListener("click", function () { startPromise("throw"); });
+    document.getElementById("promise-cancel").addEventListener("click", function () {
+      promiseRun += 1;
+      clearTimeout(promiseTimer);
+      promiseTimer = 0;
+      if (rejectPrevious !== null) { rejectPrevious(new Error("Abgebrochen")); }
+      rejectPrevious = null;
+      promiseResult.textContent = "Abgebrochen. Kein späterer Schritt verändert diese Meldung.";
+    });
+    document.getElementById("promise-order").addEventListener("click", function () {
+      const result = document.getElementById("promise-order-result");
+      result.textContent = "Start";
+      Promise.resolve(7).then(function (value) {
+        result.textContent += " → then(" + value + ")";
+        return value + 1;
+      }).then(function (value) { result.textContent += " → then(" + value + ")"; });
+      queueMicrotask(function () { result.textContent += " → Microtask"; });
+      result.textContent += " → synchron";
+    });
+    let timeoutHandle = 0;
+    const timeoutResult = document.getElementById("timeout-result");
+    document.getElementById("timeout-start").addEventListener("click", function () {
+      clearTimeout(timeoutHandle);
+      timeoutResult.textContent = "Die Meldung ist geplant …";
+      timeoutHandle = setTimeout(function () {
+        timeoutHandle = 0;
+        timeoutResult.textContent = "Eine Sekunde später: Hallo!";
+      }, 1000);
+    });
+    document.getElementById("timeout-cancel").addEventListener("click", function () {
+      clearTimeout(timeoutHandle);
+      timeoutHandle = 0;
+      timeoutResult.textContent = "Die Meldung wurde abgebrochen.";
+    });
+    let intervalHandle = 0;
+    let timedCount = 0;
+    document.getElementById("interval-start").addEventListener("click", function () {
+      if (intervalHandle !== 0) { return; }
+      intervalHandle = setInterval(function () {
+        timedCount += 1;
+        document.getElementById("timer-count").textContent = String(timedCount);
+      }, 500);
+    });
+    document.getElementById("interval-stop").addEventListener("click", function () {
+      clearInterval(intervalHandle);
+      intervalHandle = 0;
+    });
+    let frameHandle = 0;
+    let frameOrigin = -1;
+    const frameBox = document.getElementById("frame-box");
+    const frameResult = document.getElementById("frame-result");
+    function moveFrame(timestamp) {
+      frameHandle = 0;
+      if (frameOrigin < 0) { frameOrigin = timestamp; }
+      const progress = Math.min(1, (timestamp - frameOrigin) / 2000);
+      frameBox.style.transform = "translateX(" + progress * 140 + "px)";
+      if (progress < 1) { frameHandle = requestAnimationFrame(moveFrame); }
+      else { frameResult.textContent = "Am Ziel. Die Animation ist beendet."; }
+    }
+    document.getElementById("frame-start").addEventListener("click", function () {
+      cancelAnimationFrame(frameHandle);
+      frameOrigin = -1;
+      frameBox.style.transform = "translateX(0px)";
+      frameResult.textContent = "Die Animation läuft …";
+      frameHandle = requestAnimationFrame(moveFrame);
+    });
+    document.getElementById("frame-stop").addEventListener("click", function () {
+      cancelAnimationFrame(frameHandle);
+      frameHandle = 0;
+      frameResult.textContent = "An dieser Position gestoppt.";
+    });
+    let queueHandle = 0;
+    document.getElementById("queue-test").addEventListener("click", function () {
+      clearTimeout(queueHandle);
+      const result = document.getElementById("queue-result");
+      result.textContent = "Start";
+      queueMicrotask(function () {
+        result.textContent += " → Microtask";
+        queueMicrotask(function () { result.textContent += " → weitere Microtask"; });
+      });
+      queueHandle = setTimeout(function () {
+        queueHandle = 0;
+        result.textContent += " → Timer";
+      }, 0);
+      result.textContent += " → synchron";
+    });
+    window.jsBootCount = 1;
+    let count = 0;
+    const countLabel = document.getElementById("count");
+    document.getElementById("increment").addEventListener("click", function () {
+      count += 1;
+      countLabel.textContent = String(count);
+    });
+    document.getElementById("reset").addEventListener("click", function () {
+      count = 0;
+      countLabel.textContent = "0";
+    });
+    const details = document.getElementById("details");
+    const toggle = document.getElementById("toggle");
+    toggle.addEventListener("click", function () {
+      details.hidden = !details.hidden;
+      toggle.textContent = details.hidden ? "Details öffnen" : "Details schließen";
+      toggle.setAttribute("aria-expanded", details.hidden ? "false" : "true");
+    });
+    const search = document.getElementById("search");
+    const cards = document.querySelectorAll(".project-card");
+    search.addEventListener("input", function (event) {
+      const query = event.target.value.trim().toLowerCase();
+      let matches = 0;
+      cards.forEach(function (card) {
+        card.hidden = !card.getAttribute("data-name").toLowerCase().includes(query);
+        if (!card.hidden) { matches += 1; }
+      });
+      document.getElementById("matches").textContent = matches + " Projekte";
+      document.getElementById("empty").hidden = matches !== 0;
+    });
+    let alternate = false;
+    const preview = document.getElementById("color-preview");
+    document.getElementById("color").addEventListener("click", function () {
+      alternate = !alternate;
+      preview.style.color = alternate ? "#a24226" : "#194e40";
+    });
+    document.getElementById("class-toggle").addEventListener("click", function () {
+      preview.classList.toggle("highlight");
+    });
+    document.getElementById("news").addEventListener("change", function (event) {
+      document.getElementById("selection").textContent = event.target.checked ? "Neuigkeiten: ja" : "Neuigkeiten: nein";
+    });
+    document.getElementById("contact").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      document.getElementById("form-result").textContent = name === "" ? "Bitte geben Sie einen Namen ein." : "Danke, " + name + ". Lokal bestätigt.";
+    });
+    document.getElementById("once").addEventListener("click", function () {
+      document.getElementById("once-result").textContent = "Genau einmal ausgelöst.";
+    }, { once: true });
+    document.getElementById("event-area").addEventListener("click", function (event) {
+      document.getElementById("event-result").textContent = "Ereignis empfangen von: " + event.target.tagName.toLowerCase();
+    });
+    const activeList = document.getElementById("dom-list");
+    const archiveList = document.getElementById("dom-archive-list");
+    let nextEntry = 3;
+    function listStatus() {
+      document.getElementById("dom-result").textContent = activeList.children.length + " aktiv · " + archiveList.children.length + " im Archiv";
+    }
+    function bindEntry(row) {
+      row.querySelector("button").addEventListener("click", function () {
+        row.remove();
+        listStatus();
+      });
+    }
+    function createEntry() {
+      const row = document.createElement("li");
+      row.className = "dom-row";
+      const title = document.createElement("p");
+      title.textContent = "Entwurf " + nextEntry;
+      const note = document.createElement("input");
+      note.className = "dom-note";
+      note.setAttribute("aria-label", "Notiz zu Entwurf " + nextEntry);
+      note.setAttribute("placeholder", "Ihre Notiz");
+      const remove = document.createElement("button");
+      remove.setAttribute("type", "button");
+      remove.className = "secondary";
+      remove.textContent = "Entfernen";
+      row.appendChild(title);
+      row.appendChild(note);
+      row.appendChild(remove);
+      nextEntry += 1;
+      bindEntry(row);
+      return row;
+    }
+    activeList.querySelectorAll(".dom-row").forEach(bindEntry);
+    document.getElementById("dom-add").addEventListener("click", function () {
+      activeList.appendChild(createEntry());
+      listStatus();
+    });
+    document.getElementById("dom-prepend").addEventListener("click", function () {
+      activeList.insertBefore(createEntry(), activeList.firstElementChild);
+      listStatus();
+    });
+    document.getElementById("dom-batch").addEventListener("click", function () {
+      const fragment = document.createDocumentFragment();
+      for (let i = 0; i < 3; i++) { fragment.appendChild(createEntry()); }
+      activeList.appendChild(fragment);
+      listStatus();
+    });
+    document.getElementById("dom-rotate").addEventListener("click", function () {
+      if (activeList.firstElementChild) { activeList.appendChild(activeList.firstElementChild); }
+      listStatus();
+    });
+    document.getElementById("dom-remove").addEventListener("click", function () {
+      if (activeList.firstElementChild) { activeList.removeChild(activeList.firstElementChild); }
+      listStatus();
+    });
+    document.getElementById("dom-archive").addEventListener("click", function () {
+      if (activeList.firstElementChild) { archiveList.appendChild(activeList.firstElementChild); }
+      listStatus();
+    });
+    document.getElementById("dom-restore").addEventListener("click", function () {
+      if (archiveList.firstElementChild) { activeList.appendChild(archiveList.firstElementChild); }
+      listStatus();
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("js-status").textContent = "JavaScript aktiv · bereit zum Vergleichen";
+    });
+  </script>
+</body>
+</html>

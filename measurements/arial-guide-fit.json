@@ -1,0 +1,19 @@
+{
+  "font": "Arial normal",
+  "scale": 1.13,
+  "method": "linear least squares per guide against the actual ceil(htmlSize * scale) Roblox TextSize; rounded once for display",
+  "textSizeRounding": "ceil",
+  "training": [
+    { "htmlSize": 10, "robloxTextSize": 12, "Top": 1, "XHeight": 3, "Baseline": 10, "Bottom": 12 },
+    { "htmlSize": 16, "robloxTextSize": 19, "Top": 2, "XHeight": 5, "Baseline": 16, "Bottom": 20 },
+    { "htmlSize": 20, "robloxTextSize": 23, "Top": 3, "XHeight": 6, "Baseline": 19, "Bottom": 24 },
+    { "htmlSize": 30, "robloxTextSize": 34, "Top": 5, "XHeight": 10, "Baseline": 28, "Bottom": 35 },
+    { "htmlSize": 40, "robloxTextSize": 46, "Top": 7, "XHeight": 13, "Baseline": 37, "Bottom": 46 },
+    { "htmlSize": 50, "robloxTextSize": 57, "Top": 9, "XHeight": 18, "Baseline": 46, "Bottom": 57 },
+    { "htmlSize": 60, "robloxTextSize": 68, "Top": 11, "XHeight": 21, "Baseline": 54, "Bottom": 67 },
+    { "htmlSize": 70, "robloxTextSize": 80, "Top": 12, "XHeight": 25, "Baseline": 64, "Bottom": 79 },
+    { "htmlSize": 80, "robloxTextSize": 91, "Top": 14, "XHeight": 28, "Baseline": 72, "Bottom": 89 }
+  ],
+  "heldOut": [],
+  "notes": "Fresh manual FONT_REPORT from Roblox Studio. All four guide positions were checked at nine sizes, including the problematic 16px browser size. The fit uses the actual integer TextSize assigned to TextLabel."
+}

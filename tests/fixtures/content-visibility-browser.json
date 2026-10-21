@@ -1,0 +1,4606 @@
+{
+  "standard": "https://www.w3.org/TR/2022/WD-css-contain-2-20220917/#content-visibility",
+  "applicability": {
+    "url": "https://drafts.csswg.org/css-contain-2/#content-visibility",
+    "version": "CSSWG source 2026-06-23, before the frozen target 2026-10-06; checked 2026-10-11",
+    "commit": "9b290faedc95e9f93648fb5f5c675c75508c2d14",
+    "source": "https://raw.githubusercontent.com/w3c/csswg-drafts/9b290faedc95e9f93648fb5f5c675c75508c2d14/css-contain-2/Overview.bs",
+    "sha256": "5a8dbbd4c6a8bccd661c5bb7b66275da9cfb5a93b206f2124cc6f60cfd6ccc4d",
+    "applicabilityChange": "https://github.com/w3c/csswg-drafts/commit/5cf431ca4d20bab1496da8bb55e9d05446d31015"
+  },
+  "source": "<!doctype html><style>\nbody{margin:0;font:16px/20px Arial}#owner{width:240px;height:140px;background:#fcdddd}\n#inside{width:90px;height:20px}#editor{display:block;appearance:none;box-sizing:border-box;width:130px;height:24px;border:0;padding:0;margin:0;font:inherit}\n#group{height:20px}#nested{height:20px}#nestedChild{width:25px;height:12px;background:blue}\n#fixed{position:fixed;top:170px;left:15px;width:24px;height:18px;background:green}\n#abs{position:absolute;top:80px;left:10px;width:15px;height:10px;background:orange}\n#details{margin:0}summary{height:20px}#detailChild{height:10px}\n#after{height:8px;width:17px;background:red}</style>\n<div id=owner tabindex=0><div id=inside>AB CD</div><input id=editor value=\"A🙂BC\"><img id=image src=\"asset:picture\" width=20 height=15 alt=\"\">\n<div id=group><span style=\"opacity:.5\">EF <em>GH</em></span></div>\n<div id=nested><div id=nestedChild></div></div><details id=details open><summary>Title</summary><div id=detailChild>IJ</div></details>\n<div id=fixed></div><div id=abs></div></div><div id=after></div><script></script>",
+  "states": [
+    {
+      "name": "focus",
+      "operation": "window.savedEditor=document.getElementById(\"editor\");savedEditor.focus();savedEditor.setSelectionRange(1,4)",
+      "active": "editor",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "🙂B",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    },
+    {
+      "name": "hidden",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "hidden-focus",
+      "operation": "savedEditor.focus();document.getElementById(\"inside\").style.background=\"blue\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "visible",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "🙂B",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    },
+    {
+      "name": "refocus",
+      "operation": "savedEditor.focus();savedEditor.setSelectionRange(1,4)",
+      "active": "editor",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "🙂B",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    },
+    {
+      "name": "hidden-mutation",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\";document.getElementById(\"inside\").textContent=\"KL MN\";const cvNew=document.createElement(\"div\");cvNew.id=\"inserted\";cvNew.style.cssText=\"height:11px;width:19px\";document.getElementById(\"owner\").appendChild(cvNew)",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "reveal-mutation",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "🙂B",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    },
+    {
+      "name": "nested-hidden",
+      "operation": "document.getElementById(\"nested\").style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "🙂B",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "hidden"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    },
+    {
+      "name": "outer-hidden",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "hidden"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "nested-visible-under-hidden",
+      "operation": "document.getElementById(\"nested\").style.contentVisibility=\"visible\";document.getElementById(\"details\").open=false",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            124,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "outer-visible",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "🙂B",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            124,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    },
+    {
+      "name": "details-open",
+      "operation": "document.getElementById(\"details\").open=true",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "🙂B",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    },
+    {
+      "name": "select",
+      "operation": "savedEditor.blur();window.cvRange=document.createRange();cvRange.selectNodeContents(document.getElementById(\"inside\"));getSelection().removeAllRanges();getSelection().addRange(cvRange)",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "KL MN",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    },
+    {
+      "name": "selection-hidden",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "selection-restored",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 1,
+        "end": 4
+      },
+      "selection": "KL MN",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    }
+  ],
+  "deferred": [
+    {
+      "name": "initial",
+      "operation": "void 0",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 0,
+        "end": 0
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "mutate-hidden",
+      "operation": "document.getElementById(\"inside\").textContent=\"OP QR\";const cvDeferred=document.createElement(\"div\");cvDeferred.id=\"inserted\";cvDeferred.style.cssText=\"height:11px;width:19px\";document.getElementById(\"owner\").appendChild(cvDeferred)",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 0,
+        "end": 0
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "first-reveal",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 0,
+        "end": 0
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    },
+    {
+      "name": "hide-again",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 0,
+        "end": 0
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "inserted": {
+          "rect": [
+            0,
+            134,
+            19,
+            11
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "remove-hidden",
+      "operation": "document.getElementById(\"inserted\").remove()",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 0,
+        "end": 0
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "hidden"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": ""
+    },
+    {
+      "name": "second-reveal",
+      "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+      "active": "body",
+      "editor": {
+        "same": true,
+        "value": "A🙂BC",
+        "start": 0,
+        "end": 0
+      },
+      "selection": "",
+      "items": {
+        "owner": {
+          "rect": [
+            0,
+            0,
+            240,
+            140
+          ],
+          "visibility": "visible"
+        },
+        "inside": {
+          "rect": [
+            0,
+            0,
+            90,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nested": {
+          "rect": [
+            0,
+            84,
+            240,
+            20
+          ],
+          "visibility": "visible"
+        },
+        "nestedChild": {
+          "rect": [
+            0,
+            84,
+            25,
+            12
+          ],
+          "visibility": "visible"
+        },
+        "fixed": {
+          "rect": [
+            15,
+            170,
+            24,
+            18
+          ],
+          "visibility": "visible"
+        },
+        "abs": {
+          "rect": [
+            10,
+            80,
+            15,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "details": {
+          "rect": [
+            0,
+            104,
+            240,
+            30
+          ],
+          "visibility": "visible"
+        },
+        "detailChild": {
+          "rect": [
+            0,
+            124,
+            240,
+            10
+          ],
+          "visibility": "visible"
+        },
+        "after": {
+          "rect": [
+            0,
+            140,
+            17,
+            8
+          ],
+          "visibility": "visible"
+        }
+      },
+      "fixedHit": "fixed"
+    }
+  ],
+  "extra": [
+    {
+      "name": "table",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><table id=owner><tbody><tr><td id=inside>AA</td><td>BB</td></tr></tbody></table><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "second-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "anonymous-table",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><div id=owner style=\"display:table\"><span id=inside style=\"display:table-cell;width:60px;height:20px\">AA</span><span style=\"display:table-cell;width:60px;height:20px\">BB</span></div><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "second-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "table-cell",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><table style=\"border-collapse:collapse\"><tbody><tr><td id=owner><div id=inside style=\"height:35px\">AA</div></td><td>BB</td></tr></tbody></table><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                35
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "owner"
+        },
+        {
+          "name": "reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                35
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                35
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                35
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "owner"
+        },
+        {
+          "name": "second-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                35
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                35
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "table-row",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><table style=\"border-collapse:collapse\"><tbody><tr id=owner><td id=inside>AA</td><td>BB</td></tr></tbody></table><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "second-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "table-group",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><table style=\"border-collapse:collapse\"><tbody id=owner><tr><td id=inside>AA</td><td>BB</td></tr></tbody></table><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "second-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "table-role-transition",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><div id=owner style=\"display:table\"><span id=inside style=\"display:table-cell;width:60px;height:20px\">AA</span><span style=\"display:table-cell;width:60px;height:20px\">BB</span></div><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "block-hidden",
+          "operation": "document.getElementById(\"owner\").style.display=\"block\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "table-again",
+          "operation": "document.getElementById(\"owner\").style.display=\"table\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "second-block-hidden",
+          "operation": "document.getElementById(\"owner\").style.display=\"block\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "second-table",
+          "operation": "document.getElementById(\"owner\").style.display=\"table\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "deferred-to-table",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><div id=owner style=\"display:block\"><span id=inside style=\"display:table-cell;width:60px;height:20px\">AA</span><span style=\"display:table-cell;width:60px;height:20px\">BB</span></div><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "block-hidden",
+          "operation": "document.getElementById(\"owner\").style.display=\"block\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "table-again",
+          "operation": "document.getElementById(\"owner\").style.display=\"table\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "second-block-hidden",
+          "operation": "document.getElementById(\"owner\").style.display=\"block\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "second-table",
+          "operation": "document.getElementById(\"owner\").style.display=\"table\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                60,
+                20
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "fieldset",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><fieldset id=owner style=\"min-width:0\"><legend id=inside style=\"height:20px;padding:0\">Title</legend><div id=detailChild>IJ</div></fieldset><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                29.640625,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                30
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                29.640625,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                29.640625,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "second-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                30
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                29.640625,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "link",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><div id=owner><a id=inside href=\"#after\" style=\"display:block;height:20px\">Go</a></div><div id=after></div><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "second-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "tab",
+          "operation": "document.getElementById(\"editor\").focus()",
+          "active": "inside",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "key": "Tab",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide-focused",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "hidden-focus",
+          "operation": "document.getElementById(\"inside\").focus()",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "tab-hidden",
+          "operation": "document.getElementById(\"editor\").focus()",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "key": "Tab",
+          "insideHit": ""
+        },
+        {
+          "name": "last-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "last-tab",
+          "operation": "document.getElementById(\"editor\").focus()",
+          "active": "inside",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "key": "Tab",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "link-with-next-control",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><div id=owner><a id=inside href=\"#after\" style=\"display:block;height:20px\">Go</a></div><div id=after></div><input id=tail value=\"Next\"><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "tail"
+        },
+        {
+          "name": "reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "tail"
+        },
+        {
+          "name": "second-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "tab",
+          "operation": "document.getElementById(\"editor\").focus()",
+          "active": "inside",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "key": "Tab",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide-focused",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "tail"
+        },
+        {
+          "name": "hidden-focus",
+          "operation": "document.getElementById(\"inside\").focus()",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "tail"
+        },
+        {
+          "name": "tab-hidden",
+          "operation": "document.getElementById(\"editor\").focus()",
+          "active": "tail",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "Next",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                21,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "key": "Tab",
+          "insideHit": "tail"
+        },
+        {
+          "name": "last-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "tail",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "Next",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "last-tab",
+          "operation": "document.getElementById(\"editor\").focus()",
+          "active": "inside",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "after": {
+              "rect": [
+                0,
+                41,
+                800,
+                0
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "key": "Tab",
+          "insideHit": "inside"
+        }
+      ]
+    },
+    {
+      "name": "details",
+      "source": "<!doctype html><style>body{margin:0;font:16px/20px Arial}#owner{width:120px;content-visibility:hidden;border:0;padding:0;margin:0;border-collapse:collapse;border-spacing:0}td{padding:0;border:0;height:20px;width:60px}summary{height:20px}#detailChild{height:10px}</style><input id=editor value=\"A🙂BC\"><details id=owner><summary id=inside>Title</summary><div id=detailChild>IJ</div></details><script></script>",
+      "states": [
+        {
+          "name": "initial",
+          "operation": "void 0",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "second-reveal",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "open",
+          "operation": "document.getElementById(\"owner\").open=true",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                30
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        },
+        {
+          "name": "hide-open",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"hidden\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                0
+              ],
+              "visibility": "hidden"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": ""
+        },
+        {
+          "name": "reveal-open",
+          "operation": "document.getElementById(\"owner\").style.contentVisibility=\"visible\"",
+          "active": "body",
+          "editor": {
+            "same": true,
+            "value": "A🙂BC",
+            "start": 0,
+            "end": 0
+          },
+          "selection": "",
+          "items": {
+            "owner": {
+              "rect": [
+                0,
+                21,
+                120,
+                30
+              ],
+              "visibility": "visible"
+            },
+            "inside": {
+              "rect": [
+                0,
+                21,
+                120,
+                20
+              ],
+              "visibility": "visible"
+            },
+            "detailChild": {
+              "rect": [
+                0,
+                41,
+                120,
+                10
+              ],
+              "visibility": "visible"
+            }
+          },
+          "fixedHit": "",
+          "insideHit": "inside"
+        }
+      ]
+    }
+  ],
+  "normativeDeltas": [
+    {
+      "case": "table-cell",
+      "states": [
+        "initial",
+        "hide"
+      ],
+      "nativeHeight": 20,
+      "normativeHeight": 35,
+      "nativeInsideHit": "owner",
+      "normativeInsideHit": "inside",
+      "reason": "The pinned applicability supplement excludes internal table boxes; Chromium still skips a table-cell subtree. Visible cell controls supply the unskipped geometry."
+    }
+  ],
+  "hostDeltas": [
+    {
+      "case": "link",
+      "state": "tab-hidden",
+      "nativeActive": "body",
+      "engineActive": "editor",
+      "reason": "Tab after the last focusable page element exits into browser chrome. Roblox currently cycles within the page. A separate next-control case proves hidden-link exclusion without that host boundary."
+    }
+  ],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/154.0.8037.98",
+    "revision": "@b859317bf11f6be47f9b7799ec690a0a42a1fb33",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "jsVersion": "15.4.80.20"
+  }
+}

@@ -1,0 +1,424 @@
+[
+  {
+    "name": "collapsed operations return fresh genuine fragments",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abc'),r=document.createRange();r.setStart(e.firstChild,1);r.collapse(true);const a=r.cloneContents(),b=r.extractContents();record(a.nodeType);record(a.ownerDocument===document);record(a!==b);record(a.childNodes.length);record(b.childNodes.length);record(r.deleteContents());record(e.innerHTML);record(r.startContainer===e.firstChild&&r.startOffset===1&&r.collapsed)",
+    "expected": [
+      "11",
+      "true",
+      "true",
+      "0",
+      "0",
+      "undefined",
+      "abc",
+      "true"
+    ]
+  },
+  {
+    "name": "same Text clone extract UTF16 and live offsets",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('A😀Z'),t=e.firstChild,r=document.createRange();r.setStart(t,1);r.setEnd(t,3);const a=r.cloneContents();record(a.textContent);record(a.firstChild!==t);record(e.textContent);record(r.toString());const b=r.extractContents();record(b.textContent);record(e.textContent);record(r.startContainer===t&&r.endContainer===t);record(r.startOffset);record(r.endOffset);record(r.collapsed)",
+    "expected": [
+      "😀",
+      "true",
+      "A😀Z",
+      "😀",
+      "😀",
+      "AZ",
+      "true",
+      "1",
+      "1",
+      "true"
+    ]
+  },
+  {
+    "name": "half surrogate extraction preserves code units",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('A😀Z'),t=e.firstChild,r=document.createRange();r.setStart(t,1);r.setEnd(t,2);const a=r.extractContents();record(a.firstChild.data.charCodeAt(0));record(JSON.stringify(a.textContent));record(JSON.stringify(e.textContent));record(t.data.charCodeAt(1));record(r.startOffset)",
+    "expected": [
+      "55357",
+      "\"\\ud83d\"",
+      "\"A\\ude00Z\"",
+      "56832",
+      "1"
+    ]
+  },
+  {
+    "name": "same Comment range copies CharacterData",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<!--abcd-->'),t=e.firstChild,r=document.createRange();r.setStart(t,1);r.setEnd(t,3);record(html(r.cloneContents()));record(r.toString());record(html(r.extractContents()));record(e.innerHTML);record(r.startOffset);record(r.endOffset)",
+    "expected": [
+      "<!--bc-->",
+      "",
+      "<!--bc-->",
+      "<!--ad-->",
+      "1",
+      "1"
+    ]
+  },
+  {
+    "name": "whole subtree clones identities and expando properties",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<section><b>A</b></section><i>B</i>'),s=e.firstChild,b=s.firstChild;s.privateData=9;b.privateData=8;const r=document.createRange();r.setStart(e,0);r.setEnd(e,1);const f=r.cloneContents();record(html(f));record(f.firstChild!==s&&f.firstChild.firstChild!==b);record(f.firstChild.privateData);record(f.firstChild.firstChild.privateData);record(s.parentNode===e);record(r.startOffset+','+r.endOffset)",
+    "expected": [
+      "<section><b>A</b></section>",
+      "true",
+      "undefined",
+      "undefined",
+      "true",
+      "0,1"
+    ]
+  },
+  {
+    "name": "whole subtree extract retains input state and wrappers",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<section><input value=\"default\"><b>A</b></section><i>B</i>'),s=e.firstChild,input=s.firstChild,r=document.createRange();input.value='current';input.privateData=7;r.setStart(e,0);r.setEnd(e,1);const copy=r.cloneContents().firstChild.firstChild;record(copy.value);record(copy.defaultValue);record(copy.privateData);const f=r.extractContents();record(f.firstChild===s&&f.firstChild.firstChild===input);record(input.value);record(input.privateData);record(e.innerHTML);record(r.startContainer===e&&r.endContainer===e&&r.startOffset===0&&r.endOffset===0)",
+    "expected": [
+      "current",
+      "default",
+      "undefined",
+      "true",
+      "current",
+      "7",
+      "<i>B</i>",
+      "true"
+    ]
+  },
+  {
+    "name": "nested partial clone and extract preserve contained identity",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<b id=\"l\">ab<i>X</i>cd</b><u id=\"m\">M</u><em id=\"r\">ef<strong>Y</strong>gh</em>'),l=e.firstChild,m=e.childNodes[1],q=e.lastChild,r=document.createRange();r.setStart(l.firstChild,1);r.setEnd(q.lastChild,1);const a=r.cloneContents();record(html(a));record(e.childNodes.length);const f=r.extractContents();record(html(f));record(f.childNodes[1]===m);record(f.firstChild!==l&&f.lastChild!==q);record(e.innerHTML);record(r.startContainer===e&&r.endContainer===e&&r.startOffset===1&&r.endOffset===1)",
+    "expected": [
+      "<b id=\"l\">b<i>X</i>cd</b><u id=\"m\">M</u><em id=\"r\">ef<strong>Y</strong>g</em>",
+      "3",
+      "<b id=\"l\">b<i>X</i>cd</b><u id=\"m\">M</u><em id=\"r\">ef<strong>Y</strong>g</em>",
+      "true",
+      "true",
+      "<b id=\"l\">a</b><em id=\"r\">h</em>",
+      "true"
+    ]
+  },
+  {
+    "name": "ancestor start extracts only the ending partial branch",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<i>A</i><span>ab<b>XY</b>cd</span><u>B</u>'),s=e.childNodes[1],r=document.createRange();r.setStart(e,1);r.setEnd(s.lastChild,1);record(html(r.extractContents()));record(e.innerHTML);record(r.startContainer===e&&r.startOffset===1&&r.collapsed)",
+    "expected": [
+      "<span>ab<b>XY</b>c</span>",
+      "<i>A</i><span>d</span><u>B</u>",
+      "true"
+    ]
+  },
+  {
+    "name": "ancestor end extracts only the starting partial branch",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<i>A</i><span>ab<b>XY</b>cd</span><u>B</u>'),s=e.childNodes[1],r=document.createRange();r.setStart(s.firstChild,1);r.setEnd(e,2);record(html(r.extractContents()));record(e.innerHTML);record(r.startContainer===e&&r.startOffset===2&&r.collapsed)",
+    "expected": [
+      "<span>b<b>XY</b>cd</span>",
+      "<i>A</i><span>a</span><u>B</u>",
+      "true"
+    ]
+  },
+  {
+    "name": "nested deletion removes maximal contained nodes",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<b>ab<i>X</i>cd</b><u>M</u><em>ef<strong>Y</strong>gh</em>'),l=e.firstChild,m=e.childNodes[1],q=e.lastChild,r=document.createRange();r.setStart(l.firstChild,1);r.setEnd(q.lastChild,1);record(r.deleteContents());record(e.innerHTML);record(m.parentNode);record(r.startContainer===e&&r.endContainer===e&&r.startOffset===1&&r.endOffset===1)",
+    "expected": [
+      "undefined",
+      "<b>a</b><em>h</em>",
+      "null",
+      "true"
+    ]
+  },
+  {
+    "name": "same parent deletion retains siblings and collapses",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<a>A</a><b>B</b><i>C</i><u>D</u>'),b=e.childNodes[1],r=document.createRange();r.setStart(e,1);r.setEnd(e,3);r.deleteContents();record(e.innerHTML);record(b.parentNode);record(r.startOffset+','+r.endOffset);record(r.collapsed)",
+    "expected": [
+      "<a>A</a><u>D</u>",
+      "null",
+      "1,1",
+      "true"
+    ]
+  },
+  {
+    "name": "collapsed Text insertion splits and selects inserted node",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abcd'),t=e.firstChild,r=document.createRange(),s=document.createElement('span');s.textContent='I';r.setStart(t,2);r.collapse(true);record(r.insertNode(s));record(e.innerHTML);record(e.firstChild===t);record(r.startContainer===t&&r.startOffset===2);record(r.endContainer===e&&r.endOffset===2);record(r.toString());record(r.collapsed)",
+    "expected": [
+      "undefined",
+      "ab<span>I</span>cd",
+      "true",
+      "true",
+      "true",
+      "I",
+      "false"
+    ]
+  },
+  {
+    "name": "noncollapsed insertion follows live split end boundary",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abcd'),t=e.firstChild,r=document.createRange(),s=document.createElement('i');s.textContent='I';r.setStart(t,1);r.setEnd(t,3);r.insertNode(s);record(e.innerHTML);record(r.startContainer===t&&r.startOffset===1);record(r.endContainer===e.lastChild&&r.endOffset===2);record(r.toString())",
+    "expected": [
+      "a<i>I</i>bcd",
+      "true",
+      "true",
+      "Ibc"
+    ]
+  },
+  {
+    "name": "fragment insertion empties fragment and selects its children",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<a>A</a><u>D</u>'),r=document.createRange(),f=document.createDocumentFragment(),b=document.createElement('b'),i=document.createElement('i');b.textContent='B';i.textContent='C';f.append(b,i);r.setStart(e,1);r.collapse(true);r.insertNode(f);record(e.innerHTML);record(f.childNodes.length);record(e.childNodes[1]===b&&e.childNodes[2]===i);record(r.startOffset+','+r.endOffset);record(r.toString())",
+    "expected": [
+      "<a>A</a><b>B</b><i>C</i><u>D</u>",
+      "0",
+      "true",
+      "1,3",
+      "BC"
+    ]
+  },
+  {
+    "name": "inserting existing earlier sibling adjusts collapsed offsets",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<a>A</a><b>B</b><i>C</i>'),a=e.firstChild,r=document.createRange();r.setStart(e,2);r.collapse(true);r.insertNode(a);record(e.innerHTML);record(r.startOffset+','+r.endOffset);record(r.toString());record(e.childNodes[1]===a)",
+    "expected": [
+      "<b>B</b><a>A</a><i>C</i>",
+      "1,2",
+      "A",
+      "true"
+    ]
+  },
+  {
+    "name": "inserting current reference still moves and selects it",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<a>A</a><b>B</b><i>C</i>'),b=e.childNodes[1],r=document.createRange();r.setStart(e,1);r.collapse(true);r.insertNode(b);record(e.innerHTML);record(r.startOffset+','+r.endOffset);record(r.toString());record(e.childNodes[1]===b)",
+    "expected": [
+      "<a>A</a><b>B</b><i>C</i>",
+      "1,2",
+      "B",
+      "true"
+    ]
+  },
+  {
+    "name": "empty fragment insertion still splits Text and changes endpoints",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abcd'),t=e.firstChild,r=document.createRange();r.setStart(t,2);r.collapse(true);r.insertNode(document.createDocumentFragment());record(e.childNodes.length);record(e.firstChild.data+','+e.lastChild.data);record(r.startContainer===t&&r.startOffset===2);record(r.endContainer===e&&r.endOffset===1);record(r.collapsed);record(r.toString())",
+    "expected": [
+      "2",
+      "ab,cd",
+      "true",
+      "true",
+      "false",
+      ""
+    ]
+  },
+  {
+    "name": "invalid insertion validates before splitting source Text",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abcd'),t=e.firstChild,r=document.createRange();r.setStart(t,2);r.collapse(true);record(err(()=>r.insertNode(e)));record(e.innerHTML);record(e.childNodes.length);record(r.startContainer===t&&r.startOffset===2&&r.collapsed);record(err(()=>r.insertNode(t)))",
+    "expected": [
+      "HierarchyRequestError",
+      "abcd",
+      "1",
+      "true",
+      "HierarchyRequestError"
+    ]
+  },
+  {
+    "name": "Comment and detached Text insertion reject before mutation",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<!--abcd-->'),r=document.createRange();r.setStart(e.firstChild,2);r.collapse(true);record(err(()=>r.insertNode(document.createElement('i'))));record(e.innerHTML);const t=document.createTextNode('abc');r.setStart(t,1);r.collapse(true);record(err(()=>r.insertNode(document.createElement('i'))));record(t.data);record(r.collapsed)",
+    "expected": [
+      "HierarchyRequestError",
+      "<!--abcd-->",
+      "HierarchyRequestError",
+      "abc",
+      "true"
+    ]
+  },
+  {
+    "name": "surrounding partially contained nonText fails before extraction",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<span>ab</span><b>XY</b><em>cd</em>'),r=document.createRange(),p=document.createElement('strong');r.setStart(e.firstChild.firstChild,1);r.setEnd(e.lastChild.firstChild,1);record(err(()=>r.surroundContents(p)));record(e.innerHTML);record(p.parentNode);record(r.toString())",
+    "expected": [
+      "InvalidStateError",
+      "<span>ab</span><b>XY</b><em>cd</em>",
+      "null",
+      "bXYc"
+    ]
+  },
+  {
+    "name": "surrounding same Text clears new parent and selects wrapper",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abcdef'),t=e.firstChild,r=document.createRange(),p=box('<i>discard</i>');r.setStart(t,1);r.setEnd(t,5);record(r.surroundContents(p));record(e.innerHTML);record(p.textContent);record(e.firstChild===t);record(r.startContainer===e&&r.endContainer===e);record(r.startOffset+','+r.endOffset);record(r.toString())",
+    "expected": [
+      "undefined",
+      "a<div>bcde</div>f",
+      "bcde",
+      "true",
+      "true",
+      "1,2",
+      "bcde"
+    ]
+  },
+  {
+    "name": "surrounding direct Text boundaries retains full interior node",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('ab<b>XY</b>cd'),b=e.childNodes[1],r=document.createRange(),p=document.createElement('strong');r.setStart(e.firstChild,1);r.setEnd(e.lastChild,1);r.surroundContents(p);record(e.innerHTML);record(p.childNodes[1]===b);record(r.startOffset+','+r.endOffset);record(r.toString())",
+    "expected": [
+      "a<strong>b<b>XY</b>c</strong>d",
+      "true",
+      "1,2",
+      "bXYc"
+    ]
+  },
+  {
+    "name": "surround invalid parent type has precedence before extraction",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abc'),r=document.createRange();r.setStart(e.firstChild,1);r.setEnd(e.firstChild,2);record(err(()=>r.surroundContents(document.createDocumentFragment())));record(err(()=>r.surroundContents(document)));record(e.innerHTML);record(r.toString())",
+    "expected": [
+      "InvalidNodeTypeError",
+      "InvalidNodeTypeError",
+      "abc",
+      "b"
+    ]
+  },
+  {
+    "name": "surround CharacterData error occurs after source mutations",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abc'),r=document.createRange(),p=document.createTextNode('wrap');r.setStart(e.firstChild,1);r.setEnd(e.firstChild,2);record(err(()=>r.surroundContents(p)));record(e.innerHTML);record(p.parentNode===e);record(r.toString())",
+    "expected": [
+      "HierarchyRequestError",
+      "awrapc",
+      "true",
+      "wrap"
+    ]
+  },
+  {
+    "name": "contextual fragments choose HTML document and detached fallback",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const r=document.createRange();record(html(r.createContextualFragment('<b>A</b>tail')));r.selectNodeContents(document.documentElement);record(html(r.createContextualFragment('<i>B</i>')));const t=document.createTextNode('abc');r.setStart(t,1);r.collapse(true);const f=r.createContextualFragment('<u>C</u>');record(html(f));record(f.nodeType);record(f.ownerDocument===document);record(r.startContainer===t&&r.startOffset===1&&r.collapsed)",
+    "expected": [
+      "<b>A</b>tail",
+      "<i>B</i>",
+      "<u>C</u>",
+      "11",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "contextual fragments preserve table select and raw text contexts",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const r=document.createRange(),table=document.createElement('table');r.selectNodeContents(table);record(html(r.createContextualFragment('<tr><td>A</td></tr>')));const select=document.createElement('select');r.selectNodeContents(select);record(html(r.createContextualFragment('<div>X</div><option>A</option><b>Y</b>')));const style=document.createElement('style');r.selectNodeContents(style);const f=r.createContextualFragment('<b>&amp;</b>');record(f.firstChild.nodeType);record(f.textContent);const area=document.createElement('textarea');r.selectNodeContents(area);record(r.createContextualFragment('&amp;<b>A</b>').textContent)",
+    "expected": [
+      "<tbody><tr><td>A</td></tr></tbody>",
+      "<div>X</div><option>A</option><b>Y</b>",
+      "3",
+      "<b>&amp;</b>",
+      "&<b>A</b>"
+    ]
+  },
+  {
+    "name": "extract updates other live ranges in moved descendants",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<a>A</a><b>BC</b><i>D</i>'),b=e.childNodes[1],t=b.firstChild,r=document.createRange(),watch=document.createRange();watch.setStart(t,1);watch.setEnd(t,2);r.setStart(e,1);r.setEnd(e,2);const f=r.extractContents();record(f.firstChild===b&&b.firstChild===t);record(watch.startContainer===e&&watch.endContainer===e);record(watch.startOffset+','+watch.endOffset);record(watch.collapsed);record(e.innerHTML)",
+    "expected": [
+      "true",
+      "true",
+      "1,1",
+      "true",
+      "<a>A</a><i>D</i>"
+    ]
+  },
+  {
+    "name": "insertion split updates other Text and parent live ranges",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abcd'),t=e.firstChild,r=document.createRange(),watch=document.createRange(),after=document.createRange(),p=document.createElement('b');p.textContent='I';watch.setStart(t,3);watch.setEnd(t,4);after.setStart(e,1);after.collapse(true);r.setStart(t,2);r.collapse(true);r.insertNode(p);record(watch.startContainer===e.lastChild&&watch.endContainer===e.lastChild);record(watch.startOffset+','+watch.endOffset);record(watch.toString());record(after.startContainer===e&&after.startOffset===3&&after.endOffset===3);record(after.collapsed)",
+    "expected": [
+      "true",
+      "1,2",
+      "d",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "contextual DOMString coercion precedes context snapshot",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const r=document.createRange(),table=document.createElement('table'),calls=[];const value={[Symbol.toPrimitive](hint){calls.push(hint);r.selectNodeContents(table);return '<tr><td>A</td></tr>'}};record(html(r.createContextualFragment(value)));record(calls.join(','));record(r.startContainer===table&&r.endContainer===table)",
+    "expected": [
+      "<tbody><tr><td>A</td></tr></tbody>",
+      "string",
+      "true"
+    ]
+  },
+  {
+    "name": "content method brands and required arguments precede coercion",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const r=document.createRange(),value={toString(){record('coerced');return 'X'}};record(err(()=>Range.prototype.createContextualFragment.call({},value)));record(err(()=>r.createContextualFragment()));record(err(()=>r.createContextualFragment(Symbol('x'))));record(err(()=>r.insertNode(null)));record(err(()=>r.insertNode({})));record(err(()=>r.surroundContents()));record(r.collapsed)",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "true"
+    ]
+  },
+  {
+    "name": "surround partial Comment error precedes invalid parent type",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<!--abcd-->XY'),r=document.createRange();r.setStart(e.firstChild,1);r.setEnd(e.lastChild,1);record(err(()=>r.surroundContents(document.createDocumentFragment())));record(e.innerHTML);record(r.toString())",
+    "expected": [
+      "InvalidStateError",
+      "<!--abcd-->XY",
+      "X"
+    ]
+  },
+  {
+    "name": "zero length partial Text clones are retained around interior nodes",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('ab<i>X</i>cd'),i=e.childNodes[1],r=document.createRange();r.setStart(e.firstChild,2);r.setEnd(e.lastChild,0);const a=r.cloneContents();record(a.childNodes.length);record(a.firstChild.nodeType+','+a.lastChild.nodeType);record(a.firstChild.data+','+a.lastChild.data);const f=r.extractContents();record(f.childNodes.length);record(f.childNodes[1]===i);record(e.innerHTML);record(r.startContainer===e&&r.startOffset===1&&r.collapsed)",
+    "expected": [
+      "3",
+      "3,3",
+      ",",
+      "3",
+      "true",
+      "abcd",
+      "true"
+    ]
+  },
+  {
+    "name": "template subtree clone and extract preserve inert content identity",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('<template><input value=\"a\"><b>X</b></template>tail'),t=e.firstChild,input=t.content.firstChild,r=document.createRange();input.value='current';r.setStart(e,0);r.setEnd(e,1);const copy=r.cloneContents().firstChild;record(copy.childNodes.length);record(copy.content!==t.content);record(copy.content.firstChild.value);const f=r.extractContents();record(f.firstChild===t&&f.firstChild.content.firstChild===input);record(html(f));record(e.innerHTML)",
+    "expected": [
+      "0",
+      "true",
+      "current",
+      "true",
+      "<template><input value=\"a\"><b>X</b></template>",
+      "tail"
+    ]
+  },
+  {
+    "name": "surround collapsed range clears parent and inserts empty wrapper",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abc'),r=document.createRange(),p=document.createElement('span');p.textContent='discard';r.setStart(e.firstChild,1);r.collapse(true);r.surroundContents(p);record(e.innerHTML);record(p.childNodes.length);record(r.startOffset+','+r.endOffset);record(r.collapsed);record(r.toString())",
+    "expected": [
+      "a<span></span>bc",
+      "0",
+      "1,2",
+      "false",
+      ""
+    ]
+  },
+  {
+    "name": "surrounding source ancestor exposes the specified late failure",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const e=box('abcd'),r=document.createRange();r.setStart(e.firstChild,1);r.setEnd(e.firstChild,3);record(err(()=>r.surroundContents(e)));record(e.innerHTML);record(r.startContainer===e&&r.endContainer===e);record(r.startOffset+','+r.endOffset);record(r.collapsed)",
+    "expected": [
+      "HierarchyRequestError",
+      "",
+      "true",
+      "0,0",
+      "true"
+    ]
+  },
+  {
+    "name": "contextual fragment retains SVG namespace and detached identity",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const svg=box('<svg></svg>').firstChild,r=document.createRange();r.selectNodeContents(svg);const f=r.createContextualFragment('<circle cx=\"2\"/>');record(f.firstChild.namespaceURI);record(f.firstChild.localName);record(f.firstChild.getAttribute('cx'));record(f.firstChild.parentNode===f);record(f.ownerDocument===document);record(svg.childNodes.length)",
+    "expected": [
+      "http://www.w3.org/2000/svg",
+      "circle",
+      "2",
+      "true",
+      "true",
+      "0"
+    ]
+  },
+  {
+    "name": "Document range insertion validates hierarchy before detaching",
+    "source": "function box(markup){const e=document.createElement('div');e.innerHTML=markup;return e}function html(fragment){const e=document.createElement('div');e.appendChild(fragment.cloneNode(true));return e.innerHTML}function err(fn){try{fn();return 'none'}catch(e){return e.name}}const r=document.createRange(),c=document.createComment('first'),root=document.documentElement;r.insertNode(c);record(document.firstChild===c&&c.parentNode===document);record(r.startContainer===document&&r.endContainer===document);record(r.startOffset+','+r.endOffset);record(r.collapsed);const copy=r.cloneContents();record(copy.firstChild.nodeType+','+copy.firstChild.data);r.deleteContents();record(c.parentNode===null&&document.documentElement===root&&r.collapsed&&r.startOffset===0);const holder=box('text'),t=holder.firstChild;record(err(()=>r.insertNode(t)));record(t.parentNode===holder&&holder.textContent==='text'&&r.collapsed);const f=document.createDocumentFragment();f.append(document.createElement('a'),document.createElement('b'));record(err(()=>r.insertNode(f)));record(f.childNodes.length===2&&r.collapsed)",
+    "expected": [
+      "true",
+      "true",
+      "0,1",
+      "false",
+      "8,first",
+      "true",
+      "HierarchyRequestError",
+      "true",
+      "HierarchyRequestError",
+      "true"
+    ]
+  }
+]

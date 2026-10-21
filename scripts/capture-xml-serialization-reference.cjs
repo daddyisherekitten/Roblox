@@ -1,0 +1,13 @@
+const fs=require('node:fs'),path=require('node:path');
+const {openBrowser}=require('./native-browser.cjs');
+const root=path.resolve(__dirname,'..');
+(async()=>{const browser=await openBrowser(path.join(root,'build'));
+try{await browser.load('<!doctype html><title>XML serialization reference</title>');
+const source=fs.readFileSync(path.join(root,'tests/fixtures/xml-serialization-cases.js'),'utf8');
+const records=await browser.evaluate(source+'\nxmlSerializationChecks()');
+const crossRealm=await browser.evaluate(`(()=>{const frame=document.createElement('iframe');document.body.append(frame);const w=frame.contentWindow,d=w.document.implementation.createDocument(null,'root',null),n=d.createElementNS('urn:a','p:item');n.setAttributeNS('urn:b','p:flag','x');return xmlCrossRealmChecks(w.XMLSerializer,n);})()`);
+const crossRealmErrors=await browser.evaluate(`(()=>{const frame=document.createElement('iframe');document.body.append(frame);window.foreignNode=frame.contentWindow.document.createElement('span');return xmlCrossRealmErrors(frame.contentWindow.XMLSerializer,frame.contentWindow.TypeError);})()`);
+for(const record of records)record.json=JSON.stringify(record.value);
+fs.writeFileSync(path.join(root,'tests/fixtures/xml-serialization-browser.json'),JSON.stringify({source,records,crossRealm,crossRealmJSON:JSON.stringify(crossRealm),crossRealmErrors,crossRealmErrorsJSON:JSON.stringify(crossRealmErrors),userAgent:await browser.evaluate('navigator.userAgent'),references:['https://w3c.github.io/DOM-Parsing/','https://html.spec.whatwg.org/multipage/dynamic-markup-insertion.html#xmlserializers']},null,2)+'\n');
+console.log(records.length+' native XML namespace/escaping/error/interface references');
+}finally{await browser.close();}})().catch(error=>{console.error(error);process.exitCode=1;});

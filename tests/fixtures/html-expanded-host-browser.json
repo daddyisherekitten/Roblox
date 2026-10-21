@@ -1,0 +1,399 @@
+{
+  "html": "<!doctype html><html><head><title>Expanded HTML host</title></head><body></body></html>",
+  "source": "function htmlExpandedHostChecks(){\r\n  const H='http://www.w3.org/1999/xhtml',records=[];\r\n  function make(name){return document.createElementNS(H,'h:'+name);}\r\n  function run(name,fn){try{records.push({name:name,value:fn()});}catch(error){records.push({name:name,value:{error:error.name}});}}\r\n  run('prefixed-image-empty',()=>{const n=make('img');return [n instanceof HTMLImageElement,n.complete,n.naturalWidth,n.naturalHeight,n.width,n.height,n.currentSrc,n.tagName,n.prefix];});\r\n  run('foreign-image-brand',()=>{const n=document.createElementNS('urn:foreign','img');try{Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'complete').get.call(n);return 'accepted';}catch(e){return e.name;}});\r\n  run('prefixed-canvas-bitmap',()=>{const n=make('canvas');n.width=2;n.height=2;const c=n.getContext('2d');c.fillStyle='#336699';c.fillRect(0,0,1,1);return [n instanceof HTMLCanvasElement,c.canvas===n,n.width,n.height,Array.from(c.getImageData(0,0,1,1).data),n.tagName,n.prefix];});\r\n  run('prefixed-canvas-default',()=>{const n=make('canvas');return [n.width,n.height,n.getContext('2d')===n.getContext('2d')];});\r\n  run('foreign-canvas-brand',()=>{const n=document.createElementNS('urn:foreign','canvas');try{HTMLCanvasElement.prototype.getContext.call(n,'2d');return 'accepted';}catch(e){return e.name;}});\r\n  run('prefixed-audio-empty',()=>{const n=make('audio');return [n instanceof HTMLAudioElement,n instanceof HTMLMediaElement,n.paused,n.volume,n.muted,n.currentTime,n.readyState,n.networkState,Number.isNaN(n.duration),n.error===null];});\r\n  run('prefixed-audio-settings',()=>{const n=make('audio');n.volume=.3;n.muted=true;n.playbackRate=1.5;n.loop=true;return [n.volume,n.muted,n.playbackRate,n.loop,n.getAttribute('loop'),n.tagName];});\r\n  run('foreign-audio-brand',()=>{const n=document.createElementNS('urn:foreign','audio');try{HTMLMediaElement.prototype.pause.call(n);return 'accepted';}catch(e){return e.name;}});\r\n  run('prefixed-dialog-show-close',()=>{const n=make('dialog');document.body.append(n);n.show();const first=n.open;n.close('done');const result=[first,n.open,n.returnValue,n.tagName];n.remove();return result;});\r\n  run('prefixed-dialog-modal',()=>{const n=make('dialog');document.body.append(n);n.showModal();const first=n.matches(':modal');n.close();const result=[first,n.matches(':modal'),n.open];n.remove();return result;});\r\n  run('foreign-dialog-brand',()=>{const n=document.createElementNS('urn:foreign','dialog');try{HTMLDialogElement.prototype.show.call(n);return 'accepted';}catch(e){return e.name;}});\r\n  run('prefixed-popover',()=>{const n=make('div');n.popover='manual';document.body.append(n);n.showPopover();const first=n.matches(':popover-open');n.hidePopover();const result=[first,n.matches(':popover-open')];n.remove();return result;});\r\n  run('prefixed-inline-script',()=>{globalThis.expandedScriptCount=0;const n=make('script');n.textContent='globalThis.expandedScriptCount+=1';document.body.append(n);const clone=n.cloneNode(true);document.body.append(clone);return [expandedScriptCount,n.tagName,clone.tagName,n.prefix,clone.prefix];});\r\n  run('foreign-script-inert',()=>{const n=document.createElementNS('urn:foreign','script');n.textContent='globalThis.expandedScriptCount+=100';document.body.append(n);return expandedScriptCount;});\r\n  run('foreign-template-html-script',()=>{const t=document.createElementNS('urn:foreign','template'),s=make('script');s.textContent='globalThis.expandedScriptCount+=2';t.append(s);document.body.append(t);return expandedScriptCount;});\r\n  run('HTML-template-script-inert',()=>{const t=make('template'),s=make('script');s.textContent='globalThis.expandedScriptCount+=4';t.content.append(s);document.body.append(t);const before=expandedScriptCount;document.body.append(t.content);return [before,expandedScriptCount];});\r\n  run('math-container-html-script',()=>{const t=document.createElementNS('http://www.w3.org/1998/Math/MathML','m:math'),s=make('script');s.textContent='globalThis.expandedScriptCount+=8';t.append(s);document.body.append(t);return expandedScriptCount;});\r\n  run('prefixed-SVG-script',()=>{const n=document.createElementNS('http://www.w3.org/2000/svg','s:script');n.textContent='globalThis.expandedScriptCount+=16';document.body.append(n);return [expandedScriptCount,n.tagName,n.prefix];});\r\n  run('foreign-script-type-attribute',()=>{const n=make('script');n.setAttributeNS('urn:foreign','type','application/json');n.textContent='globalThis.expandedScriptCount+=32';document.body.append(n);return expandedScriptCount;});\r\n  run('foreign-script-nomodule-attribute',()=>{const n=make('script');n.setAttributeNS('urn:foreign','nomodule','');n.textContent='globalThis.expandedScriptCount+=64';document.body.append(n);return expandedScriptCount;});\r\n  run('foreign-script-src-attribute',()=>{const n=make('script');n.setAttributeNS('urn:foreign','src','data:text/javascript,expandedScriptCount=0');n.textContent='globalThis.expandedScriptCount+=128';document.body.append(n);return expandedScriptCount;});\r\n  run('prefixed-style-owner',()=>{const n=make('style');n.textContent='#expanded-css-target { width:73px }';document.head.append(n);const target=make('div');target.id='expanded-css-target';document.body.append(target);return [n.sheet!==null,n.sheet.ownerNode===n,n.sheet.cssRules.length,getComputedStyle(target).width,n.tagName];});\r\n  run('foreign-style-inert',()=>{const n=document.createElementNS('urn:foreign','style');n.textContent='#expanded-css-target { width:99px }';document.head.append(n);return [n.sheet===undefined,getComputedStyle(document.getElementById('expanded-css-target')).width];});\r\n  run('foreign-style-type-attribute',()=>{const n=make('style');n.setAttributeNS('urn:foreign','type','invalid');n.textContent='#expanded-css-target { width:84px }';document.head.append(n);return [n.sheet!==null,getComputedStyle(document.getElementById('expanded-css-target')).width];});\r\n  run('foreign-style-attribute-retains-sheet',()=>{const n=make('style');n.textContent='#expanded-css-target { width:85px }';document.head.append(n);const sheet=n.sheet;n.setAttributeNS('urn:foreign','type','text/plain');n.setAttributeNS('urn:foreign','disabled','');return [n.sheet===sheet,n.sheet.cssRules.length,getComputedStyle(document.getElementById('expanded-css-target')).width];});\r\n  run('HTML-style-in-SVG-container',()=>{const root=document.createElementNS('http://www.w3.org/2000/svg','s:svg'),n=make('style');n.textContent='#expanded-css-target { width:86px }';root.append(n);document.body.append(root);return [n.sheet!==null,getComputedStyle(document.getElementById('expanded-css-target')).width];});\r\n  run('prefixed-meta-language',()=>{const n=make('meta');n.setAttribute('http-equiv','content-language');n.setAttribute('content','de');document.head.append(n);return document.body.matches(':lang(de)');});\r\n  run('foreign-meta-language',()=>{const n=document.createElementNS('urn:foreign','meta');n.setAttribute('http-equiv','content-language');n.setAttribute('content','fr');document.head.append(n);return [document.body.matches(':lang(de)'),document.body.matches(':lang(fr)')];});\r\n  run('foreign-meta-pragma-attribute',()=>{const n=make('meta');n.setAttributeNS('urn:foreign','http-equiv','content-language');n.setAttribute('content','es');document.head.append(n);return [document.body.matches(':lang(de)'),document.body.matches(':lang(es)')];});\r\n  run('prefixed-body-window-handler',()=>{const n=make('body'),callback=()=>1;n.onresize=callback;const result=[window.onresize===callback,n.onresize===callback];window.onresize=null;return result;});\r\n  run('foreign-body-handler',()=>{const n=document.createElementNS('urn:foreign','body');return [n.onresize===undefined,n.onclick===undefined];});\r\n  run('prefixed-form-handler-scope',()=>{const f=make('form'),input=make('input'),b=make('button');input.name='expandedAnswer';input.value='scope';b.setAttribute('onclick','return expandedAnswer.value');f.append(input,b);document.body.append(f);return b.onclick(new Event('click'));});\r\n  run('global-handler-namespace-gates',()=>[H,'http://www.w3.org/2000/svg','http://www.w3.org/1998/Math/MathML','urn:foreign',null].map(ns=>{const n=document.createElementNS(ns,'div');return [ns,n.onclick===null,n.onclick===undefined];}));\r\n  return records;\r\n}\r\nfunction htmlExpandedResourceStart(){\r\n  const H='http://www.w3.org/1999/xhtml',waits=[];globalThis.expandedResourceLog=[];globalThis.expandedResourceValues={};\r\n  function make(name){return document.createElementNS(H,'h:'+name);}\r\n  function settle(name,p){waits.push(p.then(value=>{expandedResourceValues[name]=value;},error=>{expandedResourceValues[name]=error.name;}));}\r\n  settle('foreign-decode-rejection',HTMLImageElement.prototype.decode.call(document.createElementNS('urn:foreign','img')));\r\n  settle('prefixed-empty-decode',make('img').decode());\r\n  const script=make('script');script.setAttributeNS('urn:foreign','type','application/json');script.src='data:text/javascript,expandedResourceLog.push(\"script-loaded\")';\r\n  settle('prefixed-script-load',new Promise(resolve=>{script.onload=()=>resolve([expandedResourceLog.includes('script-loaded'),script.tagName]);script.onerror=()=>resolve('error');}));document.body.append(script);\r\n  const link=make('link');link.rel='stylesheet';link.href='data:text/css,%23expanded-css-target%7Bheight%3A45px%7D';link.setAttributeNS('urn:foreign','type','invalid');\r\n  settle('prefixed-link-load',new Promise(resolve=>{link.onload=()=>resolve([link.sheet!==null,link.sheet.ownerNode===link,link.sheet.cssRules.length,getComputedStyle(document.getElementById('expanded-css-target')).height]);link.onerror=()=>resolve('error');}));document.head.append(link);\r\n  const image=make('img');image.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=';document.body.append(image);\r\n  settle('prefixed-image-load',image.decode().then(()=>[image.complete,image.naturalWidth,image.naturalHeight,image.width,image.height]));\r\n  const picture=make('picture'),ignored=document.createElementNS('urn:foreign','source'),source=make('source'),responsive=make('img');\r\n  ignored.setAttribute('srcset',image.src+'#ignored 1x');source.setAttribute('srcset',image.src+'#picture 1x');responsive.src=image.src+'#fallback';picture.append(ignored,source,responsive);document.body.append(picture);\r\n  settle('prefixed-picture-source',responsive.decode().then(()=>[responsive.currentSrc.endsWith('#picture'),responsive.naturalWidth,responsive.naturalHeight]));\r\n  return Promise.all(waits);\r\n}\r\nfunction htmlExpandedResourceFinish(){return Object.keys(expandedResourceValues).sort().map(name=>({name:name,value:expandedResourceValues[name]}));}\r\nfunction htmlExpandedSrcsetChecks(){\r\n  const png='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=',one=png+'#one',two=png+'#two';\r\n  const sources=[one+' 1x',one+',',one+' 1x, '+two+' 2x',one+' 1x,, '+two+' 2x',one+', '+two+' 2x',one+','+two,one+' nonsense(a,b), '+two+' 1x'];\r\n  const profileSelected=[one,one,one,one,one,one+','+two,two];\r\n  return Promise.all(sources.map((source,index)=>{const image=new Image();image.srcset=source;document.body.append(image);const result=()=>({source:source,selected:image.currentSrc,profileSelected:profileSelected[index],selection:index>=2&&index<=4?'ua-choice':'single-source'});return image.decode().then(result,result);}));\r\n}\r\n",
+  "records": [
+    {
+      "name": "prefixed-image-empty",
+      "value": [
+        true,
+        true,
+        0,
+        0,
+        0,
+        0,
+        "",
+        "H:IMG",
+        "h"
+      ],
+      "json": "[true,true,0,0,0,0,\"\",\"H:IMG\",\"h\"]"
+    },
+    {
+      "name": "foreign-image-brand",
+      "value": "TypeError",
+      "json": "\"TypeError\""
+    },
+    {
+      "name": "prefixed-canvas-bitmap",
+      "value": [
+        true,
+        true,
+        2,
+        2,
+        [
+          51,
+          102,
+          153,
+          255
+        ],
+        "H:CANVAS",
+        "h"
+      ],
+      "json": "[true,true,2,2,[51,102,153,255],\"H:CANVAS\",\"h\"]"
+    },
+    {
+      "name": "prefixed-canvas-default",
+      "value": [
+        300,
+        150,
+        true
+      ],
+      "json": "[300,150,true]"
+    },
+    {
+      "name": "foreign-canvas-brand",
+      "value": "TypeError",
+      "json": "\"TypeError\""
+    },
+    {
+      "name": "prefixed-audio-empty",
+      "value": [
+        true,
+        true,
+        true,
+        1,
+        false,
+        0,
+        0,
+        0,
+        true,
+        true
+      ],
+      "json": "[true,true,true,1,false,0,0,0,true,true]"
+    },
+    {
+      "name": "prefixed-audio-settings",
+      "value": [
+        0.3,
+        true,
+        1.5,
+        true,
+        "",
+        "H:AUDIO"
+      ],
+      "json": "[0.3,true,1.5,true,\"\",\"H:AUDIO\"]"
+    },
+    {
+      "name": "foreign-audio-brand",
+      "value": "TypeError",
+      "json": "\"TypeError\""
+    },
+    {
+      "name": "prefixed-dialog-show-close",
+      "value": [
+        true,
+        false,
+        "done",
+        "H:DIALOG"
+      ],
+      "json": "[true,false,\"done\",\"H:DIALOG\"]"
+    },
+    {
+      "name": "prefixed-dialog-modal",
+      "value": [
+        true,
+        false,
+        false
+      ],
+      "json": "[true,false,false]"
+    },
+    {
+      "name": "foreign-dialog-brand",
+      "value": "TypeError",
+      "json": "\"TypeError\""
+    },
+    {
+      "name": "prefixed-popover",
+      "value": [
+        true,
+        false
+      ],
+      "json": "[true,false]"
+    },
+    {
+      "name": "prefixed-inline-script",
+      "value": [
+        1,
+        "H:SCRIPT",
+        "H:SCRIPT",
+        "h",
+        "h"
+      ],
+      "json": "[1,\"H:SCRIPT\",\"H:SCRIPT\",\"h\",\"h\"]"
+    },
+    {
+      "name": "foreign-script-inert",
+      "value": 1,
+      "json": "1"
+    },
+    {
+      "name": "foreign-template-html-script",
+      "value": 3,
+      "json": "3"
+    },
+    {
+      "name": "HTML-template-script-inert",
+      "value": [
+        3,
+        7
+      ],
+      "json": "[3,7]"
+    },
+    {
+      "name": "math-container-html-script",
+      "value": 15,
+      "json": "15"
+    },
+    {
+      "name": "prefixed-SVG-script",
+      "value": [
+        31,
+        "s:script",
+        "s"
+      ],
+      "json": "[31,\"s:script\",\"s\"]"
+    },
+    {
+      "name": "foreign-script-type-attribute",
+      "value": 63,
+      "json": "63"
+    },
+    {
+      "name": "foreign-script-nomodule-attribute",
+      "value": 127,
+      "json": "127"
+    },
+    {
+      "name": "foreign-script-src-attribute",
+      "value": 255,
+      "json": "255"
+    },
+    {
+      "name": "prefixed-style-owner",
+      "value": [
+        true,
+        true,
+        1,
+        "73px",
+        "H:STYLE"
+      ],
+      "json": "[true,true,1,\"73px\",\"H:STYLE\"]"
+    },
+    {
+      "name": "foreign-style-inert",
+      "value": [
+        true,
+        "73px"
+      ],
+      "json": "[true,\"73px\"]"
+    },
+    {
+      "name": "foreign-style-type-attribute",
+      "value": [
+        true,
+        "84px"
+      ],
+      "json": "[true,\"84px\"]"
+    },
+    {
+      "name": "foreign-style-attribute-retains-sheet",
+      "value": [
+        true,
+        1,
+        "85px"
+      ],
+      "json": "[true,1,\"85px\"]"
+    },
+    {
+      "name": "HTML-style-in-SVG-container",
+      "value": [
+        true,
+        "86px"
+      ],
+      "json": "[true,\"86px\"]"
+    },
+    {
+      "name": "prefixed-meta-language",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "foreign-meta-language",
+      "value": [
+        true,
+        false
+      ],
+      "json": "[true,false]"
+    },
+    {
+      "name": "foreign-meta-pragma-attribute",
+      "value": [
+        true,
+        false
+      ],
+      "json": "[true,false]"
+    },
+    {
+      "name": "prefixed-body-window-handler",
+      "value": [
+        true,
+        true
+      ],
+      "json": "[true,true]"
+    },
+    {
+      "name": "foreign-body-handler",
+      "value": [
+        true,
+        true
+      ],
+      "json": "[true,true]"
+    },
+    {
+      "name": "prefixed-form-handler-scope",
+      "value": "scope",
+      "json": "\"scope\""
+    },
+    {
+      "name": "global-handler-namespace-gates",
+      "value": [
+        [
+          "http://www.w3.org/1999/xhtml",
+          true,
+          false
+        ],
+        [
+          "http://www.w3.org/2000/svg",
+          true,
+          false
+        ],
+        [
+          "http://www.w3.org/1998/Math/MathML",
+          true,
+          false
+        ],
+        [
+          "urn:foreign",
+          false,
+          true
+        ],
+        [
+          null,
+          false,
+          true
+        ]
+      ],
+      "json": "[[\"http://www.w3.org/1999/xhtml\",true,false],[\"http://www.w3.org/2000/svg\",true,false],[\"http://www.w3.org/1998/Math/MathML\",true,false],[\"urn:foreign\",false,true],[null,false,true]]"
+    }
+  ],
+  "resources": [
+    {
+      "name": "foreign-decode-rejection",
+      "value": "TypeError",
+      "json": "\"TypeError\""
+    },
+    {
+      "name": "prefixed-empty-decode",
+      "value": "EncodingError",
+      "json": "\"EncodingError\""
+    },
+    {
+      "name": "prefixed-image-load",
+      "value": [
+        true,
+        1,
+        1,
+        1,
+        1
+      ],
+      "json": "[true,1,1,1,1]"
+    },
+    {
+      "name": "prefixed-link-load",
+      "value": [
+        true,
+        true,
+        1,
+        "45px"
+      ],
+      "json": "[true,true,1,\"45px\"]"
+    },
+    {
+      "name": "prefixed-picture-source",
+      "value": [
+        true,
+        1,
+        1
+      ],
+      "json": "[true,1,1]"
+    },
+    {
+      "name": "prefixed-script-load",
+      "value": [
+        true,
+        "H:SCRIPT"
+      ],
+      "json": "[true,\"H:SCRIPT\"]"
+    }
+  ],
+  "srcsets": [
+    {
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one 1x",
+      "selected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one",
+      "profileSelected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one",
+      "selection": "single-source"
+    },
+    {
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one,",
+      "selected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one",
+      "profileSelected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one",
+      "selection": "single-source"
+    },
+    {
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one 1x, data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two 2x",
+      "selected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two",
+      "profileSelected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one",
+      "selection": "ua-choice"
+    },
+    {
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one 1x,, data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two 2x",
+      "selected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two",
+      "profileSelected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one",
+      "selection": "ua-choice"
+    },
+    {
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one, data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two 2x",
+      "selected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two",
+      "profileSelected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one",
+      "selection": "ua-choice"
+    },
+    {
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one,data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two",
+      "selected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one,data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two",
+      "profileSelected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one,data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two",
+      "selection": "single-source"
+    },
+    {
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#one nonsense(a,b), data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two 1x",
+      "selected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two",
+      "profileSelected": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jq1kAAAAASUVORK5CYII=#two",
+      "selection": "single-source"
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "references": [
+    "https://html.spec.whatwg.org/multipage/infrastructure.html#xml-compatibility",
+    "https://html.spec.whatwg.org/multipage/scripting.html#prepare-the-script-element",
+    "https://html.spec.whatwg.org/multipage/semantics.html#the-style-element",
+    "https://html.spec.whatwg.org/multipage/images.html#selecting-an-image-source"
+  ]
+}

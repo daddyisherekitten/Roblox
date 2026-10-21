@@ -1,0 +1,49 @@
+{
+  "font": "Ubuntu normal",
+  "scale": 1.09,
+  "method": "linear least squares per guide against htmlSize * scale; rounded once for display",
+  "training": [
+    {
+      "htmlSize": 10,
+      "robloxTextSize": 10,
+      "Top": 1,
+      "XHeight": 3,
+      "Baseline": 9,
+      "Bottom": 11
+    },
+    {
+      "htmlSize": 20,
+      "robloxTextSize": 21,
+      "Top": 3,
+      "XHeight": 6,
+      "Baseline": 18,
+      "Bottom": 22
+    },
+    {
+      "htmlSize": 30,
+      "robloxTextSize": 32,
+      "Top": 6,
+      "XHeight": 11,
+      "Baseline": 27,
+      "Bottom": 32
+    },
+    {
+      "htmlSize": 40,
+      "robloxTextSize": 43,
+      "Top": 8,
+      "XHeight": 15,
+      "Baseline": 36,
+      "Bottom": 43
+    },
+    {
+      "htmlSize": 50,
+      "robloxTextSize": 54,
+      "Top": 10,
+      "XHeight": 19,
+      "Baseline": 45,
+      "Bottom": 55
+    }
+  ],
+  "heldOut": [],
+  "notes": "User confirmed the size comparison. Manual guide positions from FONT_REPORT, Ubuntu Regular, LineHeight=1, H x p. Coordinates from TextLabel top downward. robloxTextSize preserves the actual stored size; formulas use requested size, matching the existing guide API. Maximum rounded training error 1 px. No held-out validation; other sizes remain estimates. Baseline minus Top is a guide distance, not an independently counted glyph pixel height."
+}

@@ -1,0 +1,204 @@
+{
+  "font": "Noto Sans normal",
+  "fontFamily": "rbxassetid://12187370747",
+  "fontWeight": "Regular",
+  "text": "H x p",
+  "lineHeight": 1,
+  "scale": 1,
+  "sizeMultiplierKnown": false,
+  "textSizeRounding": "ceil",
+  "method": "Least squares against reported native integer TextSize; exact measured guide samples retained; browser correction applied separately",
+  "training": [
+    {
+      "htmlSize": 20,
+      "robloxTextSize": 20,
+      "Top": 3,
+      "XHeight": 6,
+      "Baseline": 16,
+      "Bottom": 20
+    },
+    {
+      "htmlSize": 40,
+      "robloxTextSize": 40,
+      "Top": 9,
+      "XHeight": 14,
+      "Baseline": 32,
+      "Bottom": 39
+    },
+    {
+      "htmlSize": 60,
+      "robloxTextSize": 60,
+      "Top": 14,
+      "XHeight": 22,
+      "Baseline": 48,
+      "Bottom": 59
+    },
+    {
+      "htmlSize": 80,
+      "robloxTextSize": 80,
+      "Top": 20,
+      "XHeight": 31,
+      "Baseline": 64,
+      "Bottom": 78
+    }
+  ],
+  "heldOut": [
+    {
+      "htmlSize": 16,
+      "robloxTextSize": 16,
+      "Top": 3,
+      "XHeight": 5,
+      "Baseline": 13,
+      "Bottom": 16
+    }
+  ],
+  "coefficients": {
+    "Top": {
+      "Slope": 0.28,
+      "Intercept": -2.5000000000000018
+    },
+    "XHeight": {
+      "Slope": 0.415,
+      "Intercept": -2.5
+    },
+    "Baseline": {
+      "Slope": 0.8,
+      "Intercept": 0
+    },
+    "Bottom": {
+      "Slope": 0.97,
+      "Intercept": 0.5
+    }
+  },
+  "rawReport": {
+    "schema": "roblox-font-report/v1",
+    "fontName": "Noto Sans",
+    "sizeMultiplier": 1,
+    "sizeMultiplierKnown": false,
+    "textSizeRounding": "ceil",
+    "kind": "current manual guide positions; not automatic font metrics",
+    "samples": [
+      {
+        "htmlSize": 20,
+        "robloxTextSize": 20,
+        "textBounds": {
+          "height": 20,
+          "width": 36
+        },
+        "lineHeight": 1,
+        "measurementStatus": "ready",
+        "fontStyle": "Normal",
+        "fontName": "Noto Sans normal",
+        "fontFamily": "rbxassetid://12187370747",
+        "startingGuideSource": "unmeasured",
+        "guides": {
+          "Top": 3,
+          "XHeight": 6,
+          "Baseline": 16,
+          "Bottom": 20
+        },
+        "guideOrigin": "TextLabel top; pixels downward",
+        "text": "H x p",
+        "fontWeight": "Regular"
+      },
+      {
+        "htmlSize": 40,
+        "robloxTextSize": 40,
+        "textBounds": {
+          "height": 40,
+          "width": 73
+        },
+        "lineHeight": 1,
+        "measurementStatus": "ready",
+        "fontStyle": "Normal",
+        "fontName": "Noto Sans normal",
+        "fontFamily": "rbxassetid://12187370747",
+        "startingGuideSource": "unmeasured",
+        "guides": {
+          "Top": 9,
+          "XHeight": 14,
+          "Baseline": 32,
+          "Bottom": 39
+        },
+        "guideOrigin": "TextLabel top; pixels downward",
+        "text": "H x p",
+        "fontWeight": "Regular"
+      },
+      {
+        "htmlSize": 60,
+        "robloxTextSize": 60,
+        "textBounds": {
+          "height": 60,
+          "width": 109
+        },
+        "lineHeight": 1,
+        "measurementStatus": "ready",
+        "fontStyle": "Normal",
+        "fontName": "Noto Sans normal",
+        "fontFamily": "rbxassetid://12187370747",
+        "startingGuideSource": "unmeasured",
+        "guides": {
+          "Top": 14,
+          "XHeight": 22,
+          "Baseline": 48,
+          "Bottom": 59
+        },
+        "guideOrigin": "TextLabel top; pixels downward",
+        "text": "H x p",
+        "fontWeight": "Regular"
+      },
+      {
+        "htmlSize": 80,
+        "robloxTextSize": 80,
+        "textBounds": {
+          "height": 80,
+          "width": 142
+        },
+        "lineHeight": 1,
+        "measurementStatus": "ready",
+        "fontStyle": "Normal",
+        "fontName": "Noto Sans normal",
+        "fontFamily": "rbxassetid://12187370747",
+        "startingGuideSource": "unmeasured",
+        "guides": {
+          "Top": 20,
+          "XHeight": 31,
+          "Baseline": 64,
+          "Bottom": 78
+        },
+        "guideOrigin": "TextLabel top; pixels downward",
+        "text": "H x p",
+        "fontWeight": "Regular"
+      },
+      {
+        "htmlSize": 16,
+        "robloxTextSize": 16,
+        "textBounds": {
+          "height": 16,
+          "width": 30
+        },
+        "lineHeight": 1,
+        "measurementStatus": "ready",
+        "fontStyle": "Normal",
+        "fontName": "Noto Sans normal",
+        "fontFamily": "rbxassetid://12187370747",
+        "startingGuideSource": "unmeasured",
+        "guides": {
+          "Top": 3,
+          "XHeight": 5,
+          "Baseline": 13,
+          "Bottom": 16
+        },
+        "guideOrigin": "TextLabel top; pixels downward",
+        "text": "H x p",
+        "fontWeight": "Regular"
+      }
+    ]
+  },
+  "browserSizeCorrection": {
+    "reportedRobloxPixels": 43,
+    "reportedBrowserPixels": 58,
+    "sizeMultiplier": 1.3488372093023255,
+    "status": "single-pair estimate; CSS comparison size and complete browser guides not supplied"
+  }
+}

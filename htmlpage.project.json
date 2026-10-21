@@ -1,0 +1,47 @@
+{
+  "name": "HTML Engine - HTML Page",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "HTMLEngine": {
+        "$path": "src/HTMLEngine",
+        "Examples": {
+          "$className": "Folder",
+          "Config": {
+            "$path": "examples/StudioDemoConfig.luau"
+          },
+          "ResizableTestWindow": {
+            "$path": "examples/ResizableTestWindow.luau"
+          }
+        }
+      }
+    },
+    "StarterGui": {
+      "$properties": {
+        "ClipsDescendantsSupportsRotation": "Enabled"
+      }
+    },
+    "ServerScriptService": {
+      "$ignoreUnknownInstances": true,
+      "BrowserPersistenceServer": {
+        "$path": "examples/compat/RetiredPersistence.server.luau",
+        "$properties": { "Disabled": true }
+      },
+      "HTMLStorageServer": {
+        "$path": "examples/compat/RetiredPersistence.server.luau",
+        "$properties": { "Disabled": true }
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "HTMLPageDemo": {
+          "$path": "examples/HTMLPage.client.luau",
+          "$attributes": {
+            "BrowserEnabled": false,
+            "Website": "DeepWiki"
+          }
+        }
+      }
+    }
+  }
+}

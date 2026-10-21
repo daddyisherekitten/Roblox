@@ -1,0 +1,11 @@
+{
+  "defaults": [true, true, true, "auto", true, 1, false, 0, 0, 0, true, true],
+  "hidden": "none",
+  "bounds": ["IndexSizeError", "IndexSizeError", "TypeError", "TypeError"],
+  "earlyPause": "AbortError",
+  "readySequence": ["play", "playing", "playing-micro", "resolved"],
+  "seekResumed": true,
+  "ended": [true, true, 0.5, 0.5],
+  "mutedVolume": [0.25, true],
+  "emptySource": "NotSupportedError"
+}

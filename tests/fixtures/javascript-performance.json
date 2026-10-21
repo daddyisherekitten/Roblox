@@ -1,0 +1,283 @@
+[
+  {
+    "name": "constructors and branding",
+    "source": "const p=new PerformanceMark('standalone',{startTime:12});record(p instanceof PerformanceMark);record(p instanceof PerformanceEntry);record(performance instanceof Performance);record(performance instanceof EventTarget);record(p.name+':'+p.entryType+':'+p.startTime+':'+p.duration+':'+p.detail);record(performance.getEntriesByName('standalone').length);record(Object.prototype.toString.call(p));for(const fn of [()=>new Performance(),()=>new PerformanceEntry(),()=>new PerformanceMeasure(),()=>new PerformanceObserverEntryList(),()=>PerformanceMark('x'),()=>new PerformanceMark(),()=>new PerformanceObserver(3)]){try{fn()}catch(e){record(e.name)}}",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "standalone:mark:12:0:null",
+      "0",
+      "[object PerformanceMark]",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "entry ordering latest timestamp and snapshots",
+    "source": "performance.mark('late',{startTime:80});performance.mark('early',{startTime:5});performance.mark('late',{startTime:20});const entries=performance.getEntriesByType('mark');record(entries.map(e=>e.name+':'+e.startTime).join('|'));record(performance.measure('span','late','early').startTime+':'+performance.getEntriesByName('span')[0].duration);entries.pop();record(performance.getEntriesByType('mark').length);performance.clearMarks('late');record(performance.getEntriesByType('mark').map(e=>e.name).join('|'));performance.clearMeasures();performance.clearMarks();record(performance.getEntriesByType('mark').length+':'+performance.getEntriesByType('measure').length)",
+    "expected": [
+      "early:5|late:20|late:80",
+      "80:-75",
+      "3",
+      "early",
+      "0:0"
+    ]
+  },
+  {
+    "name": "measure overloads",
+    "source": "performance.mark('s',{startTime:15});performance.mark('e',{startTime:35});for(const [n,o,last]of [['a',{start:2,end:14},undefined],['b',{start:'s',duration:7},undefined],['c',{end:'e',duration:5},undefined],['d','s','e'],['e',{},'e'],['f',{start:8,end:4},undefined],['g',{end:3,duration:7},undefined]]){const m=performance.measure(n,o,last);record(m.name+':'+m.startTime+':'+m.duration)}",
+    "expected": [
+      "a:2:12",
+      "b:15:7",
+      "c:30:5",
+      "d:15:20",
+      "e:0:35",
+      "f:8:-4",
+      "g:-4:7"
+    ]
+  },
+  {
+    "name": "measure errors and timing names",
+    "source": "for(const f of [()=>performance.measure('x',{detail:1}),()=>performance.measure('x',{duration:1}),()=>performance.measure('x',{start:1,end:3,duration:2}),()=>performance.measure('x',{start:1},'last'),()=>performance.measure('x','missing'),()=>performance.measure('x',{start:-1,end:2}),()=>performance.measure('x',{start:Infinity}),()=>performance.mark('navigationStart'),()=>new PerformanceMark('loadEventEnd')]){try{f()}catch(e){record(e.name+':'+(e instanceof DOMException))}}const m=performance.measure('n',{start:'navigationStart',end:12});record(m.startTime+':'+m.duration)",
+    "expected": [
+      "TypeError:false",
+      "TypeError:false",
+      "TypeError:false",
+      "TypeError:false",
+      "SyntaxError:true",
+      "TypeError:false",
+      "TypeError:false",
+      "SyntaxError:true",
+      "SyntaxError:true",
+      "0:12"
+    ]
+  },
+  {
+    "name": "cloned detail including cycles and undefined",
+    "source": "const data={name:'oak',nested:{value:2}};data.self=data;const p=performance.mark('detail',{startTime:1,detail:data});data.nested.value=9;record(p.detail.name+':'+p.detail.nested.value+':'+(p.detail.self===p.detail));p.detail.nested.value=3;record(performance.getEntriesByName('detail')[0].detail.nested.value);const m=performance.measure('detail-span',{start:1,end:4,detail:{a:[1,2]}});record(m.detail.a.join(','));const json=m.toJSON();record(json.navigationId===m.navigationId&&typeof json.navigationId==='number');delete json.navigationId;record(JSON.stringify(json));record('detail' in m.toJSON());for(const d of [()=>1,Symbol('x'),document]){try{performance.mark('bad',{detail:d})}catch(e){record(e.name+':'+(e instanceof DOMException))}}record(performance.getEntriesByName('bad').length);record(performance.mark('undef',{detail:undefined,startTime:3}).detail)",
+    "expected": [
+      "oak:2:true",
+      "3",
+      "1,2",
+      "true",
+      "{\"name\":\"detail-span\",\"entryType\":\"measure\",\"startTime\":1,\"duration\":3}",
+      "false",
+      "DataCloneError:true",
+      "DataCloneError:true",
+      "DataCloneError:true",
+      "0",
+      "null"
+    ]
+  },
+  {
+    "name": "mark conversions",
+    "source": "const order=[];const mark=performance.mark({toString(){order.push('name');return 'coerced'}},{get detail(){order.push('detail');return 5},get startTime(){order.push('time');return '7'}});record(order.join(','));record(mark.name+':'+mark.startTime+':'+mark.detail);for(const f of [()=>performance.mark('bad',{startTime:-1}),()=>performance.mark('bad',{startTime:NaN}),()=>performance.mark('bad',{startTime:Infinity}),()=>performance.mark('bad',{startTime:1n}),()=>performance.mark(Symbol('x')),()=>performance.mark('bad',3)]){try{f()}catch(e){record(e.name)}}record(performance.mark('zero',{startTime:null}).startTime)",
+    "expected": [
+      "name,detail,time",
+      "coerced:7:5",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "0"
+    ]
+  },
+  {
+    "name": "readonly fields and receiver checks",
+    "source": "const p=performance.mark('x',{startTime:5});p.startTime=9;p.detail=10;record(p.startTime+':'+p.detail);record(performance.mark.name+':'+performance.mark.length+':'+performance.measure.length+':'+PerformanceObserver.prototype.observe.length);for(const f of [()=>Performance.prototype.now.call({}),()=>Performance.prototype.mark.call({},'x'),()=>PerformanceEntry.prototype.toJSON.call({}),()=>Object.getOwnPropertyDescriptor(PerformanceMark.prototype,'detail').get.call({}),()=>PerformanceObserver.prototype.disconnect.call({}),()=>PerformanceObserverEntryList.prototype.getEntries.call({})]){try{f()}catch(e){record(e.name)}}",
+    "expected": [
+      "5:null",
+      "mark:1:1:0",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "clock and performance EventTarget",
+    "source": "record(Number.isFinite(performance.timeOrigin));record(performance.timeOrigin>1000000000000);record(performance.now()>=0);const before=performance.now();const after=performance.now();record(after>=before);record(performance.toJSON().timeOrigin===performance.timeOrigin);let n=0;performance.addEventListener('probe',()=>n++);performance.dispatchEvent(new Event('probe'));record(n)",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "1"
+    ]
+  },
+  {
+    "name": "supported types are frozen same object",
+    "source": "const a=PerformanceObserver.supportedEntryTypes;record(a===PerformanceObserver.supportedEntryTypes);record(Object.isFrozen(a));record(a.includes('mark')&&a.includes('measure'));try{a.push('fake')}catch(e){record(e.name)}record(Object.getOwnPropertyDescriptor(PerformanceObserver,'supportedEntryTypes').set)",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "TypeError",
+      "undefined"
+    ]
+  },
+  {
+    "name": "observe options and mode permanence",
+    "source": "for(const opts of [{},{entryTypes:['mark'],type:'mark'},{entryTypes:['mark'],buffered:false},3,{entryTypes:'mark'}]){const p=new PerformanceObserver(()=>{});try{p.observe(opts);record('accepted')}catch(e){record(e.name)}p.disconnect()}const p=new PerformanceObserver(()=>{});p.observe({type:'mark'});p.disconnect();try{p.observe({entryTypes:['mark']})}catch(e){record(e.name+':'+(e instanceof DOMException))}const q=new PerformanceObserver(()=>{});q.observe({entryTypes:[]});try{q.observe({type:'mark'})}catch(e){record(e.name)}const r=new PerformanceObserver(()=>{});r.observe({type:'unknown'});try{r.observe({entryTypes:['mark']})}catch(e){record(e.name)}",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "accepted",
+      "TypeError",
+      "TypeError",
+      "InvalidModificationError:true",
+      "InvalidModificationError",
+      "InvalidModificationError"
+    ]
+  },
+  {
+    "name": "takeRecords and clear independent",
+    "source": "const o=new PerformanceObserver(()=>record('unexpected'));o.observe({entryTypes:['mark','measure']});const m=performance.mark('one',{startTime:12});performance.measure('span',{start:4,end:9});performance.clearMarks();const records=o.takeRecords();record(records.map(x=>x.name).join(','));record(records[0]===m);record(o.takeRecords().length);record(performance.getEntriesByType('measure').length);o.disconnect();performance.mark('later');record(o.takeRecords().length)",
+    "expected": [
+      "one,span",
+      "true",
+      "0",
+      "1",
+      "0"
+    ]
+  },
+  {
+    "name": "observer tasks batching lists and this",
+    "async": true,
+    "source": "const done=new Promise(resolve=>{const o=new PerformanceObserver(function(list,observer,opts){record(this===o&&observer===o);record(list instanceof PerformanceObserverEntryList);record(list.getEntries().map(e=>e.name).join(','));record(list.getEntriesByType('mark').length);record(list.getEntriesByName('a','mark')[0].startTime);record(opts.droppedEntriesCount);observer.disconnect();resolve()});o.observe({entryTypes:['mark','measure']});performance.mark('b',{startTime:20});performance.mark('a',{startTime:10});performance.measure('c',{start:30,end:40});queueMicrotask(()=>record('microtask'));record('sync')});await done",
+    "expected": [
+      "sync",
+      "microtask",
+      "true",
+      "true",
+      "a,b,c",
+      "2",
+      "10",
+      "0"
+    ]
+  },
+  {
+    "name": "buffered and constructor does not notify",
+    "async": true,
+    "source": "performance.mark('old',{startTime:5});new PerformanceMark('private',{startTime:1});const done=new Promise(resolve=>{const o=new PerformanceObserver(list=>{record(list.getEntries().map(e=>e.name).join(','));o.disconnect();resolve()});o.observe({type:'mark',buffered:true});performance.mark('new',{startTime:8});performance.clearMarks()});await done",
+    "expected": [
+      "old,new"
+    ]
+  },
+  {
+    "name": "single types accumulate multiple replaces",
+    "source": "const a=new PerformanceObserver(()=>{});a.observe({type:'mark'});a.observe({type:'measure'});performance.mark('m',{startTime:1});performance.measure('s',{start:2,end:3});record(a.takeRecords().map(e=>e.entryType).join(','));a.disconnect();const b=new PerformanceObserver(()=>{});b.observe({entryTypes:['mark']});b.observe({entryTypes:['measure','unknown']});performance.mark('n',{startTime:1});performance.measure('t',{start:2,end:3});record(b.takeRecords().map(e=>e.entryType).join(','));b.disconnect()",
+    "expected": [
+      "mark,measure",
+      "measure"
+    ]
+  },
+  {
+    "name": "repeated buffered registration sorts pending snapshot",
+    "source": "performance.mark('b',{startTime:20});performance.mark('a',{startTime:10});const o=new PerformanceObserver(()=>{});o.observe({type:'mark',buffered:true});o.observe({type:'mark',buffered:true});record(o.takeRecords().map(e=>e.name).join(','));o.disconnect()",
+    "expected": [
+      "a,a,b,b"
+    ]
+  },
+  {
+    "name": "callback reentrancy queues another task",
+    "async": true,
+    "source": "const done=new Promise(resolve=>{let count=0;const o=new PerformanceObserver((list,observer,opts)=>{count++;record(list.getEntries()[0].name+':'+count+':'+('droppedEntriesCount' in opts));if(count===1){performance.mark('second',{startTime:2});queueMicrotask(()=>record('between'))}else{o.disconnect();resolve()}});o.observe({type:'mark'});performance.mark('first',{startTime:1})});await done",
+    "expected": [
+      "first:1:true",
+      "between",
+      "second:2:false"
+    ]
+  },
+  {
+    "name": "disconnect cancels queued delivery without resetting mode",
+    "async": true,
+    "source": "let n=0;const o=new PerformanceObserver(()=>n++);o.observe({type:'mark'});performance.mark('first');o.disconnect();await new Promise(resolve=>setTimeout(resolve,20));record(n);o.observe({type:'mark'});performance.mark('second');record(o.takeRecords().map(e=>e.name).join(','));o.disconnect()",
+    "expected": [
+      "0",
+      "second"
+    ]
+  },
+  {
+    "name": "optional arguments and conversions",
+    "source": "performance.mark('undefined',{startTime:1});performance.mark('null',{startTime:2});record(performance.getEntriesByName('undefined',undefined).length);record(performance.getEntriesByName('null',null).length);performance.clearMarks(undefined);record(performance.getEntriesByType('mark').length);performance.mark('true',{startTime:1});performance.mark('false',{startTime:0});const m=performance.measure('boolean',{start:true,end:false});record(m.startTime+':'+m.duration)",
+    "expected": [
+      "1",
+      "0",
+      "0",
+      "1:-1"
+    ]
+  },
+  {
+    "name": "extended observer threshold dictionary",
+    "source": "const order=[];const o=new PerformanceObserver(()=>{});try{o.observe({get buffered(){order.push('buffered');return false},get durationThreshold(){order.push('threshold');return 8},get entryTypes(){order.push('entries');return ['mark']},get type(){order.push('type');return undefined}})}catch(e){record(e.name)}record(order.join(','));try{o.observe({type:'mark',durationThreshold:Infinity})}catch(e){record(e.name)}o.disconnect()",
+    "expected": [
+      "buffered,threshold,entries,type",
+      "TypeError"
+    ],
+    "difference": "Chromium converts buffered/durationThreshold but ignores both with entryTypes; current W3C draft rejects extra known members. The engine follows the captured browser profile."
+  },
+  {
+    "name": "string sequence rejection does not choose observer mode",
+    "source": "const p=new PerformanceObserver(()=>{});try{p.observe({entryTypes:'mark'})}catch(e){record(e.name)}p.observe({type:'mark'});record(p.takeRecords().length);p.disconnect()",
+    "expected": [
+      "TypeError",
+      "0"
+    ]
+  },
+  {
+    "name": "finite timestamp errors",
+    "source": "try{const m=performance.measure('nan',{end:NaN});record(Number.isNaN(m.duration)?'NaN':'finite')}catch(e){record(e.name)}",
+    "expected": [
+      "TypeError"
+    ]
+  },
+  {
+    "name": "navigation timing unavailable boundary",
+    "source": "try{performance.measure('legacy','loadEventEnd')}catch(e){record(e.name+':'+(e instanceof DOMException))}",
+    "expected": [
+      "InvalidAccessError:true"
+    ],
+    "engineOnly": true,
+    "difference": "Navigation and resource timing are outside the supported mark/measure family; unavailable legacy timestamps must throw InvalidAccessError."
+  },
+  {
+    "name": "labelled timestamp and dictionary edges",
+    "source": "for(const [label,opts]of [['startInf',{start:Infinity}],['endInf',{end:Infinity}],['startNaN',{start:NaN}],['endNaN',{end:NaN}],['durationInf',{start:1,duration:Infinity}],['durationNaN',{start:1,duration:NaN}],['durationNegative',{start:1,duration:-2}],['durationNegativeEnd',{end:1,duration:-2}]]){try{const m=performance.measure(label,opts);record(label+':'+String(m.startTime)+':'+String(m.duration))}catch(e){record(label+':'+e.name)}}for(const [label,opts]of [['empty',{}],['typeAndList',{type:'mark',entryTypes:['mark']}],['bufferAndList',{buffered:false,entryTypes:['mark']}],['thresholdAndList',{durationThreshold:8,entryTypes:['mark']}],['number',3],['string',{entryTypes:'mark'}]]){const o=new PerformanceObserver(()=>{});try{o.observe(opts);record(label+':accepted')}catch(e){record(label+':'+e.name)}try{o.observe({type:'mark'});record(label+':single')}catch(e){record(label+':'+e.name)}o.disconnect()}",
+    "expected": [
+      "startInf:TypeError",
+      "endInf:TypeError",
+      "startNaN:TypeError",
+      "endNaN:TypeError",
+      "durationInf:TypeError",
+      "durationNaN:TypeError",
+      "durationNegative:1:-2",
+      "durationNegativeEnd:3:-2",
+      "empty:TypeError",
+      "empty:single",
+      "typeAndList:TypeError",
+      "typeAndList:single",
+      "bufferAndList:accepted",
+      "bufferAndList:InvalidModificationError",
+      "thresholdAndList:accepted",
+      "thresholdAndList:InvalidModificationError",
+      "number:TypeError",
+      "number:single",
+      "string:TypeError",
+      "string:single"
+    ],
+    "difference": "Signed duration is accepted by the browser; start/end timestamps remain nonnegative finite values. Multiple-types observer options follow the captured Chromium profile."
+  }
+]

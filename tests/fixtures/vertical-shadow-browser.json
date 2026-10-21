@@ -1,0 +1,5805 @@
+{
+  "records": [
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": 47,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": 47,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": -33,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": -33,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 88,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 8,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 88,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 8,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 93,
+        "y": 47,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 13,
+        "y": 47,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 93,
+        "y": -33,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 13,
+        "y": -33,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": 47,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": 47,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": -33,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": -33,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 88,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 8,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 88,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 8,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 93,
+        "y": 47,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 13,
+        "y": 47,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 93,
+        "y": -33,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 13,
+        "y": -33,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": 47,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": 47,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": 40,
+        "y": -33,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 0,
+        "y": 7,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      },
+      "shadowPaint": {
+        "x": -40,
+        "y": -33,
+        "width": 26,
+        "height": 10,
+        "count": 152
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 88,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 8,
+        "y": 44,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 88,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 48,
+        "y": 4,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      },
+      "shadowPaint": {
+        "x": 8,
+        "y": -36,
+        "width": 33,
+        "height": 15,
+        "count": 221
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 93,
+        "y": 47,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 13,
+        "y": 47,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 93,
+        "y": -33,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "horizontal-tb",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 53,
+        "y": 7,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      },
+      "shadowPaint": {
+        "x": 13,
+        "y": -33,
+        "width": 27,
+        "height": 10,
+        "count": 160
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 101,
+        "y": 41,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 21,
+        "y": 41,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 101,
+        "y": -39,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 21,
+        "y": -39,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 101,
+        "y": 89,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 21,
+        "y": 89,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 101,
+        "y": 9,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 21,
+        "y": 9,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 101,
+        "y": 41,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 21,
+        "y": 41,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 101,
+        "y": -39,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 21,
+        "y": -39,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 64,
+        "y": 5,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 104,
+        "y": 45,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 64,
+        "y": 5,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 24,
+        "y": 45,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 64,
+        "y": 5,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 104,
+        "y": -35,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 64,
+        "y": 5,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 24,
+        "y": -35,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 101,
+        "y": 89,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 21,
+        "y": 89,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 101,
+        "y": 9,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 61,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 21,
+        "y": 9,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 64,
+        "y": 28,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 104,
+        "y": 68,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 64,
+        "y": 28,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 24,
+        "y": 68,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 64,
+        "y": 28,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 104,
+        "y": -12,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 64,
+        "y": 28,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 24,
+        "y": -12,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 45,
+        "y": 41,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": -35,
+        "y": 41,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 45,
+        "y": -39,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": -35,
+        "y": -39,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 45,
+        "y": 89,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": -35,
+        "y": 89,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 45,
+        "y": 9,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": -35,
+        "y": 9,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 45,
+        "y": 41,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": -35,
+        "y": 41,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 45,
+        "y": -39,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 1,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": -35,
+        "y": -39,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 8,
+        "y": 5,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 48,
+        "y": 45,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 8,
+        "y": 5,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": -32,
+        "y": 45,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 8,
+        "y": 5,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 48,
+        "y": -35,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 8,
+        "y": 5,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": -32,
+        "y": -35,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 45,
+        "y": 89,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": -35,
+        "y": 89,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": 45,
+        "y": 9,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 5,
+        "y": 49,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      },
+      "shadowPaint": {
+        "x": -35,
+        "y": 9,
+        "width": 17,
+        "height": 29,
+        "count": 230
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 8,
+        "y": 28,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 48,
+        "y": 68,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 8,
+        "y": 28,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": -32,
+        "y": 68,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 8,
+        "y": 28,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": 48,
+        "y": -12,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 8,
+        "y": 28,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      },
+      "shadowPaint": {
+        "x": -32,
+        "y": -12,
+        "width": 9,
+        "height": 48,
+        "count": 159
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 4,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -36,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 4,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -36,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 4,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 44,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 4,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 44,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 4,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -36,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 4,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -36,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 4,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 44,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 4,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 44,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "vertical-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 20,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 60,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 100,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 22,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-rl",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 62,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 102,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "mixed",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "upright",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": 8,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 48,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": 88,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 15,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "ltr",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 55,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 95,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": 43,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": -40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "天地",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 3,
+        "y": 0,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      },
+      "shadowPaint": {
+        "x": -37,
+        "y": 40,
+        "width": 17,
+        "height": 32,
+        "count": 244
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": 46,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": -39,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    },
+    {
+      "writingMode": "sideways-lr",
+      "orientation": "sideways",
+      "direction": "rtl",
+      "source": "ABC",
+      "offset": [
+        -40,
+        -40
+      ],
+      "foregroundPaint": {
+        "x": 6,
+        "y": 1,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      },
+      "shadowPaint": {
+        "x": -34,
+        "y": 41,
+        "width": 12,
+        "height": 25,
+        "count": 145
+      }
+    }
+  ],
+  "measurements": {
+    "0": 8.796875,
+    "": 0,
+    "‭‬": 0,
+    "‮‬": 0,
+    " ": 8.796875,
+    "‭ ‬": 8.796875,
+    "‮ ‬": 8.796875,
+    "‭0‬": 8.796875,
+    "‮0‬": 8.796875,
+    "天": 16,
+    "‭天‬": 16,
+    "‮天‬": 16,
+    "天地": 32,
+    "‭天地‬": 32,
+    "‮天地‬": 32,
+    "地": 16,
+    "‭地‬": 16,
+    "‮地‬": 16,
+    "A": 8.796875,
+    "‭A‬": 8.796875,
+    "‮A‬": 8.796875,
+    "AB": 17.59375,
+    "‭AB‬": 17.59375,
+    "‮AB‬": 17.59375,
+    "ABC": 26.390625,
+    "‭ABC‬": 26.390625,
+    "‮ABC‬": 26.390625,
+    "B": 8.796875,
+    "‭B‬": 8.796875,
+    "‮B‬": 8.796875,
+    "BC": 17.59375,
+    "‭BC‬": 17.59375,
+    "‮BC‬": 17.59375,
+    "C": 8.796875,
+    "‭C‬": 8.796875,
+    "‮C‬": 8.796875
+  },
+  "nativeHeight": 19,
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "evidence": "Actual independent foreground-only and shadow-only black-ink screenshots. Raw glyph antialiasing bounds/counts retained; no CSS text or Range position substitutes for painted shadow geometry."
+}

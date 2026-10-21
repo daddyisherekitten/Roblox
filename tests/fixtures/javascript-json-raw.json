@@ -1,0 +1,452 @@
+[
+  {
+    "name": "raw primitives preserve lexical text exactly",
+    "source": "for(const text of ['null','true','false','0','-0','1.2300','1e+400','-1e-400','9007199254740993','\"abc\"','\"\\\\u0041\"','\"\"']){const r=JSON.rawJSON(text);record(JSON.isRawJSON(r));record(r.rawJSON===text);record(JSON.stringify(r));}",
+    "expected": [
+      "true",
+      "true",
+      "null",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "false",
+      "true",
+      "true",
+      "0",
+      "true",
+      "true",
+      "-0",
+      "true",
+      "true",
+      "1.2300",
+      "true",
+      "true",
+      "1e+400",
+      "true",
+      "true",
+      "-1e-400",
+      "true",
+      "true",
+      "9007199254740993",
+      "true",
+      "true",
+      "\"abc\"",
+      "true",
+      "true",
+      "\"\\u0041\"",
+      "true",
+      "true",
+      "\"\""
+    ]
+  },
+  {
+    "name": "raw whitespace composites and malformed primitives rejected",
+    "source": "for(const text of ['',' ', ' null','null ','\\tnull','null\\n','\\u00a0true','true\\u2028','[]','{}','[1]','{\"a\":1}','undefined','NaN','Infinity','-Infinity','+1','01','-01','1.','.1','1e','1e+','1e-','--1','true false','TRUE','nul','\"x\"junk','\"\\\\x41\"','\"\\n\"']){try{JSON.rawJSON(text);record('accepted')}catch(e){record(e.name)}}",
+    "expected": [
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "raw coercion string hint and primitive inputs",
+    "source": "for(const value of [1,0,-0,true,false,null,1n])record(JSON.stringify(JSON.rawJSON(value)));for(const value of [undefined,NaN,Infinity,Symbol('x'),Object.create(null),JSON.rawJSON('1')])try{JSON.rawJSON(value)}catch(e){record(e.name)}const log=[];const value={[Symbol.toPrimitive](hint){log.push(hint+':'+arguments.length);return '2e3'},toString(){throw 'unused'}};record(JSON.stringify(JSON.rawJSON(value)));record(log.join(','));",
+    "expected": [
+      "1",
+      "0",
+      "0",
+      "true",
+      "false",
+      "null",
+      "1",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "2e3",
+      "string:1"
+    ]
+  },
+  {
+    "name": "raw coercion errors and dynamic methods",
+    "source": "const log=[];const value={get toString(){log.push('get-string');return function(){log.push('string');return 'null'}},valueOf(){throw 'unused'}};record(JSON.stringify(JSON.rawJSON(value)));record(log.join(','));for(const v of [{[Symbol.toPrimitive](){throw 'coercion'}},{[Symbol.toPrimitive](){return {}}},{toString(){return {}},valueOf(){return {}}}])try{JSON.rawJSON(v)}catch(e){record(e.name||e)}",
+    "expected": [
+      "null",
+      "get-string,string",
+      "coercion",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "raw object null prototype frozen sole descriptor",
+    "source": "const r=JSON.rawJSON('123');record(Object.getPrototypeOf(r)===null);record(Object.isFrozen(r));record(Object.isSealed(r));record(Object.isExtensible(r));record(Object.getOwnPropertyNames(r).join(','));record(Object.getOwnPropertySymbols(r).length);record(JSON.stringify(Object.getOwnPropertyDescriptor(r,'rawJSON')));record(Object.prototype.toString.call(r));record(typeof r.toString);",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "false",
+      "rawJSON",
+      "0",
+      "{\"value\":\"123\",\"writable\":false,\"enumerable\":true,\"configurable\":false}",
+      "[object Object]",
+      "undefined"
+    ]
+  },
+  {
+    "name": "raw frozen shadow mutation strict delete and prototype invariants",
+    "source": "const r=JSON.rawJSON('7');record(Reflect.set(r,'rawJSON','8'));record(Reflect.set(r,'extra',1));record(Reflect.deleteProperty(r,'rawJSON'));record(Reflect.defineProperty(r,'rawJSON',{value:'7'}));record(Reflect.defineProperty(r,'rawJSON',{value:'8'}));record(Reflect.defineProperty(r,'rawJSON',{get(){return '8'}}));record(Reflect.setPrototypeOf(r,{}));record(Reflect.setPrototypeOf(r,null));try{(()=>{'use strict';r.rawJSON='9'})()}catch(e){record(e.name)}try{(()=>{'use strict';delete r.rawJSON})()}catch(e){record(e.name)}record(JSON.stringify(r));",
+    "expected": [
+      "false",
+      "false",
+      "false",
+      "true",
+      "false",
+      "false",
+      "false",
+      "true",
+      "TypeError",
+      "TypeError",
+      "7"
+    ]
+  },
+  {
+    "name": "brand resists copies prototypes shadow slots and primitives",
+    "source": "const r=JSON.rawJSON('1');for(const v of [undefined,null,1,'1',true,Symbol(),1n,{},[],function(){},{rawJSON:'1'},{RawJSONBrand:r.RawJSONBrand},Object.assign({},r),Object.create(r),new Proxy(r,{})])record(JSON.isRawJSON(v));record(r.RawJSONBrand);record(JSON.stringify(Object.assign({},r)));record(JSON.stringify(Object.create(r)));record(JSON.stringify(Object.create(r),['rawJSON']));",
+    "expected": [
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "undefined",
+      "{\"rawJSON\":\"1\"}",
+      "{}",
+      "{\"rawJSON\":\"1\"}"
+    ]
+  },
+  {
+    "name": "isRawJSON proxy checks invoke no traps or revocation failures",
+    "source": "const log=[];const p=new Proxy(JSON.rawJSON('1'),{get(){log.push('get');throw 'trap'},getPrototypeOf(){log.push('proto');throw 'trap'},ownKeys(){log.push('keys');throw 'trap'}});record(JSON.isRawJSON(p));record(log.length);const pair=Proxy.revocable(JSON.rawJSON('1'),{});pair.revoke();record(JSON.isRawJSON(pair.proxy));record(JSON.isRawJSON.call(null,JSON.rawJSON('2')));record(JSON.isRawJSON());",
+    "expected": [
+      "false",
+      "0",
+      "false",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "method metadata receiver independence and nonconstructor",
+    "source": "for(const k of ['rawJSON','isRawJSON']){const f=JSON[k],d=Object.getOwnPropertyDescriptor(JSON,k);record(f.name+':'+f.length+':'+d.writable+':'+d.enumerable+':'+d.configurable);try{new f('1')}catch(e){record(e.name)}}record(JSON.rawJSON.call(null,'2').rawJSON);record(JSON.isRawJSON.call(3,JSON.rawJSON('3')));",
+    "expected": [
+      "rawJSON:1:true:false:true",
+      "TypeError",
+      "isRawJSON:1:true:false:true",
+      "TypeError",
+      "2",
+      "true"
+    ]
+  },
+  {
+    "name": "stringify nested raws indentation replacement and arrays",
+    "source": "const r=JSON.rawJSON('123456789012345678901');record(JSON.stringify({x:r,a:[r,JSON.rawJSON('true'),JSON.rawJSON('\"x\"'),undefined]},null,2));record(JSON.stringify([JSON.rawJSON('null'),JSON.rawJSON('-0'),JSON.rawJSON('1E+400')]));record(JSON.stringify(r,['rawJSON'],10));record(JSON.stringify({x:r},['x']));record(JSON.stringify({x:r},[]));",
+    "expected": [
+      "{\n  \"x\": 123456789012345678901,\n  \"a\": [\n    123456789012345678901,\n    true,\n    \"x\",\n    null\n  ]\n}",
+      "[null,-0,1E+400]",
+      "123456789012345678901",
+      "{\"x\":123456789012345678901}",
+      "{}"
+    ]
+  },
+  {
+    "name": "replacer observes raw before direct insertion and may change it",
+    "source": "const r=JSON.rawJSON('1e3'),log=[];record(JSON.stringify({x:r},function(k,v){log.push(k+':'+JSON.isRawJSON(v)+':'+arguments.length);return k==='x'?JSON.rawJSON('2e3'):v}));record(log.join(','));record(JSON.stringify(r,()=> 'quoted'));record(JSON.stringify(r,()=> undefined));record(JSON.stringify(r,(k,v)=>k===''?({rawJSON:'fake'}):v));",
+    "expected": [
+      "{\"x\":2e3}",
+      ":false:2,x:true:2",
+      "\"quoted\"",
+      "undefined",
+      "{\"rawJSON\":\"fake\"}"
+    ]
+  },
+  {
+    "name": "toJSON before replacer and raw returned by hooks",
+    "source": "const log=[];const o={get toJSON(){log.push('get-toJSON');return function(k){log.push('toJSON:'+k+':'+arguments.length+':'+(this===o));return JSON.rawJSON('9007199254740993')}}};record(JSON.stringify({x:o},function(k,v){log.push('replacer:'+k+':'+JSON.isRawJSON(v));return v}));record(log.join(','));",
+    "expected": [
+      "{\"x\":9007199254740993}",
+      "replacer::false,get-toJSON,toJSON:x:1:true,replacer:x:true"
+    ]
+  },
+  {
+    "name": "proxy of raw is ordinary unless hook returns branded target",
+    "source": "const r=JSON.rawJSON('123'),log=[];const p=new Proxy(r,{get(t,k,v){log.push('get:'+String(k));return Reflect.get(t,k,v)},ownKeys(t){log.push('keys');return Reflect.ownKeys(t)}});record(JSON.stringify(p));record(log.join(','));log.length=0;const q=new Proxy(r,{get(t,k,v){log.push('get:'+String(k));if(k==='toJSON')return ()=>r;return Reflect.get(t,k,v)},ownKeys(){throw 'unused'}});record(JSON.stringify(q));record(log.join(','));",
+    "expected": [
+      "{\"rawJSON\":\"123\"}",
+      "get:toJSON,keys,get:rawJSON",
+      "123",
+      "get:toJSON"
+    ]
+  },
+  {
+    "name": "raw proxy getter invariants and revoked stringify",
+    "source": "const r=JSON.rawJSON('1');const p=new Proxy(r,{get(t,k,v){return k==='rawJSON'?'2':Reflect.get(t,k,v)}});try{JSON.stringify(p)}catch(e){record(e.name)}const pair=Proxy.revocable(r,{});pair.revoke();try{JSON.stringify(pair.proxy)}catch(e){record(e.name)}record(JSON.stringify(r,(k,v)=>k===''?new Proxy(r,{}):v));",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "{\"rawJSON\":\"1\"}"
+    ]
+  },
+  {
+    "name": "fake raw property getter normal quoting and cycles",
+    "source": "const log=[];const f={get rawJSON(){log.push('raw');return '123'}};record(JSON.stringify(f));record(log.join(','));const r=JSON.rawJSON('5'),o={r};o.self=o;try{JSON.stringify(o)}catch(e){record(e.name)}record(JSON.stringify(o,(k,v)=>k==='self'?r:v));",
+    "expected": [
+      "{\"rawJSON\":\"123\"}",
+      "raw",
+      "TypeError",
+      "{\"r\":5,\"self\":5}"
+    ]
+  },
+  {
+    "name": "replacer array getters deduplicate and boxed string conversion",
+    "source": "const r=JSON.rawJSON('9'),log=[];const key=new String('wrong');key.toString=function(){log.push('key-string');return 'x'};const list=[key,'x',new Number(1),JSON.rawJSON('2'),true];record(JSON.stringify({x:r,1:r,wrong:4},list));record(log.join(','));const names=new Proxy(['x'],{get(t,k,v){log.push('get:'+k);return Reflect.get(t,k,v)}});log.length=0;record(JSON.stringify({x:r},names));record(log.join(','));",
+    "expected": [
+      "{\"x\":9,\"1\":9}",
+      "key-string",
+      "{\"x\":9}",
+      "get:length,get:0"
+    ]
+  },
+  {
+    "name": "boxed gap and primitive values observe coercion hooks",
+    "source": "const log=[];const gap=new Number(1);gap.valueOf=()=>{log.push('gap');return 2};record(JSON.stringify({x:JSON.rawJSON('3')},null,gap));const n=new Number(1);n.valueOf=()=>{log.push('number');return 7};const s=new String('x');s.toString=()=>{log.push('string');return 'y'};record(JSON.stringify({n,s}));record(log.join(','));",
+    "expected": [
+      "{\n  \"x\": 3\n}",
+      "{\"n\":7,\"s\":\"y\"}",
+      "gap,number,string"
+    ]
+  },
+  {
+    "name": "BigInt precise values through replacer and toJSON",
+    "source": "const n=123456789012345678901234567890n;record(JSON.stringify({n},(k,v)=>typeof v==='bigint'?JSON.rawJSON(String(v)):v));BigInt.prototype.toJSON=function(k){return JSON.rawJSON(String(this))};record(JSON.stringify([n,Object(n)]));delete BigInt.prototype.toJSON;try{JSON.stringify(n)}catch(e){record(e.name)}record(JSON.stringify(JSON.rawJSON(String(n))));",
+    "expected": [
+      "{\"n\":123456789012345678901234567890}",
+      "[123456789012345678901234567890,123456789012345678901234567890]",
+      "TypeError",
+      "123456789012345678901234567890"
+    ]
+  },
+  {
+    "name": "reviver context exact numeric raw roundtrip",
+    "source": "const text='{\"a\":9007199254740993,\"b\":12345678901234567890.1234500,\"c\":1E+400,\"d\":-0,\"arr\":[1e-400,2.300]}';const sources=[];const result=JSON.parse(text,function(k,v,ctx){if(typeof v==='number'){sources.push(ctx.source);return JSON.rawJSON(ctx.source)}return v});record(JSON.stringify(result)===text);record(sources.join('|'));record(JSON.stringify(result));",
+    "expected": [
+      "true",
+      "9007199254740993|12345678901234567890.1234500|1E+400|-0|1e-400|2.300",
+      "{\"a\":9007199254740993,\"b\":12345678901234567890.1234500,\"c\":1E+400,\"d\":-0,\"arr\":[1e-400,2.300]}"
+    ]
+  },
+  {
+    "name": "reviver BigInt root source exact conversion",
+    "source": "record(JSON.parse('9007199254740993',(k,v,ctx)=>BigInt(ctx.source)).toString());const r=JSON.parse('  1.2300  ',(k,v,ctx)=>{record(ctx.source);return JSON.rawJSON(ctx.source)});record(JSON.stringify(r));record(JSON.isRawJSON(r));",
+    "expected": [
+      "9007199254740993",
+      "1.2300",
+      "1.2300",
+      "true"
+    ]
+  },
+  {
+    "name": "reviver SameValue signed zeros suppress mutated source",
+    "source": "const log=[];JSON.parse('[0,-0]',function(k,v,ctx){if(k==='0')this[1]=0;log.push(k+':'+ctx.source);return v});record(log.join(','));const log2=[];JSON.parse('[-0,0]',function(k,v,ctx){if(k==='0')this[1]=-0;log2.push(k+':'+ctx.source);return v});record(log2.join(','));",
+    "expected": [
+      "0:0,1:undefined,:undefined",
+      "0:-0,1:undefined,:undefined"
+    ]
+  },
+  {
+    "name": "reviver moved subtree loses original path sources",
+    "source": "const log=[];JSON.parse('{\"a\":{\"n\":2e0},\"b\":{\"n\":2}}',function(k,v,ctx){if(k==='a')this.b=v;log.push(k+':'+ctx.source);return v});record(log.join(','));",
+    "expected": [
+      "n:2e0,a:undefined,n:undefined,b:undefined,:undefined"
+    ]
+  },
+  {
+    "name": "reviver proxy replacement does not inherit parse records",
+    "source": "const log=[];JSON.parse('{\"first\":0,\"obj\":{\"n\":1}}',function(k,v,ctx){if(k==='first')this.obj=new Proxy(this.obj,{});if(k==='n')log.push(ctx.source);return v});record(log.join(','));",
+    "expected": [
+      ""
+    ]
+  },
+  {
+    "name": "reviver duplicate keys frozen holders and context descriptor",
+    "source": "const logs=[];const v=JSON.parse('{\"x\":1,\"x\":2e0}',function(k,v,ctx){if(k==='x'){logs.push(ctx.source);logs.push(JSON.stringify(Object.getOwnPropertyDescriptor(ctx,'source')));Object.freeze(this);return JSON.rawJSON(ctx.source)}return v});record(logs.join('|'));record(JSON.stringify(v));",
+    "expected": [
+      "2e0|{\"value\":\"2e0\",\"writable\":true,\"enumerable\":true,\"configurable\":true}",
+      "{\"x\":2}"
+    ]
+  },
+  {
+    "name": "raw escaped string spelling and UTF16 lexical fidelity",
+    "source": "for(const t of ['\"\\\\ud800\"','\"\\\\uD800\"','\"\\\\udfff\"','\"\\\\ud83d\\\\ude00\"','\"😀\"','\"\\u2028\\u2029\"']){const r=JSON.rawJSON(t);record(JSON.stringify(r)===t);record(JSON.stringify(r.rawJSON)===JSON.stringify(t));record(JSON.stringify(JSON.parse(JSON.stringify(r))))}const t='\"'+String.fromCharCode(0xd800)+'\"';const r=JSON.rawJSON(t);record(JSON.stringify(r).charCodeAt(1));record(JSON.stringify(JSON.stringify(r)));record(JSON.stringify(JSON.parse(JSON.stringify(r))));",
+    "expected": [
+      "true",
+      "true",
+      "\"\\ud800\"",
+      "true",
+      "true",
+      "\"\\ud800\"",
+      "true",
+      "true",
+      "\"\\udfff\"",
+      "true",
+      "true",
+      "\"😀\"",
+      "true",
+      "true",
+      "\"😀\"",
+      "true",
+      "true",
+      "\"  \"",
+      "55296",
+      "\"\\\"\\ud800\\\"\"",
+      "\"\\ud800\""
+    ]
+  },
+  {
+    "name": "raw control escape valid literal control invalid",
+    "source": "for(const t of ['\"\\\\b\\\\f\\\\n\\\\r\\\\t\"','\"\\\\u0000\"','\"\\\\/\"','\"a b\"'])record(JSON.stringify(JSON.rawJSON(t))===t);for(const code of [0,8,9,10,13,31])try{JSON.rawJSON('\"'+String.fromCharCode(code)+'\"')}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "raw validation uses captured parser and serializer uses internal brand",
+    "source": "const parse=JSON.parse,raw=JSON.rawJSON,isRaw=JSON.isRawJSON,stringify=JSON.stringify;JSON.parse=()=>{throw 'replaced-parse'};JSON.rawJSON=()=>{throw 'replaced-raw'};JSON.isRawJSON=()=>{throw 'replaced-isRaw'};const r=raw('2');record(stringify(r));record(isRaw(r));record(parse('3',(k,v,ctx)=>raw(ctx.source)).rawJSON);",
+    "expected": [
+      "2",
+      "true",
+      "3"
+    ]
+  },
+  {
+    "name": "noncallable toJSON and replacer thrown values propagate",
+    "source": "record(JSON.stringify({toJSON:1,x:JSON.rawJSON('2')}));try{JSON.stringify(JSON.rawJSON('1'),()=>{throw undefined})}catch(e){record(e===undefined)}const o={get toJSON(){throw 'toJSON-error'}};try{JSON.stringify(o,()=>JSON.rawJSON('1'))}catch(e){record(e)}try{JSON.stringify(1,()=>Symbol('x'))}catch(e){record(e.name)}",
+    "expected": [
+      "{\"toJSON\":1,\"x\":2}",
+      "true",
+      "toJSON-error"
+    ]
+  },
+  {
+    "name": "reviver UTF16 SameValue across concatenation representations",
+    "source": "for(const make of [(h,l)=>h.concat(l),(h,l)=>[h,l].join(''),(h,l)=>`${h}${l}`]){const logs=[];JSON.parse('{\"a\":0,\"s\":\"😀\"}',function(k,v,ctx){if(k==='a')this.s=make('\\ud83d','\\ude00');if(k==='s'){logs.push(v==='😀');logs.push(ctx.source)}return v});record(logs.join('|'));}",
+    "expected": [
+      "true|\"😀\"",
+      "true|\"😀\"",
+      "true|\"😀\""
+    ]
+  },
+  {
+    "name": "UTF16 raw and replacement sources preserve runtime pairs",
+    "source": "for(const make of [(h,l)=>h.concat(l),(h,l)=>[h,l].join(''),(h,l)=>`${h}${l}`]){const pair=make('\\ud83d','\\ude00');const text='\"'.concat(pair,'\"');const r=JSON.rawJSON(text);record(r.rawJSON==='\"😀\"');record(JSON.stringify(r)===text);record(JSON.stringify({x:0},(k,v)=>k==='x'?r:v)==='{\"x\":\"😀\"}');record(JSON.parse(text,(k,v,c)=>c.source===text));}",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "JSON intrinsic tag and raw branding are distinct",
+    "source": "record(Object.prototype.toString.call(JSON));const d=Object.getOwnPropertyDescriptor(JSON,Symbol.toStringTag);record(d.value+':'+d.writable+':'+d.enumerable+':'+d.configurable);const r=JSON.rawJSON('1');record(Object.prototype.toString.call(r));record(Reflect.set(r,Symbol.toStringTag,'JSON'));record(JSON.isRawJSON({[Symbol.toStringTag]:'JSON',rawJSON:'1'}));record(JSON.isRawJSON({[Symbol.toStringTag]:'RawJSON',rawJSON:'1'}));",
+    "expected": [
+      "[object JSON]",
+      "JSON:false:false:true",
+      "[object Object]",
+      "false",
+      "false",
+      "false"
+    ]
+  },
+  {
+    "name": "replacer callback still observes generated string and raw stages",
+    "source": "const log=[];const key=new Number(2);key.toString=function(){log.push('number-key');return 'x'};record(JSON.stringify({x:JSON.rawJSON('1e3')},[key]));const space=new String('');space.toString=()=>{log.push('space-string');return '..'};record(JSON.stringify({x:JSON.rawJSON('2')},null,space));record(log.join(','));const b=new Boolean(false);b.valueOf=()=>{throw 'unused'};record(JSON.stringify(b));const r=JSON.rawJSON('3');record(JSON.stringify([r],(k,v)=>k==='0'?r.rawJSON:v));",
+    "expected": [
+      "{\"x\":1e3}",
+      "{\n..\"x\": 2\n}",
+      "number-key,space-string",
+      "false",
+      "[\"3\"]"
+    ]
+  },
+  {
+    "name": "JSON internal descriptors ignore Object prototype pollution",
+    "source": "let gets=0;const getter=function(){gets++;throw 'poisoned-get'};Object.defineProperty(Object.prototype,'get',{get:getter,configurable:true});try{record(JSON.stringify(JSON.rawJSON('3')));const value=JSON.parse('{\"x\":1,\"a\":[2]}');record(value.x);record(value.a[0]);record(JSON.stringify(value));record(gets)}finally{delete Object.prototype.get}",
+    "expected": [
+      "3",
+      "1",
+      "2",
+      "{\"x\":1,\"a\":[2]}",
+      "0"
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "commit": "5836a062726f715fda621338a17b51aff30d0a8c",
+  "license": "MPL-2.0",
+  "licenseURL": "https://www.mozilla.org/media/MPL/2.0/index.txt",
+  "sources": {
+    "intl/unicharutil/util/IrishCasing.cpp": {
+      "url": "https://raw.githubusercontent.com/mozilla/gecko-dev/5836a062726f715fda621338a17b51aff30d0a8c/intl/unicharutil/util/IrishCasing.cpp",
+      "sha256": "93bd9ca48a0ad3ae3e534b3f263193a1c75e26293897b547d48f356056f2acb9"
+    },
+    "layout/generic/nsTextRunTransformations.cpp": {
+      "url": "https://raw.githubusercontent.com/mozilla/gecko-dev/5836a062726f715fda621338a17b51aff30d0a8c/layout/generic/nsTextRunTransformations.cpp",
+      "sha256": "7ab4a7b9695d62bd12777b3eaae859ac27bd236f6ff4d49853733812c714a78b"
+    },
+    "layout/reftests/text-transform/irish-uppercase-1.html": {
+      "url": "https://raw.githubusercontent.com/mozilla/gecko-dev/5836a062726f715fda621338a17b51aff30d0a8c/layout/reftests/text-transform/irish-uppercase-1.html",
+      "sha256": "de238e8dfe58235af12c7b93433cb950541fd8343cb69d8100c39f28fd7f4f83"
+    },
+    "layout/reftests/text-transform/irish-uppercase-1-ref.html": {
+      "url": "https://raw.githubusercontent.com/mozilla/gecko-dev/5836a062726f715fda621338a17b51aff30d0a8c/layout/reftests/text-transform/irish-uppercase-1-ref.html",
+      "sha256": "8a0020cad4740db93db4882137c722b1b9e0293c49389e18219055d5063ce8f8"
+    },
+    "layout/reftests/text-transform/irish-lowercase-1a.html": {
+      "url": "https://raw.githubusercontent.com/mozilla/gecko-dev/5836a062726f715fda621338a17b51aff30d0a8c/layout/reftests/text-transform/irish-lowercase-1a.html",
+      "sha256": "cc74d3fd78195c4a3b3bcc375cc80c1791e4514b0a0c66eaadbdccc704d87b1e"
+    },
+    "layout/reftests/text-transform/irish-lowercase-1-ref.html": {
+      "url": "https://raw.githubusercontent.com/mozilla/gecko-dev/5836a062726f715fda621338a17b51aff30d0a8c/layout/reftests/text-transform/irish-lowercase-1-ref.html",
+      "sha256": "38f4ec93ea468c60fda144730ee5429ebd64a904c44cfc86cf61e53f5025a70e"
+    }
+  }
+}

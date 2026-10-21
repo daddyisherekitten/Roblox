@@ -1,0 +1,5 @@
+--!strict
+-- Original RGBA image tile; decoded lazily by ImageCatalog.
+return {Width=150,Height=30,Bytes=18000,Data={
+	"KLUv/WBQRf0MAIJFEhrAJR3gPZ2ZU/dSTcavfE7qAgXb1h4H/f/3krSrR1t7NE1br3WSG8hFbgpttZoDleLnPwc5YQndKHS6s35QcSMAnOgV0h8YEIaAjKBwRU0HcAIiMiJ0rAOp8LKasIrbOdU2bp/8xVPRrR91l+stUh4wTPPEYR6+PeKsTXbhrJBjW7cM9dGIdGIgfyQiev0sH+SwaLz1lqk7XzPr2Bz2vI21tTj+JiYMnbqlCjQT7AO3ndjkk5YszHT6gy/qxhL14ZTjz94EVkvZLXU+Cyo9M0GZTuE6B+UQeEk6uKXTD0xyMgmReczKLaMs8jjKjsjsa05tefoQyPrJCDbcT7ylotGygIS14KotpGxG6nV0ve5aYbPlyR3wyxH+xhaeM77idXu1pSh90w2RaBM5B7FcZDax4kNAg5yQTFvqhPXTgRKyZWcT8IPFa9CvwtbaotTHgap3DS4rxncLT1j/zpaK9Dp5/j1sXhMmJdM+G41vBhMlm29gM4EbCRwyaG+blMGVyLSj3RwQNHlrbRHSjlMh+8PIqLaQsCZjRRDmDzo=",
+}}

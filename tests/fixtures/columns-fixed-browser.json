@@ -1,0 +1,2816 @@
+[
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-count:2\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-count",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 139,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 175.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 139,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 173,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 204,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 244.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 204,
+        "y": 26.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-fill:balance\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-fill",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 139,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 175.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 139,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 173,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 204,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 244.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 204,
+        "y": 26.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "12px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-gap:12px\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-gap",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 76,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 108.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 76,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 102.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 105.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 128.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 76,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 96.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 143,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 179.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 143,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 177,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 210,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 250.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 210,
+        "y": 26.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-height:48px\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-height",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 92.671875,
+        "y": 10
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 96,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 110.671875,
+        "y": 10
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 9,
+        "y": 70
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 35.015625,
+        "y": 70
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 38.34375,
+        "y": 70
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 61.03125,
+        "y": 70
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 9,
+        "y": 86.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 29.015625,
+        "y": 86.796875
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 74,
+        "y": 70
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 110.6875,
+        "y": 70
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 74,
+        "y": 86.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 108,
+        "y": 86.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 9,
+        "y": 130
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 49.015625,
+        "y": 130
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 9,
+        "y": 146.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-rule:2px solid #326cc1\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-rule",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 139,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 175.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 139,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 173,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 204,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 244.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 204,
+        "y": 26.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-break:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-break",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-rule-color:#e58b35\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-rule-color",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 139,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 175.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 139,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 173,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 204,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 244.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 204,
+        "y": 26.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-edge-inset:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-edge-inset",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-edge-inset-end:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-edge-inset-end",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-edge-inset-start:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-edge-inset-start",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-inset:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-inset",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-inset-cap:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-inset-cap",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-inset-cap-end:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-inset-cap-end",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-inset-cap-start:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-inset-cap-start",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-inset-end:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-inset-end",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-inset-junction:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-inset-junction",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-inset-junction-end:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-inset-junction-end",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-inset-junction-start:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-inset-junction-start",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-inset-start:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-inset-start",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-interior-inset:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-interior-inset",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-interior-inset-end:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-interior-inset-end",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-interior-inset-start:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-interior-inset-start",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-outset:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-outset",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-rule-style:dotted\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-rule-style",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 139,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 175.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 139,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 173,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 204,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 244.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 204,
+        "y": 26.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "auto",
+    "columnWidth": "auto",
+    "gap": "normal",
+    "html": "<div class=\"property-probe\" style=\"column-rule-visibility-items:initial\">Reset / Syntax</div>",
+    "outerHeight": 37.59375,
+    "outerWidth": 140,
+    "property": "column-rule-visibility-items",
+    "words": [
+      {
+        "text": "Reset",
+        "width": 36.578125,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 45.5625,
+        "y": 10
+      },
+      {
+        "text": "/",
+        "width": 3.90625,
+        "x": 49.453125,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.90625,
+        "x": 53.34375,
+        "y": 10
+      },
+      {
+        "text": "Syntax",
+        "width": 42.8125,
+        "x": 57.234375,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-rule-width:3px\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-rule-width",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 139,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 175.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 139,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 173,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 204,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 244.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 204,
+        "y": 26.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-span:all\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-span",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 139,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 175.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 139,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 173,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 204,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 244.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 204,
+        "y": 26.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "50px",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-width:50px\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-width",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 139,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 175.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 139,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 173,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 204,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 244.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 204,
+        "y": 26.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "auto",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;column-wrap:wrap\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "column-wrap",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 9,
+        "y": 79
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.6875,
+        "y": 79
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 9,
+        "y": 95.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 43,
+        "y": 95.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 74,
+        "y": 79
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 114.015625,
+        "y": 79
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 74,
+        "y": 95.796875
+      }
+    ]
+  },
+  {
+    "columnCount": "2",
+    "columnWidth": "50px",
+    "gap": "8px",
+    "html": "<div class=\"property-probe\" style=\"columns:2;height:75px;column-gap:8px;font-size:12px;columns:2 50px\">One two three four five six seven eight nine ten. Eleven twelve thirteen fourteen.</div>",
+    "outerHeight": 75,
+    "outerWidth": 140,
+    "property": "columns",
+    "words": [
+      {
+        "text": "One",
+        "width": 22.6875,
+        "x": 9,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 31.671875,
+        "y": 10
+      },
+      {
+        "text": "two",
+        "width": 18.6875,
+        "x": 35.015625,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 53.6875,
+        "y": 10
+      },
+      {
+        "text": "three",
+        "width": 27.359375,
+        "x": 9,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 36.34375,
+        "y": 26.796875
+      },
+      {
+        "text": "four",
+        "width": 20.703125,
+        "x": 39.671875,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 60.359375,
+        "y": 26.796875
+      },
+      {
+        "text": "five",
+        "width": 18.6875,
+        "x": 9,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 27.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "six",
+        "width": 14.6875,
+        "x": 31,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 45.671875,
+        "y": 43.59375
+      },
+      {
+        "text": "seven",
+        "width": 32.03125,
+        "x": 74,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 106.015625,
+        "y": 10
+      },
+      {
+        "text": "eight",
+        "width": 26.03125,
+        "x": 74,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 3.34375,
+        "x": 100.015625,
+        "y": 26.796875
+      },
+      {
+        "text": "nine",
+        "width": 22.703125,
+        "x": 103.34375,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 126.03125,
+        "y": 26.796875
+      },
+      {
+        "text": "ten.",
+        "width": 20.015625,
+        "x": 74,
+        "y": 43.59375
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 94.015625,
+        "y": 43.59375
+      },
+      {
+        "text": "Eleven",
+        "width": 36.703125,
+        "x": 139,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 175.6875,
+        "y": 10
+      },
+      {
+        "text": "twelve",
+        "width": 34.015625,
+        "x": 139,
+        "y": 26.796875
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 173,
+        "y": 26.796875
+      },
+      {
+        "text": "thirteen",
+        "width": 40.03125,
+        "x": 204,
+        "y": 10
+      },
+      {
+        "text": " ",
+        "width": 0,
+        "x": 244.015625,
+        "y": 10
+      },
+      {
+        "text": "fourteen.",
+        "width": 47.375,
+        "x": 204,
+        "y": 26.796875
+      }
+    ]
+  }
+]

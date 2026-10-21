@@ -1,0 +1,406 @@
+[
+  {
+    "name": "Generator suspension sends values and completion",
+    "source": "function* run(a){record('start:'+a);var x=yield 1;record('sent:'+x);yield x+1;return 9}var g=run(4);record('created');record(JSON.stringify(g.next(100)));record(JSON.stringify(g.next(6)));record(JSON.stringify(g.next()));record(JSON.stringify(g.next(7)));",
+    "expected": [
+      "created",
+      "start:4",
+      "{\"value\":1,\"done\":false}",
+      "sent:6",
+      "{\"value\":7,\"done\":false}",
+      "{\"value\":9,\"done\":true}",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator return before start and after completion",
+    "source": "function* run(){record('wrong');yield 1}var g=run();record(JSON.stringify(g.return(8)));record(JSON.stringify(g.next()));record(JSON.stringify(g.return(9)));try{g.throw('x')}catch(e){record(e)}var h=run();try{h.throw('start')}catch(e){record(e)}record(JSON.stringify(h.next()));",
+    "expected": [
+      "{\"value\":8,\"done\":true}",
+      "{\"done\":true}",
+      "{\"value\":9,\"done\":true}",
+      "x",
+      "start",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator throw caught and finally runs",
+    "source": "function* run(){try{yield 1}catch(e){yield 'caught:'+e}finally{record('finally')}return 3}var g=run();record(JSON.stringify(g.next()));record(JSON.stringify(g.throw('x')));record(JSON.stringify(g.next()));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "{\"value\":\"caught:x\",\"done\":false}",
+      "finally",
+      "{\"value\":3,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator return yields through finally before completion",
+    "source": "function* run(){try{yield 1;yield 2}finally{yield 'cleanup';record('finally')}record('wrong')}var g=run();record(JSON.stringify(g.next()));record(JSON.stringify(g.return(8)));record(JSON.stringify(g.next(5)));record(JSON.stringify(g.next()));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "{\"value\":\"cleanup\",\"done\":false}",
+      "finally",
+      "{\"value\":8,\"done\":true}",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator finally return overrides injected return",
+    "source": "function* run(){try{yield 1}finally{return 12}}var g=run();g.next();record(JSON.stringify(g.return(8)));function* fail(){try{yield 1}finally{throw 'cleanup'}}var h=fail();h.next();try{h.return(8)}catch(e){record(e)}record(JSON.stringify(h.next()));",
+    "expected": [
+      "{\"value\":12,\"done\":true}",
+      "cleanup",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator delegation array string and final value",
+    "source": "function* inner(){yield 3;return 7}function* run(){yield* [1,2];var x=yield* inner();yield x;yield* '😀a';return 9}var g=run();record(JSON.stringify(Array.from(g)));record(JSON.stringify(g.next()));",
+    "expected": [
+      "[1,2,3,7,\"😀\",\"a\"]",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator delegate throw calls method and uses completion",
+    "source": "var log=[],iterator={next(v){log.push('next:'+v);return {value:1,done:false}},throw(v){log.push('throw:'+v);return {value:7,done:true}},[Symbol.iterator](){return this}};function* run(){return yield* iterator}var g=run();record(JSON.stringify(g.next(99)));record(JSON.stringify(g.throw('x')));record(log.join('|'));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "{\"value\":7,\"done\":true}",
+      "next:undefined|throw:x"
+    ]
+  },
+  {
+    "name": "Generator delegate missing throw closes before TypeError",
+    "source": "var log=[],it={next(){return {value:1,done:false}},return(){log.push('close:'+arguments.length);return {}},[Symbol.iterator](){return this}};function* run(){try{yield* it}catch(e){yield e.name}}var g=run();g.next();record(JSON.stringify(g.throw('x')));record(log.join('|'));record(JSON.stringify(g.next()));",
+    "expected": [
+      "{\"value\":\"TypeError\",\"done\":false}",
+      "close:0",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator delegate return can continue before completion",
+    "source": "var log=[],it={next(v){log.push('next:'+v);return {value:1,done:false}},return(v){log.push('return:'+v);return {value:2,done:false}},[Symbol.iterator](){return this}};function* run(){yield* it}var g=run();g.next();record(JSON.stringify(g.return(8)));record(JSON.stringify(g.next(9)));record(log.join('|'));",
+    "expected": [
+      "{\"value\":2,\"done\":false}",
+      "{\"value\":1,\"done\":false}",
+      "next:undefined|return:8|next:9"
+    ]
+  },
+  {
+    "name": "Generator delegation validates result and captures next",
+    "source": "var n=0,it={get next(){n++;return function(){return 1}},[Symbol.iterator](){return this}};function* run(){yield* it}try{run().next()}catch(e){record(e.name)}record(n);var r={next(){return {value:1,done:false}},return(){throw 'close'},[Symbol.iterator](){return this}};function* close(){yield* r}var g=close();g.next();try{g.throw(3)}catch(e){record(e)}",
+    "expected": [
+      "TypeError",
+      "1",
+      "close"
+    ]
+  },
+  {
+    "name": "Generator reentrant resume and receiver brand",
+    "source": "var g;function* run(){try{g.next()}catch(e){yield e.name}return 2}g=run();record(JSON.stringify(g.next()));record(JSON.stringify(g.next()));var p=Object.getPrototypeOf(Object.getPrototypeOf(g));try{p.next.call({})}catch(e){record(e.name)}try{new run()}catch(e){record(e.name)}",
+    "expected": [
+      "{\"value\":\"TypeError\",\"done\":false}",
+      "{\"value\":2,\"done\":true}",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Generator prototype and function metadata",
+    "source": "function* run(a,b=1){yield a}var g=run(2);record(run.length);record(Object.prototype.toString.call(run));record(Object.prototype.toString.call(g));record(Object.getPrototypeOf(g)===run.prototype);record(Object.getPrototypeOf(run.prototype)===Object.getPrototypeOf(run).prototype);record(g[Symbol.iterator]()===g);record(Reflect.ownKeys(run.prototype).length);record(JSON.stringify(Object.getOwnPropertyDescriptor(run,'prototype')));",
+    "expected": [
+      "1",
+      "[object GeneratorFunction]",
+      "[object Generator]",
+      "true",
+      "true",
+      "true",
+      "0",
+      "{\"value\":{},\"writable\":true,\"enumerable\":false,\"configurable\":false}"
+    ]
+  },
+  {
+    "name": "Generator for-of break closes through finally",
+    "source": "var log=[];function* run(){try{yield 1;yield 2}finally{log.push('closed')}}for(var v of run()){log.push(v);break}record(log.join('|'));",
+    "expected": [
+      "1|closed"
+    ]
+  },
+  {
+    "name": "Async generator awaits yields and preserves request order",
+    "source": "async function* run(){yield Promise.resolve(1);yield 2;return Promise.resolve(3)}var g=run();var a=g.next(),b=g.next(),c=g.next(),d=g.next();a.then(v=>record(JSON.stringify(v)));b.then(v=>record(JSON.stringify(v)));c.then(v=>record(JSON.stringify(v)));d.then(v=>record(JSON.stringify(v)));record('sync');",
+    "expected": [
+      "sync",
+      "{\"value\":1,\"done\":false}",
+      "{\"value\":2,\"done\":false}",
+      "{\"value\":3,\"done\":true}",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator next values remain unawaited",
+    "source": "async function* run(){var x=yield 1;yield typeof x;return x}var g=run();g.next().then(v=>record(JSON.stringify(v)));g.next(Promise.resolve(2)).then(v=>record(JSON.stringify(v)));g.next().then(v=>record(JSON.stringify(v)));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "{\"value\":\"object\",\"done\":false}",
+      "{\"value\":2,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator explicit await and catch rejected yield",
+    "source": "async function* run(){var x=await Promise.resolve(3);try{yield Promise.reject('x')}catch(e){yield e+':'+x}return 4}var g=run();g.next().then(v=>record(JSON.stringify(v)));g.next().then(v=>record(JSON.stringify(v)));",
+    "expected": [
+      "{\"value\":\"x:3\",\"done\":false}",
+      "{\"value\":4,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator return before start awaits argument",
+    "source": "async function* run(){record('wrong');yield 1}var g=run();g.return(Promise.resolve(7)).then(v=>record(JSON.stringify(v)));g.next().then(v=>record(JSON.stringify(v)));var h=run();h.throw('x').catch(e=>record(e));h.return(Promise.resolve(9)).then(v=>record(JSON.stringify(v)));record('sync');",
+    "expected": [
+      "sync",
+      "x",
+      "{\"value\":7,\"done\":true}",
+      "{\"done\":true}",
+      "{\"value\":9,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator finally yields under queued return",
+    "source": "async function* run(){try{yield 1}finally{yield Promise.resolve('cleanup');record('finally')}}var g=run();g.next().then(v=>record(JSON.stringify(v)));g.return(Promise.resolve(8)).then(v=>record(JSON.stringify(v)));g.next().then(v=>record(JSON.stringify(v)));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "finally",
+      "{\"value\":\"cleanup\",\"done\":false}",
+      "{\"value\":8,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator thrown body rejects one request then completes",
+    "source": "async function* run(){yield 1;throw 'x'}var g=run();g.next().then(v=>record(JSON.stringify(v)));g.next().catch(e=>record(e));g.next().then(v=>record(JSON.stringify(v)));g.return(9).then(v=>record(JSON.stringify(v)));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "x",
+      "{\"done\":true}",
+      "{\"value\":9,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator yield-star sync promises",
+    "source": "function* source(){yield Promise.resolve(1);yield 2;return Promise.resolve(7)}async function* run(){var x=yield* source();return x}var g=run();g.next().then(v=>record(JSON.stringify(v)));g.next().then(v=>record(JSON.stringify(v)));g.next().then(v=>record(JSON.stringify(v)));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "{\"value\":2,\"done\":false}",
+      "{\"value\":7,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator yield-star async protocol",
+    "source": "var n=0,it={async next(v){record('next:'+v);return {value:++n,done:n>1}},[Symbol.asyncIterator](){return this}};async function* run(){return yield* it}var g=run();g.next(99).then(v=>record(JSON.stringify(v)));g.next(8).then(v=>record(JSON.stringify(v)));",
+    "expected": [
+      "next:undefined",
+      "next:8",
+      "{\"value\":1,\"done\":false}",
+      "{\"value\":2,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator delegated return awaits argument",
+    "source": "var it={next(){return Promise.resolve({value:1,done:false})},return(v){record('return:'+v);return Promise.resolve({value:v,done:true})},[Symbol.asyncIterator](){return this}};async function* run(){return yield* it}var g=run();g.next().then(v=>record(JSON.stringify(v)));g.return(Promise.resolve(8)).then(v=>record(JSON.stringify(v)));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "return:8",
+      "{\"value\":8,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator brand errors reject intrinsic promises",
+    "source": "var p=Object.getPrototypeOf(Object.getPrototypeOf((async function*(){})()));p.next.call({}).catch(e=>record(e.name));p.return.call({}).catch(e=>record(e.name));p.throw.call({}).catch(e=>record(e.name));record('sync');",
+    "expected": [
+      "sync",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "For-await consumes generator and closes on break",
+    "source": "async function* source(){try{yield Promise.resolve(1);yield 2}finally{record('closed')}}async function run(){for await(var x of source()){record(x);break}record('done')}run();record('sync');",
+    "expected": [
+      "sync",
+      "1",
+      "closed",
+      "done"
+    ]
+  },
+  {
+    "name": "Async generator sync delegate rejected value closes iterator",
+    "source": "function* source(){try{yield Promise.reject('x')}finally{record('inner closed')}}async function* run(){try{yield* source()}catch(e){yield 'caught:'+e}}var g=run();g.next().then(v=>record(JSON.stringify(v)));g.next().then(v=>record(JSON.stringify(v)));",
+    "expected": [
+      "inner closed",
+      "{\"value\":\"caught:x\",\"done\":false}",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator parameters initialize on call and preserve this",
+    "source": "var log=[];function* run(a=(log.push('parameter'),2)){log.push('body');yield this.x+a}var o={x:3,run:run},g=o.run();record(log.join('|'));record(JSON.stringify(g.next()));record(log.join('|'));function* fail(a=missing){yield 1}try{fail()}catch(e){record(e.name)}",
+    "expected": [
+      "parameter",
+      "{\"value\":5,\"done\":false}",
+      "parameter|body",
+      "ReferenceError"
+    ]
+  },
+  {
+    "name": "Generator return bypasses catch but executes nested finally",
+    "source": "function* run(){try{try{yield 1}catch(e){record('wrong catch')}finally{record('inner')}}finally{record('outer')}}var g=run();g.next();record(JSON.stringify(g.return(8)));",
+    "expected": [
+      "inner",
+      "outer",
+      "{\"value\":8,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Generator delegated missing return exits and runs finally",
+    "source": "var it={next(){return {value:1,done:false}},[Symbol.iterator](){return this}};function* run(){try{yield* it}finally{record('finally')}}var g=run();g.next();record(JSON.stringify(g.return(8)));",
+    "expected": [
+      "finally",
+      "{\"value\":8,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Async generator return rejection enters body catch",
+    "source": "async function* run(){try{yield 1}catch(e){yield 'caught:'+e}finally{record('finally')}}var g=run();g.next().then(v=>record(JSON.stringify(v)));g.return(Promise.reject('x')).then(v=>record(JSON.stringify(v)),e=>record('error:'+e));g.next().then(v=>record(JSON.stringify(v)));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "finally",
+      "{\"value\":\"caught:x\",\"done\":false}",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "Dynamic generator constructor metadata and defaults",
+    "source": "const G=(function*(){}).constructor;const f=G('a=3','yield a;return 4');record(G.name+':'+G.length);record(f.name+':'+f.length);record(f.constructor===G);record(JSON.stringify(f().next()));record(Object.getOwnPropertyDescriptor(G.prototype,'constructor').writable);record(G.prototype.constructor===G);",
+    "expected": [
+      "GeneratorFunction:1",
+      "anonymous:0",
+      "true",
+      "{\"value\":3,\"done\":false}",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "Dynamic generator strict body and global environment",
+    "source": "const G=(function*(){}).constructor;function make(){let hidden=4;return G(\"'use strict';yield this;yield typeof hidden\")}const g=make()();record(JSON.stringify(g.next()));record(JSON.stringify(g.next()));try{G('a=1',\"'use strict';yield a\")}catch(e){record(e.name)}",
+    "expected": [
+      "{\"done\":false}",
+      "{\"value\":\"undefined\",\"done\":false}",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "Dynamic async function constructor metadata and results",
+    "source": "const A=(async function(){}).constructor;const f=A('a=3','return await Promise.resolve(a+1)');record(A.name+':'+A.length);record(f.name+':'+f.length);record(f.constructor===A);record(Object.getOwnPropertyDescriptor(A.prototype,'constructor').writable);f().then(v=>record(v));record('sync');",
+    "expected": [
+      "AsyncFunction:1",
+      "anonymous:0",
+      "true",
+      "false",
+      "sync",
+      "4"
+    ]
+  },
+  {
+    "name": "Dynamic async function strict receiver and lexical scope",
+    "source": "const A=(async function(){}).constructor;const f=A(\"'use strict';return this\");f().then(v=>record(v===undefined));function make(){const hidden=4;return A('return typeof hidden')}make()().then(v=>record(v));try{A('a=1',\"'use strict';return a\")}catch(e){record(e.name)}record('sync');",
+    "expected": [
+      "SyntaxError",
+      "sync",
+      "true",
+      "undefined"
+    ]
+  },
+  {
+    "name": "Dynamic async generator constructor metadata and queue",
+    "source": "const A=(async function*(){}).constructor;const f=A('a=3','yield await Promise.resolve(a);return 8');record(A.name+':'+A.length);record(f.name+':'+f.length);record(f.constructor===A);record(Object.getOwnPropertyDescriptor(A.prototype,'constructor').writable);const g=f();g.next().then(v=>record(JSON.stringify(v)));g.next().then(v=>record(JSON.stringify(v)));record('sync');",
+    "expected": [
+      "AsyncGeneratorFunction:1",
+      "anonymous:0",
+      "true",
+      "false",
+      "sync",
+      "{\"value\":3,\"done\":false}",
+      "{\"value\":8,\"done\":true}"
+    ]
+  },
+  {
+    "name": "Dynamic async generator strict body and parameter syntax",
+    "source": "const A=(async function*(){}).constructor;const g=A(\"'use strict';yield this\")();g.next().then(v=>record(JSON.stringify(v)));try{A('a=1',\"'use strict';yield a\")}catch(e){record(e.name)}record('sync');",
+    "expected": [
+      "SyntaxError",
+      "sync",
+      "{\"done\":false}"
+    ]
+  },
+  {
+    "name": "Generator default parameter closures exclude body var bindings",
+    "source": "function* run(a=()=>x){var x=4;yield a()}const g=run();try{g.next()}catch(e){record(e.name)}function* same(a=()=>a){var a=5;yield arguments[0]}const h=same();record(JSON.stringify(h.next()));",
+    "expected": [
+      "ReferenceError",
+      "{\"done\":false}"
+    ]
+  },
+  {
+    "name": "Computed generator object method closes iterator on abrupt body",
+    "source": "let closed=false;const roots={*[Symbol.iterator](){try{yield 1;yield 2;}finally{closed=true}}};try{for(const item of roots){record(item);throw Error('stop')}}catch(e){record(e.message)}record(closed);",
+    "expected": [
+      "1",
+      "stop",
+      "true"
+    ]
+  },
+  {
+    "name": "Named and computed generator methods preserve receiver and super",
+    "source": "const p={value:2},o={__proto__:p,value:4,*items(){yield this.value;yield super.value},*['other'](){yield 7}};record([...o.items()].join(','));record([...o.other()].join(','));record(Object.getOwnPropertyDescriptor(o.items,'prototype').writable);",
+    "expected": [
+      "4,2",
+      "7",
+      "true"
+    ]
+  },
+  {
+    "name": "Computed async generator object method yields awaited values",
+    "source": "const o={value:4,async *[Symbol.asyncIterator](){yield await Promise.resolve(this.value);yield 7}};async function read(){for await(const value of o)record(value);record('done')}read();record('sync');",
+    "expected": [
+      "sync",
+      "4",
+      "7",
+      "done"
+    ]
+  },
+  {
+    "name": "Object accessors and generator early errors",
+    "source": "for(const source of ['({set x(...args){}})','({get *x(){}})','({async get x(){}})','({*x:1})','({*x})']){try{eval(source);record('accepted')}catch(e){record(e.name)}}const o={get value(){return 2},set value(v){record(v)},async(){return 3},get(){return 5}};record(o.value);o.value=4;record(o.async());record(o.get());",
+    "expected": [
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "2",
+      "4",
+      "3",
+      "5"
+    ]
+  },
+  {
+    "name": "Suspended stacks preserve intrinsic exception realm",
+    "source": "function* sample(){try{null.value}catch(error){record(error instanceof TypeError);record(Object.getPrototypeOf(error)===TypeError.prototype)}yield 1;try{missingFromGenerator}catch(error){record(error instanceof ReferenceError)}}const iterator=sample();iterator.next();iterator.next();async function sampleAsync(){await 0;try{null.value}catch(error){record(error instanceof TypeError)}}sampleAsync();(async function*(){await 0;null.value})().next().catch(error=>record(error instanceof TypeError));record('sync');",
+    "expected": ["true","true","true","sync","true","true"]
+  }
+]

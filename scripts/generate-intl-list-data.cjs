@@ -1,0 +1,5 @@
+// Versioned native CLDR list-pattern snapshot, including British punctuation.
+const fs=require('fs'),path=require('path');
+function lua(v){if(typeof v==='string')return JSON.stringify(v);return '{'+Object.entries(v).map(([k,x])=>'['+JSON.stringify(k)+']='+lua(x)).join(',')+'}';}
+const data={};for(const [key,locale] of [['en','en-US'],['enGB','en-GB'],['de','de-DE']]){data[key]={};for(const type of ['conjunction','disjunction','unit']){data[key][type]={};for(const style of ['long','short','narrow']){const f=new Intl.ListFormat(locale,{type,style});const pairs=f.formatToParts(['a','b']).filter(p=>p.type==='literal');const triples=f.formatToParts(['a','b','c']).filter(p=>p.type==='literal');data[key][type][style]={Pair:pairs.map(p=>p.value).join(''),Middle:triples[0].value,End:triples[1].value};}}}
+fs.writeFileSync(path.join(__dirname,'../src/HTMLEngine/JavaScript/IntlListData.luau'),'--!strict\n-- Generated native ICU '+process.versions.icu+' / CLDR '+process.versions.cldr+' by scripts/generate-intl-list-data.cjs.\nreturn '+lua(data)+'\n');

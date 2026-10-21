@@ -1,0 +1,3579 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "captured": "2026-10-12",
+  "dom": [
+    {
+      "name": "actual mixednamespace DOM matches and errors",
+      "action": "(()=>{const selectors=['.hit',':is(.hit)',':where(.hit)',':not(.missing)','*|*:is(.hit)',':is(*.hit)',':is(unknown|*,.hit)',':not(unknown|*)',':has(> .leaf)',':has(> *|*.leaf)',':has(+ .next)',':has(~ .next)',':nth-child(1 of :is(.hit))'];return JSON.stringify(nsIDs.map(id=>{const e=document.getElementById(id);return selectors.map(s=>{try{return e.matches(s)}catch(x){return x.name}})}));})()",
+      "expected": "[[true,true,true,true,true,true,true,\"SyntaxError\",true,true,true,true,true],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,true],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,true,false],[true,true,true,true,true,true,true,\"SyntaxError\",true,true,true,true,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,true],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,true,false],[true,true,true,true,true,true,true,\"SyntaxError\",true,true,true,true,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,true],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,true,false],[true,true,true,true,true,true,true,\"SyntaxError\",true,true,true,true,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,true],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false],[true,true,true,true,true,true,true,\"SyntaxError\",false,false,false,false,false]]"
+    },
+    {
+      "name": "actual foreign scope roots and descendant queries",
+      "action": "(()=>{return JSON.stringify(['h','s','z','c'].map(id=>{const e=document.getElementById(id);return [':scope',':scope > .leaf',':scope > *|*.leaf',':is(.leaf)',':not(.missing)',':scope:has(> .leaf)'].map(s=>Array.from(e.querySelectorAll(s),n=>n.id))}));})()",
+      "expected": "[[[],[\"hh\",\"hs\",\"hz\",\"hc\"],[\"hh\",\"hs\",\"hz\",\"hc\"],[\"hh\",\"hs\",\"hz\",\"hc\"],[\"hh\",\"hs\",\"hz\",\"hc\"],[]],[[],[\"sh\",\"ss\",\"sz\",\"sc\"],[\"sh\",\"ss\",\"sz\",\"sc\"],[\"sh\",\"ss\",\"sz\",\"sc\"],[\"sh\",\"ss\",\"sz\",\"sc\"],[]],[[],[\"zh\",\"zs\",\"zz\",\"zc\"],[\"zh\",\"zs\",\"zz\",\"zc\"],[\"zh\",\"zs\",\"zz\",\"zc\"],[\"zh\",\"zs\",\"zz\",\"zc\"],[]],[[],[\"ch\",\"cs\",\"cz\",\"cc\"],[\"ch\",\"cs\",\"cz\",\"cc\"],[\"ch\",\"cs\",\"cz\",\"cc\"],[\"ch\",\"cs\",\"cz\",\"cc\"],[]]]"
+    }
+  ],
+  "winners": [
+    {
+      "name": "is maximum valid ID unchanged",
+      "selector": "*|*:is([data-hit],#no)",
+      "competitor": "*|*[data-hit]",
+      "specificity": [
+        1,
+        0,
+        0
+      ],
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");*|*:is([data-hit],#no){color:rgb(17,53,91)}*|*[data-hit]{color:rgb(101,23,7)}",
+      "expected": {
+        "count": 4,
+        "type": "CSSStyleRule",
+        "start": null,
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hh",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hsib",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "s",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sh",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "ss",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "sc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "ssib",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "z",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zh",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "zz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zsib",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "c",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "ch",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "cs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "cz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "cc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "csib",
+            "rgb(101, 23, 7)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "not maximum valid ID unchanged",
+      "selector": "*|*:not([data-missing],#no)",
+      "competitor": "*|*[data-hit]",
+      "specificity": [
+        1,
+        0,
+        0
+      ],
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");*|*:not([data-missing],#no){color:rgb(17,53,91)}*|*[data-hit]{color:rgb(101,23,7)}",
+      "expected": {
+        "count": 4,
+        "type": "CSSStyleRule",
+        "start": null,
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "s",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ss",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ssib",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "z",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "zh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "zs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "zz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "zc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "zsib",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "c",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ch",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "cs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "cz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "cc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "csib",
+            "rgb(17, 53, 91)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "where zero unchanged",
+      "selector": "*|*:where([data-hit])",
+      "competitor": "*|div",
+      "specificity": [
+        0,
+        0,
+        0
+      ],
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");*|*:where([data-hit]){color:rgb(17,53,91)}*|div{color:rgb(101,23,7)}",
+      "expected": {
+        "count": 4,
+        "type": "CSSStyleRule",
+        "start": null,
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hh",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hs",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hsib",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "s",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "sh",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "ss",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "sz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "sc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "ssib",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "z",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zh",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zs",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zsib",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "c",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "ch",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "cs",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "cz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "cc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "csib",
+            "rgb(101, 23, 7)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "subject exception retains ancestor specificity",
+      "selector": "*|*:is([data-owner] > [data-leaf])",
+      "competitor": "*|*[data-leaf]",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");*|*:is([data-owner] > [data-leaf]){color:rgb(17,53,91)}*|*[data-leaf]{color:rgb(101,23,7)}",
+      "expected": {
+        "count": 4,
+        "type": "CSSStyleRule",
+        "start": null,
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hs",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ss",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zs",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "cs",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "cz",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "cc",
+            "rgb(101, 23, 7)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "has synthetic anchor contributes no author specificity",
+      "selector": "*|*[data-owner]:has(> html|*[data-leaf])",
+      "competitor": "*|*[data-owner]",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");*|*[data-owner]:has(> html|*[data-leaf]){color:rgb(17,53,91)}*|*[data-owner]{color:rgb(101,23,7)}",
+      "expected": {
+        "count": 4,
+        "type": "CSSStyleRule",
+        "start": null,
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "has nested forgiving maximum valid ID",
+      "selector": "*|*[data-owner]:has(*|*:is([data-leaf],#no))",
+      "competitor": "*|*[data-owner]",
+      "specificity": [
+        1,
+        1,
+        0
+      ],
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");*|*[data-owner]:has(*|*:is([data-leaf],#no)){color:rgb(17,53,91)}*|*[data-owner]{color:rgb(101,23,7)}",
+      "expected": {
+        "count": 4,
+        "type": "CSSStyleRule",
+        "start": null,
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    }
+  ],
+  "scope": [
+    {
+      "name": "explicit wildcard scope root with logical subject",
+      "source": "@scope (*|*#h){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "implicit inner subject scope root",
+      "source": "@scope (*|*:is([id=h])){*|*:where([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*:is([id=h])){*|*:where([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*:is([id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "outer implicit scope root remains default constrained",
+      "source": "@scope (:is([id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (:is([id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": ":is([id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "explicit inner universal scope root remains default constrained",
+      "source": "@scope (*|*:is(*[id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*:is(*[id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*:is([id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "logical subject limit respects explicit anynamespace",
+      "source": "@scope (*|*#h) to(*|*:is([id=hs])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h) to(*|*:is([id=hs])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 2,
+        "type": "CSSNamespaceRule",
+        "start": null,
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "namespace ancestor scope root",
+      "source": "@scope (*|*:is(html|body > [id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*:is(html|body > [id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*:is(html|body > [id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "explicit subject universal in scope body",
+      "source": "@scope (*|*#h){*|*:is(*[data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h){*|*:is(*[data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "relative limit grammar observation",
+      "source": "@scope (*|*#h) to(> html|div){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h) to(> html|div){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 2,
+        "type": "CSSNamespaceRule",
+        "start": null,
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    }
+  ],
+  "scopeExplicit": [
+    {
+      "name": "explicit wildcard scope root with logical subject spaced to keyword author explicit scope anchor",
+      "source": "@scope (*|*#h){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "captureOnlyOriginal": "explicit wildcard scope root with logical subject spaced to keyword"
+    },
+    {
+      "name": "implicit inner subject scope root spaced to keyword author explicit scope anchor",
+      "source": "@scope (*|*:is([id=h])){*|*:where(:scope) > *|*:where([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*:is([id=h])){*|*:where(:scope) > *|*:where([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*:is([id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "captureOnlyOriginal": "implicit inner subject scope root spaced to keyword"
+    },
+    {
+      "name": "outer implicit scope root remains default constrained spaced to keyword author explicit scope anchor",
+      "source": "@scope (:is([id=h])){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (:is([id=h])){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": ":is([id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "captureOnlyOriginal": "outer implicit scope root remains default constrained spaced to keyword"
+    },
+    {
+      "name": "explicit inner universal scope root remains default constrained spaced to keyword author explicit scope anchor",
+      "source": "@scope (*|*:is(*[id=h])){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*:is(*[id=h])){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*:is([id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "captureOnlyOriginal": "explicit inner universal scope root remains default constrained spaced to keyword"
+    },
+    {
+      "name": "logical subject limit respects explicit anynamespace spaced to keyword author explicit scope anchor",
+      "source": "@scope (*|*#h) to (*|*:is([id=hs])){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h) to (*|*:is([id=hs])){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": "*|*:is([id=\"hs\"])",
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "captureOnlyOriginal": "logical subject limit respects explicit anynamespace spaced to keyword"
+    },
+    {
+      "name": "namespace ancestor scope root spaced to keyword author explicit scope anchor",
+      "source": "@scope (*|*:is(html|body > [id=h])){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*:is(html|body > [id=h])){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*:is(html|body > [id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "captureOnlyOriginal": "namespace ancestor scope root spaced to keyword"
+    },
+    {
+      "name": "explicit subject universal in scope body spaced to keyword author explicit scope anchor",
+      "source": "@scope (*|*#h){*|*:where(:scope) > *|*:is(*[data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h){*|*:where(:scope) > *|*:is(*[data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "captureOnlyOriginal": "explicit subject universal in scope body spaced to keyword"
+    },
+    {
+      "name": "relative limit grammar observation spaced to keyword author explicit scope anchor",
+      "source": "@scope (*|*#h) to (*|*:where(:scope) > html|div){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h) to (*|*:where(:scope) > html|div){*|*:where(:scope) > *|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": "*|*:where(:scope) > html|div",
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "captureOnlyOriginal": "relative limit grammar observation spaced to keyword"
+    }
+  ],
+  "winnerEquivalent": {
+    "name": "is maximum valid ID unchanged explicit subject counterpart",
+    "selector": "*|*:is(*|*[data-hit],#no)",
+    "competitor": "*|*[data-hit]",
+    "specificity": [
+      1,
+      0,
+      0
+    ],
+    "namespaces": {
+      "": "http://www.w3.org/2000/svg",
+      "html": "http://www.w3.org/1999/xhtml"
+    },
+    "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");*|*:is(*|*[data-hit],#no){color:rgb(17,53,91)}*|*[data-hit]{color:rgb(101,23,7)}",
+    "expected": {
+      "count": 4,
+      "type": "CSSStyleRule",
+      "start": null,
+      "end": null,
+      "colors": [
+        [
+          "h",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "hh",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "hs",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "hz",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "hc",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "hsib",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "s",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "sh",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "ss",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "sz",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "sc",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "ssib",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "z",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "zh",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "zs",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "zz",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "zc",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "zsib",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "c",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "ch",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "cs",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "cz",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "cc",
+          "rgb(17, 53, 91)"
+        ],
+        [
+          "csib",
+          "rgb(17, 53, 91)"
+        ]
+      ]
+    },
+    "normativeFor": "is maximum valid ID unchanged"
+  },
+  "implicitScopeObservations": [
+    {
+      "name": "explicit wildcard scope root with logical subject spaced to keyword",
+      "source": "@scope (*|*#h){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "implicit inner subject scope root spaced to keyword",
+      "source": "@scope (*|*:is([id=h])){*|*:where([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*:is([id=h])){*|*:where([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*:is([id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "outer implicit scope root remains default constrained spaced to keyword",
+      "source": "@scope (:is([id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (:is([id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": ":is([id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "explicit inner universal scope root remains default constrained spaced to keyword",
+      "source": "@scope (*|*:is(*[id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*:is(*[id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*:is([id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "logical subject limit respects explicit anynamespace spaced to keyword",
+      "source": "@scope (*|*#h) to (*|*:is([id=hs])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h) to (*|*:is([id=hs])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": "*|*:is([id=\"hs\"])",
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "namespace ancestor scope root spaced to keyword",
+      "source": "@scope (*|*:is(html|body > [id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*:is(html|body > [id=h])){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*:is(html|body > [id=\"h\"])",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "explicit subject universal in scope body spaced to keyword",
+      "source": "@scope (*|*#h){*|*:is(*[data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h){*|*:is(*[data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "relative limit grammar observation spaced to keyword",
+      "source": "@scope (*|*#h) to (> html|div){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@scope (*|*#h) to (> html|div){*|*:is([data-hit]){color:rgb(17,53,91)}}",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml"
+      },
+      "expected": {
+        "count": 3,
+        "type": "CSSScopeRule",
+        "start": "*|*#h",
+        "end": "> html|div",
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      }
+    }
+  ],
+  "scopeObservationBoundary": "Original implicit scoped-body root eligibility and synthesized relative-limit namespace behavior are separate existing ScopeRules capture gaps. scopeExplicit contains independently captured author-explicit anchors, not renamed implicit cases."
+}

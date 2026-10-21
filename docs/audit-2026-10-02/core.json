@@ -1,0 +1,1288 @@
+[
+  {
+    "path": "src/HTMLEngine/Controls/ColorValue.luau",
+    "responsibility": "Parse and normalize native color-control values",
+    "interfaces": [
+      "ColorValue.normalize",
+      "ColorValue.color"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/Controls/View.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 15,
+    "baselineSHA256": "60d0934073f9fe07aba982dc0da4dc451757bafe69c5c1b6055d39c3f8b70152"
+  },
+  {
+    "path": "src/HTMLEngine/Controls/Defaults.luau",
+    "responsibility": "Native HTML form appearance defaults",
+    "interfaces": [
+      "Defaults.kind",
+      "Defaults.apply"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/CSS/ColorScheme.luau",
+      "src/HTMLEngine/CSS/InlineStyle.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 46,
+    "baselineSHA256": "2d7bf97c49a398d58b54cebb810bc4d714862694305e7ddb87c9d53680eda177"
+  },
+  {
+    "path": "src/HTMLEngine/Controls/FormModel.luau",
+    "responsibility": "Mutable control/form model, radio grouping, values, submission and events",
+    "interfaces": [
+      "Model.new"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/ColorValue.luau",
+      "src/HTMLEngine/Controls/GaugeValue.luau",
+      "src/HTMLEngine/Controls/NumberValue.luau",
+      "src/HTMLEngine/Controls/RangeValue.luau",
+      "src/HTMLEngine/Controls/SelectOptions.luau",
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/Controls/TextValue.luau",
+      "src/HTMLEngine/Controls/URLValue.luau",
+      "src/HTMLEngine/Controls/ValidationMessage.luau",
+      "src/HTMLEngine/DOM/Node.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Page-owned mutable DOM/style/render/layout/control records",
+    "resourceOwner": "PageSession/Controller cleanup and layout revision guards",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 242,
+    "baselineSHA256": "08bd46cb0f3d1dea5d257a8a11adf04607d907148a6fbb9b349cedeed5f657f8"
+  },
+  {
+    "path": "src/HTMLEngine/Controls/GaugeValue.luau",
+    "responsibility": "Progress/meter value and threshold normalization",
+    "interfaces": [
+      "Gauge.read",
+      "Gauge.assign"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/NumericValue.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/Controls/State.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 33,
+    "baselineSHA256": "574d1cd84a80bb73bf796c840463c04e7826e1ae4cdf2a1211b64bdc4cfe12d8"
+  },
+  {
+    "path": "src/HTMLEngine/Controls/NumberValue.luau",
+    "responsibility": "Number control edits, validation and stepping",
+    "interfaces": [
+      "Number.read",
+      "Number.sanitize",
+      "Number.invalid",
+      "Number.step"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/NumericValue.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/CSS/Selectors.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 44,
+    "baselineSHA256": "26837791565830db8fd55b06b4cf949350cc29daf525c7b2e25512237bed177f"
+  },
+  {
+    "path": "src/HTMLEngine/Controls/NumericValue.luau",
+    "responsibility": "Shared finite numeric input interpretation",
+    "interfaces": [
+      "Numeric.parse"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Controls/GaugeValue.luau",
+      "src/HTMLEngine/Controls/NumberValue.luau",
+      "src/HTMLEngine/Controls/RangeValue.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 11,
+    "baselineSHA256": "d84f0b6ee7e801f91534d426a2920bcb5abf4878600364c2ba3cc3e84dcdc422"
+  },
+  {
+    "path": "src/HTMLEngine/Controls/RangeValue.luau",
+    "responsibility": "Range min/max/step and value normalization",
+    "interfaces": [
+      "Range.read",
+      "Range.normalize",
+      "Range.ratio",
+      "Range.at"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/NumericValue.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/Controls/RangeView.luau",
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Input/RangeDrag.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 37,
+    "baselineSHA256": "ef4d3effc576d0a832929716076a586eaf70f1ccea86b3e84299c4dddb64721b"
+  },
+  {
+    "path": "src/HTMLEngine/Controls/TextValue.luau",
+    "responsibility": "Textual input normalization and validity",
+    "interfaces": [
+      "TextValue.applies",
+      "TextValue.sanitize",
+      "TextValue.length",
+      "TextValue.minimum",
+      "TextValue.email"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/Controls/ValidationMessage.luau",
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/CSS/Selectors.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 45,
+    "baselineSHA256": "664d2f09865de99ad5f466cd3653a81b0f4169dadf66700710df5addf0a67484"
+  },
+  {
+    "path": "src/HTMLEngine/Controls/URLValue.luau",
+    "responsibility": "URL input syntax validation",
+    "interfaces": [
+      "URLValue.valid"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/CSS/Selectors.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 85,
+    "baselineSHA256": "9c64220d5ffb4441dc43da8a0702d6c8dac69a0943ebcbc6e88e54d424c998d4"
+  },
+  {
+    "path": "src/HTMLEngine/Controls/ValidationMessage.luau",
+    "responsibility": "Human-readable control validity messages",
+    "interfaces": [
+      "Message.get"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/Controls/TextValue.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 40,
+    "baselineSHA256": "30bc9a3b1aa8e4e0105479f52ad26a4ffe7ef7b0cc690eeada18e9d1ce02ef4d"
+  },
+  {
+    "path": "src/HTMLEngine/DOM/Node.luau",
+    "responsibility": "Node construction, traversal, text and tree manipulation",
+    "interfaces": [
+      "Node.document",
+      "Node.documentFragment",
+      "Node.shadowRoot",
+      "Node.element",
+      "Node.text",
+      "Node.comment",
+      "Node.append",
+      "Node.cloneNode",
+      "Node.findById",
+      "Node.textContent"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/Controls/SelectOptions.luau",
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/HTML/DocumentInfo.luau",
+      "src/HTMLEngine/HTML/Parser.luau",
+      "src/HTMLEngine/init.luau",
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Input/MediaRuntime.luau",
+      "src/HTMLEngine/Rendering/Dialog.luau",
+      "src/HTMLEngine/Rendering/Disclosure.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/Popover.luau",
+      "src/HTMLEngine/SVG/Parser.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 120,
+    "baselineSHA256": "50839e3583813dd2f21d5c7363b6ca2ec788d48adb324691c7df2ed30c1e685f"
+  },
+  {
+    "path": "src/HTMLEngine/HTML/DocumentInfo.luau",
+    "responsibility": "Document metadata, base URL and linked stylesheets",
+    "interfaces": [
+      "DocumentInfo.collect"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/DOM/Node.luau",
+      "src/HTMLEngine/Navigation/URL.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/init.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [
+      "tests/DocumentInfo.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 103,
+    "baselineSHA256": "e114d9f6385bc71944b18013ead3971c03c49a39500c80f22759fd4fee2a3fa6"
+  },
+  {
+    "path": "src/HTMLEngine/HTML/Elements.luau",
+    "responsibility": "HTML render/support catalog and element categories",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/GridValues.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/CSS/InlineStyle.luau",
+      "src/HTMLEngine/init.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [
+      "tests/Elements.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 310,
+    "baselineSHA256": "d20bccce69cc70717ae5ae250be19a2ec07b875d727d428df78abb7ec02e7ca3"
+  },
+  {
+    "path": "src/HTMLEngine/HTML/Entities.luau",
+    "responsibility": "HTML entity decode table and numeric decoding",
+    "interfaces": [
+      "Entities.decode"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/HTML/Tokenizer.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 26,
+    "baselineSHA256": "0b4b7ded61260bfd0bd22f25ad9bf2c17b5781bbfa3451abc4332d8ac6336c23"
+  },
+  {
+    "path": "src/HTMLEngine/HTML/Parser.luau",
+    "responsibility": "HTML token-to-DOM parsing and document wrappers",
+    "interfaces": [
+      "Parser.parse",
+      "Parser.parseDocument"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/DOM/Node.luau",
+      "src/HTMLEngine/HTML/SVGNames.luau",
+      "src/HTMLEngine/HTML/Tokenizer.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/init.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/ImageSources.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 296,
+    "baselineSHA256": "a037d32cde517d0bcf6595df641a88f3998d045d4b4b8f4cf0738170eb0af2a8"
+  },
+  {
+    "path": "src/HTMLEngine/HTML/ResponsiveSources.luau",
+    "responsibility": "Picture/srcset/sizes source selection for viewport and density",
+    "interfaces": [
+      "ResponsiveSources.mediaMatches",
+      "ResponsiveSources.fromSrcset",
+      "ResponsiveSources.forImage"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 97,
+    "baselineSHA256": "ad17b050d7da6ff654e8b238fb7e206f6f91595a364badf98a92c15b177f6107"
+  },
+  {
+    "path": "src/HTMLEngine/HTML/SVGNames.luau",
+    "responsibility": "SVG tag/attribute case adjustment inside HTML",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/HTML/Parser.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 6,
+    "baselineSHA256": "b18259d5091fd3798886dcbaffa2042c6bb6dcf410dc840b9beb976e0a374989"
+  },
+  {
+    "path": "src/HTMLEngine/HTML/Tokenizer.luau",
+    "responsibility": "HTML tokenization, tags, comments and raw text",
+    "interfaces": [
+      "Tokenizer.new",
+      "Tokenizer._skipSpace",
+      "Tokenizer._rawText",
+      "Tokenizer.next"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/HTML/Entities.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/HTML/Parser.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 134,
+    "baselineSHA256": "64e1a7c76a9d7dce7ff546eff4b5c180a485e8351edef8ccaf3f04012827e8ca"
+  },
+  {
+    "path": "src/HTMLEngine/HTML/WebVTT.luau",
+    "responsibility": "Caption track cue/time parsing",
+    "interfaces": [
+      "WebVTT.parse",
+      "WebVTT.at"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Input/MediaRuntime.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 54,
+    "baselineSHA256": "23fc900eab80d794aafd7176e4cd0fbe075f567103fa1e103396a2169b28d2c5"
+  },
+  {
+    "path": "src/HTMLEngine/init.luau",
+    "responsibility": "Public engine facade and default iframe resolver",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/Properties.luau",
+      "src/HTMLEngine/DOM/Node.luau",
+      "src/HTMLEngine/HTML/DocumentInfo.luau",
+      "src/HTMLEngine/HTML/Elements.luau",
+      "src/HTMLEngine/HTML/Parser.luau",
+      "src/HTMLEngine/Input/CursorIcons.luau",
+      "src/HTMLEngine/Layout/FontProfiles/init.luau",
+      "src/HTMLEngine/Layout/TextMeasure.luau",
+      "src/HTMLEngine/Navigation/URL.luau",
+      "src/HTMLEngine/PageSession.luau",
+      "src/HTMLEngine/Rendering/GuiFactory.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Rendering/ImageSources.luau",
+      "src/HTMLEngine/Websites/init.luau"
+    ],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 37,
+    "baselineSHA256": "c3c8e096100127ccabc8677f6cc30cbfa7df456e3be6187ac83d0ab94d980e2c"
+  },
+  {
+    "path": "src/HTMLEngine/Input/Controller.luau",
+    "responsibility": "Page event/input coordination, CSS states, control behavior and cleanup",
+    "interfaces": [
+      "Controller.start"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/FormModel.luau",
+      "src/HTMLEngine/Controls/GaugeView.luau",
+      "src/HTMLEngine/Controls/NumberView.luau",
+      "src/HTMLEngine/Controls/RangeValue.luau",
+      "src/HTMLEngine/Controls/SelectOptions.luau",
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/DOM/Node.luau",
+      "src/HTMLEngine/Input/CursorController.luau",
+      "src/HTMLEngine/Input/Events.luau",
+      "src/HTMLEngine/Input/HitTest.luau",
+      "src/HTMLEngine/Input/ImageMap.luau",
+      "src/HTMLEngine/Input/Links.luau",
+      "src/HTMLEngine/Input/MediaRuntime.luau",
+      "src/HTMLEngine/Input/RangeDrag.luau",
+      "src/HTMLEngine/Input/SelectPopup.luau",
+      "src/HTMLEngine/Input/TextSelection.luau",
+      "src/HTMLEngine/Input/TextareaResize.luau",
+      "src/HTMLEngine/Input/ValidationPopup.luau",
+      "src/HTMLEngine/Layout/ScrollLayout.luau",
+      "src/HTMLEngine/Rendering/Dialog.luau",
+      "src/HTMLEngine/Rendering/Disclosure.luau",
+      "src/HTMLEngine/Rendering/MediaBox.luau",
+      "src/HTMLEngine/Rendering/Popover.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 708,
+    "baselineSHA256": "6e61ac0c5c6214cd7cf36909dcd55bab932ec9567087c0fe1fbf2cfc146e5b70"
+  },
+  {
+    "path": "src/HTMLEngine/Input/CursorController.luau",
+    "responsibility": "Pointer hit cursor resolution and repaint coordination",
+    "interfaces": [
+      "Controller.start"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/Cursor.luau",
+      "src/HTMLEngine/Controls/NumberView.luau",
+      "src/HTMLEngine/Controls/TextareaView.luau",
+      "src/HTMLEngine/Input/CursorLease.luau",
+      "src/HTMLEngine/Input/HitTest.luau",
+      "src/HTMLEngine/Input/ImageMap.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 112,
+    "baselineSHA256": "c5a98ecb38a4c9fc68b9a1a5bdd18d87b87ef6a4813db1fb2aac32cb16b632e2"
+  },
+  {
+    "path": "src/HTMLEngine/Input/CursorIcons.luau",
+    "responsibility": "CSS-to-Roblox cursor asset catalog",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/CSS/Cursor.luau",
+      "src/HTMLEngine/init.luau",
+      "src/HTMLEngine/Input/CursorLease.luau",
+      "src/HTMLEngine/Input/CursorPreload.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 20,
+    "baselineSHA256": "ca04ef512d49f80dd0f636a192a969a483157cc3de7ad9119697c142977bdda0"
+  },
+  {
+    "path": "src/HTMLEngine/Input/CursorLease.luau",
+    "responsibility": "Shared pointer cursor ownership arbitration",
+    "interfaces": [
+      "Lease.new"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Input/CursorIcons.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/CursorController.luau"
+    ],
+    "mutableState": "Module-local shared cursor ownership/preload state",
+    "resourceOwner": "Explicit leases/preload task, not shared text metrics",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 41,
+    "baselineSHA256": "5850fb2df74fefc11e77215ee1f90cd9447d0b276b261c18b09d2232abe5e91e"
+  },
+  {
+    "path": "src/HTMLEngine/Input/CursorPreload.luau",
+    "responsibility": "Coalesced cursor asset preloading",
+    "interfaces": [
+      "CursorPreload.start"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Input/CursorIcons.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Module-local shared cursor ownership/preload state",
+    "resourceOwner": "Explicit leases/preload task, not shared text metrics",
+    "tests": [
+      "tests/CursorPreload.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 30,
+    "baselineSHA256": "f54c41aad3c5e758424138677cad7b16ab03214595d7039bcce1aad2a3153fc6"
+  },
+  {
+    "path": "src/HTMLEngine/Input/Events.luau",
+    "responsibility": "Scoped DOM event dispatch, propagation and listener disposal",
+    "interfaces": [
+      "Events.new"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 84,
+    "baselineSHA256": "1df33bf73678aae3c65370a812116962f08836221ebbe80250ccc7d3527ca877"
+  },
+  {
+    "path": "src/HTMLEngine/Input/HitTest.luau",
+    "responsibility": "GUI hit ordering, ancestry and control mapping",
+    "interfaces": [
+      "HitTest.pick"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Input/CursorController.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 58,
+    "baselineSHA256": "448e8de625fcf950f99d77db640fa645c110cbd3f5d94225a93bf3e12ac47dc3"
+  },
+  {
+    "path": "src/HTMLEngine/Input/ImageMap.luau",
+    "responsibility": "Image map area parsing and geometry hit testing",
+    "interfaces": [
+      "ImageMap.collect",
+      "ImageMap.bind",
+      "ImageMap.hit"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Input/CursorController.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 81,
+    "baselineSHA256": "e68d0cad0654db064f15d7edae568b0f5a8b8c137f6d0f3683e70bce0bbc0071"
+  },
+  {
+    "path": "src/HTMLEngine/Input/Links.luau",
+    "responsibility": "Ancestor link lookup and dispatch metadata",
+    "interfaces": [
+      "Links.find",
+      "Links.data",
+      "Links.activate"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Navigation/URL.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [
+      "tests/Links.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 40,
+    "baselineSHA256": "38f92aae9dac392e6e8e382208cae24f344a4eb6a1569c7ebbf65e3459e8b76e"
+  },
+  {
+    "path": "src/HTMLEngine/Input/RangeDrag.luau",
+    "responsibility": "Pointer capture/value updates for range controls",
+    "interfaces": [
+      "Drag.new"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/RangeValue.luau",
+      "src/HTMLEngine/Controls/RangeView.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 40,
+    "baselineSHA256": "d82ba38c0c3dd27cd7ab0d257ee5f5e163201b45b42c125e9c93a7d6d87c9c57"
+  },
+  {
+    "path": "src/HTMLEngine/Input/SelectPopup.luau",
+    "responsibility": "Select/datalist popup geometry, native scrolling and choices",
+    "interfaces": [
+      "Popup.new"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/SelectOptions.luau",
+      "src/HTMLEngine/Input/SelectTypeAhead.luau",
+      "src/HTMLEngine/Rendering/GuiFactory.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 199,
+    "baselineSHA256": "6fc7b8419a96223d6f8203993ba0faeeec487e26da4433b3b570283f0941b3e5"
+  },
+  {
+    "path": "src/HTMLEngine/Input/SelectTypeAhead.luau",
+    "responsibility": "Keyboard prefix matching with expiry",
+    "interfaces": [
+      "TypeAhead.new"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Layout/TextTransform.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/SelectPopup.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [
+      "tests/SelectTypeAhead.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 34,
+    "baselineSHA256": "d1b87e2707e29c9ba59d318d178ceaed964d3f49caa3e2ccb21948a17847ede6"
+  },
+  {
+    "path": "src/HTMLEngine/Input/TextareaResize.luau",
+    "responsibility": "Textarea drag geometry and local invalidation",
+    "interfaces": [
+      "Resize.new"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Controls/TextareaView.luau",
+      "src/HTMLEngine/Layout/BorderGeometry.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [
+      "tests/TextareaResize.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 56,
+    "baselineSHA256": "8a98b63ded577231b31913bb1567b0b6816f7d33483b2bc340435b82a0981303"
+  },
+  {
+    "path": "src/HTMLEngine/Input/TextSelection.luau",
+    "responsibility": "Pointer word/glyph selection, item-local widths and overlays",
+    "interfaces": [
+      "TextSelection.new",
+      "TextSelection:Pick",
+      "TextSelection:Clear",
+      "TextSelection:Begin",
+      "TextSelection:Move",
+      "TextSelection:Finish",
+      "TextSelection:Destroy"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/InlineStyle.luau",
+      "src/HTMLEngine/CSS/Stylesheet.luau",
+      "src/HTMLEngine/Layout/TextMeasure.luau",
+      "src/HTMLEngine/Rendering/GuiFactory.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Per-item grapheme/width cache; active range and retained overlays",
+    "resourceOwner": "Selection.Destroy clears overlays; controller owns selection",
+    "tests": [
+      "tests/TextSelection.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 242,
+    "baselineSHA256": "16a2061fb694fecefa4c762f023593550a0ef9ffc80a5f7ef7250ec7c5cc89e5"
+  },
+  {
+    "path": "src/HTMLEngine/Input/ValidationPopup.luau",
+    "responsibility": "Native validation feedback popup positioning/lifetime",
+    "interfaces": [
+      "Popup.new"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/GuiFactory.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Input/Controller.luau"
+    ],
+    "mutableState": "Page/control-local interaction state and callbacks",
+    "resourceOwner": "Controller/PageSession owns connections, overlays, pending work and teardown",
+    "tests": [
+      "tests/ValidationPopup.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 67,
+    "baselineSHA256": "70afc1535733ab31a1082561266c3f433b299c39751e934a2f91189408a86598"
+  },
+  {
+    "path": "src/HTMLEngine/Navigation/NotFound.luau",
+    "responsibility": "Built-in fallback document metadata and source",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Websites/init.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 10,
+    "baselineSHA256": "f771d93d4917a8324712da8f5c84d59c131f9c456b1020fda29cc6425dfec715"
+  },
+  {
+    "path": "src/HTMLEngine/Navigation/URL.luau",
+    "responsibility": "Canonical URL/path/origin resolution",
+    "interfaces": [
+      "URL.canonical",
+      "URL.resolve",
+      "URL.routeKey",
+      "URL.path",
+      "URL.origin",
+      "URL.decodeFragment"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/CSS/Stylesheet.luau",
+      "src/HTMLEngine/HTML/DocumentInfo.luau",
+      "src/HTMLEngine/init.luau",
+      "src/HTMLEngine/Input/Links.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau",
+      "src/HTMLEngine/Websites/init.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 105,
+    "baselineSHA256": "3c5e9964ebe523927203a6b995b32d505d85dbff8ed2885314e40b0f195521d3"
+  },
+  {
+    "path": "src/HTMLEngine/PageSession.luau",
+    "responsibility": "Root lifetime and reverse-order cleanup stack",
+    "interfaces": [
+      "PageSession.new",
+      "PageSession.AddCleanup",
+      "PageSession.Destroy"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/init.luau",
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Alive flag and cleanup stack",
+    "resourceOwner": "PageSession owns root and registered callbacks, reverse order, idempotent destruction",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 42,
+    "baselineSHA256": "f3c7d0bf6c1daac8a7ce692bbf919be0665de5f5f4d66a6dde555e223abd334d"
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/HTMLPage.luau",
+    "responsibility": "Mount, source setup, latest-request layout scheduling and runtime lifetime",
+    "interfaces": [
+      "HTMLPage.mount"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/FontFamily.luau",
+      "src/HTMLEngine/CSS/LengthExpression.luau",
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/DOM/Node.luau",
+      "src/HTMLEngine/HTML/DocumentInfo.luau",
+      "src/HTMLEngine/HTML/Parser.luau",
+      "src/HTMLEngine/Input/Controller.luau",
+      "src/HTMLEngine/Input/CursorPreload.luau",
+      "src/HTMLEngine/Layout/BlockLayout.luau",
+      "src/HTMLEngine/Layout/DirtyLayout.luau",
+      "src/HTMLEngine/Layout/FontProfiles/init.luau",
+      "src/HTMLEngine/Layout/ScrollLayout.luau",
+      "src/HTMLEngine/Layout/TextMeasure.luau",
+      "src/HTMLEngine/Layout/WordLayout.luau",
+      "src/HTMLEngine/Navigation/URL.luau",
+      "src/HTMLEngine/PageSession.luau",
+      "src/HTMLEngine/Rendering/BackgroundImages.luau",
+      "src/HTMLEngine/Rendering/BorderCorners.luau",
+      "src/HTMLEngine/Rendering/CanvasBackground.luau",
+      "src/HTMLEngine/Rendering/CanvasRuntime.luau",
+      "src/HTMLEngine/Rendering/DecorationPatterns.luau",
+      "src/HTMLEngine/Rendering/Dialog.luau",
+      "src/HTMLEngine/Rendering/DisclosureIcons.luau",
+      "src/HTMLEngine/Rendering/FontPreload.luau",
+      "src/HTMLEngine/Rendering/GroupOpacity.luau",
+      "src/HTMLEngine/Rendering/GuiFactory.luau",
+      "src/HTMLEngine/Rendering/HTMLAnimations.luau",
+      "src/HTMLEngine/Rendering/HoverFrameDebug.luau",
+      "src/HTMLEngine/Rendering/IFrameRuntime.luau",
+      "src/HTMLEngine/Rendering/ImageDimensions.luau",
+      "src/HTMLEngine/Rendering/ImageFilters.luau",
+      "src/HTMLEngine/Rendering/ImageLoad.luau",
+      "src/HTMLEngine/Rendering/ImageSources.luau",
+      "src/HTMLEngine/Rendering/InsetShadows.luau",
+      "src/HTMLEngine/Rendering/LayoutJob.luau",
+      "src/HTMLEngine/Rendering/MediaSources.luau",
+      "src/HTMLEngine/Rendering/Popover.luau",
+      "src/HTMLEngine/Rendering/RadioDot.luau",
+      "src/HTMLEngine/Rendering/RenderTree.luau",
+      "src/HTMLEngine/Rendering/ResizeGrip.luau",
+      "src/HTMLEngine/Rendering/SVGImages.luau",
+      "src/HTMLEngine/Rendering/ShapeImages.luau",
+      "src/HTMLEngine/Rendering/ViewportLayer.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/init.luau"
+    ],
+    "mutableState": "Page-owned mutable DOM/style/render/layout/control records",
+    "resourceOwner": "PageSession/Controller cleanup and layout revision guards",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 522,
+    "baselineSHA256": "d40f01706c2f2ddd017afa3cc05448081e1c5dacf4a0e3cd1a20c69320e6a4a6"
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/LayoutJob.luau",
+    "responsibility": "Cooperative layout coroutine with revision/cancellation semantics",
+    "interfaces": [
+      "LayoutJob.run"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Rendering/WorkBudget.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Page-owned mutable DOM/style/render/layout/control records",
+    "resourceOwner": "PageSession/Controller cleanup and layout revision guards",
+    "tests": [
+      "tests/LayoutJob.luau"
+    ],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 33,
+    "baselineSHA256": "33ef66f6a2c6146de758ef40852c0226e446c9bee5604049e77a2b1165c5b4f5"
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/RenderTree.luau",
+    "responsibility": "DOM/style to retained render/GUI tree plus dynamic style propagation",
+    "interfaces": [
+      "RenderTree.build"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/CSS/Color.luau",
+      "src/HTMLEngine/CSS/Counters.luau",
+      "src/HTMLEngine/CSS/FontFamily.luau",
+      "src/HTMLEngine/CSS/GridValues.luau",
+      "src/HTMLEngine/CSS/InlineStyle.luau",
+      "src/HTMLEngine/CSS/LengthExpression.luau",
+      "src/HTMLEngine/CSS/Stylesheet.luau",
+      "src/HTMLEngine/Controls/Defaults.luau",
+      "src/HTMLEngine/Controls/State.luau",
+      "src/HTMLEngine/Controls/View.luau",
+      "src/HTMLEngine/HTML/Elements.luau",
+      "src/HTMLEngine/HTML/ResponsiveSources.luau",
+      "src/HTMLEngine/Input/ImageMap.luau",
+      "src/HTMLEngine/Layout/InlineFragments.luau",
+      "src/HTMLEngine/Layout/InlineWords.luau",
+      "src/HTMLEngine/Layout/LetterSpacing.luau",
+      "src/HTMLEngine/Layout/PositionedLayout.luau",
+      "src/HTMLEngine/Layout/TableCaptions.luau",
+      "src/HTMLEngine/Layout/TableColumns.luau",
+      "src/HTMLEngine/Layout/TableLayout.luau",
+      "src/HTMLEngine/Rendering/BorderBox.luau",
+      "src/HTMLEngine/Rendering/BoxTransform.luau",
+      "src/HTMLEngine/Rendering/CornerRadii.luau",
+      "src/HTMLEngine/Rendering/Dialog.luau",
+      "src/HTMLEngine/Rendering/Disclosure.luau",
+      "src/HTMLEngine/Rendering/GroupOpacity.luau",
+      "src/HTMLEngine/Rendering/GuiFactory.luau",
+      "src/HTMLEngine/Rendering/IFrameBox.luau",
+      "src/HTMLEngine/Rendering/ImageBox.luau",
+      "src/HTMLEngine/Rendering/MaskGradient.luau",
+      "src/HTMLEngine/Rendering/MediaBox.luau",
+      "src/HTMLEngine/Rendering/MediaSources.luau",
+      "src/HTMLEngine/Rendering/OutlineBox.luau",
+      "src/HTMLEngine/Rendering/Popover.luau",
+      "src/HTMLEngine/Rendering/ReplacedElement.luau",
+      "src/HTMLEngine/Rendering/TableBorderPaint.luau",
+      "src/HTMLEngine/Rendering/TableColumnPaint.luau",
+      "src/HTMLEngine/Rendering/TextShadows.luau",
+      "src/HTMLEngine/Rendering/ViewportLayer.luau",
+      "src/HTMLEngine/Rendering/VisualEffects.luau",
+      "src/HTMLEngine/SVG/Sizing.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/Rendering/HTMLPage.luau"
+    ],
+    "mutableState": "Page-owned mutable DOM/style/render/layout/control records",
+    "resourceOwner": "PageSession/Controller cleanup and layout revision guards",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 1421,
+    "baselineSHA256": "181a459c8821343a26319b37289c577e9a8a108a75f4b3dc93b200c42a490e3b"
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/WorkBudget.luau",
+    "responsibility": "Caller-owned work deadline/checkpoint/cancellation token",
+    "interfaces": [
+      "WorkBudget.new"
+    ],
+    "dependencies": [],
+    "callers": [
+      "src/HTMLEngine/Rendering/CanvasRuntime.luau",
+      "src/HTMLEngine/Rendering/LayoutJob.luau",
+      "src/HTMLEngine/Rendering/ShapeImages.luau"
+    ],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 19,
+    "baselineSHA256": "8653b447dafd4d0e16be3c39b11150816729ccd20fd52f152697f8e240a5c022"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/HoverTests/CSS.luau",
+    "responsibility": "Generated browser-native page source/options",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "generated-source-consumer-reviewed",
+    "interactionStatus": "Generator, loader and browser parity assertions reviewed",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 72,
+    "baselineSHA256": "591ef2d24bce818305ba5ef78a534790fd42aac6a795bc737ecd9a4b1ff49551"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/HoverTests/HTML.luau",
+    "responsibility": "Generated browser-native page source/options",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [
+      "tests/HTML.luau"
+    ],
+    "readStatus": "generated-source-consumer-reviewed",
+    "interactionStatus": "Generator, loader and browser parity assertions reviewed",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 126,
+    "baselineSHA256": "5bc6c8a271e7c184f03d327c1c202106b53022b78290768b0b032fe4850eee68"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/HoverTests/init.luau",
+    "responsibility": "Generated browser-native page source/options",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "generated-source-consumer-reviewed",
+    "interactionStatus": "Generator, loader and browser parity assertions reviewed",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 7,
+    "baselineSHA256": "814be308fab0bb0c434649682f83f796cac2d16cee3da80c971dd8e54b26f701"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/init.luau",
+    "responsibility": "Lazy page content catalog and route lookup",
+    "interfaces": [
+      "Websites.get",
+      "Websites.names",
+      "Websites.path",
+      "Websites.url",
+      "Websites.resolve",
+      "Websites.resolveURL"
+    ],
+    "dependencies": [
+      "src/HTMLEngine/Navigation/NotFound.luau",
+      "src/HTMLEngine/Navigation/URL.luau"
+    ],
+    "callers": [
+      "src/HTMLEngine/init.luau"
+    ],
+    "mutableState": "Module-local loaded website catalog",
+    "resourceOwner": "require lifetime retains requested page strings; route scan can load unrelated pages",
+    "tests": [],
+    "readStatus": "fully-read",
+    "interactionStatus": "Direct callers and owning mount/state/layout/disposal paths traced",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 85,
+    "baselineSHA256": "afc9e79ca04128e54bbb9ccc4c160ee9cc792c401e9f05ed28179b06d68e5650"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Main/CSS.luau",
+    "responsibility": "Generated browser-native page source/options",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "generated-source-consumer-reviewed",
+    "interactionStatus": "Generator, loader and browser parity assertions reviewed",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 288,
+    "baselineSHA256": "ebb9e81e9dd03859a2cb8d2916e9040f8c672591134f31cae3c2ffaa98a6455a"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Main/HTML.luau",
+    "responsibility": "Generated browser-native page source/options",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [
+      "tests/HTML.luau"
+    ],
+    "readStatus": "generated-source-consumer-reviewed",
+    "interactionStatus": "Generator, loader and browser parity assertions reviewed",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 116,
+    "baselineSHA256": "0565f7a7a0bf4e85b58670b24372dd4038db6eb8d866a0ba88a95c8f37fc3aab"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Main/init.luau",
+    "responsibility": "Generated browser-native page source/options",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "generated-source-consumer-reviewed",
+    "interactionStatus": "Generator, loader and browser parity assertions reviewed",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 13,
+    "baselineSHA256": "860e0d9736fb7c1b5120c1528cd40adf1c93884e2ebe0e6d750671421430465b"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Test/CSS.luau",
+    "responsibility": "Generated browser-native page source/options",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "generated-source-consumer-reviewed",
+    "interactionStatus": "Generator, loader and browser parity assertions reviewed",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 288,
+    "baselineSHA256": "2e5fcc8324faf844b7ded38ea5044d7f39ed735130a5595af5322fd99e4b7105"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Test/HTML.luau",
+    "responsibility": "Generated browser-native page source/options",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [
+      "tests/HTML.luau"
+    ],
+    "readStatus": "generated-source-consumer-reviewed",
+    "interactionStatus": "Generator, loader and browser parity assertions reviewed",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 57,
+    "baselineSHA256": "019ba5604a14311539c3e5d31dc9ae2a9355c6df5d93a0baaabcb955c392f8e2"
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Test/init.luau",
+    "responsibility": "Generated browser-native page source/options",
+    "interfaces": [
+      "return data/function table"
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Per-call parsed/resolved values; returned tables belong to caller",
+    "resourceOwner": "Caller owns values; no permanent native resources",
+    "tests": [],
+    "readStatus": "generated-source-consumer-reviewed",
+    "interactionStatus": "Generator, loader and browser parity assertions reviewed",
+    "testStatus": "See central verification ledger; lexical test links are not complete coverage",
+    "baselineLines": 13,
+    "baselineSHA256": "91faed8acb81d14c0ff8f314805ff1863737556d5e940afa2c466a633ca42374"
+  }
+]

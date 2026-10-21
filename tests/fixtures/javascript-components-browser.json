@@ -1,0 +1,144 @@
+[
+  {
+    "name": "open closed ownership and tree boundaries",
+    "values": [
+      "true",
+      "true|open|11||true|true|true",
+      "true|true|true|true|true|false",
+      "false",
+      "true"
+    ],
+    "pass": true
+  },
+  {
+    "name": "attachShadow validation",
+    "values": [
+      "NotSupportedError",
+      "TypeError",
+      "NotSupportedError",
+      "TypeError"
+    ],
+    "pass": true
+  },
+  {
+    "name": "slots named default duplicate and fallback",
+    "values": [
+      "a",
+      "0|duplicate|2",
+      "true|true|true",
+      "0|a,b"
+    ],
+    "pass": true
+  },
+  {
+    "name": "manual slot reassignment",
+    "values": [
+      "b,a",
+      "b|a|manual"
+    ],
+    "pass": true
+  },
+  {
+    "name": "slotchange coalescing noncomposed and mutations",
+    "values": [
+      "true|false|true",
+      "1|0|2"
+    ],
+    "pass": true
+  },
+  {
+    "name": "composed retarget and host event phase",
+    "values": [
+      "true|true|3",
+      "true|true|2",
+      "true|3",
+      "true|true|3"
+    ],
+    "pass": true
+  },
+  {
+    "name": "closed path privacy and slotted event path",
+    "values": [
+      "true|false|false|true",
+      "true",
+      "true",
+      "true|false"
+    ],
+    "pass": true
+  },
+  {
+    "name": "custom element upgrade attributes lifecycle and stable identity",
+    "values": [
+      "true|true|true|true|1|Ready",
+      "value:null:one,connected",
+      "value:null:one,connected,value:one:two,value:two:two,disconnected,connected",
+      "true"
+    ],
+    "pass": true
+  },
+  {
+    "name": "construction class fields private state and accessors",
+    "values": [
+      "x-count|x-count|9|9|7|ok|true|true",
+      "false",
+      "TypeError"
+    ],
+    "pass": true
+  },
+  {
+    "name": "detached upgrades and whenDefined",
+    "values": [
+      "true",
+      "false",
+      "true|1",
+      "1",
+      "true",
+      "SyntaxError"
+    ],
+    "pass": true
+  },
+  {
+    "name": "custom definitions validation and disabled shadow",
+    "values": [
+      "SyntaxError",
+      "SyntaxError",
+      "TypeError",
+      "NotSupportedError",
+      "NotSupportedError",
+      "NotSupportedError"
+    ],
+    "pass": true
+  },
+  {
+    "name": "customized built-in and immutable is value",
+    "values": [
+      "true|true|button|true",
+      "false",
+      "button|true"
+    ],
+    "pass": true
+  },
+  {
+    "name": "declarative shadow adoption and clone",
+    "values": [
+      "true|true|Copy|true",
+      "0|Copy"
+    ],
+    "pass": true
+  },
+  {
+    "name": "list reflected attributes and branded prototype accessors",
+    "values": [
+      "1|false||0|",
+      "-1|true|A|7|i",
+      "12",
+      "1|0",
+      "1",
+      "0",
+      "TypeError",
+      "TypeError",
+      "false"
+    ],
+    "pass": true
+  }
+]

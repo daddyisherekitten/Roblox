@@ -1,0 +1,4102 @@
+[
+  {
+    "path": "src/HTMLEngine/init.luau",
+    "bytes": 1713
+  },
+  {
+    "path": "src/HTMLEngine/PageSession.luau",
+    "bytes": 1083
+  },
+  {
+    "path": "src/HTMLEngine/Controls/ColorValue.luau",
+    "bytes": 448
+  },
+  {
+    "path": "src/HTMLEngine/Controls/Defaults.luau",
+    "bytes": 2431
+  },
+  {
+    "path": "src/HTMLEngine/Controls/FormModel.luau",
+    "bytes": 11122
+  },
+  {
+    "path": "src/HTMLEngine/Controls/GaugeValue.luau",
+    "bytes": 1526
+  },
+  {
+    "path": "src/HTMLEngine/Controls/GaugeView.luau",
+    "bytes": 2583
+  },
+  {
+    "path": "src/HTMLEngine/Controls/NumberValue.luau",
+    "bytes": 1923
+  },
+  {
+    "path": "src/HTMLEngine/Controls/NumberView.luau",
+    "bytes": 2491
+  },
+  {
+    "path": "src/HTMLEngine/Controls/NumericValue.luau",
+    "bytes": 445
+  },
+  {
+    "path": "src/HTMLEngine/Controls/RangeValue.luau",
+    "bytes": 1579
+  },
+  {
+    "path": "src/HTMLEngine/Controls/RangeView.luau",
+    "bytes": 3065
+  },
+  {
+    "path": "src/HTMLEngine/Controls/SelectOptions.luau",
+    "bytes": 2988
+  },
+  {
+    "path": "src/HTMLEngine/Controls/State.luau",
+    "bytes": 4865
+  },
+  {
+    "path": "src/HTMLEngine/Controls/TextareaView.luau",
+    "bytes": 1675
+  },
+  {
+    "path": "src/HTMLEngine/Controls/TextValue.luau",
+    "bytes": 1948
+  },
+  {
+    "path": "src/HTMLEngine/Controls/URLValue.luau",
+    "bytes": 3886
+  },
+  {
+    "path": "src/HTMLEngine/Controls/ValidationMessage.luau",
+    "bytes": 2023
+  },
+  {
+    "path": "src/HTMLEngine/Controls/View.luau",
+    "bytes": 22799
+  },
+  {
+    "path": "src/HTMLEngine/CSS/AdvancedVisual.luau",
+    "bytes": 17089
+  },
+  {
+    "path": "src/HTMLEngine/CSS/AuthorRules.luau",
+    "bytes": 5110
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Background.luau",
+    "bytes": 15835
+  },
+  {
+    "path": "src/HTMLEngine/CSS/BoxShadow.luau",
+    "bytes": 1998
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Color.luau",
+    "bytes": 6039
+  },
+  {
+    "path": "src/HTMLEngine/CSS/ColorScheme.luau",
+    "bytes": 1257
+  },
+  {
+    "path": "src/HTMLEngine/CSS/ColumnRuleInsets.luau",
+    "bytes": 2685
+  },
+  {
+    "path": "src/HTMLEngine/CSS/CompositeValues.luau",
+    "bytes": 5183
+  },
+  {
+    "path": "src/HTMLEngine/CSS/ContainerQueries.luau",
+    "bytes": 1334
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Counters.luau",
+    "bytes": 4893
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Cursor.luau",
+    "bytes": 1440
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Filter.luau",
+    "bytes": 5260
+  },
+  {
+    "path": "src/HTMLEngine/CSS/FontFamily.luau",
+    "bytes": 2742
+  },
+  {
+    "path": "src/HTMLEngine/CSS/FontFeatures.luau",
+    "bytes": 5889
+  },
+  {
+    "path": "src/HTMLEngine/CSS/GridValues.luau",
+    "bytes": 10943
+  },
+  {
+    "path": "src/HTMLEngine/CSS/InlineStyle.luau",
+    "bytes": 104442
+  },
+  {
+    "path": "src/HTMLEngine/CSS/LayoutValues.luau",
+    "bytes": 3667
+  },
+  {
+    "path": "src/HTMLEngine/CSS/LengthExpression.luau",
+    "bytes": 9424
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Matrix4.luau",
+    "bytes": 6769
+  },
+  {
+    "path": "src/HTMLEngine/CSS/MediaQueries.luau",
+    "bytes": 7370
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Motion.luau",
+    "bytes": 9396
+  },
+  {
+    "path": "src/HTMLEngine/CSS/MotionPath.luau",
+    "bytes": 3689
+  },
+  {
+    "path": "src/HTMLEngine/CSS/NamedColors.luau",
+    "bytes": 3846
+  },
+  {
+    "path": "src/HTMLEngine/CSS/ObjectPosition.luau",
+    "bytes": 2501
+  },
+  {
+    "path": "src/HTMLEngine/CSS/ObjectViewBox.luau",
+    "bytes": 2025
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Properties.luau",
+    "bytes": 102485
+  },
+  {
+    "path": "src/HTMLEngine/CSS/RelativeLengths.luau",
+    "bytes": 1770
+  },
+  {
+    "path": "src/HTMLEngine/CSS/ResetProperties.luau",
+    "bytes": 1925
+  },
+  {
+    "path": "src/HTMLEngine/CSS/ScrollValues.luau",
+    "bytes": 3778
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Selectors.luau",
+    "bytes": 15014
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Stylesheet.luau",
+    "bytes": 16514
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Syntax.luau",
+    "bytes": 1813
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Transform2D.luau",
+    "bytes": 12015
+  },
+  {
+    "path": "src/HTMLEngine/CSS/Variables.luau",
+    "bytes": 3842
+  },
+  {
+    "path": "src/HTMLEngine/CSS/VisualValues.luau",
+    "bytes": 14864
+  },
+  {
+    "path": "src/HTMLEngine/DOM/Node.luau",
+    "bytes": 4561
+  },
+  {
+    "path": "src/HTMLEngine/HTML/DocumentInfo.luau",
+    "bytes": 4020
+  },
+  {
+    "path": "src/HTMLEngine/HTML/Elements.luau",
+    "bytes": 33861
+  },
+  {
+    "path": "src/HTMLEngine/HTML/Entities.luau",
+    "bytes": 1036
+  },
+  {
+    "path": "src/HTMLEngine/HTML/Parser.luau",
+    "bytes": 13188
+  },
+  {
+    "path": "src/HTMLEngine/HTML/ResponsiveSources.luau",
+    "bytes": 4305
+  },
+  {
+    "path": "src/HTMLEngine/HTML/SVGNames.luau",
+    "bytes": 1631
+  },
+  {
+    "path": "src/HTMLEngine/HTML/Tokenizer.luau",
+    "bytes": 5743
+  },
+  {
+    "path": "src/HTMLEngine/HTML/WebVTT.luau",
+    "bytes": 2421
+  },
+  {
+    "path": "src/HTMLEngine/Input/Controller.luau",
+    "bytes": 39616
+  },
+  {
+    "path": "src/HTMLEngine/Input/CursorController.luau",
+    "bytes": 5712
+  },
+  {
+    "path": "src/HTMLEngine/Input/CursorIcons.luau",
+    "bytes": 1669
+  },
+  {
+    "path": "src/HTMLEngine/Input/CursorLease.luau",
+    "bytes": 1578
+  },
+  {
+    "path": "src/HTMLEngine/Input/CursorPreload.luau",
+    "bytes": 940
+  },
+  {
+    "path": "src/HTMLEngine/Input/Events.luau",
+    "bytes": 2823
+  },
+  {
+    "path": "src/HTMLEngine/Input/HitTest.luau",
+    "bytes": 3030
+  },
+  {
+    "path": "src/HTMLEngine/Input/ImageMap.luau",
+    "bytes": 3008
+  },
+  {
+    "path": "src/HTMLEngine/Input/Links.luau",
+    "bytes": 1480
+  },
+  {
+    "path": "src/HTMLEngine/Input/MediaRuntime.luau",
+    "bytes": 22626
+  },
+  {
+    "path": "src/HTMLEngine/Input/RangeDrag.luau",
+    "bytes": 1701
+  },
+  {
+    "path": "src/HTMLEngine/Input/SelectPopup.luau",
+    "bytes": 10659
+  },
+  {
+    "path": "src/HTMLEngine/Input/SelectTypeAhead.luau",
+    "bytes": 1552
+  },
+  {
+    "path": "src/HTMLEngine/Input/TextareaResize.luau",
+    "bytes": 2474
+  },
+  {
+    "path": "src/HTMLEngine/Input/TextSelection.luau",
+    "bytes": 10585
+  },
+  {
+    "path": "src/HTMLEngine/Input/ValidationPopup.luau",
+    "bytes": 4691
+  },
+  {
+    "path": "src/HTMLEngine/Layout/AspectRatio.luau",
+    "bytes": 770
+  },
+  {
+    "path": "src/HTMLEngine/Layout/BlockImage.luau",
+    "bytes": 4196
+  },
+  {
+    "path": "src/HTMLEngine/Layout/BlockLayout.luau",
+    "bytes": 36635
+  },
+  {
+    "path": "src/HTMLEngine/Layout/BorderGeometry.luau",
+    "bytes": 1864
+  },
+  {
+    "path": "src/HTMLEngine/Layout/BoxSpacing.luau",
+    "bytes": 783
+  },
+  {
+    "path": "src/HTMLEngine/Layout/ColumnLayout.luau",
+    "bytes": 15271
+  },
+  {
+    "path": "src/HTMLEngine/Layout/DirtyLayout.luau",
+    "bytes": 5104
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FieldsetLayout.luau",
+    "bytes": 1379
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FlexBalance.luau",
+    "bytes": 2248
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FlexLayout.luau",
+    "bytes": 17476
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FloatLayout.luau",
+    "bytes": 6916
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontMetrics.luau",
+    "bytes": 1909
+  },
+  {
+    "path": "src/HTMLEngine/Layout/GridLayout.luau",
+    "bytes": 8346
+  },
+  {
+    "path": "src/HTMLEngine/Layout/GridPlacement.luau",
+    "bytes": 5158
+  },
+  {
+    "path": "src/HTMLEngine/Layout/GridTracks.luau",
+    "bytes": 9903
+  },
+  {
+    "path": "src/HTMLEngine/Layout/ImageFit.luau",
+    "bytes": 2987
+  },
+  {
+    "path": "src/HTMLEngine/Layout/ImageLayout.luau",
+    "bytes": 6677
+  },
+  {
+    "path": "src/HTMLEngine/Layout/InlineFragments.luau",
+    "bytes": 3870
+  },
+  {
+    "path": "src/HTMLEngine/Layout/InlineWords.luau",
+    "bytes": 7678
+  },
+  {
+    "path": "src/HTMLEngine/Layout/LetterSpacing.luau",
+    "bytes": 2587
+  },
+  {
+    "path": "src/HTMLEngine/Layout/ListMarker.luau",
+    "bytes": 4238
+  },
+  {
+    "path": "src/HTMLEngine/Layout/MarginTrim.luau",
+    "bytes": 1211
+  },
+  {
+    "path": "src/HTMLEngine/Layout/MasonryLayout.luau",
+    "bytes": 6519
+  },
+  {
+    "path": "src/HTMLEngine/Layout/OverflowWrap.luau",
+    "bytes": 7735
+  },
+  {
+    "path": "src/HTMLEngine/Layout/PositionedLayout.luau",
+    "bytes": 15084
+  },
+  {
+    "path": "src/HTMLEngine/Layout/ScrollLayout.luau",
+    "bytes": 23703
+  },
+  {
+    "path": "src/HTMLEngine/Layout/ShapeImage.luau",
+    "bytes": 2076
+  },
+  {
+    "path": "src/HTMLEngine/Layout/SkipInk.luau",
+    "bytes": 2924
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TableBorders.luau",
+    "bytes": 4422
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TableCaptions.luau",
+    "bytes": 1927
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TableColumns.luau",
+    "bytes": 3406
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TableGrid.luau",
+    "bytes": 3257
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TableHeights.luau",
+    "bytes": 1768
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TableLayout.luau",
+    "bytes": 13707
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TableTracks.luau",
+    "bytes": 2383
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TextDecoration.luau",
+    "bytes": 7117
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TextMeasure.luau",
+    "bytes": 811
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TextOverflow.luau",
+    "bytes": 6933
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TextTransform.luau",
+    "bytes": 1902
+  },
+  {
+    "path": "src/HTMLEngine/Layout/TextWords.luau",
+    "bytes": 724
+  },
+  {
+    "path": "src/HTMLEngine/Layout/VerticalText.luau",
+    "bytes": 3729
+  },
+  {
+    "path": "src/HTMLEngine/Layout/WordFlow.luau",
+    "bytes": 8902
+  },
+  {
+    "path": "src/HTMLEngine/Layout/WordLayout.luau",
+    "bytes": 21783
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/Arial.luau",
+    "bytes": 576
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/BuilderSans.luau",
+    "bytes": 491
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/init.luau",
+    "bytes": 4382
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/Inter.luau",
+    "bytes": 616
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/Lato.luau",
+    "bytes": 1356
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/Lora.luau",
+    "bytes": 796
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/Merriweather.luau",
+    "bytes": 822
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/Montserrat.luau",
+    "bytes": 816
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/NotoSans.luau",
+    "bytes": 812
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/NunitoSans.luau",
+    "bytes": 796
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/OpenSans.luau",
+    "bytes": 636
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/PlayfairDisplay.luau",
+    "bytes": 804
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/Poppins.luau",
+    "bytes": 790
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/PTSerif.luau",
+    "bytes": 637
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/Roboto.luau",
+    "bytes": 621
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/RobotoCondensed.luau",
+    "bytes": 415
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/RobotoMono.luau",
+    "bytes": 523
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/RobotoSlab.luau",
+    "bytes": 388
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/SourceSans.luau",
+    "bytes": 349
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/Ubuntu.luau",
+    "bytes": 577
+  },
+  {
+    "path": "src/HTMLEngine/Layout/FontProfiles/WorkSans.luau",
+    "bytes": 799
+  },
+  {
+    "path": "src/HTMLEngine/Navigation/NotFound.luau",
+    "bytes": 861
+  },
+  {
+    "path": "src/HTMLEngine/Navigation/URL.luau",
+    "bytes": 4197
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BackgroundImages.luau",
+    "bytes": 18107
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BackgroundPixels.luau",
+    "bytes": 7755
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderBox.luau",
+    "bytes": 7917
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderCornerPixels.luau",
+    "bytes": 3219
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderCorners.luau",
+    "bytes": 15118
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderImagePixels.luau",
+    "bytes": 3713
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderPaint.luau",
+    "bytes": 1645
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderPattern.luau",
+    "bytes": 1678
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BorderShapePixels.luau",
+    "bytes": 2009
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/BoxTransform.luau",
+    "bytes": 13728
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasBackground.luau",
+    "bytes": 2389
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasPNG.luau",
+    "bytes": 5089
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasRuntime.luau",
+    "bytes": 16771
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasSurface.luau",
+    "bytes": 51354
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasTriangle.luau",
+    "bytes": 2192
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasWebGL.luau",
+    "bytes": 9601
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CanvasWebGPU.luau",
+    "bytes": 8081
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ClipRect.luau",
+    "bytes": 1761
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/CornerRadii.luau",
+    "bytes": 2007
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/DecorationPatterns.luau",
+    "bytes": 1919
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/DecorationPixels.luau",
+    "bytes": 1675
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/Dialog.luau",
+    "bytes": 7036
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/Disclosure.luau",
+    "bytes": 3717
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/DisclosureIcons.luau",
+    "bytes": 2197
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/FontPreload.luau",
+    "bytes": 1000
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/GroupOpacity.luau",
+    "bytes": 7523
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/GuiFactory.luau",
+    "bytes": 2882
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/HoverFrameDebug.luau",
+    "bytes": 2856
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/HTMLAnimations.luau",
+    "bytes": 28037
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/HTMLPage.luau",
+    "bytes": 28469
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/IFrameBox.luau",
+    "bytes": 2826
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/IFrameRuntime.luau",
+    "bytes": 6321
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageBlur.luau",
+    "bytes": 5319
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageBlurPixels.luau",
+    "bytes": 7877
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageBox.luau",
+    "bytes": 9318
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageDimensions.luau",
+    "bytes": 2483
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageFilterPixels.luau",
+    "bytes": 2107
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageFilters.luau",
+    "bytes": 4362
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageLoad.luau",
+    "bytes": 2433
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ImageSources.luau",
+    "bytes": 2644
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/InsetShadowPixels.luau",
+    "bytes": 6863
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/InsetShadows.luau",
+    "bytes": 3066
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/LayoutJob.luau",
+    "bytes": 1533
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/MaskGradient.luau",
+    "bytes": 5325
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/MaskPixels.luau",
+    "bytes": 6380
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/MediaBox.luau",
+    "bytes": 23203
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/MediaSources.luau",
+    "bytes": 4021
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/OutlineBox.luau",
+    "bytes": 3399
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/PaintLayer.luau",
+    "bytes": 415
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/PerspectivePixels.luau",
+    "bytes": 15682
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/Popover.luau",
+    "bytes": 6161
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/RadioDot.luau",
+    "bytes": 1905
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/RenderTree.luau",
+    "bytes": 86896
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ReplacedElement.luau",
+    "bytes": 2557
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ResizeGrip.luau",
+    "bytes": 1383
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ShapeImages.luau",
+    "bytes": 5176
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/SVGImages.luau",
+    "bytes": 8912
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/TableBorderPaint.luau",
+    "bytes": 6348
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/TableColumnPaint.luau",
+    "bytes": 2696
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/TextShadows.luau",
+    "bytes": 2298
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/ViewportLayer.luau",
+    "bytes": 6870
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/VisualEffectPixels.luau",
+    "bytes": 5700
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/VisualEffects.luau",
+    "bytes": 17226
+  },
+  {
+    "path": "src/HTMLEngine/Rendering/WorkBudget.luau",
+    "bytes": 1047
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Animation.luau",
+    "bytes": 11876
+  },
+  {
+    "path": "src/HTMLEngine/SVG/AnimationCSS.luau",
+    "bytes": 5917
+  },
+  {
+    "path": "src/HTMLEngine/SVG/AnimationTiming.luau",
+    "bytes": 2795
+  },
+  {
+    "path": "src/HTMLEngine/SVG/AnimationValue.luau",
+    "bytes": 2687
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Arc.luau",
+    "bytes": 1718
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Blend.luau",
+    "bytes": 2504
+  },
+  {
+    "path": "src/HTMLEngine/SVG/ClipPath.luau",
+    "bytes": 2466
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Compositing.luau",
+    "bytes": 13215
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Conditional.luau",
+    "bytes": 2708
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Curves.luau",
+    "bytes": 2647
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Dashes.luau",
+    "bytes": 4392
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Document.luau",
+    "bytes": 12119
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Embedded.luau",
+    "bytes": 3063
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Events.luau",
+    "bytes": 3402
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Filter.luau",
+    "bytes": 11971
+  },
+  {
+    "path": "src/HTMLEngine/SVG/FilterBlur.luau",
+    "bytes": 3538
+  },
+  {
+    "path": "src/HTMLEngine/SVG/FilterColor.luau",
+    "bytes": 3526
+  },
+  {
+    "path": "src/HTMLEngine/SVG/FilterKernel.luau",
+    "bytes": 6217
+  },
+  {
+    "path": "src/HTMLEngine/SVG/FilterLighting.luau",
+    "bytes": 4804
+  },
+  {
+    "path": "src/HTMLEngine/SVG/FilterMorphology.luau",
+    "bytes": 1459
+  },
+  {
+    "path": "src/HTMLEngine/SVG/FilterNoise.luau",
+    "bytes": 2716
+  },
+  {
+    "path": "src/HTMLEngine/SVG/FilterOps.luau",
+    "bytes": 1536
+  },
+  {
+    "path": "src/HTMLEngine/SVG/FilterPixels.luau",
+    "bytes": 9741
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Geometry.luau",
+    "bytes": 4310
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Gradient.luau",
+    "bytes": 10457
+  },
+  {
+    "path": "src/HTMLEngine/SVG/HitTest.luau",
+    "bytes": 6530
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Image.luau",
+    "bytes": 5012
+  },
+  {
+    "path": "src/HTMLEngine/SVG/ImageAssets.luau",
+    "bytes": 804
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Length.luau",
+    "bytes": 3564
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Marker.luau",
+    "bytes": 4160
+  },
+  {
+    "path": "src/HTMLEngine/SVG/MarkerPositions.luau",
+    "bytes": 3843
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Mask.luau",
+    "bytes": 3782
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Matrix.luau",
+    "bytes": 2247
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Paint.luau",
+    "bytes": 6194
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Parser.luau",
+    "bytes": 7273
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Path.luau",
+    "bytes": 4869
+  },
+  {
+    "path": "src/HTMLEngine/SVG/PathMetrics.luau",
+    "bytes": 1052
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Pattern.luau",
+    "bytes": 6982
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Queries.luau",
+    "bytes": 2646
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Raster.luau",
+    "bytes": 11497
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Rendering.luau",
+    "bytes": 3961
+  },
+  {
+    "path": "src/HTMLEngine/SVG/RenderQueue.luau",
+    "bytes": 14993
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Resources.luau",
+    "bytes": 2783
+  },
+  {
+    "path": "src/HTMLEngine/SVG/SceneBuilder.luau",
+    "bytes": 17833
+  },
+  {
+    "path": "src/HTMLEngine/SVG/ScriptDOM.luau",
+    "bytes": 8488
+  },
+  {
+    "path": "src/HTMLEngine/SVG/ScriptSyntax.luau",
+    "bytes": 7919
+  },
+  {
+    "path": "src/HTMLEngine/SVG/ScriptVM.luau",
+    "bytes": 9198
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Session.luau",
+    "bytes": 12930
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Sizing.luau",
+    "bytes": 2034
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Stroke.luau",
+    "bytes": 3656
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Style.luau",
+    "bytes": 14520
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Text.luau",
+    "bytes": 16375
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TextPath.luau",
+    "bytes": 5004
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Transform.luau",
+    "bytes": 7656
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TransformBounds.luau",
+    "bytes": 4075
+  },
+  {
+    "path": "src/HTMLEngine/SVG/Viewport.luau",
+    "bytes": 4285
+  },
+  {
+    "path": "src/HTMLEngine/SVG/XML.luau",
+    "bytes": 6227
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TextFont/Glyphs.luau",
+    "bytes": 756621
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TextFont/init.luau",
+    "bytes": 114750
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TextFont/Bold/Glyphs.luau",
+    "bytes": 304638
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TextFont/Bold/init.luau",
+    "bytes": 47047
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TextFont/BoldIt/Glyphs.luau",
+    "bytes": 325716
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TextFont/BoldIt/init.luau",
+    "bytes": 40961
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TextFont/It/Glyphs.luau",
+    "bytes": 328803
+  },
+  {
+    "path": "src/HTMLEngine/SVG/TextFont/It/init.luau",
+    "bytes": 41127
+  },
+  {
+    "path": "src/HTMLEngine/Websites/init.luau",
+    "bytes": 3984
+  },
+  {
+    "path": "src/HTMLEngine/Websites/HoverTests/CSS.luau",
+    "bytes": 4430
+  },
+  {
+    "path": "src/HTMLEngine/Websites/HoverTests/HTML.luau",
+    "bytes": 9605
+  },
+  {
+    "path": "src/HTMLEngine/Websites/HoverTests/init.luau",
+    "bytes": 236
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Main/CSS.luau",
+    "bytes": 19703
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Main/HTML.luau",
+    "bytes": 10534
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Main/init.luau",
+    "bytes": 9019
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Test/CSS.luau",
+    "bytes": 19703
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Test/HTML.luau",
+    "bytes": 18195
+  },
+  {
+    "path": "src/HTMLEngine/Websites/Test/init.luau",
+    "bytes": 9034
+  },
+  {
+    "path": "examples/all-fonts-comparison.html",
+    "bytes": 2036
+  },
+  {
+    "path": "examples/font-comparison-catalog.js",
+    "bytes": 21024
+  },
+  {
+    "path": "examples/font-comparison.css",
+    "bytes": 1783
+  },
+  {
+    "path": "examples/font-comparison.js",
+    "bytes": 3959
+  },
+  {
+    "path": "examples/font-size-comparison.html",
+    "bytes": 1657
+  },
+  {
+    "path": "examples/FontComparison.client.luau",
+    "bytes": 1259
+  },
+  {
+    "path": "examples/FontLab.client.luau",
+    "bytes": 1460
+  },
+  {
+    "path": "examples/HTMLPage.client.luau",
+    "bytes": 12842
+  },
+  {
+    "path": "examples/HTMLParser.client.luau",
+    "bytes": 976
+  },
+  {
+    "path": "examples/inter-comparison.html",
+    "bytes": 1574
+  },
+  {
+    "path": "examples/landschaft.png",
+    "bytes": 1145477
+  },
+  {
+    "path": "examples/lato-font-comparison.html",
+    "bytes": 1633
+  },
+  {
+    "path": "examples/lora-font-comparison.html",
+    "bytes": 1611
+  },
+  {
+    "path": "examples/merriweather-font-comparison.html",
+    "bytes": 1707
+  },
+  {
+    "path": "examples/montserrat-font-comparison.html",
+    "bytes": 1689
+  },
+  {
+    "path": "examples/noto-sans-font-comparison.html",
+    "bytes": 1662
+  },
+  {
+    "path": "examples/nunito-sans-font-comparison.html",
+    "bytes": 1678
+  },
+  {
+    "path": "examples/open-sans-comparison.html",
+    "bytes": 1600
+  },
+  {
+    "path": "examples/playfair-display-font-comparison.html",
+    "bytes": 1718
+  },
+  {
+    "path": "examples/poppins-font-comparison.html",
+    "bytes": 1648
+  },
+  {
+    "path": "examples/pt-serif-comparison.html",
+    "bytes": 1937
+  },
+  {
+    "path": "examples/ResizableTestWindow.luau",
+    "bytes": 5274
+  },
+  {
+    "path": "examples/roboto-comparison.html",
+    "bytes": 1779
+  },
+  {
+    "path": "examples/roboto-condensed-comparison.html",
+    "bytes": 1698
+  },
+  {
+    "path": "examples/roboto-mono-comparison.html",
+    "bytes": 2015
+  },
+  {
+    "path": "examples/roboto-slab-comparison.html",
+    "bytes": 1663
+  },
+  {
+    "path": "examples/source-sans-comparison.html",
+    "bytes": 1800
+  },
+  {
+    "path": "examples/StudioDemoConfig.luau",
+    "bytes": 722
+  },
+  {
+    "path": "examples/svg-flower.css",
+    "bytes": 2094
+  },
+  {
+    "path": "examples/svg-flower.html",
+    "bytes": 10094
+  },
+  {
+    "path": "examples/svg-flower.svg",
+    "bytes": 10028
+  },
+  {
+    "path": "examples/SVGLab.client.luau",
+    "bytes": 8246
+  },
+  {
+    "path": "examples/ubuntu-comparison.html",
+    "bytes": 1536
+  },
+  {
+    "path": "examples/ubuntu-roboto-page.html",
+    "bytes": 21384
+  },
+  {
+    "path": "examples/work-sans-font-comparison.html",
+    "bytes": 1662
+  },
+  {
+    "path": "examples/FontComparison/Catalog.luau",
+    "bytes": 10992
+  },
+  {
+    "path": "examples/FontComparison/Config.luau",
+    "bytes": 186
+  },
+  {
+    "path": "examples/FontComparison/init.luau",
+    "bytes": 2404
+  },
+  {
+    "path": "examples/FontLab/ClickRouter.luau",
+    "bytes": 2833
+  },
+  {
+    "path": "examples/FontLab/FontLab.luau",
+    "bytes": 3431
+  },
+  {
+    "path": "examples/FontLab/FontLabRow.luau",
+    "bytes": 4778
+  },
+  {
+    "path": "examples/FontLab/FontReport.luau",
+    "bytes": 2038
+  },
+  {
+    "path": "examples/FontLab/FontTestConfig.luau",
+    "bytes": 606
+  },
+  {
+    "path": "examples/FontLab/GuideControls.luau",
+    "bytes": 1644
+  },
+  {
+    "path": "examples/fonts/README.md",
+    "bytes": 1662
+  },
+  {
+    "path": "examples/fonts/SourceSansPro-Bold.ttf",
+    "bytes": 117484
+  },
+  {
+    "path": "examples/fonts/SourceSansPro-BoldIt.ttf",
+    "bytes": 117064
+  },
+  {
+    "path": "examples/fonts/SourceSansPro-It.ttf",
+    "bytes": 117548
+  },
+  {
+    "path": "examples/fonts/SourceSansPro-LICENSE.txt",
+    "bytes": 4508
+  },
+  {
+    "path": "examples/fonts/SourceSansPro-Regular.ttf",
+    "bytes": 269108
+  },
+  {
+    "path": "examples/fonts/comparison/font001.otf",
+    "bytes": 51728
+  },
+  {
+    "path": "examples/fonts/comparison/font002.ttf",
+    "bytes": 109592
+  },
+  {
+    "path": "examples/fonts/comparison/font003.ttf",
+    "bytes": 142164
+  },
+  {
+    "path": "examples/fonts/comparison/font004.ttf",
+    "bytes": 37728
+  },
+  {
+    "path": "examples/fonts/comparison/font005.ttf",
+    "bytes": 150788
+  },
+  {
+    "path": "examples/fonts/comparison/font006.ttf",
+    "bytes": 317652
+  },
+  {
+    "path": "examples/fonts/comparison/font007.ttf",
+    "bytes": 69916
+  },
+  {
+    "path": "examples/fonts/comparison/font008.ttf",
+    "bytes": 28224
+  },
+  {
+    "path": "examples/fonts/comparison/font009.ttf",
+    "bytes": 95664
+  },
+  {
+    "path": "examples/fonts/comparison/font010.ttf",
+    "bytes": 104068
+  },
+  {
+    "path": "examples/fonts/comparison/font011.ttf",
+    "bytes": 225524
+  },
+  {
+    "path": "examples/fonts/comparison/font012.ttf",
+    "bytes": 57684
+  },
+  {
+    "path": "examples/fonts/comparison/font013.otf",
+    "bytes": 78708
+  },
+  {
+    "path": "examples/fonts/comparison/font014.otf",
+    "bytes": 58864
+  },
+  {
+    "path": "examples/fonts/comparison/font015.otf",
+    "bytes": 77352
+  },
+  {
+    "path": "examples/fonts/comparison/font016.ttf",
+    "bytes": 175656
+  },
+  {
+    "path": "examples/fonts/comparison/font017.ttf",
+    "bytes": 416240
+  },
+  {
+    "path": "examples/fonts/comparison/font018.ttf",
+    "bytes": 89628
+  },
+  {
+    "path": "examples/fonts/comparison/font019.ttf",
+    "bytes": 96652
+  },
+  {
+    "path": "examples/fonts/comparison/font020.ttf",
+    "bytes": 256900
+  },
+  {
+    "path": "examples/fonts/comparison/font021.ttf",
+    "bytes": 106500
+  },
+  {
+    "path": "examples/fonts/comparison/font022.ttf",
+    "bytes": 54844
+  },
+  {
+    "path": "examples/fonts/comparison/font023.ttf",
+    "bytes": 62916
+  },
+  {
+    "path": "examples/fonts/comparison/font024.ttf",
+    "bytes": 61368
+  },
+  {
+    "path": "examples/fonts/comparison/font025.ttf",
+    "bytes": 51996
+  },
+  {
+    "path": "examples/fonts/comparison/font026.ttf",
+    "bytes": 80900
+  },
+  {
+    "path": "examples/fonts/comparison/font027.ttf",
+    "bytes": 44016
+  },
+  {
+    "path": "examples/fonts/comparison/font028.ttf",
+    "bytes": 2027048
+  },
+  {
+    "path": "examples/fonts/comparison/font029.ttf",
+    "bytes": 83928
+  },
+  {
+    "path": "examples/fonts/comparison/font030.ttf",
+    "bytes": 44396
+  },
+  {
+    "path": "examples/fonts/comparison/font031.ttf",
+    "bytes": 107440
+  },
+  {
+    "path": "examples/fonts/comparison/font032.ttf",
+    "bytes": 456996
+  },
+  {
+    "path": "examples/fonts/comparison/font033.ttf",
+    "bytes": 84160
+  },
+  {
+    "path": "examples/fonts/comparison/font034.ttf",
+    "bytes": 42452
+  },
+  {
+    "path": "examples/fonts/comparison/font035.ttf",
+    "bytes": 227860
+  },
+  {
+    "path": "examples/fonts/comparison/font036.ttf",
+    "bytes": 145008
+  },
+  {
+    "path": "examples/fonts/comparison/font037.ttf",
+    "bytes": 77956
+  },
+  {
+    "path": "examples/fonts/comparison/font038.ttf",
+    "bytes": 156124
+  },
+  {
+    "path": "examples/fonts/comparison/font039.ttf",
+    "bytes": 91596
+  },
+  {
+    "path": "examples/fonts/comparison/font040.ttf",
+    "bytes": 695888
+  },
+  {
+    "path": "examples/fonts/comparison/font041.ttf",
+    "bytes": 53012
+  },
+  {
+    "path": "examples/fonts/comparison/font042.ttf",
+    "bytes": 299532
+  },
+  {
+    "path": "examples/fonts/comparison/font043.ttf",
+    "bytes": 250052
+  },
+  {
+    "path": "examples/fonts/comparison/font044.ttf",
+    "bytes": 2396484
+  },
+  {
+    "path": "examples/fonts/comparison/font045.ttf",
+    "bytes": 80456
+  },
+  {
+    "path": "examples/fonts/comparison/font046.ttf",
+    "bytes": 55300
+  },
+  {
+    "path": "examples/fonts/comparison/font047.ttf",
+    "bytes": 309828
+  },
+  {
+    "path": "examples/fonts/comparison/font048.ttf",
+    "bytes": 52648
+  },
+  {
+    "path": "examples/fonts/comparison/font049.ttf",
+    "bytes": 223708
+  },
+  {
+    "path": "examples/fonts/comparison/font050.ttf",
+    "bytes": 39800
+  },
+  {
+    "path": "examples/fonts/comparison/font051.ttf",
+    "bytes": 58548
+  },
+  {
+    "path": "examples/fonts/comparison/font052.ttf",
+    "bytes": 101928
+  },
+  {
+    "path": "examples/fonts/comparison/font053.ttf",
+    "bytes": 427336
+  },
+  {
+    "path": "examples/fonts/comparison/font054.ttf",
+    "bytes": 173148
+  },
+  {
+    "path": "examples/fonts/comparison/font055.ttf",
+    "bytes": 270704
+  },
+  {
+    "path": "examples/fonts/comparison/font056.ttf",
+    "bytes": 59364
+  },
+  {
+    "path": "examples/fonts/comparison/font057.ttf",
+    "bytes": 75152
+  },
+  {
+    "path": "examples/fonts/comparison/font058.ttf",
+    "bytes": 154676
+  },
+  {
+    "path": "examples/fonts/comparison/font059.ttf",
+    "bytes": 396740
+  },
+  {
+    "path": "examples/fonts/comparison/font060.ttf",
+    "bytes": 90360
+  },
+  {
+    "path": "examples/fonts/comparison/font061.ttf",
+    "bytes": 134912
+  },
+  {
+    "path": "examples/fonts/comparison/font062.ttf",
+    "bytes": 58292
+  },
+  {
+    "path": "examples/fonts/comparison/font063.ttf",
+    "bytes": 3380812
+  },
+  {
+    "path": "examples/fonts/comparison/font064.ttf",
+    "bytes": 128972
+  },
+  {
+    "path": "examples/fonts/comparison/font065.ttf",
+    "bytes": 149092
+  },
+  {
+    "path": "examples/fonts/comparison/font066.ttf",
+    "bytes": 62972
+  },
+  {
+    "path": "examples/fonts/comparison/font067.ttf",
+    "bytes": 58132
+  },
+  {
+    "path": "examples/fonts/comparison/font068.ttf",
+    "bytes": 51604
+  },
+  {
+    "path": "examples/fonts/comparison/font069.ttf",
+    "bytes": 197976
+  },
+  {
+    "path": "examples/fonts/comparison/font070.ttf",
+    "bytes": 432248
+  },
+  {
+    "path": "examples/fonts/comparison/font071.ttf",
+    "bytes": 105860
+  },
+  {
+    "path": "examples/fonts/comparison/font072.ttf",
+    "bytes": 2054744
+  },
+  {
+    "path": "examples/fonts/comparison/font073.ttf",
+    "bytes": 43272
+  },
+  {
+    "path": "examples/fonts/comparison/font074.ttf",
+    "bytes": 34920
+  },
+  {
+    "path": "examples/fonts/comparison/font075.ttf",
+    "bytes": 560092
+  },
+  {
+    "path": "examples/fonts/comparison/font076.otf",
+    "bytes": 5764384
+  },
+  {
+    "path": "examples/fonts/comparison/font077.ttf",
+    "bytes": 35111860
+  },
+  {
+    "path": "examples/fonts/comparison/font078.otf",
+    "bytes": 6169440
+  },
+  {
+    "path": "examples/fonts/comparison/font079.otf",
+    "bytes": 11214632
+  },
+  {
+    "path": "examples/fonts/comparison/font080.otf",
+    "bytes": 5831692
+  },
+  {
+    "path": "examples/fonts/comparison/font081.ttf",
+    "bytes": 166700
+  },
+  {
+    "path": "examples/fonts/comparison/font082.ttf",
+    "bytes": 140408
+  },
+  {
+    "path": "examples/fonts/comparison/font083.ttf",
+    "bytes": 129796
+  },
+  {
+    "path": "examples/fonts/comparison/font084.ttf",
+    "bytes": 91400
+  },
+  {
+    "path": "examples/fonts/comparison/font085.ttf",
+    "bytes": 329380
+  },
+  {
+    "path": "examples/fonts/comparison/font086.ttf",
+    "bytes": 61248
+  },
+  {
+    "path": "examples/fonts/comparison/font087.ttf",
+    "bytes": 212112
+  },
+  {
+    "path": "examples/fonts/comparison/font088.ttf",
+    "bytes": 73620
+  },
+  {
+    "path": "examples/fonts/comparison/font089.ttf",
+    "bytes": 192812
+  },
+  {
+    "path": "examples/fonts/comparison/font090.ttf",
+    "bytes": 158240
+  },
+  {
+    "path": "examples/fonts/comparison/font091.ttf",
+    "bytes": 66432
+  },
+  {
+    "path": "examples/fonts/comparison/font092.ttf",
+    "bytes": 168932
+  },
+  {
+    "path": "examples/fonts/comparison/font093.ttf",
+    "bytes": 442960
+  },
+  {
+    "path": "examples/fonts/comparison/font094.ttf",
+    "bytes": 359048
+  },
+  {
+    "path": "examples/fonts/comparison/font095.ttf",
+    "bytes": 78628
+  },
+  {
+    "path": "examples/fonts/comparison/font096.ttf",
+    "bytes": 377860
+  },
+  {
+    "path": "examples/fonts/comparison/font097.ttf",
+    "bytes": 163388
+  },
+  {
+    "path": "examples/fonts/comparison/font098.ttf",
+    "bytes": 171272
+  },
+  {
+    "path": "examples/fonts/comparison/font099.ttf",
+    "bytes": 169848
+  },
+  {
+    "path": "examples/fonts/comparison/font100.ttf",
+    "bytes": 86908
+  },
+  {
+    "path": "examples/fonts/comparison/font101.ttf",
+    "bytes": 125936
+  },
+  {
+    "path": "examples/fonts/comparison/font102.otf",
+    "bytes": 268000
+  },
+  {
+    "path": "examples/fonts/comparison/font103.ttf",
+    "bytes": 125032
+  },
+  {
+    "path": "examples/fonts/comparison/font104.ttf",
+    "bytes": 605348
+  },
+  {
+    "path": "examples/fonts/comparison/font105.ttf",
+    "bytes": 132376
+  },
+  {
+    "path": "examples/fonts/comparison/font106.ttf",
+    "bytes": 363876
+  },
+  {
+    "path": "examples/fonts/comparison/font107.ttf",
+    "bytes": 459040
+  },
+  {
+    "path": "examples/fonts/comparison/font108.ttf",
+    "bytes": 442628
+  },
+  {
+    "path": "examples/fonts/comparison/font109.ttf",
+    "bytes": 183244
+  },
+  {
+    "path": "examples/fonts/comparison/font110.ttf",
+    "bytes": 276380
+  },
+  {
+    "path": "examples/fonts/comparison/font111.ttf",
+    "bytes": 140148
+  },
+  {
+    "path": "examples/fonts/comparison/font112.ttf",
+    "bytes": 54304
+  },
+  {
+    "path": "examples/fonts/comparison/font113.ttf",
+    "bytes": 32220
+  },
+  {
+    "path": "examples/fonts/comparison/font114.ttf",
+    "bytes": 74960
+  },
+  {
+    "path": "examples/fonts/comparison/font115.ttf",
+    "bytes": 74012
+  },
+  {
+    "path": "examples/fonts/comparison/font116.ttf",
+    "bytes": 269108
+  },
+  {
+    "path": "examples/fonts/comparison/font117.ttf",
+    "bytes": 151080
+  },
+  {
+    "path": "examples/fonts/comparison/font118.ttf",
+    "bytes": 60364
+  },
+  {
+    "path": "examples/fonts/comparison/font119.ttf",
+    "bytes": 60648
+  },
+  {
+    "path": "examples/fonts/comparison/font120.ttf",
+    "bytes": 311780
+  },
+  {
+    "path": "examples/fonts/comparison/font121.ttf",
+    "bytes": 57392
+  },
+  {
+    "path": "examples/fonts/comparison/font122.ttf",
+    "bytes": 298928
+  },
+  {
+    "path": "examples/fonts/comparison/font123.ttf",
+    "bytes": 39924
+  },
+  {
+    "path": "examples/fonts/comparison/font124.ttf",
+    "bytes": 191916
+  },
+  {
+    "path": "examples/fonts/comparison/font125.ttf",
+    "bytes": 62216
+  },
+  {
+    "path": "examples/fonts/comparison/font126.ttf",
+    "bytes": 86964
+  },
+  {
+    "path": "examples/fonts/comparison/NOTICES.txt",
+    "bytes": 72195
+  },
+  {
+    "path": "examples/svg-tests/index.html",
+    "bytes": 3515
+  },
+  {
+    "path": "examples/svg-tests/S01-pixels.svg",
+    "bytes": 466
+  },
+  {
+    "path": "examples/svg-tests/S01-text.svg",
+    "bytes": 542
+  },
+  {
+    "path": "examples/svg-tests/S02-invalid.svg",
+    "bytes": 137
+  },
+  {
+    "path": "examples/svg-tests/S02-neighbor.svg",
+    "bytes": 205
+  },
+  {
+    "path": "examples/svg-tests/S02-structure.svg",
+    "bytes": 791
+  },
+  {
+    "path": "examples/svg-tests/s02.html",
+    "bytes": 3494
+  },
+  {
+    "path": "examples/svg-tests/S03-embedding.html",
+    "bytes": 3225
+  },
+  {
+    "path": "examples/svg-tests/s03.html",
+    "bytes": 1699
+  },
+  {
+    "path": "examples/svg-tests/S04-meet.svg",
+    "bytes": 10611
+  },
+  {
+    "path": "examples/svg-tests/S04-modes.svg",
+    "bytes": 2447
+  },
+  {
+    "path": "examples/svg-tests/S04-nested.svg",
+    "bytes": 2798
+  },
+  {
+    "path": "examples/svg-tests/S04-slice.svg",
+    "bytes": 10629
+  },
+  {
+    "path": "examples/svg-tests/s04.html",
+    "bytes": 35173
+  },
+  {
+    "path": "examples/svg-tests/S05-invalid.svg",
+    "bytes": 1586
+  },
+  {
+    "path": "examples/svg-tests/S05-percent.svg",
+    "bytes": 1369
+  },
+  {
+    "path": "examples/svg-tests/S05-units.svg",
+    "bytes": 2510
+  },
+  {
+    "path": "examples/svg-tests/s05.html",
+    "bytes": 8958
+  },
+  {
+    "path": "examples/svg-tests/S06-closure.svg",
+    "bytes": 1163
+  },
+  {
+    "path": "examples/svg-tests/S06-rounding.svg",
+    "bytes": 1007
+  },
+  {
+    "path": "examples/svg-tests/S06-shapes.svg",
+    "bytes": 1848
+  },
+  {
+    "path": "examples/svg-tests/s06.html",
+    "bytes": 7079
+  },
+  {
+    "path": "examples/svg-tests/S07-inheritance.svg",
+    "bytes": 1201
+  },
+  {
+    "path": "examples/svg-tests/S07-opacity.svg",
+    "bytes": 1203
+  },
+  {
+    "path": "examples/svg-tests/S07-paint.svg",
+    "bytes": 1158
+  },
+  {
+    "path": "examples/svg-tests/s07.html",
+    "bytes": 6611
+  },
+  {
+    "path": "examples/svg-tests/S08-closure.svg",
+    "bytes": 420
+  },
+  {
+    "path": "examples/svg-tests/S08-houses.svg",
+    "bytes": 845
+  },
+  {
+    "path": "examples/svg-tests/S08-subpaths.svg",
+    "bytes": 575
+  },
+  {
+    "path": "examples/svg-tests/s08.html",
+    "bytes": 4446
+  },
+  {
+    "path": "examples/svg-tests/S09-controls.svg",
+    "bytes": 1819
+  },
+  {
+    "path": "examples/svg-tests/S09-equivalence.svg",
+    "bytes": 406
+  },
+  {
+    "path": "examples/svg-tests/S09-special.svg",
+    "bytes": 745
+  },
+  {
+    "path": "examples/svg-tests/s09.html",
+    "bytes": 5811
+  },
+  {
+    "path": "examples/svg-tests/S10-flags.svg",
+    "bytes": 1055
+  },
+  {
+    "path": "examples/svg-tests/S10-rotation.svg",
+    "bytes": 446
+  },
+  {
+    "path": "examples/svg-tests/S10-special.svg",
+    "bytes": 514
+  },
+  {
+    "path": "examples/svg-tests/s10.html",
+    "bytes": 4716
+  },
+  {
+    "path": "examples/svg-tests/S11-donuts.svg",
+    "bytes": 655
+  },
+  {
+    "path": "examples/svg-tests/S11-length.svg",
+    "bytes": 733
+  },
+  {
+    "path": "examples/svg-tests/S11-winding.svg",
+    "bytes": 661
+  },
+  {
+    "path": "examples/svg-tests/s11.html",
+    "bytes": 4656
+  },
+  {
+    "path": "examples/svg-tests/S12-caps.svg",
+    "bytes": 598
+  },
+  {
+    "path": "examples/svg-tests/S12-dashes.svg",
+    "bytes": 951
+  },
+  {
+    "path": "examples/svg-tests/S12-degenerate.svg",
+    "bytes": 1022
+  },
+  {
+    "path": "examples/svg-tests/S12-joins.svg",
+    "bytes": 812
+  },
+  {
+    "path": "examples/svg-tests/s12.html",
+    "bytes": 6357
+  },
+  {
+    "path": "examples/svg-tests/S13-functions.svg",
+    "bytes": 1736
+  },
+  {
+    "path": "examples/svg-tests/S13-order.svg",
+    "bytes": 1553
+  },
+  {
+    "path": "examples/svg-tests/S13-origin.svg",
+    "bytes": 1627
+  },
+  {
+    "path": "examples/svg-tests/S13-stroke.svg",
+    "bytes": 1029
+  },
+  {
+    "path": "examples/svg-tests/s13.html",
+    "bytes": 9430
+  },
+  {
+    "path": "examples/svg-tests/S14-hints.svg",
+    "bytes": 1074
+  },
+  {
+    "path": "examples/svg-tests/S14-opacity.svg",
+    "bytes": 626
+  },
+  {
+    "path": "examples/svg-tests/S14-paint.svg",
+    "bytes": 606
+  },
+  {
+    "path": "examples/svg-tests/S14-visibility.svg",
+    "bytes": 1001
+  },
+  {
+    "path": "examples/svg-tests/s14.html",
+    "bytes": 6698
+  },
+  {
+    "path": "examples/svg-tests/S15-cascade.svg",
+    "bytes": 1038
+  },
+  {
+    "path": "examples/svg-tests/s15-s16.html",
+    "bytes": 10609
+  },
+  {
+    "path": "examples/svg-tests/S15-selectors.svg",
+    "bytes": 1245
+  },
+  {
+    "path": "examples/svg-tests/S15-variables.svg",
+    "bytes": 784
+  },
+  {
+    "path": "examples/svg-tests/s15.html",
+    "bytes": 7246
+  },
+  {
+    "path": "examples/svg-tests/S16-external.svg",
+    "bytes": 586
+  },
+  {
+    "path": "examples/svg-tests/S16-instances.svg",
+    "bytes": 792
+  },
+  {
+    "path": "examples/svg-tests/S16-library.svg",
+    "bytes": 130
+  },
+  {
+    "path": "examples/svg-tests/S16-symbols.svg",
+    "bytes": 731
+  },
+  {
+    "path": "examples/svg-tests/s16.html",
+    "bytes": 6224
+  },
+  {
+    "path": "examples/svg-tests/S17-colors.svg",
+    "bytes": 1312
+  },
+  {
+    "path": "examples/svg-tests/s17-s18.html",
+    "bytes": 10735
+  },
+  {
+    "path": "examples/svg-tests/S17-spread.svg",
+    "bytes": 944
+  },
+  {
+    "path": "examples/svg-tests/S17-units.svg",
+    "bytes": 1027
+  },
+  {
+    "path": "examples/svg-tests/s17.html",
+    "bytes": 6571
+  },
+  {
+    "path": "examples/svg-tests/S18-focus.svg",
+    "bytes": 825
+  },
+  {
+    "path": "examples/svg-tests/S18-spread.svg",
+    "bytes": 1096
+  },
+  {
+    "path": "examples/svg-tests/S18-units.svg",
+    "bytes": 929
+  },
+  {
+    "path": "examples/svg-tests/s18.html",
+    "bytes": 6101
+  },
+  {
+    "path": "examples/svg-tests/S19-nested.svg",
+    "bytes": 1189
+  },
+  {
+    "path": "examples/svg-tests/s19-s20.html",
+    "bytes": 11290
+  },
+  {
+    "path": "examples/svg-tests/S19-tiles.svg",
+    "bytes": 909
+  },
+  {
+    "path": "examples/svg-tests/S19-units.svg",
+    "bytes": 1020
+  },
+  {
+    "path": "examples/svg-tests/s19.html",
+    "bytes": 6523
+  },
+  {
+    "path": "examples/svg-tests/S20-arrows.svg",
+    "bytes": 995
+  },
+  {
+    "path": "examples/svg-tests/S20-context.svg",
+    "bytes": 1322
+  },
+  {
+    "path": "examples/svg-tests/S20-directions.svg",
+    "bytes": 988
+  },
+  {
+    "path": "examples/svg-tests/s20.html",
+    "bytes": 6652
+  },
+  {
+    "path": "examples/svg-tests/S21-fit.svg",
+    "bytes": 1022
+  },
+  {
+    "path": "examples/svg-tests/s21-s22.html",
+    "bytes": 10579
+  },
+  {
+    "path": "examples/svg-tests/S21-source.png",
+    "bytes": 242
+  },
+  {
+    "path": "examples/svg-tests/S21-source.svg",
+    "bytes": 414
+  },
+  {
+    "path": "examples/svg-tests/S21-transform.svg",
+    "bytes": 571
+  },
+  {
+    "path": "examples/svg-tests/S21-vector.svg",
+    "bytes": 478
+  },
+  {
+    "path": "examples/svg-tests/s21.html",
+    "bytes": 6213
+  },
+  {
+    "path": "examples/svg-tests/S22-nested.svg",
+    "bytes": 1033
+  },
+  {
+    "path": "examples/svg-tests/S22-shapes.svg",
+    "bytes": 1013
+  },
+  {
+    "path": "examples/svg-tests/S22-units.svg",
+    "bytes": 895
+  },
+  {
+    "path": "examples/svg-tests/s22.html",
+    "bytes": 7441
+  },
+  {
+    "path": "examples/svg-tests/S23-alpha.svg",
+    "bytes": 1091
+  },
+  {
+    "path": "examples/svg-tests/S23-nested.svg",
+    "bytes": 1329
+  },
+  {
+    "path": "examples/svg-tests/s23-s24.html",
+    "bytes": 19938
+  },
+  {
+    "path": "examples/svg-tests/S23-units.svg",
+    "bytes": 937
+  },
+  {
+    "path": "examples/svg-tests/s23.html",
+    "bytes": 7944
+  },
+  {
+    "path": "examples/svg-tests/S24-colors.svg",
+    "bytes": 3193
+  },
+  {
+    "path": "examples/svg-tests/S24-combined.svg",
+    "bytes": 1282
+  },
+  {
+    "path": "examples/svg-tests/S24-isolation.svg",
+    "bytes": 1323
+  },
+  {
+    "path": "examples/svg-tests/S24-modes.svg",
+    "bytes": 3181
+  },
+  {
+    "path": "examples/svg-tests/s24.html",
+    "bytes": 15069
+  },
+  {
+    "path": "examples/svg-tests/S25-baselines.svg",
+    "bytes": 428
+  },
+  {
+    "path": "examples/svg-tests/S25-fonts.svg",
+    "bytes": 400
+  },
+  {
+    "path": "examples/svg-tests/s25-s26.html",
+    "bytes": 838126
+  },
+  {
+    "path": "examples/svg-tests/S25-spacing.svg",
+    "bytes": 541
+  },
+  {
+    "path": "examples/svg-tests/S25-spans.svg",
+    "bytes": 630
+  },
+  {
+    "path": "examples/svg-tests/s25.html",
+    "bytes": 834323
+  },
+  {
+    "path": "examples/svg-tests/S26-length.svg",
+    "bytes": 541
+  },
+  {
+    "path": "examples/svg-tests/S26-paint.svg",
+    "bytes": 627
+  },
+  {
+    "path": "examples/svg-tests/S26-shaping.svg",
+    "bytes": 570
+  },
+  {
+    "path": "examples/svg-tests/S26-vertical.svg",
+    "bytes": 441
+  },
+  {
+    "path": "examples/svg-tests/s26.html",
+    "bytes": 834748
+  },
+  {
+    "path": "examples/svg-tests/S27-curves.svg",
+    "bytes": 702
+  },
+  {
+    "path": "examples/svg-tests/S27-lines-css-known-difference.svg",
+    "bytes": 480
+  },
+  {
+    "path": "examples/svg-tests/S27-lines.svg",
+    "bytes": 512
+  },
+  {
+    "path": "examples/svg-tests/S27-offsets.svg",
+    "bytes": 668
+  },
+  {
+    "path": "examples/svg-tests/S27-path-style.svg",
+    "bytes": 621
+  },
+  {
+    "path": "examples/svg-tests/s27-s28.html",
+    "bytes": 839384
+  },
+  {
+    "path": "examples/svg-tests/s27.html",
+    "bytes": 835556
+  },
+  {
+    "path": "examples/svg-tests/S28-path-clip.svg",
+    "bytes": 715
+  },
+  {
+    "path": "examples/svg-tests/S28-text-clip.svg",
+    "bytes": 508
+  },
+  {
+    "path": "examples/svg-tests/S28-text-mask.svg",
+    "bytes": 626
+  },
+  {
+    "path": "examples/svg-tests/S28-text-pattern.svg",
+    "bytes": 511
+  },
+  {
+    "path": "examples/svg-tests/s28.html",
+    "bytes": 835251
+  },
+  {
+    "path": "examples/svg-tests/S29-color-space.svg",
+    "bytes": 1998
+  },
+  {
+    "path": "examples/svg-tests/S29-filter-href-known-difference.svg",
+    "bytes": 791
+  },
+  {
+    "path": "examples/svg-tests/S29-graph.svg",
+    "bytes": 1961
+  },
+  {
+    "path": "examples/svg-tests/S29-regions.svg",
+    "bytes": 1183
+  },
+  {
+    "path": "examples/svg-tests/s29-s30.html",
+    "bytes": 849045
+  },
+  {
+    "path": "examples/svg-tests/S29-text-order.svg",
+    "bytes": 755
+  },
+  {
+    "path": "examples/svg-tests/s29.html",
+    "bytes": 839671
+  },
+  {
+    "path": "examples/svg-tests/S30-alpha.svg",
+    "bytes": 1245
+  },
+  {
+    "path": "examples/svg-tests/S30-image.svg",
+    "bytes": 1009
+  },
+  {
+    "path": "examples/svg-tests/S30-matrices.svg",
+    "bytes": 2480
+  },
+  {
+    "path": "examples/svg-tests/S30-transfer.svg",
+    "bytes": 2224
+  },
+  {
+    "path": "examples/svg-tests/s30.html",
+    "bytes": 840849
+  },
+  {
+    "path": "examples/svg-tests/S31-blur.svg",
+    "bytes": 1544
+  },
+  {
+    "path": "examples/svg-tests/S31-offset.svg",
+    "bytes": 1248
+  },
+  {
+    "path": "examples/svg-tests/S31-regions.svg",
+    "bytes": 1228
+  },
+  {
+    "path": "examples/svg-tests/s31-s32.html",
+    "bytes": 853500
+  },
+  {
+    "path": "examples/svg-tests/S31-shadow.svg",
+    "bytes": 1415
+  },
+  {
+    "path": "examples/svg-tests/s31.html",
+    "bytes": 839019
+  },
+  {
+    "path": "examples/svg-tests/S32-arithmetic.svg",
+    "bytes": 2515
+  },
+  {
+    "path": "examples/svg-tests/S32-blend.svg",
+    "bytes": 3500
+  },
+  {
+    "path": "examples/svg-tests/S32-composite.svg",
+    "bytes": 3468
+  },
+  {
+    "path": "examples/svg-tests/S32-merge.svg",
+    "bytes": 1655
+  },
+  {
+    "path": "examples/svg-tests/s32.html",
+    "bytes": 845898
+  },
+  {
+    "path": "examples/svg-tests/S33-convolve.svg",
+    "bytes": 1842
+  },
+  {
+    "path": "examples/svg-tests/S33-image.svg",
+    "bytes": 1918
+  },
+  {
+    "path": "examples/svg-tests/S33-morphology.svg",
+    "bytes": 1930
+  },
+  {
+    "path": "examples/svg-tests/s33-s34.html",
+    "bytes": 865743
+  },
+  {
+    "path": "examples/svg-tests/S33-tile.svg",
+    "bytes": 1752
+  },
+  {
+    "path": "examples/svg-tests/s33.html",
+    "bytes": 848081
+  },
+  {
+    "path": "examples/svg-tests/S34-channels.svg",
+    "bytes": 4707
+  },
+  {
+    "path": "examples/svg-tests/S34-displacement.svg",
+    "bytes": 5715
+  },
+  {
+    "path": "examples/svg-tests/S34-noise.svg",
+    "bytes": 1705
+  },
+  {
+    "path": "examples/svg-tests/S34-ramp.png",
+    "bytes": 4898
+  },
+  {
+    "path": "examples/svg-tests/S34-stitch.svg",
+    "bytes": 1456
+  },
+  {
+    "path": "examples/svg-tests/s34.html",
+    "bytes": 855783
+  },
+  {
+    "path": "examples/svg-tests/S35-combined.svg",
+    "bytes": 1375
+  },
+  {
+    "path": "examples/svg-tests/S35-diffuse.svg",
+    "bytes": 2134
+  },
+  {
+    "path": "examples/svg-tests/s35-s36.html",
+    "bytes": 851191
+  },
+  {
+    "path": "examples/svg-tests/S35-specular.svg",
+    "bytes": 2215
+  },
+  {
+    "path": "examples/svg-tests/S35-surface.svg",
+    "bytes": 2224
+  },
+  {
+    "path": "examples/svg-tests/s35.html",
+    "bytes": 842662
+  },
+  {
+    "path": "examples/svg-tests/S36-clip-mask.svg",
+    "bytes": 1516
+  },
+  {
+    "path": "examples/svg-tests/S36-events.svg",
+    "bytes": 1487
+  },
+  {
+    "path": "examples/svg-tests/S36-fill.svg",
+    "bytes": 1112
+  },
+  {
+    "path": "examples/svg-tests/S36-stroke.svg",
+    "bytes": 1217
+  },
+  {
+    "path": "examples/svg-tests/s36.html",
+    "bytes": 840494
+  },
+  {
+    "path": "examples/svg-tests/S37-capture.svg",
+    "bytes": 620
+  },
+  {
+    "path": "examples/svg-tests/S37-events.svg",
+    "bytes": 791
+  },
+  {
+    "path": "examples/svg-tests/S37-focus.svg",
+    "bytes": 1019
+  },
+  {
+    "path": "examples/svg-tests/s37-s38.html",
+    "bytes": 846203
+  },
+  {
+    "path": "examples/svg-tests/S37-states.svg",
+    "bytes": 974
+  },
+  {
+    "path": "examples/svg-tests/s37.html",
+    "bytes": 841576
+  },
+  {
+    "path": "examples/svg-tests/S38-geometry.svg",
+    "bytes": 667
+  },
+  {
+    "path": "examples/svg-tests/S38-paint.svg",
+    "bytes": 706
+  },
+  {
+    "path": "examples/svg-tests/S38-queries.svg",
+    "bytes": 956
+  },
+  {
+    "path": "examples/svg-tests/S38-resources.svg",
+    "bytes": 888
+  },
+  {
+    "path": "examples/svg-tests/s38.html",
+    "bytes": 841302
+  },
+  {
+    "path": "examples/svg-tests/S39-easing.svg",
+    "bytes": 1042
+  },
+  {
+    "path": "examples/svg-tests/S39-repeat.svg",
+    "bytes": 1255
+  },
+  {
+    "path": "examples/svg-tests/s39-s40.html",
+    "bytes": 845312
+  },
+  {
+    "path": "examples/svg-tests/S39-transforms.svg",
+    "bytes": 1518
+  },
+  {
+    "path": "examples/svg-tests/S39-values.svg",
+    "bytes": 1518
+  },
+  {
+    "path": "examples/svg-tests/s39.html",
+    "bytes": 841120
+  },
+  {
+    "path": "examples/svg-tests/S40-css.svg",
+    "bytes": 822
+  },
+  {
+    "path": "examples/svg-tests/S40-events.svg",
+    "bytes": 705
+  },
+  {
+    "path": "examples/svg-tests/S40-keypoints.svg",
+    "bytes": 573
+  },
+  {
+    "path": "examples/svg-tests/S40-motion.svg",
+    "bytes": 626
+  },
+  {
+    "path": "examples/svg-tests/s40.html",
+    "bytes": 837912
+  },
+  {
+    "path": "examples/svg-tests/S41-closures.svg",
+    "bytes": 808
+  },
+  {
+    "path": "examples/svg-tests/S41-create.svg",
+    "bytes": 943
+  },
+  {
+    "path": "examples/svg-tests/S41-remove.svg",
+    "bytes": 976
+  },
+  {
+    "path": "examples/svg-tests/S41-resource.svg",
+    "bytes": 860
+  },
+  {
+    "path": "examples/svg-tests/s41-s42.html",
+    "bytes": 842658
+  },
+  {
+    "path": "examples/svg-tests/s41.html",
+    "bytes": 838328
+  },
+  {
+    "path": "examples/svg-tests/S42-language.svg",
+    "bytes": 792
+  },
+  {
+    "path": "examples/svg-tests/S42-resources.svg",
+    "bytes": 819
+  },
+  {
+    "path": "examples/svg-tests/S42-view-left.svg",
+    "bytes": 829357
+  },
+  {
+    "path": "examples/svg-tests/S42-view-right.svg",
+    "bytes": 829357
+  },
+  {
+    "path": "examples/svg-tests/s42.html",
+    "bytes": 837832
+  },
+  {
+    "path": "examples/svg-tests/s43-content.html",
+    "bytes": 363127
+  },
+  {
+    "path": "examples/svg-tests/s43-s44-content.html",
+    "bytes": 449220
+  },
+  {
+    "path": "examples/svg-tests/s43-s44.html",
+    "bytes": 1518
+  },
+  {
+    "path": "examples/svg-tests/s43.html",
+    "bytes": 1486
+  },
+  {
+    "path": "examples/svg-tests/S44-10.svg",
+    "bytes": 848
+  },
+  {
+    "path": "examples/svg-tests/S44-100.svg",
+    "bytes": 7684
+  },
+  {
+    "path": "examples/svg-tests/S44-1000.svg",
+    "bytes": 74304
+  },
+  {
+    "path": "examples/svg-tests/s44-content.html",
+    "bytes": 445616
+  },
+  {
+    "path": "examples/svg-tests/S44-curves.svg",
+    "bytes": 2393
+  },
+  {
+    "path": "examples/svg-tests/s44.html",
+    "bytes": 1488
+  },
+  {
+    "path": "examples/svg-tests/S45-chart.svg",
+    "bytes": 2105
+  },
+  {
+    "path": "examples/svg-tests/S45-flower.svg",
+    "bytes": 1605
+  },
+  {
+    "path": "examples/svg-tests/S45-live.svg",
+    "bytes": 1509
+  },
+  {
+    "path": "examples/svg-tests/S45-symbols.svg",
+    "bytes": 1665
+  },
+  {
+    "path": "examples/svg-tests/s45.html",
+    "bytes": 842960
+  },
+  {
+    "path": "examples/svg-tests/supported-svg-stress-2.html",
+    "bytes": 6239
+  },
+  {
+    "path": "examples/svg-tests/supported-svg-stress-3.html",
+    "bytes": 7109
+  },
+  {
+    "path": "examples/svg-tests/supported-svg-stress.html",
+    "bytes": 5573
+  },
+  {
+    "path": "examples/SVGLab/AcceptanceSources.luau",
+    "bytes": 8078
+  },
+  {
+    "path": "examples/SVGLab/AnimationSources.luau",
+    "bytes": 10191
+  },
+  {
+    "path": "examples/SVGLab/ArcSources.luau",
+    "bytes": 2909
+  },
+  {
+    "path": "examples/SVGLab/BlendSources.luau",
+    "bytes": 35433
+  },
+  {
+    "path": "examples/SVGLab/ClipSources.luau",
+    "bytes": 29096
+  },
+  {
+    "path": "examples/SVGLab/CompositeFilterSources.luau",
+    "bytes": 12297
+  },
+  {
+    "path": "examples/SVGLab/CSSSources.luau",
+    "bytes": 4210
+  },
+  {
+    "path": "examples/SVGLab/CurveSources.luau",
+    "bytes": 3828
+  },
+  {
+    "path": "examples/SVGLab/DocumentSources.luau",
+    "bytes": 3846
+  },
+  {
+    "path": "examples/SVGLab/EmbeddedImageSources.luau",
+    "bytes": 28173
+  },
+  {
+    "path": "examples/SVGLab/Embedding.luau",
+    "bytes": 4203
+  },
+  {
+    "path": "examples/SVGLab/EmbeddingSource.luau",
+    "bytes": 3390
+  },
+  {
+    "path": "examples/SVGLab/FillSources.luau",
+    "bytes": 2952
+  },
+  {
+    "path": "examples/SVGLab/FilterColorSources.luau",
+    "bytes": 8082
+  },
+  {
+    "path": "examples/SVGLab/FilterGraphSources.luau",
+    "bytes": 7107
+  },
+  {
+    "path": "examples/SVGLab/FilterSources.luau",
+    "bytes": 14885
+  },
+  {
+    "path": "examples/SVGLab/Fixture.luau",
+    "bytes": 5065
+  },
+  {
+    "path": "examples/SVGLab/GradientSources.luau",
+    "bytes": 7647
+  },
+  {
+    "path": "examples/SVGLab/HitSources.luau",
+    "bytes": 7327
+  },
+  {
+    "path": "examples/SVGLab/HTMLIntegrationSource.luau",
+    "bytes": 4176
+  },
+  {
+    "path": "examples/SVGLab/ImageClipSources.luau",
+    "bytes": 31807
+  },
+  {
+    "path": "examples/SVGLab/init.luau",
+    "bytes": 9332
+  },
+  {
+    "path": "examples/SVGLab/Integration.luau",
+    "bytes": 4942
+  },
+  {
+    "path": "examples/SVGLab/IntegrationPerformanceSource.luau",
+    "bytes": 90285
+  },
+  {
+    "path": "examples/SVGLab/InteractionSources.luau",
+    "bytes": 4542
+  },
+  {
+    "path": "examples/SVGLab/Interactive.luau",
+    "bytes": 17220
+  },
+  {
+    "path": "examples/SVGLab/KernelFilterSources.luau",
+    "bytes": 9116
+  },
+  {
+    "path": "examples/SVGLab/KernelNoiseSources.luau",
+    "bytes": 23667
+  },
+  {
+    "path": "examples/SVGLab/LengthSources.luau",
+    "bytes": 6215
+  },
+  {
+    "path": "examples/SVGLab/LightingHitSources.luau",
+    "bytes": 16308
+  },
+  {
+    "path": "examples/SVGLab/LightingSources.luau",
+    "bytes": 9265
+  },
+  {
+    "path": "examples/SVGLab/LinearGradientSources.luau",
+    "bytes": 4127
+  },
+  {
+    "path": "examples/SVGLab/MarkerSources.luau",
+    "bytes": 4295
+  },
+  {
+    "path": "examples/SVGLab/MaskBlendSources.luau",
+    "bytes": 39530
+  },
+  {
+    "path": "examples/SVGLab/MaskSources.luau",
+    "bytes": 29561
+  },
+  {
+    "path": "examples/SVGLab/MotionSources.luau",
+    "bytes": 3911
+  },
+  {
+    "path": "examples/SVGLab/MutationSources.luau",
+    "bytes": 4373
+  },
+  {
+    "path": "examples/SVGLab/NoiseFilterSources.luau",
+    "bytes": 15281
+  },
+  {
+    "path": "examples/SVGLab/PaintSources.luau",
+    "bytes": 4393
+  },
+  {
+    "path": "examples/SVGLab/PathSources.luau",
+    "bytes": 2660
+  },
+  {
+    "path": "examples/SVGLab/PathTextSources.luau",
+    "bytes": 3716
+  },
+  {
+    "path": "examples/SVGLab/PatternMarkerSources.luau",
+    "bytes": 8237
+  },
+  {
+    "path": "examples/SVGLab/PatternSources.luau",
+    "bytes": 4108
+  },
+  {
+    "path": "examples/SVGLab/PerformanceSource.luau",
+    "bytes": 86666
+  },
+  {
+    "path": "examples/SVGLab/Pixels.luau",
+    "bytes": 4345
+  },
+  {
+    "path": "examples/SVGLab/RadialGradientSources.luau",
+    "bytes": 3705
+  },
+  {
+    "path": "examples/SVGLab/RenderingSources.luau",
+    "bytes": 4488
+  },
+  {
+    "path": "examples/SVGLab/RuntimeActions.luau",
+    "bytes": 4257
+  },
+  {
+    "path": "examples/SVGLab/RuntimeSources.luau",
+    "bytes": 8715
+  },
+  {
+    "path": "examples/SVGLab/ScriptDocumentSources.luau",
+    "bytes": 8333
+  },
+  {
+    "path": "examples/SVGLab/ScriptSources.luau",
+    "bytes": 4703
+  },
+  {
+    "path": "examples/SVGLab/ShapeSources.luau",
+    "bytes": 4726
+  },
+  {
+    "path": "examples/SVGLab/SpatialCompositeSources.luau",
+    "bytes": 18677
+  },
+  {
+    "path": "examples/SVGLab/SpatialFilterSources.luau",
+    "bytes": 6663
+  },
+  {
+    "path": "examples/SVGLab/StressSources.luau",
+    "bytes": 85389
+  },
+  {
+    "path": "examples/SVGLab/StrokeSources.luau",
+    "bytes": 4399
+  },
+  {
+    "path": "examples/SVGLab/Structure.luau",
+    "bytes": 2072
+  },
+  {
+    "path": "examples/SVGLab/StructureSources.luau",
+    "bytes": 1476
+  },
+  {
+    "path": "examples/SVGLab/StylesUseSources.luau",
+    "bytes": 7067
+  },
+  {
+    "path": "examples/SVGLab/Surface.luau",
+    "bytes": 1639
+  },
+  {
+    "path": "examples/SVGLab/TextPathResourceSources.luau",
+    "bytes": 6967
+  },
+  {
+    "path": "examples/SVGLab/TextResourceSources.luau",
+    "bytes": 3536
+  },
+  {
+    "path": "examples/SVGLab/TextSources.luau",
+    "bytes": 3064
+  },
+  {
+    "path": "examples/SVGLab/TextTypographySources.luau",
+    "bytes": 6322
+  },
+  {
+    "path": "examples/SVGLab/TimingSources.luau",
+    "bytes": 6484
+  },
+  {
+    "path": "examples/SVGLab/TransformSources.luau",
+    "bytes": 7051
+  },
+  {
+    "path": "examples/SVGLab/TypographySources.luau",
+    "bytes": 3443
+  },
+  {
+    "path": "examples/SVGLab/UseSources.luau",
+    "bytes": 3234
+  },
+  {
+    "path": "examples/SVGLab/ViewportPixels.luau",
+    "bytes": 2282
+  },
+  {
+    "path": "examples/SVGLab/Viewports.luau",
+    "bytes": 147
+  },
+  {
+    "path": "examples/SVGLab/ViewportSources.luau",
+    "bytes": 27310
+  },
+  {
+    "path": "examples/websites/hover-tests/index.html",
+    "bytes": 9518
+  },
+  {
+    "path": "examples/websites/hover-tests/styles.css",
+    "bytes": 4343
+  },
+  {
+    "path": "examples/websites/main/index.html",
+    "bytes": 10454
+  },
+  {
+    "path": "examples/websites/main/options.json",
+    "bytes": 83
+  },
+  {
+    "path": "examples/websites/main/styles.css",
+    "bytes": 19623
+  },
+  {
+    "path": "examples/websites/main/assets/courtyard.svg",
+    "bytes": 1790
+  },
+  {
+    "path": "examples/websites/main/assets/detail.svg",
+    "bytes": 1910
+  },
+  {
+    "path": "examples/websites/main/assets/house.svg",
+    "bytes": 3267
+  },
+  {
+    "path": "examples/websites/main/assets/interior.svg",
+    "bytes": 2666
+  },
+  {
+    "path": "examples/websites/test/index.html",
+    "bytes": 18115
+  },
+  {
+    "path": "examples/websites/test/options.json",
+    "bytes": 83
+  },
+  {
+    "path": "examples/websites/test/styles.css",
+    "bytes": 19623
+  },
+  {
+    "path": "examples/websites/test/assets/detail.svg",
+    "bytes": 1910
+  },
+  {
+    "path": "examples/websites/test/assets/house.svg",
+    "bytes": 3267
+  },
+  {
+    "path": "examples/websites/test/assets/interior.svg",
+    "bytes": 2666
+  },
+  {
+    "path": "tests/Animations.luau",
+    "bytes": 33990
+  },
+  {
+    "path": "tests/AspectRatio.luau",
+    "bytes": 6724
+  },
+  {
+    "path": "tests/Autofocus.luau",
+    "bytes": 5899
+  },
+  {
+    "path": "tests/AutoMargins.luau",
+    "bytes": 6090
+  },
+  {
+    "path": "tests/Backgrounds.luau",
+    "bytes": 13965
+  },
+  {
+    "path": "tests/Baseline.luau",
+    "bytes": 7700
+  },
+  {
+    "path": "tests/Border.luau",
+    "bytes": 7746
+  },
+  {
+    "path": "tests/BorderCorners.luau",
+    "bytes": 8704
+  },
+  {
+    "path": "tests/BorderSides.luau",
+    "bytes": 11506
+  },
+  {
+    "path": "tests/BoxShadow.luau",
+    "bytes": 7341
+  },
+  {
+    "path": "tests/BoxSizing.luau",
+    "bytes": 6148
+  },
+  {
+    "path": "tests/Canvas2D.luau",
+    "bytes": 26206
+  },
+  {
+    "path": "tests/CanvasBackground.luau",
+    "bytes": 1813
+  },
+  {
+    "path": "tests/Colors.luau",
+    "bytes": 7574
+  },
+  {
+    "path": "tests/ColumnFeatures.luau",
+    "bytes": 4953
+  },
+  {
+    "path": "tests/ColumnRuleInsets.luau",
+    "bytes": 4848
+  },
+  {
+    "path": "tests/Columns.luau",
+    "bytes": 8635
+  },
+  {
+    "path": "tests/CombinationLayout.luau",
+    "bytes": 3486
+  },
+  {
+    "path": "tests/CombinationPainting.luau",
+    "bytes": 6133
+  },
+  {
+    "path": "tests/CombinationPositioning.luau",
+    "bytes": 8604
+  },
+  {
+    "path": "tests/CombinationScrolling.luau",
+    "bytes": 3902
+  },
+  {
+    "path": "tests/CombinationStates.luau",
+    "bytes": 4874
+  },
+  {
+    "path": "tests/CooperativeLayout.luau",
+    "bytes": 5771
+  },
+  {
+    "path": "tests/Counters.luau",
+    "bytes": 2994
+  },
+  {
+    "path": "tests/CSSExpansion.luau",
+    "bytes": 24331
+  },
+  {
+    "path": "tests/CSSInitial.luau",
+    "bytes": 4626
+  },
+  {
+    "path": "tests/CSSLayoutAudit.luau",
+    "bytes": 5499
+  },
+  {
+    "path": "tests/CursorPreload.luau",
+    "bytes": 1681
+  },
+  {
+    "path": "tests/Cursors.luau",
+    "bytes": 11142
+  },
+  {
+    "path": "tests/CyclicImageSizing.luau",
+    "bytes": 2325
+  },
+  {
+    "path": "tests/DecorationStyles.luau",
+    "bytes": 10801
+  },
+  {
+    "path": "tests/DemoStatus.luau",
+    "bytes": 1573
+  },
+  {
+    "path": "tests/Details.luau",
+    "bytes": 10288
+  },
+  {
+    "path": "tests/Dialog.luau",
+    "bytes": 4880
+  },
+  {
+    "path": "tests/DirtyLayout.luau",
+    "bytes": 11372
+  },
+  {
+    "path": "tests/DisclosureIcons.luau",
+    "bytes": 3897
+  },
+  {
+    "path": "tests/DocumentInfo.luau",
+    "bytes": 2331
+  },
+  {
+    "path": "tests/Elements.luau",
+    "bytes": 15535
+  },
+  {
+    "path": "tests/EngineEntry.luau",
+    "bytes": 1340
+  },
+  {
+    "path": "tests/FeasibleVisuals.luau",
+    "bytes": 7841
+  },
+  {
+    "path": "tests/Fieldsets.luau",
+    "bytes": 6920
+  },
+  {
+    "path": "tests/FixedColumns.luau",
+    "bytes": 4367
+  },
+  {
+    "path": "tests/FlexBalance.luau",
+    "bytes": 4347
+  },
+  {
+    "path": "tests/FlexBaseline.luau",
+    "bytes": 4783
+  },
+  {
+    "path": "tests/FlexItemControls.luau",
+    "bytes": 6802
+  },
+  {
+    "path": "tests/FlexLayout.luau",
+    "bytes": 17203
+  },
+  {
+    "path": "tests/FlexWrap.luau",
+    "bytes": 8168
+  },
+  {
+    "path": "tests/FloatShapes.luau",
+    "bytes": 6469
+  },
+  {
+    "path": "tests/FontFeatures.luau",
+    "bytes": 2280
+  },
+  {
+    "path": "tests/FontProfiles.luau",
+    "bytes": 11667
+  },
+  {
+    "path": "tests/FontReport.luau",
+    "bytes": 1763
+  },
+  {
+    "path": "tests/FontStyle.luau",
+    "bytes": 5440
+  },
+  {
+    "path": "tests/FontWeight.luau",
+    "bytes": 7447
+  },
+  {
+    "path": "tests/Forms.luau",
+    "bytes": 39037
+  },
+  {
+    "path": "tests/Gauges.luau",
+    "bytes": 6995
+  },
+  {
+    "path": "tests/Grid.luau",
+    "bytes": 7852
+  },
+  {
+    "path": "tests/GuideEstimates.luau",
+    "bytes": 1436
+  },
+  {
+    "path": "tests/GuiFactory.luau",
+    "bytes": 4855
+  },
+  {
+    "path": "tests/HoverBorders.luau",
+    "bytes": 3435
+  },
+  {
+    "path": "tests/HoverFrameDebug.luau",
+    "bytes": 2841
+  },
+  {
+    "path": "tests/HoverTests.luau",
+    "bytes": 4357
+  },
+  {
+    "path": "tests/HoverTransitionGeometry.luau",
+    "bytes": 10123
+  },
+  {
+    "path": "tests/HTML.luau",
+    "bytes": 9574
+  },
+  {
+    "path": "tests/HTMLMasks.luau",
+    "bytes": 5670
+  },
+  {
+    "path": "tests/HTMLPageDemo.luau",
+    "bytes": 10369
+  },
+  {
+    "path": "tests/IFrames.luau",
+    "bytes": 5817
+  },
+  {
+    "path": "tests/ImageAlignment.luau",
+    "bytes": 7681
+  },
+  {
+    "path": "tests/ImageBlur.luau",
+    "bytes": 5560
+  },
+  {
+    "path": "tests/ImageDimensions.luau",
+    "bytes": 7582
+  },
+  {
+    "path": "tests/ImageDropShadow.luau",
+    "bytes": 4694
+  },
+  {
+    "path": "tests/ImageFilters.luau",
+    "bytes": 7025
+  },
+  {
+    "path": "tests/ImageFit.luau",
+    "bytes": 6688
+  },
+  {
+    "path": "tests/Images.luau",
+    "bytes": 12152
+  },
+  {
+    "path": "tests/ImageSources.luau",
+    "bytes": 2374
+  },
+  {
+    "path": "tests/InlineBoxes.luau",
+    "bytes": 2093
+  },
+  {
+    "path": "tests/InlineStyle.luau",
+    "bytes": 8458
+  },
+  {
+    "path": "tests/InsetShadows.luau",
+    "bytes": 7027
+  },
+  {
+    "path": "tests/LayoutJob.luau",
+    "bytes": 2376
+  },
+  {
+    "path": "tests/LetterSpacing.luau",
+    "bytes": 8649
+  },
+  {
+    "path": "tests/LineHeight.luau",
+    "bytes": 5342
+  },
+  {
+    "path": "tests/Links.luau",
+    "bytes": 1482
+  },
+  {
+    "path": "tests/Lists.luau",
+    "bytes": 8328
+  },
+  {
+    "path": "tests/LoadOptimizations.luau",
+    "bytes": 5944
+  },
+  {
+    "path": "tests/MarginCollapse.luau",
+    "bytes": 5780
+  },
+  {
+    "path": "tests/Media.luau",
+    "bytes": 5654
+  },
+  {
+    "path": "tests/MediaRuntime.luau",
+    "bytes": 13545
+  },
+  {
+    "path": "tests/MediumAdditions.luau",
+    "bytes": 14118
+  },
+  {
+    "path": "tests/Motion.luau",
+    "bytes": 6839
+  },
+  {
+    "path": "tests/Number.luau",
+    "bytes": 7874
+  },
+  {
+    "path": "tests/Optgroups.luau",
+    "bytes": 7428
+  },
+  {
+    "path": "tests/Outline.luau",
+    "bytes": 5255
+  },
+  {
+    "path": "tests/Overflow.luau",
+    "bytes": 6339
+  },
+  {
+    "path": "tests/OverflowWrap.luau",
+    "bytes": 6194
+  },
+  {
+    "path": "tests/PageLifecycle.luau",
+    "bytes": 34695
+  },
+  {
+    "path": "tests/Popover.luau",
+    "bytes": 4943
+  },
+  {
+    "path": "tests/Positioning.luau",
+    "bytes": 13528
+  },
+  {
+    "path": "tests/RadioDot.luau",
+    "bytes": 4067
+  },
+  {
+    "path": "tests/Range.luau",
+    "bytes": 8805
+  },
+  {
+    "path": "tests/RelativeLengths.luau",
+    "bytes": 8568
+  },
+  {
+    "path": "tests/RemainingLayout.luau",
+    "bytes": 14366
+  },
+  {
+    "path": "tests/RemainingVisuals.luau",
+    "bytes": 7523
+  },
+  {
+    "path": "tests/RenderingAudit.luau",
+    "bytes": 8344
+  },
+  {
+    "path": "tests/RenderingLifetimes.luau",
+    "bytes": 3514
+  },
+  {
+    "path": "tests/ResizableTestWindow.luau",
+    "bytes": 6783
+  },
+  {
+    "path": "tests/ResponsiveImages.luau",
+    "bytes": 2571
+  },
+  {
+    "path": "tests/ScrollFeatures.luau",
+    "bytes": 5830
+  },
+  {
+    "path": "tests/Scrolling.luau",
+    "bytes": 7220
+  },
+  {
+    "path": "tests/ScrollLifecycleAudit.luau",
+    "bytes": 2877
+  },
+  {
+    "path": "tests/Select.luau",
+    "bytes": 19069
+  },
+  {
+    "path": "tests/Selectors.luau",
+    "bytes": 4378
+  },
+  {
+    "path": "tests/SelectTypeAhead.luau",
+    "bytes": 2031
+  },
+  {
+    "path": "tests/SimpleAdditions.luau",
+    "bytes": 7189
+  },
+  {
+    "path": "tests/SimpleFeatures.luau",
+    "bytes": 4733
+  },
+  {
+    "path": "tests/SkipInk.luau",
+    "bytes": 8219
+  },
+  {
+    "path": "tests/SmallElements.luau",
+    "bytes": 9120
+  },
+  {
+    "path": "tests/Smoke.luau",
+    "bytes": 2673
+  },
+  {
+    "path": "tests/StressCatalog.luau",
+    "bytes": 8122
+  },
+  {
+    "path": "tests/StressLayoutFeatures.luau",
+    "bytes": 7540
+  },
+  {
+    "path": "tests/StudioWebsite.luau",
+    "bytes": 7078
+  },
+  {
+    "path": "tests/Stylesheet.luau",
+    "bytes": 22509
+  },
+  {
+    "path": "tests/SVGAcceptance.luau",
+    "bytes": 3883
+  },
+  {
+    "path": "tests/SVGAnimation.luau",
+    "bytes": 7556
+  },
+  {
+    "path": "tests/SVGArcs.luau",
+    "bytes": 3716
+  },
+  {
+    "path": "tests/SVGBenchmark.luau",
+    "bytes": 2508
+  },
+  {
+    "path": "tests/SVGCurves.luau",
+    "bytes": 3845
+  },
+  {
+    "path": "tests/SVGEmbedding.luau",
+    "bytes": 6025
+  },
+  {
+    "path": "tests/SVGEmbeddingController.luau",
+    "bytes": 3279
+  },
+  {
+    "path": "tests/SVGFill.luau",
+    "bytes": 5198
+  },
+  {
+    "path": "tests/SVGFilters.luau",
+    "bytes": 8290
+  },
+  {
+    "path": "tests/SVGGeometry.luau",
+    "bytes": 4014
+  },
+  {
+    "path": "tests/SVGGradients.luau",
+    "bytes": 7593
+  },
+  {
+    "path": "tests/SVGHTMLFilters.luau",
+    "bytes": 3073
+  },
+  {
+    "path": "tests/SVGHTMLIntegration.luau",
+    "bytes": 1749
+  },
+  {
+    "path": "tests/SVGImagesClips.luau",
+    "bytes": 7958
+  },
+  {
+    "path": "tests/SVGIntegration.luau",
+    "bytes": 9951
+  },
+  {
+    "path": "tests/SVGIntegrationController.luau",
+    "bytes": 3760
+  },
+  {
+    "path": "tests/SVGInteractiveHost.luau",
+    "bytes": 14033
+  },
+  {
+    "path": "tests/SVGKernelFilters.luau",
+    "bytes": 7264
+  },
+  {
+    "path": "tests/SVGLab.luau",
+    "bytes": 4140
+  },
+  {
+    "path": "tests/SVGLabController.luau",
+    "bytes": 5065
+  },
+  {
+    "path": "tests/SVGLength.luau",
+    "bytes": 4743
+  },
+  {
+    "path": "tests/SVGLightingHit.luau",
+    "bytes": 6699
+  },
+  {
+    "path": "tests/SVGMasksBlending.luau",
+    "bytes": 7536
+  },
+  {
+    "path": "tests/SVGPaint.luau",
+    "bytes": 4307
+  },
+  {
+    "path": "tests/SVGPath.luau",
+    "bytes": 3640
+  },
+  {
+    "path": "tests/SVGPatternsMarkers.luau",
+    "bytes": 10158
+  },
+  {
+    "path": "tests/SVGQueuePerformance.luau",
+    "bytes": 7187
+  },
+  {
+    "path": "tests/SVGRasterPerformance.luau",
+    "bytes": 9340
+  },
+  {
+    "path": "tests/SVGRendering.luau",
+    "bytes": 5270
+  },
+  {
+    "path": "tests/SVGRuntime.luau",
+    "bytes": 8114
+  },
+  {
+    "path": "tests/SVGRuntimePerformance.luau",
+    "bytes": 6654
+  },
+  {
+    "path": "tests/SVGScenePerformance.luau",
+    "bytes": 5057
+  },
+  {
+    "path": "tests/SVGScript.luau",
+    "bytes": 8878
+  },
+  {
+    "path": "tests/SVGScriptScenes.luau",
+    "bytes": 2504
+  },
+  {
+    "path": "tests/SVGShapeImages.luau",
+    "bytes": 2756
+  },
+  {
+    "path": "tests/SVGSpatialFilters.luau",
+    "bytes": 6377
+  },
+  {
+    "path": "tests/SVGStatus.luau",
+    "bytes": 1673
+  },
+  {
+    "path": "tests/SVGStroke.luau",
+    "bytes": 4639
+  },
+  {
+    "path": "tests/SVGStructure.luau",
+    "bytes": 5746
+  },
+  {
+    "path": "tests/SVGStylesAndUse.luau",
+    "bytes": 8384
+  },
+  {
+    "path": "tests/SVGText.luau",
+    "bytes": 5965
+  },
+  {
+    "path": "tests/SVGTextResources.luau",
+    "bytes": 5171
+  },
+  {
+    "path": "tests/SVGTransforms.luau",
+    "bytes": 5338
+  },
+  {
+    "path": "tests/SVGViewport.luau",
+    "bytes": 5421
+  },
+  {
+    "path": "tests/TableAdvanced.luau",
+    "bytes": 11154
+  },
+  {
+    "path": "tests/TableCollapse.luau",
+    "bytes": 7082
+  },
+  {
+    "path": "tests/TableExtras.luau",
+    "bytes": 8787
+  },
+  {
+    "path": "tests/TableFixed.luau",
+    "bytes": 6543
+  },
+  {
+    "path": "tests/Tables.luau",
+    "bytes": 6904
+  },
+  {
+    "path": "tests/TableSpans.luau",
+    "bytes": 7118
+  },
+  {
+    "path": "tests/TextAlign.luau",
+    "bytes": 6248
+  },
+  {
+    "path": "tests/TextareaResize.luau",
+    "bytes": 7762
+  },
+  {
+    "path": "tests/TextDecoration.luau",
+    "bytes": 18010
+  },
+  {
+    "path": "tests/TextIndent.luau",
+    "bytes": 4548
+  },
+  {
+    "path": "tests/TextMeasure.luau",
+    "bytes": 1634
+  },
+  {
+    "path": "tests/TextOverflow.luau",
+    "bytes": 5540
+  },
+  {
+    "path": "tests/TextSelection.luau",
+    "bytes": 4801
+  },
+  {
+    "path": "tests/TextShadows.luau",
+    "bytes": 5890
+  },
+  {
+    "path": "tests/TextTransform.luau",
+    "bytes": 4473
+  },
+  {
+    "path": "tests/TextValidation.luau",
+    "bytes": 6017
+  },
+  {
+    "path": "tests/ThreeDTransforms.luau",
+    "bytes": 12879
+  },
+  {
+    "path": "tests/Transforms.luau",
+    "bytes": 6062
+  },
+  {
+    "path": "tests/ValidationPopup.luau",
+    "bytes": 6167
+  },
+  {
+    "path": "tests/VerticalText.luau",
+    "bytes": 5459
+  },
+  {
+    "path": "tests/Visibility.luau",
+    "bytes": 8238
+  },
+  {
+    "path": "tests/VisualCompleteness.luau",
+    "bytes": 7993
+  },
+  {
+    "path": "tests/VisualEffects.luau",
+    "bytes": 2192
+  },
+  {
+    "path": "tests/Websites.luau",
+    "bytes": 10770
+  },
+  {
+    "path": "tests/WhiteSpace.luau",
+    "bytes": 12078
+  },
+  {
+    "path": "tests/WordFlow.luau",
+    "bytes": 1281
+  },
+  {
+    "path": "tests/WordSpacing.luau",
+    "bytes": 5382
+  },
+  {
+    "path": "tests/fixtures/columns-browser.json",
+    "bytes": 3266
+  },
+  {
+    "path": "tests/fixtures/columns-fixed-browser.json",
+    "bytes": 53853
+  },
+  {
+    "path": "tests/fixtures/float-browser.json",
+    "bytes": 2085
+  },
+  {
+    "path": "tests/fixtures/inline-fragments-browser.json",
+    "bytes": 597
+  },
+  {
+    "path": "tests/fixtures/object-view-box-source.png",
+    "bytes": 486
+  },
+  {
+    "path": "tests/fixtures/remaining-visuals-browser.json",
+    "bytes": 254
+  },
+  {
+    "path": "tests/fixtures/remaining-visuals.html",
+    "bytes": 1928
+  },
+  {
+    "path": "tests/fixtures/stress-sample.md",
+    "bytes": 462
+  },
+  {
+    "path": "tests/fixtures/stress-sample.svg",
+    "bytes": 737
+  },
+  {
+    "path": "tests/fixtures/vertical-upright-browser.json",
+    "bytes": 3925
+  },
+  {
+    "path": "tests/fixtures/website-regressions.json",
+    "bytes": 1100588
+  },
+  {
+    "path": "scripts/benchmark-svg.cjs",
+    "bytes": 4560
+  },
+  {
+    "path": "scripts/check-guide-model.cjs",
+    "bytes": 3012
+  },
+  {
+    "path": "scripts/check-project.cjs",
+    "bytes": 5442
+  },
+  {
+    "path": "scripts/export-engine-catalog.cjs",
+    "bytes": 3082
+  },
+  {
+    "path": "scripts/export-svg-font.py",
+    "bytes": 5445
+  },
+  {
+    "path": "scripts/run-html-tests.cjs",
+    "bytes": 57162
+  },
+  {
+    "path": "scripts/run-svg-tests.cjs",
+    "bytes": 27824
+  },
+  {
+    "path": "scripts/serve-websites.py",
+    "bytes": 2198
+  },
+  {
+    "path": "scripts/svg-acceptance-template.html.in",
+    "bytes": 5195
+  },
+  {
+    "path": "scripts/svg-animation-template.html.in",
+    "bytes": 5256
+  },
+  {
+    "path": "scripts/svg-integration-template.html.in",
+    "bytes": 1452
+  },
+  {
+    "path": "scripts/svg-runtime-template.html.in",
+    "bytes": 8189
+  },
+  {
+    "path": "scripts/svg-scripting-template.html.in",
+    "bytes": 5016
+  },
+  {
+    "path": "scripts/sync-svg-acceptance.py",
+    "bytes": 7723
+  },
+  {
+    "path": "scripts/sync-svg-animation.py",
+    "bytes": 7716
+  },
+  {
+    "path": "scripts/sync-svg-arcs.py",
+    "bytes": 3425
+  },
+  {
+    "path": "scripts/sync-svg-curves.py",
+    "bytes": 3381
+  },
+  {
+    "path": "scripts/sync-svg-embedding.py",
+    "bytes": 733
+  },
+  {
+    "path": "scripts/sync-svg-fill.py",
+    "bytes": 3451
+  },
+  {
+    "path": "scripts/sync-svg-filters.py",
+    "bytes": 12598
+  },
+  {
+    "path": "scripts/sync-svg-gradients.py",
+    "bytes": 4638
+  },
+  {
+    "path": "scripts/sync-svg-images-clips.py",
+    "bytes": 6295
+  },
+  {
+    "path": "scripts/sync-svg-integration.py",
+    "bytes": 6398
+  },
+  {
+    "path": "scripts/sync-svg-kernel-filters.py",
+    "bytes": 13242
+  },
+  {
+    "path": "scripts/sync-svg-lab.py",
+    "bytes": 6765
+  },
+  {
+    "path": "scripts/sync-svg-lengths.py",
+    "bytes": 3277
+  },
+  {
+    "path": "scripts/sync-svg-lighting-hit.py",
+    "bytes": 12871
+  },
+  {
+    "path": "scripts/sync-svg-masks-blending.py",
+    "bytes": 6665
+  },
+  {
+    "path": "scripts/sync-svg-paint.py",
+    "bytes": 3366
+  },
+  {
+    "path": "scripts/sync-svg-paths.py",
+    "bytes": 3340
+  },
+  {
+    "path": "scripts/sync-svg-patterns-markers.py",
+    "bytes": 4829
+  },
+  {
+    "path": "scripts/sync-svg-rendering.py",
+    "bytes": 3715
+  },
+  {
+    "path": "scripts/sync-svg-runtime.py",
+    "bytes": 6458
+  },
+  {
+    "path": "scripts/sync-svg-scripting.py",
+    "bytes": 8988
+  },
+  {
+    "path": "scripts/sync-svg-shapes.py",
+    "bytes": 3227
+  },
+  {
+    "path": "scripts/sync-svg-spatial-filters.py",
+    "bytes": 11739
+  },
+  {
+    "path": "scripts/sync-svg-stroke.py",
+    "bytes": 3533
+  },
+  {
+    "path": "scripts/sync-svg-structure.py",
+    "bytes": 3154
+  },
+  {
+    "path": "scripts/sync-svg-styles-use.py",
+    "bytes": 6513
+  },
+  {
+    "path": "scripts/sync-svg-text-resources.py",
+    "bytes": 11065
+  },
+  {
+    "path": "scripts/sync-svg-text.py",
+    "bytes": 9490
+  },
+  {
+    "path": "scripts/sync-svg-transform.py",
+    "bytes": 3608
+  },
+  {
+    "path": "scripts/sync-svg-viewports.py",
+    "bytes": 3318
+  },
+  {
+    "path": "scripts/sync-website.py",
+    "bytes": 5529
+  },
+  {
+    "path": "scripts/test-svg-acceptance-browser.cjs",
+    "bytes": 7010
+  },
+  {
+    "path": "scripts/test-svg-animation-browser.cjs",
+    "bytes": 6636
+  },
+  {
+    "path": "scripts/test-svg-integration-browser.cjs",
+    "bytes": 2018
+  },
+  {
+    "path": "scripts/test-svg-runtime-browser.cjs",
+    "bytes": 6748
+  },
+  {
+    "path": "scripts/test-svg-scripting-browser.cjs",
+    "bytes": 6769
+  },
+  {
+    "path": "scripts/test-sync-website.py",
+    "bytes": 4669
+  }
+]

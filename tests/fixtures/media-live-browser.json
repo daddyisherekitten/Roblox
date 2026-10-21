@@ -1,0 +1,1434 @@
+{
+  "target": {
+    "commit": "ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c",
+    "sha": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f"
+  },
+  "browser": "Chrome/154.0.8037.98",
+  "cases": [
+    {
+      "tag": "audio",
+      "name": "playing initial",
+      "action": "",
+      "immediate": {
+        "paused": false,
+        "time": 1.003957,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.055699,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "controls remove",
+      "action": "m.controls=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.057493,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": null,
+          "loop": null,
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": false,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.060125,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "controls restore",
+      "action": "m.controls=true",
+      "immediate": {
+        "paused": false,
+        "time": 1.060125,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.064066,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "loop add",
+      "action": "m.loop=true",
+      "immediate": {
+        "paused": false,
+        "time": 1.068367,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": "",
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": true,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.068367,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "loop remove",
+      "action": "m.loop=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.068367,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.068367,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "preload NONE",
+      "action": "m.preload=\"NONE\"",
+      "immediate": {
+        "paused": false,
+        "time": 1.068367,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": "NONE",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.092246,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "preload whitespace",
+      "action": "m.preload=\" none \"",
+      "immediate": {
+        "paused": false,
+        "time": 1.093359,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.140688,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "autoplay add",
+      "action": "m.autoplay=true",
+      "immediate": {
+        "paused": false,
+        "time": 1.14127,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": "",
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": true,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.192135,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "autoplay remove while playing",
+      "action": "m.autoplay=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.192989,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.241167,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "runtime muted preference",
+      "action": "m.muted=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.241893,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": false,
+        "paused": false,
+        "time": 1.535037,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "defaultMuted add",
+      "action": "m.defaultMuted=true",
+      "immediate": {
+        "paused": false,
+        "time": 1.535889,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": false,
+        "paused": false,
+        "time": 1.537649,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "defaultMuted remove",
+      "action": "m.defaultMuted=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.538484,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": false,
+        "time": 1.587395,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "same raw src write",
+      "action": "m.src=one",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": true,
+        "time": 0,
+        "volume": 0.4,
+        "rate": 1,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": [
+          {
+            "type": "abort",
+            "trusted": true
+          },
+          {
+            "type": "emptied",
+            "trusted": true
+          },
+          {
+            "type": "loadstart",
+            "trusted": true
+          },
+          {
+            "type": "loadedmetadata",
+            "trusted": true
+          },
+          {
+            "type": "canplay",
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "restore playback",
+      "action": "m.play();m.currentTime=1;m.playbackRate=1.5",
+      "immediate": {
+        "paused": false,
+        "time": 1,
+        "ready": 1
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": false,
+        "time": 1.036727,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": [
+          {
+            "type": "play",
+            "trusted": true
+          },
+          {
+            "type": "canplay",
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "remove src while playing",
+      "action": "m.removeAttribute(\"src\")",
+      "immediate": {
+        "paused": false,
+        "time": 1.037363,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": null
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": false,
+        "time": 1.037363,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "different raw src write",
+      "action": "m.src=two",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": "two"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": true,
+        "time": 0,
+        "volume": 0.4,
+        "rate": 1,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": [
+          {
+            "type": "abort",
+            "trusted": true
+          },
+          {
+            "type": "emptied",
+            "trusted": true
+          },
+          {
+            "type": "loadstart",
+            "trusted": true
+          },
+          {
+            "type": "loadedmetadata",
+            "trusted": true
+          },
+          {
+            "type": "canplay",
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "empty src",
+      "action": "m.setAttribute(\"src\",\"\")",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": ""
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": true,
+        "time": 0,
+        "volume": 0.4,
+        "rate": 1,
+        "ready": 0,
+        "network": 3,
+        "error": 4,
+        "events": [
+          {
+            "type": "abort",
+            "trusted": true
+          },
+          {
+            "type": "emptied",
+            "trusted": true
+          },
+          {
+            "type": "loadstart",
+            "trusted": true
+          },
+          {
+            "type": "error",
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "tag": "audio",
+      "name": "missing src",
+      "action": "m.removeAttribute(\"src\")",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": null
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": true,
+        "time": 0,
+        "volume": 0.4,
+        "rate": 1,
+        "ready": 0,
+        "network": 3,
+        "error": 4,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "playing initial",
+      "action": "",
+      "immediate": {
+        "paused": false,
+        "time": 1.000414,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.060125,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "controls remove",
+      "action": "m.controls=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.060125,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": null,
+          "loop": null,
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": false,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.060125,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "controls restore",
+      "action": "m.controls=true",
+      "immediate": {
+        "paused": false,
+        "time": 1.060125,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.060125,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "loop add",
+      "action": "m.loop=true",
+      "immediate": {
+        "paused": false,
+        "time": 1.060125,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": "",
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": true,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.060125,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "loop remove",
+      "action": "m.loop=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.060125,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": "none",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.060125,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "preload NONE",
+      "action": "m.preload=\"NONE\"",
+      "immediate": {
+        "paused": false,
+        "time": 1.06124,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": "NONE",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "none",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.089312,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "preload whitespace",
+      "action": "m.preload=\" none \"",
+      "immediate": {
+        "paused": false,
+        "time": 1.093071,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.139814,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "autoplay add",
+      "action": "m.autoplay=true",
+      "immediate": {
+        "paused": false,
+        "time": 1.142385,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": "",
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": true,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.187692,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "autoplay remove while playing",
+      "action": "m.autoplay=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.188459,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": true,
+        "paused": false,
+        "time": 1.236949,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "runtime muted preference",
+      "action": "m.muted=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.23795,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": false,
+        "paused": false,
+        "time": 1.459492,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "defaultMuted add",
+      "action": "m.defaultMuted=true",
+      "immediate": {
+        "paused": false,
+        "time": 1.460206,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": "",
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": true,
+        "muted": false,
+        "paused": false,
+        "time": 1.463508,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "defaultMuted remove",
+      "action": "m.defaultMuted=false",
+      "immediate": {
+        "paused": false,
+        "time": 1.464276,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": false,
+        "time": 1.510574,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "same raw src write",
+      "action": "m.src=one",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": true,
+        "time": 0,
+        "volume": 0.4,
+        "rate": 1,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": [
+          {
+            "type": "abort",
+            "trusted": true
+          },
+          {
+            "type": "emptied",
+            "trusted": true
+          },
+          {
+            "type": "loadstart",
+            "trusted": true
+          },
+          {
+            "type": "loadedmetadata",
+            "trusted": true
+          },
+          {
+            "type": "canplay",
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "tag": "video",
+      "name": "restore playback",
+      "action": "m.play();m.currentTime=1;m.playbackRate=1.5",
+      "immediate": {
+        "paused": false,
+        "time": 1,
+        "ready": 1
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": "one"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": false,
+        "time": 1.036877,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": [
+          {
+            "type": "play",
+            "trusted": true
+          },
+          {
+            "type": "canplay",
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "tag": "video",
+      "name": "remove src while playing",
+      "action": "m.removeAttribute(\"src\")",
+      "immediate": {
+        "paused": false,
+        "time": 1.037731,
+        "ready": 4
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": null
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": false,
+        "time": 1.037731,
+        "volume": 0.4,
+        "rate": 1.5,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": []
+      }
+    },
+    {
+      "tag": "video",
+      "name": "different raw src write",
+      "action": "m.src=two",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": "two"
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": true,
+        "time": 0,
+        "volume": 0.4,
+        "rate": 1,
+        "ready": 4,
+        "network": 1,
+        "error": null,
+        "events": [
+          {
+            "type": "abort",
+            "trusted": true
+          },
+          {
+            "type": "emptied",
+            "trusted": true
+          },
+          {
+            "type": "loadstart",
+            "trusted": true
+          },
+          {
+            "type": "loadedmetadata",
+            "trusted": true
+          },
+          {
+            "type": "canplay",
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "tag": "video",
+      "name": "empty src",
+      "action": "m.setAttribute(\"src\",\"\")",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": ""
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": true,
+        "time": 0,
+        "volume": 0.4,
+        "rate": 1,
+        "ready": 0,
+        "network": 3,
+        "error": 4,
+        "events": [
+          {
+            "type": "abort",
+            "trusted": true
+          },
+          {
+            "type": "emptied",
+            "trusted": true
+          },
+          {
+            "type": "loadstart",
+            "trusted": true
+          },
+          {
+            "type": "error",
+            "trusted": true
+          }
+        ]
+      }
+    },
+    {
+      "tag": "video",
+      "name": "missing src",
+      "action": "m.removeAttribute(\"src\")",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0
+      },
+      "value": {
+        "attrs": {
+          "controls": "",
+          "loop": null,
+          "preload": " none ",
+          "autoplay": null,
+          "muted": null,
+          "src": null
+        },
+        "controls": true,
+        "loop": false,
+        "preload": "metadata",
+        "autoplay": false,
+        "defaultMuted": false,
+        "muted": false,
+        "paused": true,
+        "time": 0,
+        "volume": 0.4,
+        "rate": 1,
+        "ready": 0,
+        "network": 3,
+        "error": 4,
+        "events": []
+      }
+    }
+  ],
+  "note": "Six-second silent PCM audio in audio/video elements; explicit CDP user gesture for initial play. Attributes/state/events only, no video pixels or Roblox backend oracle.",
+  "batches": [
+    {
+      "name": "same set then remove",
+      "action": "m.src=one;m.removeAttribute(\"src\")",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0,
+        "src": null
+      },
+      "value": {
+        "paused": true,
+        "time": 0,
+        "ready": 0,
+        "rate": 1,
+        "events": [
+          "abort",
+          "emptied"
+        ]
+      }
+    },
+    {
+      "name": "new set then remove",
+      "action": "m.src=two;m.removeAttribute(\"src\")",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0,
+        "src": null
+      },
+      "value": {
+        "paused": true,
+        "time": 0,
+        "ready": 0,
+        "rate": 1,
+        "events": [
+          "abort",
+          "emptied"
+        ]
+      }
+    },
+    {
+      "name": "set remove set",
+      "action": "m.src=two;m.removeAttribute(\"src\");m.src=one",
+      "immediate": {
+        "paused": true,
+        "time": 0,
+        "ready": 0,
+        "src": "one"
+      },
+      "value": {
+        "paused": true,
+        "time": 0,
+        "ready": 4,
+        "rate": 1,
+        "events": [
+          "emptied",
+          "loadstart",
+          "loadedmetadata",
+          "canplay"
+        ]
+      }
+    }
+  ]
+}

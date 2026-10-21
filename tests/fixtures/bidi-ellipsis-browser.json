@@ -1,0 +1,5267 @@
+{
+  "records": [
+    {
+      "source": "שלום 123456",
+      "direction": "ltr",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "ש",
+          "x": 81.078125,
+          "width": 9.765625,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "ל",
+          "x": 74.171875,
+          "width": 6.90625,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "ו",
+          "x": 69.703125,
+          "width": 4.46875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "ם",
+          "x": 61.578125,
+          "width": 8.125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": " ",
+          "x": 52.78125,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "1",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 7,
+          "text": "2",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "3",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "4",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "5",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "6",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "שלום 123456",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "שלום 123456",
+      "direction": "ltr",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "ש",
+          "x": 81.078125,
+          "width": 9.765625,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "ל",
+          "x": 74.171875,
+          "width": 6.90625,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "ו",
+          "x": 69.703125,
+          "width": 4.46875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "ם",
+          "x": 61.578125,
+          "width": 8.125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": " ",
+          "x": 52.78125,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "1",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 7,
+          "text": "2",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 8,
+          "text": "3",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 9,
+          "text": "4",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 10,
+          "text": "5",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "6",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "שלום 123456",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "שלום 123456",
+      "direction": "ltr",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "ש",
+          "x": 81.078125,
+          "width": 9.765625,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "ל",
+          "x": 74.171875,
+          "width": 6.90625,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "ו",
+          "x": 69.703125,
+          "width": 4.46875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "ם",
+          "x": 61.578125,
+          "width": 8.125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 20
+        },
+        {
+          "index": 5,
+          "text": " ",
+          "x": 52.78125,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "1",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 7,
+          "text": "2",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 8,
+          "text": "3",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 9,
+          "text": "4",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 10,
+          "text": "5",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 11,
+          "text": "6",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 7
+        }
+      ],
+      "copied": "שלום 123456",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "שלום 123456",
+      "direction": "rtl",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "ש",
+          "x": 10.234375,
+          "width": 9.765625,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 2,
+          "text": "ל",
+          "x": 3.328125,
+          "width": 6.90625,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "ו",
+          "x": -1.140625,
+          "width": 4.46875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "ם",
+          "x": -9.265625,
+          "width": 8.125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": " ",
+          "x": -18.0625,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "1",
+          "x": -70.84375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "2",
+          "x": -62.046875,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "3",
+          "x": -53.25,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "4",
+          "x": -44.453125,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "5",
+          "x": -35.65625,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "6",
+          "x": -26.859375,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "שלום 123456",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "שלום 123456",
+      "direction": "rtl",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "ש",
+          "x": 40.234375,
+          "width": 9.765625,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 2,
+          "text": "ל",
+          "x": 33.328125,
+          "width": 6.90625,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 7
+        },
+        {
+          "index": 3,
+          "text": "ו",
+          "x": 28.859375,
+          "width": 4.46875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 4
+        },
+        {
+          "index": 4,
+          "text": "ם",
+          "x": 20.734375,
+          "width": 8.125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 17
+        },
+        {
+          "index": 5,
+          "text": " ",
+          "x": 11.9375,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "1",
+          "x": -40.84375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "2",
+          "x": -32.046875,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "3",
+          "x": -23.25,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "4",
+          "x": -14.453125,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "5",
+          "x": -5.65625,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "6",
+          "x": 3.140625,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "שלום 123456",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "שלום 123456",
+      "direction": "rtl",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "ש",
+          "x": 70.234375,
+          "width": 9.765625,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 2,
+          "text": "ל",
+          "x": 63.328125,
+          "width": 6.90625,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 7
+        },
+        {
+          "index": 3,
+          "text": "ו",
+          "x": 58.859375,
+          "width": 4.46875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 4
+        },
+        {
+          "index": 4,
+          "text": "ם",
+          "x": 50.734375,
+          "width": 8.125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 17
+        },
+        {
+          "index": 5,
+          "text": " ",
+          "x": 41.9375,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "1",
+          "x": -10.84375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "2",
+          "x": -2.046875,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "3",
+          "x": 6.75,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "4",
+          "x": 15.546875,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 10,
+          "text": "5",
+          "x": 24.34375,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 11,
+          "text": "6",
+          "x": 33.140625,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 7
+        }
+      ],
+      "copied": "שלום 123456",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "123456 שלום",
+      "direction": "ltr",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "1",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "2",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "3",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "4",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "5",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "6",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": " ",
+          "x": 52.78125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "ש",
+          "x": 81.078125,
+          "width": 9.765625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "ל",
+          "x": 74.171875,
+          "width": 6.90625,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "ו",
+          "x": 69.703125,
+          "width": 4.46875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "ם",
+          "x": 61.578125,
+          "width": 8.125,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "123456 שלום",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "123456 שלום",
+      "direction": "ltr",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "1",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "2",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 3,
+          "text": "3",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 4,
+          "text": "4",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 5,
+          "text": "5",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "6",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": " ",
+          "x": 52.78125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "ש",
+          "x": 81.078125,
+          "width": 9.765625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "ל",
+          "x": 74.171875,
+          "width": 6.90625,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "ו",
+          "x": 69.703125,
+          "width": 4.46875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "ם",
+          "x": 61.578125,
+          "width": 8.125,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "123456 שלום",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "123456 שלום",
+      "direction": "ltr",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "1",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "2",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 3,
+          "text": "3",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 4,
+          "text": "4",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 5,
+          "text": "5",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 6,
+          "text": "6",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 7
+        },
+        {
+          "index": 7,
+          "text": " ",
+          "x": 52.78125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "ש",
+          "x": 81.078125,
+          "width": 9.765625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "ל",
+          "x": 74.171875,
+          "width": 6.90625,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "ו",
+          "x": 69.703125,
+          "width": 4.46875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "ם",
+          "x": 61.578125,
+          "width": 8.125,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 20
+        }
+      ],
+      "copied": "123456 שלום",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "123456 שלום",
+      "direction": "rtl",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "1",
+          "x": -32.78125,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "2",
+          "x": -23.984375,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "3",
+          "x": -15.1875,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "4",
+          "x": -6.390625,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "5",
+          "x": 2.40625,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "6",
+          "x": 11.203125,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 7
+        },
+        {
+          "index": 7,
+          "text": " ",
+          "x": -41.578125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "ש",
+          "x": -51.34375,
+          "width": 9.765625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "ל",
+          "x": -58.25,
+          "width": 6.90625,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "ו",
+          "x": -62.71875,
+          "width": 4.46875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "ם",
+          "x": -70.84375,
+          "width": 8.125,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "123456 שלום",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "123456 שלום",
+      "direction": "rtl",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "1",
+          "x": -2.78125,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "2",
+          "x": 6.015625,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "3",
+          "x": 14.8125,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 4,
+          "text": "4",
+          "x": 23.609375,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 5,
+          "text": "5",
+          "x": 32.40625,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 6,
+          "text": "6",
+          "x": 41.203125,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 7
+        },
+        {
+          "index": 7,
+          "text": " ",
+          "x": -11.578125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "ש",
+          "x": -21.34375,
+          "width": 9.765625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "ל",
+          "x": -28.25,
+          "width": 6.90625,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "ו",
+          "x": -32.71875,
+          "width": 4.46875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "ם",
+          "x": -40.84375,
+          "width": 8.125,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "123456 שלום",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "123456 שלום",
+      "direction": "rtl",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "1",
+          "x": 27.21875,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 5
+        },
+        {
+          "index": 2,
+          "text": "2",
+          "x": 36.015625,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 3,
+          "text": "3",
+          "x": 44.8125,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 4,
+          "text": "4",
+          "x": 53.609375,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 5,
+          "text": "5",
+          "x": 62.40625,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 6,
+          "text": "6",
+          "x": 71.203125,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 7
+        },
+        {
+          "index": 7,
+          "text": " ",
+          "x": 18.421875,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "ש",
+          "x": 8.65625,
+          "width": 9.765625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "ל",
+          "x": 1.75,
+          "width": 6.90625,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "ו",
+          "x": -2.71875,
+          "width": 4.46875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "ם",
+          "x": -10.84375,
+          "width": 8.125,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "123456 שלום",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCאבג123XYZ",
+      "direction": "ltr",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "א",
+          "x": 65.4375,
+          "width": 7.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "ב",
+          "x": 58.15625,
+          "width": 7.28125,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "ג",
+          "x": 52.78125,
+          "width": 5.375,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "1",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "2",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "3",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "X",
+          "x": 73.140625,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "Y",
+          "x": 81.9375,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 12,
+          "text": "Z",
+          "x": 90.734375,
+          "width": 8.796875,
+          "color": [
+            205,
+            145,
+            85
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "ABCאבג123XYZ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCאבג123XYZ",
+      "direction": "ltr",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 4,
+          "text": "א",
+          "x": 65.4375,
+          "width": 7.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "ב",
+          "x": 58.15625,
+          "width": 7.28125,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "ג",
+          "x": 52.78125,
+          "width": 5.375,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "1",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 5
+        },
+        {
+          "index": 8,
+          "text": "2",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "3",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "X",
+          "x": 73.140625,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "Y",
+          "x": 81.9375,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 12,
+          "text": "Z",
+          "x": 90.734375,
+          "width": 8.796875,
+          "color": [
+            205,
+            145,
+            85
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "ABCאבג123XYZ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCאבג123XYZ",
+      "direction": "ltr",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 4,
+          "text": "א",
+          "x": 65.4375,
+          "width": 7.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "ב",
+          "x": 58.15625,
+          "width": 7.28125,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 17
+        },
+        {
+          "index": 6,
+          "text": "ג",
+          "x": 52.78125,
+          "width": 5.375,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 5
+        },
+        {
+          "index": 7,
+          "text": "1",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 5
+        },
+        {
+          "index": 8,
+          "text": "2",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 9,
+          "text": "3",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 10,
+          "text": "X",
+          "x": 73.140625,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "Y",
+          "x": 81.9375,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 12,
+          "text": "Z",
+          "x": 90.734375,
+          "width": 8.796875,
+          "color": [
+            205,
+            145,
+            85
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "ABCאבג123XYZ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCאבג123XYZ",
+      "direction": "rtl",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": -6.390625,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 2.40625,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 11.203125,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 4,
+          "text": "א",
+          "x": -14.09375,
+          "width": 7.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "ב",
+          "x": -21.375,
+          "width": 7.28125,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "ג",
+          "x": -26.75,
+          "width": 5.375,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "1",
+          "x": -79.53125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "2",
+          "x": -70.734375,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "3",
+          "x": -61.9375,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "X",
+          "x": -53.140625,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "Y",
+          "x": -44.34375,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 12,
+          "text": "Z",
+          "x": -35.546875,
+          "width": 8.796875,
+          "color": [
+            205,
+            145,
+            85
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "ABCאבג123XYZ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCאבג123XYZ",
+      "direction": "rtl",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": 23.609375,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 32.40625,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 12
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 41.203125,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 4,
+          "text": "א",
+          "x": 15.90625,
+          "width": 7.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 4
+        },
+        {
+          "index": 5,
+          "text": "ב",
+          "x": 8.625,
+          "width": 7.28125,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "ג",
+          "x": 3.25,
+          "width": 5.375,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "1",
+          "x": -49.53125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "2",
+          "x": -40.734375,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "3",
+          "x": -31.9375,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "X",
+          "x": -23.140625,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "Y",
+          "x": -14.34375,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 12,
+          "text": "Z",
+          "x": -5.546875,
+          "width": 8.796875,
+          "color": [
+            205,
+            145,
+            85
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "ABCאבג123XYZ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCאבג123XYZ",
+      "direction": "rtl",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": 53.609375,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 62.40625,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 12
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 71.203125,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 4,
+          "text": "א",
+          "x": 45.90625,
+          "width": 7.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 4
+        },
+        {
+          "index": 5,
+          "text": "ב",
+          "x": 38.625,
+          "width": 7.28125,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 18
+        },
+        {
+          "index": 6,
+          "text": "ג",
+          "x": 33.25,
+          "width": 5.375,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 4
+        },
+        {
+          "index": 7,
+          "text": "1",
+          "x": -19.53125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "2",
+          "x": -10.734375,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "3",
+          "x": -1.9375,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "X",
+          "x": 6.859375,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 11,
+          "text": "Y",
+          "x": 15.65625,
+          "width": 8.796875,
+          "color": [
+            150,
+            145,
+            140
+          ],
+          "solidPaintPixels": 1
+        },
+        {
+          "index": 12,
+          "text": "Z",
+          "x": 24.453125,
+          "width": 8.796875,
+          "color": [
+            205,
+            145,
+            85
+          ],
+          "solidPaintPixels": 11
+        }
+      ],
+      "copied": "ABCאבג123XYZ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "אבגדהוזחט",
+      "direction": "ltr",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "א",
+          "x": 51.1875,
+          "width": 7.703125,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "ב",
+          "x": 43.90625,
+          "width": 7.28125,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "ג",
+          "x": 38.53125,
+          "width": 5.375,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "ד",
+          "x": 31.828125,
+          "width": 6.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "ה",
+          "x": 24.28125,
+          "width": 7.546875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "ו",
+          "x": 19.8125,
+          "width": 4.46875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "ז",
+          "x": 15.234375,
+          "width": 4.578125,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "ח",
+          "x": 7.609375,
+          "width": 7.625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "ט",
+          "x": 0,
+          "width": 7.609375,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 12
+        }
+      ],
+      "copied": "אבגדהוזחט",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "אבגדהוזחט",
+      "direction": "ltr",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "א",
+          "x": 51.1875,
+          "width": 7.703125,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "ב",
+          "x": 43.90625,
+          "width": 7.28125,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "ג",
+          "x": 38.53125,
+          "width": 5.375,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "ד",
+          "x": 31.828125,
+          "width": 6.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 5,
+          "text": "ה",
+          "x": 24.28125,
+          "width": 7.546875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 6,
+          "text": "ו",
+          "x": 19.8125,
+          "width": 4.46875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 4
+        },
+        {
+          "index": 7,
+          "text": "ז",
+          "x": 15.234375,
+          "width": 4.578125,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 3
+        },
+        {
+          "index": 8,
+          "text": "ח",
+          "x": 7.609375,
+          "width": 7.625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 9,
+          "text": "ט",
+          "x": 0,
+          "width": 7.609375,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 12
+        }
+      ],
+      "copied": "אבגדהוזחט",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "אבגדהוזחט",
+      "direction": "ltr",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "א",
+          "x": 51.1875,
+          "width": 7.703125,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 3
+        },
+        {
+          "index": 2,
+          "text": "ב",
+          "x": 43.90625,
+          "width": 7.28125,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 16
+        },
+        {
+          "index": 3,
+          "text": "ג",
+          "x": 38.53125,
+          "width": 5.375,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 5
+        },
+        {
+          "index": 4,
+          "text": "ד",
+          "x": 31.828125,
+          "width": 6.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 5,
+          "text": "ה",
+          "x": 24.28125,
+          "width": 7.546875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 6,
+          "text": "ו",
+          "x": 19.8125,
+          "width": 4.46875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 4
+        },
+        {
+          "index": 7,
+          "text": "ז",
+          "x": 15.234375,
+          "width": 4.578125,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 3
+        },
+        {
+          "index": 8,
+          "text": "ח",
+          "x": 7.609375,
+          "width": 7.625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 9,
+          "text": "ט",
+          "x": 0,
+          "width": 7.609375,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 12
+        }
+      ],
+      "copied": "אבגדהוזחט",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "אבגדהוזחט",
+      "direction": "rtl",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "א",
+          "x": 12.296875,
+          "width": 7.703125,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 3
+        },
+        {
+          "index": 2,
+          "text": "ב",
+          "x": 5.015625,
+          "width": 7.28125,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "ג",
+          "x": -0.359375,
+          "width": 5.375,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "ד",
+          "x": -7.0625,
+          "width": 6.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "ה",
+          "x": -14.609375,
+          "width": 7.546875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "ו",
+          "x": -19.078125,
+          "width": 4.46875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "ז",
+          "x": -23.65625,
+          "width": 4.578125,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "ח",
+          "x": -31.28125,
+          "width": 7.625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "ט",
+          "x": -38.890625,
+          "width": 7.609375,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "אבגדהוזחט",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "אבגדהוזחט",
+      "direction": "rtl",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "א",
+          "x": 42.296875,
+          "width": 7.703125,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 3
+        },
+        {
+          "index": 2,
+          "text": "ב",
+          "x": 35.015625,
+          "width": 7.28125,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 16
+        },
+        {
+          "index": 3,
+          "text": "ג",
+          "x": 29.640625,
+          "width": 5.375,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 5
+        },
+        {
+          "index": 4,
+          "text": "ד",
+          "x": 22.9375,
+          "width": 6.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 5,
+          "text": "ה",
+          "x": 15.390625,
+          "width": 7.546875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 6,
+          "text": "ו",
+          "x": 10.921875,
+          "width": 4.46875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 3
+        },
+        {
+          "index": 7,
+          "text": "ז",
+          "x": 6.34375,
+          "width": 4.578125,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "ח",
+          "x": -1.28125,
+          "width": 7.625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "ט",
+          "x": -8.890625,
+          "width": 7.609375,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "אבגדהוזחט",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "אבגדהוזחט",
+      "direction": "rtl",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "א",
+          "x": 72.296875,
+          "width": 7.703125,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 3
+        },
+        {
+          "index": 2,
+          "text": "ב",
+          "x": 65.015625,
+          "width": 7.28125,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 16
+        },
+        {
+          "index": 3,
+          "text": "ג",
+          "x": 59.640625,
+          "width": 5.375,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 5
+        },
+        {
+          "index": 4,
+          "text": "ד",
+          "x": 52.9375,
+          "width": 6.703125,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 5,
+          "text": "ה",
+          "x": 45.390625,
+          "width": 7.546875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 6,
+          "text": "ו",
+          "x": 40.921875,
+          "width": 4.46875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 3
+        },
+        {
+          "index": 7,
+          "text": "ז",
+          "x": 36.34375,
+          "width": 4.578125,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 3
+        },
+        {
+          "index": 8,
+          "text": "ח",
+          "x": 28.71875,
+          "width": 7.625,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 9,
+          "text": "ט",
+          "x": 21.109375,
+          "width": 7.609375,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 12
+        }
+      ],
+      "copied": "אבגדהוזחט",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCDEFGHIJ",
+      "direction": "ltr",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "D",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "E",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "F",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "G",
+          "x": 52.78125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "H",
+          "x": 61.578125,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "I",
+          "x": 70.375,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "J",
+          "x": 79.171875,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "ABCDEFGHIJ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCDEFGHIJ",
+      "direction": "ltr",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 4,
+          "text": "D",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 5,
+          "text": "E",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "F",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "G",
+          "x": 52.78125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "H",
+          "x": 61.578125,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "I",
+          "x": 70.375,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "J",
+          "x": 79.171875,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "ABCDEFGHIJ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCDEFGHIJ",
+      "direction": "ltr",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": 0,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 8.796875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 11
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 17.59375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 4,
+          "text": "D",
+          "x": 26.390625,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 5,
+          "text": "E",
+          "x": 35.1875,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 12
+        },
+        {
+          "index": 6,
+          "text": "F",
+          "x": 43.984375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 7,
+          "text": "G",
+          "x": 52.78125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 8,
+          "text": "H",
+          "x": 61.578125,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 9,
+          "text": "I",
+          "x": 70.375,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "J",
+          "x": 79.171875,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 0
+        }
+      ],
+      "copied": "ABCDEFGHIJ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCDEFGHIJ",
+      "direction": "rtl",
+      "width": 20,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": -67.96875,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": -59.171875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": -50.375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "D",
+          "x": -41.578125,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "E",
+          "x": -32.78125,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "F",
+          "x": -23.984375,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "G",
+          "x": -15.1875,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 8,
+          "text": "H",
+          "x": -6.390625,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 9,
+          "text": "I",
+          "x": 2.40625,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 10,
+          "text": "J",
+          "x": 11.203125,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 5
+        }
+      ],
+      "copied": "ABCDEFGHIJ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCDEFGHIJ",
+      "direction": "rtl",
+      "width": 50,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": -37.96875,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": -29.171875,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": -20.375,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 4,
+          "text": "D",
+          "x": -11.578125,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 5,
+          "text": "E",
+          "x": -2.78125,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 6,
+          "text": "F",
+          "x": 6.015625,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 7,
+          "text": "G",
+          "x": 14.8125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 8,
+          "text": "H",
+          "x": 23.609375,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 9,
+          "text": "I",
+          "x": 32.40625,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 10,
+          "text": "J",
+          "x": 41.203125,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 5
+        }
+      ],
+      "copied": "ABCDEFGHIJ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    },
+    {
+      "source": "ABCDEFGHIJ",
+      "direction": "rtl",
+      "width": 80,
+      "chars": [
+        {
+          "index": 1,
+          "text": "A",
+          "x": -7.96875,
+          "width": 8.796875,
+          "color": [
+            40,
+            35,
+            30
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 2,
+          "text": "B",
+          "x": 0.828125,
+          "width": 8.796875,
+          "color": [
+            95,
+            35,
+            195
+          ],
+          "solidPaintPixels": 0
+        },
+        {
+          "index": 3,
+          "text": "C",
+          "x": 9.625,
+          "width": 8.796875,
+          "color": [
+            150,
+            35,
+            140
+          ],
+          "solidPaintPixels": 7
+        },
+        {
+          "index": 4,
+          "text": "D",
+          "x": 18.421875,
+          "width": 8.796875,
+          "color": [
+            205,
+            35,
+            85
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 5,
+          "text": "E",
+          "x": 27.21875,
+          "width": 8.796875,
+          "color": [
+            40,
+            90,
+            30
+          ],
+          "solidPaintPixels": 12
+        },
+        {
+          "index": 6,
+          "text": "F",
+          "x": 36.015625,
+          "width": 8.796875,
+          "color": [
+            95,
+            90,
+            195
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 7,
+          "text": "G",
+          "x": 44.8125,
+          "width": 8.796875,
+          "color": [
+            150,
+            90,
+            140
+          ],
+          "solidPaintPixels": 9
+        },
+        {
+          "index": 8,
+          "text": "H",
+          "x": 53.609375,
+          "width": 8.796875,
+          "color": [
+            205,
+            90,
+            85
+          ],
+          "solidPaintPixels": 6
+        },
+        {
+          "index": 9,
+          "text": "I",
+          "x": 62.40625,
+          "width": 8.796875,
+          "color": [
+            40,
+            145,
+            30
+          ],
+          "solidPaintPixels": 8
+        },
+        {
+          "index": 10,
+          "text": "J",
+          "x": 71.203125,
+          "width": 8.796875,
+          "color": [
+            95,
+            145,
+            195
+          ],
+          "solidPaintPixels": 5
+        }
+      ],
+      "copied": "ABCDEFGHIJ",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 80,
+        "height": 24
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+    }
+  ],
+  "measurements": {
+    "שלום 123456": {
+      "0": 8.796875,
+      "1": 8.796875,
+      "2": 8.796875,
+      "3": 8.796875,
+      "4": 8.796875,
+      "5": 8.796875,
+      "6": 8.796875,
+      "12": 17.59375,
+      "23": 17.59375,
+      "34": 17.59375,
+      "45": 17.59375,
+      "56": 17.59375,
+      "123": 26.390625,
+      "234": 26.390625,
+      "345": 26.390625,
+      "456": 26.390625,
+      "1234": 35.1875,
+      "2345": 35.1875,
+      "3456": 35.1875,
+      "12345": 43.984375,
+      "23456": 43.984375,
+      "123456": 52.78125,
+      "": 0,
+      "‭‬": 0,
+      "‮‬": 0,
+      " ": 8.796875,
+      "‭ ‬": 8.796875,
+      "‮ ‬": 8.796875,
+      "‭0‬": 8.796875,
+      "‮0‬": 8.796875,
+      "…": 8.796875,
+      "‭…‬": 8.796875,
+      "‮…‬": 8.796875,
+      "ש": 9.765625,
+      "‭ש‬": 9.765625,
+      "‮ש‬": 9.765625,
+      "של": 16.671875,
+      "‭של‬": 16.671875,
+      "‮של‬": 16.671875,
+      "שלו": 21.140625,
+      "‭שלו‬": 21.140625,
+      "‮שלו‬": 21.140625,
+      "שלום": 29.25,
+      "‭שלום‬": 29.25,
+      "‮שלום‬": 29.25,
+      "שלום ": 38.046875,
+      "‭שלום ‬": 38.046875,
+      "‮שלום ‬": 38.046875,
+      "שלום 1": 46.84375,
+      "‭שלום 1‬": 46.84375,
+      "‮שלום 1‬": 46.84375,
+      "שלום 12": 55.640625,
+      "‭שלום 12‬": 55.640625,
+      "‮שלום 12‬": 55.640625,
+      "שלום 123": 64.4375,
+      "‭שלום 123‬": 64.4375,
+      "‮שלום 123‬": 64.4375,
+      "שלום 1234": 73.234375,
+      "‭שלום 1234‬": 73.234375,
+      "‮שלום 1234‬": 73.234375,
+      "שלום 12345": 82.03125,
+      "‭שלום 12345‬": 82.03125,
+      "‮שלום 12345‬": 82.03125,
+      "שלום 123456": 90.828125,
+      "‭שלום 123456‬": 90.828125,
+      "‮שלום 123456‬": 90.828125,
+      "ל": 6.90625,
+      "‭ל‬": 6.90625,
+      "‮ל‬": 6.90625,
+      "לו": 11.375,
+      "‭לו‬": 11.375,
+      "‮לו‬": 11.375,
+      "לום": 19.484375,
+      "‭לום‬": 19.484375,
+      "‮לום‬": 19.484375,
+      "לום ": 28.28125,
+      "‭לום ‬": 28.28125,
+      "‮לום ‬": 28.28125,
+      "לום 1": 37.078125,
+      "‭לום 1‬": 37.078125,
+      "‮לום 1‬": 37.078125,
+      "לום 12": 45.875,
+      "‭לום 12‬": 45.875,
+      "‮לום 12‬": 45.875,
+      "לום 123": 54.671875,
+      "‭לום 123‬": 54.671875,
+      "‮לום 123‬": 54.671875,
+      "לום 1234": 63.46875,
+      "‭לום 1234‬": 63.46875,
+      "‮לום 1234‬": 63.46875,
+      "לום 12345": 72.265625,
+      "‭לום 12345‬": 72.265625,
+      "‮לום 12345‬": 72.265625,
+      "לום 123456": 81.0625,
+      "‭לום 123456‬": 81.0625,
+      "‮לום 123456‬": 81.0625,
+      "ו": 4.46875,
+      "‭ו‬": 4.46875,
+      "‮ו‬": 4.46875,
+      "ום": 12.578125,
+      "‭ום‬": 12.578125,
+      "‮ום‬": 12.578125,
+      "ום ": 21.375,
+      "‭ום ‬": 21.375,
+      "‮ום ‬": 21.375,
+      "ום 1": 30.171875,
+      "‭ום 1‬": 30.171875,
+      "‮ום 1‬": 30.171875,
+      "ום 12": 38.96875,
+      "‭ום 12‬": 38.96875,
+      "‮ום 12‬": 38.96875,
+      "ום 123": 47.765625,
+      "‭ום 123‬": 47.765625,
+      "‮ום 123‬": 47.765625,
+      "ום 1234": 56.5625,
+      "‭ום 1234‬": 56.5625,
+      "‮ום 1234‬": 56.5625,
+      "ום 12345": 65.359375,
+      "‭ום 12345‬": 65.359375,
+      "‮ום 12345‬": 65.359375,
+      "ום 123456": 74.15625,
+      "‭ום 123456‬": 74.15625,
+      "‮ום 123456‬": 74.15625,
+      "ם": 8.125,
+      "‭ם‬": 8.125,
+      "‮ם‬": 8.125,
+      "ם ": 16.921875,
+      "‭ם ‬": 16.921875,
+      "‮ם ‬": 16.921875,
+      "ם 1": 25.71875,
+      "‭ם 1‬": 25.71875,
+      "‮ם 1‬": 25.71875,
+      "ם 12": 34.515625,
+      "‭ם 12‬": 34.515625,
+      "‮ם 12‬": 34.515625,
+      "ם 123": 43.3125,
+      "‭ם 123‬": 43.3125,
+      "‮ם 123‬": 43.3125,
+      "ם 1234": 52.109375,
+      "‭ם 1234‬": 52.109375,
+      "‮ם 1234‬": 52.109375,
+      "ם 12345": 60.90625,
+      "‭ם 12345‬": 60.90625,
+      "‮ם 12345‬": 60.90625,
+      "ם 123456": 69.703125,
+      "‭ם 123456‬": 69.703125,
+      "‮ם 123456‬": 69.703125,
+      " 1": 17.59375,
+      "‭ 1‬": 17.59375,
+      "‮ 1‬": 17.59375,
+      " 12": 26.390625,
+      "‭ 12‬": 26.390625,
+      "‮ 12‬": 26.390625,
+      " 123": 35.1875,
+      "‭ 123‬": 35.1875,
+      "‮ 123‬": 35.1875,
+      " 1234": 43.984375,
+      "‭ 1234‬": 43.984375,
+      "‮ 1234‬": 43.984375,
+      " 12345": 52.78125,
+      "‭ 12345‬": 52.78125,
+      "‮ 12345‬": 52.78125,
+      " 123456": 61.578125,
+      "‭ 123456‬": 61.578125,
+      "‮ 123456‬": 61.578125,
+      "‭1‬": 8.796875,
+      "‮1‬": 8.796875,
+      "‭12‬": 17.59375,
+      "‮12‬": 17.59375,
+      "‭123‬": 26.390625,
+      "‮123‬": 26.390625,
+      "‭1234‬": 35.1875,
+      "‮1234‬": 35.1875,
+      "‭12345‬": 43.984375,
+      "‮12345‬": 43.984375,
+      "‭123456‬": 52.78125,
+      "‮123456‬": 52.78125,
+      "‭2‬": 8.796875,
+      "‮2‬": 8.796875,
+      "‭23‬": 17.59375,
+      "‮23‬": 17.59375,
+      "‭234‬": 26.390625,
+      "‮234‬": 26.390625,
+      "‭2345‬": 35.1875,
+      "‮2345‬": 35.1875,
+      "‭23456‬": 43.984375,
+      "‮23456‬": 43.984375,
+      "‭3‬": 8.796875,
+      "‮3‬": 8.796875,
+      "‭34‬": 17.59375,
+      "‮34‬": 17.59375,
+      "‭345‬": 26.390625,
+      "‮345‬": 26.390625,
+      "‭3456‬": 35.1875,
+      "‮3456‬": 35.1875,
+      "‭4‬": 8.796875,
+      "‮4‬": 8.796875,
+      "‭45‬": 17.59375,
+      "‮45‬": 17.59375,
+      "‭456‬": 26.390625,
+      "‮456‬": 26.390625,
+      "‭5‬": 8.796875,
+      "‮5‬": 8.796875,
+      "‭56‬": 17.59375,
+      "‮56‬": 17.59375,
+      "‭6‬": 8.796875,
+      "‮6‬": 8.796875
+    },
+    "123456 שלום": {
+      "0": 8.796875,
+      "1": 8.796875,
+      "2": 8.796875,
+      "3": 8.796875,
+      "4": 8.796875,
+      "5": 8.796875,
+      "6": 8.796875,
+      "12": 17.59375,
+      "23": 17.59375,
+      "34": 17.59375,
+      "45": 17.59375,
+      "56": 17.59375,
+      "123": 26.390625,
+      "234": 26.390625,
+      "345": 26.390625,
+      "456": 26.390625,
+      "1234": 35.1875,
+      "2345": 35.1875,
+      "3456": 35.1875,
+      "12345": 43.984375,
+      "23456": 43.984375,
+      "123456": 52.78125,
+      "": 0,
+      "‭‬": 0,
+      "‮‬": 0,
+      " ": 8.796875,
+      "‭ ‬": 8.796875,
+      "‮ ‬": 8.796875,
+      "‭0‬": 8.796875,
+      "‮0‬": 8.796875,
+      "…": 8.796875,
+      "‭…‬": 8.796875,
+      "‮…‬": 8.796875,
+      "‭1‬": 8.796875,
+      "‮1‬": 8.796875,
+      "‭12‬": 17.59375,
+      "‮12‬": 17.59375,
+      "‭123‬": 26.390625,
+      "‮123‬": 26.390625,
+      "‭1234‬": 35.1875,
+      "‮1234‬": 35.1875,
+      "‭12345‬": 43.984375,
+      "‮12345‬": 43.984375,
+      "‭123456‬": 52.78125,
+      "‮123456‬": 52.78125,
+      "123456 ": 61.578125,
+      "‭123456 ‬": 61.578125,
+      "‮123456 ‬": 61.578125,
+      "123456 ש": 71.34375,
+      "‭123456 ש‬": 71.34375,
+      "‮123456 ש‬": 71.34375,
+      "123456 של": 78.25,
+      "‭123456 של‬": 78.25,
+      "‮123456 של‬": 78.25,
+      "123456 שלו": 82.71875,
+      "‭123456 שלו‬": 82.71875,
+      "‮123456 שלו‬": 82.71875,
+      "123456 שלום": 90.828125,
+      "‭123456 שלום‬": 90.828125,
+      "‮123456 שלום‬": 90.828125,
+      "‭2‬": 8.796875,
+      "‮2‬": 8.796875,
+      "‭23‬": 17.59375,
+      "‮23‬": 17.59375,
+      "‭234‬": 26.390625,
+      "‮234‬": 26.390625,
+      "‭2345‬": 35.1875,
+      "‮2345‬": 35.1875,
+      "‭23456‬": 43.984375,
+      "‮23456‬": 43.984375,
+      "23456 ": 52.78125,
+      "‭23456 ‬": 52.78125,
+      "‮23456 ‬": 52.78125,
+      "23456 ש": 62.546875,
+      "‭23456 ש‬": 62.546875,
+      "‮23456 ש‬": 62.546875,
+      "23456 של": 69.453125,
+      "‭23456 של‬": 69.453125,
+      "‮23456 של‬": 69.453125,
+      "23456 שלו": 73.921875,
+      "‭23456 שלו‬": 73.921875,
+      "‮23456 שלו‬": 73.921875,
+      "23456 שלום": 82.03125,
+      "‭23456 שלום‬": 82.03125,
+      "‮23456 שלום‬": 82.03125,
+      "‭3‬": 8.796875,
+      "‮3‬": 8.796875,
+      "‭34‬": 17.59375,
+      "‮34‬": 17.59375,
+      "‭345‬": 26.390625,
+      "‮345‬": 26.390625,
+      "‭3456‬": 35.1875,
+      "‮3456‬": 35.1875,
+      "3456 ": 43.984375,
+      "‭3456 ‬": 43.984375,
+      "‮3456 ‬": 43.984375,
+      "3456 ש": 53.75,
+      "‭3456 ש‬": 53.75,
+      "‮3456 ש‬": 53.75,
+      "3456 של": 60.65625,
+      "‭3456 של‬": 60.65625,
+      "‮3456 של‬": 60.65625,
+      "3456 שלו": 65.125,
+      "‭3456 שלו‬": 65.125,
+      "‮3456 שלו‬": 65.125,
+      "3456 שלום": 73.234375,
+      "‭3456 שלום‬": 73.234375,
+      "‮3456 שלום‬": 73.234375,
+      "‭4‬": 8.796875,
+      "‮4‬": 8.796875,
+      "‭45‬": 17.59375,
+      "‮45‬": 17.59375,
+      "‭456‬": 26.390625,
+      "‮456‬": 26.390625,
+      "456 ": 35.1875,
+      "‭456 ‬": 35.1875,
+      "‮456 ‬": 35.1875,
+      "456 ש": 44.953125,
+      "‭456 ש‬": 44.953125,
+      "‮456 ש‬": 44.953125,
+      "456 של": 51.859375,
+      "‭456 של‬": 51.859375,
+      "‮456 של‬": 51.859375,
+      "456 שלו": 56.328125,
+      "‭456 שלו‬": 56.328125,
+      "‮456 שלו‬": 56.328125,
+      "456 שלום": 64.4375,
+      "‭456 שלום‬": 64.4375,
+      "‮456 שלום‬": 64.4375,
+      "‭5‬": 8.796875,
+      "‮5‬": 8.796875,
+      "‭56‬": 17.59375,
+      "‮56‬": 17.59375,
+      "56 ": 26.390625,
+      "‭56 ‬": 26.390625,
+      "‮56 ‬": 26.390625,
+      "56 ש": 36.15625,
+      "‭56 ש‬": 36.15625,
+      "‮56 ש‬": 36.15625,
+      "56 של": 43.0625,
+      "‭56 של‬": 43.0625,
+      "‮56 של‬": 43.0625,
+      "56 שלו": 47.53125,
+      "‭56 שלו‬": 47.53125,
+      "‮56 שלו‬": 47.53125,
+      "56 שלום": 55.640625,
+      "‭56 שלום‬": 55.640625,
+      "‮56 שלום‬": 55.640625,
+      "‭6‬": 8.796875,
+      "‮6‬": 8.796875,
+      "6 ": 17.59375,
+      "‭6 ‬": 17.59375,
+      "‮6 ‬": 17.59375,
+      "6 ש": 27.359375,
+      "‭6 ש‬": 27.359375,
+      "‮6 ש‬": 27.359375,
+      "6 של": 34.265625,
+      "‭6 של‬": 34.265625,
+      "‮6 של‬": 34.265625,
+      "6 שלו": 38.734375,
+      "‭6 שלו‬": 38.734375,
+      "‮6 שלו‬": 38.734375,
+      "6 שלום": 46.84375,
+      "‭6 שלום‬": 46.84375,
+      "‮6 שלום‬": 46.84375,
+      " ש": 18.5625,
+      "‭ ש‬": 18.5625,
+      "‮ ש‬": 18.5625,
+      " של": 25.46875,
+      "‭ של‬": 25.46875,
+      "‮ של‬": 25.46875,
+      " שלו": 29.9375,
+      "‭ שלו‬": 29.9375,
+      "‮ שלו‬": 29.9375,
+      " שלום": 38.046875,
+      "‭ שלום‬": 38.046875,
+      "‮ שלום‬": 38.046875,
+      "ש": 9.765625,
+      "‭ש‬": 9.765625,
+      "‮ש‬": 9.765625,
+      "של": 16.671875,
+      "‭של‬": 16.671875,
+      "‮של‬": 16.671875,
+      "שלו": 21.140625,
+      "‭שלו‬": 21.140625,
+      "‮שלו‬": 21.140625,
+      "שלום": 29.25,
+      "‭שלום‬": 29.25,
+      "‮שלום‬": 29.25,
+      "ל": 6.90625,
+      "‭ל‬": 6.90625,
+      "‮ל‬": 6.90625,
+      "לו": 11.375,
+      "‭לו‬": 11.375,
+      "‮לו‬": 11.375,
+      "לום": 19.484375,
+      "‭לום‬": 19.484375,
+      "‮לום‬": 19.484375,
+      "ו": 4.46875,
+      "‭ו‬": 4.46875,
+      "‮ו‬": 4.46875,
+      "ום": 12.578125,
+      "‭ום‬": 12.578125,
+      "‮ום‬": 12.578125,
+      "ם": 8.125,
+      "‭ם‬": 8.125,
+      "‮ם‬": 8.125
+    },
+    "ABCאבג123XYZ": {
+      "0": 8.796875,
+      "1": 8.796875,
+      "2": 8.796875,
+      "3": 8.796875,
+      "12": 17.59375,
+      "23": 17.59375,
+      "123": 26.390625,
+      "": 0,
+      "‭‬": 0,
+      "‮‬": 0,
+      " ": 8.796875,
+      "‭ ‬": 8.796875,
+      "‮ ‬": 8.796875,
+      "‭0‬": 8.796875,
+      "‮0‬": 8.796875,
+      "…": 8.796875,
+      "‭…‬": 8.796875,
+      "‮…‬": 8.796875,
+      "A": 8.796875,
+      "‭A‬": 8.796875,
+      "‮A‬": 8.796875,
+      "AB": 17.59375,
+      "‭AB‬": 17.59375,
+      "‮AB‬": 17.59375,
+      "ABC": 26.390625,
+      "‭ABC‬": 26.390625,
+      "‮ABC‬": 26.390625,
+      "ABCא": 34.09375,
+      "‭ABCא‬": 34.09375,
+      "‮ABCא‬": 34.09375,
+      "ABCאב": 41.375,
+      "‭ABCאב‬": 41.375,
+      "‮ABCאב‬": 41.375,
+      "ABCאבג": 46.75,
+      "‭ABCאבג‬": 46.75,
+      "‮ABCאבג‬": 46.75,
+      "ABCאבג1": 55.546875,
+      "‭ABCאבג1‬": 55.546875,
+      "‮ABCאבג1‬": 55.546875,
+      "ABCאבג12": 64.34375,
+      "‭ABCאבג12‬": 64.34375,
+      "‮ABCאבג12‬": 64.34375,
+      "ABCאבג123": 73.140625,
+      "‭ABCאבג123‬": 73.140625,
+      "‮ABCאבג123‬": 73.140625,
+      "ABCאבג123X": 81.9375,
+      "‭ABCאבג123X‬": 81.9375,
+      "‮ABCאבג123X‬": 81.9375,
+      "ABCאבג123XY": 90.734375,
+      "‭ABCאבג123XY‬": 90.734375,
+      "‮ABCאבג123XY‬": 90.734375,
+      "ABCאבג123XYZ": 99.53125,
+      "‭ABCאבג123XYZ‬": 99.53125,
+      "‮ABCאבג123XYZ‬": 99.53125,
+      "B": 8.796875,
+      "‭B‬": 8.796875,
+      "‮B‬": 8.796875,
+      "BC": 17.59375,
+      "‭BC‬": 17.59375,
+      "‮BC‬": 17.59375,
+      "BCא": 25.296875,
+      "‭BCא‬": 25.296875,
+      "‮BCא‬": 25.296875,
+      "BCאב": 32.578125,
+      "‭BCאב‬": 32.578125,
+      "‮BCאב‬": 32.578125,
+      "BCאבג": 37.953125,
+      "‭BCאבג‬": 37.953125,
+      "‮BCאבג‬": 37.953125,
+      "BCאבג1": 46.75,
+      "‭BCאבג1‬": 46.75,
+      "‮BCאבג1‬": 46.75,
+      "BCאבג12": 55.546875,
+      "‭BCאבג12‬": 55.546875,
+      "‮BCאבג12‬": 55.546875,
+      "BCאבג123": 64.34375,
+      "‭BCאבג123‬": 64.34375,
+      "‮BCאבג123‬": 64.34375,
+      "BCאבג123X": 73.140625,
+      "‭BCאבג123X‬": 73.140625,
+      "‮BCאבג123X‬": 73.140625,
+      "BCאבג123XY": 81.9375,
+      "‭BCאבג123XY‬": 81.9375,
+      "‮BCאבג123XY‬": 81.9375,
+      "BCאבג123XYZ": 90.734375,
+      "‭BCאבג123XYZ‬": 90.734375,
+      "‮BCאבג123XYZ‬": 90.734375,
+      "C": 8.796875,
+      "‭C‬": 8.796875,
+      "‮C‬": 8.796875,
+      "Cא": 16.5,
+      "‭Cא‬": 16.5,
+      "‮Cא‬": 16.5,
+      "Cאב": 23.78125,
+      "‭Cאב‬": 23.78125,
+      "‮Cאב‬": 23.78125,
+      "Cאבג": 29.15625,
+      "‭Cאבג‬": 29.15625,
+      "‮Cאבג‬": 29.15625,
+      "Cאבג1": 37.953125,
+      "‭Cאבג1‬": 37.953125,
+      "‮Cאבג1‬": 37.953125,
+      "Cאבג12": 46.75,
+      "‭Cאבג12‬": 46.75,
+      "‮Cאבג12‬": 46.75,
+      "Cאבג123": 55.546875,
+      "‭Cאבג123‬": 55.546875,
+      "‮Cאבג123‬": 55.546875,
+      "Cאבג123X": 64.34375,
+      "‭Cאבג123X‬": 64.34375,
+      "‮Cאבג123X‬": 64.34375,
+      "Cאבג123XY": 73.140625,
+      "‭Cאבג123XY‬": 73.140625,
+      "‮Cאבג123XY‬": 73.140625,
+      "Cאבג123XYZ": 81.9375,
+      "‭Cאבג123XYZ‬": 81.9375,
+      "‮Cאבג123XYZ‬": 81.9375,
+      "א": 7.703125,
+      "‭א‬": 7.703125,
+      "‮א‬": 7.703125,
+      "אב": 14.984375,
+      "‭אב‬": 14.984375,
+      "‮אב‬": 14.984375,
+      "אבג": 20.359375,
+      "‭אבג‬": 20.359375,
+      "‮אבג‬": 20.359375,
+      "אבג1": 29.15625,
+      "‭אבג1‬": 29.15625,
+      "‮אבג1‬": 29.15625,
+      "אבג12": 37.953125,
+      "‭אבג12‬": 37.953125,
+      "‮אבג12‬": 37.953125,
+      "אבג123": 46.75,
+      "‭אבג123‬": 46.75,
+      "‮אבג123‬": 46.75,
+      "אבג123X": 55.546875,
+      "‭אבג123X‬": 55.546875,
+      "‮אבג123X‬": 55.546875,
+      "אבג123XY": 64.34375,
+      "‭אבג123XY‬": 64.34375,
+      "‮אבג123XY‬": 64.34375,
+      "אבג123XYZ": 73.140625,
+      "‭אבג123XYZ‬": 73.140625,
+      "‮אבג123XYZ‬": 73.140625,
+      "ב": 7.28125,
+      "‭ב‬": 7.28125,
+      "‮ב‬": 7.28125,
+      "בג": 12.65625,
+      "‭בג‬": 12.65625,
+      "‮בג‬": 12.65625,
+      "בג1": 21.453125,
+      "‭בג1‬": 21.453125,
+      "‮בג1‬": 21.453125,
+      "בג12": 30.25,
+      "‭בג12‬": 30.25,
+      "‮בג12‬": 30.25,
+      "בג123": 39.046875,
+      "‭בג123‬": 39.046875,
+      "‮בג123‬": 39.046875,
+      "בג123X": 47.84375,
+      "‭בג123X‬": 47.84375,
+      "‮בג123X‬": 47.84375,
+      "בג123XY": 56.640625,
+      "‭בג123XY‬": 56.640625,
+      "‮בג123XY‬": 56.640625,
+      "בג123XYZ": 65.4375,
+      "‭בג123XYZ‬": 65.4375,
+      "‮בג123XYZ‬": 65.4375,
+      "ג": 5.375,
+      "‭ג‬": 5.375,
+      "‮ג‬": 5.375,
+      "ג1": 14.171875,
+      "‭ג1‬": 14.171875,
+      "‮ג1‬": 14.171875,
+      "ג12": 22.96875,
+      "‭ג12‬": 22.96875,
+      "‮ג12‬": 22.96875,
+      "ג123": 31.765625,
+      "‭ג123‬": 31.765625,
+      "‮ג123‬": 31.765625,
+      "ג123X": 40.5625,
+      "‭ג123X‬": 40.5625,
+      "‮ג123X‬": 40.5625,
+      "ג123XY": 49.359375,
+      "‭ג123XY‬": 49.359375,
+      "‮ג123XY‬": 49.359375,
+      "ג123XYZ": 58.15625,
+      "‭ג123XYZ‬": 58.15625,
+      "‮ג123XYZ‬": 58.15625,
+      "‭1‬": 8.796875,
+      "‮1‬": 8.796875,
+      "‭12‬": 17.59375,
+      "‮12‬": 17.59375,
+      "‭123‬": 26.390625,
+      "‮123‬": 26.390625,
+      "123X": 35.1875,
+      "‭123X‬": 35.1875,
+      "‮123X‬": 35.1875,
+      "123XY": 43.984375,
+      "‭123XY‬": 43.984375,
+      "‮123XY‬": 43.984375,
+      "123XYZ": 52.78125,
+      "‭123XYZ‬": 52.78125,
+      "‮123XYZ‬": 52.78125,
+      "‭2‬": 8.796875,
+      "‮2‬": 8.796875,
+      "‭23‬": 17.59375,
+      "‮23‬": 17.59375,
+      "23X": 26.390625,
+      "‭23X‬": 26.390625,
+      "‮23X‬": 26.390625,
+      "23XY": 35.1875,
+      "‭23XY‬": 35.1875,
+      "‮23XY‬": 35.1875,
+      "23XYZ": 43.984375,
+      "‭23XYZ‬": 43.984375,
+      "‮23XYZ‬": 43.984375,
+      "‭3‬": 8.796875,
+      "‮3‬": 8.796875,
+      "3X": 17.59375,
+      "‭3X‬": 17.59375,
+      "‮3X‬": 17.59375,
+      "3XY": 26.390625,
+      "‭3XY‬": 26.390625,
+      "‮3XY‬": 26.390625,
+      "3XYZ": 35.1875,
+      "‭3XYZ‬": 35.1875,
+      "‮3XYZ‬": 35.1875,
+      "X": 8.796875,
+      "‭X‬": 8.796875,
+      "‮X‬": 8.796875,
+      "XY": 17.59375,
+      "‭XY‬": 17.59375,
+      "‮XY‬": 17.59375,
+      "XYZ": 26.390625,
+      "‭XYZ‬": 26.390625,
+      "‮XYZ‬": 26.390625,
+      "Y": 8.796875,
+      "‭Y‬": 8.796875,
+      "‮Y‬": 8.796875,
+      "YZ": 17.59375,
+      "‭YZ‬": 17.59375,
+      "‮YZ‬": 17.59375,
+      "Z": 8.796875,
+      "‭Z‬": 8.796875,
+      "‮Z‬": 8.796875
+    },
+    "אבגדהוזחט": {
+      "0": 8.796875,
+      "": 0,
+      "‭‬": 0,
+      "‮‬": 0,
+      " ": 8.796875,
+      "‭ ‬": 8.796875,
+      "‮ ‬": 8.796875,
+      "‭0‬": 8.796875,
+      "‮0‬": 8.796875,
+      "…": 8.796875,
+      "‭…‬": 8.796875,
+      "‮…‬": 8.796875,
+      "א": 7.703125,
+      "‭א‬": 7.703125,
+      "‮א‬": 7.703125,
+      "אב": 14.984375,
+      "‭אב‬": 14.984375,
+      "‮אב‬": 14.984375,
+      "אבג": 20.359375,
+      "‭אבג‬": 20.359375,
+      "‮אבג‬": 20.359375,
+      "אבגד": 27.0625,
+      "‭אבגד‬": 27.0625,
+      "‮אבגד‬": 27.0625,
+      "אבגדה": 34.59375,
+      "‭אבגדה‬": 34.59375,
+      "‮אבגדה‬": 34.59375,
+      "אבגדהו": 39.0625,
+      "‭אבגדהו‬": 39.0625,
+      "‮אבגדהו‬": 39.0625,
+      "אבגדהוז": 43.640625,
+      "‭אבגדהוז‬": 43.640625,
+      "‮אבגדהוז‬": 43.640625,
+      "אבגדהוזח": 51.265625,
+      "‭אבגדהוזח‬": 51.265625,
+      "‮אבגדהוזח‬": 51.265625,
+      "אבגדהוזחט": 58.875,
+      "‭אבגדהוזחט‬": 58.875,
+      "‮אבגדהוזחט‬": 58.875,
+      "ב": 7.28125,
+      "‭ב‬": 7.28125,
+      "‮ב‬": 7.28125,
+      "בג": 12.65625,
+      "‭בג‬": 12.65625,
+      "‮בג‬": 12.65625,
+      "בגד": 19.359375,
+      "‭בגד‬": 19.359375,
+      "‮בגד‬": 19.359375,
+      "בגדה": 26.890625,
+      "‭בגדה‬": 26.890625,
+      "‮בגדה‬": 26.890625,
+      "בגדהו": 31.359375,
+      "‭בגדהו‬": 31.359375,
+      "‮בגדהו‬": 31.359375,
+      "בגדהוז": 35.9375,
+      "‭בגדהוז‬": 35.9375,
+      "‮בגדהוז‬": 35.9375,
+      "בגדהוזח": 43.5625,
+      "‭בגדהוזח‬": 43.5625,
+      "‮בגדהוזח‬": 43.5625,
+      "בגדהוזחט": 51.171875,
+      "‭בגדהוזחט‬": 51.171875,
+      "‮בגדהוזחט‬": 51.171875,
+      "ג": 5.375,
+      "‭ג‬": 5.375,
+      "‮ג‬": 5.375,
+      "גד": 12.078125,
+      "‭גד‬": 12.078125,
+      "‮גד‬": 12.078125,
+      "גדה": 19.609375,
+      "‭גדה‬": 19.609375,
+      "‮גדה‬": 19.609375,
+      "גדהו": 24.078125,
+      "‭גדהו‬": 24.078125,
+      "‮גדהו‬": 24.078125,
+      "גדהוז": 28.65625,
+      "‭גדהוז‬": 28.65625,
+      "‮גדהוז‬": 28.65625,
+      "גדהוזח": 36.28125,
+      "‭גדהוזח‬": 36.28125,
+      "‮גדהוזח‬": 36.28125,
+      "גדהוזחט": 43.890625,
+      "‭גדהוזחט‬": 43.890625,
+      "‮גדהוזחט‬": 43.890625,
+      "ד": 6.703125,
+      "‭ד‬": 6.703125,
+      "‮ד‬": 6.703125,
+      "דה": 14.25,
+      "‭דה‬": 14.25,
+      "‮דה‬": 14.25,
+      "דהו": 18.703125,
+      "‭דהו‬": 18.703125,
+      "‮דהו‬": 18.703125,
+      "דהוז": 23.28125,
+      "‭דהוז‬": 23.28125,
+      "‮דהוז‬": 23.28125,
+      "דהוזח": 30.90625,
+      "‭דהוזח‬": 30.90625,
+      "‮דהוזח‬": 30.90625,
+      "דהוזחט": 38.515625,
+      "‭דהוזחט‬": 38.515625,
+      "‮דהוזחט‬": 38.515625,
+      "ה": 7.546875,
+      "‭ה‬": 7.546875,
+      "‮ה‬": 7.546875,
+      "הו": 12,
+      "‭הו‬": 12,
+      "‮הו‬": 12,
+      "הוז": 16.578125,
+      "‭הוז‬": 16.578125,
+      "‮הוז‬": 16.578125,
+      "הוזח": 24.203125,
+      "‭הוזח‬": 24.203125,
+      "‮הוזח‬": 24.203125,
+      "הוזחט": 31.8125,
+      "‭הוזחט‬": 31.8125,
+      "‮הוזחט‬": 31.8125,
+      "ו": 4.46875,
+      "‭ו‬": 4.46875,
+      "‮ו‬": 4.46875,
+      "וז": 9.046875,
+      "‭וז‬": 9.046875,
+      "‮וז‬": 9.046875,
+      "וזח": 16.671875,
+      "‭וזח‬": 16.671875,
+      "‮וזח‬": 16.671875,
+      "וזחט": 24.28125,
+      "‭וזחט‬": 24.28125,
+      "‮וזחט‬": 24.28125,
+      "ז": 4.578125,
+      "‭ז‬": 4.578125,
+      "‮ז‬": 4.578125,
+      "זח": 12.203125,
+      "‭זח‬": 12.203125,
+      "‮זח‬": 12.203125,
+      "זחט": 19.8125,
+      "‭זחט‬": 19.8125,
+      "‮זחט‬": 19.8125,
+      "ח": 7.625,
+      "‭ח‬": 7.625,
+      "‮ח‬": 7.625,
+      "חט": 15.234375,
+      "‭חט‬": 15.234375,
+      "‮חט‬": 15.234375,
+      "ט": 7.609375,
+      "‭ט‬": 7.609375,
+      "‮ט‬": 7.609375
+    },
+    "ABCDEFGHIJ": {
+      "0": 8.796875,
+      "": 0,
+      "‭‬": 0,
+      "‮‬": 0,
+      " ": 8.796875,
+      "‭ ‬": 8.796875,
+      "‮ ‬": 8.796875,
+      "‭0‬": 8.796875,
+      "‮0‬": 8.796875,
+      "…": 8.796875,
+      "‭…‬": 8.796875,
+      "‮…‬": 8.796875,
+      "A": 8.796875,
+      "‭A‬": 8.796875,
+      "‮A‬": 8.796875,
+      "AB": 17.59375,
+      "‭AB‬": 17.59375,
+      "‮AB‬": 17.59375,
+      "ABC": 26.390625,
+      "‭ABC‬": 26.390625,
+      "‮ABC‬": 26.390625,
+      "ABCD": 35.1875,
+      "‭ABCD‬": 35.1875,
+      "‮ABCD‬": 35.1875,
+      "ABCDE": 43.984375,
+      "‭ABCDE‬": 43.984375,
+      "‮ABCDE‬": 43.984375,
+      "ABCDEF": 52.78125,
+      "‭ABCDEF‬": 52.78125,
+      "‮ABCDEF‬": 52.78125,
+      "ABCDEFG": 61.578125,
+      "‭ABCDEFG‬": 61.578125,
+      "‮ABCDEFG‬": 61.578125,
+      "ABCDEFGH": 70.375,
+      "‭ABCDEFGH‬": 70.375,
+      "‮ABCDEFGH‬": 70.375,
+      "ABCDEFGHI": 79.171875,
+      "‭ABCDEFGHI‬": 79.171875,
+      "‮ABCDEFGHI‬": 79.171875,
+      "ABCDEFGHIJ": 87.96875,
+      "‭ABCDEFGHIJ‬": 87.96875,
+      "‮ABCDEFGHIJ‬": 87.96875,
+      "B": 8.796875,
+      "‭B‬": 8.796875,
+      "‮B‬": 8.796875,
+      "BC": 17.59375,
+      "‭BC‬": 17.59375,
+      "‮BC‬": 17.59375,
+      "BCD": 26.390625,
+      "‭BCD‬": 26.390625,
+      "‮BCD‬": 26.390625,
+      "BCDE": 35.1875,
+      "‭BCDE‬": 35.1875,
+      "‮BCDE‬": 35.1875,
+      "BCDEF": 43.984375,
+      "‭BCDEF‬": 43.984375,
+      "‮BCDEF‬": 43.984375,
+      "BCDEFG": 52.78125,
+      "‭BCDEFG‬": 52.78125,
+      "‮BCDEFG‬": 52.78125,
+      "BCDEFGH": 61.578125,
+      "‭BCDEFGH‬": 61.578125,
+      "‮BCDEFGH‬": 61.578125,
+      "BCDEFGHI": 70.375,
+      "‭BCDEFGHI‬": 70.375,
+      "‮BCDEFGHI‬": 70.375,
+      "BCDEFGHIJ": 79.171875,
+      "‭BCDEFGHIJ‬": 79.171875,
+      "‮BCDEFGHIJ‬": 79.171875,
+      "C": 8.796875,
+      "‭C‬": 8.796875,
+      "‮C‬": 8.796875,
+      "CD": 17.59375,
+      "‭CD‬": 17.59375,
+      "‮CD‬": 17.59375,
+      "CDE": 26.390625,
+      "‭CDE‬": 26.390625,
+      "‮CDE‬": 26.390625,
+      "CDEF": 35.1875,
+      "‭CDEF‬": 35.1875,
+      "‮CDEF‬": 35.1875,
+      "CDEFG": 43.984375,
+      "‭CDEFG‬": 43.984375,
+      "‮CDEFG‬": 43.984375,
+      "CDEFGH": 52.78125,
+      "‭CDEFGH‬": 52.78125,
+      "‮CDEFGH‬": 52.78125,
+      "CDEFGHI": 61.578125,
+      "‭CDEFGHI‬": 61.578125,
+      "‮CDEFGHI‬": 61.578125,
+      "CDEFGHIJ": 70.375,
+      "‭CDEFGHIJ‬": 70.375,
+      "‮CDEFGHIJ‬": 70.375,
+      "D": 8.796875,
+      "‭D‬": 8.796875,
+      "‮D‬": 8.796875,
+      "DE": 17.59375,
+      "‭DE‬": 17.59375,
+      "‮DE‬": 17.59375,
+      "DEF": 26.390625,
+      "‭DEF‬": 26.390625,
+      "‮DEF‬": 26.390625,
+      "DEFG": 35.1875,
+      "‭DEFG‬": 35.1875,
+      "‮DEFG‬": 35.1875,
+      "DEFGH": 43.984375,
+      "‭DEFGH‬": 43.984375,
+      "‮DEFGH‬": 43.984375,
+      "DEFGHI": 52.78125,
+      "‭DEFGHI‬": 52.78125,
+      "‮DEFGHI‬": 52.78125,
+      "DEFGHIJ": 61.578125,
+      "‭DEFGHIJ‬": 61.578125,
+      "‮DEFGHIJ‬": 61.578125,
+      "E": 8.796875,
+      "‭E‬": 8.796875,
+      "‮E‬": 8.796875,
+      "EF": 17.59375,
+      "‭EF‬": 17.59375,
+      "‮EF‬": 17.59375,
+      "EFG": 26.390625,
+      "‭EFG‬": 26.390625,
+      "‮EFG‬": 26.390625,
+      "EFGH": 35.1875,
+      "‭EFGH‬": 35.1875,
+      "‮EFGH‬": 35.1875,
+      "EFGHI": 43.984375,
+      "‭EFGHI‬": 43.984375,
+      "‮EFGHI‬": 43.984375,
+      "EFGHIJ": 52.78125,
+      "‭EFGHIJ‬": 52.78125,
+      "‮EFGHIJ‬": 52.78125,
+      "F": 8.796875,
+      "‭F‬": 8.796875,
+      "‮F‬": 8.796875,
+      "FG": 17.59375,
+      "‭FG‬": 17.59375,
+      "‮FG‬": 17.59375,
+      "FGH": 26.390625,
+      "‭FGH‬": 26.390625,
+      "‮FGH‬": 26.390625,
+      "FGHI": 35.1875,
+      "‭FGHI‬": 35.1875,
+      "‮FGHI‬": 35.1875,
+      "FGHIJ": 43.984375,
+      "‭FGHIJ‬": 43.984375,
+      "‮FGHIJ‬": 43.984375,
+      "G": 8.796875,
+      "‭G‬": 8.796875,
+      "‮G‬": 8.796875,
+      "GH": 17.59375,
+      "‭GH‬": 17.59375,
+      "‮GH‬": 17.59375,
+      "GHI": 26.390625,
+      "‭GHI‬": 26.390625,
+      "‮GHI‬": 26.390625,
+      "GHIJ": 35.1875,
+      "‭GHIJ‬": 35.1875,
+      "‮GHIJ‬": 35.1875,
+      "H": 8.796875,
+      "‭H‬": 8.796875,
+      "‮H‬": 8.796875,
+      "HI": 17.59375,
+      "‭HI‬": 17.59375,
+      "‮HI‬": 17.59375,
+      "HIJ": 26.390625,
+      "‭HIJ‬": 26.390625,
+      "‮HIJ‬": 26.390625,
+      "I": 8.796875,
+      "‭I‬": 8.796875,
+      "‮I‬": 8.796875,
+      "IJ": 17.59375,
+      "‭IJ‬": 17.59375,
+      "‮IJ‬": 17.59375,
+      "J": 8.796875,
+      "‭J‬": 8.796875,
+      "‮J‬": 8.796875
+    }
+  },
+  "evidence": "Unmodified Chromium ellipsis paint. Per-source-character RGB pixels reveal hidden glyphs; range geometry and logical selection remain raw."
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "Name": "home",
+    "Source": "https://raw.githubusercontent.com/google/material-design-icons/master/src/action/home/materialiconsoutlined/24px.svg",
+    "SHA256": "6F5D2C85C8D60A818C3D6011E7CF1B981BC7C7BA5A7CED3664C6C0B6D42C9D69"
+  },
+  {
+    "Name": "reload",
+    "Source": "https://raw.githubusercontent.com/google/material-design-icons/master/src/navigation/refresh/materialicons/24px.svg",
+    "SHA256": "48954EBFF577688AA2C6D5816133726035103938AB766F6F8763A5DA6D0E5FB9"
+  },
+  {
+    "Name": "history",
+    "Source": "https://raw.githubusercontent.com/google/material-design-icons/master/src/action/history/materialiconsoutlined/24px.svg",
+    "SHA256": "F31421E8E3BA19FF3FCD9AFFE72875171570EA405A4CBD114ACECF0024F347E7"
+  },
+  {
+    "Name": "site-controls",
+    "Source": "https://raw.githubusercontent.com/google/material-design-icons/master/src/image/tune/materialicons/24px.svg",
+    "SHA256": "9505432AC66C71102EE0D0786CAF563AECB2D25851E6C39EA03C8E79E554C6C8"
+  },
+  {
+    "Name": "external",
+    "Source": "https://raw.githubusercontent.com/google/material-design-icons/master/src/action/open_in_new/materialiconsoutlined/24px.svg",
+    "SHA256": "C8117992219BB914A560094F460E0A49C75F4A2DDAE5E872B7934E15025C4E5B"
+  },
+  {
+    "Name": "warning",
+    "Source": "https://raw.githubusercontent.com/google/material-design-icons/master/src/alert/warning_amber/materialiconsoutlined/24px.svg",
+    "SHA256": "FC42AA44A2A9EC7FB65AB036B511CE9C9FA1A048F29C0AF81A56E65433F5E1A6"
+  },
+  {
+    "Name": "guide",
+    "Source": "https://raw.githubusercontent.com/google/material-design-icons/master/src/action/description/materialiconsoutlined/24px.svg",
+    "SHA256": "CC5C99AE6288288FB9ECDE81513DFF609504EF3C5AB1B46CA43E0E56D0FA8B2C"
+  },
+  {
+    "Name": "overflow-forward",
+    "Source": "local SVG master",
+    "SHA256": "5FFFA62F95A95945B57DF665A3BFB81A808F6CBEC32CDAF1C65150E51DE25054"
+  },
+  {
+    "Name": "move",
+    "Source": "https://raw.githubusercontent.com/google/material-design-icons/master/src/action/open_with/materialicons/24px.svg",
+    "SHA256": "A14ABC40ECA04BB674CF2C8A8438BE4E3598F5EFC042F57B6F3327BB17042055"
+  }
+]

@@ -1,0 +1,7457 @@
+{
+  "captured": "2026-10-10",
+  "standards": [
+    "https://drafts.csswg.org/css-logical-1/#logical-box-properties",
+    "https://drafts.csswg.org/css-logical-1/#dimension-properties"
+  ],
+  "names": [
+    "width",
+    "height",
+    "inline-size",
+    "block-size",
+    "min-width",
+    "min-height",
+    "min-inline-size",
+    "min-block-size",
+    "max-width",
+    "max-height",
+    "max-inline-size",
+    "max-block-size"
+  ],
+  "cases": [
+    {
+      "name": "Logical/physical declaration order horizontal-tb ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            70
+          ],
+          "values": [
+            "110px",
+            "60px",
+            "110px",
+            "60px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            190,
+            90
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            190,
+            90
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position horizontal-tb ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:horizontal-tb",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:horizontal-tb;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            190,
+            90
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            190,
+            90
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence horizontal-tb ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            75
+          ],
+          "values": [
+            "190px",
+            "65px",
+            "190px",
+            "65px",
+            "190px",
+            "30px",
+            "190px",
+            "30px",
+            "150px",
+            "65px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            160,
+            75
+          ],
+          "values": [
+            "150px",
+            "65px",
+            "150px",
+            "65px",
+            "20px",
+            "30px",
+            "20px",
+            "30px",
+            "150px",
+            "65px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            140,
+            75
+          ],
+          "values": [
+            "130px",
+            "65px",
+            "130px",
+            "65px",
+            "70px",
+            "27px",
+            "70px",
+            "27px",
+            "130px",
+            "65px",
+            "130px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables horizontal-tb ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            210,
+            95
+          ],
+          "values": [
+            "200px",
+            "85px",
+            "200px",
+            "85px",
+            "10%",
+            "0px",
+            "10%",
+            "0px",
+            "none",
+            "calc(70% - 3px)",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            185,
+            75
+          ],
+          "values": [
+            "175px",
+            "65px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            10,
+            75
+          ],
+          "values": [
+            "0px",
+            "65px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            185,
+            75
+          ],
+          "values": [
+            "175px",
+            "65px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints horizontal-tb ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            180,
+            80
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            160,
+            95
+          ],
+          "values": [
+            "160px",
+            "95px",
+            "160px",
+            "95px",
+            "0px",
+            "95px",
+            "0px",
+            "95px",
+            "160px",
+            "none",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance horizontal-tb ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:vertical-rl;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "190px",
+            "170px",
+            "13px",
+            "17px",
+            "13px",
+            "17px",
+            "230px",
+            "210px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "170px",
+            "190px",
+            "17px",
+            "13px",
+            "17px",
+            "13px",
+            "210px",
+            "230px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping horizontal-tb ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:horizontal-tb;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "140px",
+            "90px",
+            "11px",
+            "17px",
+            "11px",
+            "17px",
+            "200px",
+            "170px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations horizontal-tb ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:horizontal-tb;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "140px",
+            "90px",
+            "11px",
+            "17px",
+            "11px",
+            "17px",
+            "200px",
+            "170px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial horizontal-tb ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            10,
+            75
+          ],
+          "values": [
+            "0px",
+            "65px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            10,
+            75
+          ],
+          "values": [
+            "0px",
+            "65px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            10,
+            75
+          ],
+          "values": [
+            "0px",
+            "65px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical/physical declaration order horizontal-tb rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            70
+          ],
+          "values": [
+            "110px",
+            "60px",
+            "110px",
+            "60px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            190,
+            90
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            190,
+            90
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position horizontal-tb rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:horizontal-tb",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:horizontal-tb;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            190,
+            90
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            190,
+            90
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence horizontal-tb rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            75
+          ],
+          "values": [
+            "190px",
+            "65px",
+            "190px",
+            "65px",
+            "190px",
+            "30px",
+            "190px",
+            "30px",
+            "150px",
+            "65px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            160,
+            75
+          ],
+          "values": [
+            "150px",
+            "65px",
+            "150px",
+            "65px",
+            "20px",
+            "30px",
+            "20px",
+            "30px",
+            "150px",
+            "65px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            140,
+            75
+          ],
+          "values": [
+            "130px",
+            "65px",
+            "130px",
+            "65px",
+            "70px",
+            "27px",
+            "70px",
+            "27px",
+            "130px",
+            "65px",
+            "130px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables horizontal-tb rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            210,
+            95
+          ],
+          "values": [
+            "200px",
+            "85px",
+            "200px",
+            "85px",
+            "10%",
+            "0px",
+            "10%",
+            "0px",
+            "none",
+            "calc(70% - 3px)",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            185,
+            75
+          ],
+          "values": [
+            "175px",
+            "65px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            10,
+            75
+          ],
+          "values": [
+            "0px",
+            "65px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            185,
+            75
+          ],
+          "values": [
+            "175px",
+            "65px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints horizontal-tb rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            180,
+            80
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            160,
+            95
+          ],
+          "values": [
+            "160px",
+            "95px",
+            "160px",
+            "95px",
+            "0px",
+            "95px",
+            "0px",
+            "95px",
+            "160px",
+            "none",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance horizontal-tb rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:vertical-rl;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "190px",
+            "170px",
+            "13px",
+            "17px",
+            "13px",
+            "17px",
+            "230px",
+            "210px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "170px",
+            "190px",
+            "17px",
+            "13px",
+            "17px",
+            "13px",
+            "210px",
+            "230px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping horizontal-tb rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:horizontal-tb;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "140px",
+            "90px",
+            "11px",
+            "17px",
+            "11px",
+            "17px",
+            "200px",
+            "170px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations horizontal-tb rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:horizontal-tb;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "140px",
+            "90px",
+            "11px",
+            "17px",
+            "11px",
+            "17px",
+            "200px",
+            "170px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial horizontal-tb rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            10,
+            75
+          ],
+          "values": [
+            "0px",
+            "65px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            10,
+            75
+          ],
+          "values": [
+            "0px",
+            "65px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            10,
+            75
+          ],
+          "values": [
+            "0px",
+            "65px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical/physical declaration order vertical-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position vertical-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:vertical-rl",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:vertical-rl;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence vertical-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            200
+          ],
+          "values": [
+            "65px",
+            "190px",
+            "190px",
+            "65px",
+            "30px",
+            "190px",
+            "190px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            160
+          ],
+          "values": [
+            "65px",
+            "150px",
+            "150px",
+            "65px",
+            "30px",
+            "20px",
+            "20px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            90
+          ],
+          "values": [
+            "65px",
+            "80px",
+            "80px",
+            "65px",
+            "33px",
+            "70px",
+            "70px",
+            "33px",
+            "65px",
+            "80px",
+            "80px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables vertical-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            160
+          ],
+          "values": [
+            "110px",
+            "150px",
+            "150px",
+            "110px",
+            "0px",
+            "10%",
+            "10%",
+            "0px",
+            "calc(70% - 3px)",
+            "none",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints vertical-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            80,
+            180
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            95,
+            160
+          ],
+          "values": [
+            "95px",
+            "160px",
+            "160px",
+            "95px",
+            "95px",
+            "0px",
+            "0px",
+            "95px",
+            "none",
+            "160px",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance vertical-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:horizontal-tb;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "170px",
+            "190px",
+            "13px",
+            "17px",
+            "17px",
+            "13px",
+            "230px",
+            "210px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "190px",
+            "170px",
+            "17px",
+            "13px",
+            "13px",
+            "17px",
+            "210px",
+            "230px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping vertical-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:ltr}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:vertical-rl;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "11px",
+            "17px",
+            "17px",
+            "11px",
+            "200px",
+            "170px",
+            "170px",
+            "200px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations vertical-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:ltr}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:vertical-rl;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "17px",
+            "11px",
+            "11px",
+            "17px",
+            "170px",
+            "200px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial vertical-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical/physical declaration order vertical-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position vertical-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:vertical-rl",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:vertical-rl;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence vertical-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            200
+          ],
+          "values": [
+            "65px",
+            "190px",
+            "190px",
+            "65px",
+            "30px",
+            "190px",
+            "190px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            160
+          ],
+          "values": [
+            "65px",
+            "150px",
+            "150px",
+            "65px",
+            "30px",
+            "20px",
+            "20px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            90
+          ],
+          "values": [
+            "65px",
+            "80px",
+            "80px",
+            "65px",
+            "33px",
+            "70px",
+            "70px",
+            "33px",
+            "65px",
+            "80px",
+            "80px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables vertical-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            160
+          ],
+          "values": [
+            "110px",
+            "150px",
+            "150px",
+            "110px",
+            "0px",
+            "10%",
+            "10%",
+            "0px",
+            "calc(70% - 3px)",
+            "none",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints vertical-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            80,
+            180
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            95,
+            160
+          ],
+          "values": [
+            "95px",
+            "160px",
+            "160px",
+            "95px",
+            "95px",
+            "0px",
+            "0px",
+            "95px",
+            "none",
+            "160px",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance vertical-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:horizontal-tb;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "170px",
+            "190px",
+            "13px",
+            "17px",
+            "17px",
+            "13px",
+            "230px",
+            "210px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "190px",
+            "170px",
+            "17px",
+            "13px",
+            "13px",
+            "17px",
+            "210px",
+            "230px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping vertical-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:rtl}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:vertical-rl;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "11px",
+            "17px",
+            "17px",
+            "11px",
+            "200px",
+            "170px",
+            "170px",
+            "200px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations vertical-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:rtl}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:vertical-rl;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "17px",
+            "11px",
+            "11px",
+            "17px",
+            "170px",
+            "200px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial vertical-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical/physical declaration order vertical-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position vertical-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:vertical-lr",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:vertical-lr;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence vertical-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            200
+          ],
+          "values": [
+            "65px",
+            "190px",
+            "190px",
+            "65px",
+            "30px",
+            "190px",
+            "190px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            160
+          ],
+          "values": [
+            "65px",
+            "150px",
+            "150px",
+            "65px",
+            "30px",
+            "20px",
+            "20px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            90
+          ],
+          "values": [
+            "65px",
+            "80px",
+            "80px",
+            "65px",
+            "33px",
+            "70px",
+            "70px",
+            "33px",
+            "65px",
+            "80px",
+            "80px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables vertical-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            160
+          ],
+          "values": [
+            "110px",
+            "150px",
+            "150px",
+            "110px",
+            "0px",
+            "10%",
+            "10%",
+            "0px",
+            "calc(70% - 3px)",
+            "none",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints vertical-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            80,
+            180
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            95,
+            160
+          ],
+          "values": [
+            "95px",
+            "160px",
+            "160px",
+            "95px",
+            "95px",
+            "0px",
+            "0px",
+            "95px",
+            "none",
+            "160px",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance vertical-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:horizontal-tb;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "170px",
+            "190px",
+            "13px",
+            "17px",
+            "17px",
+            "13px",
+            "230px",
+            "210px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "190px",
+            "170px",
+            "17px",
+            "13px",
+            "13px",
+            "17px",
+            "210px",
+            "230px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping vertical-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:ltr}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:vertical-lr;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "11px",
+            "17px",
+            "17px",
+            "11px",
+            "200px",
+            "170px",
+            "170px",
+            "200px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations vertical-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:ltr}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:vertical-lr;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "17px",
+            "11px",
+            "11px",
+            "17px",
+            "170px",
+            "200px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial vertical-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical/physical declaration order vertical-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position vertical-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:vertical-lr",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:vertical-lr;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence vertical-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            200
+          ],
+          "values": [
+            "65px",
+            "190px",
+            "190px",
+            "65px",
+            "30px",
+            "190px",
+            "190px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            160
+          ],
+          "values": [
+            "65px",
+            "150px",
+            "150px",
+            "65px",
+            "30px",
+            "20px",
+            "20px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            90
+          ],
+          "values": [
+            "65px",
+            "80px",
+            "80px",
+            "65px",
+            "33px",
+            "70px",
+            "70px",
+            "33px",
+            "65px",
+            "80px",
+            "80px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables vertical-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            160
+          ],
+          "values": [
+            "110px",
+            "150px",
+            "150px",
+            "110px",
+            "0px",
+            "10%",
+            "10%",
+            "0px",
+            "calc(70% - 3px)",
+            "none",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints vertical-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            80,
+            180
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            95,
+            160
+          ],
+          "values": [
+            "95px",
+            "160px",
+            "160px",
+            "95px",
+            "95px",
+            "0px",
+            "0px",
+            "95px",
+            "none",
+            "160px",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance vertical-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:horizontal-tb;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "170px",
+            "190px",
+            "13px",
+            "17px",
+            "17px",
+            "13px",
+            "230px",
+            "210px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "190px",
+            "170px",
+            "17px",
+            "13px",
+            "13px",
+            "17px",
+            "210px",
+            "230px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping vertical-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:rtl}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:vertical-lr;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "11px",
+            "17px",
+            "17px",
+            "11px",
+            "200px",
+            "170px",
+            "170px",
+            "200px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations vertical-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:rtl}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:vertical-lr;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "17px",
+            "11px",
+            "11px",
+            "17px",
+            "170px",
+            "200px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial vertical-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical/physical declaration order sideways-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position sideways-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:sideways-rl",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:sideways-rl;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence sideways-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            200
+          ],
+          "values": [
+            "65px",
+            "190px",
+            "190px",
+            "65px",
+            "30px",
+            "190px",
+            "190px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            160
+          ],
+          "values": [
+            "65px",
+            "150px",
+            "150px",
+            "65px",
+            "30px",
+            "20px",
+            "20px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            90
+          ],
+          "values": [
+            "65px",
+            "80px",
+            "80px",
+            "65px",
+            "33px",
+            "70px",
+            "70px",
+            "33px",
+            "65px",
+            "80px",
+            "80px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables sideways-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            160
+          ],
+          "values": [
+            "110px",
+            "150px",
+            "150px",
+            "110px",
+            "0px",
+            "10%",
+            "10%",
+            "0px",
+            "calc(70% - 3px)",
+            "none",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints sideways-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            80,
+            180
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            95,
+            160
+          ],
+          "values": [
+            "95px",
+            "160px",
+            "160px",
+            "95px",
+            "95px",
+            "0px",
+            "0px",
+            "95px",
+            "none",
+            "160px",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance sideways-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:horizontal-tb;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "170px",
+            "190px",
+            "13px",
+            "17px",
+            "17px",
+            "13px",
+            "230px",
+            "210px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "190px",
+            "170px",
+            "17px",
+            "13px",
+            "13px",
+            "17px",
+            "210px",
+            "230px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping sideways-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:ltr}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:sideways-rl;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "11px",
+            "17px",
+            "17px",
+            "11px",
+            "200px",
+            "170px",
+            "170px",
+            "200px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations sideways-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:ltr}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:sideways-rl;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "17px",
+            "11px",
+            "11px",
+            "17px",
+            "170px",
+            "200px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial sideways-rl ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical/physical declaration order sideways-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position sideways-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:sideways-rl",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:sideways-rl;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence sideways-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            200
+          ],
+          "values": [
+            "65px",
+            "190px",
+            "190px",
+            "65px",
+            "30px",
+            "190px",
+            "190px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            160
+          ],
+          "values": [
+            "65px",
+            "150px",
+            "150px",
+            "65px",
+            "30px",
+            "20px",
+            "20px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            90
+          ],
+          "values": [
+            "65px",
+            "80px",
+            "80px",
+            "65px",
+            "33px",
+            "70px",
+            "70px",
+            "33px",
+            "65px",
+            "80px",
+            "80px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables sideways-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            160
+          ],
+          "values": [
+            "110px",
+            "150px",
+            "150px",
+            "110px",
+            "0px",
+            "10%",
+            "10%",
+            "0px",
+            "calc(70% - 3px)",
+            "none",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints sideways-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            80,
+            180
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            95,
+            160
+          ],
+          "values": [
+            "95px",
+            "160px",
+            "160px",
+            "95px",
+            "95px",
+            "0px",
+            "0px",
+            "95px",
+            "none",
+            "160px",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance sideways-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:horizontal-tb;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "170px",
+            "190px",
+            "13px",
+            "17px",
+            "17px",
+            "13px",
+            "230px",
+            "210px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "190px",
+            "170px",
+            "17px",
+            "13px",
+            "13px",
+            "17px",
+            "210px",
+            "230px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping sideways-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:rtl}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:sideways-rl;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "11px",
+            "17px",
+            "17px",
+            "11px",
+            "200px",
+            "170px",
+            "170px",
+            "200px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations sideways-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:rtl}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:sideways-rl;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "17px",
+            "11px",
+            "11px",
+            "17px",
+            "170px",
+            "200px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial sideways-rl rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-rl;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical/physical declaration order sideways-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position sideways-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:sideways-lr",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:sideways-lr;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence sideways-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            200
+          ],
+          "values": [
+            "65px",
+            "190px",
+            "190px",
+            "65px",
+            "30px",
+            "190px",
+            "190px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            160
+          ],
+          "values": [
+            "65px",
+            "150px",
+            "150px",
+            "65px",
+            "30px",
+            "20px",
+            "20px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            90
+          ],
+          "values": [
+            "65px",
+            "80px",
+            "80px",
+            "65px",
+            "33px",
+            "70px",
+            "70px",
+            "33px",
+            "65px",
+            "80px",
+            "80px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables sideways-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            160
+          ],
+          "values": [
+            "110px",
+            "150px",
+            "150px",
+            "110px",
+            "0px",
+            "10%",
+            "10%",
+            "0px",
+            "calc(70% - 3px)",
+            "none",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints sideways-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            80,
+            180
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            95,
+            160
+          ],
+          "values": [
+            "95px",
+            "160px",
+            "160px",
+            "95px",
+            "95px",
+            "0px",
+            "0px",
+            "95px",
+            "none",
+            "160px",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance sideways-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:horizontal-tb;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "170px",
+            "190px",
+            "13px",
+            "17px",
+            "17px",
+            "13px",
+            "230px",
+            "210px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "190px",
+            "170px",
+            "17px",
+            "13px",
+            "13px",
+            "17px",
+            "210px",
+            "230px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping sideways-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:ltr}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:sideways-lr;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "11px",
+            "17px",
+            "17px",
+            "11px",
+            "200px",
+            "170px",
+            "170px",
+            "200px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations sideways-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:ltr}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:sideways-lr;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "17px",
+            "11px",
+            "11px",
+            "17px",
+            "170px",
+            "200px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial sideways-lr ltr",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical/physical declaration order sideways-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;width:110px;block-size:80px;height:60px",
+          "width": 800
+        },
+        {
+          "style": "width:110px;inline-size:180px;height:60px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px!important;width:110px;block-size:80px!important;height:60px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            70
+          ],
+          "values": [
+            "80px",
+            "60px",
+            "60px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Final writing mode independent of declaration position sideways-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:sideways-lr",
+          "width": 800
+        },
+        {
+          "style": "writing-mode:sideways-lr;inline-size:180px;block-size:80px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical min/max and minimum precedence sideways-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:190px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;min-inline-size:20px;max-inline-size:150px;min-block-size:30px;max-block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "width:140px;height:90px;min-width:33px;min-height:27px;max-width:130px;max-height:80px;min-inline-size:70px;max-block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            200
+          ],
+          "values": [
+            "65px",
+            "190px",
+            "190px",
+            "65px",
+            "30px",
+            "190px",
+            "190px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            160
+          ],
+          "values": [
+            "65px",
+            "150px",
+            "150px",
+            "65px",
+            "30px",
+            "20px",
+            "20px",
+            "30px",
+            "65px",
+            "150px",
+            "150px",
+            "65px"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            90
+          ],
+          "values": [
+            "65px",
+            "80px",
+            "80px",
+            "65px",
+            "33px",
+            "70px",
+            "70px",
+            "33px",
+            "65px",
+            "80px",
+            "80px",
+            "65px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Percentage/math and invalid after variables sideways-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:calc(25% + 10px);min-inline-size:10%;max-block-size:calc(70% - 3px)",
+          "width": 800
+        },
+        {
+          "style": "--size:175px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "--size:red;inline-size:170px;inline-size:var(--size);block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:175px;inline-size:-2px;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            120,
+            160
+          ],
+          "values": [
+            "110px",
+            "150px",
+            "150px",
+            "110px",
+            "0px",
+            "10%",
+            "10%",
+            "0px",
+            "calc(70% - 3px)",
+            "none",
+            "none",
+            "calc(70% - 3px)"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            185
+          ],
+          "values": [
+            "65px",
+            "175px",
+            "175px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Border-box logical constraints sideways-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px",
+          "width": 800
+        },
+        {
+          "style": "box-sizing:border-box;inline-size:180px;block-size:80px;max-inline-size:160px;min-block-size:95px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            80,
+            180
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            95,
+            160
+          ],
+          "values": [
+            "95px",
+            "160px",
+            "160px",
+            "95px",
+            "95px",
+            "0px",
+            "0px",
+            "95px",
+            "none",
+            "160px",
+            "160px",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Same-name logical inheritance sideways-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;writing-mode:horizontal-tb;width:190px;height:170px;min-width:13px;min-height:17px;max-width:230px;max-height:210px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:inherit;block-size:inherit;min-inline-size:inherit;min-block-size:inherit;max-inline-size:inherit;max-block-size:inherit",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            200,
+            180
+          ],
+          "values": [
+            "190px",
+            "170px",
+            "170px",
+            "190px",
+            "13px",
+            "17px",
+            "17px",
+            "13px",
+            "230px",
+            "210px",
+            "210px",
+            "230px"
+          ]
+        }
+      ],
+      "specExpected": [
+        {
+          "rect": [
+            180,
+            200
+          ],
+          "values": [
+            "170px",
+            "190px",
+            "190px",
+            "170px",
+            "17px",
+            "13px",
+            "13px",
+            "17px",
+            "210px",
+            "230px",
+            "230px",
+            "210px"
+          ]
+        }
+      ],
+      "difference": "CSS Logical §4 namesake inheritance versus Chromium physical inheritance across orthogonal modes."
+    },
+    {
+      "name": "Layer rollback retains final mapping sideways-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:rtl}@layer lower,upper;@layer lower{#target{width:135px;height:75px;writing-mode:horizontal-tb;min-width:11px;min-height:17px;max-width:200px;max-height:170px}}@layer upper{#target{writing-mode:sideways-lr;inline-size:180px;inline-size:revert-layer;min-inline-size:revert-layer;max-block-size:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "11px",
+            "17px",
+            "17px",
+            "11px",
+            "200px",
+            "170px",
+            "170px",
+            "200px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Physical layer rollback remaps lower logical declarations sideways-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:rtl}@layer lower,upper;@layer lower{#target{inline-size:135px;block-size:75px;writing-mode:horizontal-tb;min-inline-size:11px;min-block-size:17px;max-inline-size:200px;max-block-size:170px}}@layer upper{#target{writing-mode:sideways-lr;width:revert-layer;height:revert-layer;min-width:revert-layer;max-height:revert-layer}}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            150,
+            100
+          ],
+          "values": [
+            "140px",
+            "90px",
+            "90px",
+            "140px",
+            "17px",
+            "11px",
+            "11px",
+            "17px",
+            "170px",
+            "200px",
+            "200px",
+            "170px"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Author-origin rollback and initial sideways-lr rtl",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:sideways-lr;direction:rtl}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:initial;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:unset;block-size:65px",
+          "width": 800
+        },
+        {
+          "style": "inline-size:revert;block-size:65px",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            75,
+            10
+          ],
+          "values": [
+            "65px",
+            "0px",
+            "0px",
+            "65px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Retained five-mode switching and viewport resize",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:horizontal-tb;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:horizontal-tb",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:vertical-rl",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:vertical-lr",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:sideways-rl",
+          "width": 800
+        },
+        {
+          "style": "inline-size:180px;block-size:80px;writing-mode:sideways-lr",
+          "width": 800
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            190,
+            90
+          ],
+          "values": [
+            "180px",
+            "80px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            90,
+            190
+          ],
+          "values": [
+            "80px",
+            "180px",
+            "180px",
+            "80px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Responsive percentage sizes and retained aliases",
+      "html": "<!doctype html><style>body{margin:0}#parent{position:relative;width:400px;height:300px;}#target{position:absolute;left:0;top:0;width:140px;height:90px;padding:3px;border:2px solid black;writing-mode:vertical-rl;direction:ltr}</style><div id=parent><div id=target></div></div>",
+      "steps": [
+        {
+          "style": "inline-size:50%;block-size:50%",
+          "width": 800,
+          "parentWidth": 400
+        },
+        {
+          "style": "inline-size:50%;block-size:50%",
+          "width": 800,
+          "parentWidth": 300
+        },
+        {
+          "style": "inline-size:50%;block-size:50%;writing-mode:horizontal-tb",
+          "width": 800,
+          "parentWidth": 220
+        }
+      ],
+      "expected": [
+        {
+          "rect": [
+            210,
+            160
+          ],
+          "values": [
+            "200px",
+            "150px",
+            "150px",
+            "200px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            160,
+            160
+          ],
+          "values": [
+            "150px",
+            "150px",
+            "150px",
+            "150px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        },
+        {
+          "rect": [
+            120,
+            160
+          ],
+          "values": [
+            "110px",
+            "150px",
+            "110px",
+            "150px",
+            "0px",
+            "0px",
+            "0px",
+            "0px",
+            "none",
+            "none",
+            "none",
+            "none"
+          ]
+        }
+      ]
+    }
+  ],
+  "axisOrder": [
+    {
+      "mode": "horizontal-tb",
+      "direction": "ltr",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:horizontal-tb;direction:ltr",
+      "values": {
+        "margin": [
+          0,
+          0,
+          0,
+          13
+        ],
+        "padding": [
+          0,
+          0,
+          17,
+          0
+        ],
+        "border": [
+          0,
+          7,
+          0,
+          0
+        ],
+        "inset": [
+          19,
+          0,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          null,
+          29
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          31,
+          0
+        ],
+        "radius": [
+          23,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "horizontal-tb",
+      "direction": "ltr",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          0,
+          13
+        ],
+        "padding": [
+          0,
+          0,
+          17,
+          0
+        ],
+        "border": [
+          0,
+          7,
+          0,
+          0
+        ],
+        "inset": [
+          19,
+          0,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          null,
+          29
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          31,
+          0
+        ],
+        "radius": [
+          23,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "horizontal-tb",
+      "direction": "ltr",
+      "css": "writing-mode:horizontal-tb!important;direction:ltr!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          0,
+          13
+        ],
+        "padding": [
+          0,
+          0,
+          17,
+          0
+        ],
+        "border": [
+          0,
+          7,
+          0,
+          0
+        ],
+        "inset": [
+          19,
+          0,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          null,
+          29
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          31,
+          0
+        ],
+        "radius": [
+          23,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "horizontal-tb",
+      "direction": "rtl",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:horizontal-tb;direction:rtl",
+      "values": {
+        "margin": [
+          0,
+          13,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          17,
+          0
+        ],
+        "border": [
+          0,
+          0,
+          0,
+          7
+        ],
+        "inset": [
+          19,
+          0,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          29,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          31,
+          0
+        ],
+        "radius": [
+          0,
+          23,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "horizontal-tb",
+      "direction": "rtl",
+      "css": "writing-mode:horizontal-tb;direction:rtl;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          13,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          17,
+          0
+        ],
+        "border": [
+          0,
+          0,
+          0,
+          7
+        ],
+        "inset": [
+          19,
+          0,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          29,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          31,
+          0
+        ],
+        "radius": [
+          0,
+          23,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "horizontal-tb",
+      "direction": "rtl",
+      "css": "writing-mode:horizontal-tb!important;direction:rtl!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          13,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          17,
+          0
+        ],
+        "border": [
+          0,
+          0,
+          0,
+          7
+        ],
+        "inset": [
+          19,
+          0,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          29,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          31,
+          0
+        ],
+        "radius": [
+          0,
+          23,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-rl",
+      "direction": "ltr",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:vertical-rl;direction:ltr",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          23,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-rl",
+      "direction": "ltr",
+      "css": "writing-mode:vertical-rl;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          23,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-rl",
+      "direction": "ltr",
+      "css": "writing-mode:vertical-rl!important;direction:ltr!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          23,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-rl",
+      "direction": "rtl",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:vertical-rl;direction:rtl",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          0,
+          23,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-rl",
+      "direction": "rtl",
+      "css": "writing-mode:vertical-rl;direction:rtl;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          0,
+          23,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-rl",
+      "direction": "rtl",
+      "css": "writing-mode:vertical-rl!important;direction:rtl!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          0,
+          23,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-lr",
+      "direction": "ltr",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:vertical-lr;direction:ltr",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          23,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-lr",
+      "direction": "ltr",
+      "css": "writing-mode:vertical-lr;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          23,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-lr",
+      "direction": "ltr",
+      "css": "writing-mode:vertical-lr!important;direction:ltr!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          23,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "vertical-lr",
+      "direction": "rtl",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:vertical-lr;direction:rtl",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          0,
+          0,
+          0,
+          23
+        ]
+      }
+    },
+    {
+      "mode": "vertical-lr",
+      "direction": "rtl",
+      "css": "writing-mode:vertical-lr;direction:rtl;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          0,
+          0,
+          0,
+          23
+        ]
+      }
+    },
+    {
+      "mode": "vertical-lr",
+      "direction": "rtl",
+      "css": "writing-mode:vertical-lr!important;direction:rtl!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          0,
+          0,
+          0,
+          23
+        ]
+      }
+    },
+    {
+      "mode": "sideways-rl",
+      "direction": "ltr",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:sideways-rl;direction:ltr",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          23,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "sideways-rl",
+      "direction": "ltr",
+      "css": "writing-mode:sideways-rl;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          23,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "sideways-rl",
+      "direction": "ltr",
+      "css": "writing-mode:sideways-rl!important;direction:ltr!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          23,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "sideways-rl",
+      "direction": "rtl",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:sideways-rl;direction:rtl",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          0,
+          23,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "sideways-rl",
+      "direction": "rtl",
+      "css": "writing-mode:sideways-rl;direction:rtl;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          0,
+          23,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "sideways-rl",
+      "direction": "rtl",
+      "css": "writing-mode:sideways-rl!important;direction:rtl!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          0,
+          0,
+          17
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          19,
+          0,
+          0
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          0,
+          0,
+          31
+        ],
+        "radius": [
+          0,
+          0,
+          23,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "sideways-lr",
+      "direction": "ltr",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:sideways-lr;direction:ltr",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          0,
+          0,
+          0,
+          23
+        ]
+      }
+    },
+    {
+      "mode": "sideways-lr",
+      "direction": "ltr",
+      "css": "writing-mode:sideways-lr;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          0,
+          0,
+          0,
+          23
+        ]
+      }
+    },
+    {
+      "mode": "sideways-lr",
+      "direction": "ltr",
+      "css": "writing-mode:sideways-lr!important;direction:ltr!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          0,
+          0,
+          13,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          7,
+          0,
+          0,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          null,
+          null,
+          29,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          0,
+          0,
+          0,
+          23
+        ]
+      }
+    },
+    {
+      "mode": "sideways-lr",
+      "direction": "rtl",
+      "css": "writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;writing-mode:sideways-lr;direction:rtl",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          23,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "sideways-lr",
+      "direction": "rtl",
+      "css": "writing-mode:sideways-lr;direction:rtl;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          23,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "mode": "sideways-lr",
+      "direction": "rtl",
+      "css": "writing-mode:sideways-lr!important;direction:rtl!important;writing-mode:horizontal-tb;direction:ltr;margin-inline-start:13px;padding-block-end:17px;border-inline-end:7px solid black;inset-block-start:19px;border-start-start-radius:23px;scroll-padding-inline-start:29px;scroll-margin-block-end:31px;",
+      "values": {
+        "margin": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "padding": [
+          0,
+          17,
+          0,
+          0
+        ],
+        "border": [
+          0,
+          0,
+          7,
+          0
+        ],
+        "inset": [
+          0,
+          0,
+          0,
+          19
+        ],
+        "scroll-padding": [
+          29,
+          null,
+          null,
+          null
+        ],
+        "scroll-margin": [
+          0,
+          31,
+          0,
+          0
+        ],
+        "radius": [
+          23,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+}

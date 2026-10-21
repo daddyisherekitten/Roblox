@@ -1,0 +1,382 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "ordinarySupport": {
+    "headingOffset": "undefined",
+    "headingReset": "undefined",
+    "selector": "SyntaxError"
+  },
+  "experimentalFeatures": [
+    "HeadingOffset"
+  ],
+  "records": [
+    {
+      "name": "offset raw null",
+      "source": "const h=document.createElement('h2');window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[0,false,null]"
+    },
+    {
+      "name": "offset raw \"\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[0,false,\"\"]"
+    },
+    {
+      "name": "offset raw \"0\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"0\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[0,false,\"0\"]"
+    },
+    {
+      "name": "offset raw \"1\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"1\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[1,false,\"1\"]"
+    },
+    {
+      "name": "offset raw \"8\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"8\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[8,false,\"8\"]"
+    },
+    {
+      "name": "offset raw \"9\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"9\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[9,false,\"9\"]",
+      "normative": {
+        "json": "[8,false,\"9\"]",
+        "reference": "https://html.spec.whatwg.org/multipage/dom.html#htmlelement",
+        "reason": "ReflectRange=(0,8) clamps the getter to 8; the experimental Chromium getter clamps to 9. The setter content remains unchanged."
+      }
+    },
+    {
+      "name": "offset raw \"+2\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"+2\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[2,false,\"+2\"]"
+    },
+    {
+      "name": "offset raw \" 3suffix\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\" 3suffix\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[3,false,\" 3suffix\"]"
+    },
+    {
+      "name": "offset raw \"-1\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"-1\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[0,false,\"-1\"]"
+    },
+    {
+      "name": "offset raw \"1.5\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"1.5\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[1,false,\"1.5\"]"
+    },
+    {
+      "name": "offset raw \"1e2\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"1e2\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[1,false,\"1e2\"]"
+    },
+    {
+      "name": "offset raw \"0x9\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"0x9\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[0,false,\"0x9\"]"
+    },
+    {
+      "name": "offset raw \"bad\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"bad\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[0,false,\"bad\"]"
+    },
+    {
+      "name": "offset raw \"9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999\"",
+      "source": "const h=document.createElement('h2');h.setAttribute('headingoffset',\"9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999\");window.headingResult=[h.headingOffset,h.headingReset,h.getAttribute('headingoffset')];",
+      "json": "[9,false,\"9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999\"]",
+      "normative": {
+        "json": "[8,false,\"9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999\"]",
+        "reference": "https://html.spec.whatwg.org/multipage/dom.html#htmlelement",
+        "reason": "ReflectRange=(0,8) clamps the getter to 8; the experimental Chromium getter clamps to 9. The setter content remains unchanged."
+      }
+    },
+    {
+      "name": "offset setter 0",
+      "source": "const h=document.createElement('h2');h.headingOffset=0;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[0,\"0\"]"
+    },
+    {
+      "name": "offset setter 8",
+      "source": "const h=document.createElement('h2');h.headingOffset=8;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[8,\"8\"]"
+    },
+    {
+      "name": "offset setter 9",
+      "source": "const h=document.createElement('h2');h.headingOffset=9;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[9,\"9\"]",
+      "normative": {
+        "json": "[8,\"9\"]",
+        "reference": "https://html.spec.whatwg.org/multipage/dom.html#htmlelement",
+        "reason": "ReflectRange=(0,8) clamps the getter to 8; the experimental Chromium getter clamps to 9. The setter content remains unchanged."
+      }
+    },
+    {
+      "name": "offset setter -1",
+      "source": "const h=document.createElement('h2');h.headingOffset=-1;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[0,\"0\"]"
+    },
+    {
+      "name": "offset setter -2",
+      "source": "const h=document.createElement('h2');h.headingOffset=-2;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[0,\"0\"]"
+    },
+    {
+      "name": "offset setter 4294967297",
+      "source": "const h=document.createElement('h2');h.headingOffset=4294967297;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[1,\"1\"]"
+    },
+    {
+      "name": "offset setter 2147483648",
+      "source": "const h=document.createElement('h2');h.headingOffset=2147483648;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[0,\"0\"]"
+    },
+    {
+      "name": "offset setter 3.9",
+      "source": "const h=document.createElement('h2');h.headingOffset=3.9;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[3,\"3\"]"
+    },
+    {
+      "name": "offset setter NaN",
+      "source": "const h=document.createElement('h2');h.headingOffset=NaN;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[0,\"0\"]"
+    },
+    {
+      "name": "offset setter Infinity",
+      "source": "const h=document.createElement('h2');h.headingOffset=Infinity;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[0,\"0\"]"
+    },
+    {
+      "name": "offset setter null",
+      "source": "const h=document.createElement('h2');h.headingOffset=null;window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[0,\"0\"]"
+    },
+    {
+      "name": "offset setter '7'",
+      "source": "const h=document.createElement('h2');h.headingOffset='7';window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[7,\"7\"]"
+    },
+    {
+      "name": "offset setter 'bad'",
+      "source": "const h=document.createElement('h2');h.headingOffset='bad';window.headingResult=[h.headingOffset,h.getAttribute('headingoffset')];",
+      "json": "[0,\"0\"]"
+    },
+    {
+      "name": "reset setter false",
+      "source": "const h=document.createElement('h2');h.headingReset=false;window.headingResult=[h.headingReset,h.getAttribute('headingreset')];",
+      "json": "[false,null]"
+    },
+    {
+      "name": "reset setter true",
+      "source": "const h=document.createElement('h2');h.headingReset=true;window.headingResult=[h.headingReset,h.getAttribute('headingreset')];",
+      "json": "[true,\"\"]"
+    },
+    {
+      "name": "reset setter 0",
+      "source": "const h=document.createElement('h2');h.headingReset=0;window.headingResult=[h.headingReset,h.getAttribute('headingreset')];",
+      "json": "[false,null]"
+    },
+    {
+      "name": "reset setter 1",
+      "source": "const h=document.createElement('h2');h.headingReset=1;window.headingResult=[h.headingReset,h.getAttribute('headingreset')];",
+      "json": "[true,\"\"]"
+    },
+    {
+      "name": "reset setter ''",
+      "source": "const h=document.createElement('h2');h.headingReset='';window.headingResult=[h.headingReset,h.getAttribute('headingreset')];",
+      "json": "[false,null]"
+    },
+    {
+      "name": "reset setter 'false'",
+      "source": "const h=document.createElement('h2');h.headingReset='false';window.headingResult=[h.headingReset,h.getAttribute('headingreset')];",
+      "json": "[true,\"\"]"
+    },
+    {
+      "name": "reset setter null",
+      "source": "const h=document.createElement('h2');h.headingReset=null;window.headingResult=[h.headingReset,h.getAttribute('headingreset')];",
+      "json": "[false,null]"
+    },
+    {
+      "name": "expanded HTML reflection",
+      "source": "const h=document.createElementNS('http://www.w3.org/1999/xhtml','h:h3');h.headingOffset=5;h.headingReset=true;window.headingResult=[h.localName,h.tagName,h.headingOffset,h.headingReset,h.getAttribute('headingoffset'),h.getAttribute('headingreset')];",
+      "json": "[\"h3\",\"H:H3\",5,true,\"5\",\"\"]"
+    }
+  ],
+  "headings": [
+    {
+      "name": "rank 1",
+      "setup": "const h=document.createElement('h1');document.body.append(h);",
+      "expected": 1,
+      "nativeLevel": 1
+    },
+    {
+      "name": "rank 2",
+      "setup": "const h=document.createElement('h2');document.body.append(h);",
+      "expected": 2,
+      "nativeLevel": 2
+    },
+    {
+      "name": "rank 3",
+      "setup": "const h=document.createElement('h3');document.body.append(h);",
+      "expected": 3,
+      "nativeLevel": 3
+    },
+    {
+      "name": "rank 4",
+      "setup": "const h=document.createElement('h4');document.body.append(h);",
+      "expected": 4,
+      "nativeLevel": 4
+    },
+    {
+      "name": "rank 5",
+      "setup": "const h=document.createElement('h5');document.body.append(h);",
+      "expected": 5,
+      "nativeLevel": 5
+    },
+    {
+      "name": "rank 6",
+      "setup": "const h=document.createElement('h6');document.body.append(h);",
+      "expected": 6,
+      "nativeLevel": 6
+    },
+    {
+      "name": "own offset",
+      "setup": "const h=document.createElement('h2');h.setAttribute('headingoffset','2');document.body.append(h);",
+      "expected": 4,
+      "nativeLevel": 4
+    },
+    {
+      "name": "inclusive nested offsets",
+      "setup": "const p=document.createElement('section'),h=document.createElement('h2');p.setAttribute('headingoffset','2');h.setAttribute('headingoffset','3');p.append(h);document.body.append(p);",
+      "expected": 7,
+      "nativeLevel": 7
+    },
+    {
+      "name": "final clamp",
+      "setup": "const h=document.createElement('h6');h.setAttribute('headingoffset','8');document.body.append(h);",
+      "expected": 9,
+      "nativeLevel": 9
+    },
+    {
+      "name": "raw beyond reflection range",
+      "setup": "const h=document.createElement('h1');h.setAttribute('headingoffset','9');document.body.append(h);",
+      "expected": 9,
+      "nativeLevel": 9
+    },
+    {
+      "name": "overflow raw integer",
+      "setup": "const h=document.createElement('h1');h.setAttribute('headingoffset','9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999');document.body.append(h);",
+      "expected": 9,
+      "nativeLevel": 9
+    },
+    {
+      "name": "invalid negative",
+      "setup": "const h=document.createElement('h2');h.setAttribute('headingoffset','-3');document.body.append(h);",
+      "expected": 2,
+      "nativeLevel": 2
+    },
+    {
+      "name": "leading plus and trailing token",
+      "setup": "const h=document.createElement('h2');h.setAttribute('headingoffset',' +2suffix');document.body.append(h);",
+      "expected": 4,
+      "nativeLevel": 4
+    },
+    {
+      "name": "own reset inclusive",
+      "setup": "const p=document.createElement('section'),h=document.createElement('h2');p.setAttribute('headingoffset','5');h.setAttribute('headingoffset','1');h.setAttribute('headingreset','false');p.append(h);document.body.append(p);",
+      "expected": 3,
+      "nativeLevel": 3
+    },
+    {
+      "name": "ancestor reset inclusive",
+      "setup": "const outer=document.createElement('section'),inner=document.createElement('div'),h=document.createElement('h2');outer.setAttribute('headingoffset','5');inner.setAttribute('headingoffset','1');inner.setAttribute('headingreset','');inner.append(h);outer.append(inner);document.body.append(outer);",
+      "expected": 3,
+      "nativeLevel": 2,
+      "normative": {
+        "reference": "https://html.spec.whatwg.org/multipage/sections.html#heading-levels-&-offsets",
+        "reason": "The experimental AX path differs from the HTML inclusive DOM ancestor, HTML namespace and shadow-host algorithm. Raw AX output is retained."
+      }
+    },
+    {
+      "name": "prefixed HTML heading",
+      "setup": "const h=document.createElementNS('http://www.w3.org/1999/xhtml','h:h3');h.headingOffset=2;document.body.append(h);",
+      "expected": 5,
+      "nativeLevel": 5
+    },
+    {
+      "name": "prefixed HTML ancestor",
+      "setup": "const p=document.createElementNS('http://www.w3.org/1999/xhtml','h:section'),h=document.createElement('h2');p.headingOffset=2;p.append(h);document.body.append(p);",
+      "expected": 4,
+      "nativeLevel": 4
+    },
+    {
+      "name": "foreign ancestor ignored",
+      "setup": "const p=document.createElementNS('urn:foreign','f:section'),h=document.createElement('h2');p.setAttribute('headingoffset','5');p.setAttribute('headingreset','');p.append(h);document.body.setAttribute('headingoffset','1');document.body.append(p);",
+      "expected": 3,
+      "nativeLevel": 2,
+      "normative": {
+        "reference": "https://html.spec.whatwg.org/multipage/sections.html#heading-levels-&-offsets",
+        "reason": "The experimental AX path differs from the HTML inclusive DOM ancestor, HTML namespace and shadow-host algorithm. Raw AX output is retained."
+      }
+    },
+    {
+      "name": "namespaced attributes ignored",
+      "setup": "const h=document.createElement('h2');h.setAttributeNS('urn:test','f:headingoffset','5');h.setAttributeNS('urn:test','f:headingreset','');document.body.setAttribute('headingoffset','1');document.body.append(h);",
+      "expected": 3,
+      "nativeLevel": 3
+    },
+    {
+      "name": "unprefixed namespace attributes ignored",
+      "setup": "const h=document.createElement('h2');h.setAttributeNS('urn:test','headingoffset','5');h.setAttributeNS('urn:test','headingreset','');document.body.setAttribute('headingoffset','1');document.body.append(h);",
+      "expected": 3,
+      "nativeLevel": 3
+    },
+    {
+      "name": "shadow host ancestor",
+      "setup": "const host=document.createElement('section');host.headingOffset=2;document.body.append(host);const shadow=host.attachShadow({mode:'open'}),h=document.createElement('h2');shadow.append(h);",
+      "expected": 4,
+      "nativeLevel": 4
+    },
+    {
+      "name": "slotted DOM ancestor",
+      "setup": "const host=document.createElement('section');host.headingOffset=1;document.body.append(host);const shadow=host.attachShadow({mode:'open'}),slot=document.createElement('slot'),h=document.createElement('h2');slot.headingOffset=5;shadow.append(slot);host.append(h);",
+      "expected": 3,
+      "nativeLevel": 8,
+      "normative": {
+        "reference": "https://html.spec.whatwg.org/multipage/sections.html#heading-levels-&-offsets",
+        "reason": "The experimental AX path differs from the HTML inclusive DOM ancestor, HTML namespace and shadow-host algorithm. Raw AX output is retained."
+      }
+    },
+    {
+      "name": "foreign heading",
+      "setup": "const h=document.createElementNS('urn:foreign','f:h2');document.body.append(h);",
+      "expected": null,
+      "nativeLevel": null
+    },
+    {
+      "name": "null namespace heading",
+      "setup": "const h=document.createElementNS(null,'h2');document.body.append(h);",
+      "expected": null,
+      "nativeLevel": null
+    },
+    {
+      "name": "uppercase HTML local name",
+      "setup": "const h=document.createElementNS('http://www.w3.org/1999/xhtml','h:H2');document.body.append(h);",
+      "expected": null,
+      "nativeLevel": null
+    },
+    {
+      "name": "ARIA independent algorithm",
+      "setup": "const h=document.createElement('h2');h.headingOffset=1;h.setAttribute('aria-level','5');document.body.append(h);",
+      "expected": 3,
+      "nativeLevel": 5,
+      "normative": {
+        "reference": "https://html.spec.whatwg.org/multipage/sections.html#heading-levels-&-offsets",
+        "reason": "AX respects aria-level. The HTML computed heading algorithm consumed by :heading() uses the native rank and offsets independently."
+      }
+    }
+  ],
+  "references": [
+    "https://html.spec.whatwg.org/multipage/sections.html#heading-levels-&-offsets",
+    "https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes",
+    "https://drafts.csswg.org/selectors-5/#heading-pseudo"
+  ]
+}

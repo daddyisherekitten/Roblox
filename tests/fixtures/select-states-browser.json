@@ -1,0 +1,2499 @@
+{
+  "captured": "2026-10-09",
+  "standard": "https://html.spec.whatwg.org/multipage/rendering.html#the-select-element-2",
+  "cases": [
+    {
+      "name": "Base list option UA interaction and author cascade",
+      "html": "<!doctype html><style>body{color:blue}select{appearance:base-select;width:240px;height:100px;font:16px/24px Arial}</style><select id=stateSelect size=3><optgroup id=stateGroup label=Group><option id=stateA><b id=stateBold>Alpha</b></option><option id=stateB>Beta</option></optgroup></select>",
+      "targets": [
+        "stateSelect",
+        "stateGroup",
+        "stateA",
+        "stateBold",
+        "stateB"
+      ],
+      "steps": [
+        {},
+        {
+          "hover": "stateBold"
+        },
+        {
+          "hover": "stateBold",
+          "active": "stateBold"
+        },
+        {
+          "hover": "stateB",
+          "active": false
+        },
+        {
+          "hover": false
+        },
+        {
+          "hover": "stateA",
+          "styles": {
+            "stateA": "color:red"
+          }
+        },
+        {
+          "styles": {
+            "stateA": "color:red;background:green"
+          }
+        },
+        {
+          "styles": {
+            "stateA": "color:red;background:revert"
+          }
+        },
+        {
+          "styles": {
+            "stateA": "color:red;background:initial"
+          }
+        },
+        {
+          "styles": {
+            "stateA": ""
+          },
+          "attributes": {
+            "stateA": {
+              "disabled": ""
+            }
+          }
+        },
+        {
+          "attributes": {
+            "stateA": {
+              "disabled": false
+            }
+          },
+          "hover": false
+        },
+        {
+          "attributes": {
+            "stateGroup": {
+              "disabled": ""
+            }
+          }
+        },
+        {
+          "attributes": {
+            "stateA": {
+              "disabled": ""
+            }
+          }
+        },
+        {
+          "styles": {
+            "stateGroup": "color:red"
+          }
+        },
+        {
+          "attributes": {
+            "stateGroup": {
+              "disabled": false
+            }
+          },
+          "styles": {
+            "stateGroup": ""
+          }
+        },
+        {
+          "attributes": {
+            "stateA": {
+              "disabled": false
+            },
+            "stateSelect": {
+              "disabled": ""
+            }
+          }
+        },
+        {
+          "attributes": {
+            "stateSelect": {
+              "disabled": false
+            }
+          }
+        }
+      ],
+      "expected": [
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0.0004559755325317383,
+              -0.0009119510650634766,
+              255,
+              25.4937744140625
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "oklab(0.451981 -0.0324624 -0.311523 / 0.1)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0.00037997961044311523,
+              -0.0009879469871520996,
+              255,
+              50.987548828125
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "oklab(0.451981 -0.0324624 -0.311523 / 0.2)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0.0004559755325317383,
+              -0.0009119510650634766,
+              255,
+              25.4937744140625
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "oklab(0.451981 -0.0324624 -0.311523 / 0.1)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              255,
+              -0.0001519918441772461,
+              0.001519918441772461,
+              25.4937744140625
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "oklab(0.627966 0.22488 0.125859 / 0.1)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              127.998046875,
+              0,
+              255
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgb(0, 128, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              255,
+              -0.0001519918441772461,
+              0.001519918441772461,
+              25.4937744140625
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "oklab(0.627966 0.22488 0.125859 / 0.1)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBold": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateA": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBold": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateA": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBold": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateA": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBold": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBold": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateGroup": {
+            "color": [
+              0.0003647804260253906,
+              -0.000972747802734375,
+              255,
+              63.75
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.25)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateA": {
+            "color": [
+              0.0003647804260253906,
+              -0.000972747802734375,
+              255,
+              63.75
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.25)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBold": {
+            "color": [
+              0.0003647804260253906,
+              -0.000972747802734375,
+              255,
+              63.75
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.25)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0.0003647804260253906,
+              -0.000972747802734375,
+              255,
+              63.75
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.25)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          }
+        },
+        {
+          "stateSelect": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateA": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBold": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": false
+          },
+          "stateB": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "Base dropdown font-relative UA geometry and pointer states",
+      "html": "<!doctype html><style>body{color:blue}select{appearance:base-select;font:16px/24px Arial}select::picker(select){appearance:base-select}</style><select id=stateDrop><option>Dropdown</option></select>",
+      "targets": [
+        "stateDrop"
+      ],
+      "metrics": [
+        "stateDrop"
+      ],
+      "steps": [
+        {},
+        {
+          "hover": "stateDrop"
+        },
+        {
+          "active": "stateDrop"
+        },
+        {
+          "styles": {
+            "stateDrop": "font-size:32px;line-height:40px"
+          }
+        },
+        {
+          "styles": {
+            "stateDrop": "font-size:32px;line-height:40px;padding-left:3px;border-radius:2px"
+          }
+        },
+        {
+          "styles": {
+            "stateDrop": "font-size:32px;line-height:40px;padding-left:revert;border-radius:revert"
+          }
+        },
+        {
+          "attributes": {
+            "stateDrop": {
+              "disabled": ""
+            }
+          }
+        },
+        {
+          "styles": {
+            "stateDrop": "color:red"
+          }
+        },
+        {
+          "attributes": {
+            "stateDrop": {
+              "disabled": false
+            }
+          },
+          "styles": {
+            "stateDrop": ""
+          },
+          "hover": false,
+          "active": false
+        }
+      ],
+      "expected": [
+        {
+          "stateDrop": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true,
+            "metrics": [
+              8,
+              4,
+              8,
+              8,
+              "border-box"
+            ]
+          }
+        },
+        {
+          "stateDrop": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0.0004559755325317383,
+              -0.0009119510650634766,
+              255,
+              25.4937744140625
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "oklab(0.451981 -0.0324624 -0.311523 / 0.1)",
+            "disabled": false,
+            "enabled": true,
+            "metrics": [
+              8,
+              4,
+              8,
+              8,
+              "border-box"
+            ]
+          }
+        },
+        {
+          "stateDrop": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0.00037997961044311523,
+              -0.0009879469871520996,
+              255,
+              50.987548828125
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "oklab(0.451981 -0.0324624 -0.311523 / 0.2)",
+            "disabled": false,
+            "enabled": true,
+            "metrics": [
+              8,
+              4,
+              8,
+              8,
+              "border-box"
+            ]
+          }
+        },
+        {
+          "stateDrop": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0.00037997961044311523,
+              -0.0009879469871520996,
+              255,
+              50.987548828125
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "oklab(0.451981 -0.0324624 -0.311523 / 0.2)",
+            "disabled": false,
+            "enabled": true,
+            "metrics": [
+              16,
+              8,
+              16,
+              16,
+              "border-box"
+            ]
+          }
+        },
+        {
+          "stateDrop": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0.00037997961044311523,
+              -0.0009879469871520996,
+              255,
+              50.987548828125
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "oklab(0.451981 -0.0324624 -0.311523 / 0.2)",
+            "disabled": false,
+            "enabled": true,
+            "metrics": [
+              2,
+              8,
+              3,
+              16,
+              "border-box"
+            ]
+          }
+        },
+        {
+          "stateDrop": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0.00037997961044311523,
+              -0.0009879469871520996,
+              255,
+              50.987548828125
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "oklab(0.451981 -0.0324624 -0.311523 / 0.2)",
+            "disabled": false,
+            "enabled": true,
+            "metrics": [
+              16,
+              8,
+              16,
+              16,
+              "border-box"
+            ]
+          }
+        },
+        {
+          "stateDrop": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false,
+            "metrics": [
+              16,
+              8,
+              16,
+              16,
+              "border-box"
+            ]
+          }
+        },
+        {
+          "stateDrop": {
+            "color": [
+              255,
+              0,
+              0,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(255, 0, 0)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false,
+            "metrics": [
+              8,
+              4,
+              8,
+              8,
+              "border-box"
+            ]
+          }
+        },
+        {
+          "stateDrop": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true,
+            "metrics": [
+              8,
+              4,
+              8,
+              8,
+              "border-box"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Disabled fieldset excludes its first legend and reaches rich group options",
+      "html": "<!doctype html><style>body{color:blue}select{appearance:base-select;font:16px/24px Arial}</style><fieldset id=stateField disabled><legend><select id=stateLegend size=3><option id=stateLegendOption>Legend</option></select></legend><select id=stateBlocked size=3><optgroup id=stateBlockedGroup label=Group><option id=stateBlockedOption>Blocked</option></optgroup></select></fieldset>",
+      "targets": [
+        "stateLegend",
+        "stateLegendOption",
+        "stateBlocked",
+        "stateBlockedGroup",
+        "stateBlockedOption"
+      ],
+      "steps": [
+        {},
+        {
+          "attributes": {
+            "stateField": {
+              "disabled": false
+            }
+          }
+        },
+        {
+          "attributes": {
+            "stateBlocked": {
+              "disabled": ""
+            }
+          }
+        },
+        {
+          "attributes": {
+            "stateBlocked": {
+              "disabled": false
+            },
+            "stateBlockedGroup": {
+              "disabled": ""
+            }
+          }
+        },
+        {
+          "attributes": {
+            "stateBlockedGroup": {
+              "disabled": false
+            },
+            "stateLegendOption": {
+              "disabled": ""
+            }
+          }
+        }
+      ],
+      "expected": [
+        {
+          "stateLegend": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateLegendOption": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBlocked": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBlockedGroup": {
+            "color": [
+              0.0003647804260253906,
+              -0.000972747802734375,
+              255,
+              63.75
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.25)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBlockedOption": {
+            "color": [
+              0.0003647804260253906,
+              -0.000972747802734375,
+              255,
+              63.75
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.25)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          }
+        },
+        {
+          "stateLegend": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateLegendOption": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBlocked": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBlockedGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBlockedOption": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        },
+        {
+          "stateLegend": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateLegendOption": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBlocked": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBlockedGroup": {
+            "color": [
+              0.0003647804260253906,
+              -0.000972747802734375,
+              255,
+              63.75
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.25)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBlockedOption": {
+            "color": [
+              0.0003647804260253906,
+              -0.000972747802734375,
+              255,
+              63.75
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.25)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          }
+        },
+        {
+          "stateLegend": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateLegendOption": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBlocked": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBlockedGroup": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBlockedOption": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          }
+        },
+        {
+          "stateLegend": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateLegendOption": {
+            "color": [
+              0.00039517879486083984,
+              -0.0009423494338989258,
+              255,
+              127.5
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "oklab(0.451981 -0.0324624 -0.311523 / 0.5)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": true,
+            "enabled": false
+          },
+          "stateBlocked": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBlockedGroup": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          },
+          "stateBlockedOption": {
+            "color": [
+              0,
+              0,
+              255,
+              255
+            ],
+            "background": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "rawColor": "rgb(0, 0, 255)",
+            "rawBackground": "rgba(0, 0, 0, 0)",
+            "disabled": false,
+            "enabled": true
+          }
+        }
+      ]
+    }
+  ],
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+}

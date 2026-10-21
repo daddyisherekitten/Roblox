@@ -1,0 +1,642 @@
+{
+  "captured": "2026-10-09",
+  "standard": "https://html.spec.whatwg.org/multipage/rendering.html#the-select-element-2",
+  "cases": [
+    {
+      "name": "Default picker shares normal rich option and group flow",
+      "html": "<!doctype html><style>select{appearance:base-select;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none}</style><select id=s><option id=a>Alpha</option><optgroup id=g label=Group><option id=b>Beta</option><option id=c>Gamma</option></optgroup></select>",
+      "targets": [
+        "a",
+        "g",
+        "b",
+        "c"
+      ],
+      "steps": [
+        {},
+        {
+          "styles": {
+            "s": "width:260px"
+          }
+        },
+        {
+          "styles": {
+            "b": "height:40px"
+          }
+        },
+        {
+          "styles": {
+            "b": "height:24px"
+          }
+        }
+      ],
+      "expected": [
+        {
+          "width": 200,
+          "height": 98,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              198,
+              24
+            ],
+            "g": [
+              1,
+              25,
+              198,
+              72
+            ],
+            "b": [
+              1,
+              49,
+              198,
+              24
+            ],
+            "c": [
+              1,
+              73,
+              198,
+              24
+            ]
+          }
+        },
+        {
+          "width": 260,
+          "height": 98,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              258,
+              24
+            ],
+            "g": [
+              1,
+              25,
+              258,
+              72
+            ],
+            "b": [
+              1,
+              49,
+              258,
+              24
+            ],
+            "c": [
+              1,
+              73,
+              258,
+              24
+            ]
+          }
+        },
+        {
+          "width": 260,
+          "height": 114,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              258,
+              24
+            ],
+            "g": [
+              1,
+              25,
+              258,
+              88
+            ],
+            "b": [
+              1,
+              49,
+              258,
+              40
+            ],
+            "c": [
+              1,
+              89,
+              258,
+              24
+            ]
+          }
+        },
+        {
+          "width": 260,
+          "height": 98,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              258,
+              24
+            ],
+            "g": [
+              1,
+              25,
+              258,
+              72
+            ],
+            "b": [
+              1,
+              49,
+              258,
+              24
+            ],
+            "c": [
+              1,
+              73,
+              258,
+              24
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Picker box dimensions, padding and borders participate in layout",
+      "html": "<!doctype html><style>select{appearance:base-select;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none}select::picker(select){width:300px;padding:10px 12px;border:3px solid red}option img{display:block}</style><select id=s><option id=a>Alpha</option><option id=b><img width=18 height=36></option></select>",
+      "targets": [
+        "a",
+        "b"
+      ],
+      "steps": [
+        {},
+        {
+          "picker": "width:360px;padding:4px;border:2px solid blue"
+        },
+        {
+          "picker": "width:300px;padding:0;border:1px solid black"
+        }
+      ],
+      "expected": [
+        {
+          "width": 300,
+          "height": 86,
+          "open": true,
+          "boxes": {
+            "a": [
+              15,
+              13,
+              270,
+              24
+            ],
+            "b": [
+              15,
+              37,
+              270,
+              36
+            ]
+          }
+        },
+        {
+          "width": 360,
+          "height": 72,
+          "open": true,
+          "boxes": {
+            "a": [
+              6,
+              6,
+              348,
+              24
+            ],
+            "b": [
+              6,
+              30,
+              348,
+              36
+            ]
+          }
+        },
+        {
+          "width": 300,
+          "height": 62,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              298,
+              24
+            ],
+            "b": [
+              1,
+              25,
+              298,
+              36
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Grid picker places the original option boxes in shared tracks",
+      "html": "<!doctype html><style>select{appearance:base-select;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none}select::picker(select){display:grid;width:320px;grid-template-columns:1fr 1fr;gap:8px;padding:6px}</style><select id=s><option id=a>Alpha</option><option id=b>Beta</option><option id=c>Gamma</option><option id=d>Delta</option></select>",
+      "targets": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "steps": [
+        {},
+        {
+          "picker": "display:grid;width:320px;grid-template-columns:1fr 1fr;gap:12px;padding:10px"
+        },
+        {
+          "picker": "display:block;width:320px;padding:0"
+        }
+      ],
+      "expected": [
+        {
+          "width": 320,
+          "height": 70,
+          "open": true,
+          "boxes": {
+            "a": [
+              7,
+              7,
+              149,
+              24
+            ],
+            "b": [
+              164,
+              7,
+              149,
+              24
+            ],
+            "c": [
+              7,
+              39,
+              149,
+              24
+            ],
+            "d": [
+              164,
+              39,
+              149,
+              24
+            ]
+          }
+        },
+        {
+          "width": 320,
+          "height": 82,
+          "open": true,
+          "boxes": {
+            "a": [
+              11,
+              11,
+              143,
+              24
+            ],
+            "b": [
+              166,
+              11,
+              143,
+              24
+            ],
+            "c": [
+              11,
+              47,
+              143,
+              24
+            ],
+            "d": [
+              166,
+              47,
+              143,
+              24
+            ]
+          }
+        },
+        {
+          "width": 320,
+          "height": 98,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              318,
+              24
+            ],
+            "b": [
+              1,
+              25,
+              318,
+              24
+            ],
+            "c": [
+              1,
+              49,
+              318,
+              24
+            ],
+            "d": [
+              1,
+              73,
+              318,
+              24
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Author option display and spacing are not forced into private rows",
+      "html": "<!doctype html><style>select{appearance:base-select;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none}select::picker(select){width:300px}option{display:block;padding:8px 10px;border:2px solid red}</style><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "targets": [
+        "a",
+        "b"
+      ],
+      "steps": [
+        {},
+        {
+          "styles": {
+            "a": "display:flex;height:48px;padding:0;border:0"
+          }
+        },
+        {
+          "styles": {
+            "a": "display:none"
+          }
+        },
+        {
+          "styles": {
+            "a": ""
+          }
+        }
+      ],
+      "expected": [
+        {
+          "width": 300,
+          "height": 90,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              298,
+              44
+            ],
+            "b": [
+              1,
+              45,
+              298,
+              44
+            ]
+          }
+        },
+        {
+          "width": 300,
+          "height": 94,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              298,
+              48
+            ],
+            "b": [
+              1,
+              49,
+              298,
+              44
+            ]
+          }
+        },
+        {
+          "width": 300,
+          "height": 46,
+          "open": true,
+          "boxes": {
+            "a": {
+              "hidden": true
+            },
+            "b": [
+              1,
+              1,
+              298,
+              44
+            ]
+          }
+        },
+        {
+          "width": 300,
+          "height": 90,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              298,
+              44
+            ],
+            "b": [
+              1,
+              45,
+              298,
+              44
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Scrollable picker keeps CSS max height and original variable rows",
+      "html": "<!doctype html><style>select{appearance:base-select;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none}select::picker(select){width:300px;max-height:72px}option{height:32px}</style><select id=s><option id=a>Alpha</option><option id=b>Beta</option><option id=c>Gamma</option><option id=d>Delta</option></select>",
+      "targets": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "steps": [
+        {},
+        {
+          "picker": "width:300px;max-height:104px"
+        },
+        {
+          "picker": "width:300px;height:48px;max-height:none"
+        }
+      ],
+      "expected": [
+        {
+          "width": 300,
+          "height": 72,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              298,
+              32
+            ],
+            "b": [
+              1,
+              33,
+              298,
+              32
+            ],
+            "c": [
+              1,
+              65,
+              298,
+              32
+            ],
+            "d": [
+              1,
+              97,
+              298,
+              32
+            ]
+          }
+        },
+        {
+          "width": 300,
+          "height": 104,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              298,
+              32
+            ],
+            "b": [
+              1,
+              33,
+              298,
+              32
+            ],
+            "c": [
+              1,
+              65,
+              298,
+              32
+            ],
+            "d": [
+              1,
+              97,
+              298,
+              32
+            ]
+          }
+        },
+        {
+          "width": 300,
+          "height": 48,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              298,
+              32
+            ],
+            "b": [
+              1,
+              33,
+              298,
+              32
+            ],
+            "c": [
+              1,
+              65,
+              298,
+              32
+            ],
+            "d": [
+              1,
+              97,
+              298,
+              32
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Picker percentage width resolves against its viewport",
+      "html": "<!doctype html><style>select{appearance:base-select;width:200px;font:16px/24px Arial}select::picker(select){appearance:base-select;scrollbar-width:none}select::picker(select){width:50%;padding:6px}</style><select id=s><option id=a>Alpha</option><option id=b>Beta</option></select>",
+      "targets": [
+        "a",
+        "b"
+      ],
+      "steps": [
+        {},
+        {
+          "picker": "width:75%;padding:2px"
+        },
+        {
+          "picker": "width:25%;padding:0"
+        }
+      ],
+      "expected": [
+        {
+          "width": 396,
+          "height": 62,
+          "open": true,
+          "boxes": {
+            "a": [
+              7,
+              7,
+              382,
+              24
+            ],
+            "b": [
+              7,
+              31,
+              382,
+              24
+            ]
+          }
+        },
+        {
+          "width": 594,
+          "height": 54,
+          "open": true,
+          "boxes": {
+            "a": [
+              3,
+              3,
+              588,
+              24
+            ],
+            "b": [
+              3,
+              27,
+              588,
+              24
+            ]
+          }
+        },
+        {
+          "width": 200,
+          "height": 50,
+          "open": true,
+          "boxes": {
+            "a": [
+              1,
+              1,
+              198,
+              24
+            ],
+            "b": [
+              1,
+              25,
+              198,
+              24
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+}

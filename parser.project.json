@@ -1,0 +1,20 @@
+{
+  "name": "HTMLParserDemo",
+  "globIgnorePaths": ["tests/fixtures/url-record-browser.json", "tests/fixtures/video-presentation-browser.json", "tests/fixtures/retired-nightweb-pages-20261019.json"],
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "HTMLEngine": { "$path": "src/HTMLEngine", "Tests": { "$path": "tests" } }
+    },
+    "StarterGui": {
+      "$properties": {
+        "ClipsDescendantsSupportsRotation": "Enabled"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "HTMLParserDemo": { "$path": "examples/HTMLParser.client.luau" }
+      }
+    }
+  }
+}

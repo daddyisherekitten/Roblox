@@ -1,0 +1,191 @@
+{
+  "reference": "Isolated Chromium headless, held native CSSTransition samples; 10 October 2026",
+  "cases": [
+    {
+      "name": "foreground inheritance",
+      "css": "#box{color:rgb(40,60,80);border:2px solid currentColor;outline:2px solid currentColor;text-decoration:underline;transition:color 2s linear}#box.active{color:rgb(100,120,140)}",
+      "waapi": false,
+      "values": [
+        {
+          "colors": {
+            "color": "rgb(70, 90, 110)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top-color": "rgb(70, 90, 110)",
+            "border-right-color": "rgb(70, 90, 110)",
+            "border-bottom-color": "rgb(70, 90, 110)",
+            "border-left-color": "rgb(70, 90, 110)",
+            "outline-color": "rgb(70, 90, 110)",
+            "text-decoration-color": "rgb(70, 90, 110)"
+          },
+          "leaf": "rgb(70, 90, 110)",
+          "durations": [
+            [
+              "color",
+              2000
+            ]
+          ]
+        },
+        {
+          "colors": {
+            "color": "rgb(55, 75, 95)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top-color": "rgb(55, 75, 95)",
+            "border-right-color": "rgb(55, 75, 95)",
+            "border-bottom-color": "rgb(55, 75, 95)",
+            "border-left-color": "rgb(55, 75, 95)",
+            "outline-color": "rgb(55, 75, 95)",
+            "text-decoration-color": "rgb(55, 75, 95)"
+          },
+          "leaf": "rgb(55, 75, 95)",
+          "durations": [
+            [
+              "color",
+              1000
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "independent colors",
+      "css": "#box{color:rgb(40,60,80);background:rgb(10,30,50);border:2px solid rgb(20,40,60);outline:2px solid rgb(30,50,70);text-decoration:underline rgb(40,60,80);transition:background-color 2s linear,border-color 2s linear,outline-color 2s linear,text-decoration-color 2s linear}#box.active{background:rgb(110,130,150);border-color:rgb(120,140,160);outline-color:rgb(130,150,170);text-decoration-color:rgb(140,160,180)}",
+      "waapi": false,
+      "values": [
+        {
+          "colors": {
+            "color": "rgb(40, 60, 80)",
+            "background-color": "rgb(60, 80, 100)",
+            "border-top-color": "rgb(70, 90, 110)",
+            "border-right-color": "rgb(70, 90, 110)",
+            "border-bottom-color": "rgb(70, 90, 110)",
+            "border-left-color": "rgb(70, 90, 110)",
+            "outline-color": "rgb(80, 100, 120)",
+            "text-decoration-color": "rgb(90, 110, 130)"
+          },
+          "leaf": "rgb(40, 60, 80)",
+          "durations": [
+            [
+              "background-color",
+              2000
+            ],
+            [
+              "border-bottom-color",
+              2000
+            ],
+            [
+              "border-left-color",
+              2000
+            ],
+            [
+              "border-right-color",
+              2000
+            ],
+            [
+              "border-top-color",
+              2000
+            ],
+            [
+              "outline-color",
+              2000
+            ],
+            [
+              "text-decoration-color",
+              2000
+            ]
+          ]
+        },
+        {
+          "colors": {
+            "color": "rgb(40, 60, 80)",
+            "background-color": "rgb(35, 55, 75)",
+            "border-top-color": "rgb(45, 65, 85)",
+            "border-right-color": "rgb(45, 65, 85)",
+            "border-bottom-color": "rgb(45, 65, 85)",
+            "border-left-color": "rgb(45, 65, 85)",
+            "outline-color": "rgb(55, 75, 95)",
+            "text-decoration-color": "rgb(65, 85, 105)"
+          },
+          "leaf": "rgb(40, 60, 80)",
+          "durations": [
+            [
+              "background-color",
+              1000
+            ],
+            [
+              "border-bottom-color",
+              1000
+            ],
+            [
+              "border-left-color",
+              1000
+            ],
+            [
+              "border-right-color",
+              1000
+            ],
+            [
+              "border-top-color",
+              1000
+            ],
+            [
+              "outline-color",
+              1000
+            ],
+            [
+              "text-decoration-color",
+              1000
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WAAPI over held transition",
+      "css": "#box{color:rgb(40,60,80);border:2px solid currentColor;outline:2px solid currentColor;text-decoration:underline;transition:color 2s linear}#box.active{color:rgb(100,120,140)}",
+      "waapi": true,
+      "values": [
+        {
+          "colors": {
+            "color": "rgb(20, 30, 40)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top-color": "rgb(20, 30, 40)",
+            "border-right-color": "rgb(20, 30, 40)",
+            "border-bottom-color": "rgb(20, 30, 40)",
+            "border-left-color": "rgb(20, 30, 40)",
+            "outline-color": "rgb(20, 30, 40)",
+            "text-decoration-color": "rgb(20, 30, 40)"
+          },
+          "leaf": "rgb(20, 30, 40)",
+          "durations": [
+            [
+              "color",
+              2000
+            ]
+          ]
+        },
+        {
+          "committed": "rgb(20, 30, 40)"
+        },
+        {
+          "colors": {
+            "color": "rgb(55, 75, 95)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "border-top-color": "rgb(55, 75, 95)",
+            "border-right-color": "rgb(55, 75, 95)",
+            "border-bottom-color": "rgb(55, 75, 95)",
+            "border-left-color": "rgb(55, 75, 95)",
+            "outline-color": "rgb(55, 75, 95)",
+            "text-decoration-color": "rgb(55, 75, 95)"
+          },
+          "leaf": "rgb(55, 75, 95)",
+          "durations": [
+            [
+              "color",
+              2000
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,907 @@
+{
+  "browser": "Chrome/155.0.8059.40",
+  "captured": "2026-10-13",
+  "cases": [
+    {
+      "name": "plain p",
+      "source": "p{color:red}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": "p",
+          "css": "p { color: red; }",
+          "rules": []
+        }
+      ]
+    },
+    {
+      "name": "plain :scope",
+      "source": ":scope{color:red}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ":scope",
+          "css": ":scope { color: red; }",
+          "rules": []
+        }
+      ]
+    },
+    {
+      "name": "plain &",
+      "source": "&{color:red}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": "&",
+          "css": "& { color: red; }",
+          "rules": []
+        }
+      ]
+    },
+    {
+      "name": "plain > p",
+      "source": "> p{color:red}",
+      "expected": []
+    },
+    {
+      "name": "plain :is(.x,:scope:unsupported())",
+      "source": ":is(.x,:scope:unsupported()){color:red}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ":is(.x, :scope:unsupported())",
+          "css": ":is(.x, :scope:unsupported()) { color: red; }",
+          "rules": []
+        }
+      ]
+    },
+    {
+      "name": "plain p,.x",
+      "source": "p,.x{color:red}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": "p, .x",
+          "css": "p, .x { color: red; }",
+          "rules": []
+        }
+      ]
+    },
+    {
+      "name": "scope p",
+      "source": "@scope (.root){p{color:red}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  p { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "p",
+              "css": "p { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scope :scope",
+      "source": "@scope (.root){:scope{color:red}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  :scope { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": ":scope",
+              "css": ":scope { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scope &",
+      "source": "@scope (.root){&{color:red}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  & { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "&",
+              "css": "& { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scope > p",
+      "source": "@scope (.root){> p{color:red}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  > p { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "> p",
+              "css": "> p { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scope :is(.x,:scope:unsupported())",
+      "source": "@scope (.root){:is(.x,:scope:unsupported()){color:red}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  :is(.x, :scope:unsupported()) { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": ":is(.x, :scope:unsupported())",
+              "css": ":is(.x, :scope:unsupported()) { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scope p,.x",
+      "source": "@scope (.root){p,.x{color:red}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  p, .x { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "p, .x",
+              "css": "p, .x { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeMedia p",
+      "source": "@scope (.root){@media all{p{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  @media all {\n  p { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSMediaRule",
+              "selector": null,
+              "css": "@media all {\n  p { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "p",
+                  "css": "p { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeMedia :scope",
+      "source": "@scope (.root){@media all{:scope{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  @media all {\n  :scope { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSMediaRule",
+              "selector": null,
+              "css": "@media all {\n  :scope { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": ":scope",
+                  "css": ":scope { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeMedia &",
+      "source": "@scope (.root){@media all{&{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  @media all {\n  & { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSMediaRule",
+              "selector": null,
+              "css": "@media all {\n  & { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "&",
+                  "css": "& { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeMedia > p",
+      "source": "@scope (.root){@media all{> p{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  @media all {\n  > p { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSMediaRule",
+              "selector": null,
+              "css": "@media all {\n  > p { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "> p",
+                  "css": "> p { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeMedia :is(.x,:scope:unsupported())",
+      "source": "@scope (.root){@media all{:is(.x,:scope:unsupported()){color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  @media all {\n  :is(.x, :scope:unsupported()) { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSMediaRule",
+              "selector": null,
+              "css": "@media all {\n  :is(.x, :scope:unsupported()) { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": ":is(.x, :scope:unsupported())",
+                  "css": ":is(.x, :scope:unsupported()) { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeMedia p,.x",
+      "source": "@scope (.root){@media all{p,.x{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  @media all {\n  p, .x { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSMediaRule",
+              "selector": null,
+              "css": "@media all {\n  p, .x { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "p, .x",
+                  "css": "p, .x { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "style p",
+      "source": ".root{p{color:red}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".root",
+          "css": ".root {\n  & p { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "& p",
+              "css": "& p { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "style :scope",
+      "source": ".root{:scope{color:red}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".root",
+          "css": ".root {\n  & :scope { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "& :scope",
+              "css": "& :scope { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "style &",
+      "source": ".root{&{color:red}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".root",
+          "css": ".root {\n  & { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "&",
+              "css": "& { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "style > p",
+      "source": ".root{> p{color:red}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".root",
+          "css": ".root {\n  & > p { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "& > p",
+              "css": "& > p { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "style :is(.x,:scope:unsupported())",
+      "source": ".root{:is(.x,:scope:unsupported()){color:red}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".root",
+          "css": ".root {\n  & :is(.x, :scope:unsupported()) { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "& :is(.x, :scope:unsupported())",
+              "css": "& :is(.x, :scope:unsupported()) { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "style p,.x",
+      "source": ".root{p,.x{color:red}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".root",
+          "css": ".root {\n  & p, & .x { color: red; }\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": "& p, & .x",
+              "css": "& p, & .x { color: red; }",
+              "rules": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "styleScope p",
+      "source": ".outer{@scope (.root){p{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".outer",
+          "css": ".outer {\n  @scope (& .root) {\n  p { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSScopeRule",
+              "selector": null,
+              "css": "@scope (& .root) {\n  p { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "p",
+                  "css": "p { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "styleScope :scope",
+      "source": ".outer{@scope (.root){:scope{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".outer",
+          "css": ".outer {\n  @scope (& .root) {\n  :scope { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSScopeRule",
+              "selector": null,
+              "css": "@scope (& .root) {\n  :scope { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": ":scope",
+                  "css": ":scope { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "styleScope &",
+      "source": ".outer{@scope (.root){&{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".outer",
+          "css": ".outer {\n  @scope (& .root) {\n  & { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSScopeRule",
+              "selector": null,
+              "css": "@scope (& .root) {\n  & { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "&",
+                  "css": "& { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "styleScope > p",
+      "source": ".outer{@scope (.root){> p{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".outer",
+          "css": ".outer {\n  @scope (& .root) {\n  > p { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSScopeRule",
+              "selector": null,
+              "css": "@scope (& .root) {\n  > p { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "> p",
+                  "css": "> p { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "styleScope :is(.x,:scope:unsupported())",
+      "source": ".outer{@scope (.root){:is(.x,:scope:unsupported()){color:red}}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".outer",
+          "css": ".outer {\n  @scope (& .root) {\n  :is(.x, :scope:unsupported()) { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSScopeRule",
+              "selector": null,
+              "css": "@scope (& .root) {\n  :is(.x, :scope:unsupported()) { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": ":is(.x, :scope:unsupported())",
+                  "css": ":is(.x, :scope:unsupported()) { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "styleScope p,.x",
+      "source": ".outer{@scope (.root){p,.x{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSStyleRule",
+          "selector": ".outer",
+          "css": ".outer {\n  @scope (& .root) {\n  p, .x { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSScopeRule",
+              "selector": null,
+              "css": "@scope (& .root) {\n  p, .x { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "p, .x",
+                  "css": "p, .x { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeStyle p",
+      "source": "@scope (.root){.parent{p{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  .parent {\n  & p { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": ".parent",
+              "css": ".parent {\n  & p { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "& p",
+                  "css": "& p { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeStyle :scope",
+      "source": "@scope (.root){.parent{:scope{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  .parent {\n  & :scope { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": ".parent",
+              "css": ".parent {\n  & :scope { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "& :scope",
+                  "css": "& :scope { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeStyle &",
+      "source": "@scope (.root){.parent{&{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  .parent {\n  & { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": ".parent",
+              "css": ".parent {\n  & { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "&",
+                  "css": "& { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeStyle > p",
+      "source": "@scope (.root){.parent{> p{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  .parent {\n  & > p { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": ".parent",
+              "css": ".parent {\n  & > p { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "& > p",
+                  "css": "& > p { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeStyle :is(.x,:scope:unsupported())",
+      "source": "@scope (.root){.parent{:is(.x,:scope:unsupported()){color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  .parent {\n  & :is(.x, :scope:unsupported()) { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": ".parent",
+              "css": ".parent {\n  & :is(.x, :scope:unsupported()) { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "& :is(.x, :scope:unsupported())",
+                  "css": "& :is(.x, :scope:unsupported()) { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "scopeStyle p,.x",
+      "source": "@scope (.root){.parent{p,.x{color:red}}}",
+      "expected": [
+        {
+          "family": "CSSScopeRule",
+          "selector": null,
+          "css": "@scope (.root) {\n  .parent {\n  & p, & .x { color: red; }\n}\n}",
+          "rules": [
+            {
+              "family": "CSSStyleRule",
+              "selector": ".parent",
+              "css": ".parent {\n  & p, & .x { color: red; }\n}",
+              "rules": [
+                {
+                  "family": "CSSStyleRule",
+                  "selector": "& p, & .x",
+                  "css": "& p, & .x { color: red; }",
+                  "rules": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "mutations": [
+    {
+      "name": "scope set/insert p",
+      "selector": "p",
+      "expected": {
+        "set": {
+          "selector": "p",
+          "css": "@scope (.root) {\n  p { color: red; }\n}"
+        },
+        "error": null,
+        "rules": [
+          [
+            "CSSStyleRule",
+            "p",
+            "p { color: blue; }"
+          ],
+          [
+            "CSSStyleRule",
+            "p",
+            "p { color: red; }"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "scope set/insert :scope",
+      "selector": ":scope",
+      "expected": {
+        "set": {
+          "selector": ":scope",
+          "css": "@scope (.root) {\n  :scope { color: red; }\n}"
+        },
+        "error": null,
+        "rules": [
+          [
+            "CSSStyleRule",
+            ":scope",
+            ":scope { color: blue; }"
+          ],
+          [
+            "CSSStyleRule",
+            ":scope",
+            ":scope { color: red; }"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "scope set/insert &",
+      "selector": "&",
+      "expected": {
+        "set": {
+          "selector": "&",
+          "css": "@scope (.root) {\n  & { color: red; }\n}"
+        },
+        "error": null,
+        "rules": [
+          [
+            "CSSStyleRule",
+            "&",
+            "& { color: blue; }"
+          ],
+          [
+            "CSSStyleRule",
+            "&",
+            "& { color: red; }"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "scope set/insert > p",
+      "selector": "> p",
+      "expected": {
+        "set": {
+          "selector": "> p",
+          "css": "@scope (.root) {\n  > p { color: red; }\n}"
+        },
+        "error": null,
+        "rules": [
+          [
+            "CSSStyleRule",
+            "> p",
+            "> p { color: blue; }"
+          ],
+          [
+            "CSSStyleRule",
+            "> p",
+            "> p { color: red; }"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "scope set/insert :is(.x,:scope:unsupported())",
+      "selector": ":is(.x,:scope:unsupported())",
+      "expected": {
+        "set": {
+          "selector": ":is(.x, :scope:unsupported())",
+          "css": "@scope (.root) {\n  :is(.x, :scope:unsupported()) { color: red; }\n}"
+        },
+        "error": null,
+        "rules": [
+          [
+            "CSSStyleRule",
+            ":is(.x, :scope:unsupported())",
+            ":is(.x, :scope:unsupported()) { color: blue; }"
+          ],
+          [
+            "CSSStyleRule",
+            ":is(.x, :scope:unsupported())",
+            ":is(.x, :scope:unsupported()) { color: red; }"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "scope set/insert p,.x",
+      "selector": "p,.x",
+      "expected": {
+        "set": {
+          "selector": "p, .x",
+          "css": "@scope (.root) {\n  p, .x { color: red; }\n}"
+        },
+        "error": null,
+        "rules": [
+          [
+            "CSSStyleRule",
+            "p, .x",
+            "p, .x { color: blue; }"
+          ],
+          [
+            "CSSStyleRule",
+            "p, .x",
+            "p, .x { color: red; }"
+          ]
+        ]
+      }
+    }
+  ]
+}

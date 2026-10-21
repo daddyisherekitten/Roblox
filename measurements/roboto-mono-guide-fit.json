@@ -1,0 +1,20 @@
+{
+  "font": "Roboto Mono normal",
+  "fontFamily": "rbxasset://fonts/families/RobotoMono.json",
+  "fontWeight": "Regular",
+  "text": "H x p",
+  "lineHeight": 1,
+  "scale": 1,
+  "confirmedProfileScale": 1.24,
+  "textSizeRounding": "ceil",
+  "method": "linear least squares per guide against reported native robloxTextSize; scale is the original measurement factor, not the current profile factor",
+  "training": [
+    { "htmlSize": 10, "robloxTextSize": 10, "Top": 1, "XHeight": 3, "Baseline": 9, "Bottom": 11 },
+    { "htmlSize": 20, "robloxTextSize": 20, "Top": 4, "XHeight": 7, "Baseline": 17, "Bottom": 20 },
+    { "htmlSize": 30, "robloxTextSize": 30, "Top": 7, "XHeight": 11, "Baseline": 25, "Bottom": 30 },
+    { "htmlSize": 40, "robloxTextSize": 40, "Top": 10, "XHeight": 15, "Baseline": 33, "Bottom": 39 },
+    { "htmlSize": 50, "robloxTextSize": 50, "Top": 12, "XHeight": 19, "Baseline": 41, "Bottom": 49 }
+  ],
+  "heldOut": [],
+  "notes": "User FONT_REPORT measured before applying size correction, sizeMultiplier=1 and sizeMultiplierKnown=false. Origin: TextLabel top, pixels downward. All samples ready, normal/regular. Guide formulas use actual native TextSize, so remain applicable after scaling. Rounded fits reproduce all five observations; intermediate sizes are estimates and sizes above 50 extrapolate. User subsequently confirmed size factor 1.24: grösse stimmt. This confirms font size, not fitted guide positions at corrected sizes or bold/italic. Guide distances are not independent glyph-height counts."
+}

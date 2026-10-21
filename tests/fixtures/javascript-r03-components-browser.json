@@ -1,0 +1,198 @@
+{
+  "done": true,
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+  "results": [
+    {
+      "name": "form-associated value snapshots and disabled ownership",
+      "pass": true,
+      "values": [
+        "true|2|true|1|Note|true|true",
+        "initial",
+        "one=A|two=B",
+        "false|false|true",
+        "seed|initial",
+        "true",
+        "form:f|disabled:true|disabled:false|reset|form:null"
+      ],
+      "expected": [
+        "true|2|true|1|Note|true|true",
+        "initial",
+        "one=A|two=B",
+        "false|false|true",
+        "seed|initial",
+        "true",
+        "form:f|disabled:true|disabled:false|reset|form:null"
+      ]
+    },
+    {
+      "name": "live internals validity invalid events and validation anchors",
+      "pass": true,
+      "values": [
+        "true|true||true",
+        "TypeError",
+        "true",
+        "false|true|true|true",
+        "true|false|true",
+        "false",
+        "1",
+        "NotFoundError",
+        "false|true|wrong\nline",
+        "true|true|true",
+        "false|true|false"
+      ],
+      "expected": [
+        "true|true||true",
+        "TypeError",
+        "true",
+        "false|true|true|true",
+        "true|false|true",
+        "false",
+        "1",
+        "NotFoundError",
+        "false|true|wrong\nline",
+        "true|true|true",
+        "false|true|false"
+      ]
+    },
+    {
+      "name": "internals attachment brands default aria and custom states",
+      "pass": true,
+      "values": [
+        "true|true|true|true",
+        "NotSupportedError",
+        "NotSupportedError",
+        "NotSupportedError",
+        "NotSupportedError",
+        "TypeError",
+        "checkbox|false|false|false",
+        "true",
+        "2;true;busy,other;busy:busy|other:other",
+        "true",
+        "false",
+        "0"
+      ],
+      "expected": [
+        "true|true|true|true",
+        "NotSupportedError",
+        "NotSupportedError",
+        "NotSupportedError",
+        "NotSupportedError",
+        "TypeError",
+        "checkbox|false|false|false",
+        "true",
+        "2;true;busy,other;busy:busy|other:other",
+        "true",
+        "false",
+        "0"
+      ]
+    },
+    {
+      "name": "scoped registry isolation null initialization and constructor stacks",
+      "pass": true,
+      "values": [
+        "true|A|true",
+        "true|B",
+        "TypeError",
+        "none",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true"
+      ],
+      "expected": [
+        "true|A|true",
+        "true|B",
+        "TypeError",
+        "none",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "name": "registry definition snapshots disabled internals and unicode names",
+      "pass": true,
+      "values": [
+        "NotSupportedError",
+        "ok",
+        "ok",
+        "ok",
+        "SyntaxError",
+        "ok",
+        "initial"
+      ],
+      "expected": [
+        "NotSupportedError",
+        "ok",
+        "ok",
+        "ok",
+        "SyntaxError",
+        "ok",
+        "initial"
+      ]
+    },
+    {
+      "name": "custom element adoption state preserving moves and ownership reactions",
+      "pass": true,
+      "values": [
+        "form:null|moved|form:f",
+        "kept|f",
+        "true|true|false",
+        "disconnected|form:null|adopted:true:true",
+        "true",
+        "kept"
+      ],
+      "expected": [
+        "form:null|moved|form:f",
+        "kept|f",
+        "true|true|false",
+        "disconnected|form:null|adopted:true:true",
+        "true",
+        "kept"
+      ]
+    },
+    {
+      "name": "direct form component construction barred validity and live state iteration",
+      "pass": true,
+      "values": [
+        "true|fresh|true|false",
+        "false|true|false|true",
+        "false|false|true|false|true|false",
+        "false|true|false|true",
+        "one",
+        "three",
+        "true",
+        "false",
+        "one|three|later|last"
+      ],
+      "expected": [
+        "true|fresh|true|false",
+        "false|true|false|true",
+        "false|false|true|false|true|false",
+        "false|true|false|true",
+        "one",
+        "three",
+        "true",
+        "false",
+        "one|three|later|last"
+      ]
+    },
+    {
+      "name": "custom clone observed attributes roots and fresh internals",
+      "pass": true,
+      "values": [
+        "2|true|true|true|Light|Source|true|true",
+        "data-v:null:copied",
+        "default|0"
+      ],
+      "expected": [
+        "2|true|true|true|Light|Source|true|true",
+        "data-v:null:copied",
+        "default|0"
+      ]
+    }
+  ]
+}

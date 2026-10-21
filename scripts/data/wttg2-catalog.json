@@ -1,0 +1,2146 @@
+{
+  "date": "2026-10-19",
+  "publisher": "scripts/wttg2-site-publisher.cjs",
+  "origin": "http://localhost:8000",
+  "selectedCounts": {
+    "realSites": 15,
+    "deadLinks": 10,
+    "htmlRoutes": 35
+  },
+  "Modules": [
+    {
+      "name": "DeepWiki",
+      "url": "http://localhost:8000/wiki1/index.html",
+      "sourcePath": "/wiki1/index.html",
+      "title": "Hidden Wiki",
+      "siteName": "Wiki1",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/DeepWiki/init.luau",
+          "sha256": "59df2512ae8b09d2b53bf3520e507b507def6dd812eee316bbab2a7684b5525f",
+          "byteLength": 40160
+        },
+        {
+          "path": "src/HTMLEngine/Websites/DeepWiki/HTML.luau",
+          "sha256": "29ca3bce42f49fb1d4d2c60ade52a7cdcc81866ce58625cc539839b5eec11a83",
+          "byteLength": 972
+        },
+        {
+          "path": "src/HTMLEngine/Websites/DeepWiki/CSS.luau",
+          "sha256": "d11c1854d35a8fe362a0bc75c4d52c72b7e7d781208a45c30a72e771f2d54804",
+          "byteLength": 1829
+        }
+      ]
+    },
+    {
+      "name": "FortuneCookie",
+      "url": "http://localhost:8000/fortuneCookie/index.html",
+      "sourcePath": "/fortuneCookie/index.html",
+      "title": "Fortune Cookie",
+      "siteName": "FortuneCookie",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/FortuneCookie/init.luau",
+          "sha256": "61cb9311a97d45226892a3cee1930cc12b444cbf814e6efca5e66600dfc5183a",
+          "byteLength": 40871
+        },
+        {
+          "path": "src/HTMLEngine/Websites/FortuneCookie/HTML.luau",
+          "sha256": "d60626945cb3c19c7ca3004d0e374e6574874b0f5a4083e40b10dca533c39666",
+          "byteLength": 1487
+        },
+        {
+          "path": "src/HTMLEngine/Websites/FortuneCookie/CSS.luau",
+          "sha256": "1d56ff905207775b827311230af74fed359a57caca0ad28d62b2309282ce61d9",
+          "byteLength": 1136
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting",
+      "url": "http://localhost:8000/ThanksForVisiting/index.html",
+      "sourcePath": "/ThanksForVisiting/index.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting/init.luau",
+          "sha256": "4a4b02914fb1e8ab3ae279ee2a3a80ff6f1c25c9509f81c2da9d0f5dbf1f2041",
+          "byteLength": 38351
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting/HTML.luau",
+          "sha256": "b12c56b690b60299f63333cd544d6832007770e604d9e1f96b7753fc13f45f9b",
+          "byteLength": 1340
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_babyshrimp",
+      "url": "http://localhost:8000/ThanksForVisiting/babyshrimp.html",
+      "sourcePath": "/ThanksForVisiting/babyshrimp.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_babyshrimp/init.luau",
+          "sha256": "13644db2c7c385fb590f47755d762ae62f877adca4d24da934834994b3a6dc42",
+          "byteLength": 38370
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_babyshrimp/HTML.luau",
+          "sha256": "7b8b94f6ba72874abbd9bbed2abddcc93f46a546fc7592a9c638fcaf8d9896c0",
+          "byteLength": 2735
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_babyshrimp/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_bar",
+      "url": "http://localhost:8000/ThanksForVisiting/bar.html",
+      "sourcePath": "/ThanksForVisiting/bar.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_bar/init.luau",
+          "sha256": "885e519dc417bc5be1599078fb31940e275d86de0bfa88c9a19c49ed38ea2856",
+          "byteLength": 38342
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_bar/HTML.luau",
+          "sha256": "aa6c0b22ff0147be0b323ea100ad240dfd3a8e834a4ca7d3d90dd228134ddfc7",
+          "byteLength": 16809
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_bar/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_black",
+      "url": "http://localhost:8000/ThanksForVisiting/black.html",
+      "sourcePath": "/ThanksForVisiting/black.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_black/init.luau",
+          "sha256": "d4eb29ff2c1752d9eb444404e6952d943ddc028f8b6b26ae30d8f93e429e94d1",
+          "byteLength": 38350
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_black/HTML.luau",
+          "sha256": "7ad23f9f18ae12db85c3436d3ae1072ee39ff2ee18378650c40051b24e6cf5d6",
+          "byteLength": 2535
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_black/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_creepy",
+      "url": "http://localhost:8000/ThanksForVisiting/creepy.html",
+      "sourcePath": "/ThanksForVisiting/creepy.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_creepy/init.luau",
+          "sha256": "e1b4a3ac15babc7b9df71a46c774c6a48a1579eee0908a7a5a0dfe8679e63ed3",
+          "byteLength": 38354
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_creepy/HTML.luau",
+          "sha256": "e426b0ed3db8066ac10c0bf2770d1447a94a4c702978117b8bbe77596787420d",
+          "byteLength": 1267
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_creepy/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_donttalktome",
+      "url": "http://localhost:8000/ThanksForVisiting/donttalktome.html",
+      "sourcePath": "/ThanksForVisiting/donttalktome.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_donttalktome/init.luau",
+          "sha256": "15a3841b9937dbedf42713c7eaf1acd92116b291d8148527063a736629e08e79",
+          "byteLength": 38378
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_donttalktome/HTML.luau",
+          "sha256": "0d3fffdf059e2d62cf78f5f83d8c6155812fc1a629ac2b170fc87aec3b0539be",
+          "byteLength": 2146
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_donttalktome/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_evilmonster",
+      "url": "http://localhost:8000/ThanksForVisiting/evilmonster.html",
+      "sourcePath": "/ThanksForVisiting/evilmonster.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_evilmonster/init.luau",
+          "sha256": "010fec78811e63b01da5d20915052d23e0bd001b58e02a8586c85b3a82abefc8",
+          "byteLength": 38374
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_evilmonster/HTML.luau",
+          "sha256": "8f5c8c962435d1c50fc508aa8b01da04ac86f905dd088dfb1fd273f38668ca54",
+          "byteLength": 2945
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_evilmonster/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_face",
+      "url": "http://localhost:8000/ThanksForVisiting/face.html",
+      "sourcePath": "/ThanksForVisiting/face.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_face/init.luau",
+          "sha256": "471889ea38a565598b684393b15fcab8097b4b160f268c0e84c40b2f59c185eb",
+          "byteLength": 38346
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_face/HTML.luau",
+          "sha256": "2a9d12905194d11c85e0e2b06497f73a880d95111d0412996f72fea2a633020c",
+          "byteLength": 1280
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_face/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_fakemain",
+      "url": "http://localhost:8000/ThanksForVisiting/fakemain.html",
+      "sourcePath": "/ThanksForVisiting/fakemain.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_fakemain/init.luau",
+          "sha256": "52883ef13292364a11b607655081af45189e1db2e03a2398e4933fdbec21c73a",
+          "byteLength": 38362
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_fakemain/HTML.luau",
+          "sha256": "83a2b1f88ecf0e4e93f68f0518d68318f314a11beadf8efa411bb898fd6c5896",
+          "byteLength": 1473
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_fakemain/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_numbers",
+      "url": "http://localhost:8000/ThanksForVisiting/numbers.html",
+      "sourcePath": "/ThanksForVisiting/numbers.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_numbers/init.luau",
+          "sha256": "960c5a38975750b3a4f19deb170bd32a7d4b33057357f9221ce5e3a1e84b41f4",
+          "byteLength": 38358
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_numbers/HTML.luau",
+          "sha256": "00347b3b298e6b28b9166c1992e5071797708dd0ead2fc7e0ec1b5aa202b3083",
+          "byteLength": 1936
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_numbers/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_posture",
+      "url": "http://localhost:8000/ThanksForVisiting/posture.html",
+      "sourcePath": "/ThanksForVisiting/posture.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_posture/init.luau",
+          "sha256": "aa40f66520de03c179de26aa6d44e0d20d270710f8a789ac05d3452601da6588",
+          "byteLength": 38358
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_posture/HTML.luau",
+          "sha256": "7a582e92de6908d366b48fee97a9b1d0e93cc3ed2c8d209ca74dd81482ec86ca",
+          "byteLength": 1942
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_posture/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_slide",
+      "url": "http://localhost:8000/ThanksForVisiting/slide.html",
+      "sourcePath": "/ThanksForVisiting/slide.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_slide/init.luau",
+          "sha256": "6d54e53eacfe7a6d0b97e4044ebe8091cb001aa3fd3dacb6bf618007b256f12e",
+          "byteLength": 38350
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_slide/HTML.luau",
+          "sha256": "d39920f6678fbcd986fb82798cd80bf543f32d9dc4b6fdf66543dd2046e926ed",
+          "byteLength": 1465
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_slide/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "ThanksForVisiting_slide2",
+      "url": "http://localhost:8000/ThanksForVisiting/slide2.html",
+      "sourcePath": "/ThanksForVisiting/slide2.html",
+      "title": "THANKS FOR VISITING",
+      "siteName": "ThanksForVisiting",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_slide2/init.luau",
+          "sha256": "0ddb10df3c6a355832dafd7fcab028c8c43f284f564292d0654f67a1589ed27e",
+          "byteLength": 38354
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_slide2/HTML.luau",
+          "sha256": "6a781d39b4f8e83505b5265e59fc3a92f7e137a0baed377c2d9f08c33f12fdb1",
+          "byteLength": 1651
+        },
+        {
+          "path": "src/HTMLEngine/Websites/ThanksForVisiting_slide2/CSS.luau",
+          "sha256": "baf69de07ef53871032cb197cdd7ee317e44068ae15afda3fc10f9a7767b4340",
+          "byteLength": 3681
+        }
+      ]
+    },
+    {
+      "name": "TheBlackWaves",
+      "url": "http://localhost:8000/TheBlackWaves/index.html",
+      "sourcePath": "/TheBlackWaves/index.html",
+      "title": "He who has taken the path of the",
+      "siteName": "TheBlackWaves",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/TheBlackWaves/init.luau",
+          "sha256": "c9c1205bdfefa4b924ce4bf6eea7476b64a0aa9db584944122b214753656809a",
+          "byteLength": 40573
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheBlackWaves/HTML.luau",
+          "sha256": "f8a7b68b37bdcf2932d5abcb87380dd2c9b5ffae6949945c77dabc02e9124069",
+          "byteLength": 2102
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheBlackWaves/CSS.luau",
+          "sha256": "c4d04cdd352c4d0ebf95ccd3406c9c47bc655ef9ce84b8a1205b80bf91a49d1c",
+          "byteLength": 1452
+        }
+      ]
+    },
+    {
+      "name": "BeWarned",
+      "url": "http://localhost:8000/bewarned/index.html",
+      "sourcePath": "/bewarned/index.html",
+      "title": "YOU WILL DIE SOON",
+      "siteName": "BeWarned",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned/init.luau",
+          "sha256": "532713f5cc5c0e5fe0be103e2c872ef9790c97068d068ff1ae96f552b14f9b8a",
+          "byteLength": 39936
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned/HTML.luau",
+          "sha256": "f093b50ebfd53a30a4fb29896babbe8af0c3a20026009ce2a18a20d0744f83c0",
+          "byteLength": 2088
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned/CSS.luau",
+          "sha256": "664cd37b1225a10d1b585c813a413a49e97416d5200421a0cc2249cd574f922e",
+          "byteLength": 2049
+        }
+      ]
+    },
+    {
+      "name": "BeWarned_aliens",
+      "url": "http://localhost:8000/bewarned/aliens.html",
+      "sourcePath": "/bewarned/aliens.html",
+      "title": "YOU WILL DIE SOON",
+      "siteName": "BeWarned",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned_aliens/init.luau",
+          "sha256": "87180b438fc11737a0bb4c7da0a8c2923aebb64fc16447ad691bcfee35855618",
+          "byteLength": 39939
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned_aliens/HTML.luau",
+          "sha256": "b4c530b534450c69dad1b22d3c5402c98ae9939d68fc1c7d39624cc63297c6d3",
+          "byteLength": 1890
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned_aliens/CSS.luau",
+          "sha256": "664cd37b1225a10d1b585c813a413a49e97416d5200421a0cc2249cd574f922e",
+          "byteLength": 2049
+        }
+      ]
+    },
+    {
+      "name": "BeWarned_arch",
+      "url": "http://localhost:8000/bewarned/arch.html",
+      "sourcePath": "/bewarned/arch.html",
+      "title": "YOU WILL DIE SOON",
+      "siteName": "BeWarned",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned_arch/init.luau",
+          "sha256": "c5ea13df51aa0d10988dadf4826287ab02eef5e9755c874dcf1724219ebcdaae",
+          "byteLength": 39931
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned_arch/HTML.luau",
+          "sha256": "806a612bb658b73db2297afd24240d582d5fc48a6ea56e248da5f15b6a3c809f",
+          "byteLength": 2096
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned_arch/CSS.luau",
+          "sha256": "664cd37b1225a10d1b585c813a413a49e97416d5200421a0cc2249cd574f922e",
+          "byteLength": 2049
+        }
+      ]
+    },
+    {
+      "name": "BeWarned_whydie",
+      "url": "http://localhost:8000/bewarned/whydie.html",
+      "sourcePath": "/bewarned/whydie.html",
+      "title": "YOU WILL DIE SOON",
+      "siteName": "BeWarned",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned_whydie/init.luau",
+          "sha256": "8f241d0e166c490637d6c68c9fd8fa0d50bb6cc49abc9321e6c2c0c2a5210482",
+          "byteLength": 39939
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned_whydie/HTML.luau",
+          "sha256": "f162f403f2e75a359ad168b850505d92e7d81eb46732da87ca7dcce72af2f700",
+          "byteLength": 2091
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BeWarned_whydie/CSS.luau",
+          "sha256": "664cd37b1225a10d1b585c813a413a49e97416d5200421a0cc2249cd574f922e",
+          "byteLength": 2049
+        }
+      ]
+    },
+    {
+      "name": "Numbers",
+      "url": "http://localhost:8000/numbers/index.html",
+      "sourcePath": "/numbers/index.html",
+      "title": "Numbers",
+      "siteName": "Numbers",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Numbers/init.luau",
+          "sha256": "b4a94c49a6225d3c06a369252d1277d3281475258adfcc07ff62501e4b02e7d0",
+          "byteLength": 40826
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Numbers/HTML.luau",
+          "sha256": "e48a9ae18592110a9a738a507a8881d40599ce591164932b0a7bf95a27252c08",
+          "byteLength": 2424
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Numbers/CSS.luau",
+          "sha256": "8e22f05c518b5be9de8906b12230881eddc7f0f11bd31386405bd35fd08a02ff",
+          "byteLength": 1144
+        }
+      ]
+    },
+    {
+      "name": "Numbers2",
+      "url": "http://localhost:8000/numbers2/index.html",
+      "sourcePath": "/numbers2/index.html",
+      "title": "Numbers2",
+      "siteName": "Numbers2",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Numbers2/init.luau",
+          "sha256": "52d26151ee24f6812081eaa5cbe5c0c4728054431aaaebe8efbedcc073ce14a1",
+          "byteLength": 40627
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Numbers2/HTML.luau",
+          "sha256": "ba01ffbec917c3f59b45e0081caa3052a459eb8b01a1c394b4fbe1861bbc104e",
+          "byteLength": 1469
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Numbers2/CSS.luau",
+          "sha256": "5e62f90da9113ac73599c4584b3070b2ef60dac732786a853584521896ec44b0",
+          "byteLength": 1349
+        }
+      ]
+    },
+    {
+      "name": "NumberStation",
+      "url": "http://localhost:8000/numberStation/index.html",
+      "sourcePath": "/numberStation/index.html",
+      "title": "numberStation",
+      "siteName": "NumberStation",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/NumberStation/init.luau",
+          "sha256": "c864b23aad53b2b4709f60cc53db03b4196bb80908c7386ad0e066b44f4700c9",
+          "byteLength": 39792
+        },
+        {
+          "path": "src/HTMLEngine/Websites/NumberStation/HTML.luau",
+          "sha256": "c7864c1f4b15e8f12ef754ca98e21cfaa4a5e613acc3f25a650d42bae5b4dd22",
+          "byteLength": 1880
+        },
+        {
+          "path": "src/HTMLEngine/Websites/NumberStation/CSS.luau",
+          "sha256": "2cd640fb9b073563eaa78665cd0bb4fbb939a9f4584a4153e200241f49505cf3",
+          "byteLength": 2214
+        }
+      ]
+    },
+    {
+      "name": "IAMHERE",
+      "url": "http://localhost:8000/Iamhere/index.html",
+      "sourcePath": "/Iamhere/index.html",
+      "title": "01001001 00100000 01100001 01101",
+      "siteName": "IAMHERE",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/IAMHERE/init.luau",
+          "sha256": "99c190bc6a27eba396b015712fdd9dd9acb0f6252cf888caeedc40aaa8cfa5a4",
+          "byteLength": 41093
+        },
+        {
+          "path": "src/HTMLEngine/Websites/IAMHERE/HTML.luau",
+          "sha256": "860551aaebefce0ce182eaf8cbe14d447a065ac33c1d000be545482a64a5dd57",
+          "byteLength": 6774
+        },
+        {
+          "path": "src/HTMLEngine/Websites/IAMHERE/CSS.luau",
+          "sha256": "b395ac2e88629de6907913667195bfd0a5cd7f9d996fef7ec3fd6a20f491910e",
+          "byteLength": 902
+        }
+      ]
+    },
+    {
+      "name": "Ascii",
+      "url": "http://localhost:8000/ascii/index.html",
+      "sourcePath": "/ascii/index.html",
+      "title": "NNNNNNNmmmmNNNNNmdhyssooooosydmm",
+      "siteName": "Ascii",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Ascii/init.luau",
+          "sha256": "ffc2371edba0f2bf54da2905e938bff142fdf1e8785039d35dd62609b502f418",
+          "byteLength": 40846
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Ascii/HTML.luau",
+          "sha256": "e613bae5fdb524f9bb0b717b9627c496482e2d897e8e5848c3d81cbd83353733",
+          "byteLength": 106548
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Ascii/CSS.luau",
+          "sha256": "1637a4ec7f4040fde2a8513eb16b0a6be53d881e752b3475284c9ac93c0bdfdb",
+          "byteLength": 1139
+        }
+      ]
+    },
+    {
+      "name": "Eye",
+      "url": "http://localhost:8000/eye/index.html",
+      "sourcePath": "/eye/index.html",
+      "title": "The Eye",
+      "siteName": "Eye",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Eye/init.luau",
+          "sha256": "bb4d1123c4d65a6c82302686b5afed9ee5399560fef574a6c5bb073ab64c3296",
+          "byteLength": 41068
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Eye/HTML.luau",
+          "sha256": "26474a0f4ee916babfec3c58f9a856fe81fc251c07d7d1ead294b12082f65ff0",
+          "byteLength": 1319
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Eye/CSS.luau",
+          "sha256": "bf3f8d669c8586a0c21caa82cb3e2100720f87b16ffa291507bb605abed0d7e4",
+          "byteLength": 882
+        }
+      ]
+    },
+    {
+      "name": "CreepyFace",
+      "url": "http://localhost:8000/CreepyFace/index.html",
+      "sourcePath": "/CreepyFace/index.html",
+      "title": "CreepyFace",
+      "siteName": "CreepyFace",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/CreepyFace/init.luau",
+          "sha256": "f8cc13057e5fdcf1d969ec14011c064d0d8344b13f5dd9f7135260d8b83aef3b",
+          "byteLength": 40289
+        },
+        {
+          "path": "src/HTMLEngine/Websites/CreepyFace/HTML.luau",
+          "sha256": "43f5892a0685b76761b5499f7bc8d55a8eebd1cfe8f7722921155db23c9571d8",
+          "byteLength": 1681
+        },
+        {
+          "path": "src/HTMLEngine/Websites/CreepyFace/CSS.luau",
+          "sha256": "c517c9f1834dd727a6afd0e781b898bb5d7e3298970718b5e26890ee00c308b7",
+          "byteLength": 1699
+        }
+      ]
+    },
+    {
+      "name": "TheGrey",
+      "url": "http://localhost:8000/TheGrey/index.html",
+      "sourcePath": "/TheGrey/index.html",
+      "title": "TheGrey",
+      "siteName": "TheGrey",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey/init.luau",
+          "sha256": "405c44460d6d61e41aee88ba7d3b52c0508b1d8cc550c39ede6e093d2b1b91a3",
+          "byteLength": 39708
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey/HTML.luau",
+          "sha256": "8c8b1dd1080511030b589e92adfb1010e176b6a8be4a5f07f180e9246598cfef",
+          "byteLength": 4684
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey/CSS.luau",
+          "sha256": "d0db92af3b67b0ca300788c6fff692424690f4f73e89fb37f1fd34408d6180ef",
+          "byteLength": 2262
+        }
+      ]
+    },
+    {
+      "name": "TheGrey_centrum",
+      "url": "http://localhost:8000/TheGrey/centrum.html",
+      "sourcePath": "/TheGrey/centrum.html",
+      "title": "TheGrey",
+      "siteName": "TheGrey",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_centrum/init.luau",
+          "sha256": "d707bfa85310ae14174f1755832ab737c5f7e82438962fcb1a084404aee4f765",
+          "byteLength": 39715
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_centrum/HTML.luau",
+          "sha256": "919740f0065984c52dfa3539a370eb23e6160358ba29e4377d87091cb401fdfe",
+          "byteLength": 3103
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_centrum/CSS.luau",
+          "sha256": "d0db92af3b67b0ca300788c6fff692424690f4f73e89fb37f1fd34408d6180ef",
+          "byteLength": 2262
+        }
+      ]
+    },
+    {
+      "name": "TheGrey_inanis",
+      "url": "http://localhost:8000/TheGrey/inanis.html",
+      "sourcePath": "/TheGrey/inanis.html",
+      "title": "TheGrey",
+      "siteName": "TheGrey",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_inanis/init.luau",
+          "sha256": "5beeafd0fdb53e032cfe89dc901fa8e01001c31ef58ea2e6092c05fc7988d80a",
+          "byteLength": 39711
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_inanis/HTML.luau",
+          "sha256": "6c79948b0a74748776f6268a1eb29242cb5929aa742d4a4a9d4d577045387965",
+          "byteLength": 3464
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_inanis/CSS.luau",
+          "sha256": "d0db92af3b67b0ca300788c6fff692424690f4f73e89fb37f1fd34408d6180ef",
+          "byteLength": 2262
+        }
+      ]
+    },
+    {
+      "name": "TheGrey_interius",
+      "url": "http://localhost:8000/TheGrey/interius.html",
+      "sourcePath": "/TheGrey/interius.html",
+      "title": "TheGrey",
+      "siteName": "TheGrey",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_interius/init.luau",
+          "sha256": "7d0605486a0e47f8a0ac2aa2733059ab8509b8889b24d257d9414ed2d3ce70f7",
+          "byteLength": 39719
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_interius/HTML.luau",
+          "sha256": "048b0ec9fbcc4830ef582dbf6a3f44aff9aa293f48a836e05ddc5c14b378933d",
+          "byteLength": 2385
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_interius/CSS.luau",
+          "sha256": "d0db92af3b67b0ca300788c6fff692424690f4f73e89fb37f1fd34408d6180ef",
+          "byteLength": 2262
+        }
+      ]
+    },
+    {
+      "name": "TheGrey_latus",
+      "url": "http://localhost:8000/TheGrey/latus.html",
+      "sourcePath": "/TheGrey/latus.html",
+      "title": "TheGrey",
+      "siteName": "TheGrey",
+      "CatalogHidden": true,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_latus/init.luau",
+          "sha256": "93a25eb28caab668724a7b936559a2e31a88f3702a98fad5e87c6b7a1e02d0b6",
+          "byteLength": 39707
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_latus/HTML.luau",
+          "sha256": "e3d588700338871b453accba884d61a9603b6b4fd6eac0328c4b0466ae3a5263",
+          "byteLength": 3983
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheGrey_latus/CSS.luau",
+          "sha256": "d0db92af3b67b0ca300788c6fff692424690f4f73e89fb37f1fd34408d6180ef",
+          "byteLength": 2262
+        }
+      ]
+    },
+    {
+      "name": "TheHall",
+      "url": "http://localhost:8000/thehall/index.html",
+      "sourcePath": "/thehall/index.html",
+      "title": "The Hall",
+      "siteName": "TheHall",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/TheHall/init.luau",
+          "sha256": "e17d8131a1edda16566c6b5e64574fd6d2106448ed33fe97e740d4b85692d3dd",
+          "byteLength": 40625
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheHall/HTML.luau",
+          "sha256": "194e0d5108ecb930e32c01e6116daa769542e27d98dbcbf75fc13aef7b126cba",
+          "byteLength": 1355
+        },
+        {
+          "path": "src/HTMLEngine/Websites/TheHall/CSS.luau",
+          "sha256": "8f3b9bdfc6b9386394ab1749b3f237a4d3c1eebda4ffe0eba9f9d4d93827871d",
+          "byteLength": 1346
+        }
+      ]
+    },
+    {
+      "name": "WeRock",
+      "url": "http://localhost:8000/WeRock/index.html",
+      "sourcePath": "/WeRock/index.html",
+      "title": "WeRock",
+      "siteName": "WeRock",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/WeRock/init.luau",
+          "sha256": "bfb3b6278c6bca1223a8f759e9016f3f1ecaf64d369872408a5fb6f8c79eef4f",
+          "byteLength": 39674
+        },
+        {
+          "path": "src/HTMLEngine/Websites/WeRock/HTML.luau",
+          "sha256": "771440be6ed3ac30fe9663406b2d1ada956cab8677f5b9c1565394f43af7e802",
+          "byteLength": 6392
+        },
+        {
+          "path": "src/HTMLEngine/Websites/WeRock/CSS.luau",
+          "sha256": "3c93a309459bf07055e70aef5e51a98cba131c2cc74a35ef491493c3044641f3",
+          "byteLength": 2290
+        }
+      ]
+    },
+    {
+      "name": "YourData",
+      "url": "http://localhost:8000/yourdata/index.html",
+      "sourcePath": "/yourdata/index.html",
+      "title": "Your Data Have Been Encrypted",
+      "siteName": "YourData",
+      "CatalogHidden": false,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/YourData/init.luau",
+          "sha256": "7d23e6dcce7db19f6b7924ea24c783dd8361eb1bdfdd7ef5371f13439402faf2",
+          "byteLength": 39972
+        },
+        {
+          "path": "src/HTMLEngine/Websites/YourData/HTML.luau",
+          "sha256": "338232b38821db0d0e02fae1fd8739958ff86ef3f8cd43b138539114dd824f1e",
+          "byteLength": 1512
+        },
+        {
+          "path": "src/HTMLEngine/Websites/YourData/CSS.luau",
+          "sha256": "5bcf7a2c6db1b472a8e08d354bf7a7a8dd45f2c729144f6296ad00e8305e25c5",
+          "byteLength": 2025
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "/CreepyFace/images/face.jpg",
+      "target": "examples/websites/CreepyFace/images/face.jpg",
+      "byteLength": 342820,
+      "sha256": "b1b7dc9c852f1fc3aaace36af46e7a72b57555b4ba4748ae9a253605524d3a64",
+      "originalArchivePath": "/CreepyFace/images/face.jpg",
+      "originalSHA256": "b1b7dc9c852f1fc3aaace36af46e7a72b57555b4ba4748ae9a253605524d3a64",
+      "originalLength": 342820,
+      "transform": "none"
+    },
+    {
+      "path": "/CreepyFace/index.html",
+      "target": "examples/websites/CreepyFace/index.html",
+      "byteLength": 1559,
+      "sha256": "e2108fa06e92be43193502adae375fa6ff7978ec11e3604fe1ea503aa593e3b7",
+      "originalArchivePath": "/CreepyFace/index.html",
+      "originalSHA256": "23168c4a8d13fd2cbfdab46a732ac75672e12ea3819169829ea386f3ffd00ed6",
+      "originalLength": 1390,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/CreepyFace/style.css",
+      "target": "examples/websites/CreepyFace/style.css",
+      "byteLength": 1595,
+      "sha256": "a49b8b8e12ee9c2a7ee24413918640b09ee7607a0b5f78100b16906fbc9ff8f3",
+      "originalArchivePath": "/CreepyFace/style.css",
+      "originalSHA256": "a49b8b8e12ee9c2a7ee24413918640b09ee7607a0b5f78100b16906fbc9ff8f3",
+      "originalLength": 1595,
+      "transform": "none"
+    },
+    {
+      "path": "/Iamhere/images/hands.jpg",
+      "target": "examples/websites/Iamhere/images/hands.jpg",
+      "byteLength": 287054,
+      "sha256": "be4838b528a77608703f1e4db8d0dbbd5f92f17039fbb6b6544dd7673c4f701d",
+      "originalArchivePath": "/Iamhere/images/hands.jpg",
+      "originalSHA256": "be4838b528a77608703f1e4db8d0dbbd5f92f17039fbb6b6544dd7673c4f701d",
+      "originalLength": 287054,
+      "transform": "none"
+    },
+    {
+      "path": "/Iamhere/images/spine.jpg",
+      "target": "examples/websites/Iamhere/images/spine.jpg",
+      "byteLength": 96419,
+      "sha256": "c6ca22cb4c08f202eeb1bf66f21e2621dc03e98bba1afb8f64bc3c643815ac3d",
+      "originalArchivePath": "/Iamhere/images/spine.jpg",
+      "originalSHA256": "c6ca22cb4c08f202eeb1bf66f21e2621dc03e98bba1afb8f64bc3c643815ac3d",
+      "originalLength": 96419,
+      "transform": "none"
+    },
+    {
+      "path": "/Iamhere/index.html",
+      "target": "examples/websites/Iamhere/index.html",
+      "byteLength": 6655,
+      "sha256": "7c3b721596d8537ad50237e41e18071e26f6725ff5a6feb44cff32720def2083",
+      "originalArchivePath": "/Iamhere/index.html",
+      "originalSHA256": "e49a3e89fa58f24b5fdd321153e457a5075fd1aae927738cd1f5c4647771a80f",
+      "originalLength": 6486,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/Iamhere/style.css",
+      "target": "examples/websites/Iamhere/style.css",
+      "byteLength": 801,
+      "sha256": "01882118c37836eb71501c74dbadd7f3b363395faa7964ee1f7de32bd9eaa985",
+      "originalArchivePath": "/Iamhere/style.css",
+      "originalSHA256": "01882118c37836eb71501c74dbadd7f3b363395faa7964ee1f7de32bd9eaa985",
+      "originalLength": 801,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/babyshrimp.html",
+      "target": "examples/websites/ThanksForVisiting/babyshrimp.html",
+      "byteLength": 2601,
+      "sha256": "eaa7b27a9d32623de440dc3e9b27ebe596921f1ced9ee77e14410be6cac63d23",
+      "originalArchivePath": "/ThanksForVisiting/babyshrimp.html",
+      "originalSHA256": "a7a1783edb877f00ef43939e2d2b8b0d8b47235e7f689b2824eb467bf60fb83a",
+      "originalLength": 2432,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/bar.html",
+      "target": "examples/websites/ThanksForVisiting/bar.html",
+      "byteLength": 16682,
+      "sha256": "40f0197defad26ffc23cf03c7fb7b1bae0cedac0ea980942c4703d7516565d7b",
+      "originalArchivePath": "/ThanksForVisiting/bar.html",
+      "originalSHA256": "fc289615537f1fb53cfe7b0cc87d718d8536a9d914744404669a47b3f950a565",
+      "originalLength": 16513,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/black.html",
+      "target": "examples/websites/ThanksForVisiting/black.html",
+      "byteLength": 2406,
+      "sha256": "46e4d3a67ecb533f9be9fad9bdb00c236303ad933601a90e81f17dfd9d6b213f",
+      "originalArchivePath": "/ThanksForVisiting/black.html",
+      "originalSHA256": "68c0cd42ba5446ee3dfd540b10d544cf967f757cba7304107f2a6cbcec80e5c4",
+      "originalLength": 2237,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/creepy.html",
+      "target": "examples/websites/ThanksForVisiting/creepy.html",
+      "byteLength": 1137,
+      "sha256": "ee6f362ae1b3480c56c2fef1039ea1b69020225f858ddecd6d5d591fa92fb750",
+      "originalArchivePath": "/ThanksForVisiting/creepy.html",
+      "originalSHA256": "040bdeb819d395599638aaae2db9945c43885b2e24c35bf5c4e81696988ac0e8",
+      "originalLength": 968,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/donttalktome.html",
+      "target": "examples/websites/ThanksForVisiting/donttalktome.html",
+      "byteLength": 2010,
+      "sha256": "04204196e963da82ae30cd3ebf625e5bd3af0fc22229ed1edab2e924bc8a876e",
+      "originalArchivePath": "/ThanksForVisiting/donttalktome.html",
+      "originalSHA256": "1b1b506d9506a7df19c81edf33fa6d1ba7a54bca3082b137ab22a279ab0ee5ba",
+      "originalLength": 1841,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/evilmonster.html",
+      "target": "examples/websites/ThanksForVisiting/evilmonster.html",
+      "byteLength": 2810,
+      "sha256": "d0d71d739ac3c3cf26daed99781142d787e9ab470ef7ad4b4f01589c61292179",
+      "originalArchivePath": "/ThanksForVisiting/evilmonster.html",
+      "originalSHA256": "e38478358f102bb3108a83edb5c876197b354e1ab8a9c85c1cf43f60a4cfa4b6",
+      "originalLength": 2641,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/face.html",
+      "target": "examples/websites/ThanksForVisiting/face.html",
+      "byteLength": 1152,
+      "sha256": "4848a2f78c3839fdc5137eaa633a59e29f20c810daacd83d37df14a30b571a71",
+      "originalArchivePath": "/ThanksForVisiting/face.html",
+      "originalSHA256": "90b9e856dac93c77eb2794832c1a699b35cd5cbccfd577e45d2a723759503465",
+      "originalLength": 983,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/fakemain.html",
+      "target": "examples/websites/ThanksForVisiting/fakemain.html",
+      "byteLength": 1341,
+      "sha256": "c0c371a8015eb3bdaace660ac4fde3baa1922a8c842aa76175920740b910c257",
+      "originalArchivePath": "/ThanksForVisiting/fakemain.html",
+      "originalSHA256": "310e65b00ff8be1bd7c3178f240e1eb8c51acc46380b87008d83cf66bb69ae23",
+      "originalLength": 1172,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/images/babycard.jpg",
+      "target": "examples/websites/ThanksForVisiting/images/babycard.jpg",
+      "byteLength": 143476,
+      "sha256": "e3d433361e9463ad5af5f6ed1f0e7066348cb3f86c597b1caac7d5add318ab4e",
+      "originalArchivePath": "/ThanksForVisiting/images/babycard.jpg",
+      "originalSHA256": "e3d433361e9463ad5af5f6ed1f0e7066348cb3f86c597b1caac7d5add318ab4e",
+      "originalLength": 143476,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/bg1.jpg",
+      "target": "examples/websites/ThanksForVisiting/images/bg1.jpg",
+      "byteLength": 48540,
+      "sha256": "4cde106b81ea613cbaaa8b34eb1015a2d028808fbb5faf699bfddb20dd5cb05b",
+      "originalArchivePath": "/ThanksForVisiting/images/bg1.jpg",
+      "originalSHA256": "4cde106b81ea613cbaaa8b34eb1015a2d028808fbb5faf699bfddb20dd5cb05b",
+      "originalLength": 48540,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/bg2.jpg",
+      "target": "examples/websites/ThanksForVisiting/images/bg2.jpg",
+      "byteLength": 22392,
+      "sha256": "bbc5b5bb6d61adc9c49ad3fe94142cb81c9bf93d25313cca696559f37e3b2ea4",
+      "originalArchivePath": "/ThanksForVisiting/images/bg2.jpg",
+      "originalSHA256": "bbc5b5bb6d61adc9c49ad3fe94142cb81c9bf93d25313cca696559f37e3b2ea4",
+      "originalLength": 22392,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/bgmain.jpg",
+      "target": "examples/websites/ThanksForVisiting/images/bgmain.jpg",
+      "byteLength": 117679,
+      "sha256": "9103690d525dfa2b1cb2d84df871016ce8b7535855f4c5fa464f3ed29c49bd73",
+      "originalArchivePath": "/ThanksForVisiting/images/bgmain.jpg",
+      "originalSHA256": "9103690d525dfa2b1cb2d84df871016ce8b7535855f4c5fa464f3ed29c49bd73",
+      "originalLength": 117679,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/box.jpg",
+      "target": "examples/websites/ThanksForVisiting/images/box.jpg",
+      "byteLength": 11129,
+      "sha256": "d5d9b6a06d5acffc42d43ec3afb79cf6b12b62f583b87c63b79993d408eb7462",
+      "originalArchivePath": "/ThanksForVisiting/images/box.jpg",
+      "originalSHA256": "d5d9b6a06d5acffc42d43ec3afb79cf6b12b62f583b87c63b79993d408eb7462",
+      "originalLength": 11129,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/box2.jpg",
+      "target": "examples/websites/ThanksForVisiting/images/box2.jpg",
+      "byteLength": 11729,
+      "sha256": "bf6a1995e55026f6534e80f152214d6770f9ad1df450bca1ad2d942de9c242c3",
+      "originalArchivePath": "/ThanksForVisiting/images/box2.jpg",
+      "originalSHA256": "bf6a1995e55026f6534e80f152214d6770f9ad1df450bca1ad2d942de9c242c3",
+      "originalLength": 11729,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/card.gif",
+      "target": "examples/websites/ThanksForVisiting/images/card.gif",
+      "byteLength": 351227,
+      "sha256": "18e2109beeabd2e3cf693f9989633521036629270c92917e352f3b912d693979",
+      "originalArchivePath": "/ThanksForVisiting/images/card.gif",
+      "originalSHA256": "18e2109beeabd2e3cf693f9989633521036629270c92917e352f3b912d693979",
+      "originalLength": 351227,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/creepy.jpg",
+      "target": "examples/websites/ThanksForVisiting/images/creepy.jpg",
+      "byteLength": 296260,
+      "sha256": "4b41b447d64326cc32f97555e3adfdaecbc548958d929d3c6c42a56bd6ae308e",
+      "originalArchivePath": "/ThanksForVisiting/images/creepy.jpg",
+      "originalSHA256": "4b41b447d64326cc32f97555e3adfdaecbc548958d929d3c6c42a56bd6ae308e",
+      "originalLength": 296260,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/face.png",
+      "target": "examples/websites/ThanksForVisiting/images/face.png",
+      "byteLength": 44400,
+      "sha256": "71abcc168a8f057f9087d55c7035e2536f62c622c12920fd7389574b0e828a1d",
+      "originalArchivePath": "/ThanksForVisiting/images/face.png",
+      "originalSHA256": "71abcc168a8f057f9087d55c7035e2536f62c622c12920fd7389574b0e828a1d",
+      "originalLength": 44400,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/shrimp.png",
+      "target": "examples/websites/ThanksForVisiting/images/shrimp.png",
+      "byteLength": 32134,
+      "sha256": "2fdd841a2d01e09cb0a4bcdd249796c4387d1e916898b0a0915e3b08bb41948a",
+      "originalArchivePath": "/ThanksForVisiting/images/shrimp.png",
+      "originalSHA256": "2fdd841a2d01e09cb0a4bcdd249796c4387d1e916898b0a0915e3b08bb41948a",
+      "originalLength": 32134,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/slide.gif",
+      "target": "examples/websites/ThanksForVisiting/images/slide.gif",
+      "byteLength": 3672,
+      "sha256": "75f3ea1508a2905af2f8a4bf377fe167e14968bc0b558887de806eaea717d2f9",
+      "originalArchivePath": "/ThanksForVisiting/images/slide.gif",
+      "originalSHA256": "75f3ea1508a2905af2f8a4bf377fe167e14968bc0b558887de806eaea717d2f9",
+      "originalLength": 3672,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/thanks.png",
+      "target": "examples/websites/ThanksForVisiting/images/thanks.png",
+      "byteLength": 36046,
+      "sha256": "bbc3ba77f09870aaea0333466aea97053a9dad520a3af2bfc822f439b0195afd",
+      "originalArchivePath": "/ThanksForVisiting/images/thanks.png",
+      "originalSHA256": "bbc3ba77f09870aaea0333466aea97053a9dad520a3af2bfc822f439b0195afd",
+      "originalLength": 36046,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/thanksFake.png",
+      "target": "examples/websites/ThanksForVisiting/images/thanksFake.png",
+      "byteLength": 36684,
+      "sha256": "da998d154c3d46e768aea86b1c3a413321dc29b3e0b2f03736eb003ef81da0b1",
+      "originalArchivePath": "/ThanksForVisiting/images/thanksFake.png",
+      "originalSHA256": "da998d154c3d46e768aea86b1c3a413321dc29b3e0b2f03736eb003ef81da0b1",
+      "originalLength": 36684,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/images/title.jpg",
+      "target": "examples/websites/ThanksForVisiting/images/title.jpg",
+      "byteLength": 40276,
+      "sha256": "5193422f3ddaf4e30b40d052dd9fc92a4dfb05153b15aba1d5b3ddef7299a844",
+      "originalArchivePath": "/ThanksForVisiting/images/title.jpg",
+      "originalSHA256": "5193422f3ddaf4e30b40d052dd9fc92a4dfb05153b15aba1d5b3ddef7299a844",
+      "originalLength": 40276,
+      "transform": "none"
+    },
+    {
+      "path": "/ThanksForVisiting/index.html",
+      "target": "examples/websites/ThanksForVisiting/index.html",
+      "byteLength": 1211,
+      "sha256": "02d18be512a216caa1d9f8df7a1022adcffbc0e3e5e06c60d8cf6a000b4ed022",
+      "originalArchivePath": "/ThanksForVisiting/index.html",
+      "originalSHA256": "bf34ae16b2d03c447d99277a7028a03a22cfe062fb1d66928df43356707a9266",
+      "originalLength": 1042,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/numbers.html",
+      "target": "examples/websites/ThanksForVisiting/numbers.html",
+      "byteLength": 1805,
+      "sha256": "79293ef657c43c489bf636ce71968b6e7f1449156ebf300a14a57788f97f9d46",
+      "originalArchivePath": "/ThanksForVisiting/numbers.html",
+      "originalSHA256": "b8a03ea1d3910ccd0fd5054850aa6f8343a8a4bd369d1044e976bcf81eb48b73",
+      "originalLength": 1636,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/posture.html",
+      "target": "examples/websites/ThanksForVisiting/posture.html",
+      "byteLength": 1811,
+      "sha256": "4af276226cb978d8007d060f797a53c7854c1fd7285f79e1198e797ea1633001",
+      "originalArchivePath": "/ThanksForVisiting/posture.html",
+      "originalSHA256": "17912fea68208c6b5eab90efe09de8523aac8a3913858d65d7ed9f316c6785d9",
+      "originalLength": 1642,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/slide.html",
+      "target": "examples/websites/ThanksForVisiting/slide.html",
+      "byteLength": 1336,
+      "sha256": "f41ec33cc71b081425e7634b060c3d43ba7fa3df0fc1cdbe0782690306ae6985",
+      "originalArchivePath": "/ThanksForVisiting/slide.html",
+      "originalSHA256": "7ab5ef889fe637faf2ec97d77fee3c3fc2cb47f5e6067298ba4b2d8d2dddcf23",
+      "originalLength": 1167,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/slide2.html",
+      "target": "examples/websites/ThanksForVisiting/slide2.html",
+      "byteLength": 1521,
+      "sha256": "320a02066418b167c45830be65e5654884f037dc764c38e12f18503925daa25a",
+      "originalArchivePath": "/ThanksForVisiting/slide2.html",
+      "originalSHA256": "8a78ac184b5cadbefc3493202b95c5b1d2b915068e3ba49e6316724a18575ec9",
+      "originalLength": 1352,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ThanksForVisiting/style.css",
+      "target": "examples/websites/ThanksForVisiting/style.css",
+      "byteLength": 3570,
+      "sha256": "f1afb5af8817df1ea9e7323d8f429c33a00da050efe02b15afdcdc737232fc54",
+      "originalArchivePath": "/ThanksForVisiting/style.css",
+      "originalSHA256": "f1afb5af8817df1ea9e7323d8f429c33a00da050efe02b15afdcdc737232fc54",
+      "originalLength": 3570,
+      "transform": "none"
+    },
+    {
+      "path": "/TheBlackWaves/index.html",
+      "target": "examples/websites/TheBlackWaves/index.html",
+      "byteLength": 1977,
+      "sha256": "37b2af20bf80c2df1e195bc7358d79dc450edb990e1555aad1d739a930a2cea7",
+      "originalArchivePath": "/TheBlackWaves/index.html",
+      "originalSHA256": "3f1c6f68d3f1a80682ebb63b71deae797b4613c4597fe4dd8fa5955e28857f48",
+      "originalLength": 1808,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/TheBlackWaves/style.css",
+      "target": "examples/websites/TheBlackWaves/style.css",
+      "byteLength": 1345,
+      "sha256": "0207b8459a2165e654197fb60c01d91efa57bb97d9b637a0c297d4251e5dc9b8",
+      "originalArchivePath": "/TheBlackWaves/style.css",
+      "originalSHA256": "0207b8459a2165e654197fb60c01d91efa57bb97d9b637a0c297d4251e5dc9b8",
+      "originalLength": 1345,
+      "transform": "none"
+    },
+    {
+      "path": "/TheGrey/centrum.html",
+      "target": "examples/websites/TheGrey/centrum.html",
+      "byteLength": 2982,
+      "sha256": "f32ddbafb0df4a99c9b1e9bb26125bf61745ef9e23e8cbd333159069a51eca7e",
+      "originalArchivePath": "/TheGrey/centrum.html",
+      "originalSHA256": "b24ca52f3e705cf6caf84a087746efc784e1781dcd929686cf8ba02565e64f6e",
+      "originalLength": 2813,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/TheGrey/images/symbol.png",
+      "target": "examples/websites/TheGrey/images/symbol.png",
+      "byteLength": 19953,
+      "sha256": "de8fd85df25211425c7cde2c8c63ad8f1f180a861bbf3709137511e190368fdd",
+      "originalArchivePath": "/TheGrey/images/symbol.png",
+      "originalSHA256": "de8fd85df25211425c7cde2c8c63ad8f1f180a861bbf3709137511e190368fdd",
+      "originalLength": 19953,
+      "transform": "none"
+    },
+    {
+      "path": "/TheGrey/images/title.jpg",
+      "target": "examples/websites/TheGrey/images/title.jpg",
+      "byteLength": 40354,
+      "sha256": "3abcf036fec0312a6f3ffb0830ac99b7e427d524e28ad2ad85264d7194c600ad",
+      "originalArchivePath": "/TheGrey/images/title.jpg",
+      "originalSHA256": "3abcf036fec0312a6f3ffb0830ac99b7e427d524e28ad2ad85264d7194c600ad",
+      "originalLength": 40354,
+      "transform": "none"
+    },
+    {
+      "path": "/TheGrey/images/topper.jpg",
+      "target": "examples/websites/TheGrey/images/topper.jpg",
+      "byteLength": 53693,
+      "sha256": "34489c826d7591609b312fa30f68358c831308795a5d9091d9154e9a59d4fdef",
+      "originalArchivePath": "/TheGrey/images/topper.jpg",
+      "originalSHA256": "34489c826d7591609b312fa30f68358c831308795a5d9091d9154e9a59d4fdef",
+      "originalLength": 53693,
+      "transform": "none"
+    },
+    {
+      "path": "/TheGrey/inanis.html",
+      "target": "examples/websites/TheGrey/inanis.html",
+      "byteLength": 3344,
+      "sha256": "b1f385480ed978f9bfe901b94017b7bfd1b2688b1cc81a9f3d4fdee4b652dada",
+      "originalArchivePath": "/TheGrey/inanis.html",
+      "originalSHA256": "15b1adee225a5874f1068274c3cc0b36264151f53f5bb603b889eb35f62b377b",
+      "originalLength": 3175,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/TheGrey/index.html",
+      "target": "examples/websites/TheGrey/index.html",
+      "byteLength": 4565,
+      "sha256": "e87d12dc6be2ebd135ccc2bd9fb9a6c5dc05856619bca2dbde96d9d24e51d5b2",
+      "originalArchivePath": "/TheGrey/index.html",
+      "originalSHA256": "e827c6fb0316292870d1f4b586a177a79a126ed46f8153f5265ed83a6ca06219",
+      "originalLength": 4396,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/TheGrey/interius.html",
+      "target": "examples/websites/TheGrey/interius.html",
+      "byteLength": 2263,
+      "sha256": "352a3a7802fec11668eb1d9483ffc36273a99e971ae738dc763b506b504b9e72",
+      "originalArchivePath": "/TheGrey/interius.html",
+      "originalSHA256": "3a8b55d4c02d48e917e7b9f996dd7cda4bffdddb267031f44db2a5e902a0fddb",
+      "originalLength": 2094,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/TheGrey/latus.html",
+      "target": "examples/websites/TheGrey/latus.html",
+      "byteLength": 3864,
+      "sha256": "9c0c1b67fc7f613d55ee9bf411177491ffc4a5fdabb28f5cee85b4f2a3c5d896",
+      "originalArchivePath": "/TheGrey/latus.html",
+      "originalSHA256": "79c2157e12750ff6ec5635fb76c853ee4771d9f4e82ece9e07b8a1fe013d6afd",
+      "originalLength": 3695,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/TheGrey/style.css",
+      "target": "examples/websites/TheGrey/style.css",
+      "byteLength": 2161,
+      "sha256": "fda4fe9be90fbc3b3b0ee4d45a8f25d4fbe81801528b8a4206172c896b1a7dcb",
+      "originalArchivePath": "/TheGrey/style.css",
+      "originalSHA256": "fda4fe9be90fbc3b3b0ee4d45a8f25d4fbe81801528b8a4206172c896b1a7dcb",
+      "originalLength": 2161,
+      "transform": "none"
+    },
+    {
+      "path": "/WeRock/images/background.jpg",
+      "target": "examples/websites/WeRock/images/background.jpg",
+      "byteLength": 231513,
+      "sha256": "994579fd8a0215e865a02cec0f77a357f84e988c5e7837162168aacdc08caa76",
+      "originalArchivePath": "/WeRock/images/background.jpg",
+      "originalSHA256": "994579fd8a0215e865a02cec0f77a357f84e988c5e7837162168aacdc08caa76",
+      "originalLength": 231513,
+      "transform": "none"
+    },
+    {
+      "path": "/WeRock/images/rock2.jpg",
+      "target": "examples/websites/WeRock/images/rock2.jpg",
+      "byteLength": 101339,
+      "sha256": "c06dd2feb673e9f4baaef2b9e71fe6b2f74d4f13994c30740c188eadee62c493",
+      "originalArchivePath": "/WeRock/images/rock2.jpg",
+      "originalSHA256": "c06dd2feb673e9f4baaef2b9e71fe6b2f74d4f13994c30740c188eadee62c493",
+      "originalLength": 101339,
+      "transform": "none"
+    },
+    {
+      "path": "/WeRock/images/rocks1.jpg",
+      "target": "examples/websites/WeRock/images/rocks1.jpg",
+      "byteLength": 118875,
+      "sha256": "97de6717fa287d98373a776f556b6feea3a757be2fec2d452277280f7735ba57",
+      "originalArchivePath": "/WeRock/images/rocks1.jpg",
+      "originalSHA256": "97de6717fa287d98373a776f556b6feea3a757be2fec2d452277280f7735ba57",
+      "originalLength": 118875,
+      "transform": "none"
+    },
+    {
+      "path": "/WeRock/images/rocks3.jpg",
+      "target": "examples/websites/WeRock/images/rocks3.jpg",
+      "byteLength": 71392,
+      "sha256": "fea9625d8afdafd3a563682f69aa2a2c8b6664a837b4746db0942106f4c97aa4",
+      "originalArchivePath": "/WeRock/images/rocks3.jpg",
+      "originalSHA256": "fea9625d8afdafd3a563682f69aa2a2c8b6664a837b4746db0942106f4c97aa4",
+      "originalLength": 71392,
+      "transform": "none"
+    },
+    {
+      "path": "/WeRock/index.html",
+      "target": "examples/websites/WeRock/index.html",
+      "byteLength": 6274,
+      "sha256": "0656876809330d9ece6515a04ec514344a19792371889c88c7453ccf5dc6fdea",
+      "originalArchivePath": "/WeRock/index.html",
+      "originalSHA256": "a2d8e8a9e58a23f06411ed579fa26665daab4f828214ed9f8b9de5a410099ca3",
+      "originalLength": 6105,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/WeRock/style.css",
+      "target": "examples/websites/WeRock/style.css",
+      "byteLength": 2190,
+      "sha256": "1cf655016ab00a80bb044770f9e419949e2b78458021668f449cf66399f7f859",
+      "originalArchivePath": "/WeRock/style.css",
+      "originalSHA256": "1cf655016ab00a80bb044770f9e419949e2b78458021668f449cf66399f7f859",
+      "originalLength": 2190,
+      "transform": "none"
+    },
+    {
+      "path": "/ascii/images/bg.JPG",
+      "target": "examples/websites/ascii/images/bg.JPG",
+      "byteLength": 170026,
+      "sha256": "7eb8d058c7d0d5fc273cd6502376b67d12019d625c28909d0741735141d05b50",
+      "originalArchivePath": "/ascii/images/bg.JPG",
+      "originalSHA256": "7eb8d058c7d0d5fc273cd6502376b67d12019d625c28909d0741735141d05b50",
+      "originalLength": 170026,
+      "transform": "none"
+    },
+    {
+      "path": "/ascii/index.html",
+      "target": "examples/websites/ascii/index.html",
+      "byteLength": 106431,
+      "sha256": "955f274191a89a7ce69c1379b1d3fd34eeda977abafbbf086dfd4761b4f875ec",
+      "originalArchivePath": "/ascii/index.html",
+      "originalSHA256": "c7292a67e968a76490626ba2f8aebb920248a87c8bd4e1bd09fafeb6fd675a43",
+      "originalLength": 106262,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/ascii/style.css",
+      "target": "examples/websites/ascii/style.css",
+      "byteLength": 1040,
+      "sha256": "a0d03933d6a6d65e034eb0055e67cd64d39a1eb60d0f15986236019eae434f73",
+      "originalArchivePath": "/ascii/style.css",
+      "originalSHA256": "a0d03933d6a6d65e034eb0055e67cd64d39a1eb60d0f15986236019eae434f73",
+      "originalLength": 1040,
+      "transform": "none"
+    },
+    {
+      "path": "/basic.js",
+      "target": "examples/websites/basic.js",
+      "byteLength": 1904,
+      "sha256": "3b33fa34f44ca8f8784839556acaf8f7080a0a23e7b3aa22a828050058b5f4c5",
+      "originalArchivePath": "/basic.js",
+      "originalSHA256": "3b33fa34f44ca8f8784839556acaf8f7080a0a23e7b3aa22a828050058b5f4c5",
+      "originalLength": 1904,
+      "transform": "none"
+    },
+    {
+      "path": "/bewarned/aliens.html",
+      "target": "examples/websites/bewarned/aliens.html",
+      "byteLength": 1769,
+      "sha256": "c8dc699ae4eb0bd2abe3e115513e2e96f08688a6bbaf602731b550827847a0d5",
+      "originalArchivePath": "/bewarned/aliens.html",
+      "originalSHA256": "a710b6743580a852dcf587627539ef45a2a493cf1d352a4b6f429ad8fdb46422",
+      "originalLength": 1600,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/bewarned/arch.html",
+      "target": "examples/websites/bewarned/arch.html",
+      "byteLength": 1977,
+      "sha256": "eade9ded5576346e09c12ebfe5ed652b5c54292309c7a0e4542921aa44228ed4",
+      "originalArchivePath": "/bewarned/arch.html",
+      "originalSHA256": "5122fc774b187382bcc9f3d6c17549c710da29f4ed328224ba43210790e4a41c",
+      "originalLength": 1808,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/bewarned/hobo-std.otf",
+      "target": "examples/websites/bewarned/hobo-std.otf",
+      "byteLength": 30416,
+      "sha256": "a563e5ebeb2e7702812d1a7a2411a230bdb1594a1fcfd10deb7147cb6802f17f",
+      "originalArchivePath": "/bewarned/hobo-std.otf",
+      "originalSHA256": "a563e5ebeb2e7702812d1a7a2411a230bdb1594a1fcfd10deb7147cb6802f17f",
+      "originalLength": 30416,
+      "transform": "none"
+    },
+    {
+      "path": "/bewarned/images/alien.jpg",
+      "target": "examples/websites/bewarned/images/alien.jpg",
+      "byteLength": 74092,
+      "sha256": "c4249b51f0a9543be8772489393d4b2cb7d8f67d8b872ea309f8e4bbf76f63ea",
+      "originalArchivePath": "/bewarned/images/alien.jpg",
+      "originalSHA256": "c4249b51f0a9543be8772489393d4b2cb7d8f67d8b872ea309f8e4bbf76f63ea",
+      "originalLength": 74092,
+      "transform": "none"
+    },
+    {
+      "path": "/bewarned/images/arch.jpg",
+      "target": "examples/websites/bewarned/images/arch.jpg",
+      "byteLength": 162275,
+      "sha256": "c176f1c4c806e1161cf2c9f852f5e4736e69ad89b47b157cffa90d31af721a9c",
+      "originalArchivePath": "/bewarned/images/arch.jpg",
+      "originalSHA256": "c176f1c4c806e1161cf2c9f852f5e4736e69ad89b47b157cffa90d31af721a9c",
+      "originalLength": 162275,
+      "transform": "none"
+    },
+    {
+      "path": "/bewarned/images/corebeam.png",
+      "target": "examples/websites/bewarned/images/corebeam.png",
+      "byteLength": 82787,
+      "sha256": "9ec4b2fcc61cba9eaa64862ff19ec39e8ed774ed72ebcb891f5a5da19366ff50",
+      "originalArchivePath": "/bewarned/images/corebeam.png",
+      "originalSHA256": "9ec4b2fcc61cba9eaa64862ff19ec39e8ed774ed72ebcb891f5a5da19366ff50",
+      "originalLength": 82787,
+      "transform": "none"
+    },
+    {
+      "path": "/bewarned/images/nuke.jpg",
+      "target": "examples/websites/bewarned/images/nuke.jpg",
+      "byteLength": 119978,
+      "sha256": "2c9b51634766bc8f702f143083e789a5ae6856edf7cc7f3fee4604ceb8e74c82",
+      "originalArchivePath": "/bewarned/images/nuke.jpg",
+      "originalSHA256": "2c9b51634766bc8f702f143083e789a5ae6856edf7cc7f3fee4604ceb8e74c82",
+      "originalLength": 119978,
+      "transform": "none"
+    },
+    {
+      "path": "/bewarned/images/radiation.jpg",
+      "target": "examples/websites/bewarned/images/radiation.jpg",
+      "byteLength": 118006,
+      "sha256": "28fed85c9036a72a548bc452772f95dbd41b71cf27bb7ff4fe1e64444c04a90d",
+      "originalArchivePath": "/bewarned/images/radiation.jpg",
+      "originalSHA256": "28fed85c9036a72a548bc452772f95dbd41b71cf27bb7ff4fe1e64444c04a90d",
+      "originalLength": 118006,
+      "transform": "none"
+    },
+    {
+      "path": "/bewarned/images/star.gif",
+      "target": "examples/websites/bewarned/images/star.gif",
+      "byteLength": 412318,
+      "sha256": "36a0369038afccb31ae015e962fc7a007acd1de9931bf8129ac8e9cc20b850ef",
+      "originalArchivePath": "/bewarned/images/star.gif",
+      "originalSHA256": "36a0369038afccb31ae015e962fc7a007acd1de9931bf8129ac8e9cc20b850ef",
+      "originalLength": 412318,
+      "transform": "none"
+    },
+    {
+      "path": "/bewarned/index.html",
+      "target": "examples/websites/bewarned/index.html",
+      "byteLength": 1968,
+      "sha256": "a7d60247041cf513bce4671ead8df78ee75c3236bb7d41f78fc8a9fc8860d178",
+      "originalArchivePath": "/bewarned/index.html",
+      "originalSHA256": "269d5d488a3ac84902ebc4ee04b2cda8d899337cd0d1594d42f8c71f36b884aa",
+      "originalLength": 1799,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/bewarned/style.css",
+      "target": "examples/websites/bewarned/style.css",
+      "byteLength": 1947,
+      "sha256": "97269a8b8e54cb45d0ed8d84c847623b715b938190dd991110a90c47425e956c",
+      "originalArchivePath": "/bewarned/style.css",
+      "originalSHA256": "97269a8b8e54cb45d0ed8d84c847623b715b938190dd991110a90c47425e956c",
+      "originalLength": 1947,
+      "transform": "none"
+    },
+    {
+      "path": "/bewarned/whydie.html",
+      "target": "examples/websites/bewarned/whydie.html",
+      "byteLength": 1970,
+      "sha256": "ca7967e93fbc05287f678dc9e74274f70399d21921ce90b9131507fcce3e00d1",
+      "originalArchivePath": "/bewarned/whydie.html",
+      "originalSHA256": "91911af348633a65dfd6cd53dc8229283944ff57a4e4f99cb2cb83782a8308dd",
+      "originalLength": 1801,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/eye/images/eye.gif",
+      "target": "examples/websites/eye/images/eye.gif",
+      "byteLength": 1634553,
+      "sha256": "9c6fbc147c1d9d09f9d33c89215085d930de4b3bd37e2a85f86c422204e8ce10",
+      "originalArchivePath": "/eye/images/eye.gif",
+      "originalSHA256": "9c6fbc147c1d9d09f9d33c89215085d930de4b3bd37e2a85f86c422204e8ce10",
+      "originalLength": 1634553,
+      "transform": "none"
+    },
+    {
+      "path": "/eye/index.html",
+      "target": "examples/websites/eye/index.html",
+      "byteLength": 1204,
+      "sha256": "1b497cf18ea2e8067a386cbd088e067ce71cc8cf818c8f8b83c018daa95912f7",
+      "originalArchivePath": "/eye/index.html",
+      "originalSHA256": "9c34ea8e1b2d78407e1b69337817b80d4cbe37a11df10171f3de2be0e173bf11",
+      "originalLength": 1035,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/eye/style.css",
+      "target": "examples/websites/eye/style.css",
+      "byteLength": 785,
+      "sha256": "e40fac904379e1a9c2557cc58f814efb99287dd6f3a3a5b1d10d22aa6ecf09d1",
+      "originalArchivePath": "/eye/style.css",
+      "originalSHA256": "e40fac904379e1a9c2557cc58f814efb99287dd6f3a3a5b1d10d22aa6ecf09d1",
+      "originalLength": 785,
+      "transform": "none"
+    },
+    {
+      "path": "/fortuneCookie/images/fortuneCookie.jpg",
+      "target": "examples/websites/fortuneCookie/images/fortuneCookie.jpg",
+      "byteLength": 119173,
+      "sha256": "d055f56b0d6aeec244dea2f8b2f5bc877fb50e59597fb245954cc8cb55b941b6",
+      "originalArchivePath": "/fortuneCookie/images/fortuneCookie.jpg",
+      "originalSHA256": "d055f56b0d6aeec244dea2f8b2f5bc877fb50e59597fb245954cc8cb55b941b6",
+      "originalLength": 119173,
+      "transform": "none"
+    },
+    {
+      "path": "/fortuneCookie/index.html",
+      "target": "examples/websites/fortuneCookie/index.html",
+      "byteLength": 1362,
+      "sha256": "ed51f232cd839c0ac2940a0e6e3b43b087ed128dc8bdf401398dac01177e260f",
+      "originalArchivePath": "/fortuneCookie/index.html",
+      "originalSHA256": "891cff7a4776bcdbb49ca02d599e69e21aeccd84ffd21d9f28731c9e33d69c28",
+      "originalLength": 1193,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/fortuneCookie/style.css",
+      "target": "examples/websites/fortuneCookie/style.css",
+      "byteLength": 1029,
+      "sha256": "0aca72397313272792f9205d923d1082c68c3e7c93a7b95cf5159e83b277a085",
+      "originalArchivePath": "/fortuneCookie/style.css",
+      "originalSHA256": "0aca72397313272792f9205d923d1082c68c3e7c93a7b95cf5159e83b277a085",
+      "originalLength": 1029,
+      "transform": "none"
+    },
+    {
+      "path": "/jQuery.min.js",
+      "target": "examples/websites/jQuery.min.js",
+      "byteLength": 86661,
+      "sha256": "d3a518dea876de39f9e5dc1ffcdeb6c661aee25d8a62474386b664ef3bf1b40f",
+      "originalArchivePath": "/jQuery.min.js",
+      "originalSHA256": "d3a518dea876de39f9e5dc1ffcdeb6c661aee25d8a62474386b664ef3bf1b40f",
+      "originalLength": 86661,
+      "transform": "none"
+    },
+    {
+      "path": "/numberStation/images/antenna1.jpg",
+      "target": "examples/websites/numberStation/images/antenna1.jpg",
+      "byteLength": 113716,
+      "sha256": "034d13c9235f6cded8ad46406d1ae26d9cb3143122989cfd5884df8730900113",
+      "originalArchivePath": "/numberStation/images/antenna1.jpg",
+      "originalSHA256": "034d13c9235f6cded8ad46406d1ae26d9cb3143122989cfd5884df8730900113",
+      "originalLength": 113716,
+      "transform": "none"
+    },
+    {
+      "path": "/numberStation/images/antenna2.jpg",
+      "target": "examples/websites/numberStation/images/antenna2.jpg",
+      "byteLength": 292627,
+      "sha256": "50036202b97b59399bb242b9a47794f5e095cf436011d7909a8851c33685bc70",
+      "originalArchivePath": "/numberStation/images/antenna2.jpg",
+      "originalSHA256": "50036202b97b59399bb242b9a47794f5e095cf436011d7909a8851c33685bc70",
+      "originalLength": 292627,
+      "transform": "none"
+    },
+    {
+      "path": "/numberStation/images/background.jpg",
+      "target": "examples/websites/numberStation/images/background.jpg",
+      "byteLength": 303636,
+      "sha256": "489c867c88a8f0e44c7ecc9fa091d402adc5bc0e64e47e3af8665d4039052721",
+      "originalArchivePath": "/numberStation/images/background.jpg",
+      "originalSHA256": "489c867c88a8f0e44c7ecc9fa091d402adc5bc0e64e47e3af8665d4039052721",
+      "originalLength": 303636,
+      "transform": "none"
+    },
+    {
+      "path": "/numberStation/images/body.jpg",
+      "target": "examples/websites/numberStation/images/body.jpg",
+      "byteLength": 109943,
+      "sha256": "e3953470a7a1185587c9b1f772f2258279f2dba6c6c474e8c21d249fcbe1b9f6",
+      "originalArchivePath": "/numberStation/images/body.jpg",
+      "originalSHA256": "e3953470a7a1185587c9b1f772f2258279f2dba6c6c474e8c21d249fcbe1b9f6",
+      "originalLength": 109943,
+      "transform": "none"
+    },
+    {
+      "path": "/numberStation/images/face.gif",
+      "target": "examples/websites/numberStation/images/face.gif",
+      "byteLength": 355943,
+      "sha256": "f76d7d49ff1a26d13ffbcc80f781fa9f76e8aae25ea98d050892026199fb61a1",
+      "originalArchivePath": "/numberStation/images/face.gif",
+      "originalSHA256": "f76d7d49ff1a26d13ffbcc80f781fa9f76e8aae25ea98d050892026199fb61a1",
+      "originalLength": 355943,
+      "transform": "none"
+    },
+    {
+      "path": "/numberStation/images/pattern.jpg",
+      "target": "examples/websites/numberStation/images/pattern.jpg",
+      "byteLength": 170699,
+      "sha256": "20110d6d9b1ff3fadd773c3decfee760ab0cdc545f77aad53070cca76329df14",
+      "originalArchivePath": "/numberStation/images/pattern.jpg",
+      "originalSHA256": "20110d6d9b1ff3fadd773c3decfee760ab0cdc545f77aad53070cca76329df14",
+      "originalLength": 170699,
+      "transform": "none"
+    },
+    {
+      "path": "/numberStation/images/warShot1.jpg",
+      "target": "examples/websites/numberStation/images/warShot1.jpg",
+      "byteLength": 513211,
+      "sha256": "604c0e38f43e91f71e43cd37cb732605a7f2f8110685102dde38f1279291ec46",
+      "originalArchivePath": "/numberStation/images/warShot1.jpg",
+      "originalSHA256": "604c0e38f43e91f71e43cd37cb732605a7f2f8110685102dde38f1279291ec46",
+      "originalLength": 513211,
+      "transform": "none"
+    },
+    {
+      "path": "/numberStation/images/wave.jpg",
+      "target": "examples/websites/numberStation/images/wave.jpg",
+      "byteLength": 131283,
+      "sha256": "c6284676cb93c65dbc5f6b169a7d90f704198388f3ac71c87c03631866b938f2",
+      "originalArchivePath": "/numberStation/images/wave.jpg",
+      "originalSHA256": "c6284676cb93c65dbc5f6b169a7d90f704198388f3ac71c87c03631866b938f2",
+      "originalLength": 131283,
+      "transform": "none"
+    },
+    {
+      "path": "/numberStation/index.html",
+      "target": "examples/websites/numberStation/index.html",
+      "byteLength": 1755,
+      "sha256": "084cf7db663912e6aeb3207fc69e9a823747e39599d0fcff2daa44e0ddc97adf",
+      "originalArchivePath": "/numberStation/index.html",
+      "originalSHA256": "479d24dae6fec19d5e0db81e38b130c6f1da531e281c275bf843637611a0fbbc",
+      "originalLength": 1586,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/numberStation/style.css",
+      "target": "examples/websites/numberStation/style.css",
+      "byteLength": 2107,
+      "sha256": "75923a4d58236bce39e11b6757d07a2e1b322613f41fa03b4d3e22d98753cc46",
+      "originalArchivePath": "/numberStation/style.css",
+      "originalSHA256": "75923a4d58236bce39e11b6757d07a2e1b322613f41fa03b4d3e22d98753cc46",
+      "originalLength": 2107,
+      "transform": "none"
+    },
+    {
+      "path": "/numbers/images/code1.jpg",
+      "target": "examples/websites/numbers/images/code1.jpg",
+      "byteLength": 124718,
+      "sha256": "9c5d920f65bb8602c137d4a795af88c3fd24af7609ea4e58ea00da9d18b37632",
+      "originalArchivePath": "/numbers/images/code1.jpg",
+      "originalSHA256": "9c5d920f65bb8602c137d4a795af88c3fd24af7609ea4e58ea00da9d18b37632",
+      "originalLength": 124718,
+      "transform": "none"
+    },
+    {
+      "path": "/numbers/images/code2.jpg",
+      "target": "examples/websites/numbers/images/code2.jpg",
+      "byteLength": 125734,
+      "sha256": "257a654e4712c4a3da2b4086882f618fb631bac40891994607f69a1596c7800c",
+      "originalArchivePath": "/numbers/images/code2.jpg",
+      "originalSHA256": "257a654e4712c4a3da2b4086882f618fb631bac40891994607f69a1596c7800c",
+      "originalLength": 125734,
+      "transform": "none"
+    },
+    {
+      "path": "/numbers/images/triangle.jpg",
+      "target": "examples/websites/numbers/images/triangle.jpg",
+      "byteLength": 56500,
+      "sha256": "c935f941b4d16b3d59a8e121c1e1248fc4fecfa92610718e0f5adf3e07c0ebce",
+      "originalArchivePath": "/numbers/images/triangle.jpg",
+      "originalSHA256": "c935f941b4d16b3d59a8e121c1e1248fc4fecfa92610718e0f5adf3e07c0ebce",
+      "originalLength": 56500,
+      "transform": "none"
+    },
+    {
+      "path": "/numbers/index.html",
+      "target": "examples/websites/numbers/index.html",
+      "byteLength": 2305,
+      "sha256": "4f1e176f4c2638d05d95ca047ea9ed235fdf5097ea8d6421da2c70e4159516d2",
+      "originalArchivePath": "/numbers/index.html",
+      "originalSHA256": "9b7d841c502c86017fb0f87660b5f0cb15bb74fe29dad0c55d73ad4c05bbdad1",
+      "originalLength": 2136,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/numbers/style.css",
+      "target": "examples/websites/numbers/style.css",
+      "byteLength": 1043,
+      "sha256": "08210c69acc01be0a51ee726ea993a9a8ac632892a100b9eeafbafe17d3b0b07",
+      "originalArchivePath": "/numbers/style.css",
+      "originalSHA256": "08210c69acc01be0a51ee726ea993a9a8ac632892a100b9eeafbafe17d3b0b07",
+      "originalLength": 1043,
+      "transform": "none"
+    },
+    {
+      "path": "/numbers2/images/barcode.jpg",
+      "target": "examples/websites/numbers2/images/barcode.jpg",
+      "byteLength": 39171,
+      "sha256": "d2e5b41774453a3b01156758070596fd9ac63c9111f05f13c713f08fc53db449",
+      "originalArchivePath": "/numbers2/images/barcode.jpg",
+      "originalSHA256": "d2e5b41774453a3b01156758070596fd9ac63c9111f05f13c713f08fc53db449",
+      "originalLength": 39171,
+      "transform": "none"
+    },
+    {
+      "path": "/numbers2/images/tri.jpg",
+      "target": "examples/websites/numbers2/images/tri.jpg",
+      "byteLength": 115774,
+      "sha256": "d545d704c92511a2073ecc180862aafcd8c18117c48f0bd86bacf4ae2827ed22",
+      "originalArchivePath": "/numbers2/images/tri.jpg",
+      "originalSHA256": "d545d704c92511a2073ecc180862aafcd8c18117c48f0bd86bacf4ae2827ed22",
+      "originalLength": 115774,
+      "transform": "none"
+    },
+    {
+      "path": "/numbers2/index.html",
+      "target": "examples/websites/numbers2/index.html",
+      "byteLength": 1349,
+      "sha256": "9bc8ea33968c39e763b88adf0f976ea2ee0971afade12de9f8d1b35eec156186",
+      "originalArchivePath": "/numbers2/index.html",
+      "originalSHA256": "92ed5d9dfb9bf197297ae372bd5e201c4963be3d4ce84198a095605df3930b4b",
+      "originalLength": 1180,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/numbers2/style.css",
+      "target": "examples/websites/numbers2/style.css",
+      "byteLength": 1247,
+      "sha256": "c98a7206948725ceed9d9cbe8b5e8f70024857c47b44bc112c9d4aa9763c3694",
+      "originalArchivePath": "/numbers2/style.css",
+      "originalSHA256": "c98a7206948725ceed9d9cbe8b5e8f70024857c47b44bc112c9d4aa9763c3694",
+      "originalLength": 1247,
+      "transform": "none"
+    },
+    {
+      "path": "/thehall/images/hall.gif",
+      "target": "examples/websites/thehall/images/hall.gif",
+      "byteLength": 16817739,
+      "sha256": "6d0d04c11e9822ec2e80c05a607d9924e2280752db6ed79ec7008ba2980504de",
+      "originalArchivePath": "/thehall/images/hall.gif",
+      "originalSHA256": "6d0d04c11e9822ec2e80c05a607d9924e2280752db6ed79ec7008ba2980504de",
+      "originalLength": 16817739,
+      "transform": "none"
+    },
+    {
+      "path": "/thehall/index.html",
+      "target": "examples/websites/thehall/index.html",
+      "byteLength": 1236,
+      "sha256": "ccf1c2c05ab78471c51446c4d5a354fe4047f01e1cced2a3a07528f232e9639b",
+      "originalArchivePath": "/thehall/index.html",
+      "originalSHA256": "b0f177d12a3565f456f9dda23685ffd319e7d2d292e26faf303e8b6cbf06dc5c",
+      "originalLength": 1067,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/thehall/style.css",
+      "target": "examples/websites/thehall/style.css",
+      "byteLength": 1245,
+      "sha256": "b7d0b71bbfe53b0f63ae8d4e793cf4bb015c316da36b3e3624b2c2a780f01eb3",
+      "originalArchivePath": "/thehall/style.css",
+      "originalSHA256": "b7d0b71bbfe53b0f63ae8d4e793cf4bb015c316da36b3e3624b2c2a780f01eb3",
+      "originalLength": 1245,
+      "transform": "none"
+    },
+    {
+      "path": "/wiki1/images/bodyBG.jpg",
+      "target": "examples/websites/wiki1/images/bodyBG.jpg",
+      "byteLength": 7881,
+      "sha256": "ade4c0eb5443510fd3fc179a3451c87e97208889fbc108c4cfb706c298615694",
+      "originalArchivePath": "/wiki1/images/bodyBG.jpg",
+      "originalSHA256": "ade4c0eb5443510fd3fc179a3451c87e97208889fbc108c4cfb706c298615694",
+      "originalLength": 7881,
+      "transform": "none"
+    },
+    {
+      "path": "/wiki1/images/logo.png",
+      "target": "examples/websites/wiki1/images/logo.png",
+      "byteLength": 5360,
+      "sha256": "db624a608cfd441bfce3d6537ac54d848771175e53405c250631d05a77e90ac4",
+      "originalArchivePath": "/wiki1/images/logo.png",
+      "originalSHA256": "db624a608cfd441bfce3d6537ac54d848771175e53405c250631d05a77e90ac4",
+      "originalLength": 5360,
+      "transform": "none"
+    },
+    {
+      "path": "/wiki1/index.html",
+      "target": "examples/websites/wiki1/index.html",
+      "byteLength": 855,
+      "sha256": "2874796a122542a7216451a522bb8e9a778a1ad84d36fff3d8ab1c588455796c",
+      "originalArchivePath": "/wiki1/index.html",
+      "originalSHA256": "10f1ac42682a5b2f151f1bb06d57a8e9873a90f91226b591b066b8a7dce8bce9",
+      "originalLength": 686,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/wiki1/style.css",
+      "target": "examples/websites/wiki1/style.css",
+      "byteLength": 1730,
+      "sha256": "3c056d1ff78c441547637d03f990b4d26763a7228f0ccea72f8880657476d55d",
+      "originalArchivePath": "/wiki1/style.css",
+      "originalSHA256": "3c056d1ff78c441547637d03f990b4d26763a7228f0ccea72f8880657476d55d",
+      "originalLength": 1730,
+      "transform": "none"
+    },
+    {
+      "path": "/yourdata/images/background.jpg",
+      "target": "examples/websites/yourdata/images/background.jpg",
+      "byteLength": 464635,
+      "sha256": "323c1be650f538715646e832b21365f4c7538085ed2f26278b44351853bfc78e",
+      "originalArchivePath": "/yourdata/images/background.jpg",
+      "originalSHA256": "323c1be650f538715646e832b21365f4c7538085ed2f26278b44351853bfc78e",
+      "originalLength": 464635,
+      "transform": "none"
+    },
+    {
+      "path": "/yourdata/images/hahaha.jpg",
+      "target": "examples/websites/yourdata/images/hahaha.jpg",
+      "byteLength": 106874,
+      "sha256": "4b6b1fbe86eba03d2a444dba053f0467abe6fd0dd7bad1ac1f1e4ae7c0482f66",
+      "originalArchivePath": "/yourdata/images/hahaha.jpg",
+      "originalSHA256": "4b6b1fbe86eba03d2a444dba053f0467abe6fd0dd7bad1ac1f1e4ae7c0482f66",
+      "originalLength": 106874,
+      "transform": "none"
+    },
+    {
+      "path": "/yourdata/index.html",
+      "target": "examples/websites/yourdata/index.html",
+      "byteLength": 1392,
+      "sha256": "0ea66fe26f724277cdcec6bd0feb4ca32bb964464758c68282e7e23aba95bf11",
+      "originalArchivePath": "/yourdata/index.html",
+      "originalSHA256": "8fee394d9937c3988bcf938a3370527b3ed876208763ff67d7a404b7b0955c99",
+      "originalLength": 1223,
+      "transform": "inject-cursor-css-config-and-host-bridge-before-original-head-content"
+    },
+    {
+      "path": "/yourdata/style.css",
+      "target": "examples/websites/yourdata/style.css",
+      "byteLength": 1923,
+      "sha256": "d624ebdd6856d4bac62e7cce6d8cff90a1a3ecb54b566a1824d0a075a1dc6904",
+      "originalArchivePath": "/yourdata/style.css",
+      "originalSHA256": "d624ebdd6856d4bac62e7cce6d8cff90a1a3ecb54b566a1824d0a075a1dc6904",
+      "originalLength": 1923,
+      "transform": "none"
+    },
+    {
+      "path": "/wttg2-config.js",
+      "target": "examples/websites/wttg2-config.js",
+      "byteLength": 5644,
+      "sha256": "8ef49113a5e8d76352d186f79d2ae5fa1d921ade0a6cd53dbf5984cbf927bb5c",
+      "transform": "port-host-integration"
+    },
+    {
+      "path": "/wttg2-host-bridge.js",
+      "target": "examples/websites/wttg2-host-bridge.js",
+      "byteLength": 4761,
+      "sha256": "60e449ce279ad6e79e776d119794503e1cf76bfdc3574798222e2d3f49997801",
+      "transform": "port-host-integration"
+    }
+  ],
+  "siteConfiguration": [
+    {
+      "host": "fake10.ann",
+      "path": "/unavailable/index.html",
+      "title": "Chosen Awake",
+      "description": "Are you awoke?",
+      "dead": true
+    },
+    {
+      "host": "fake27.ann",
+      "path": "/unavailable/index.html",
+      "title": "DeDo",
+      "description": "Hacker group protal site. ",
+      "dead": true
+    },
+    {
+      "host": "fake24.ann",
+      "path": "/unavailable/index.html",
+      "title": "DEEPDOTWEB",
+      "description": "News site behind the deep web.",
+      "dead": true
+    },
+    {
+      "host": "fake1.ann",
+      "path": "/unavailable/index.html",
+      "title": "DeepVape",
+      "description": "The vape nation of the Deep Web",
+      "dead": true
+    },
+    {
+      "host": "eye.ann",
+      "path": "/eye/index.html",
+      "title": "Eye",
+      "description": "?????",
+      "dead": false
+    },
+    {
+      "host": "numbers2.ann",
+      "path": "/numbers2/index.html",
+      "title": "Fifty Seven",
+      "description": "Random mysterious page.",
+      "dead": false
+    },
+    {
+      "host": "fake15.ann",
+      "path": "/unavailable/index.html",
+      "title": "Flame",
+      "description": "Deep web search engine.",
+      "dead": true
+    },
+    {
+      "host": "fortunecookie.ann",
+      "path": "/fortuneCookie/index.html",
+      "title": "Fortune Cookie",
+      "description": "Test Your Luck.",
+      "dead": false
+    },
+    {
+      "host": "fake4.ann",
+      "path": "/unavailable/index.html",
+      "title": "Hail Satan",
+      "description": "Satanist site.",
+      "dead": true
+    },
+    {
+      "host": "iamhere.ann",
+      "path": "/Iamhere/index.html",
+      "title": "IAMHERE",
+      "description": "Or Am I?",
+      "dead": false
+    },
+    {
+      "host": "fake2.ann",
+      "path": "/unavailable/index.html",
+      "title": "Illumanti",
+      "description": "333",
+      "dead": true
+    },
+    {
+      "host": "fake7.ann",
+      "path": "/unavailable/index.html",
+      "title": "Legion",
+      "description": "Hacker group.",
+      "dead": true
+    },
+    {
+      "host": "numberstation.ann",
+      "path": "/numberStation/index.html",
+      "title": "Number Station",
+      "description": "What do the numbers mean?!?",
+      "dead": false
+    },
+    {
+      "host": "numbers.ann",
+      "path": "/numbers/index.html",
+      "title": "Red Triangle",
+      "description": "Crypto site. ",
+      "dead": false
+    },
+    {
+      "host": "fake28.ann",
+      "path": "/unavailable/index.html",
+      "title": "Secure Drop",
+      "description": "Secure webhosting dead drop.",
+      "dead": true
+    },
+    {
+      "host": "fake20.ann",
+      "path": "/unavailable/index.html",
+      "title": "SKYWEB",
+      "description": "Deep web hosting company.",
+      "dead": true
+    },
+    {
+      "host": "bewarned.ann",
+      "path": "/bewarned/index.html",
+      "title": "St Louis Arch",
+      "description": "Theory behind the power of the St Lous Arch.",
+      "dead": false
+    },
+    {
+      "host": "creepyface.ann",
+      "path": "/CreepyFace/index.html",
+      "title": "THANATOS",
+      "description": "?????????",
+      "dead": false
+    },
+    {
+      "host": "thanksforvisiting.ann",
+      "path": "/ThanksForVisiting/index.html",
+      "title": "Thanks For Visiting",
+      "description": "Just random jiberish.",
+      "dead": false
+    },
+    {
+      "host": "theblackwaves.ann",
+      "path": "/TheBlackWaves/index.html",
+      "title": "The Black Waves",
+      "description": "Random poem site.",
+      "dead": false
+    },
+    {
+      "host": "thegrey.ann",
+      "path": "/TheGrey/index.html",
+      "title": "The Grey",
+      "description": "Will you walk in the shade?",
+      "dead": false
+    },
+    {
+      "host": "thehall.ann",
+      "path": "/thehall/index.html",
+      "title": "The Hall",
+      "description": "Don't enter...",
+      "dead": false
+    },
+    {
+      "host": "werock.ann",
+      "path": "/WeRock/index.html",
+      "title": "We Rock",
+      "description": "Rock collection site.",
+      "dead": false
+    },
+    {
+      "host": "ascii.ann",
+      "path": "/ascii/index.html",
+      "title": "YOU THERE?",
+      "description": "Some random page with ASCII art.",
+      "dead": false
+    },
+    {
+      "host": "yourdata.ann",
+      "path": "/yourdata/index.html",
+      "title": "Your Data",
+      "description": "Ransomware site.",
+      "dead": false
+    }
+  ],
+  "compatibility": {
+    "browserJQuery": "Original /jQuery.min.js",
+    "robloxJQuery": "scripts/wttg2-jquery-compat.js",
+    "note": "A limited jQuery API adapter preserves these original pages without running the full jQuery library inside the Roblox JavaScript VM."
+  },
+  "imageCaveats": [
+    "Browser previews use the unchanged original image files.",
+    "Roblox uses the separate ImageCatalog pixel/SVG bridge rather than published asset IDs.",
+    "Pixel dimensions, frame selection, and image resampling limits are documented by the image pack manifest; publication does not claim native Roblox visual parity.",
+    "DeepWiki declares Arial as its Roblox default font because its original CSS font stack is unavailable; the original CSS remains unchanged. Other sites have no publisher font override."
+  ],
+  "differences": [
+    "Stable .ann aliases are port configuration; the original game generates domains per save.",
+    "Page host bridge replaces the original Unity-native JS hooks.",
+    "Source image pixels are supplied by the separate ImageCatalog port."
+  ]
+}

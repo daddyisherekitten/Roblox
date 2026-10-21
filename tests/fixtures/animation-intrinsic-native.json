@@ -1,0 +1,327 @@
+{
+  "source": "CSS Values and Units Level 5, 4 September 2026; isolated Chromium",
+  "cases": [
+    {
+      "name": "intrinsic height auto linear samples",
+      "css": "#box{interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['0px','auto']},{duration:100,fill:'both'},0);height();a.currentTime=25;height();a.currentTime=50;height();a.currentTime=100;height();",
+      "layout": true,
+      "expected": [
+        "0",
+        "30",
+        "60",
+        "120"
+      ]
+    },
+    {
+      "name": "intrinsic height auto reverse endpoint",
+      "css": "#box{interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['auto','20px']},{duration:100,fill:'both'},0);height();a.currentTime=25;height();a.currentTime=50;height();a.currentTime=100;height();",
+      "layout": true,
+      "expected": [
+        "120",
+        "95",
+        "70",
+        "20"
+      ]
+    },
+    {
+      "name": "intrinsic height auto numeric-only remains discrete",
+      "css": "#box{interpolate-size:numeric-only}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['0px','auto']},{duration:100,fill:'both'},49);height();a.currentTime=50;height();a.currentTime=100;height();",
+      "layout": true,
+      "expected": [
+        "0",
+        "120",
+        "120"
+      ]
+    },
+    {
+      "name": "intrinsic height auto implicit endpoint",
+      "css": "#box{height:auto;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold([{height:'0px',offset:0}],{duration:100,fill:'both'},25);height();a.currentTime=75;height();a.currentTime=100;height();",
+      "layout": true,
+      "expected": [
+        "30",
+        "90",
+        "120"
+      ]
+    },
+    {
+      "name": "intrinsic height auto inherited allowance",
+      "css": "#parent{interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}hold({height:['0px','auto']},{duration:100,fill:'both'},50);height();",
+      "layout": true,
+      "expected": [
+        "60"
+      ]
+    },
+    {
+      "name": "intrinsic height auto live child size",
+      "css": "#box{interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['0px','auto']},{duration:100,fill:'both'},50);height();child.style.height='200px';height();a.currentTime=75;height();",
+      "layout": true,
+      "expected": [
+        "60",
+        "100",
+        "150"
+      ]
+    },
+    {
+      "name": "intrinsic height auto cancellation restores author",
+      "css": "#box{height:80px;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['0px','auto']},{duration:100,fill:'both'},50);height();a.cancel();height();box.style.height='150px';height();",
+      "layout": true,
+      "expected": [
+        "60",
+        "80",
+        "150"
+      ]
+    },
+    {
+      "name": "intrinsic height auto border-box",
+      "css": "#box{box-sizing:border-box;padding:10px;border:2px solid black;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['24px','auto']},{duration:100,fill:'both'},50);height();a.currentTime=100;height();",
+      "layout": true,
+      "expected": [
+        "84",
+        "144"
+      ]
+    },
+    {
+      "name": "intrinsic height auto content-box",
+      "css": "#box{box-sizing:content-box;padding:10px;border:2px solid black;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['0px','auto']},{duration:100,fill:'both'},50);height();a.currentTime=100;height();",
+      "layout": true,
+      "expected": [
+        "84",
+        "144"
+      ]
+    },
+    {
+      "name": "intrinsic block-size auto horizontal",
+      "css": "#box{writing-mode:horizontal-tb;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({blockSize:['0px','auto']},{duration:100,fill:'both'},25);height();a.currentTime=75;height();",
+      "layout": true,
+      "expected": [
+        "30",
+        "90"
+      ]
+    },
+    {
+      "name": "intrinsic height auto mixed percentages",
+      "css": "#parent{height:200px}#box{interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['20%','auto']},{duration:100,fill:'both'},50);height();a.currentTime=75;height();",
+      "layout": true,
+      "expected": [
+        "80",
+        "100"
+      ]
+    },
+    {
+      "name": "intrinsic height auto allow-keywords live change",
+      "css": "#box{interpolate-size:numeric-only}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['0px','auto']},{duration:100,fill:'both'},25);height();box.style.interpolateSize='allow-keywords';height();box.style.interpolateSize='numeric-only';height();",
+      "layout": true,
+      "expected": [
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "intrinsic height auto add with numeric author",
+      "css": "#box{height:80px;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['0px','auto']},{duration:100,fill:'both',composite:'add'},0);height();a.currentTime=50;height();a.currentTime=100;height();",
+      "layout": true,
+      "expected": [
+        "80",
+        "140",
+        "200"
+      ]
+    },
+    {
+      "name": "intrinsic height auto accumulate with numeric author",
+      "css": "#box{height:80px;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['0px','auto']},{duration:100,fill:'both',composite:'accumulate'},0);height();a.currentTime=50;height();a.currentTime=100;height();",
+      "layout": true,
+      "expected": [
+        "80",
+        "140",
+        "200"
+      ]
+    },
+    {
+      "name": "intrinsic height auto add with auto author",
+      "css": "#box{height:auto;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({height:['0px','40px']},{duration:100,fill:'both',composite:'add'},0);height();a.currentTime=50;height();a.currentTime=100;height();",
+      "layout": true,
+      "expected": [
+        "120",
+        "140",
+        "160"
+      ]
+    },
+    {
+      "name": "intrinsic height auto stacked numeric effect",
+      "css": "#box{height:80px;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}hold({height:['0px','auto']},{duration:100,fill:'both'},50);hold({height:['10px','30px']},{duration:100,fill:'both',composite:'add'},50);height();",
+      "layout": true,
+      "expected": [
+        "80"
+      ]
+    },
+    {
+      "name": "intrinsic height auto easing overshoot",
+      "css": "#box{interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}hold({height:['0px','auto']},{duration:100,fill:'both',easing:'linear(0,1.5,1)'},50);height();",
+      "layout": true,
+      "expected": [
+        "180"
+      ]
+    },
+    {
+      "name": "intrinsic height auto easing negative progress",
+      "css": "#box{interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}hold({height:['auto','20px']},{duration:100,fill:'both',easing:'linear(0,-0.5,1)'},50);height();",
+      "layout": true,
+      "expected": [
+        "170"
+      ]
+    },
+    {
+      "name": "intrinsic height auto add identical keywords",
+      "css": "#box{height:auto;interpolate-size:allow-keywords}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}hold({height:['auto','auto']},{duration:100,fill:'both',composite:'add'},50);height();",
+      "layout": true,
+      "expected": [
+        "120"
+      ]
+    },
+    {
+      "name": "intrinsic height auto add numeric-only author",
+      "css": "#box{height:auto;interpolate-size:numeric-only}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}hold({height:['0px','40px']},{duration:100,fill:'both',composite:'add'},50);height();",
+      "layout": true,
+      "expected": [
+        "20"
+      ]
+    },
+    {
+      "name": "intrinsic integer order retained flex movement",
+      "css": "#parent{display:flex;align-items:flex-start}#box{width:40px;height:10px;flex-shrink:0}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}child.style.cssText='display:block;width:20px;height:10px;flex-shrink:0;order:1';box.removeChild(child);document.getElementById('parent').appendChild(child);const other=document.createElement('div');other.style.cssText='width:30px;height:10px;flex-shrink:0;order:3';document.getElementById('parent').appendChild(other);const a=hold({order:['0','4']},{duration:100,fill:'both'},0);record(getComputedStyle(box).order);record(box.getBoundingClientRect().x);a.currentTime=25;record(getComputedStyle(box).order);record(box.getBoundingClientRect().x);a.currentTime=50;record(getComputedStyle(box).order);record(box.getBoundingClientRect().x);a.currentTime=100;record(getComputedStyle(box).order);record(box.getBoundingClientRect().x);a.cancel();record(getComputedStyle(box).order);record(box.getBoundingClientRect().x);",
+      "layout": true,
+      "expected": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "2",
+        "20",
+        "4",
+        "50",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "intrinsic integer order negative half rounding",
+      "css": "#box{order:0}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({order:['-3','0']},{duration:100,fill:'both'},50);record(getComputedStyle(box).order);a.currentTime=25;record(getComputedStyle(box).order);a.commitStyles();a.cancel();record(box.style.order);record(getComputedStyle(box).order);",
+      "layout": true,
+      "expected": [
+        "-1",
+        "-2",
+        "-2",
+        "-2"
+      ]
+    },
+    {
+      "name": "intrinsic integer order additive live base",
+      "css": "#box{order:2}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({order:['0','3']},{duration:100,fill:'both',composite:'add'},50);record(getComputedStyle(box).order);box.style.order='4';record(getComputedStyle(box).order);a.cancel();record(getComputedStyle(box).order);",
+      "layout": true,
+      "expected": [
+        "4",
+        "6",
+        "4"
+      ]
+    },
+    {
+      "name": "intrinsic integer column-count midpoint and auto",
+      "css": "#box{column-count:1}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({columnCount:['1','4']},{duration:100,fill:'both'},50);record(getComputedStyle(box).columnCount);a.commitStyles();a.cancel();record(box.style.columnCount);record(getComputedStyle(box).columnCount);",
+      "layout": true,
+      "expected": [
+        "3",
+        "3",
+        "3"
+      ]
+    },
+    {
+      "name": "intrinsic column-width numeric midpoint",
+      "css": "#box{column-width:40px}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({columnWidth:['40px','80px']},{duration:100,fill:'both'},50);record(getComputedStyle(box).columnWidth);a.cancel();record(getComputedStyle(box).columnWidth);",
+      "layout": true,
+      "expected": [
+        "60px",
+        "40px"
+      ]
+    },
+    {
+      "name": "intrinsic numeric author equal to current sample",
+      "css": "#box{width:100px}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({width:['0px','60px']},{duration:100,fill:'both',composite:'add'},50);record(box.getBoundingClientRect().width);box.style.width='130px';record(box.getBoundingClientRect().width);a.cancel();record(box.getBoundingClientRect().width);",
+      "layout": true,
+      "expected": [
+        "130",
+        "160",
+        "130"
+      ]
+    },
+    {
+      "name": "intrinsic width intrinsic numeric-only is discrete",
+      "css": "#box{interpolate-size:numeric-only}",
+      "source": "const box=document.getElementById('box');const child=document.createElement('div');child.style.cssText='display:block;width:20px;height:120px;margin:0;padding:0';box.appendChild(child);function hold(frames,options,time){const a=box.animate(frames,options);a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=time;return a;}function height(){record(Math.round(box.getBoundingClientRect().height*1000)/1000);}const a=hold({width:['0px','min-content']},{duration:100,fill:'both'},49);record(box.getBoundingClientRect().width);a.currentTime=50;record(box.getBoundingClientRect().width);a.currentTime=100;record(box.getBoundingClientRect().width);",
+      "layout": true,
+      "expected": [
+        "0",
+        "20",
+        "20"
+      ]
+    }
+  ],
+  "cssCases": [
+    {
+      "name": "CSS height auto linear",
+      "css": "@keyframes intrinsic{from{height:0px}to{height:auto}}#box{width:200px;height:80px;interpolate-size:allow-keywords;animation:intrinsic 100s linear -50s both paused;animation-composition:replace}#field{position:absolute;visibility:hidden}",
+      "expected": 60
+    },
+    {
+      "name": "CSS height auto reverse",
+      "css": "@keyframes intrinsic{from{height:auto}to{height:20px}}#box{width:200px;height:80px;interpolate-size:allow-keywords;animation:intrinsic 100s linear -50s both paused;animation-composition:replace}#field{position:absolute;visibility:hidden}",
+      "expected": 70
+    },
+    {
+      "name": "CSS height auto add",
+      "css": "@keyframes intrinsic{from{height:0px}to{height:auto}}#box{width:200px;height:80px;interpolate-size:allow-keywords;animation:intrinsic 100s linear -50s both paused;animation-composition:add}#field{position:absolute;visibility:hidden}",
+      "expected": 140
+    },
+    {
+      "name": "CSS height auto accumulate",
+      "css": "@keyframes intrinsic{from{height:0px}to{height:auto}}#box{width:200px;height:80px;interpolate-size:allow-keywords;animation:intrinsic 100s linear -50s both paused;animation-composition:accumulate}#field{position:absolute;visibility:hidden}",
+      "expected": 140
+    },
+    {
+      "name": "CSS height auto overshoot",
+      "css": "@keyframes intrinsic{from{height:0px}to{height:auto}}#box{width:200px;height:80px;interpolate-size:allow-keywords;animation:intrinsic 100s linear(0,1.5,1) -50s both paused;animation-composition:replace}#field{position:absolute;visibility:hidden}",
+      "expected": 180
+    },
+    {
+      "name": "CSS height auto negative progress",
+      "css": "@keyframes intrinsic{from{height:auto}to{height:20px}}#box{width:200px;height:80px;interpolate-size:allow-keywords;animation:intrinsic 100s linear(0,-0.5,1) -50s both paused;animation-composition:replace}#field{position:absolute;visibility:hidden}",
+      "expected": 170
+    }
+  ]
+}

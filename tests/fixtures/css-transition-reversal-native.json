@@ -1,0 +1,11 @@
+{
+  "reference": "Chromium 154.0.8037.95 headless, 5 October 2026; paused native CSSTransition.currentTime, actual computed layout/paint",
+  "standard": "https://drafts.csswg.org/css-transitions-1/#transition-reversing-shortening-factor",
+  "samples": [
+    {"name":"linear reversals","first":150,"unchanged":true,"reverseDuration":500,"reverseDelay":0,"mid":125,"againDuration":1750},
+    {"name":"eased reversal","easedWidth":260.46875,"duration":1604.8067821196873},
+    {"name":"negative delay reversal","negativeWidth":200,"duration":1000,"delay":-250,"width":175},
+    {"name":"last matching property","duration":2000,"width":150},
+    {"name":"premultiplied color","color":"rgba(0, 0, 255, 0.5)"}
+  ]
+}

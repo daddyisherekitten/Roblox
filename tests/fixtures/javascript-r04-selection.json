@@ -1,0 +1,102 @@
+[
+  {
+    "name": "shadow collapse and public boundaries",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'open'});root.innerHTML='<p>alpha beta</p>';const t=root.firstChild.firstChild,s=getSelection();s.collapse(t,2);record([s.rangeCount,s.type,s.anchorNode===t,s.anchorOffset,s.focusNode===t,s.focusOffset,s.isCollapsed,s.direction].join('|'));"
+  },
+  {
+    "name": "shadow extended text and range",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'open'});root.innerHTML='<p>alpha beta</p>';const t=root.firstChild.firstChild,s=getSelection();s.setBaseAndExtent(t,1,t,5);record([s.rangeCount,s.toString(),s.getRangeAt(0).startContainer===t,s.getRangeAt(0).startOffset,s.getRangeAt(0).endOffset,s.direction].join('|'));"
+  },
+  {
+    "name": "composed shadow ranges hidden and supplied",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'closed'});root.innerHTML='<p>alpha beta</p>';const t=root.firstChild.firstChild,s=getSelection();s.setBaseAndExtent(t,1,t,5);const hidden=s.getComposedRanges()[0],shown=s.getComposedRanges({shadowRoots:[root]})[0];record([hidden.startContainer===document.body,hidden.startOffset===Array.from(document.body.childNodes).indexOf(h),hidden.endOffset===hidden.startOffset+1,shown.startContainer===t,shown.startOffset,shown.endOffset].join('|'));"
+  },
+  {
+    "name": "nested roots expose ancestors of supplied root",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const outer=h.attachShadow({mode:'open'});const innerHost=document.createElement('span');outer.appendChild(innerHost);const inner=innerHost.attachShadow({mode:'closed'});inner.innerHTML='<b>nested</b>';const t=inner.firstChild.firstChild,s=getSelection();s.setBaseAndExtent(t,1,t,4);const supplied=s.getComposedRanges({shadowRoots:[inner]})[0],outerOnly=s.getComposedRanges({shadowRoots:[outer]})[0],none=s.getComposedRanges()[0];record([supplied.startContainer===t,supplied.startOffset,supplied.endOffset,outerOnly.startContainer===outer,outerOnly.startOffset,outerOnly.endOffset,none.startContainer===document.body].join('|'));"
+  },
+  {
+    "name": "shadow addRange",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'open'});root.innerHTML='shadow';const r=document.createRange();r.selectNodeContents(root.firstChild);const s=getSelection();s.removeAllRanges();s.addRange(r);record([s.rangeCount,s.toString(),s.rangeCount?s.getRangeAt(0)===r:false].join('|'));"
+  },
+  {
+    "name": "shadow root getSelection",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'open'});root.innerHTML='shadow';getSelection().setBaseAndExtent(root.firstChild,0,root.firstChild,3);record([typeof root.getSelection,typeof root.getSelection==='function'?root.getSelection()===getSelection():false,typeof root.getSelection==='function'?String(root.getSelection()):'unavailable'].join('|'));"
+  },
+  {
+    "name": "detached shadow selection ignored",
+    "source": "const p=document.createElement('p');p.textContent='body';document.body.appendChild(p);const s=getSelection();s.collapse(p.firstChild,1);const h=document.createElement('div'),root=h.attachShadow({mode:'open'});root.innerHTML='shadow';s.collapse(root.firstChild,2);record([s.anchorNode===p.firstChild,s.anchorOffset,s.rangeCount].join('|'));"
+  },
+  {
+    "name": "invalid composed root closes iterator",
+    "source": "const s=getSelection();let closed=false;const roots={*[Symbol.iterator](){try{yield document.body;}finally{closed=true;}}};let name='none';try{s.getComposedRanges({shadowRoots:roots});}catch(e){name=e.name;}record(name+'|'+closed);"
+  },
+  {
+    "name": "modify character respects supplementary text",
+    "source": "const p=document.createElement('p');p.textContent='A😀B';document.body.appendChild(p);const t=p.firstChild,s=getSelection();s.collapse(t,1);s.modify('move','forward','character');record(s.focusOffset);s.modify('extend','backward','character');record(s.anchorOffset+'|'+s.focusOffset+'|'+s.toString());"
+  },
+  {
+    "name": "modify character respects combining text",
+    "source": "const p=document.createElement('p');p.textContent='ÄB';document.body.appendChild(p);const t=p.firstChild,s=getSelection();s.collapse(t,0);s.modify('move','forward','character');record(s.focusOffset);s.modify('move','backward','character');record(s.focusOffset);"
+  },
+  {
+    "name": "modify word movement and extension",
+    "source": "const p=document.createElement('p');p.textContent='alpha beta gamma';document.body.appendChild(p);const t=p.firstChild,s=getSelection();s.collapse(t,0);s.modify('move','forward','word');record(s.focusOffset);s.modify('extend','forward','word');record(s.anchorOffset+'|'+s.focusOffset+'|'+s.toString());s.modify('move','backward','word');record(s.focusOffset);"
+  },
+  {
+    "name": "modify across inline text nodes",
+    "source": "const p=document.createElement('p');p.innerHTML='ab<span>cd</span>ef';document.body.appendChild(p);const s=getSelection();s.collapse(p.firstChild,2);s.modify('move','forward','character');record((s.focusNode===p.children[0].firstChild)+'|'+s.focusOffset);s.modify('extend','forward','word');record(s.toString());"
+  },
+  {
+    "name": "modify invalid values are no-op",
+    "source": "const p=document.createElement('p');p.textContent='abc';document.body.appendChild(p);const t=p.firstChild,s=getSelection();s.collapse(t,1);for(const args of [['bad','forward','character'],['move','bad','character'],['move','forward','bad']])s.modify(...args);record(s.focusOffset);s.modify();record(s.focusOffset);s.modify('MOVE','FORWARD','CHARACTER');record(s.focusOffset);"
+  },
+  {
+    "name": "selection contains own shadow text",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'open'});root.innerHTML='shadow';const s=getSelection();s.setBaseAndExtent(root.firstChild,0,root.firstChild,6);record([s.containsNode(root.firstChild),s.containsNode(h,true),s.containsNode(document.body,true)].join('|'));"
+  },
+  {
+    "name": "shadow live selection text mutation",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'open'});root.innerHTML='abcdef';const t=root.firstChild,s=getSelection();s.setBaseAndExtent(t,2,t,5);t.insertData(0,'XY');const r=s.getComposedRanges({shadowRoots:[root]})[0];record([r.startOffset,r.endOffset,s.toString()].join('|'));"
+  },
+  {
+    "name": "control selection stringification",
+    "source": "const input=document.createElement('input');input.value='abcdef';document.body.appendChild(input);input.focus();input.setSelectionRange(1,4);const s=getSelection();record(s.toString());input.setSelectionRange(2,2);record(s.toString());"
+  },
+  {
+    "name": "shadow selection view shared identity and filtering",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'open'});root.innerHTML='shadow';const s=getSelection(),view=root.getSelection();record(view===root.getSelection());s.setBaseAndExtent(root.firstChild,1,root.firstChild,4);record([view.anchorNode===root.firstChild,view.anchorOffset,view.rangeCount,view.getRangeAt(0)===s.getRangeAt(0),view.direction].join('|'));const p=document.createElement('p');p.textContent='light';document.body.appendChild(p);s.setBaseAndExtent(p.firstChild,1,p.firstChild,3);record([view.rangeCount,view.type,view.anchorNode===null,String(view)].join('|'));view.collapse(root.firstChild,2);record([s.anchorNode===root.firstChild,s.anchorOffset,view.rangeCount].join('|'));"
+  },
+  {
+    "name": "shadow view ranges hide other nested shadow roots",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const outer=h.attachShadow({mode:'open'});const child=document.createElement('span');outer.appendChild(child);const inner=child.attachShadow({mode:'open'});inner.innerHTML='nested';const s=getSelection();s.setBaseAndExtent(inner.firstChild,1,inner.firstChild,4);const view=outer.getSelection();record([view.rangeCount,view.anchorNode===outer,view.anchorOffset,view.focusOffset,String(view)].join('|'));"
+  },
+  {
+    "name": "light selection over shadow host excludes shadow text",
+    "source": "const p=document.createElement('p');p.innerHTML='before<span></span>after';document.body.appendChild(p);const root=p.children[0].attachShadow({mode:'open'});root.innerHTML='shadow';getSelection().selectAllChildren(p);record(getSelection().toString());"
+  },
+  {
+    "name": "modify paragraph and document boundaries",
+    "source": "const p=document.createElement('p');p.textContent='abc';const q=document.createElement('p');q.textContent='def';document.body.appendChild(p);document.body.appendChild(q);const s=getSelection();s.collapse(p.firstChild,1);s.modify('move','forward','paragraphboundary');record((s.focusNode===p.firstChild)+'|'+s.focusOffset);s.modify('move','forward','paragraph');record((s.focusNode===q.firstChild)+'|'+s.focusOffset);s.modify('move','backward','documentboundary');record((s.focusNode===p.firstChild)+'|'+s.focusOffset);s.modify('extend','forward','documentboundary');record(s.toString());"
+  },
+  {
+    "name": "shadow view range is a snapshot",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'open'});root.innerHTML='shadow';getSelection().setBaseAndExtent(root.firstChild,1,root.firstChild,4);const view=root.getSelection(),r=view.getRangeAt(0);record(r===view.getRangeAt(0));r.setEnd(root.firstChild,5);record(view.toString());view.collapse(root.firstChild,2);const c=getSelection().getComposedRanges({shadowRoots:[root]})[0];record([c.startContainer===root.firstChild,c.startOffset,c.endOffset,view.anchorNode===root.firstChild,view.anchorOffset,getSelection().anchorNode===root.firstChild,getSelection().anchorNode===document.body,getSelection().anchorOffset].join('|'));"
+  },
+  {
+    "name": "selection crossing shadow boundary",
+    "source": "const p=document.createElement('p');p.textContent='light';document.body.appendChild(p);const h=document.createElement('div');document.body.appendChild(h);const root=h.attachShadow({mode:'open'});root.innerHTML='shadow';const s=getSelection();s.setBaseAndExtent(p.firstChild,1,root.firstChild,3);const r=s.getComposedRanges({shadowRoots:[root]})[0];record([s.anchorNode===p.firstChild,s.anchorOffset,s.focusNode===root.firstChild,s.focusOffset,r.startContainer===p.firstChild,r.startOffset,r.endContainer===root.firstChild,r.endOffset,s.toString()].join('|'));"
+  },
+  {
+    "name": "shadow scoped collapsed and direction getters",
+    "source": "const h=document.createElement('div');document.body.appendChild(h);const a=h.attachShadow({mode:'open'}),k=document.createElement('div');a.appendChild(k);const b=k.attachShadow({mode:'open'});b.innerHTML='inside';getSelection().setBaseAndExtent(b.firstChild,1,b.firstChild,4);const v=a.getSelection();record([v.isCollapsed,v.type,v.direction,v.getRangeAt(0).collapsed].join('|'));const p=document.createElement('p');p.textContent='light';document.body.appendChild(p);getSelection().setBaseAndExtent(p.firstChild,1,p.firstChild,3);record([v.isCollapsed,v.type,v.direction].join('|'));"
+  },
+  {
+    "name": "control selection type stringification",
+    "source": "for(const type of ['text','search','tel','url','password','email','number']){const i=document.createElement('input');i.type=type;i.value=type==='number'?'12345':'abcdef';document.body.appendChild(i);i.focus();i.select();record(type+':'+String(getSelection()));i.remove()}const a=document.createElement('textarea');a.value='alpha\\nbeta';document.body.appendChild(a);a.focus();a.setSelectionRange(2,8);record('area:'+String(getSelection()));"
+  },
+  {
+    "name": "password unicode selection stringification",
+    "source": "const i=document.createElement('input');i.type='password';i.value='A😀B';document.body.appendChild(i);i.focus();i.select();record(String(getSelection()));i.setSelectionRange(1,3);record(String(getSelection()));i.setSelectionRange(2,3);record(String(getSelection()));"
+  }
+]

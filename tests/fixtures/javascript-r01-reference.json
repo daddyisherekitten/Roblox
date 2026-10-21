@@ -1,0 +1,18 @@
+{
+  "schema": "javascript-r01-reference/v1",
+  "recorded": "2026-10-04",
+  "node": "v24.16.0",
+  "v8": "13.6.233.17-node.49",
+  "radixCases": 2135,
+  "globalContext": "vm.constants.DONT_CONTEXTIFY",
+  "seed": "0x6e624eb7",
+  "standards": [
+    "https://tc39.es/ecma262/multipage/ecmascript-language-functions-and-classes.html",
+    "https://tc39.es/ecma262/multipage/ecmascript-language-scripts-and-modules.html",
+    "https://tc39.es/ecma262/multipage/numbers-and-dates.html"
+  ],
+  "deviations": [
+    "Node vm reports SyntaxError for a restricted existing global function declaration; ECMA-262 specifies TypeError.",
+    "Chromium 154 / Node 24 V8 reads generic TypedArray input length or iterator values before newTarget.prototype; current ECMA-262 allocates the object before examining object input. The engine follows that confirmed browser profile."
+  ]
+}

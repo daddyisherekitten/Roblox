@@ -1,0 +1,24 @@
+* { box-sizing: border-box; }
+body { margin: 16px; background: #111824; color: #e0e7f1; font: 16px Arial, sans-serif; }
+h1 { font-size: 26px; }
+p { max-width: 880px; line-height: 1.5; }
+.row { position: relative; width: 864px; height: 242px; margin-bottom: 12px; background: #1d2635; }
+.title { position: absolute; left: 12px; top: 8px; font-size: 18px; }
+.sample { position: absolute; left: 12px; top: 44px; width: 450px; height: 100px;
+  outline: 1px solid #428fe3; white-space: pre; font-family: Arial, sans-serif;
+  font-weight: 400; font-style: normal; line-height: 1; padding: 0; border: 0; }
+.guide { position: absolute; left: 12px; width: 450px; height: 1px; pointer-events: none; opacity: 0.2; }
+.control { position: absolute; left: 480px; display: flex; gap: 8px; align-items: center; height: 30px; }
+.caption { width: 230px; }
+button { border: 0; color: #e0e7f1; background: #304157; padding: 6px 12px; cursor: pointer; font: inherit; }
+.control button { width: 56px; }
+button:focus-visible { outline: 2px solid white; }
+.ruler { position: absolute; left: 12px; top: 158px; width: 100px; height: 2px; background: white; }
+.ruler-label { position: absolute; left: 124px; top: 150px; }
+.report { position: absolute; left: 12px; top: 184px; }
+.note { position: absolute; left: 12px; top: 212px; font-size: 14px; }
+textarea { display: block; width: min(100%, 880px); height: 130px; margin: 16px 0; }
+.hide-guides .guide { visibility: hidden; }
+@font-face { font-family: "ComparisonSourceSans"; src: url("fonts/SourceSansPro-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: block; }
+body[data-web-font] .sample { font-family: "ComparisonSourceSans", sans-serif; }
+body.font-pending .sample, body.font-failed .sample { visibility: hidden; }

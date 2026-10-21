@@ -1,0 +1,2394 @@
+[
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal absolute in ordinary ancestor",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 180
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal absolute in ordinary ancestor",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 60
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal absolute in positioned ancestor",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 110,
+      "y": 180
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal absolute in positioned ancestor",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 110,
+      "y": 60
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal fixed centered above page",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal fixed centered above page",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 30
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal fixed in transformed containing block",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 120,
+      "y": 210
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal fixed in transformed containing block",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 120,
+      "y": 90
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal author static in flow",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "static",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 110,
+      "y": 180
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal author static in flow",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "static",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 110,
+      "y": 60
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal inset auto overrides UA centering",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal inset auto overrides UA centering",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal default viewport center",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal default viewport center",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal escapes transformed ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal escapes transformed ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal honors author insets",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal honors author insets",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal author absolute scrolls with document",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal author absolute scrolls with document",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 40
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal author static becomes absolute",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal author static becomes absolute",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 40
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal constrained to short viewport",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 362,
+      "width": 447,
+      "x": 19,
+      "y": 19
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal constrained to short viewport",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 362,
+      "width": 447,
+      "x": 19,
+      "y": 19
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover default viewport center",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover default viewport center",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover escapes transformed ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover escapes transformed ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover fixed corner honors margins",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 345,
+      "y": 80
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover fixed corner honors margins",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 345,
+      "y": 80
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover absolute ignores positioned ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": false,
+    "name": "popover absolute ignores positioned ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": -90
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover author static becomes absolute",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover author static becomes absolute",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 40
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "dialog shown as popover uses popover defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "dialog shown as popover uses popover defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal dialog with popover attribute uses fixed defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "nonmodal dialog with popover attribute uses fixed defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "ordinary fixed shares CSS auto margins",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "ordinary fixed shares CSS auto margins",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 30
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "ordinary fixed transformed containing block",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 120,
+      "y": 210
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "ordinary fixed transformed containing block",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 120,
+      "y": 90
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal max-size follows author font",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 330,
+      "width": 415,
+      "x": 35,
+      "y": 35
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal max-size follows author font",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 330,
+      "width": 415,
+      "x": 35,
+      "y": 35
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal author max-size overrides defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 100,
+      "width": 200,
+      "x": 142.5,
+      "y": 150
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "modal author max-size overrides defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 100,
+      "width": 200,
+      "x": 142.5,
+      "y": 150
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "dialog default padding follows font",
+    "overflow": "visible",
+    "padding": [
+      32,
+      32,
+      32,
+      5
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 110,
+      "width": 120,
+      "x": 182.5,
+      "y": 0
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": false,
+    "name": "dialog default padding follows font",
+    "overflow": "visible",
+    "padding": [
+      32,
+      32,
+      32,
+      5
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 110,
+      "width": 120,
+      "x": 182.5,
+      "y": -120
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover default padding follows font",
+    "overflow": "auto",
+    "padding": [
+      8,
+      3,
+      8,
+      8
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover default padding follows font",
+    "overflow": "auto",
+    "padding": [
+      8,
+      3,
+      8,
+      8
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover paragraph overrides normal margins",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 0,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 400,
+    "hit": true,
+    "name": "popover paragraph overrides normal margins",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 182.5,
+      "y": 160
+    },
+    "scroll": 120,
+    "viewportHeight": 400,
+    "viewportWidth": 485,
+    "width": 500
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "nonmodal absolute in ordinary ancestor",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 180
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal absolute in ordinary ancestor",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 60
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "nonmodal absolute in positioned ancestor",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 110,
+      "y": 180
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal absolute in positioned ancestor",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 110,
+      "y": 60
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal fixed centered above page",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal fixed centered above page",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 30
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "nonmodal fixed in transformed containing block",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 120,
+      "y": 210
+    },
+    "scroll": 0,
+    "viewportHeight": 205,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal fixed in transformed containing block",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 120,
+      "y": 90
+    },
+    "scroll": 120,
+    "viewportHeight": 205,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "nonmodal author static in flow",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "static",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 110,
+      "y": 180
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal author static in flow",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "static",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 110,
+      "y": 60
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal inset auto overrides UA centering",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal inset auto overrides UA centering",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal default viewport center",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal default viewport center",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal escapes transformed ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 62.5
+    },
+    "scroll": 0,
+    "viewportHeight": 205,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal escapes transformed ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 62.5
+    },
+    "scroll": 120,
+    "viewportHeight": 205,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal honors author insets",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal honors author insets",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal author absolute scrolls with document",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "modal author absolute scrolls with document",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": -50
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal author static becomes absolute",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "modal author static becomes absolute",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": -50
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal constrained to short viewport",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 182,
+      "width": 267,
+      "x": 19,
+      "y": 19
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal constrained to short viewport",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 182,
+      "width": 267,
+      "x": 19,
+      "y": 19
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover default viewport center",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover default viewport center",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover escapes transformed ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 62.5
+    },
+    "scroll": 0,
+    "viewportHeight": 205,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover escapes transformed ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 62.5
+    },
+    "scroll": 120,
+    "viewportHeight": 205,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover fixed corner honors margins",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 165,
+      "y": 80
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover fixed corner honors margins",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 165,
+      "y": 80
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover absolute ignores positioned ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "popover absolute ignores positioned ancestor",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 20,
+      "y": -90
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover author static becomes absolute",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "popover author static becomes absolute",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": -50
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "dialog shown as popover uses popover defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "dialog shown as popover uses popover defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal dialog with popover attribute uses fixed defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "nonmodal dialog with popover attribute uses fixed defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "ordinary fixed shares CSS auto margins",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 30
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "ordinary fixed shares CSS auto margins",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 30
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "ordinary fixed transformed containing block",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 120,
+      "y": 210
+    },
+    "scroll": 0,
+    "viewportHeight": 205,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "ordinary fixed transformed containing block",
+    "overflow": "visible",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 120,
+      "y": 90
+    },
+    "scroll": 120,
+    "viewportHeight": 205,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal max-size follows author font",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 150,
+      "width": 235,
+      "x": 35,
+      "y": 35
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal max-size follows author font",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 150,
+      "width": 235,
+      "x": 35,
+      "y": 35
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal author max-size overrides defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 100,
+      "width": 200,
+      "x": 52.5,
+      "y": 60
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "modal author max-size overrides defaults",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 100,
+      "width": 200,
+      "x": 52.5,
+      "y": 60
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "dialog default padding follows font",
+    "overflow": "visible",
+    "padding": [
+      32,
+      32,
+      32,
+      5
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 110,
+      "width": 120,
+      "x": 92.5,
+      "y": 0
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": false,
+    "name": "dialog default padding follows font",
+    "overflow": "visible",
+    "padding": [
+      32,
+      32,
+      32,
+      5
+    ],
+    "position": "absolute",
+    "rect": {
+      "height": 110,
+      "width": 120,
+      "x": 92.5,
+      "y": -120
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover default padding follows font",
+    "overflow": "auto",
+    "padding": [
+      8,
+      3,
+      8,
+      8
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover default padding follows font",
+    "overflow": "auto",
+    "padding": [
+      8,
+      3,
+      8,
+      8
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover paragraph overrides normal margins",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 0,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  },
+  {
+    "height": 220,
+    "hit": true,
+    "name": "popover paragraph overrides normal margins",
+    "overflow": "auto",
+    "padding": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "position": "fixed",
+    "rect": {
+      "height": 80,
+      "width": 120,
+      "x": 92.5,
+      "y": 70
+    },
+    "scroll": 120,
+    "viewportHeight": 220,
+    "viewportWidth": 305,
+    "width": 320
+  }
+]

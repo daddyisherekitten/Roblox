@@ -1,0 +1,296 @@
+[
+  {
+    "difference": "The reference browser uses the platform default forward direction. This Windows/native-editor profile supports none; HTML permits both platform defaults.",
+    "matchesProfile": false,
+    "name": "initial selections and supported input types",
+    "pass": true,
+    "values": [
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward"
+    ]
+  },
+  {
+    "difference": "The reference browser uses the platform default forward direction when the algorithm requests none; this profile supports none as permitted by HTML.",
+    "matchesProfile": false,
+    "name": "clamping nullable setters and direction",
+    "pass": true,
+    "values": [
+      "4:5:backward",
+      "3:3:backward",
+      "6:6:backward",
+      "2:2:forward",
+      "3:3:forward",
+      "0:3:forward",
+      "0:0:forward",
+      "0:0:forward",
+      "0:0:forward",
+      "0:0:forward"
+    ]
+  },
+  {
+    "matchesProfile": true,
+    "name": "utf16 replacement and textarea normalized newlines",
+    "pass": true,
+    "values": [
+      "55357",
+      "6",
+      "56832",
+      "2:3",
+      "5",
+      "5",
+      "replacedB\nC",
+      "8:8"
+    ]
+  },
+  {
+    "difference": "The reference browser uses the platform default forward direction when this profile returns none. Both retain interoperable preserve-delta adjustment for explicit range arguments, beyond the current HTML draft one-argument wording.",
+    "matchesProfile": false,
+    "name": "range replacement selection modes and preserve overloads",
+    "pass": true,
+    "values": [
+      "aXYefghij:1:3:forward",
+      "aXYefghij:1:1:forward",
+      "aXYefghij:3:3:forward",
+      "aXYefghij:6:8:forward",
+      "aXYef:1:3:forward",
+      "abXYef:1:5:forward"
+    ]
+  },
+  {
+    "difference": "The reference browser uses forward as its platform default and collapses reset selection to the new end. This profile applies the generic relevant-value clamp specified by HTML for reset.",
+    "matchesProfile": false,
+    "name": "value assignment default value reset and cloning",
+    "pass": true,
+    "values": [
+      "1:4:backward",
+      "8:8:forward",
+      "abcdefgh",
+      "abc:3:3:forward",
+      "copied:0:0:forward"
+    ]
+  },
+  {
+    "matchesProfile": true,
+    "name": "unsupported types reject before mutating selection",
+    "pass": true,
+    "values": [
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError"
+    ]
+  },
+  {
+    "matchesProfile": true,
+    "name": "webidl conversion order receiver and overload errors",
+    "pass": true,
+    "values": [
+      "start,end,direction",
+      "2:3",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "true",
+      "2",
+      "1",
+      "select"
+    ]
+  },
+  {
+    "difference": "The reference browser leaves a failed range clean and omits unaccessed default text when replacing at out-of-range offsets. HTML sets the dirty value flag before the IndexSizeError check and uses the current relevant value; this profile follows those steps.",
+    "matchesProfile": false,
+    "name": "invalid range dirties value but failed webidl conversion does not",
+    "pass": true,
+    "values": [
+      "IndexSizeError",
+      "changed",
+      "TypeError",
+      "changed",
+      "X:1"
+    ]
+  },
+  {
+    "matchesProfile": true,
+    "name": "asynchronous select and coalesced element selectionchange",
+    "pass": true,
+    "values": [
+      "0:0",
+      "0:0",
+      "3:1:1:0",
+      "true"
+    ]
+  },
+  {
+    "matchesProfile": true,
+    "name": "select supports email and number text UI without exposing range APIs",
+    "pass": true,
+    "values": [
+      "email:null:null:null",
+      "InvalidStateError",
+      "number:null:null:null",
+      "InvalidStateError",
+      "2"
+    ]
+  },
+  {
+    "difference": "The reference browser uses forward as its platform default for the reset direction; this profile supports none.",
+    "matchesProfile": false,
+    "name": "selection state remains detached and disabled",
+    "pass": true,
+    "values": [
+      "1:5:backward",
+      "abXef:2:3",
+      "2:3:forward"
+    ]
+  },
+  {
+    "difference": "The reference browser resets a clean textarea selection to zero when its default text changes. HTML children-changed steps set the raw value and generic relevant-value steps clamp the previous selection; this profile preserves and clamps it.",
+    "matchesProfile": false,
+    "name": "textarea readonly textlength and clean defaults",
+    "pass": true,
+    "values": [
+      "abc:0:0:forward",
+      "3",
+      "TypeError",
+      "true",
+      "100"
+    ]
+  },
+  {
+    "matchesProfile": true,
+    "name": "normalized same value preserves selection",
+    "pass": true,
+    "values": [
+      "0:2:backward",
+      "0:1:forward",
+      "abc:1:2:backward"
+    ]
+  },
+  {
+    "matchesProfile": true,
+    "name": "DOMException brands and conversion before invalid state",
+    "pass": true,
+    "values": [
+      "true",
+      "InvalidStateError",
+      "11",
+      "true",
+      "InvalidStateError",
+      "11",
+      "true",
+      "InvalidStateError",
+      "11",
+      "true",
+      "true",
+      "IndexSizeError",
+      "1"
+    ]
+  },
+  {
+    "matchesProfile": true,
+    "name": "range text is a script edit without input or DOM mutation",
+    "pass": true,
+    "values": [
+      "along replacementef",
+      "1:17",
+      "0:0:0",
+      ""
+    ]
+  },
+  {
+    "matchesProfile": true,
+    "name": "textarea nonnullable setters and unsigned conversion",
+    "pass": true,
+    "values": [
+      "1:4:backward",
+      "1:2",
+      "0:0",
+      "0:0",
+      "TypeError"
+    ]
+  }
+]

@@ -1,0 +1,349 @@
+[
+  {
+    "name": "initial selections and supported input types",
+    "source": "for(const type of ['text','search','url','tel','password','unknown']){const i=document.createElement('input');i.setAttribute('type',type);i.defaultValue='abcdef';record(i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);i.setSelectionRange(1,4,'backward');record(i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);i.select();record(i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection)}",
+    "expected": [
+      "0:0:none",
+      "1:4:backward",
+      "0:6:none",
+      "0:0:none",
+      "1:4:backward",
+      "0:6:none",
+      "0:0:none",
+      "1:4:backward",
+      "0:6:none",
+      "0:0:none",
+      "1:4:backward",
+      "0:6:none",
+      "0:0:none",
+      "1:4:backward",
+      "0:6:none",
+      "0:0:none",
+      "1:4:backward",
+      "0:6:none"
+    ],
+    "browserExpected": [
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward",
+      "0:0:forward",
+      "1:4:backward",
+      "0:6:forward"
+    ],
+    "difference": "The reference browser uses the platform default forward direction. This Windows/native-editor profile supports none; HTML permits both platform defaults."
+  },
+  {
+    "name": "clamping nullable setters and direction",
+    "source": "const i=document.createElement('input');i.defaultValue='abcdef';const state=()=>record(i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);i.setSelectionRange(2,5,'backward');i.selectionStart=4;state();i.selectionEnd=3;state();i.selectionStart=99;state();i.setSelectionRange(4,2,'forward');state();i.setSelectionRange(-1,3);state();i.selectionStart=null;state();i.selectionEnd=undefined;state();i.selectionDirection='BACKWARD';state();i.selectionDirection={toString(){return 'forward'}};state();i.selectionDirection=null;state()",
+    "expected": [
+      "4:5:backward",
+      "3:3:backward",
+      "6:6:backward",
+      "2:2:forward",
+      "3:3:none",
+      "0:3:none",
+      "0:0:none",
+      "0:0:none",
+      "0:0:forward",
+      "0:0:none"
+    ],
+    "browserExpected": [
+      "4:5:backward",
+      "3:3:backward",
+      "6:6:backward",
+      "2:2:forward",
+      "3:3:forward",
+      "0:3:forward",
+      "0:0:forward",
+      "0:0:forward",
+      "0:0:forward",
+      "0:0:forward"
+    ],
+    "difference": "The reference browser uses the platform default forward direction when the algorithm requests none; this profile supports none as permitted by HTML."
+  },
+  {
+    "name": "utf16 replacement and textarea normalized newlines",
+    "source": "const i=document.createElement('input');i.value='ab😀cd';i.setSelectionRange(2,3);record(i.value.slice(i.selectionStart,i.selectionEnd).charCodeAt(0));i.setRangeText('X',2,3,'select');record(i.value.length);record(i.value.charCodeAt(3));record(i.selectionStart+':'+i.selectionEnd);const t=document.createElement('textarea');t.value='A\\r\\nB\\rC';record(t.value.length);record(t.textLength);t.setRangeText('replaced',0,2,'end');record(t.value);record(t.selectionStart+':'+t.selectionEnd)",
+    "expected": [
+      "55357",
+      "6",
+      "56832",
+      "2:3",
+      "5",
+      "5",
+      "replacedB\nC",
+      "8:8"
+    ]
+  },
+  {
+    "name": "range replacement selection modes and preserve overloads",
+    "source": "const i=document.createElement('input');const state=()=>record(i.value+':'+i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);for(const mode of ['select','start','end','preserve']){i.value='abcdefghij';i.setSelectionRange(7,9,'backward');i.setRangeText('XY',1,4,mode);state()}i.value='abcdef';i.setSelectionRange(1,4,'backward');i.setRangeText('XY');state();i.value='abcdef';i.setSelectionRange(1,5,'forward');i.setRangeText('XY',2,4);state()",
+    "expected": [
+      "aXYefghij:1:3:none",
+      "aXYefghij:1:1:none",
+      "aXYefghij:3:3:none",
+      "aXYefghij:6:8:none",
+      "aXYef:1:3:none",
+      "abXYef:1:5:none"
+    ],
+    "difference": "The reference browser uses the platform default forward direction when this profile returns none. Both retain interoperable preserve-delta adjustment for explicit range arguments, beyond the current HTML draft one-argument wording.",
+    "browserExpected": [
+      "aXYefghij:1:3:forward",
+      "aXYefghij:1:1:forward",
+      "aXYefghij:3:3:forward",
+      "aXYefghij:6:8:forward",
+      "aXYef:1:3:forward",
+      "abXYef:1:5:forward"
+    ]
+  },
+  {
+    "name": "value assignment default value reset and cloning",
+    "source": "const f=document.createElement('form'),i=document.createElement('input');f.appendChild(i);i.defaultValue='abcdef';i.setSelectionRange(1,4,'backward');i.value='abcdef';record(i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);i.value='abcdefgh';record(i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);i.setSelectionRange(2,7,'forward');i.defaultValue='abc';record(i.value);f.reset();record(i.value+':'+i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);i.value='copied';i.setSelectionRange(2,4,'backward');const copy=i.cloneNode();record(copy.value+':'+copy.selectionStart+':'+copy.selectionEnd+':'+copy.selectionDirection)",
+    "expected": [
+      "1:4:backward",
+      "8:8:none",
+      "abcdefgh",
+      "abc:2:3:forward",
+      "copied:0:0:none"
+    ],
+    "browserExpected": [
+      "1:4:backward",
+      "8:8:forward",
+      "abcdefgh",
+      "abc:3:3:forward",
+      "copied:0:0:forward"
+    ],
+    "difference": "The reference browser uses forward as its platform default and collapses reset selection to the new end. This profile applies the generic relevant-value clamp specified by HTML for reset."
+  },
+  {
+    "name": "unsupported types reject before mutating selection",
+    "source": "for(const type of ['email','number','date','month','week','time','datetime-local','range','color','checkbox','radio','file','submit','image','reset','button','hidden']){const i=document.createElement('input');i.setAttribute('type',type);record(i.selectionStart===null&&i.selectionEnd===null&&i.selectionDirection===null);try{i.selectionStart=1}catch(e){record(e.name)}try{i.setSelectionRange(0,1)}catch(e){record(e.name)}try{i.setRangeText('X')}catch(e){record(e.name)}}",
+    "expected": [
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "true",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError"
+    ]
+  },
+  {
+    "name": "webidl conversion order receiver and overload errors",
+    "source": "const i=document.createElement('input'),b=document.createElement('input'),t=document.createElement('textarea');i.defaultValue='abcdef';b.defaultValue='abcdef';const order=[];i.setSelectionRange({valueOf(){order.push('start');return 1}},{valueOf(){order.push('end');return 4}},{toString(){order.push('direction');return 'backward'}});record(order.join(','));b.setSelectionRange.call(i,2,3,'forward');record(i.selectionStart+':'+i.selectionEnd);for(const fn of [()=>i.setSelectionRange.call(t,0,1),()=>i.setSelectionRange(),()=>i.setRangeText(),()=>i.setRangeText('X',1),()=>i.setRangeText('X',0,1,'bad'),()=>i.setSelectionRange(Symbol(),1),()=>i.setSelectionRange(1n,1)]){try{fn()}catch(e){record(e.name)}}record(i.setSelectionRange===i.setSelectionRange);record(i.setSelectionRange.length);record(i.setRangeText.length);record(i.select.name)",
+    "expected": [
+      "start,end,direction",
+      "2:3",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "true",
+      "2",
+      "1",
+      "select"
+    ]
+  },
+  {
+    "name": "invalid range dirties value but failed webidl conversion does not",
+    "source": "const i=document.createElement('input');i.defaultValue='abcdef';try{i.setRangeText('X',4,2)}catch(e){record(e.name)}i.defaultValue='changed';record(i.value);const j=document.createElement('input');j.defaultValue='abcdef';try{j.setRangeText('X',0,1,'invalid')}catch(e){record(e.name)}j.defaultValue='changed';record(j.value);const k=document.createElement('input');k.defaultValue='abcdef';k.setRangeText('X',99,100,'end');record(k.value+':'+k.selectionStart)",
+    "expected": [
+      "IndexSizeError",
+      "abcdef",
+      "TypeError",
+      "changed",
+      "abcdefX:7"
+    ],
+    "browserExpected": [
+      "IndexSizeError",
+      "changed",
+      "TypeError",
+      "changed",
+      "X:1"
+    ],
+    "difference": "The reference browser leaves a failed range clean and omits unaccessed default text when replacing at out-of-range offsets. HTML sets the dirty value flag before the IndexSizeError check and uses the current relevant value; this profile follows those steps."
+  },
+  {
+    "name": "asynchronous select and coalesced element selectionchange",
+    "async": true,
+    "source": "const i=document.createElement('input');i.defaultValue='abcdef';document.body.appendChild(i);let selects=0,changes=0,documentChanges=0,inputs=0,flags=true,done;const settled=new Promise(resolve=>done=resolve);function checkpoint(){if(selects===3&&changes===1)done()}i.addEventListener('select',e=>{selects++;flags=flags&&e.bubbles&&!e.cancelable;checkpoint()});i.addEventListener('selectionchange',e=>{changes++;flags=flags&&e.bubbles&&!e.cancelable;checkpoint()});document.addEventListener('selectionchange',e=>{if(e.target===i)documentChanges++});i.addEventListener('input',()=>inputs++);i.setSelectionRange(1,4);i.selectionDirection='backward';i.setSelectionRange(1,4,'backward');i.selectionStart=2;record(selects+':'+changes);await Promise.resolve();record(selects+':'+changes);await Promise.race([settled,new Promise(resolve=>setTimeout(resolve,500))]);record(selects+':'+changes+':'+documentChanges+':'+inputs);record(flags)",
+    "expected": [
+      "0:0",
+      "0:0",
+      "3:1:1:0",
+      "true"
+    ]
+  },
+  {
+    "name": "select supports email and number text UI without exposing range APIs",
+    "async": true,
+    "source": "let count=0,done;const settled=new Promise(resolve=>done=resolve);for(const kind of ['email','number']){const i=document.createElement('input');i.type=kind;i.value=kind==='email'?'a@example.test':'123';document.body.appendChild(i);i.addEventListener('select',()=>{count++;if(count===2)done()});i.select();record(kind+':'+i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);try{i.setSelectionRange(0,1)}catch(e){record(e.name)}}await Promise.race([settled,new Promise(resolve=>setTimeout(resolve,500))]);record(count)",
+    "expected": [
+      "email:null:null:null",
+      "InvalidStateError",
+      "number:null:null:null",
+      "InvalidStateError",
+      "2"
+    ]
+  },
+  {
+    "name": "selection state remains detached and disabled",
+    "source": "const i=document.createElement('input');i.value='abcdef';document.body.appendChild(i);i.setSelectionRange(1,5,'backward');i.remove();record(i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);i.disabled=true;i.readOnly=true;i.setSelectionRange(2,4,'forward');i.setRangeText('X',2,4,'select');record(i.value+':'+i.selectionStart+':'+i.selectionEnd);document.body.appendChild(i);record(i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection)",
+    "expected": [
+      "1:5:backward",
+      "abXef:2:3",
+      "2:3:none"
+    ],
+    "browserExpected": [
+      "1:5:backward",
+      "abXef:2:3",
+      "2:3:forward"
+    ],
+    "difference": "The reference browser uses forward as its platform default for the reset direction; this profile supports none."
+  },
+  {
+    "name": "textarea readonly textlength and clean defaults",
+    "source": "const t=document.createElement('textarea');t.defaultValue='abcdef';t.setSelectionRange(1,5,'backward');t.defaultValue='abc';record(t.value+':'+t.selectionStart+':'+t.selectionEnd+':'+t.selectionDirection);t.textLength=100;record(t.textLength);try{(()=>{'use strict';t.textLength=100})()}catch(e){record(e.name)}const i=document.createElement('input');record(i.textLength===undefined);i.textLength=100;record(i.textLength)",
+    "expected": [
+      "abc:1:3:backward",
+      "3",
+      "TypeError",
+      "true",
+      "100"
+    ],
+    "browserExpected": [
+      "abc:0:0:forward",
+      "3",
+      "TypeError",
+      "true",
+      "100"
+    ],
+    "difference": "The reference browser resets a clean textarea selection to zero when its default text changes. HTML children-changed steps set the raw value and generic relevant-value steps clamp the previous selection; this profile preserves and clamps it."
+  },
+  {
+    "name": "normalized same value preserves selection",
+    "source": "const t=document.createElement('textarea');t.value='A\\r\\nB';t.setSelectionRange(0,2,'backward');t.value='A\\nB';record(t.selectionStart+':'+t.selectionEnd+':'+t.selectionDirection);const i=document.createElement('input');i.value='A\\r\\nB';i.setSelectionRange(0,1,'forward');i.value='AB';record(i.selectionStart+':'+i.selectionEnd+':'+i.selectionDirection);const u=document.createElement('input');u.type='url';u.value='  abc  ';u.setSelectionRange(1,2,'backward');u.value='\\t abc \\n';record(u.value+':'+u.selectionStart+':'+u.selectionEnd+':'+u.selectionDirection)",
+    "expected": [
+      "0:2:backward",
+      "0:1:forward",
+      "abc:1:2:backward"
+    ]
+  },
+  {
+    "name": "DOMException brands and conversion before invalid state",
+    "source": "const i=document.createElement('input');i.type='email';for(const fn of [()=>i.setSelectionRange(0,1),()=>i.setRangeText('x'),()=>{i.selectionEnd=1}]){try{fn()}catch(e){record(e instanceof DOMException);record(e.name);record(e.code)}}try{i.selectionEnd=Symbol()}catch(e){record(e instanceof TypeError)}const t=document.createElement('textarea');t.value='abcd';try{t.setRangeText('x',3,1)}catch(e){record(e instanceof DOMException);record(e.name);record(e.code)}",
+    "expected": [
+      "true",
+      "InvalidStateError",
+      "11",
+      "true",
+      "InvalidStateError",
+      "11",
+      "true",
+      "InvalidStateError",
+      "11",
+      "true",
+      "true",
+      "IndexSizeError",
+      "1"
+    ]
+  },
+  {
+    "name": "range text is a script edit without input or DOM mutation",
+    "async": true,
+    "source": "const i=document.createElement('input');i.value='abcdef';i.setAttribute('maxlength','2');document.body.appendChild(i);let inputs=0,changes=0,mutations=0;i.addEventListener('input',()=>inputs++);i.addEventListener('change',()=>changes++);new MutationObserver(records=>{mutations+=records.length}).observe(i,{attributes:true,childList:true,characterData:true});i.readOnly=true;await Promise.resolve();mutations=0;i.setSelectionRange(1,4,'backward');i.setRangeText('long replacement');record(i.value);record(i.selectionStart+':'+i.selectionEnd);await Promise.resolve();record(inputs+':'+changes+':'+mutations);record(i.defaultValue)",
+    "expected": [
+      "along replacementef",
+      "1:17",
+      "0:0:0",
+      ""
+    ]
+  },
+  {
+    "name": "textarea nonnullable setters and unsigned conversion",
+    "source": "const t=document.createElement('textarea');t.value='abcdefgh';t.setSelectionRange(1,4,'backward');t.selectionStart=4294967297;record(t.selectionStart+':'+t.selectionEnd+':'+t.selectionDirection);t.selectionEnd=2.9;record(t.selectionStart+':'+t.selectionEnd);t.selectionEnd=NaN;record(t.selectionStart+':'+t.selectionEnd);t.setSelectionRange(Infinity,-Infinity);record(t.selectionStart+':'+t.selectionEnd);try{t.selectionDirection=Symbol()}catch(e){record(e.name)}",
+    "expected": [
+      "1:4:backward",
+      "1:2",
+      "0:0",
+      "0:0",
+      "TypeError"
+    ]
+  }
+]

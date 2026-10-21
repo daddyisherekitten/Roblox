@@ -1,0 +1,254 @@
+[
+  {
+    "name": "empty singleton constructors and aliases",
+    "source": "const s=getSelection();record(s===window.getSelection()&&s===document.getSelection());record([s.rangeCount,s.isCollapsed,s.type,s.direction,s.anchorNode,s.focusNode,String(s)].join('|'));record(s instanceof Selection);record(s.empty===s.removeAllRanges);record(s.setPosition===s.collapse);record(Object.prototype.toString.call(s));try{new Selection()}catch(e){record(e.name)}try{s.getRangeAt(0)}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "0|true|None|none|||",
+      "true",
+      "false",
+      "false",
+      "[object Selection]",
+      "TypeError",
+      "IndexSizeError"
+    ]
+  },
+  {
+    "name": "addRange stores identity and ignores second",
+    "source": "document.body.innerHTML='<p id=p>abcdef</p>';const t=document.getElementById('p').firstChild,s=getSelection(),r=document.createRange(),r2=new Range();r.setStart(t,1);r.setEnd(t,4);s.addRange(r);record(s.getRangeAt(0)===r);record([String(s),s.anchorOffset,s.focusOffset,s.direction].join('|'));r2.selectNodeContents(t);s.addRange(r2);record(s.getRangeAt(0)===r);r.setEnd(t,5);record([String(s),s.anchorOffset,s.focusOffset,s.direction].join('|'));s.removeRange(r);record(s.rangeCount);try{s.removeRange(r)}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "bcd|1|4|forward",
+      "true",
+      "bcde|1|5|forward",
+      "0",
+      "NotFoundError"
+    ]
+  },
+  {
+    "name": "backward direction survives live range updates",
+    "source": "document.body.innerHTML='<p id=p>abcdef</p>';const t=document.getElementById('p').firstChild,s=getSelection();s.setBaseAndExtent(t,5,t,2);const r=s.getRangeAt(0);record([String(s),s.anchorOffset,s.focusOffset,s.direction].join('|'));r.setStart(t,1);record([String(s),s.anchorOffset,s.focusOffset,s.direction].join('|'));t.insertData(0,'++');record([String(s),s.anchorOffset,s.focusOffset,s.direction,s.getRangeAt(0)===r].join('|'));",
+    "expected": [
+      "cde|5|2|backward",
+      "bcde|5|1|backward",
+      "bcde|7|3|backward|true"
+    ],
+    "browserExpected": [
+      "cde|5|2|backward",
+      "bcde|1|5|forward",
+      "bcde|3|7|forward|true"
+    ],
+    "difference": "The Selection API requires direction to survive direct Range and DOM mutations; Chromium resets direct Range mutations to forward."
+  },
+  {
+    "name": "collapse creates new range and leaves old intact",
+    "source": "document.body.innerHTML='<p id=p>abcdef</p>';const t=document.getElementById('p').firstChild,s=getSelection();s.setBaseAndExtent(t,1,t,5);const original=s.getRangeAt(0);s.collapseToStart();record([s.getRangeAt(0)===original,original.startOffset,original.endOffset,s.focusOffset,s.type,s.direction].join('|'));s.setBaseAndExtent(t,5,t,1);const backwards=s.getRangeAt(0);s.collapseToEnd();record([s.getRangeAt(0)===backwards,s.focusOffset,s.direction].join('|'));s.collapse(null,999);record(s.rangeCount);try{s.collapseToStart()}catch(e){record(e.name)}",
+    "expected": [
+      "false|1|5|1|Caret|none",
+      "false|5|none",
+      "0",
+      "InvalidStateError"
+    ]
+  },
+  {
+    "name": "extend replaces range and preserves anchor",
+    "source": "document.body.innerHTML='<p id=p>abcdef</p>';const t=document.getElementById('p').firstChild,s=getSelection();s.collapse(t,3);let old=s.getRangeAt(0);s.extend(t,1);record([s.getRangeAt(0)===old,s.anchorOffset,s.focusOffset,String(s),s.direction].join('|'));s.extend(t,5);record([s.anchorOffset,s.focusOffset,String(s),s.direction].join('|'));s.extend(t,3);record([s.isCollapsed,s.direction].join('|'));s.removeAllRanges();try{s.extend(t,1)}catch(e){record(e.name)}",
+    "expected": [
+      "false|3|1|bc|backward",
+      "3|5|de|forward",
+      "true|forward",
+      "InvalidStateError"
+    ],
+    "browserExpected": [
+      "false|3|1|bc|backward",
+      "3|5|de|forward",
+      "true|none",
+      "InvalidStateError"
+    ],
+    "difference": "The standard explicitly sets forward when anchor and focus are equal; Chromium exposes none."
+  },
+  {
+    "name": "detached endpoints validation ordering",
+    "source": "document.body.innerHTML='<p id=p>abc</p>';const t=document.getElementById('p').firstChild,d=document.createTextNode('xy'),s=getSelection();s.collapse(t,1);const old=s.getRangeAt(0);s.collapse(d,1);record(s.getRangeAt(0)===old);try{s.collapse(d,3)}catch(e){record(e.name)}s.extend(d,99);record(s.getRangeAt(0)===old);try{s.setBaseAndExtent(d,99,t,1)}catch(e){record(e.name)}s.selectAllChildren(d);record(s.getRangeAt(0)===old);",
+    "expected": [
+      "true",
+      "IndexSizeError",
+      "true",
+      "IndexSizeError",
+      "true"
+    ]
+  },
+  {
+    "name": "selectAllChildren uses child count even for text",
+    "source": "document.body.innerHTML='<p id=p>abc<b>de</b>fg</p>';const p=document.getElementById('p'),s=getSelection();s.selectAllChildren(p);record([s.anchorNode===p,s.anchorOffset,s.focusOffset,String(s),s.direction].join('|'));s.selectAllChildren(p.firstChild);record([s.anchorNode===p.firstChild,s.anchorOffset,s.focusOffset,s.type,String(s),s.direction].join('|'));",
+    "expected": [
+      "true|0|3|abcdefg|forward",
+      "true|0|0|Caret||forward"
+    ],
+    "browserExpected": [
+      "true|0|3|abcdefg|forward",
+      "true|0|0|Caret||none"
+    ],
+    "difference": "selectAllChildren sets forward even for a childless Text node under the standard; Chromium exposes none."
+  },
+  {
+    "name": "containsNode nested endpoints and partial edges",
+    "source": "document.body.innerHTML='<p id=p>abc<b id=b>def</b>ghi</p>';const p=document.getElementById('p'),b=document.getElementById('b'),s=getSelection();s.setBaseAndExtent(b.firstChild,1,b.firstChild,2);record([s.containsNode(b),s.containsNode(b,true),s.containsNode(b.firstChild),s.containsNode(b.firstChild,true),s.containsNode(p),s.containsNode(p,true)].join('|'));s.selectAllChildren(b);record([s.containsNode(b),s.containsNode(b.firstChild),s.containsNode(p.firstChild,true),s.containsNode(p.lastChild,true)].join('|'));s.collapse(p,1);record([s.containsNode(p.firstChild,true),s.containsNode(b,true),s.containsNode(p.firstChild),s.containsNode(b)].join('|'));",
+    "expected": [
+      "false|true|false|true|false|true",
+      "true|true|true|true",
+      "true|true|false|false"
+    ],
+    "browserExpected": [
+      "false|true|true|true|false|true",
+      "false|true|false|false",
+      "true|false|true|false"
+    ],
+    "difference": "The profile compares structural boundary-edge equivalence using the standard full/partial containment rule. Chromium reports overlapping Text nodes as fully contained and treats element edges differently; visual bidi/white-space equivalence is outside this profile."
+  },
+  {
+    "name": "deleteFromDocument keeps associated identity",
+    "source": "document.body.innerHTML='<p id=p>abc<b>def</b>ghi</p>';const p=document.getElementById('p'),s=getSelection();s.setBaseAndExtent(p.lastChild,1,p.firstChild,1);const r=s.getRangeAt(0);s.deleteFromDocument();record(p.innerHTML);record([s.getRangeAt(0)===r,s.isCollapsed,s.anchorNode===p,s.anchorOffset,s.direction].join('|'));",
+    "expected": [
+      "ahi",
+      "true|true|true|1|backward"
+    ],
+    "browserExpected": [
+      "ahi",
+      "true|true|true|1|forward"
+    ],
+    "difference": "Direction is preserved after Range.deleteContents as required by the Selection API; Chromium resets it to forward."
+  },
+  {
+    "name": "composed snapshots stay static",
+    "source": "document.body.innerHTML='<p id=p>abcdef</p>';const t=document.getElementById('p').firstChild,s=getSelection();s.setBaseAndExtent(t,1,t,4);const a=s.getComposedRanges(),b=s.getComposedRanges({shadowRoots:[]});record([a.length,a[0] instanceof StaticRange,a[0]===b[0],a[0].startContainer===t,a[0].startOffset,a[0].endOffset].join('|'));t.insertData(0,'++');record([a[0].startOffset,a[0].endOffset,s.anchorOffset,s.focusOffset].join('|'));s.empty();record(s.getComposedRanges().length);try{s.getComposedRanges({shadowRoots:[document]})}catch(e){record(e.name)}",
+    "expected": [
+      "1|true|false|true|1|4",
+      "1|4|3|6",
+      "0",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "live removal insertion split and normalize",
+    "source": "document.body.innerHTML='<p id=p>abc<b>def</b>ghi</p>';const p=document.getElementById('p'),b=p.children[0],s=getSelection();s.setBaseAndExtent(b.firstChild,1,p.lastChild,2);b.remove();record([s.anchorNode===p,s.anchorOffset,s.focusOffset,String(s)].join('|'));const tail=p.lastChild.splitText(1);record([s.focusNode===tail,s.focusOffset].join('|'));p.normalize();record([s.anchorNode===p.firstChild,s.anchorOffset,s.focusNode===p.firstChild,s.focusOffset,String(s)].join('|'));",
+    "expected": [
+      "true|1|2|gh",
+      "true|1",
+      "true|3|true|5|gh"
+    ]
+  },
+  {
+    "name": "conversion order receiver and unsigned offsets",
+    "source": "document.body.innerHTML='<p id=p>abcdef</p>';const t=document.getElementById('p').firstChild,s=getSelection(),log=[];const a={valueOf(){log.push('a');return 1}},b={valueOf(){log.push('b');return 4}};s.setBaseAndExtent(t,a,t,b);record(log.join(','));s.collapse(t,4294967297);record(s.anchorOffset);try{s.collapse(t,1n)}catch(e){record(e.name)}try{Selection.prototype.collapse.call({},t,0)}catch(e){record(e.name)}try{s.setBaseAndExtent(null,a,t,b)}catch(e){record(e.name)}record(log.join(','));",
+    "expected": [
+      "a,b",
+      "1",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "a,b"
+    ],
+    "browserExpected": [
+      "a,b",
+      "1",
+      "TypeError",
+      "TypeError",
+      "a,b,a,b"
+    ],
+    "difference": "The published non-nullable Node arguments reject null before subsequent argument conversion; Chromium accepts a nullable legacy binding."
+  },
+  {
+    "name": "nullable collapse still converts optional offset",
+    "source": "const s=getSelection(),log=[];s.collapse(null,{valueOf(){log.push('offset');return 2}});record(log.join(','));try{s.collapse()}catch(e){record(e.name)}try{s.collapse(undefined,Symbol())}catch(e){record(e.name)}record(s.rangeCount);",
+    "expected": [
+      "offset",
+      "TypeError",
+      "TypeError",
+      "0"
+    ]
+  },
+  {
+    "name": "UTF16 half surrogate endpoints",
+    "source": "document.body.innerHTML='<p id=p>A😀BC</p>';const t=document.getElementById('p').firstChild,s=getSelection();s.setBaseAndExtent(t,1,t,3);record([String(s).length,s.anchorOffset,s.focusOffset,String(s)].join('|'));s.setBaseAndExtent(t,2,t,3);record([String(s).length,String(s).charCodeAt(0)].join('|'));",
+    "expected": [
+      "2|1|3|😀",
+      "1|56832"
+    ],
+    "browserExpected": [
+      "2|1|3|😀",
+      "0|NaN"
+    ],
+    "difference": "The data-only runtime has no rendered glyph fragments and falls back to Range text. The rendered adapter excludes incomplete grapheme glyphs, matching browser visible text."
+  },
+  {
+    "name": "window document getter receivers",
+    "source": "record(getSelection.call(null)===getSelection());try{getSelection.call({})}catch(e){record(e.name)}try{document.getSelection.call({})}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "rendered ellipsis copies unclipped text",
+    "browserOnly": true,
+    "source": "document.body.innerHTML='<p id=p style=\"width:30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap\">abcdef ghijkl</p>';const r=document.createRange();r.selectNodeContents(document.getElementById('p'));getSelection().addRange(r);record(String(getSelection()));",
+    "expected": [
+      "abcdef ghijkl"
+    ]
+  },
+  {
+    "name": "rendered uppercase expansions and pre-wrap",
+    "browserOnly": true,
+    "source": "document.body.innerHTML='<p id=p style=\"text-transform:uppercase\">aßb</p><p id=q style=\"white-space:pre-wrap\"></p>';const t=document.getElementById('p').firstChild,s=getSelection();s.setBaseAndExtent(t,1,t,2);record(String(s));const q=document.getElementById('q');q.textContent='A\\r\\nB';s.selectAllChildren(q);record(JSON.stringify(String(s)));",
+    "expected": [
+      "SS",
+      "\"A\\r\\nB\""
+    ]
+  },
+  {
+    "name": "rendered soft whitespace and block breaks",
+    "browserOnly": true,
+    "source": "document.body.innerHTML='<div id=p>A   <b>B</b><br>C<p>D</p>E<span style=\"display:none\">hidden</span></div>';getSelection().selectAllChildren(document.getElementById('p'));record(JSON.stringify(String(getSelection())));",
+    "expected": [
+      "\"A B\\nC\\nD\\n\\nE\""
+    ]
+  },
+  {
+    "name": "directionless range extension uses normative endpoints",
+    "source": "document.body.innerHTML='<p id=p>abcdef</p>';const t=document.getElementById('p').firstChild,s=getSelection();s.collapse(t,1);s.getRangeAt(0).setEnd(t,4);record([s.anchorOffset,s.focusOffset,s.direction,String(s)].join('|'));",
+    "expected": [
+      "4|1|none|bcd"
+    ],
+    "browserExpected": [
+      "1|4|forward|bcd"
+    ],
+    "difference": "A script mutation preserves directionless under the Selection API, whose anchor is end unless forward; Chromium resets it to forward."
+  },
+  {
+    "name": "shadowRoot sequence rejects without iterator close",
+    "source": "const log=[],roots={[Symbol.iterator](){return {next(){return {value:{},done:false}},return(){log.push('close');return {done:true}}}}};try{getSelection().getComposedRanges({shadowRoots:roots})}catch(e){log.push(e.name)}record(log.join(','));",
+    "expected": [
+      "TypeError"
+    ]
+  },
+  {
+    "name": "sequence rejects primitive before iterator lookup",
+    "source": "const log=[],key=Symbol.iterator,old=Object.getOwnPropertyDescriptor(String.prototype,key);Object.defineProperty(String.prototype,key,{get(){log.push('get');return old.value},configurable:true});try{getSelection().getComposedRanges({shadowRoots:'x'})}catch(e){log.push(e.name)}Object.defineProperty(String.prototype,key,old);record(log.join(','));",
+    "expected": [
+      "TypeError"
+    ]
+  },
+  {
+    "name": "rendered partial Unicode character units",
+    "browserOnly": true,
+    "source": "document.body.innerHTML='<p id=p>A😀B</p><p id=q>ÄB</p>';const s=getSelection(),t=document.getElementById('p').firstChild,q=document.getElementById('q').firstChild;s.setBaseAndExtent(t,1,t,2);record(JSON.stringify(String(s)));s.setBaseAndExtent(t,2,t,3);record(JSON.stringify(String(s)));s.setBaseAndExtent(q,0,q,1);record(JSON.stringify(String(s)));s.setBaseAndExtent(q,1,q,2);record(JSON.stringify(String(s)));",
+    "expected": [
+      "\"😀\"",
+      "\"\"",
+      "\"Ä\"",
+      "\"\""
+    ]
+  }
+]

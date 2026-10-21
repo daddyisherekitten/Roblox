@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>CSS combination reference</title>
+<style>
+body{font:16px Arial;padding:20px;color:#203b31}pre{font:12px monospace;white-space:pre-wrap}section{margin-bottom:18px}
+@layer reset,theme;@layer reset{#normal,#important{color:blue}#important{color:blue!important}}@layer theme{#normal,#important{color:red}#important{color:red!important}}#normal{color:green}#important{color:green!important}
+:where(.scope) p{color:black}@scope (.outer) to (.stop){p{color:red}}@scope (.inner) to (.stop){p{color:blue}}
+@property --distance{syntax:"<length>";inherits:false;initial-value:12px}.typed{width:var(--distance)}
+#parts::part(label){color:green}#parts::part(label strong){background:rgb(220,238,220)}#parts::part(forwarded){color:blue}#parts::part(locked){color:red!important}
+.actual{list-style:none;margin:0;padding-left:16px;font:32px monospace}.actual li::before{content:counters(list-item,".")". ";color:#b03020}.counter-row{display:flex;gap:30px}.expect{font:32px monospace;white-space:pre;color:#176e46}
+</style><body>
+<h1>Native CSS reference</h1><section><span id="normal">normal</span> <span id="important">important</span></section>
+<div class="scope outer"><div class="inner"><p id="near">Near</p><div class="stop"><p id="excluded">Excluded</p></div></div><p id="outer">Outer</p></div><p id="outside">Outside</p>
+<div style="--distance:40px"><p class="typed" id="default"></p><p class="typed" id="relative" style="font-size:20px;--distance:2em"></p><p class="typed" id="invalid" style="--distance:wrong"></p></div>
+<div class="dark"><div id="parts"></div></div>
+<h2>Actual counters / Expected counters</h2>
+<div class="counter-row"><ol class="actual" start="5"><li>Start</li><li value="9">Value</li><li>Next</li></ol><div class="expect">5. Start
+9. Value
+10. Next</div></div>
+<div class="counter-row"><ol class="actual" reversed><li>Reversed</li><li value="7">Value</li><li>Next</li></ol><div class="expect">8. Reversed
+7. Value
+6. Next</div></div>
+<div class="counter-row"><ol class="actual" reversed><li>Outer<ol class="actual"><li>Inner</li><li>Inner</li></ol></li><li>Outer</li></ol><div class="expect">2. Outer
+2.1. Inner
+2.2. Inner
+1. Outer</div></div>
+<h2 id="native-markers">Default decimal marker + before counter</h2><style>.paired{font:28px monospace;list-style:decimal;padding-left:60px}.paired li::before{content:"before=" counter(list-item) " / ";color:#b03020}</style>
+<ol class="paired" start="5"><li>Start</li><li value="9">Value</li><li>Next</li></ol>
+<ol class="paired" reversed><li>Reversed (HTML marker 3; CSS counter 8)</li><li value="7">Value</li><li>Next</li></ol>
+<pre id="counter-meta"></pre><pre id="results"></pre><script>
+const host=document.getElementById('parts'),root=host.attachShadow({mode:'open'});
+root.innerHTML='<style>:host-context(.dark){padding:7px}:host-context(.dark) > .context{border-top:3px solid red}#label{color:red}#locked{color:blue!important}</style><div id="label" part="label strong">External green</div><div id="locked" part="locked">Internal important blue</div><div id="context" class="context">Context border</div><div id="nested" exportparts="local:forwarded"></div>';
+const inner=root.getElementById('nested').attachShadow({mode:'open'});inner.innerHTML='<span id="local" part="local">Forwarded blue</span>';
+const color=id=>getComputedStyle(document.getElementById(id)).color;
+const checks=[['normal',color('normal'),'rgb(0, 128, 0)'],['important',color('important'),'rgb(0, 0, 255)'],['near',color('near'),'rgb(0, 0, 255)'],['excluded',color('excluded'),'rgb(0, 0, 0)'],['outer',color('outer'),'rgb(255, 0, 0)'],['outside',color('outside'),'rgb(32, 59, 49)'],['initial',getComputedStyle(document.getElementById('default')).width,'12px'],['relative',getComputedStyle(document.getElementById('relative')).width,'40px'],['invalid',getComputedStyle(document.getElementById('invalid')).width,'12px'],['part',getComputedStyle(root.getElementById('label')).color,'rgb(0, 128, 0)'],['important part',getComputedStyle(root.getElementById('locked')).color,'rgb(0, 0, 255)'],['forwarded',getComputedStyle(inner.getElementById('local')).color,'rgb(0, 0, 255)'],['context',getComputedStyle(host).paddingTop,'7px']];
+root.getElementById('label').style.color='purple';checks.push(['outer part vs inner inline normal',getComputedStyle(root.getElementById('label')).color,'rgb(0, 128, 0)']);
+host.style.setProperty('color','red','important');const importantHostStyle=document.createElement('style');importantHostStyle.textContent=':host{color:blue!important}';root.append(importantHostStyle);checks.push(['inner host vs outer inline important',getComputedStyle(host).color,'rgb(0, 0, 255)']);
+root.getElementById('locked').style.setProperty('color','purple','important');checks.push(['inner inline vs outer part important',getComputedStyle(root.getElementById('locked')).color,'rgb(128, 0, 128)']);
+const adoptedHost=document.createElement('x-adopted');adoptedHost.innerHTML='<strong slot="title">Adopted title</strong><input slot="note" value="kept">';document.body.append(adoptedHost);const adoptedRoot=adoptedHost.attachShadow({mode:'open'});adoptedRoot.innerHTML='<h3 class="heading"><slot name="title"></slot></h3><div class="inside"><slot name="note"></slot></div>';
+const sheet=new CSSStyleSheet();sheet.replaceSync(':host{display:block;background:#edf2e8;padding:14px}:host([tone="warm"]){background:#f6e6d8}.heading{color:green}slot[name="title"]::slotted(strong){color:blue}slot[name="note"]::slotted(input){width:100%;min-width:0}.inside{padding:3px}');adoptedRoot.adoptedStyleSheets=[sheet];adoptedHost.setAttribute('tone','warm');
+checks.push(['constructed host rule count',String(sheet.cssRules.length),'6'],['adopted host paint',getComputedStyle(adoptedHost).backgroundColor,'rgb(246, 230, 216)'],['adopted qualified slot',getComputedStyle(adoptedHost.querySelector('strong')).color,'rgb(0, 0, 255)']);
+document.getElementById('counter-meta').textContent=JSON.stringify({reversedCounter:CSS.supports('counter-reset','reversed(list-item)'),resets:[...document.querySelectorAll('ol')].map(list=>({start:list.getAttribute('start'),reversed:list.reversed,counterReset:getComputedStyle(list).counterReset,itemCounterSet:[...list.children].map(li=>getComputedStyle(li).counterSet)}))},null,2);
+document.getElementById('results').textContent=JSON.stringify(checks.map(([name,actual,expected])=>({name,actual,expected,pass:actual===expected})),null,2);
+</script></body></html>

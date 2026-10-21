@@ -1,0 +1,357 @@
+[
+  {
+    "name": "StringNumericLiteral 0",
+    "source": "",
+    "expected": "0"
+  },
+  {
+    "name": "StringNumericLiteral 1",
+    "source": " ",
+    "expected": "0"
+  },
+  {
+    "name": "StringNumericLiteral 2",
+    "source": "\t\r\n﻿",
+    "expected": "0"
+  },
+  {
+    "name": "StringNumericLiteral 3",
+    "source": "   12 　",
+    "expected": "12"
+  },
+  {
+    "name": "StringNumericLiteral 4",
+    "source": "0",
+    "expected": "0"
+  },
+  {
+    "name": "StringNumericLiteral 5",
+    "source": "-0",
+    "expected": "-0"
+  },
+  {
+    "name": "StringNumericLiteral 6",
+    "source": "+0",
+    "expected": "0"
+  },
+  {
+    "name": "StringNumericLiteral 7",
+    "source": "00",
+    "expected": "0"
+  },
+  {
+    "name": "StringNumericLiteral 8",
+    "source": "-00",
+    "expected": "-0"
+  },
+  {
+    "name": "StringNumericLiteral 9",
+    "source": "+12",
+    "expected": "12"
+  },
+  {
+    "name": "StringNumericLiteral 10",
+    "source": "012",
+    "expected": "12"
+  },
+  {
+    "name": "StringNumericLiteral 11",
+    "source": "1.",
+    "expected": "1"
+  },
+  {
+    "name": "StringNumericLiteral 12",
+    "source": ".1",
+    "expected": "0.1"
+  },
+  {
+    "name": "StringNumericLiteral 13",
+    "source": "1.25",
+    "expected": "1.25"
+  },
+  {
+    "name": "StringNumericLiteral 14",
+    "source": "1e3",
+    "expected": "1000"
+  },
+  {
+    "name": "StringNumericLiteral 15",
+    "source": "1.e+3",
+    "expected": "1000"
+  },
+  {
+    "name": "StringNumericLiteral 16",
+    "source": ".1e-3",
+    "expected": "0.0001"
+  },
+  {
+    "name": "StringNumericLiteral 17",
+    "source": "1e309",
+    "expected": "Infinity"
+  },
+  {
+    "name": "StringNumericLiteral 18",
+    "source": "-1e309",
+    "expected": "-Infinity"
+  },
+  {
+    "name": "StringNumericLiteral 19",
+    "source": "1e-999",
+    "expected": "0"
+  },
+  {
+    "name": "StringNumericLiteral 20",
+    "source": "-1e-999",
+    "expected": "-0"
+  },
+  {
+    "name": "StringNumericLiteral 21",
+    "source": "Infinity",
+    "expected": "Infinity"
+  },
+  {
+    "name": "StringNumericLiteral 22",
+    "source": "+Infinity",
+    "expected": "Infinity"
+  },
+  {
+    "name": "StringNumericLiteral 23",
+    "source": "-Infinity",
+    "expected": "-Infinity"
+  },
+  {
+    "name": "StringNumericLiteral 24",
+    "source": "infinity",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 25",
+    "source": "INF",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 26",
+    "source": "NaN",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 27",
+    "source": "nan",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 28",
+    "source": "1 2",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 29",
+    "source": "1_000",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 30",
+    "source": "1n",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 31",
+    "source": "0x",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 32",
+    "source": "0b",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 33",
+    "source": "0o",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 34",
+    "source": "0x10",
+    "expected": "16"
+  },
+  {
+    "name": "StringNumericLiteral 35",
+    "source": "0XfF",
+    "expected": "255"
+  },
+  {
+    "name": "StringNumericLiteral 36",
+    "source": "0b11",
+    "expected": "3"
+  },
+  {
+    "name": "StringNumericLiteral 37",
+    "source": "0B101",
+    "expected": "5"
+  },
+  {
+    "name": "StringNumericLiteral 38",
+    "source": "0o17",
+    "expected": "15"
+  },
+  {
+    "name": "StringNumericLiteral 39",
+    "source": "0O77",
+    "expected": "63"
+  },
+  {
+    "name": "StringNumericLiteral 40",
+    "source": "-0x1",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 41",
+    "source": "+0x1",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 42",
+    "source": "-0b1",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 43",
+    "source": "+0o1",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 44",
+    "source": "0x1p2",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 45",
+    "source": "0x1.1",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 46",
+    "source": "0b2",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 47",
+    "source": "0o8",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 48",
+    "source": "0xg",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 49",
+    "source": "1e",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 50",
+    "source": "1e+",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 51",
+    "source": "1e2e3",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 52",
+    "source": "+",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 53",
+    "source": "-",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 54",
+    "source": ".",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 55",
+    "source": "​1",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 56",
+    "source": "1",
+    "expected": "NaN"
+  },
+  {
+    "name": "StringNumericLiteral 57",
+    "source": "0x20000000000001",
+    "expected": "9007199254740992"
+  },
+  {
+    "name": "StringNumericLiteral 58",
+    "source": "0x20000000000003",
+    "expected": "9007199254740996"
+  },
+  {
+    "name": "StringNumericLiteral 59",
+    "source": "0x3fffffffffffff",
+    "expected": "18014398509481984"
+  },
+  {
+    "name": "StringNumericLiteral 60",
+    "source": "0b100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001",
+    "expected": "2.535301200456459e+30"
+  },
+  {
+    "name": "StringNumericLiteral 61",
+    "source": "0o7777777777777777777",
+    "expected": "144115188075855870"
+  },
+  {
+    "name": "StringNumericLiteral 62",
+    "source": "0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8",
+    "expected": "Infinity"
+  },
+  {
+    "name": "StringNumericLiteral 63",
+    "source": "0x10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "expected": "Infinity"
+  },
+  {
+    "name": "StringNumericLiteral 64",
+    "source": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "expected": "Infinity"
+  },
+  {
+    "name": "StringNumericLiteral 65",
+    "source": "0x00000000000000000000000000000000000000001",
+    "expected": "1"
+  },
+  {
+    "name": "StringNumericLiteral 66",
+    "source": "1234567890123456789012345678901234567890",
+    "expected": "1.2345678901234568e+39"
+  },
+  {
+    "name": "StringNumericLiteral 67",
+    "source": "2.2250738585072014e-308",
+    "expected": "2.2250738585072014e-308"
+  },
+  {
+    "name": "StringNumericLiteral 68",
+    "source": "4.9406564584124654e-324",
+    "expected": "5e-324"
+  },
+  {
+    "name": "StringNumericLiteral 69",
+    "source": "2.4703282292062327e-324",
+    "expected": "0"
+  },
+  {
+    "name": "StringNumericLiteral 70",
+    "source": "2.4703282292062328e-324",
+    "expected": "5e-324"
+  }
+]

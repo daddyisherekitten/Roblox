@@ -1,0 +1,15 @@
+{
+  "profile": "Chromium 154 / Windows",
+  "source": "examples/websites/javascript-tests/r04-option-clone-reference.html",
+  "expected": {
+    "dirtyCloneDefault": false,
+    "dirtyCloneSelected": false,
+    "initialCopySelected": false,
+    "secondDefault": true,
+    "secondSelected": true,
+    "selected": false,
+    "selectedIndex": 1,
+    "sourceSecondSelected": false,
+    "sourceSelected": true
+  }
+}

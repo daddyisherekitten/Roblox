@@ -1,0 +1,82 @@
+{
+  "name": "HTML Engine - Studio Workspace",
+  "globIgnorePaths": [
+    "tests/fixtures/url-record-browser.json",
+    "tests/fixtures/video-presentation-browser.json",
+    "tests/fixtures/svg-regressions.zip",
+    "tests/fixtures/retired-window-pages-20261016.json",
+    "tests/fixtures/retired-native-window-demo-20261016.json",
+    "tests/fixtures/retired-nightweb-pages-20261019.json",
+    "tests/fixtures/browser-multitab-before-removal-20261019.json",
+    "tests/fixtures/retired-wiki-hover-20261019.json",
+    "tests/fixtures/retired-authored-darknet-20261019.json"
+  ],
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "HTMLEngine": {
+        "$path": "src/HTMLEngine",
+        "Examples": {
+          "$className": "Folder",
+          "Config": {
+            "$path": "examples/StudioDemoConfig.luau"
+          },
+          "ResizableTestWindow": {
+            "$path": "examples/ResizableTestWindow.luau"
+          },
+          "FontLab": {
+            "$path": "examples/FontLab"
+          },
+          "FontComparison": {
+            "$path": "examples/FontComparison"
+          }
+        },
+        "Tests": {
+          "$path": "tests"
+        }
+      },
+      "Browser": {
+        "$path": "src/Browser"
+      },
+      "WindowManager": {
+        "$path": "src/WindowManager"
+      }
+    },
+    "StarterGui": {
+      "$properties": {
+        "ClipsDescendantsSupportsRotation": "Enabled"
+      }
+    },
+    "ServerScriptService": {
+      "$ignoreUnknownInstances": true,
+      "BrowserPersistenceServer": {
+        "$path": "examples/compat/RetiredPersistence.server.luau",
+        "$properties": { "Disabled": true }
+      },
+      "HTMLStorageServer": {
+        "$path": "examples/compat/RetiredPersistence.server.luau",
+        "$properties": { "Disabled": true }
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "HTMLPageDemo": {
+          "$path": "examples/HTMLPage.client.luau",
+          "$attributes": {
+            "BrowserEnabled": true,
+            "Website": "DeepWiki"
+          }
+        },
+        "Fonts": {
+          "$className": "Folder",
+          "FontLabDemo": {
+            "$path": "examples/FontLab.client.luau"
+          },
+          "FontComparisonDemo": {
+            "$path": "examples/FontComparison.client.luau"
+          }
+        }
+      }
+    }
+  }
+}

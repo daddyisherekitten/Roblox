@@ -1,0 +1,324 @@
+[
+  {
+    "name": "classic inline checkpoints and currentScript",
+    "html": "<script id='one'>console.log('one',document.currentScript.id);queueMicrotask(()=>console.log('micro',document.currentScript===null));</script><script>console.log('two');</script>",
+    "resources": {},
+    "expected": [
+      "one one",
+      "micro false",
+      "two",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "blocking external script ordering",
+    "html": "<script>console.log('before');</script><script id='external' src='./external.js'></script><script>console.log('after');</script>",
+    "resources": {
+      "https://scripts.test/external.js": {
+        "Source": "console.log('external',document.currentScript.id);queueMicrotask(()=>console.log('external micro'));",
+        "Delay": 5
+      }
+    },
+    "expected": [
+      "before",
+      "external external",
+      "external micro",
+      "after",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "defer order survives opposite load completion",
+    "html": "<script defer src='./a.js'></script><script defer src='./b.js'></script><script>console.log('inline');</script>",
+    "resources": {
+      "https://scripts.test/a.js": {
+        "Source": "console.log('a',document.readyState);queueMicrotask(()=>console.log('a micro'));",
+        "Delay": 20
+      },
+      "https://scripts.test/b.js": {
+        "Source": "console.log('b',document.readyState);",
+        "Delay": 2
+      }
+    },
+    "expected": [
+      "inline",
+      "a interactive",
+      "a micro",
+      "b interactive",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "async executes during blocking load",
+    "html": "<script async src='./async.js'></script><script src='./blocking.js'></script><script>console.log('after blocking');</script>",
+    "resources": {
+      "https://scripts.test/async.js": {
+        "Source": "console.log('async',document.readyState);",
+        "Delay": 2
+      },
+      "https://scripts.test/blocking.js": {
+        "Source": "console.log('blocking');",
+        "Delay": 20
+      }
+    },
+    "expected": [
+      "async loading",
+      "blocking",
+      "after blocking",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "async does not delay DOMContentLoaded",
+    "html": "<script async src='./async.js'></script><script>console.log('inline');</script>",
+    "resources": {
+      "https://scripts.test/async.js": {
+        "Source": "console.log('async',document.readyState);",
+        "Delay": 20
+      }
+    },
+    "expected": [
+      "inline",
+      "dcl interactive",
+      "async interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "inline module top-level await does not delay document events",
+    "html": "<script type='module'>console.log('module',document.currentScript===null);await new Promise(r=>setTimeout(r,40));console.log('module end');</script><script>console.log('inline');</script>",
+    "resources": {},
+    "expected": [
+      "inline",
+      "module true",
+      "dcl interactive",
+      "load complete",
+      "module end"
+    ]
+  },
+  {
+    "name": "defer after awaited module starts before module settles",
+    "html": "<script type='module' src='./module.js'></script><script defer src='./defer.js'></script>",
+    "resources": {
+      "https://scripts.test/module.js": {
+        "Source": "console.log('module');await new Promise(r=>setTimeout(r,40));console.log('module end');",
+        "Delay": 2
+      },
+      "https://scripts.test/defer.js": {
+        "Source": "console.log('defer');",
+        "Delay": 3
+      }
+    },
+    "expected": [
+      "module",
+      "defer",
+      "dcl interactive",
+      "load complete",
+      "module end"
+    ]
+  },
+  {
+    "name": "inert data template and nomodule scripts",
+    "html": "<script nomodule>console.log('bad nomodule');</script><script type='application/json'>{\"value\":1}</script><template><script>console.log('bad template');</script></template><script>console.log('active');</script>",
+    "resources": {},
+    "expected": [
+      "active",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "HTML import map and inline module document URL",
+    "html": "<script type='importmap'>{\"imports\":{\"thing\":\"./thing.js\"}}</script><script type='module'>import {value} from 'thing';console.log(value,import.meta.url===document.URL);</script>",
+    "resources": {
+      "https://scripts.test/thing.js": {
+        "Source": "export const value=42;",
+        "Delay": 2
+      }
+    },
+    "expected": [
+      "42 true",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "JSON import attribute with realm caching",
+    "html": "<script type='module'>import value from './data.json' with {type:'json'};await new Promise(r=>setTimeout(r,10));const other=await import('./data.json',{with:{type:'json'}});console.log(value.name,value===other.default);</script>",
+    "resources": {
+      "https://scripts.test/data.json": {
+        "Source": "{\"name\":\"shared\"}",
+        "MIME": "application/json",
+        "Delay": 2
+      }
+    },
+    "expected": [
+      "dcl interactive",
+      "load complete",
+      "shared true"
+    ]
+  },
+  {
+    "name": "dynamic inline executes synchronously once",
+    "html": "<script>console.log('before');var s=document.createElement('script');s.id='dynamic';s.text='console.log(\"dynamic\",document.currentScript.id)';document.body.append(s);console.log('after');s.remove();document.body.append(s);document.body.append(s.cloneNode(true));</script>",
+    "resources": {},
+    "expected": [
+      "before",
+      "dynamic dynamic",
+      "after",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "nested scripts retain outer currentScript and checkpoint",
+    "html": "<script>var outer=document.currentScript;var s=document.createElement('script');s.text='console.log(\"inner\");queueMicrotask(()=>console.log(\"micro\",document.currentScript===null))';document.body.append(s);console.log('outer',document.currentScript===outer);</script>",
+    "resources": {},
+    "expected": [
+      "inner",
+      "outer true",
+      "micro false",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "atomic insertion lets earlier script remove later one",
+    "html": "<script>var a=document.createElement('script'),b=document.createElement('script');b.id='later';a.text='document.getElementById(\"later\").remove();console.log(\"first\")';b.text='console.log(\"bad\")';document.body.append(a,b);</script>",
+    "resources": {},
+    "expected": [
+      "first",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "empty connected script runs after text property write",
+    "html": "<script>var s=document.createElement('script');document.body.append(s);console.log('empty');s.text='console.log(\"filled\")';s.text='console.log(\"bad repeat\")';</script>",
+    "resources": {},
+    "expected": [
+      "empty",
+      "filled",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "dynamic default async finishes in load order",
+    "html": "<script>var a=document.createElement('script'),b=document.createElement('script');console.log(a.async,a.hasAttribute('async'));a.src='./slow.js';b.src='./fast.js';document.body.append(a,b);console.log('inserted');</script>",
+    "resources": {
+      "https://scripts.test/slow.js": {
+        "Source": "console.log(\"slow\")",
+        "Delay": 20
+      },
+      "https://scripts.test/fast.js": {
+        "Source": "console.log(\"fast\")",
+        "Delay": 2
+      }
+    },
+    "expected": [
+      "true false",
+      "inserted",
+      "dcl interactive",
+      "fast",
+      "slow",
+      "load complete"
+    ]
+  },
+  {
+    "name": "dynamic async false preserves insertion order",
+    "html": "<script>var a=document.createElement('script'),b=document.createElement('script');a.async=false;b.async=false;a.src='./slow.js';b.src='./fast.js';document.body.append(a,b);console.log(a.async,a.hasAttribute('async'));</script>",
+    "resources": {
+      "https://scripts.test/slow.js": {
+        "Source": "console.log(\"slow\")",
+        "Delay": 20
+      },
+      "https://scripts.test/fast.js": {
+        "Source": "console.log(\"fast\")",
+        "Delay": 2
+      }
+    },
+    "expected": [
+      "false false",
+      "dcl interactive",
+      "slow",
+      "fast",
+      "load complete"
+    ]
+  },
+  {
+    "name": "src added after connection prepares script",
+    "html": "<script>var s=document.createElement('script');s.onload=()=>console.log('element load');document.body.append(s);s.src='./added.js';console.log('url',s.src.endsWith('/added.js'));</script>",
+    "resources": {
+      "https://scripts.test/added.js": {
+        "Source": "console.log(\"added\")",
+        "Delay": 2
+      }
+    },
+    "expected": [
+      "url true",
+      "dcl interactive",
+      "added",
+      "element load",
+      "load complete"
+    ]
+  },
+  {
+    "name": "innerHTML and adjacent HTML scripts stay inert",
+    "html": "<script>var div=document.createElement('div');div.innerHTML='<scr'+'ipt>console.log(\"bad inner\")</scr'+'ipt>';document.body.append(div);div.insertAdjacentHTML('beforeend','<scr'+'ipt>console.log(\"bad adjacent\")</scr'+'ipt>');var s=div.querySelector('script');s.remove();document.body.append(s);console.log('inert');</script>",
+    "resources": {},
+    "expected": [
+      "inert",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "Range contextual fragment scripts execute on insertion",
+    "html": "<script>var range=document.createRange();range.selectNodeContents(document.body);var f=range.createContextualFragment('<scr'+'ipt>console.log(\"fragment\")</scr'+'ipt>');document.body.append(f);</script>",
+    "resources": {},
+    "expected": [
+      "fragment",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "unstarted clone runs independently",
+    "html": "<script>var s=document.createElement('script');s.text='console.log(\"copy\")';var c=s.cloneNode(true);document.body.append(s,c);</script>",
+    "resources": {},
+    "expected": [
+      "copy",
+      "copy",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "async attribute clears force async when removed",
+    "html": "<script>var s=document.createElement('script');console.log(s.async);s.setAttribute('async','');s.removeAttribute('async');console.log(s.async);s.defer=true;s.noModule=true;console.log(s.hasAttribute('defer'),s.hasAttribute('nomodule'));</script>",
+    "resources": {},
+    "expected": [
+      "true",
+      "false",
+      "true true",
+      "dcl interactive",
+      "load complete"
+    ]
+  },
+  {
+    "name": "script text excludes nested element text",
+    "html": "<script>var s=document.createElement('script');var e=document.createElement('span');e.textContent='console.log(\"bad descendant\")';s.append('console.log(\"child\")',e);console.log(s.text);document.body.append(s);</script>",
+    "resources": {},
+    "expected": [
+      "console.log(\"child\")",
+      "child",
+      "dcl interactive",
+      "load complete"
+    ]
+  }
+]

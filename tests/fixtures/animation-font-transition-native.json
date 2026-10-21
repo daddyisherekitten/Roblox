@@ -1,0 +1,119 @@
+{
+  "reference": "Isolated Chromium headless, paused native CSSTransition.currentTime; 9 October 2026",
+  "cases": [
+    {
+      "name": "unitless",
+      "css": "#box{font-size:20px;line-height:1;width:3em;transition:font-size 2s linear,line-height 2s linear}#box.active{font-size:40px;line-height:2}#leaf{width:3em;height:1em}",
+      "values": [
+        {
+          "font": "30px",
+          "line": "45px",
+          "width": 90,
+          "height": 30,
+          "durations": [
+            [
+              "font-size",
+              2000
+            ],
+            [
+              "line-height",
+              2000
+            ]
+          ]
+        },
+        {
+          "font": "25px",
+          "line": "31.25px",
+          "width": 75,
+          "height": 25,
+          "durations": [
+            [
+              "font-size",
+              1000
+            ],
+            [
+              "line-height",
+              1000
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "length",
+      "css": "#box{font-size:20px;line-height:20px;width:3em;transition:font-size 2s linear,line-height 2s linear}#box.active{font-size:40px;line-height:40px}#leaf{width:3em;height:1em}",
+      "values": [
+        {
+          "font": "30px",
+          "line": "30px",
+          "width": 90,
+          "height": 30,
+          "durations": [
+            [
+              "font-size",
+              2000
+            ],
+            [
+              "line-height",
+              2000
+            ]
+          ]
+        },
+        {
+          "font": "25px",
+          "line": "25px",
+          "width": 75,
+          "height": 25,
+          "durations": [
+            [
+              "font-size",
+              1000
+            ],
+            [
+              "line-height",
+              1000
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "percentage",
+      "css": "#box{font-size:20px;line-height:100%;width:3em;transition:font-size 2s linear,line-height 2s linear}#box.active{font-size:40px;line-height:200%}#leaf{width:3em;height:1em}",
+      "values": [
+        {
+          "font": "30px",
+          "line": "50px",
+          "width": 90,
+          "height": 30,
+          "durations": [
+            [
+              "font-size",
+              2000
+            ],
+            [
+              "line-height",
+              2000
+            ]
+          ]
+        },
+        {
+          "font": "25px",
+          "line": "35px",
+          "width": 75,
+          "height": 25,
+          "durations": [
+            [
+              "font-size",
+              1000
+            ],
+            [
+              "line-height",
+              1000
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

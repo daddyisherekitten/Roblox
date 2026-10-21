@@ -1,0 +1,1954 @@
+[
+  {
+    "source": "",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "none",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": " NONE /**/",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "matrix(1, 0, 0, 1, 0, 0)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "matrix(+1e0, -.5e1, 2E+0, 1, 3, 4)",
+    "values": [
+      1,
+      -5,
+      0,
+      0,
+      2,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      4,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(3px)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(-2px,4px)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      -2,
+      4,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translateX(1in)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      96,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translateY(2.54cm)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      96,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(25.4mm,101.6Q)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      96,
+      96,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(72pt,6pc)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      96,
+      96,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(0,-0)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(1px)scale(2)",
+    "values": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "scale(2)",
+    "values": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "scale(2,.5)",
+    "values": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0.5,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "scaleX(2)",
+    "values": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "scaleY(2)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "scale(50%,200%)",
+    "values": [
+      0.5,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "rotate(90deg)",
+    "values": [
+      6.123233995736766e-17,
+      1,
+      0,
+      0,
+      -1,
+      6.123233995736766e-17,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "ROTATE(100GRAD)",
+    "values": [
+      6.123233995736766e-17,
+      1,
+      0,
+      0,
+      -1,
+      6.123233995736766e-17,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "rotate(1e1deg)",
+    "values": [
+      0.984807753012208,
+      0.17364817766693033,
+      0,
+      0,
+      -0.17364817766693033,
+      0.984807753012208,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "rotate(.25turn)",
+    "values": [
+      6.123233995736766e-17,
+      1,
+      0,
+      0,
+      -1,
+      6.123233995736766e-17,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "rotate(1.5707963267948966rad)",
+    "values": [
+      6.123233995736766e-17,
+      1,
+      0,
+      0,
+      -1,
+      6.123233995736766e-17,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic",
+    "nativeTolerance": 1e-7
+  },
+  {
+    "source": "rotateZ(0deg)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translateZ(0)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "translate3d(1px,2px,3px)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      2,
+      3,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "scale3d(2,3,4)",
+    "values": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "scaleZ(1)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "rotateX(0deg)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "rotateY(0deg)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "rotate3d(0,0,0,10deg)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "rotate3d(0,0,1,90deg)",
+    "values": [
+      6.123233995736766e-17,
+      1,
+      0,
+      0,
+      -1,
+      6.123233995736766e-17,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "perspective(100px)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -0.01,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "perspective(none)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic",
+    "nativeSkipReason": "Chromium in-app browser crashes on DOMMatrix(\"perspective(none)\"); browser result is unverified."
+  },
+  {
+    "source": "perspective(0px)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "basic"
+  },
+  {
+    "source": "skewX(45deg)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "skew(0deg,45deg)",
+    "values": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(/**/3px/**/,/**/4px/**/)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      4,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "tr\\61nslate(3p\\78)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(calc(1px + 2px))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(calc((2px + 4px) / 2), min(2px,1px))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      1,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(clamp(2px,4px,3px),max(1px,2px))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      2,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "rotate(calc(.5turn - 90deg))",
+    "values": [
+      6.123233995736766e-17,
+      1,
+      0,
+      0,
+      -1,
+      6.123233995736766e-17,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "scale(calc(2 * 3), calc(6 / 3))",
+    "values": [
+      6,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "scale(calc(50% + 1))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(calc(2px * 3px / 1px))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      6,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "scale(calc(2px / 1px))",
+    "values": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "rotate(calc(pi * 1rad))",
+    "values": [
+      -1,
+      1.2246467991473532e-16,
+      0,
+      0,
+      -1.2246467991473532e-16,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "rotate(atan2(1,0))",
+    "values": [
+      6.123233995736766e-17,
+      1,
+      0,
+      0,
+      -1,
+      6.123233995736766e-17,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "translate(round(2.3px,1px))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      2,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "translate(abs(-4px),hypot(3px,4px))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      4,
+      5,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "scale(pow(2,3),sqrt(9))",
+    "values": [
+      8,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "translate(mod(-5px,3px),rem(-5px,3px))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      -2,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "rotate(asin(1))",
+    "values": [
+      6.123233995736766e-17,
+      1,
+      0,
+      0,
+      -1,
+      6.123233995736766e-17,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "scale(sin(90deg),cos(0rad))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px) translateX(1px)",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      25,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": " ",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "/*x*/",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "initial",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "none translate(1px)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "matrix(1 0 0 1 0 0)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "matrix(1,0,0,1,0)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "matrix(1,0,0,1,0,0,)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(1px,,2px)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(,1px)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate()",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(1px 2px)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "scale(2 3)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "skew(1deg 2deg)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "rotate(1)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "rotate(calc(0))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(calc(0))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(1%)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(0%)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(calc(1px + 0%))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(1em)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(1vw)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "perspective(-1px)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "scale(1px)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "rotate(1px)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(1deg)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate (1px)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate/**/(1px)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "rotate(calc(1deg+2deg))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "rotate(calc(1deg +2deg))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(calc(1px/**/+/**/2px))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(calc(1px + 2))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(calc(1px * 1px))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(var(--x))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(1px);",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "perspective()",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "rotate(1.deg)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "rotate(1e-deg)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(\"1px\")",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "skewX(1deg,2deg)",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "perspective(calc(-1px))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      -1,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": false,
+    "group": "advanced"
+  },
+  {
+    "source": "translate(1px",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(calc((1px + 2px",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "translate(1px/* unterminated",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "basic"
+  },
+  {
+    "source": "scale(mod(3,infinity))",
+    "values": [
+      3,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "scale(rem(-3,infinity))",
+    "values": [
+      -3,
+      0,
+      0,
+      0,
+      0,
+      -3,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "scale(mod(-3,infinity))",
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "scale(round(3,infinity))",
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "scale(calc(1 / round(up,3,infinity)))",
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "scale(calc(1 / round(down,-3,infinity)))",
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced"
+  },
+  {
+    "source": "scale(pow(NaN,0))",
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced",
+    "nativeDifference": "CSS Values 4 requires infectious NaN (final zero); this Chromium version returns one for this pow() case."
+  },
+  {
+    "source": "scale(pow(1,infinity))",
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced",
+    "nativeDifference": "CSS Values 4 requires infectious NaN (final zero); this Chromium version returns one for this pow() case."
+  },
+  {
+    "source": "scale(calc(1 + log(3,1)))",
+    "values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced",
+    "nativeDifference": "CSS Values 4 makes logarithm base one NaN (final zero); this Chromium version yields infinite scale components."
+  },
+  {
+    "source": "translate(",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(1px,",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(calc(1px +",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(1px))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "translate(calc(1px)))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "scale(calc(50% + 25%))",
+    "values": [
+      0.75,
+      0,
+      0,
+      0,
+      0,
+      0.75,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced",
+    "nativeDifference": "Valid CSS percentage math under CSS Values 4; this Chromium DOMMatrix parser rejects the expression with SyntaxError."
+  },
+  {
+    "source": "scale(calc(50% / 25%))",
+    "values": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced",
+    "nativeDifference": "Valid CSS percentage math under CSS Values 4; this Chromium DOMMatrix parser rejects the expression with SyntaxError."
+  },
+  {
+    "source": "scale(calc(50% * 2))",
+    "values": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced",
+    "nativeDifference": "Valid CSS percentage math under CSS Values 4; this Chromium DOMMatrix parser rejects the expression with SyntaxError."
+  },
+  {
+    "source": "scale(min(25%,50%))",
+    "values": [
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      0.25,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced",
+    "nativeDifference": "Valid CSS percentage math under CSS Values 4; this Chromium DOMMatrix parser rejects the expression with SyntaxError."
+  },
+  {
+    "source": "scale(sign(-50%))",
+    "values": [
+      -1,
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "is2D": true,
+    "group": "advanced",
+    "nativeDifference": "Valid CSS percentage math under CSS Values 4; this Chromium DOMMatrix parser rejects the expression with SyntaxError."
+  },
+  {
+    "source": "scale(calc(50% * 50%))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "scale(min(50%,1))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  },
+  {
+    "source": "scale(sin(50%))",
+    "error": "SyntaxError",
+    "group": "invalid"
+  }
+]

@@ -1,0 +1,5 @@
+--!strict
+-- Original RGBA image tile; decoded lazily by ImageCatalog.
+return {Width=32,Height=32,Bytes=4096,Data={
+	"KLUv/WAADyUQACIMLTFwidIB/P///////0lYx//TCDol7U0RAPo06wBoeAiTLKDwlJ90tfmJgih229vollKmLoIVWJpqsqTEKLBXKirpVtKYLFRw7tpYlQTDr82lse4w0fDJg8HLcDIHoDjUURgMjMXC8pcQUe5xubgMVAHPGW3MOpyIEcTIt2chWSc7AsSBJCFIpY0LERQq4m/0FeKrpFCnh6+TrwJ+QuemPj8bvte3+k4/m0MfT7s/7Qa1O3RntICgoIGqKklLw26QghEpq9UBcPClNNGIfuigEzgw2ETtg0xpH1xK50GlVB1MqSfEfhChlIgPLgoX2aBOuscO5jhLH8TktQ8+3aoPImPVB52qDEInrd8jFsjhHojmNRg5V/b7ckcJeU7BIIJNiAKwK8vBBW9MV9vxRwMHINetf4n2Z/AQ+MJjg83TPbj/9t1qDjBc22Sgla4BtAPGH9+XXu43GLDGP4PSm5/8ctEjAY7h37guyuYA5m3PWrJpz80f7N80yHjcQ6uhZ+ZFo+EM6LHMIHco+xY/GtEvsqDdAbQ27eDg/+/hNN24slfRXwmvvoNP6Hg9dNAf1xeT/YP+/Jw7y5tA2QvOj+130btOCPzuLcDYgTunQRocouHjuLw48nIRLP6d/+9gzd2hRTJePOz00VnrW2cgzY2RkxnXAyjEwfrd8zGfLs6M1DWMBg==",
+}}

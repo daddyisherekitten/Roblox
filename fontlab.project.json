@@ -1,0 +1,27 @@
+{
+  "name": "HTML Engine - Font Lab",
+  "globIgnorePaths": ["tests/fixtures/url-record-browser.json", "tests/fixtures/video-presentation-browser.json", "tests/fixtures/svg-regressions.zip"],
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "HTMLEngine": {
+        "$path": "src/HTMLEngine",
+        "Examples": { "$className": "Folder", "FontLab": { "$path": "examples/FontLab" } },
+        "Tests": { "$path": "tests" }
+      }
+    },
+    "StarterGui": {
+      "$properties": {
+        "ClipsDescendantsSupportsRotation": "Enabled"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Fonts": {
+          "$className": "Folder",
+          "FontLabDemo": { "$path": "examples/FontLab.client.luau" }
+        }
+      }
+    }
+  }
+}

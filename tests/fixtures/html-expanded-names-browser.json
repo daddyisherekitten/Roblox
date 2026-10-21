@@ -1,0 +1,769 @@
+{
+  "source": "function htmlExpandedNameChecks() {\n  const HTML='http://www.w3.org/1999/xhtml', records=[];\n  function run(name,action){try{records.push({name:name,value:action()});}catch(error){records.push({name:name,value:{error:error.name}});}}\n  function make(name,attributes,doc){const node=(doc||document).createElementNS(HTML,'h:'+name);for(const key of Object.keys(attributes||{}))node.setAttribute(key,attributes[key]);return node;}\n  for(const name of ['input','textarea','button','select','option','optgroup','form','fieldset','table','tbody','tr','td','ol','li','details','a','img','div','x-expanded-unknown'])run('interface-'+name,()=>{const n=make(name);return [n.constructor.name,n.nodeName,n.tagName,n.localName,n.prefix,n.namespaceURI];});\n  for(const mode of ['foreign','null','colon-local','uppercase'])run('negative-'+mode,()=>{const n=mode==='foreign'?document.createElementNS('urn:foreign','h:input'):mode==='null'?document.createElementNS(null,'input'):mode==='colon-local'?document.createElement('h:input'):document.createElementNS(HTML,'h:INPUT');return [n.constructor.name,n.localName,typeof n.value,typeof n.checkValidity];});\n  run('input-live-and-default',()=>{const n=make('input',{value:'initial'});n.value='typed';n.defaultValue='new';return [n.value,n.defaultValue,n.getAttribute('value'),n.type,n.size,n.tabIndex];});\n  run('input-selection',()=>{const n=make('input',{value:'abcdef'});n.setSelectionRange(1,4,'backward');return [n.selectionStart,n.selectionEnd,n.selectionDirection];});\n  run('input-reflection',()=>{const n=make('input');n.required=true;n.readOnly=true;n.disabled=true;n.maxLength=13;n.placeholder='hint';return [n.required,n.readOnly,n.disabled,n.maxLength,n.placeholder,n.getAttribute('required'),n.willValidate];});\n  run('input-validation',()=>{const n=make('input',{required:''});const before=n.validity.valueMissing;n.value='ok';n.setCustomValidity('bad');return [before,n.validity.customError,n.checkValidity(),n.validationMessage];});\n  run('input-number',()=>{const n=make('input',{type:'number',min:'1',step:'2',value:'3'});n.stepUp();return [n.value,n.valueAsNumber];});\n  run('textarea-live-and-default',()=>{const n=make('textarea');n.textContent='one\\r\\ntwo';n.value='typed';n.defaultValue='new';return [n.value,n.defaultValue,n.textContent,n.type,n.cols,n.rows,n.textLength];});\n  run('button-reflection',()=>{const n=make('button',{type:'button'});n.value='run';n.formMethod='post';return [n.type,n.value,n.formMethod,n.getAttribute('value')];});\n  run('form-owner-and-elements',()=>{const f=make('form',{id:'expanded-form'}),n=make('input',{name:'field',value:'one'}),other=make('input',{form:'expanded-form',name:'outside'});f.append(n);document.body.append(f,other);const result=[n.form===f,other.form===f,f.elements.length,f.elements[0]===n,f.field===n,f.outside===other,f.length];f.remove();other.remove();return result;});\n  run('form-reset',()=>{const f=make('form'),n=make('input',{value:'initial'}),t=make('textarea');t.textContent='default';f.append(n,t);n.value='typed';t.value='typed';f.reset();return [n.value,t.value];});\n  run('form-requestSubmit',()=>{const f=make('form'),b=make('button'),n=make('input',{type:'submit'});f.append(b,n);let count=0,submitter=false;f.addEventListener('submit',e=>{e.preventDefault();count++;submitter=e.submitter===n;});document.body.append(f);f.requestSubmit(n);f.remove();return [count,submitter];});\n  run('fieldset-first-legend',()=>{const f=make('fieldset',{disabled:''}),l=make('legend'),first=make('input'),second=make('input');l.append(first);f.append(l,second);return [first.willValidate,second.willValidate];});\n  run('foreign-fieldset-not-disabled',()=>{const f=document.createElementNS('urn:foreign','fieldset'),n=make('input');f.setAttribute('disabled','');f.append(n);return n.willValidate;});\n  run('foreign-form-not-owner',()=>{const f=document.createElementNS('urn:foreign','form'),n=make('input');f.append(n);return n.form===null;});\n  run('select-options-live',()=>{const n=make('select'),g=make('optgroup'),a=make('option',{value:'a'}),b=make('option',{value:'b'});a.textContent='Alpha';b.textContent='Beta';g.append(a,b);n.append(g);const initial=[n.options.length,n.value,n.selectedIndex,a.index,b.index];b.selected=true;initial.push(n.value,n.selectedIndex,a.selected,b.selected,b.text,b.label);return initial;});\n  run('option-form-owner',()=>{const f=make('form'),s=make('select'),o=make('option');s.append(o);f.append(s);return o.form===f;});\n  run('select-multiple',()=>{const n=make('select',{multiple:''}),a=make('option',{value:'a',selected:''}),b=make('option',{value:'b',selected:''});n.append(a,b);return [n.type,n.options.length,n.selectedOptions.length,n.value,n.selectedIndex];});\n  run('table-expanded-children',()=>{const n=make('table'),body=make('tbody'),row=make('tr'),cell=make('td');cell.colSpan=3;row.append(cell);body.append(row);n.append(body);return [n.rows.length,n.tBodies.length,row.cells.length,row.rowIndex,row.sectionRowIndex,cell.cellIndex,cell.colSpan];});\n  run('table-borrowed-method',()=>{const n=make('table');const row=HTMLTableElement.prototype.insertRow.call(n);const cell=HTMLTableRowElement.prototype.insertCell.call(row);return [n.rows.length,row.cells.length,row.localName,cell.localName];});\n  run('table-foreign-receiver',()=>{const n=document.createElementNS('urn:foreign','table');try{HTMLTableElement.prototype.insertRow.call(n);return 'accepted';}catch(error){return error.name;}});\n  run('list-reflection',()=>{const n=make('ol'),li=make('li');n.start=7;n.reversed=true;li.value=11;return [n.start,n.reversed,n.getAttribute('start'),li.value,li.getAttribute('value')];});\n  run('details-group',()=>{const a=make('details',{name:'expanded-group',open:''}),b=make('details',{name:'expanded-group'});document.body.append(a,b);b.open=true;const result=[a.open,b.open];a.remove();b.remove();return result;});\n  run('link-and-image-reflection',()=>{const a=make('a',{href:'/expanded'}),img=make('img',{alt:'caption'});return [a.href.endsWith('/expanded'),a.tabIndex,a.draggable,img.alt,img.draggable];});\n  run('clone-live-state',()=>{const n=make('input',{value:'initial'});n.value='typed';const c=n.cloneNode(true);return [c.value,c.defaultValue,c.nodeName,c.localName,c.prefix,c.namespaceURI];});\n  run('xml-document-controls',()=>{const d=document.implementation.createDocument(HTML,'h:html',null),n=make('input',{value:'one'},d);n.value='typed';return [n.constructor.name,n.nodeName,n.value,n.defaultValue,n.type];});\n  run('autonomous-prefixed-upgrade',()=>{class ExpandedProbe extends HTMLElement{constructor(){super();this.upgraded=17;}}customElements.define('x-expanded-probe',ExpandedProbe);const n=make('x-expanded-probe');return [n instanceof ExpandedProbe,n.upgraded,n.localName,n.prefix];});\n  run('prefixed-upgrade-existing',()=>{const n=make('x-expanded-existing');document.body.append(n);class ExistingProbe extends HTMLElement{connectedCallback(){this.connected=1;}}customElements.define('x-expanded-existing',ExistingProbe);const result=[n instanceof ExistingProbe,n.connected,n.localName,n.prefix];n.remove();return result;});\n  run('formdata-expanded-controls',()=>{const f=make('form'),n=make('input',{name:'field',value:'one'}),s=make('select',{name:'choice'}),o=make('option',{value:'a',selected:''}),b=make('button',{name:'submit',value:'send'});s.append(o);f.append(n,s,b);n.value='typed';return Array.from(new FormData(f,b).entries());});\n  run('formdata-prefixed-datalist-exclusion',()=>{const f=make('form'),l=make('datalist'),n=make('input',{name:'excluded',value:'one'}),kept=make('input',{name:'kept',value:'two'});l.append(n);f.append(l,kept);return Array.from(new FormData(f).entries());});\n  run('formdata-unprefixed-datalist-control',()=>{const f=make('form'),l=document.createElement('datalist'),n=make('input',{name:'excluded',value:'one'}),kept=make('input',{name:'kept',value:'two'});l.append(n);f.append(l,kept);return Array.from(new FormData(f).entries());});\n  run('formdata-unprefixed-input-control',()=>{const f=make('form'),l=document.createElement('datalist'),n=document.createElement('input'),kept=make('input',{name:'kept',value:'two'});n.name='excluded';n.value='one';l.append(n);f.append(l,kept);return Array.from(new FormData(f).entries());});\n  run('form-named-radio-list',()=>{const f=make('form'),a=make('input',{name:'group',type:'radio',value:'a'}),b=make('input',{name:'group',type:'radio',value:'b'});f.append(a,b);f.group.value='b';return [f.group.length,f.group.value,a.checked,b.checked];});\n  run('document-window-named-form',()=>{const f=make('form',{name:'expandedNamedForm'});document.body.append(f);const value=[document.expandedNamedForm===f,window.expandedNamedForm===f];f.remove();return value;});\n  run('mutation-keeps-qualified-source-name',()=>{const n=make('input'),observer=new MutationObserver(()=>{});observer.observe(n,{attributes:true,attributeOldValue:true});n.required=true;n.name='expanded';const records=observer.takeRecords().map(r=>[r.type,r.attributeName,r.oldValue,r.target===n]);observer.disconnect();return [n.nodeName,n.localName,n.prefix,records];});\n  run('custom-prefixed-observed-attributes',()=>{let calls=[];class ObservedProbe extends HTMLElement{static get observedAttributes(){return ['data-x'];}attributeChangedCallback(name,oldValue,value){calls.push([name,oldValue,value,this.localName,this.prefix]);}}customElements.define('x-expanded-observed',ObservedProbe);const n=make('x-expanded-observed');n.setAttribute('data-x','one');n.removeAttribute('data-x');return calls;});\n  run('form-associated-prefixed-custom-element',()=>{class FormProbe extends HTMLElement{static formAssociated=true;constructor(){super();this.internals=this.attachInternals();this.internals.setFormValue('custom');}}customElements.define('x-expanded-face',FormProbe);const f=make('form'),n=make('x-expanded-face',{name:'custom-field'});f.append(n);document.body.append(f);const value=[n.internals.form===f,f.elements.length,Array.from(new FormData(f).entries())];f.remove();return value;});\n  return records;\n}\nfunction htmlExpandedPseudoChecks(){\n  const H='http://www.w3.org/1999/xhtml',records=[];\n  function check(name,ns,local,attrs,pseudos){const n=document.createElementNS(ns,(ns===H?'h:':'')+local);for(const key of Object.keys(attrs))n.setAttribute(key,attrs[key]);records.push({name:name,value:pseudos.map(p=>n.matches(p))});}\n  check('input-states',H,'input',{required:'',disabled:'',placeholder:'hint'},[':required',':optional',':disabled',':enabled',':read-only',':read-write',':placeholder-shown',':invalid',':valid']);\n  check('checked-radio',H,'input',{type:'radio',checked:''},[':checked',':indeterminate',':defined']);\n  check('option-selected',H,'option',{selected:''},[':checked',':disabled',':enabled',':defined']);\n  check('details-open',H,'details',{open:''},[':open',':defined']);check('link',H,'a',{href:'#'},[':link',':any-link',':defined']);\n  check('progress-empty',H,'progress',{},[':indeterminate',':defined']);\n  check('foreign-input', 'urn:foreign','input',{required:'',disabled:'',checked:''},[':required',':optional',':disabled',':enabled',':checked',':defined',':read-only']);\n  check('null-details',null,'details',{open:''},[':open',':defined']);\n  return records;\n}\n",
+  "records": [
+    {
+      "name": "interface-input",
+      "value": [
+        "HTMLInputElement",
+        "H:INPUT",
+        "H:INPUT",
+        "input",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLInputElement\",\"H:INPUT\",\"H:INPUT\",\"input\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-textarea",
+      "value": [
+        "HTMLTextAreaElement",
+        "H:TEXTAREA",
+        "H:TEXTAREA",
+        "textarea",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLTextAreaElement\",\"H:TEXTAREA\",\"H:TEXTAREA\",\"textarea\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-button",
+      "value": [
+        "HTMLButtonElement",
+        "H:BUTTON",
+        "H:BUTTON",
+        "button",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLButtonElement\",\"H:BUTTON\",\"H:BUTTON\",\"button\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-select",
+      "value": [
+        "HTMLSelectElement",
+        "H:SELECT",
+        "H:SELECT",
+        "select",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLSelectElement\",\"H:SELECT\",\"H:SELECT\",\"select\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-option",
+      "value": [
+        "HTMLOptionElement",
+        "H:OPTION",
+        "H:OPTION",
+        "option",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLOptionElement\",\"H:OPTION\",\"H:OPTION\",\"option\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-optgroup",
+      "value": [
+        "HTMLOptGroupElement",
+        "H:OPTGROUP",
+        "H:OPTGROUP",
+        "optgroup",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLOptGroupElement\",\"H:OPTGROUP\",\"H:OPTGROUP\",\"optgroup\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-form",
+      "value": [
+        "HTMLFormElement",
+        "H:FORM",
+        "H:FORM",
+        "form",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLFormElement\",\"H:FORM\",\"H:FORM\",\"form\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-fieldset",
+      "value": [
+        "HTMLFieldSetElement",
+        "H:FIELDSET",
+        "H:FIELDSET",
+        "fieldset",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLFieldSetElement\",\"H:FIELDSET\",\"H:FIELDSET\",\"fieldset\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-table",
+      "value": [
+        "HTMLTableElement",
+        "H:TABLE",
+        "H:TABLE",
+        "table",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLTableElement\",\"H:TABLE\",\"H:TABLE\",\"table\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-tbody",
+      "value": [
+        "HTMLTableSectionElement",
+        "H:TBODY",
+        "H:TBODY",
+        "tbody",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLTableSectionElement\",\"H:TBODY\",\"H:TBODY\",\"tbody\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-tr",
+      "value": [
+        "HTMLTableRowElement",
+        "H:TR",
+        "H:TR",
+        "tr",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLTableRowElement\",\"H:TR\",\"H:TR\",\"tr\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-td",
+      "value": [
+        "HTMLTableCellElement",
+        "H:TD",
+        "H:TD",
+        "td",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLTableCellElement\",\"H:TD\",\"H:TD\",\"td\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-ol",
+      "value": [
+        "HTMLOListElement",
+        "H:OL",
+        "H:OL",
+        "ol",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLOListElement\",\"H:OL\",\"H:OL\",\"ol\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-li",
+      "value": [
+        "HTMLLIElement",
+        "H:LI",
+        "H:LI",
+        "li",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLLIElement\",\"H:LI\",\"H:LI\",\"li\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-details",
+      "value": [
+        "HTMLDetailsElement",
+        "H:DETAILS",
+        "H:DETAILS",
+        "details",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLDetailsElement\",\"H:DETAILS\",\"H:DETAILS\",\"details\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-a",
+      "value": [
+        "HTMLAnchorElement",
+        "H:A",
+        "H:A",
+        "a",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLAnchorElement\",\"H:A\",\"H:A\",\"a\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-img",
+      "value": [
+        "HTMLImageElement",
+        "H:IMG",
+        "H:IMG",
+        "img",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLImageElement\",\"H:IMG\",\"H:IMG\",\"img\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-div",
+      "value": [
+        "HTMLDivElement",
+        "H:DIV",
+        "H:DIV",
+        "div",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLDivElement\",\"H:DIV\",\"H:DIV\",\"div\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "interface-x-expanded-unknown",
+      "value": [
+        "HTMLElement",
+        "H:X-EXPANDED-UNKNOWN",
+        "H:X-EXPANDED-UNKNOWN",
+        "x-expanded-unknown",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"HTMLElement\",\"H:X-EXPANDED-UNKNOWN\",\"H:X-EXPANDED-UNKNOWN\",\"x-expanded-unknown\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "negative-foreign",
+      "value": [
+        "Element",
+        "input",
+        "undefined",
+        "undefined"
+      ],
+      "json": "[\"Element\",\"input\",\"undefined\",\"undefined\"]"
+    },
+    {
+      "name": "negative-null",
+      "value": [
+        "Element",
+        "input",
+        "undefined",
+        "undefined"
+      ],
+      "json": "[\"Element\",\"input\",\"undefined\",\"undefined\"]"
+    },
+    {
+      "name": "negative-colon-local",
+      "value": [
+        "HTMLUnknownElement",
+        "h:input",
+        "undefined",
+        "undefined"
+      ],
+      "json": "[\"HTMLUnknownElement\",\"h:input\",\"undefined\",\"undefined\"]"
+    },
+    {
+      "name": "negative-uppercase",
+      "value": [
+        "HTMLUnknownElement",
+        "INPUT",
+        "undefined",
+        "undefined"
+      ],
+      "json": "[\"HTMLUnknownElement\",\"INPUT\",\"undefined\",\"undefined\"]"
+    },
+    {
+      "name": "input-live-and-default",
+      "value": [
+        "typed",
+        "new",
+        "new",
+        "text",
+        20,
+        0
+      ],
+      "json": "[\"typed\",\"new\",\"new\",\"text\",20,0]"
+    },
+    {
+      "name": "input-selection",
+      "value": [
+        1,
+        4,
+        "backward"
+      ],
+      "json": "[1,4,\"backward\"]"
+    },
+    {
+      "name": "input-reflection",
+      "value": [
+        true,
+        true,
+        true,
+        13,
+        "hint",
+        "",
+        false
+      ],
+      "json": "[true,true,true,13,\"hint\",\"\",false]"
+    },
+    {
+      "name": "input-validation",
+      "value": [
+        true,
+        true,
+        false,
+        "bad"
+      ],
+      "json": "[true,true,false,\"bad\"]"
+    },
+    {
+      "name": "input-number",
+      "value": [
+        "5",
+        5
+      ],
+      "json": "[\"5\",5]"
+    },
+    {
+      "name": "textarea-live-and-default",
+      "value": [
+        "typed",
+        "new",
+        "new",
+        "textarea",
+        20,
+        2,
+        5
+      ],
+      "json": "[\"typed\",\"new\",\"new\",\"textarea\",20,2,5]"
+    },
+    {
+      "name": "button-reflection",
+      "value": [
+        "button",
+        "run",
+        "post",
+        "run"
+      ],
+      "json": "[\"button\",\"run\",\"post\",\"run\"]"
+    },
+    {
+      "name": "form-owner-and-elements",
+      "value": [
+        true,
+        true,
+        2,
+        true,
+        true,
+        true,
+        2
+      ],
+      "json": "[true,true,2,true,true,true,2]"
+    },
+    {
+      "name": "form-reset",
+      "value": [
+        "initial",
+        "default"
+      ],
+      "json": "[\"initial\",\"default\"]"
+    },
+    {
+      "name": "form-requestSubmit",
+      "value": [
+        1,
+        true
+      ],
+      "json": "[1,true]"
+    },
+    {
+      "name": "fieldset-first-legend",
+      "value": [
+        true,
+        false
+      ],
+      "json": "[true,false]"
+    },
+    {
+      "name": "foreign-fieldset-not-disabled",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "foreign-form-not-owner",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "select-options-live",
+      "value": [
+        2,
+        "a",
+        0,
+        0,
+        1,
+        "b",
+        1,
+        false,
+        true,
+        "Beta",
+        "Beta"
+      ],
+      "json": "[2,\"a\",0,0,1,\"b\",1,false,true,\"Beta\",\"Beta\"]"
+    },
+    {
+      "name": "option-form-owner",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "select-multiple",
+      "value": [
+        "select-multiple",
+        2,
+        2,
+        "a",
+        0
+      ],
+      "json": "[\"select-multiple\",2,2,\"a\",0]"
+    },
+    {
+      "name": "table-expanded-children",
+      "value": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        3
+      ],
+      "json": "[1,1,1,0,0,0,3]"
+    },
+    {
+      "name": "table-borrowed-method",
+      "value": [
+        1,
+        1,
+        "tr",
+        "td"
+      ],
+      "json": "[1,1,\"tr\",\"td\"]"
+    },
+    {
+      "name": "table-foreign-receiver",
+      "value": "TypeError",
+      "json": "\"TypeError\""
+    },
+    {
+      "name": "list-reflection",
+      "value": [
+        7,
+        true,
+        "7",
+        11,
+        "11"
+      ],
+      "json": "[7,true,\"7\",11,\"11\"]"
+    },
+    {
+      "name": "details-group",
+      "value": [
+        false,
+        true
+      ],
+      "json": "[false,true]"
+    },
+    {
+      "name": "link-and-image-reflection",
+      "value": [
+        true,
+        0,
+        true,
+        "caption",
+        true
+      ],
+      "json": "[true,0,true,\"caption\",true]"
+    },
+    {
+      "name": "clone-live-state",
+      "value": [
+        "typed",
+        "initial",
+        "H:INPUT",
+        "input",
+        "h",
+        "http://www.w3.org/1999/xhtml"
+      ],
+      "json": "[\"typed\",\"initial\",\"H:INPUT\",\"input\",\"h\",\"http://www.w3.org/1999/xhtml\"]"
+    },
+    {
+      "name": "xml-document-controls",
+      "value": [
+        "HTMLInputElement",
+        "h:input",
+        "typed",
+        "one",
+        "text"
+      ],
+      "json": "[\"HTMLInputElement\",\"h:input\",\"typed\",\"one\",\"text\"]"
+    },
+    {
+      "name": "autonomous-prefixed-upgrade",
+      "value": [
+        true,
+        17,
+        "x-expanded-probe",
+        "h"
+      ],
+      "json": "[true,17,\"x-expanded-probe\",\"h\"]"
+    },
+    {
+      "name": "prefixed-upgrade-existing",
+      "value": [
+        true,
+        1,
+        "x-expanded-existing",
+        "h"
+      ],
+      "json": "[true,1,\"x-expanded-existing\",\"h\"]"
+    },
+    {
+      "name": "formdata-expanded-controls",
+      "value": [
+        [
+          "field",
+          "typed"
+        ],
+        [
+          "choice",
+          "a"
+        ],
+        [
+          "submit",
+          "send"
+        ]
+      ],
+      "json": "[[\"field\",\"typed\"],[\"choice\",\"a\"],[\"submit\",\"send\"]]"
+    },
+    {
+      "name": "formdata-prefixed-datalist-exclusion",
+      "value": [
+        [
+          "excluded",
+          "one"
+        ],
+        [
+          "kept",
+          "two"
+        ]
+      ],
+      "json": "[[\"excluded\",\"one\"],[\"kept\",\"two\"]]"
+    },
+    {
+      "name": "formdata-unprefixed-datalist-control",
+      "value": [
+        [
+          "excluded",
+          "one"
+        ],
+        [
+          "kept",
+          "two"
+        ]
+      ],
+      "json": "[[\"excluded\",\"one\"],[\"kept\",\"two\"]]"
+    },
+    {
+      "name": "formdata-unprefixed-input-control",
+      "value": [
+        [
+          "excluded",
+          "one"
+        ],
+        [
+          "kept",
+          "two"
+        ]
+      ],
+      "json": "[[\"excluded\",\"one\"],[\"kept\",\"two\"]]"
+    },
+    {
+      "name": "form-named-radio-list",
+      "value": [
+        2,
+        "b",
+        false,
+        true
+      ],
+      "json": "[2,\"b\",false,true]"
+    },
+    {
+      "name": "document-window-named-form",
+      "value": [
+        true,
+        true
+      ],
+      "json": "[true,true]"
+    },
+    {
+      "name": "mutation-keeps-qualified-source-name",
+      "value": [
+        "H:INPUT",
+        "input",
+        "h",
+        [
+          [
+            "attributes",
+            "required",
+            null,
+            true
+          ],
+          [
+            "attributes",
+            "name",
+            null,
+            true
+          ]
+        ]
+      ],
+      "json": "[\"H:INPUT\",\"input\",\"h\",[[\"attributes\",\"required\",null,true],[\"attributes\",\"name\",null,true]]]"
+    },
+    {
+      "name": "custom-prefixed-observed-attributes",
+      "value": [
+        [
+          "data-x",
+          null,
+          "one",
+          "x-expanded-observed",
+          "h"
+        ],
+        [
+          "data-x",
+          "one",
+          null,
+          "x-expanded-observed",
+          "h"
+        ]
+      ],
+      "json": "[[\"data-x\",null,\"one\",\"x-expanded-observed\",\"h\"],[\"data-x\",\"one\",null,\"x-expanded-observed\",\"h\"]]"
+    },
+    {
+      "name": "form-associated-prefixed-custom-element",
+      "value": [
+        true,
+        1,
+        [
+          [
+            "custom-field",
+            "custom"
+          ]
+        ]
+      ],
+      "json": "[true,1,[[\"custom-field\",\"custom\"]]]"
+    }
+  ],
+  "pseudos": [
+    {
+      "name": "input-states",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[true,false,true,false,true,false,true,false,false]"
+    },
+    {
+      "name": "checked-radio",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "option-selected",
+      "value": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "json": "[true,false,true,true]"
+    },
+    {
+      "name": "details-open",
+      "value": [
+        true,
+        true
+      ],
+      "json": "[true,true]"
+    },
+    {
+      "name": "link",
+      "value": [
+        true,
+        true,
+        true
+      ],
+      "json": "[true,true,true]"
+    },
+    {
+      "name": "progress-empty",
+      "value": [
+        true,
+        true
+      ],
+      "json": "[true,true]"
+    },
+    {
+      "name": "foreign-input",
+      "value": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false
+      ],
+      "json": "[false,false,false,false,false,true,false]"
+    },
+    {
+      "name": "null-details",
+      "value": [
+        false,
+        true
+      ],
+      "json": "[false,true]"
+    }
+  ],
+  "normative": {
+    "formdata-prefixed-datalist-exclusion": {
+      "json": "[[\"kept\",\"two\"]]",
+      "reference": "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#constructing-the-entry-list",
+      "reason": "Step 5.1 excludes any field with a datalist element ancestor; element types use HTML namespace and local name irrespective of prefix."
+    },
+    "formdata-unprefixed-datalist-control": {
+      "json": "[[\"kept\",\"two\"]]",
+      "reference": "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#constructing-the-entry-list",
+      "reason": "Step 5.1 excludes any field with a datalist element ancestor; element types use HTML namespace and local name irrespective of prefix."
+    },
+    "formdata-unprefixed-input-control": {
+      "json": "[[\"kept\",\"two\"]]",
+      "reference": "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#constructing-the-entry-list",
+      "reason": "Step 5.1 excludes any field with a datalist element ancestor; element types use HTML namespace and local name irrespective of prefix."
+    }
+  },
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "references": [
+    "https://html.spec.whatwg.org/multipage/infrastructure.html#xml-compatibility",
+    "https://dom.spec.whatwg.org/#concept-element-qualified-name",
+    "https://html.spec.whatwg.org/multipage/custom-elements.html#look-up-a-custom-element-definition"
+  ]
+}

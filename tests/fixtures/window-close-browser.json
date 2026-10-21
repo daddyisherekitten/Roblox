@@ -1,0 +1,308 @@
+{
+  "captured": "2026-10-16T04:54:48.080Z",
+  "target": {
+    "targetDate": "2026-10-06",
+    "commit": "ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c",
+    "commitDate": "2026-10-06T09:12:18Z",
+    "source": "https://raw.githubusercontent.com/whatwg/html/ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c/source",
+    "sha256": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f"
+  },
+  "currentSpecification": {
+    "url": "https://html.spec.whatwg.org/multipage/nav-history-apis.html#dom-window-close",
+    "checked": "2026-10-16",
+    "observedLastUpdated": "2026-10-14"
+  },
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.80",
+    "revision": "@43a195105613ac83c21d3f14de279f4a045c7da0",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.23"
+  },
+  "profile": "Ordinary isolated Chrome; actual HTTP popup and CDP trusted mouse dispatch. Raw values retained. CDP Target.closeTarget is a forced harness disposal, not a browser close-button semantic claim.",
+  "cases": [
+    {
+      "name": "opener unguarded",
+      "trace": [
+        {
+          "phase": "beforeunload",
+          "childClosed": false,
+          "openerClosed": false,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "opener sync",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "close-reference-1",
+          "href": "http://127.0.0.1:58694/child?case=1"
+        },
+        {
+          "phase": "beforeunload",
+          "childClosed": true,
+          "openerClosed": true,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "opener repeat",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "close-reference-1",
+          "href": "http://127.0.0.1:58694/child?case=1"
+        },
+        {
+          "phase": "opener microtask",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "close-reference-1",
+          "href": "http://127.0.0.1:58694/child?case=1"
+        },
+        {
+          "phase": "unload",
+          "childClosed": true,
+          "openerClosed": true,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "opener task",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "",
+          "href": "http://127.0.0.1:58694/child?case=1"
+        }
+      ],
+      "physicallyOpen": false,
+      "closed": true
+    },
+    {
+      "name": "self unguarded",
+      "trace": [
+        {
+          "phase": "beforeunload",
+          "childClosed": false,
+          "openerClosed": false,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "self sync",
+          "childClosed": true,
+          "openerClosed": true,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "self microtask",
+          "childClosed": true,
+          "openerClosed": true,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "unload",
+          "childClosed": true,
+          "openerClosed": true,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        }
+      ],
+      "physicallyOpen": false,
+      "closed": true
+    },
+    {
+      "name": "beforeunload cancel then retry",
+      "dialogHandled": true,
+      "trace": [
+        {
+          "phase": "beforeunload",
+          "childClosed": false,
+          "openerClosed": false,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "guard sync",
+          "closed": false,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        },
+        {
+          "phase": "guard microtask",
+          "closed": false,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        },
+        {
+          "phase": "guard task",
+          "closed": false,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        }
+      ],
+      "closedAfterAnswer": false,
+      "physicallyOpenAfterAnswer": true,
+      "retryTrace": [
+        {
+          "phase": "beforeunload",
+          "childClosed": false,
+          "openerClosed": false,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "guard sync",
+          "closed": false,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        },
+        {
+          "phase": "guard microtask",
+          "closed": false,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        },
+        {
+          "phase": "guard task",
+          "closed": false,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        },
+        {
+          "phase": "after cancel",
+          "closed": false,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        },
+        {
+          "phase": "beforeunload",
+          "childClosed": false,
+          "openerClosed": false,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "retry sync",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        },
+        {
+          "phase": "retry microtask",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        },
+        {
+          "phase": "retry task",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "close-reference-3",
+          "href": "http://127.0.0.1:58694/child?case=3"
+        },
+        {
+          "phase": "unload",
+          "childClosed": true,
+          "openerClosed": true,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        }
+      ],
+      "closedAfterRetry": true,
+      "physicallyOpenAfterRetry": false
+    },
+    {
+      "name": "beforeunload accept",
+      "dialogHandled": true,
+      "trace": [
+        {
+          "phase": "beforeunload",
+          "childClosed": false,
+          "openerClosed": false,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "guard sync",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "close-reference-4",
+          "href": "http://127.0.0.1:58694/child?case=4"
+        },
+        {
+          "phase": "guard microtask",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "close-reference-4",
+          "href": "http://127.0.0.1:58694/child?case=4"
+        },
+        {
+          "phase": "guard task",
+          "closed": true,
+          "documentAvailable": true,
+          "name": "close-reference-4",
+          "href": "http://127.0.0.1:58694/child?case=4"
+        },
+        {
+          "phase": "unload",
+          "childClosed": true,
+          "openerClosed": true,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        }
+      ],
+      "closedAfterAnswer": true,
+      "physicallyOpenAfterAnswer": false
+    },
+    {
+      "name": "forced disposal during beforeunload",
+      "targetClose": {
+        "success": true
+      },
+      "callReturned": true,
+      "trace": [
+        {
+          "phase": "beforeunload",
+          "childClosed": false,
+          "openerClosed": false,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        },
+        {
+          "phase": "forced sync",
+          "closed": false,
+          "documentAvailable": true,
+          "name": "close-reference-5",
+          "href": "http://127.0.0.1:58694/child?case=5"
+        },
+        {
+          "phase": "forced microtask",
+          "closed": false,
+          "documentAvailable": true,
+          "name": "close-reference-5",
+          "href": "http://127.0.0.1:58694/child?case=5"
+        },
+        {
+          "phase": "unload",
+          "childClosed": false,
+          "openerClosed": false,
+          "ownDocumentAvailable": true,
+          "openerDocumentAvailable": true
+        }
+      ],
+      "closed": true,
+      "physicallyOpen": false
+    }
+  ]
+}

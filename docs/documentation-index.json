@@ -1,0 +1,1319 @@
+{
+  "schema": "documentation-index/v1",
+  "date": "2026-10-06",
+  "purpose": "Document navigation and ownership only; not a feature-conformance register.",
+  "authorities": {
+    "entry": "README.md",
+    "index": "docs/README.md",
+    "plan": "PLAN.md",
+    "architecture": "docs/ARCHITECTURE.md",
+    "handoff": "docs/AI-HANDOFF.md",
+    "reviews": "docs/PROJECT-REVIEW.md",
+    "html": "docs/HTML-COMPLETION.md",
+    "css": "docs/CSS-COMPLETION.md",
+    "javascript": "docs/JAVASCRIPT-IMPLEMENTATION.md",
+    "javascript-plan": "docs/JAVASCRIPT-ROADMAP.md",
+    "svg": "docs/SVG-SUPPORT.md",
+    "svg-plan": "docs/SVG-PLAN.md"
+  },
+  "domains": {
+    "documentation": "Einstieg und Dokumentationspflege",
+    "workflow": "Arbeitsregeln und Übergabe",
+    "architecture": "Architektur",
+    "html": "HTML und Dokumente",
+    "css": "CSS und Layout",
+    "javascript": "JavaScript und Browser APIs",
+    "svg": "SVG",
+    "resources": "Bilder Grafik und Medien",
+    "input": "Eingabe und Formulare",
+    "text": "Schriften und Text",
+    "performance": "Layoutarbeit Laden und Lebenszyklus",
+    "websites": "Websitequellen und Demos",
+    "history": "Historische Prüfungen und Originale"
+  },
+  "strictDocuments": [
+    "docs/history/2026-10-06/README.md"
+  ],
+  "documents": [
+    {
+      "path": "docs/WAYLINE.md",
+      "title": "Wayline browser integration and persistence",
+      "domain": "architecture",
+      "kind": "profile",
+      "assessment": "scoped-reviewed",
+      "owner": "docs/ARCHITECTURE.md"
+    },
+    {
+      "path": "docs/CSS-ATELIER-20261007.md",
+      "title": "CSS Atelier: Roblox-Vergleich und Ausbauprofil",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-reviewed",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "PLAN.md",
+      "title": "Arbeitsplan und gemeinsame Regeln",
+      "domain": "workflow",
+      "kind": "plan",
+      "assessment": "navigation",
+      "owner": "PLAN.md"
+    },
+    {
+      "path": "README.md",
+      "title": "Roblox HTML Engine",
+      "domain": "documentation",
+      "kind": "entry",
+      "assessment": "navigation",
+      "owner": "README.md"
+    },
+    {
+      "path": "docs/AI-HANDOFF.md",
+      "title": "Aktuelle Übergabe",
+      "domain": "workflow",
+      "kind": "handoff",
+      "assessment": "navigation",
+      "owner": "docs/AI-HANDOFF.md"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "title": "Architektur der HTML Engine",
+      "domain": "architecture",
+      "kind": "architecture",
+      "assessment": "navigation",
+      "owner": "docs/ARCHITECTURE.md"
+    },
+    {
+      "path": "docs/ASPECT-RATIO.md",
+      "title": "aspect-ratio",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/AUDIT-COVERAGE-2026-09-21.md",
+      "title": "Katalogabgleich, 21. September 2026",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/AUDIT-LAYOUT-2026-09-21.md",
+      "title": "Layout- und CSS-Audit, 21. September 2026",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/AUDIT-LIFECYCLE-2026-09-21.md",
+      "title": "Audit: DOM, HTML, Eingabe und Seitenlebenszyklus — 21.09.2026",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/AUDIT-RENDERING-2026-09-21.md",
+      "title": "Rendering- und SVG-Audit – 21.09.2026",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/BORDER-CORNERS.md",
+      "title": "Diagonale Rahmenübergänge",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/BORDER-SIDES.md",
+      "title": "Einzelne Rahmenkanten",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/BOX-SHADOW.md",
+      "title": "Kartenschatten",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CANVAS.md",
+      "title": "Canvas 2D",
+      "domain": "resources",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/CODE-REVIEW.md",
+      "title": "Codeprüfung",
+      "domain": "history",
+      "kind": "historical-profile",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/COLORS.md",
+      "title": "Farben und Transparenz",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CSS-BACKGROUNDS.md",
+      "title": "CSS-Hintergrundbilder",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CSS-COMPLETION.md",
+      "title": "CSS Abdeckung und verbleibender Abgleich",
+      "domain": "css",
+      "kind": "coverage",
+      "assessment": "navigation",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CSS-EXPANSION-ROADMAP.md",
+      "title": "CSS-Erweiterungsplan",
+      "domain": "css",
+      "kind": "historical-plan",
+      "assessment": "historical",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CSS-FINAL-BLOCKS.md",
+      "title": "Die sechs abschließenden CSS-Blöcke",
+      "domain": "css",
+      "kind": "historical-profile",
+      "assessment": "needs-reconciliation",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CSS-GAPS-20261006.md",
+      "title": "CSS: vollständiger datierter Referenzbestand und offene Teilprofile",
+      "domain": "css",
+      "kind": "coverage",
+      "assessment": "scoped-reviewed",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CSS-MOTION.md",
+      "title": "CSS-Übergänge und Animationen",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CSS-TRANSFORMS.md",
+      "title": "CSS-Transformationen in 2D und 3D",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CSS-VISUAL-LIMITS.md",
+      "title": "Flächen, Masken, Rahmen und Schatten",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/CURSORS.md",
+      "title": "Mauszeiger",
+      "domain": "input",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/DETAILS.md",
+      "title": "Aufklappbare Bereiche",
+      "domain": "input",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/DIALOG.md",
+      "title": "Dialoge",
+      "domain": "input",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/DIRTY-LAYOUT.md",
+      "title": "Dirty-Layout: zweite Stufe",
+      "domain": "performance",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/DOCUMENT-METADATA.md",
+      "title": "Dokumentkopf und Metadaten",
+      "domain": "html",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/FLEXBOX.md",
+      "title": "Flexbox: Ausrichtung und flexible Größen",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/FONT-RESEARCH.md",
+      "title": "Roblox-Schriften: Recherche und Vergleichstest",
+      "domain": "text",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/FORMS.md",
+      "title": "Formulare und Eingabe – erster Teilumfang",
+      "domain": "input",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/HTML-COMPLETION.md",
+      "title": "HTML Abdeckung und verbleibender Abgleich",
+      "domain": "html",
+      "kind": "coverage",
+      "assessment": "navigation",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/HTML-INPUT-TYPES-20261006.md",
+      "title": "Eingabetypen und Auswahlfenster",
+      "domain": "html",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/HTML-PARSER-ATTRIBUTES-20261006.md",
+      "title": "Dokumentparser und Attributnachweise",
+      "domain": "html",
+      "kind": "profile",
+      "assessment": "scoped-reviewed",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/HTML-SUPPORT.md",
+      "title": "HTML-Grundparser: aktueller Umfang",
+      "domain": "html",
+      "kind": "profile",
+      "assessment": "needs-reconciliation",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/IFRAMES.md",
+      "title": "Eingebettete Dokumente",
+      "domain": "resources",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/IMAGE-FILTERS.md",
+      "title": "Bildfilter",
+      "domain": "resources",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/IMAGES.md",
+      "title": "Bildquellen",
+      "domain": "resources",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-ANIMATION-COMMIT.md",
+      "title": "Animation.commitStyles",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-ANIMATION-LAYOUT.md",
+      "title": "WAAPI: Layoutwerte und zusammengesetzte Effekte",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-API-REGISTER.md",
+      "title": "JavaScript API- und Statusregister",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-AUDIO-20261006.md",
+      "title": "JavaScript-Audio · 6. Oktober 2026",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-COMPONENTS.md",
+      "title": "Shadow DOM and custom elements",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-CSS-ANIMATIONS-20261005.md",
+      "title": "CSSOM, Verschachtelung und Animationen: Ausbau vom 5. Oktober 2026",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-CSSOM.md",
+      "title": "CSSOM: Stylesheets und Regeln",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-DOCUMENTS-R02.md",
+      "title": "R02: Dokumente, DOM-Interfaces und dynamische Tabellen",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-DOM-CSS-EXTENSIONS.md",
+      "title": "DOM, Eingaben und CSS: Vergleich 08",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-EDITING-R04.md",
+      "title": "R04: Native contenteditable profile",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-FOUNDATIONS-20261005.md",
+      "title": "Browser-Grundlagen: Ausbau und Bestand",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-HOST-CAPABILITIES.md",
+      "title": "Roblox-Hostprofil",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-IMPLEMENTATION.md",
+      "title": "JavaScript: Implementierung und Prüfstand",
+      "domain": "javascript",
+      "kind": "coverage",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-INPUT-R04.md",
+      "title": "R04: Auswahl, Eingaben und native Geometrie",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-INTL.md",
+      "title": "Intl-Profil",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-LOADING-20261005.md",
+      "title": "JavaScript: Skript-, Bild- und Fontladen",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-PERFORMANCE.md",
+      "title": "JavaScript: User Timing und PerformanceObserver",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-POINTER-TOUCH-INPUT.md",
+      "title": "Pointer Capture, Touch und native Texteingabe",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-PSEUDO-COMPUTED-CONTENT.md",
+      "title": "Pseudo computed content",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-R01-CORE.md",
+      "title": "R01: Sprache und gemeinsames Objektmodell",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-RANGE-SELECTION.md",
+      "title": "Range und Selection · Vergleich 03",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-ROADMAP.md",
+      "title": "JavaScript Roadmap",
+      "domain": "javascript",
+      "kind": "plan",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-ROADMAP.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-SCRIPTS.md",
+      "title": "Dynamische Skripte",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-STORAGE.md",
+      "title": "Web Storage und Roblox-Persistenz",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-TABLES.md",
+      "title": "Dynamische Tabellen",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-TEXT-CONTROLS.md",
+      "title": "Textauswahl in Eingabefeldern",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-TEXT-DATA-20261005.md",
+      "title": "JavaScript: Text, URL, Datum und Intl – Stand 5. Oktober 2026",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-TOP-LAYER.md",
+      "title": "JavaScript: Dialoge und Popover",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/JAVASCRIPT-WORKERS.md",
+      "title": "Dedicated Worker",
+      "domain": "javascript",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    },
+    {
+      "path": "docs/LINKS.md",
+      "title": "Links und Website-Adressen",
+      "domain": "html",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/LIST-DECORATION-EXTENSIONS.md",
+      "title": "Listenformate und Textdekoration",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/LOADING-PERFORMANCE.md",
+      "title": "Schnellerer Seitenaufbau",
+      "domain": "performance",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/MEDIA.md",
+      "title": "Audio, Video und WebVTT",
+      "domain": "resources",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/MEDIUM-ADDITIONS.md",
+      "title": "Ergänzungen mit mittlerem Aufwand",
+      "domain": "css",
+      "kind": "historical-profile",
+      "assessment": "needs-reconciliation",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/OUTLINE.md",
+      "title": "Outline",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/OVERFLOW-WRAP.md",
+      "title": "overflow-wrap",
+      "domain": "text",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/POSITIONING.md",
+      "title": "Positionierung",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/PROJECT-AUDIT-2026-09-21.md",
+      "title": "Projekt-Audit und Stresstest — 21.09.2026",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/PROJECT-REVIEW.md",
+      "title": "Prüfprotokolle und historische Nachweise",
+      "domain": "history",
+      "kind": "review-index",
+      "assessment": "navigation",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/README.md",
+      "title": "Dokumentation der HTML Engine",
+      "domain": "documentation",
+      "kind": "index",
+      "assessment": "navigation",
+      "owner": "docs/README.md"
+    },
+    {
+      "path": "docs/RELATIVE-LENGTHS.md",
+      "title": "CSS-Längen, Viewport-Einheiten und Berechnungen",
+      "domain": "text",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/ROBOTO.md",
+      "title": "Roboto in der HTML-Engine",
+      "domain": "text",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/SCROLLING.md",
+      "title": "Scrollbereiche innerhalb der Seite",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/SELECTED-CONTENT.md",
+      "title": "Selected content",
+      "domain": "input",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/SIMPLE-FEATURES.md",
+      "title": "Kleine HTML-/CSS-Ergänzungen",
+      "domain": "css",
+      "kind": "historical-profile",
+      "assessment": "needs-reconciliation",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/SMALL-ADDITIONS.md",
+      "title": "Kleine Ergänzungen: Alias, 3D-Rahmen, HSL und HTML-Blöcke",
+      "domain": "css",
+      "kind": "historical-profile",
+      "assessment": "needs-reconciliation",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/SMALL-ELEMENTS.md",
+      "title": "Trennlinie, Hervorhebung, Hoch-/Tiefstellung und letzte Zeile",
+      "domain": "html",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/STRESS-TEST-2026-09-21.md",
+      "title": "HTML- und CSS-Stresstest",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/SVG-PERFORMANCE-REVIEW.md",
+      "title": "SVG-Performance-Review — 20.09.2026",
+      "domain": "svg",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-PLAN.md",
+      "title": "SVG-Gesamtplan mit visuellen Vergleichstests",
+      "domain": "svg",
+      "kind": "plan",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/SVG-PLAN.md"
+    },
+    {
+      "path": "docs/SVG-S01.md",
+      "title": "S01 — Pixel- und Textlabor",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S02.md",
+      "title": "S02 — SVG-Dokumentstruktur",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S03.md",
+      "title": "S03 — SVG als HTML-Layoutbox",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S04.md",
+      "title": "S04 — viewBox, preserveAspectRatio und verschachtelte Viewports",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S05.md",
+      "title": "S05 — Längeneinheiten und Prozentbezüge",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S06.md",
+      "title": "S06 — Grundformen",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S07.md",
+      "title": "S07 — Füllung und Kontur",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S08.md",
+      "title": "S08 — Gerade Pfade",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S09.md",
+      "title": "S09 — Bézierkurven",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S10.md",
+      "title": "S10 — Elliptische Bögen",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S11.md",
+      "title": "S11 — Füllregeln und Pfadlänge",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S12.md",
+      "title": "S12 — Konturen und Strichmuster",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S13.md",
+      "title": "S13 — Transformationen",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S14.md",
+      "title": "S14 — Zeichenreihenfolge und Deckkraft",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S15-S16.md",
+      "title": "S15 + S16 — CSS-Kaskade und wiederverwendbare Instanzen",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S17-S18.md",
+      "title": "S17 + S18 — lineare und radiale Farbverläufe",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S19-S20.md",
+      "title": "S19 + S20 — Muster und Pfadmarkierungen",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S21-S22.md",
+      "title": "S21/S22 — Bilder und Ausschnitte",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S23-S24.md",
+      "title": "S23/S24 — Masken und Mischmodi",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S25-S26.md",
+      "title": "S25/S26 — Text und Typografie",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S27-S28.md",
+      "title": "S27/S28 — Textpfade und Textressourcen",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S29-S30.md",
+      "title": "S29/S30 – SVG-Filtergraph und Farboperationen",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S31-S32.md",
+      "title": "S31/S32 – Räumliche Filter und Komposition",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S33-S34.md",
+      "title": "S33/S34 – Bildfilter, Konturen und Rauschen",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S35-S36.md",
+      "title": "S35/S36 – Beleuchtung und formgenaue Maustests",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S37-S38.md",
+      "title": "S37/S38: Eingaben, Ereignisse und Änderungen zur Laufzeit",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S39-S40.md",
+      "title": "S39/S40: SVG-Animation und Pfadbewegung",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S41-S42.md",
+      "title": "S41/S42: JavaScript, DOM und SVG-Dokumentfunktionen",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S43-S44.md",
+      "title": "S43/S44: SVG im HTML und Ressourcenbudgets",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-S45.md",
+      "title": "S45: kombinierter SVG-Gesamtabgleich",
+      "domain": "svg",
+      "kind": "stage-record",
+      "assessment": "historical",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG-SUPPORT.md",
+      "title": "SVG-Supportübersicht",
+      "domain": "svg",
+      "kind": "coverage",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/SVG.md",
+      "title": "SVG: geplanter Einstieg",
+      "domain": "svg",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/SVG-SUPPORT.md"
+    },
+    {
+      "path": "docs/TABLES.md",
+      "title": "Tabellen: unterstützter Teilumfang",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/TEXT-OVERFLOW.md",
+      "title": "Text-overflow",
+      "domain": "text",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/TEXT-SHADOW.md",
+      "title": "Textschatten",
+      "domain": "text",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/VISIBILITY.md",
+      "title": "Sichtbarkeit",
+      "domain": "css",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/WEBSITES.md",
+      "title": "Website-Seiten",
+      "domain": "websites",
+      "kind": "profile",
+      "assessment": "scoped-not-reaudited",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/README.md",
+      "title": "Gesamtprüfung der HTML-Engine · 2. Oktober 2026",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/changed-files.json",
+      "title": "changed-files",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/code-counts.json",
+      "title": "code-counts",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/core.json",
+      "title": "core",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/css-layout.json",
+      "title": "css-layout",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/css-layout.md",
+      "title": "CSS und Layout – Audit vom 2. Oktober 2026",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/file-inventory.json",
+      "title": "file-inventory",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/infrastructure-svg.json",
+      "title": "infrastructure-svg",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/module-matrix.json",
+      "title": "module-matrix",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/rendering.json",
+      "title": "rendering",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/rendering.md",
+      "title": "Rendering, Canvas, media and selected controls audit — 2026-10-02",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/svg.json",
+      "title": "svg",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/svg.md",
+      "title": "SVG audit — 2026-10-02",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-02/verification.md",
+      "title": "Verifikation · 2. Oktober 2026",
+      "domain": "history",
+      "kind": "audit",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-06/README.md",
+      "title": "Gesamtprüfung: HTML CSS JavaScript und Ausführungspfade",
+      "domain": "performance",
+      "kind": "audit",
+      "assessment": "scoped-reviewed",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/audit-2026-10-06/engine-map.json",
+      "title": "Gesamter Engine-Modul- und Funktionsplan mit Quellprüfsummen",
+      "domain": "architecture",
+      "kind": "generated",
+      "assessment": "generated-availability",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/css-features.v1.json",
+      "title": "CSS Referenz- und Verfügbarkeitsregister",
+      "domain": "css",
+      "kind": "generated",
+      "assessment": "generated-availability",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/documentation-index.json",
+      "title": "documentation-index",
+      "domain": "documentation",
+      "kind": "index",
+      "assessment": "navigation",
+      "owner": "docs/README.md"
+    },
+    {
+      "path": "docs/history/2026-10-06/AI-HANDOFF-original.md",
+      "title": "Übergabe: Roblox HTML-Engine",
+      "domain": "history",
+      "kind": "history",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md",
+      "originalPath": "docs/AI-HANDOFF.md"
+    },
+    {
+      "path": "docs/history/2026-10-06/CSS-COMPLETION-original.md",
+      "title": "CSS-Abschlussliste für das Roblox-Profil",
+      "domain": "history",
+      "kind": "history",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md",
+      "originalPath": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "docs/history/2026-10-06/HTML-COMPLETION-original.md",
+      "title": "HTML-Abschlussliste",
+      "domain": "history",
+      "kind": "history",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md",
+      "originalPath": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/history/2026-10-06/PLAN-original.md",
+      "title": "Unser Bauplan",
+      "domain": "history",
+      "kind": "history",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md",
+      "originalPath": "PLAN.md"
+    },
+    {
+      "path": "docs/history/2026-10-06/PROJECT-REVIEW-original.md",
+      "title": "S29/S30: Filtergraph und Farboperationen",
+      "domain": "history",
+      "kind": "history",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md",
+      "originalPath": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/history/2026-10-06/README-original.md",
+      "title": "Roblox HTML Engine",
+      "domain": "history",
+      "kind": "history",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md",
+      "originalPath": "README.md"
+    },
+    {
+      "path": "docs/history/2026-10-06/README.md",
+      "title": "Originaldokumente vor der Neuordnung",
+      "domain": "history",
+      "kind": "migration",
+      "assessment": "preservation",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/history/2026-10-06/originals.zip",
+      "title": "originals",
+      "domain": "history",
+      "kind": "history",
+      "assessment": "historical",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/history/2026-10-06/preservation.json",
+      "title": "preservation",
+      "domain": "history",
+      "kind": "migration",
+      "assessment": "preservation",
+      "owner": "docs/PROJECT-REVIEW.md"
+    },
+    {
+      "path": "docs/html-attributes.v1.json",
+      "title": "HTML Attributregister mit getrennten Nachweisachsen",
+      "domain": "html",
+      "kind": "coverage",
+      "assessment": "scoped-reviewed",
+      "owner": "docs/HTML-COMPLETION.md"
+    },
+    {
+      "path": "docs/javascript-api-register.v1.json",
+      "title": "javascript-api-register.v1",
+      "domain": "javascript",
+      "kind": "generated",
+      "assessment": "generated-availability",
+      "owner": "docs/JAVASCRIPT-IMPLEMENTATION.md"
+    }
+  ],
+  "legacyBrokenLinks": [
+    {
+      "source": "docs/STRESS-TEST-2026-09-21.md",
+      "link": "../examples/websites/html-css-stress/coverage.json",
+      "problem": "missing-target",
+      "reason": "Already unresolved in the original documentation snapshot; retained as historical evidence."
+    },
+    {
+      "source": "docs/STRESS-TEST-2026-09-21.md",
+      "link": "../examples/websites/html-css-stress/index.html",
+      "problem": "missing-target",
+      "reason": "Already unresolved in the original documentation snapshot; retained as historical evidence."
+    }
+  ],
+  "evidenceRoots": [
+    {
+      "path": "measurements",
+      "role": "Raw font calibration and historical measurement data; preserved in place, not an active plan.",
+      "owner": "docs/CSS-COMPLETION.md"
+    },
+    {
+      "path": "tests/fixtures",
+      "role": "Regression data including retired browser website sources; not served as current pages.",
+      "owner": "docs/PROJECT-REVIEW.md"
+    }
+  ]
+}

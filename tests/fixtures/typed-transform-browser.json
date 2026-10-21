@@ -1,0 +1,102 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "captured": "2026-10-08",
+  "standard": "https://drafts.css-houdini.org/css-typed-om/",
+  "cases": [
+    {
+      "name": "components",
+      "source": "for(const c of [new CSSTranslate(CSS.px(10),CSS.px(20)),new CSSTranslate(CSS.px(10),CSS.px(20),CSS.px(0)),new CSSScale(2,3),new CSSScale(2,3,1),new CSSRotate(CSS.deg(90)),new CSSRotate(0,1,0,CSS.deg(90)),new CSSSkew(CSS.deg(10),CSS.deg(20)),new CSSSkewX(CSS.deg(10)),new CSSSkewY(CSS.deg(20)),new CSSPerspective(CSS.px(500)),new CSSPerspective('none'),new CSSMatrixComponent(new DOMMatrix([1,2,3,4,5,6]))])record(c.constructor.name+'|'+String(c)+'|'+c.is2D);",
+      "expected": [
+        "CSSTranslate|translate(10px, 20px)|true",
+        "CSSTranslate|translate3d(10px, 20px, 0px)|false",
+        "CSSScale|scale(2, 3)|true",
+        "CSSScale|scale3d(2, 3, 1)|false",
+        "CSSRotate|rotate(90deg)|true",
+        "CSSRotate|rotate3d(0, 1, 0, 90deg)|false",
+        "CSSSkew|skew(10deg, 20deg)|true",
+        "CSSSkewX|skewX(10deg)|true",
+        "CSSSkewY|skewY(20deg)|true",
+        "CSSPerspective|perspective(500px)|false",
+        "CSSPerspective|perspective(none)|false",
+        "CSSMatrixComponent|matrix(1, 2, 3, 4, 5, 6)|true"
+      ]
+    },
+    {
+      "name": "mutation",
+      "source": "const t=new CSSTranslate(CSS.px(3),CSS.px(4));t.z=CSS.px(8);record(String(t)+'|'+t.toMatrix().m43);t.is2D=false;record(String(t)+'|'+t.toMatrix().m43);const r=new CSSRotate(CSS.deg(30));r.x=1;r.y=1;r.z=0;record(String(r));r.is2D=false;record(String(r));for(const c of [new CSSSkewX(CSS.deg(10)),new CSSPerspective(CSS.px(500))]){c.is2D=!c.is2D;record(String(c)+'|'+c.is2D);}",
+      "expected": [
+        "translate(3px, 4px)|0",
+        "translate3d(3px, 4px, 8px)|8",
+        "rotate(30deg)",
+        "rotate3d(1, 1, 0, 30deg)",
+        "skewX(10deg)|true",
+        "perspective(500px)|false"
+      ]
+    },
+    {
+      "name": "matrix",
+      "source": "const input=new DOMMatrix([1,2,3,4,5,6]);const c=new CSSMatrixComponent(input);record(c.matrix===input);input.e=9;record(c.matrix.e);c.matrix.e=8;record(c.toMatrix().e);c.is2D=false;record(String(c));const list=new CSSTransformValue([new CSSTranslate(CSS.px(10),CSS.px(20)),new CSSScale(2,3)]);record(String(list)+'|'+list.is2D+'|'+list.length);const m=list.toMatrix();record([m.a,m.b,m.c,m.d,m.e,m.f,m.is2D].join('|'));",
+      "expected": [
+        "false",
+        "5",
+        "8",
+        "matrix3d(1, 2, 0, 0, 3, 4, 0, 0, 0, 0, 1, 0, 8, 6, 0, 1)",
+        "translate(10px, 20px) scale(2, 3)|true|2",
+        "2|0|0|3|10|20|true"
+      ]
+    },
+    {
+      "name": "errors",
+      "source": "for(const f of [()=>new CSSTransformValue([]),()=>new CSSTranslate(CSS.number(1),CSS.px(1)),()=>new CSSTranslate(CSS.px(1),CSS.px(1),CSS.percent(1)),()=>new CSSScale(CSS.percent(50),1),()=>new CSSRotate(CSS.number(0)),()=>new CSSPerspective('auto'),()=>new CSSTranslate(CSS.em(1),CSS.px(0)).toMatrix(),()=>new CSSMatrixComponent({is2D:true})]){try{record(String(f()));}catch(e){record(e.name);}}",
+      "expected": [
+        "TypeError",
+        "TypeError",
+        "TypeError",
+        "TypeError",
+        "TypeError",
+        "TypeError",
+        "TypeError",
+        "TypeError"
+      ]
+    },
+    {
+      "name": "parse",
+      "source": "for(const source of ['none','translateX(10px) scale(2)','rotateY(90deg)','skewX(10deg)','perspective(500px)','matrix(1, 2, 3, 4, 5, 6)','translate(calc(2px + 3px), 10%)']){try{const v=CSSStyleValue.parse('transform',source);record(v.constructor.name+'|'+String(v)+'|'+(v[0]?v[0].constructor.name:'none'));}catch(e){record(e.name);}}",
+      "expected": [
+        "CSSKeywordValue|none|none",
+        "CSSTransformValue|translate(10px, 0px) scale(2, 2)|CSSTranslate",
+        "CSSTransformValue|rotate3d(0, 1, 0, 90deg)|CSSRotate",
+        "CSSTransformValue|skewX(10deg)|CSSSkewX",
+        "CSSTransformValue|perspective(500px)|CSSPerspective",
+        "CSSTransformValue|matrix(1, 2, 3, 4, 5, 6)|CSSMatrixComponent",
+        "CSSTransformValue|translate(5px, 10%)|CSSTranslate"
+      ]
+    },
+    {
+      "name": "numeric-parse",
+      "source": "for(const source of ['2e2px','calc(2px + 3px)','min(3px, 4px)','clamp(1px, 2px, 3px)','calc(2px * 3)','calc(1px + 10%)','calc(1px / 2px)','auto','var(--x)','1px 2px','2 /* hi */px']){try{const v=CSSNumericValue.parse(source);record(v.constructor.name+'|'+String(v)+'|'+JSON.stringify(v.type()));}catch(e){record(e.name);}}",
+      "expected": [
+        "CSSUnitValue|200px|{\"length\":1}",
+        "CSSMathSum|calc(5px)|{\"length\":1}",
+        "CSSUnitValue|3px|{\"length\":1}",
+        "CSSUnitValue|2px|{\"length\":1}",
+        "CSSMathSum|calc(6px)|{\"length\":1}",
+        "CSSMathSum|calc(1px + 10%)|{\"length\":1,\"percentHint\":\"length\"}",
+        "CSSMathProduct|calc(1px / 2px)|{}",
+        "SyntaxError",
+        "SyntaxError",
+        "SyntaxError",
+        "SyntaxError"
+      ]
+    },
+    {
+      "name": "percent-hints",
+      "source": "const a=new CSSMathSum(CSS.px(1),CSS.percent(2));record(JSON.stringify(new CSSMathProduct(a,CSS.percent(3)).type()));for(const ctor of [CSSMathSum,CSSMathProduct]){try{new ctor(a,new CSSMathSum(CSS.s(1),CSS.percent(2)));record('ok');}catch(e){record(e.name);}}",
+      "expected": [
+        "{\"length\":2,\"percentHint\":\"length\"}",
+        "TypeError",
+        "TypeError"
+      ]
+    }
+  ]
+}

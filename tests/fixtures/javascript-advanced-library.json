@@ -1,0 +1,870 @@
+[
+  {
+    "name": "BigInt literals arithmetic and typeof",
+    "source": "var a=0x20000000000001n,b=9007199254740993n;record(a===b);record(typeof a);record(String(a+b));record(String(0b1010n+0o17n));record(String(1_234n));record(String(-20n/3n));record(String(-20n%3n));record(String(2n**40n));",
+    "expected": [
+      "true",
+      "bigint",
+      "18014398509481986",
+      "25",
+      "1234",
+      "-6",
+      "-2",
+      "1099511627776"
+    ]
+  },
+  {
+    "name": "BigInt coercion equality and comparison",
+    "source": "var a=9007199254740993n;record(a=='9007199254740993');record(a==9007199254740992);record(a>9007199254740992);record(a<9007199254740994);record(1n<1.5);record(-1n>-1.5);record(1n<'1.5');record(1n<NaN);record(0n==false);record(1n==true);record(0n==null);record(1n==Object(1n));record(1n===Object(1n));",
+    "expected": [
+      "true",
+      "false",
+      "true",
+      "true",
+      "true",
+      "true",
+      "false",
+      "false",
+      "true",
+      "true",
+      "false",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "BigInt boxing primitive and number conversion",
+    "source": "var x=Object(9223372036854775807n);record(typeof x);record(x.valueOf()===9223372036854775807n);record(x.toString(16));record(Number(9007199254740993n));record(Number(x));record(Object.getPrototypeOf(1n)===BigInt.prototype);record(Object.prototype.toString.call(1n));record(Object.prototype.toString.call(x));record(Reflect.ownKeys(x).length);",
+    "expected": [
+      "object",
+      "true",
+      "7fffffffffffffff",
+      "9007199254740992",
+      "9223372036854776000",
+      "true",
+      "[object BigInt]",
+      "[object BigInt]",
+      "0"
+    ]
+  },
+  {
+    "name": "BigInt values in arrays and collections",
+    "source": "var a=BigInt('4'),b=BigInt('4');record([a].includes(b));record([a].indexOf(b));record([a].lastIndexOf(b));record(Object.is(a,b));var m=new Map([[a,'x']]);record(m.get(b));m.set(b,'y');record(m.size);var s=new Set([a,b]);record(s.size);try{new WeakMap([[a,1]])}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "0",
+      "0",
+      "true",
+      "x",
+      "1",
+      "1",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "BigInt JSON primitive boxed replacer and toJSON",
+    "source": "try{JSON.stringify(1n)}catch(e){record(e.name)}try{JSON.stringify(Object(1n))}catch(e){record(e.name)}record(JSON.stringify({a:2n},function(k,v){return typeof v==='bigint'?String(v):v}));BigInt.prototype.toJSON=function(){return String(this.valueOf())};record(JSON.stringify([3n,Object(4n)]));delete BigInt.prototype.toJSON;",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "{\"a\":\"2\"}",
+      "[\"3\",\"4\"]"
+    ]
+  },
+  {
+    "name": "BigInt update truth and computed property keys",
+    "source": "var a=0n;record(Boolean(a));record(Boolean(++a));record(String(a++));record(String(a));a+=2n;record(String(a));var o={};o[23n]='ok';record(o['23']);record(1n+'x');record('x'+1n);switch(BigInt('2')){case 2n:record('matched');break;default:record('miss')}",
+    "expected": [
+      "false",
+      "true",
+      "1",
+      "2",
+      "4",
+      "ok",
+      "1x",
+      "x1",
+      "matched"
+    ]
+  },
+  {
+    "name": "BigInt errors preserve numeric type separation",
+    "source": "for(var f of [function(){return +1n},function(){return 1n+1},function(){return 1n>>>0n},function(){return Math.abs(1n)},function(){return new BigInt(1)},function(){return BigInt(1.5)},function(){return BigInt(null)},function(){return BigInt.asIntN(2,1)}])try{f()}catch(e){record(e.name)}",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "RangeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "BigInt constructor hints and wrapping",
+    "source": "var calls=[],o={valueOf(){calls.push('value');return 12}};record(String(BigInt(o)));record(calls.join(','));record(String(BigInt.asIntN(4,15n)));record(String(BigInt.asUintN(4,-2n)));record(String(-3n>>1n));record(String(-3n<<-1n));record(String(~0n));",
+    "expected": [
+      "12",
+      "value",
+      "-1",
+      "14",
+      "-2",
+      "-2",
+      "-1"
+    ]
+  },
+  {
+    "name": "RegExp builtin brand and custom string tag",
+    "source": "var r=/a/g;record(Object.prototype.toString.call(r));record(Object.prototype.toString.call(new RegExp('a')));record(Object.prototype.toString.call(new Proxy(r,{})));record(Symbol.toStringTag in RegExp.prototype);r[Symbol.toStringTag]='Custom';record(Object.prototype.toString.call(r));",
+    "expected": [
+      "[object RegExp]",
+      "[object RegExp]",
+      "[object Object]",
+      "false",
+      "[object Custom]"
+    ]
+  },
+  {
+    "name": "Intl canonical locales case extensions and duplicates",
+    "source": "record(Intl.getCanonicalLocales(['EN-us','deu-DE','iw-il','en-US','en-u-kn-true-ca-gregory','en-u-ca-gregory-ca-buddhist']).join('|'));record(Intl.getCanonicalLocales('en-x-AbC').join('|'));record(Intl.getCanonicalLocales({0:'de-de',2:'EN',length:3}).join('|'));record(Intl.getCanonicalLocales().length);",
+    "expected": [
+      "en-US|de-DE|he-IL|en-u-ca-gregory-kn|en-u-ca-gregory",
+      "en-x-abc",
+      "de-DE|en",
+      "0"
+    ]
+  },
+  {
+    "name": "Intl canonical locales receiver and structural errors",
+    "source": "for(var value of [null,['abcd'],['en_US'],['en--US'],['de-1901-1901'],['en-a'],[1],[Symbol()]])try{Intl.getCanonicalLocales(value)}catch(e){record(e.name)}record(Intl.getCanonicalLocales(1).length);",
+    "expected": [
+      "TypeError",
+      "RangeError",
+      "RangeError",
+      "RangeError",
+      "RangeError",
+      "RangeError",
+      "TypeError",
+      "TypeError",
+      "0"
+    ]
+  },
+  {
+    "name": "Intl Locale fields and keyword options",
+    "source": "var l=new Intl.Locale('EN-us-u-ca-gregory-kf-upper-kn',{language:'de',region:'DE',hourCycle:'h23',numeric:false,numberingSystem:'latn'});record(l.toString());record([l.baseName,l.language,l.script,l.region,l.calendar,l.collation,l.hourCycle,l.caseFirst,l.numeric,l.numberingSystem].join('|'));record(Object.prototype.toString.call(l));record(new Intl.Locale(l).toString());",
+    "expected": [
+      "de-DE-u-ca-gregory-hc-h23-kf-upper-kn-false-nu-latn",
+      "de-DE|de||DE|gregory||h23|upper|false|latn",
+      "[object Intl.Locale]",
+      "de-DE-u-ca-gregory-hc-h23-kf-upper-kn-false-nu-latn"
+    ]
+  },
+  {
+    "name": "Intl Locale errors and brand checks",
+    "source": "for(var f of [function(){return Intl.Locale('en')},function(){return new Intl.Locale(1)},function(){return new Intl.Locale('en',null)},function(){return new Intl.Locale('en',{calendar:'foo--bar'})},function(){return new Intl.Locale('en',{hourCycle:'h25'})},function(){return Intl.Locale.prototype.toString.call({})},function(){return Object.getOwnPropertyDescriptor(Intl.Locale.prototype,'baseName').get.call({})}])try{f()}catch(e){record(e.name)}",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "RangeError",
+      "RangeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Intl NumberFormat decimal string precision and parts",
+    "source": "var f=new Intl.NumberFormat('en-US');record(f.format('9007199254740993'));record(f.format(9007199254740993n));record(f.format(1234.5678));record(JSON.stringify(f.formatToParts('12345.6789')));record(JSON.stringify(f.resolvedOptions()));record(f.format===f.format);record(f.format.call(null,12));",
+    "expected": [
+      "9,007,199,254,740,993",
+      "9,007,199,254,740,993",
+      "1,234.568",
+      "[{\"type\":\"integer\",\"value\":\"12\"},{\"type\":\"group\",\"value\":\",\"},{\"type\":\"integer\",\"value\":\"345\"},{\"type\":\"decimal\",\"value\":\".\"},{\"type\":\"fraction\",\"value\":\"679\"}]",
+      "{\"locale\":\"en-US\",\"numberingSystem\":\"latn\",\"style\":\"decimal\",\"minimumIntegerDigits\":1,\"minimumFractionDigits\":0,\"maximumFractionDigits\":3,\"useGrouping\":\"auto\",\"notation\":\"standard\",\"signDisplay\":\"auto\",\"roundingIncrement\":1,\"roundingMode\":\"halfExpand\",\"roundingPriority\":\"auto\",\"trailingZeroDisplay\":\"auto\"}",
+      "true",
+      "12"
+    ]
+  },
+  {
+    "name": "Intl NumberFormat German decimal percent and currency",
+    "source": "record(new Intl.NumberFormat('de-DE').format(-1234.5));record(JSON.stringify(new Intl.NumberFormat('de-DE',{style:'percent',maximumFractionDigits:1}).formatToParts('0.1255')));record(new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR'}).format(-1234.56));record(new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',currencySign:'accounting'}).format(-1234.56));",
+    "expected": [
+      "-1.234,5",
+      "[{\"type\":\"integer\",\"value\":\"12\"},{\"type\":\"decimal\",\"value\":\",\"},{\"type\":\"fraction\",\"value\":\"6\"},{\"type\":\"literal\",\"value\":\" \"},{\"type\":\"percentSign\",\"value\":\"%\"}]",
+      "-1.234,56 €",
+      "($1,234.56)"
+    ]
+  },
+  {
+    "name": "Intl NumberFormat currency symbols precision and codes",
+    "source": "for(var c of ['JPY','KWD','CNY','CAD','AUD','CLF','XXX','ZZZ']){var f=new Intl.NumberFormat('en-US',{style:'currency',currency:c});record(f.format('12.3456'));record(f.resolvedOptions().minimumFractionDigits)}record(new Intl.NumberFormat('en-US',{style:'currency',currency:'CAD',currencyDisplay:'narrowSymbol'}).format(2));record(new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',currencyDisplay:'code'}).format(2));",
+    "expected": [
+      "¥12",
+      "0",
+      "KWD 12.346",
+      "3",
+      "CN¥12.35",
+      "2",
+      "CA$12.35",
+      "2",
+      "A$12.35",
+      "2",
+      "CLF 12.3456",
+      "4",
+      "¤12.35",
+      "2",
+      "ZZZ 12.35",
+      "2",
+      "$2.00",
+      "USD 2.00"
+    ],
+    "browserExpected": [
+      "¥12",
+      "0",
+      "KWD 12.346",
+      "3",
+      "CN¥12.35",
+      "2",
+      "CA$12.35",
+      "2",
+      "A$12.35",
+      "2",
+      "CLF 12.3456",
+      "4",
+      "XXX 12.35",
+      "2",
+      "ZZZ 12.35",
+      "2",
+      "$2.00",
+      "USD 2.00"
+    ]
+  },
+  {
+    "name": "Intl currency data reference variants",
+    "source": "for(var locale of ['en-US','de-DE'])for(var display of ['symbol','narrowSymbol'])record(new Intl.NumberFormat(locale,{style:'currency',currency:'XXX',currencyDisplay:display}).format(2));",
+    "expected": [
+      "¤2.00",
+      "¤2.00",
+      "2,00 XXX",
+      "2,00 XXX"
+    ],
+    "browserExpected": [
+      "XXX 2.00",
+      "XXX 2.00",
+      "2,00 XXX",
+      "2,00 XXX"
+    ]
+  },
+  {
+    "name": "Intl NumberFormat option bounds and rounding",
+    "source": "record(new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(1.5));record(new Intl.NumberFormat('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}).format('1.005'));record(new Intl.NumberFormat('de-DE',{minimumIntegerDigits:5,useGrouping:false}).format(2.5));record(new Intl.NumberFormat('en-US',{useGrouping:'min2'}).format(1234));record(new Intl.NumberFormat('en-US',{useGrouping:'min2'}).format(12345));record(new Intl.NumberFormat('en-US',{minimumFractionDigits:2,trailingZeroDisplay:'stripIfInteger'}).format(2));",
+    "expected": [
+      "$2",
+      "1.01",
+      "00002,5",
+      "1234",
+      "12,345",
+      "2"
+    ]
+  },
+  {
+    "name": "Intl NumberFormat signed zero special values",
+    "source": "for(var sign of ['auto','never','always','exceptZero','negative']){var f=new Intl.NumberFormat('en-US',{signDisplay:sign});record([f.format(-0),f.format(0),f.format(-1),f.format(1),f.format(NaN),f.format(Infinity),f.format(-Infinity)].join('|'))}record(new Intl.NumberFormat('en-US').format('1e400'));record(new Intl.NumberFormat('en-US').format('1e-400'));record(new Intl.NumberFormat('en-US').format('0x10'));record(new Intl.NumberFormat('en-US').format('0b11'));",
+    "expected": [
+      "-0|0|-1|1|NaN|∞|-∞",
+      "0|0|1|1|NaN|∞|∞",
+      "-0|+0|-1|+1|+NaN|+∞|-∞",
+      "0|0|-1|+1|NaN|+∞|-∞",
+      "0|0|-1|1|NaN|∞|-∞",
+      "∞",
+      "0",
+      "16",
+      "3"
+    ]
+  },
+  {
+    "name": "Intl NumberFormat decimal carry and exact fraction",
+    "source": "for(var x of ['0.00995','9.9995','-9.9995','999.9995','0.0005','-0.0005','123.000000000000000000001'])record(new Intl.NumberFormat('en-US',{maximumFractionDigits:3}).format(x));record(new Intl.NumberFormat('en-US',{maximumFractionDigits:21}).format('0.1234567890123456789014'));",
+    "expected": [
+      "0.01",
+      "10",
+      "-10",
+      "1,000",
+      "0.001",
+      "-0.001",
+      "123",
+      "0.123456789012345678901"
+    ]
+  },
+  {
+    "name": "Intl NumberFormat invalid options and brands",
+    "source": "for(var f of [function(){return new Intl.NumberFormat('en-US',null)},function(){return new Intl.NumberFormat('en-US',{style:'currency'})},function(){return new Intl.NumberFormat('en-US',{currency:'XX'})},function(){return new Intl.NumberFormat('en-US',{minimumFractionDigits:5,maximumFractionDigits:2})},function(){return new Intl.NumberFormat('en-US',{minimumIntegerDigits:0})},function(){return new Intl.NumberFormat('en-US',{numberingSystem:'ab-'})},function(){return Intl.NumberFormat.prototype.formatToParts.call({},1)},function(){return new Intl.NumberFormat('en-US').format(1===Symbol()?1:Symbol())}])try{f()}catch(e){record(e.name)}",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "RangeError",
+      "RangeError",
+      "RangeError",
+      "RangeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Intl supported locale filtering and Unicode extension",
+    "source": "record(Intl.NumberFormat.supportedLocalesOf(['en-US','zz','de-DE','zz','en-US']).join('|'));record(new Intl.NumberFormat('en-US-u-nu-latn',{numberingSystem:'latn'}).resolvedOptions().locale);record(new Intl.NumberFormat('en').resolvedOptions().locale);record(new Intl.NumberFormat('de').resolvedOptions().locale);record(Object.prototype.toString.call(Intl));record(Object.prototype.toString.call(new Intl.NumberFormat('en-US')));",
+    "expected": [
+      "en-US|de-DE",
+      "en-US-u-nu-latn",
+      "en",
+      "de",
+      "[object Intl]",
+      "[object Intl.NumberFormat]"
+    ]
+  },
+  {
+    "name": "Intl NumberFormat option getter and coercion order",
+    "source": "var log=[],opts=new Proxy({minimumFractionDigits:{valueOf(){log.push('convert min');return 1}},maximumFractionDigits:{valueOf(){log.push('convert max');return 2}}},{get(t,k){log.push(k);return t[k]}});var f=new Intl.NumberFormat('en-US',opts);record(log.join('|'));record(f.format(1));",
+    "expected": [
+      "localeMatcher|numberingSystem|style|currency|currencyDisplay|currencySign|unit|unitDisplay|notation|minimumIntegerDigits|minimumFractionDigits|maximumFractionDigits|minimumSignificantDigits|maximumSignificantDigits|roundingIncrement|roundingMode|roundingPriority|trailingZeroDisplay|convert min|convert max|compactDisplay|useGrouping|signDisplay",
+      "1.0"
+    ]
+  },
+  {
+    "name": "Intl constructor prototype lookup precedes coercion",
+    "source": "var log=[],ctor=new Proxy(function(){},{get(t,k){log.push('new:'+k);return Reflect.get(t,k)}}),tag={toString(){log.push('tag');return 'en'}};Reflect.construct(Intl.Locale,[tag],ctor);record(log.join('|'));log=[];Reflect.construct(Intl.NumberFormat,[[tag]],ctor);record(log.join('|'));record(new Intl.Locale('en',{language:'sh'}).toString());",
+    "expected": [
+      "new:prototype|tag",
+      "new:prototype|tag",
+      "sr-Latn"
+    ]
+  },
+  {
+    "name": "Intl empty Unicode values and ignored format options",
+    "source": "var l=new Intl.Locale('en-u-ca-hc-co-nu-kn');record([l.calendar,l.hourCycle,l.collation,l.numberingSystem,l.numeric].join('|'));record(new Intl.NumberFormat('en-US',{currencyDisplay:'name'}).format(2));try{new Intl.NumberFormat('en-US',{unit:'nope'})}catch(e){record(e.name)}record(new Intl.NumberFormat('en-US').format('0x20000000000001'));",
+    "expected": [
+      "true|true|true|true|true",
+      "2",
+      "RangeError",
+      "9,007,199,254,740,993"
+    ]
+  },
+  {
+    "name": "DisposableStack LIFO capture and callback receivers",
+    "source": "var log=[],s=new DisposableStack(),resource={name:'resource',[Symbol.dispose](){log.push(this.name)}};record(s.use(resource)===resource);resource[Symbol.dispose]=function(){log.push('changed')};record(s.adopt(7,function(v){'use strict';log.push(v+':'+(this===undefined))}));record(s.defer(function(){'use strict';log.push('defer:'+(this===undefined))}));record(s.disposed);s.dispose();record(log.join('|'));record(s.disposed);record(s.dispose());record(s[Symbol.dispose]===s.dispose);record(Object.prototype.toString.call(s));",
+    "expected": [
+      "true",
+      "7",
+      "undefined",
+      "false",
+      "defer:true|7:true|resource",
+      "true",
+      "undefined",
+      "true",
+      "[object DisposableStack]"
+    ]
+  },
+  {
+    "name": "DisposableStack move disposed and null resources",
+    "source": "var log=[],s=new DisposableStack();record(s.use(null));record(s.use(undefined));s.defer(function(){log.push('x')});var m=s.move();record(s.disposed+','+m.disposed);s.dispose();record(log.length);m.dispose();record(log.join(','));for(var f of [function(){s.move()},function(){s.defer(function(){})},function(){s.use(null)},function(){s.adopt(1,function(){})}])try{f()}catch(e){record(e.name)}",
+    "expected": [
+      "null",
+      "undefined",
+      "true,false",
+      "0",
+      "x",
+      "ReferenceError",
+      "ReferenceError",
+      "ReferenceError",
+      "ReferenceError"
+    ]
+  },
+  {
+    "name": "DisposableStack suppression including undefined errors",
+    "source": "var s=new DisposableStack();s.defer(function(){throw 'a'});s.defer(function(){throw undefined});s.defer(function(){throw 'c'});try{s.dispose()}catch(e){record(e instanceof SuppressedError);record(e.error);record(e.suppressed instanceof SuppressedError);record(e.suppressed.error);record(e.suppressed.suppressed);record(e.name);record(e.message);record(Object.keys(e).join(','));record(s.disposed)}",
+    "expected": [
+      "true",
+      "a",
+      "true",
+      "undefined",
+      "c",
+      "SuppressedError",
+      "An error was suppressed during disposal",
+      "",
+      "true"
+    ]
+  },
+  {
+    "name": "DisposableStack reentrant disposal and brand errors",
+    "source": "var log=[],s=new DisposableStack();s.defer(function(){log.push('first')});s.defer(function(){log.push(s.disposed);s.dispose();try{s.defer(function(){})}catch(e){log.push(e.name)}});s.dispose();record(log.join('|'));for(var f of [function(){DisposableStack()},function(){DisposableStack.prototype.dispose.call({})},function(){new DisposableStack().use(1)},function(){new DisposableStack().use({})},function(){new DisposableStack().adopt(1,1)},function(){new DisposableStack().defer(1)}])try{f()}catch(e){record(e.name)}",
+    "expected": [
+      "true|ReferenceError|first",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "SuppressedError descriptors and constructor semantics",
+    "source": "var e=SuppressedError('new','old','message');record(e instanceof Error);record(e instanceof SuppressedError);record(e.toString());record(e.error+','+e.suppressed);record(Reflect.ownKeys(e).filter(function(k){return k!=='stack'}).join(','));record(JSON.stringify(Object.getOwnPropertyDescriptor(e,'error')));record(SuppressedError.length);record(SuppressedError.prototype.name);record(Object.getPrototypeOf(SuppressedError)===Error);",
+    "expected": [
+      "true",
+      "true",
+      "SuppressedError: message",
+      "new,old",
+      "message,error,suppressed",
+      "{\"value\":\"new\",\"writable\":true,\"enumerable\":false,\"configurable\":true}",
+      "3",
+      "SuppressedError",
+      "true"
+    ]
+  },
+  {
+    "name": "AsyncDisposableStack sequential promise disposal",
+    "source": "var log=[],s=new AsyncDisposableStack();s.defer(function(){log.push('first');return Promise.resolve().then(function(){log.push('first done')})});s.defer(function(){log.push('second');return Promise.resolve().then(function(){log.push('second done')})});var p=s.disposeAsync();record(s.disposed);record(log.join('|'));p.then(function(){record(log.join('|'));record('done')});",
+    "expected": [
+      "true",
+      "second",
+      "second|second done|first|first done",
+      "done"
+    ]
+  },
+  {
+    "name": "AsyncDisposableStack prefers async and ignores sync result",
+    "source": "var log=[],s=new AsyncDisposableStack();s.use({[Symbol.dispose](){log.push('sync');return {get then(){log.push('ignored');throw 1}}}});s.use({[Symbol.asyncDispose](){log.push('async');return Promise.resolve().then(function(){log.push('async done')})},[Symbol.dispose](){log.push('wrong')}});s.disposeAsync().then(function(){record(log.join('|'))});",
+    "expected": [
+      "async|async done|sync"
+    ]
+  },
+  {
+    "name": "AsyncDisposableStack suppression and async brands",
+    "source": "var s=new AsyncDisposableStack();s.defer(function(){throw 'first'});s.defer(function(){return Promise.reject('second')});s.disposeAsync().catch(function(e){record(e instanceof SuppressedError);record(e.error);record(e.suppressed)});record('sync');AsyncDisposableStack.prototype.disposeAsync.call({}).catch(function(e){record(e.name)});",
+    "expected": [
+      "sync",
+      "TypeError",
+      "true",
+      "first",
+      "second"
+    ]
+  },
+  {
+    "name": "AsyncDisposableStack null resource preserves await boundary",
+    "source": "var log=[],s=new AsyncDisposableStack();s.defer(function(){log.push('defer')});s.use(null);var p=s.disposeAsync();record(log.join('|'));p.then(function(){record(log.join('|'));record(s.disposed);s.disposeAsync().then(function(){record('again')})});record(s[Symbol.asyncDispose]===s.disposeAsync);",
+    "expected": [
+      "defer",
+      "true",
+      "defer",
+      "true",
+      "again"
+    ]
+  },
+  {
+    "name": "AsyncDisposableStack adopt defer move receiver identity",
+    "source": "var log=[],s=new AsyncDisposableStack();s.adopt(3,function(v){'use strict';log.push(v+':'+(this===undefined));return Promise.resolve()});s.defer(function(){'use strict';log.push(this===undefined)});var m=s.move();record(s.disposed+','+m.disposed);s.disposeAsync().then(function(){record('old done')});m.disposeAsync().then(function(){record(log.join('|'));record(m.disposed)});",
+    "expected": [
+      "true,false",
+      "old done",
+      "true|3:true",
+      "true"
+    ]
+  },
+  {
+    "name": "AsyncDisposableStack sync throw waits before next disposer",
+    "source": "var log=[],s=new AsyncDisposableStack();s.defer(function(){log.push('last')});s.use({[Symbol.dispose](){log.push('throw');throw 'x'}});var p=s.disposeAsync();record(log.join('|'));p.catch(function(e){record(e);record(log.join('|'))});",
+    "expected": [
+      "throw",
+      "x",
+      "throw|last"
+    ]
+  },
+  {
+    "name": "Resource stack captures getter once and rejects bad async method",
+    "source": "var count=0,log=[],s=new DisposableStack(),r={get [Symbol.dispose](){count++;return function(){log.push(this===r)}}};s.use(r);s.dispose();record(count);record(log.join('|'));var a=new AsyncDisposableStack();try{a.use({[Symbol.asyncDispose]:1,get [Symbol.dispose](){record('wrong getter');return function(){}}})}catch(e){record(e.name)}record(a.disposed);",
+    "expected": [
+      "1",
+      "true",
+      "TypeError",
+      "false"
+    ]
+  },
+  {
+    "name": "ListFormat en-US conjunction long",
+    "source": "var f=new Intl.ListFormat(\"en-US\",{type:\"conjunction\",style:\"long\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A and B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" and \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C, and D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\", and \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ", , and ",
+      "[{\"type\":\"literal\",\"value\":\", , and \"}]",
+      "Ä and 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" and \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"en-US\",\"type\":\"conjunction\",\"style\":\"long\"}"
+    ]
+  },
+  {
+    "name": "ListFormat en-US conjunction short",
+    "source": "var f=new Intl.ListFormat(\"en-US\",{type:\"conjunction\",style:\"short\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A & B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" & \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C, & D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\", & \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ", , & ",
+      "[{\"type\":\"literal\",\"value\":\", , & \"}]",
+      "Ä & 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" & \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"en-US\",\"type\":\"conjunction\",\"style\":\"short\"}"
+    ]
+  },
+  {
+    "name": "ListFormat en-US conjunction narrow",
+    "source": "var f=new Intl.ListFormat(\"en-US\",{type:\"conjunction\",style:\"narrow\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A, B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C, D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ", , ",
+      "[{\"type\":\"literal\",\"value\":\", , \"}]",
+      "Ä, 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"en-US\",\"type\":\"conjunction\",\"style\":\"narrow\"}"
+    ]
+  },
+  {
+    "name": "ListFormat en-US disjunction long",
+    "source": "var f=new Intl.ListFormat(\"en-US\",{type:\"disjunction\",style:\"long\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A or B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" or \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C, or D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\", or \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ", , or ",
+      "[{\"type\":\"literal\",\"value\":\", , or \"}]",
+      "Ä or 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" or \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"en-US\",\"type\":\"disjunction\",\"style\":\"long\"}"
+    ]
+  },
+  {
+    "name": "ListFormat en-US disjunction short",
+    "source": "var f=new Intl.ListFormat(\"en-US\",{type:\"disjunction\",style:\"short\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A or B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" or \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C, or D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\", or \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ", , or ",
+      "[{\"type\":\"literal\",\"value\":\", , or \"}]",
+      "Ä or 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" or \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"en-US\",\"type\":\"disjunction\",\"style\":\"short\"}"
+    ]
+  },
+  {
+    "name": "ListFormat en-US disjunction narrow",
+    "source": "var f=new Intl.ListFormat(\"en-US\",{type:\"disjunction\",style:\"narrow\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A or B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" or \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C, or D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\", or \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ", , or ",
+      "[{\"type\":\"literal\",\"value\":\", , or \"}]",
+      "Ä or 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" or \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"en-US\",\"type\":\"disjunction\",\"style\":\"narrow\"}"
+    ]
+  },
+  {
+    "name": "ListFormat en-US unit long",
+    "source": "var f=new Intl.ListFormat(\"en-US\",{type:\"unit\",style:\"long\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A, B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C, D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ", , ",
+      "[{\"type\":\"literal\",\"value\":\", , \"}]",
+      "Ä, 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"en-US\",\"type\":\"unit\",\"style\":\"long\"}"
+    ]
+  },
+  {
+    "name": "ListFormat en-US unit short",
+    "source": "var f=new Intl.ListFormat(\"en-US\",{type:\"unit\",style:\"short\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A, B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C, D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ", , ",
+      "[{\"type\":\"literal\",\"value\":\", , \"}]",
+      "Ä, 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"en-US\",\"type\":\"unit\",\"style\":\"short\"}"
+    ]
+  },
+  {
+    "name": "ListFormat en-US unit narrow",
+    "source": "var f=new Intl.ListFormat(\"en-US\",{type:\"unit\",style:\"narrow\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A B C D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\" \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      "  ",
+      "[{\"type\":\"literal\",\"value\":\"  \"}]",
+      "Ä 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"en-US\",\"type\":\"unit\",\"style\":\"narrow\"}"
+    ]
+  },
+  {
+    "name": "ListFormat de-DE conjunction long",
+    "source": "var f=new Intl.ListFormat(\"de-DE\",{type:\"conjunction\",style:\"long\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A und B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C und D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ",  und ",
+      "[{\"type\":\"literal\",\"value\":\",  und \"}]",
+      "Ä und 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"de-DE\",\"type\":\"conjunction\",\"style\":\"long\"}"
+    ]
+  },
+  {
+    "name": "ListFormat de-DE conjunction short",
+    "source": "var f=new Intl.ListFormat(\"de-DE\",{type:\"conjunction\",style:\"short\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A und B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C und D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ",  und ",
+      "[{\"type\":\"literal\",\"value\":\",  und \"}]",
+      "Ä und 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"de-DE\",\"type\":\"conjunction\",\"style\":\"short\"}"
+    ]
+  },
+  {
+    "name": "ListFormat de-DE conjunction narrow",
+    "source": "var f=new Intl.ListFormat(\"de-DE\",{type:\"conjunction\",style:\"narrow\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A und B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C und D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ",  und ",
+      "[{\"type\":\"literal\",\"value\":\",  und \"}]",
+      "Ä und 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"de-DE\",\"type\":\"conjunction\",\"style\":\"narrow\"}"
+    ]
+  },
+  {
+    "name": "ListFormat de-DE disjunction long",
+    "source": "var f=new Intl.ListFormat(\"de-DE\",{type:\"disjunction\",style:\"long\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A oder B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" oder \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C oder D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" oder \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ",  oder ",
+      "[{\"type\":\"literal\",\"value\":\",  oder \"}]",
+      "Ä oder 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" oder \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"de-DE\",\"type\":\"disjunction\",\"style\":\"long\"}"
+    ]
+  },
+  {
+    "name": "ListFormat de-DE disjunction short",
+    "source": "var f=new Intl.ListFormat(\"de-DE\",{type:\"disjunction\",style:\"short\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A oder B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" oder \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C oder D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" oder \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ",  oder ",
+      "[{\"type\":\"literal\",\"value\":\",  oder \"}]",
+      "Ä oder 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" oder \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"de-DE\",\"type\":\"disjunction\",\"style\":\"short\"}"
+    ]
+  },
+  {
+    "name": "ListFormat de-DE disjunction narrow",
+    "source": "var f=new Intl.ListFormat(\"de-DE\",{type:\"disjunction\",style:\"narrow\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A oder B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\" oder \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C oder D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" oder \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ",  oder ",
+      "[{\"type\":\"literal\",\"value\":\",  oder \"}]",
+      "Ä oder 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\" oder \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"de-DE\",\"type\":\"disjunction\",\"style\":\"narrow\"}"
+    ]
+  },
+  {
+    "name": "ListFormat de-DE unit long",
+    "source": "var f=new Intl.ListFormat(\"de-DE\",{type:\"unit\",style:\"long\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A, B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C und D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ",  und ",
+      "[{\"type\":\"literal\",\"value\":\",  und \"}]",
+      "Ä, 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"de-DE\",\"type\":\"unit\",\"style\":\"long\"}"
+    ]
+  },
+  {
+    "name": "ListFormat de-DE unit short",
+    "source": "var f=new Intl.ListFormat(\"de-DE\",{type:\"unit\",style:\"short\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A, B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C und D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ",  und ",
+      "[{\"type\":\"literal\",\"value\":\",  und \"}]",
+      "Ä, 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"de-DE\",\"type\":\"unit\",\"style\":\"short\"}"
+    ]
+  },
+  {
+    "name": "ListFormat de-DE unit narrow",
+    "source": "var f=new Intl.ListFormat(\"de-DE\",{type:\"unit\",style:\"narrow\"});for(var list of [[],['A'],['A','B'],['A','B','C','D'],['','',''],['Ä','😀']]){record(f.format(list));record(JSON.stringify(f.formatToParts(list)));}record(JSON.stringify(f.resolvedOptions()));",
+    "expected": [
+      "",
+      "[]",
+      "A",
+      "[{\"type\":\"element\",\"value\":\"A\"}]",
+      "A, B",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"}]",
+      "A, B, C und D",
+      "[{\"type\":\"element\",\"value\":\"A\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"B\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"C\"},{\"type\":\"literal\",\"value\":\" und \"},{\"type\":\"element\",\"value\":\"D\"}]",
+      ",  und ",
+      "[{\"type\":\"literal\",\"value\":\",  und \"}]",
+      "Ä, 😀",
+      "[{\"type\":\"element\",\"value\":\"Ä\"},{\"type\":\"literal\",\"value\":\", \"},{\"type\":\"element\",\"value\":\"😀\"}]",
+      "{\"locale\":\"de-DE\",\"type\":\"unit\",\"style\":\"narrow\"}"
+    ]
+  },
+  {
+    "name": "ListFormat iterable closing and strict strings",
+    "source": "var closed=false;function* items(){try{yield 'A';yield 1;}finally{closed=true;}}try{new Intl.ListFormat('de').format(items());}catch(e){record(e.name);}record(closed);record(new Intl.ListFormat('en').format('A😀B'));record(new Intl.ListFormat().format());try{new Intl.ListFormat().format(null);}catch(e){record(e.name);}",
+    "expected": [
+      "TypeError",
+      "true",
+      "A, 😀, and B",
+      "",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "ListFormat construction brands descriptors and options order",
+    "source": "try{Intl.ListFormat();}catch(e){record(e.name);}var seen=[];var opts=new Proxy({type:'disjunction',style:'short'},{get(t,k){seen.push(k);return t[k];}});var f=new Intl.ListFormat('de',opts);record(seen.join(','));record(Object.prototype.toString.call(f));record(Intl.ListFormat.length);record(Intl.ListFormat.prototype.format.length);try{Intl.ListFormat.prototype.format.call({},['A']);}catch(e){record(e.name);}record(Object.keys(Intl.ListFormat.prototype).length);record(JSON.stringify(Intl.ListFormat.supportedLocalesOf(['de-DE','en-US'])));",
+    "expected": [
+      "TypeError",
+      "localeMatcher,type,style",
+      "[object Intl.ListFormat]",
+      "0",
+      "1",
+      "TypeError",
+      "0",
+      "[\"de-DE\",\"en-US\"]"
+    ]
+  },
+  {
+    "name": "ListFormat subclass prototype and repeated independent results",
+    "source": "class Lists extends Intl.ListFormat{};var f=new Lists('de');record(f instanceof Lists);var a=f.formatToParts(['a','b']);a[0].value='changed';record(f.format(['a','b']));try{new Intl.ListFormat('de',{style:'wrong'});}catch(e){record(e.name);}try{new Intl.ListFormat('de',null);}catch(e){record(e.name);}",
+    "expected": [
+      "true",
+      "a und b",
+      "RangeError",
+      "TypeError"
+    ]
+  }
+]

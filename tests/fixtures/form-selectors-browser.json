@@ -1,0 +1,595 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "standard": "https://html.spec.whatwg.org/multipage/semantics-other.html#pseudo-classes",
+  "cases": [
+    {
+      "name": "number unbounded",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"number\" value=\"4\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|4",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|4",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "number inside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"number\" min=\"3\" max=\"7\" value=\"4\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|4",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "number outside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"number\" min=\"3\" max=\"7\" value=\"9\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|true|9",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "number disabled",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"number\" min=\"3\" value=\"9\" disabled></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|9",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "number readonly",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"number\" min=\"3\" value=\"9\" readonly></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|9",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "number invalid limits",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"number\" min=\"bad\" max=\"bad\" value=\"9\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|9",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|9",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "range unbounded",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"range\" value=\"4\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|4",
+        "true|false|50"
+      ]
+    },
+    {
+      "name": "range inside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"range\" min=\"3\" max=\"7\" value=\"4\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|4",
+        "true|false|5"
+      ]
+    },
+    {
+      "name": "range outside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"range\" min=\"3\" max=\"7\" value=\"9\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|7",
+        "true|false|5"
+      ]
+    },
+    {
+      "name": "range disabled",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"range\" min=\"3\" value=\"9\" disabled></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|9",
+        "false|false|52"
+      ]
+    },
+    {
+      "name": "range readonly",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"range\" min=\"3\" value=\"9\" readonly></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|9",
+        "false|false|52"
+      ]
+    },
+    {
+      "name": "range invalid limits",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"range\" min=\"bad\" max=\"bad\" value=\"9\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|9",
+        "true|false|50"
+      ]
+    },
+    {
+      "name": "date unbounded",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"date\" value=\"2026-10-10\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-10-10",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|2026-10-10",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "date inside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"date\" min=\"2026-10-09\" max=\"2026-10-12\" value=\"2026-10-10\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|2026-10-10",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "date outside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"date\" min=\"2026-10-09\" max=\"2026-10-12\" value=\"2026-10-13\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|true|2026-10-13",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "date disabled",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"date\" min=\"2026-10-09\" value=\"2026-10-13\" disabled></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-10-13",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "date readonly",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"date\" min=\"2026-10-09\" value=\"2026-10-13\" readonly></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-10-13",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "date invalid limits",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"date\" min=\"bad\" max=\"bad\" value=\"2026-10-13\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-10-13",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|2026-10-13",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "datetime-local unbounded",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"datetime-local\" value=\"2026-10-09T12:00\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-10-09T12:00",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|2026-10-09T12:00",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "datetime-local inside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"datetime-local\" min=\"2026-10-09T08:00\" max=\"2026-10-09T16:00\" value=\"2026-10-09T12:00\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|2026-10-09T12:00",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "datetime-local outside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"datetime-local\" min=\"2026-10-09T08:00\" max=\"2026-10-09T16:00\" value=\"2026-10-09T20:00\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|true|2026-10-09T20:00",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "datetime-local disabled",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"datetime-local\" min=\"2026-10-09T08:00\" value=\"2026-10-09T20:00\" disabled></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-10-09T20:00",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "datetime-local readonly",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"datetime-local\" min=\"2026-10-09T08:00\" value=\"2026-10-09T20:00\" readonly></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-10-09T20:00",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "datetime-local invalid limits",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"datetime-local\" min=\"bad\" max=\"bad\" value=\"2026-10-09T20:00\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-10-09T20:00",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|2026-10-09T20:00",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "month unbounded",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"month\" value=\"2026-04\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-04",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|2026-04",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "month inside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"month\" min=\"2026-03\" max=\"2026-07\" value=\"2026-04\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|2026-04",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "month outside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"month\" min=\"2026-03\" max=\"2026-07\" value=\"2026-09\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|true|2026-09",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "month disabled",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"month\" min=\"2026-03\" value=\"2026-09\" disabled></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-09",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "month readonly",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"month\" min=\"2026-03\" value=\"2026-09\" readonly></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-09",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "month invalid limits",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"month\" min=\"bad\" max=\"bad\" value=\"2026-09\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-09",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|2026-09",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "week unbounded",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"week\" value=\"2026-W04\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-W04",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|2026-W04",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "week inside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"week\" min=\"2026-W03\" max=\"2026-W07\" value=\"2026-W04\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|2026-W04",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "week outside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"week\" min=\"2026-W03\" max=\"2026-W07\" value=\"2026-W09\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|true|2026-W09",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "week disabled",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"week\" min=\"2026-W03\" value=\"2026-W09\" disabled></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-W09",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "week readonly",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"week\" min=\"2026-W03\" value=\"2026-W09\" readonly></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-W09",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "week invalid limits",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"week\" min=\"bad\" max=\"bad\" value=\"2026-W09\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|2026-W09",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|2026-W09",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "time unbounded",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"time\" value=\"12:00\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|12:00",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|12:00",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "time inside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"time\" min=\"08:00\" max=\"16:00\" value=\"12:00\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|12:00",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "time outside",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"time\" min=\"08:00\" max=\"16:00\" value=\"20:00\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|true|20:00",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "time disabled",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"time\" min=\"08:00\" value=\"20:00\" disabled></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|20:00",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "time readonly",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"time\" min=\"08:00\" value=\"20:00\" readonly></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|20:00",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "time invalid limits",
+      "html": "<!doctype html><body><input id=\"probe\" type=\"time\" min=\"bad\" max=\"bad\" value=\"20:00\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|20:00",
+        "true|false|"
+      ],
+      "standardExpected": [
+        "false|false|20:00",
+        "false|false|"
+      ],
+      "difference": "A control without a defined minimum or maximum has no range limitations, even when empty. Chromium matches its empty value as :in-range."
+    },
+    {
+      "name": "Time crosses midnight",
+      "html": "<!doctype html><body><input id=\"probe\" type=time min=\"22:00\" max=\"02:00\" value=\"00:30\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|00:30",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "Time excluded midday",
+      "html": "<!doctype html><body><input id=\"probe\" type=time min=\"22:00\" max=\"02:00\" value=\"12:30\"></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|true|12:30",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "Number inverted range",
+      "html": "<!doctype html><body><input id=\"probe\" type=number min=20 max=10 value=15></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|true|15",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "Range inverted limits",
+      "html": "<!doctype html><body><input id=\"probe\" type=range min=20 max=10 value=15></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|20",
+        "true|false|20"
+      ],
+      "standardExpected": [
+        "false|true|20",
+        "false|true|20"
+      ],
+      "difference": "The HTML maximum remains 10 when min is 20. Sanitization retains min=20 and the input suffers overflow; Chromium suppresses this overflow."
+    },
+    {
+      "name": "Number step mismatch is in range",
+      "html": "<!doctype html><body><input id=\"probe\" type=number min=3 max=7 step=10 value=4></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|4",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "Disabled fieldset",
+      "html": "<!doctype html><body><fieldset disabled><input id=\"probe\" type=number min=3 max=7 value=4></fieldset></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|4",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "First legend exception",
+      "html": "<!doctype html><body><fieldset disabled><legend><input id=\"probe\" type=number min=3 max=7 value=4></legend></fieldset></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "true|false|4",
+        "true|false|"
+      ]
+    },
+    {
+      "name": "Datalist descendant",
+      "html": "<!doctype html><body><datalist><input id=\"probe\" type=number min=3 max=7 value=4></datalist></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|4",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "Text does not have range",
+      "html": "<!doctype html><body><input id=\"probe\" type=text min=3 max=7 value=4></body>",
+      "code": "const p=document.getElementById('probe');record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);p.value='';record(p.matches(':in-range'),p.matches(':out-of-range'),p.value);",
+      "expected": [
+        "false|false|4",
+        "false|false|"
+      ]
+    },
+    {
+      "name": "Range mutations",
+      "html": "<!doctype html><body><input id=\"probe\" type=number min=3 max=7 value=4></body>",
+      "code": "\nconst p=document.getElementById('probe');function snapshot(){record(p.matches(':in-range'),p.matches(':out-of-range'));}\nsnapshot();p.value='9';snapshot();p.max='10';snapshot();p.removeAttribute('min');p.removeAttribute('max');snapshot();p.type='range';snapshot();p.disabled=true;snapshot();p.disabled=false;p.readOnly=true;snapshot();p.readOnly=false;snapshot();",
+      "expected": [
+        "true|false",
+        "false|true",
+        "true|false",
+        "false|false",
+        "true|false",
+        "false|false",
+        "false|false",
+        "true|false"
+      ]
+    },
+    {
+      "name": "Defaults follow attributes, not current value",
+      "html": "<!doctype html><body><input id=c type=checkbox checked><input id=r type=radio checked><select id=s><option id=a selected>A<option id=b selected>B</select></body>",
+      "code": "\nconst c=document.getElementById('c'),r=document.getElementById('r'),s=document.getElementById('s');\nfunction snapshot(){record(Array.from(document.querySelectorAll(':default')).map(n=>n.id).join(','));}snapshot();c.checked=false;r.checked=false;s.value='A';snapshot();c.defaultChecked=false;document.getElementById('b').defaultSelected=false;snapshot();",
+      "expected": [
+        "c,r,a,b",
+        "c,r,a,b",
+        "r,a"
+      ]
+    },
+    {
+      "name": "Checked uses live selectedness",
+      "html": "<!doctype html><body><input id=c type=checkbox checked><select id=s><option id=a selected>A<option id=b>B</select></body>",
+      "code": "\nconst c=document.getElementById('c'),s=document.getElementById('s');function snapshot(){record(Array.from(document.querySelectorAll(':checked')).map(n=>n.id).join(','));}snapshot();c.checked=false;s.value='B';snapshot();c.checked=true;s.selectedIndex=-1;snapshot();",
+      "expected": [
+        "c,a",
+        "b",
+        "c"
+      ]
+    },
+    {
+      "name": "First submit in tree order including external and disabled",
+      "html": "<!doctype html><body><button id=external form=f disabled>External</button><form id=f><button id=reset type=reset>Reset</button><button id=first>First</button><input id=image type=image><input id=submit type=submit><button id=last>Last</button></form></body>",
+      "code": "\nfunction snapshot(){record(Array.from(document.querySelectorAll(':default')).map(n=>n.id).join(','));}snapshot();document.getElementById('external').remove();snapshot();document.getElementById('first').type='button';snapshot();document.getElementById('image').setAttribute('form','missing');snapshot();document.getElementById('f').prepend(document.getElementById('last'));snapshot();",
+      "expected": [
+        "external",
+        "first",
+        "image",
+        "submit",
+        "last"
+      ]
+    },
+    {
+      "name": "Detached form and false external owner",
+      "html": "<!doctype html><body><form id=f><button id=first>First</button><button id=wrong form=missing>Wrong</button></form><button id=loose>Loose</button></body>",
+      "code": "\nconst f=document.getElementById('f'),b=document.getElementById('first'),w=document.getElementById('wrong'),loose=document.getElementById('loose');record(b.matches(':default'),w.matches(':default'),loose.matches(':default'));f.remove();record(b.matches(':default'),w.matches(':default'));",
+      "expected": [
+        "true|false|false",
+        "true|false"
+      ]
+    },
+    {
+      "name": "Auto button with command is not a submit",
+      "html": "<!doctype html><body><form><button id=command command=--test>Command</button><button id=commandfor commandfor=target>Command for</button><button id=invalid type=unknown>Auto</button><button id=explicit type=submit command=--test>Submit</button></form></body>",
+      "code": "record(Array.from(document.querySelectorAll(':default')).map(n=>n.id).join(','));",
+      "expected": [
+        "invalid"
+      ]
+    }
+  ]
+}

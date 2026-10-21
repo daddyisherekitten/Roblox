@@ -1,0 +1,13 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #fbfbfb;
+}
+
+#NotFound{
+	display: block;
+	margin: 175px auto 0px auto;
+	width: 721px;
+	height: 327px;
+	background-image: url('NotFound.png');
+}

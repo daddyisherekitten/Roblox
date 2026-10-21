@@ -1,0 +1,119 @@
+[
+  {
+    "label": "start",
+    "dialog": "Bereit · kein Fenster geöffnet.",
+    "list": "Haus am Hang, Stadthaus und Gartenatelier",
+    "path": "Füllregel: nonzero · Fensteröffnung: gefüllt · Anbau nur an der Kopie: nein",
+    "script": "Bereit · noch kein Skript eingefügt.",
+    "scriptOutput": "Die Projektliste wartet auf ihre Skripte.",
+    "worker": "Bereit · Summe und Mittelwert warten."
+  },
+  {
+    "label": "scripts",
+    "dialog": "Bereit · kein Fenster geöffnet.",
+    "list": "Haus am Hang, Stadthaus und Gartenatelier",
+    "path": "Füllregel: nonzero · Fensteröffnung: gefüllt · Anbau nur an der Kopie: nein",
+    "script": "Daten → Ansicht · zwei externe Skripte, genau einmal ausgeführt.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Bereit · Summe und Mittelwert warten."
+  },
+  {
+    "label": "inline",
+    "dialog": "Bereit · kein Fenster geöffnet.",
+    "list": "Haus am Hang, Stadthaus und Gartenatelier",
+    "path": "Füllregel: nonzero · Fensteröffnung: gefüllt · Anbau nur an der Kopie: nein",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Bereit · Summe und Mittelwert warten."
+  },
+  {
+    "label": "inline-again",
+    "dialog": "Bereit · kein Fenster geöffnet.",
+    "list": "Haus am Hang, Stadthaus und Gartenatelier",
+    "path": "Füllregel: nonzero · Fensteröffnung: gefüllt · Anbau nur an der Kopie: nein",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Bereit · Summe und Mittelwert warten."
+  },
+  {
+    "label": "english-or",
+    "dialog": "Bereit · kein Fenster geöffnet.",
+    "list": "Haus am Hang, Stadthaus, or Gartenatelier",
+    "path": "Füllregel: nonzero · Fensteröffnung: gefüllt · Anbau nur an der Kopie: nein",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Bereit · Summe und Mittelwert warten."
+  },
+  {
+    "label": "canvas",
+    "dialog": "Bereit · kein Fenster geöffnet.",
+    "list": "Haus am Hang, Stadthaus, or Gartenatelier",
+    "path": "Füllregel: evenodd · Fensteröffnung: frei · Anbau nur an der Kopie: ja",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Bereit · Summe und Mittelwert warten."
+  },
+  {
+    "label": "classic",
+    "dialog": "Bereit · kein Fenster geöffnet.",
+    "list": "Haus am Hang, Stadthaus, or Gartenatelier",
+    "path": "Füllregel: evenodd · Fensteröffnung: frei · Anbau nur an der Kopie: ja",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Summe: 264 · Mittelwert: 33\nZurück: 12, 18, 24, 30, 36, 42, 48, 54 · 8 Bytes\nOhne DOM: ja · Projektlabor"
+  },
+  {
+    "label": "module",
+    "dialog": "Bereit · kein Fenster geöffnet.",
+    "list": "Haus am Hang, Stadthaus, or Gartenatelier",
+    "path": "Füllregel: evenodd · Fensteröffnung: frei · Anbau nur an der Kopie: ja",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Summe: 264 · Mittelwert: 33\nZurück: 12, 18, 24, 30, 36, 42, 48, 54 · 8 Bytes\nOhne DOM: ja · Projektlabor"
+  },
+  {
+    "label": "modal",
+    "dialog": "Modal geöffnet · der Hintergrund ist gesperrt.",
+    "list": "Haus am Hang, Stadthaus, or Gartenatelier",
+    "path": "Füllregel: evenodd · Fensteröffnung: frei · Anbau nur an der Kopie: ja",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Summe: 264 · Mittelwert: 33\nZurück: 12, 18, 24, 30, 36, 42, 48, 54 · 8 Bytes\nOhne DOM: ja · Projektlabor"
+  },
+  {
+    "label": "closed",
+    "dialog": "Geschlossen · Rückgabe: bestätigt",
+    "list": "Haus am Hang, Stadthaus, or Gartenatelier",
+    "path": "Füllregel: evenodd · Fensteröffnung: frei · Anbau nur an der Kopie: ja",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Summe: 264 · Mittelwert: 33\nZurück: 12, 18, 24, 30, 36, 42, 48, 54 · 8 Bytes\nOhne DOM: ja · Projektlabor"
+  },
+  {
+    "label": "nonmodal",
+    "dialog": "Nichtmodal geöffnet · die Seite bleibt bedienbar.",
+    "list": "Haus am Hang, Stadthaus, or Gartenatelier",
+    "path": "Füllregel: evenodd · Fensteröffnung: frei · Anbau nur an der Kopie: ja",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Summe: 264 · Mittelwert: 33\nZurück: 12, 18, 24, 30, 36, 42, 48, 54 · 8 Bytes\nOhne DOM: ja · Projektlabor"
+  },
+  {
+    "label": "popover",
+    "dialog": "Popover: open",
+    "list": "Haus am Hang, Stadthaus, or Gartenatelier",
+    "path": "Füllregel: evenodd · Fensteröffnung: frei · Anbau nur an der Kopie: ja",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Summe: 264 · Mittelwert: 33\nZurück: 12, 18, 24, 30, 36, 42, 48, 54 · 8 Bytes\nOhne DOM: ja · Projektlabor"
+  },
+  {
+    "label": "popover-closed",
+    "dialog": "Popover: closed",
+    "list": "Haus am Hang, Stadthaus, or Gartenatelier",
+    "path": "Füllregel: evenodd · Fensteröffnung: frei · Anbau nur an der Kopie: ja",
+    "script": "Inline-Skript ausgeführt · Ansicht hervorgehoben.",
+    "scriptOutput": "Haus am Hang · Stadthaus · Gartenatelier",
+    "worker": "Summe: 264 · Mittelwert: 33\nZurück: 12, 18, 24, 30, 36, 42, 48, 54 · 8 Bytes\nOhne DOM: ja · Projektlabor"
+  }
+]

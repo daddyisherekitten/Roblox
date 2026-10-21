@@ -1,0 +1,530 @@
+[
+  {
+    "name": "try callback is synchronous and reactions are deferred",
+    "group": "promise",
+    "source": "record('before');Promise.try(function(a,b){record('callback');return a+b;},3,4).then(function(v){record(v);});record('after');",
+    "expected": [
+      "before",
+      "callback",
+      "after",
+      "7"
+    ]
+  },
+  {
+    "name": "try rejects throws and noncallable callback",
+    "group": "promise",
+    "source": "const reason={code:7};Promise.try(function(){throw reason;}).catch(function(e){record(e===reason);});Promise.try(7).catch(function(e){record(e.name);});record('sync');",
+    "expected": [
+      "sync",
+      "true",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "try follows current draft PromiseResolve identity and adopts thenables",
+    "group": "promise",
+    "source": "const p=Promise.resolve(4);record(Promise.try(function(){return p;})===p);Promise.try(function(){return {then:function(resolve){record('thenable');resolve(9);}};}).then(function(v){record(v);});record('sync');",
+    "expected": [
+      "true",
+      "sync",
+      "thenable",
+      "9"
+    ],
+    "nodeExpected": [
+      "false",
+      "sync",
+      "thenable",
+      "9"
+    ],
+    "reference": "Chromium/current ECMAScript draft preserves promise identity; Node 24/ES2025 always allocates."
+  },
+  {
+    "name": "withResolvers capability and first settlement",
+    "group": "promise",
+    "source": "const pair=Promise.withResolvers();record(typeof pair.resolve);record(typeof pair.reject);pair.promise.then(function(v){record(v);});pair.resolve(12);pair.reject(14);record('sync');",
+    "expected": [
+      "function",
+      "function",
+      "sync",
+      "12"
+    ]
+  },
+  {
+    "name": "withResolvers self resolution rejects",
+    "group": "promise",
+    "source": "const pair=Promise.withResolvers();pair.promise.catch(function(e){record(e.name);});pair.resolve(pair.promise);",
+    "expected": [
+      "TypeError"
+    ]
+  },
+  {
+    "name": "event defaults and custom detail identity",
+    "group": "event",
+    "source": "const detail={value:3};const e=new CustomEvent('message',{detail:detail,bubbles:true,cancelable:true,composed:true});record(e.type);record(e.detail===detail);record(e.target===null);record(e.currentTarget===null);record(e.eventPhase);record(e.bubbles);record(e.cancelable);record(e.composed);record(e.isTrusted);record(new CustomEvent('empty').detail===null);",
+    "expected": [
+      "message",
+      "true",
+      "true",
+      "true",
+      "0",
+      "true",
+      "true",
+      "true",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "event target receiver and cleanup",
+    "group": "event",
+    "source": "const t=new EventTarget();const e=new Event('x');t.addEventListener('x',function(event){record(this===t);record(event===e);record(event.target===t);record(event.currentTarget===t);record(event.eventPhase);record(event.composedPath().length);});record(t.dispatchEvent(e));record(e.target===t);record(e.currentTarget===null);record(e.eventPhase);record(e.composedPath().length);",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "2",
+      "1",
+      "true",
+      "true",
+      "true",
+      "0",
+      "0"
+    ]
+  },
+  {
+    "name": "standalone EventTarget capture identity preserves registration order",
+    "group": "event",
+    "source": "const t=new EventTarget();function listener(e){record('listener:'+e.eventPhase);}t.addEventListener('x',function(){record('bubble');});t.addEventListener('x',listener,true);t.addEventListener('x',listener,false);t.addEventListener('x',listener,true);t.dispatchEvent(new Event('x'));t.removeEventListener('x',listener,true);t.dispatchEvent(new Event('x'));",
+    "expected": [
+      "bubble",
+      "listener:2",
+      "listener:2",
+      "bubble",
+      "listener:2"
+    ]
+  },
+  {
+    "name": "once removed before reentrant dispatch",
+    "group": "event",
+    "source": "const t=new EventTarget();let count=0;t.addEventListener('x',function(){count++;t.dispatchEvent(new Event('x'));},{once:true});t.dispatchEvent(new Event('x'));t.dispatchEvent(new Event('x'));record(count);",
+    "expected": [
+      "1"
+    ]
+  },
+  {
+    "name": "listener removal and insertion during dispatch",
+    "group": "event",
+    "source": "const t=new EventTarget();function second(){record('second');}function late(){record('late');}t.addEventListener('x',function(){record('first');t.removeEventListener('x',second);t.addEventListener('x',late);});t.addEventListener('x',second);t.dispatchEvent(new Event('x'));t.dispatchEvent(new Event('x'));",
+    "expected": [
+      "first",
+      "first",
+      "late"
+    ]
+  },
+  {
+    "name": "passive and cancelable dispatch return",
+    "group": "event",
+    "source": "const t=new EventTarget();t.addEventListener('x',function(e){e.preventDefault();record(e.defaultPrevented);},{passive:true});const a=new Event('x',{cancelable:true});record(t.dispatchEvent(a));t.addEventListener('x',function(e){e.preventDefault();record(e.defaultPrevented);});const b=new Event('x',{cancelable:true});record(t.dispatchEvent(b));record(b.returnValue);",
+    "expected": [
+      "false",
+      "true",
+      "false",
+      "true",
+      "false",
+      "false"
+    ]
+  },
+  {
+    "name": "handleEvent receiver and live method lookup",
+    "group": "event",
+    "source": "const t=new EventTarget();const listener={handleEvent:function(e){record(this===listener);record(e.type);}};t.addEventListener('x',listener);t.dispatchEvent(new Event('x'));listener.handleEvent=function(){record('changed');};t.dispatchEvent(new Event('x'));",
+    "expected": [
+      "true",
+      "x",
+      "changed"
+    ]
+  },
+  {
+    "name": "redispatch guard and initEvent resets cancellation",
+    "group": "event",
+    "source": "const t=new EventTarget();const e=new Event('x',{cancelable:true});t.addEventListener('x',function(){try{t.dispatchEvent(e);}catch(error){record(error.name);record(error.code);}e.preventDefault();});record(t.dispatchEvent(e));e.initEvent('y',true,false);record(e.type);record(e.defaultPrevented);record(e.target===null);record(t.dispatchEvent(e));",
+    "expected": [
+      "InvalidStateError",
+      "11",
+      "false",
+      "y",
+      "false",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "abort reason identity and synchronous event",
+    "group": "event",
+    "source": "const c=new AbortController();const reason={code:42};const signal=c.signal;signal.addEventListener('abort',function(e){record(signal.aborted);record(signal.reason===reason);record(e.target===signal);record(e.isTrusted);});record(signal.aborted);record(signal.reason===undefined);c.abort(reason);record('after');c.abort('ignored');try{signal.throwIfAborted();}catch(e){record(e===reason);}",
+    "expected": [
+      "false",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "after",
+      "true"
+    ]
+  },
+  {
+    "name": "abort signal removes listeners and preaborted registration",
+    "group": "event",
+    "source": "const t=new EventTarget();const c=new AbortController();let count=0;t.addEventListener('x',function(){count++;},{signal:c.signal});t.dispatchEvent(new Event('x'));c.abort();t.dispatchEvent(new Event('x'));t.addEventListener('x',function(){count+=10;},{signal:c.signal});t.dispatchEvent(new Event('x'));record(count);record(c.signal.reason.name);record(c.signal.reason.code);",
+    "expected": [
+      "1",
+      "AbortError",
+      "20"
+    ]
+  },
+  {
+    "name": "abort any sets dependent state before source listeners",
+    "group": "event",
+    "source": "const a=new AbortController();const b=new AbortController();const combined=AbortSignal.any([a.signal,b.signal,a.signal]);a.signal.addEventListener('abort',function(){record('source:'+combined.aborted);});combined.addEventListener('abort',function(){record('combined:'+combined.reason);});a.abort('first');b.abort('second');record(combined.reason);",
+    "expected": [
+      "source:true",
+      "combined:first",
+      "first"
+    ]
+  },
+  {
+    "name": "abort any nested sources and input order",
+    "group": "event",
+    "source": "const a=new AbortController();const b=new AbortController();const first=AbortSignal.any([a.signal,b.signal]);const second=AbortSignal.any([first,b.signal]);second.addEventListener('abort',function(){record(second.reason);});b.abort('B');record(first.aborted);record(AbortSignal.any([AbortSignal.abort('one'),AbortSignal.abort('two')]).reason);record(AbortSignal.any([]).aborted);",
+    "expected": [
+      "B",
+      "true",
+      "one",
+      "false"
+    ]
+  },
+  {
+    "name": "abort handler replacement preserves listener order",
+    "group": "event",
+    "source": "const c=new AbortController();const s=c.signal;s.addEventListener('abort',function(){record('first');});s.onabort=function(){record('old');};s.addEventListener('abort',function(){record('last');});s.onabort=function(){record('new');};c.abort();record(s.onabort!==null);",
+    "expected": [
+      "first",
+      "new",
+      "last",
+      "true"
+    ]
+  },
+  {
+    "name": "timeout abort uses a future task and TimeoutError",
+    "group": "event",
+    "source": "const signal=AbortSignal.timeout(0);signal.addEventListener('abort',function(){record(signal.aborted);record(signal.reason.name);record(signal.reason.code);});record(signal.aborted);record('sync');",
+    "expected": [
+      "false",
+      "sync",
+      "true",
+      "TimeoutError",
+      "23"
+    ]
+  },
+  {
+    "name": "DOMException constants and legacy unused names",
+    "group": "event",
+    "source": "const e=new DOMException('missing','NotFoundError');record(e.name);record(e.message);record(e.code);record(e.toString());record(DOMException.ABORT_ERR);record(new DOMException('x','DOMStringSizeError').code);record(new DOMException().name);record(new DOMException().message);",
+    "expected": [
+      "NotFoundError",
+      "missing",
+      "8",
+      "NotFoundError: missing",
+      "20",
+      "0",
+      "Error",
+      ""
+    ]
+  },
+  {
+    "name": "illegal host constructors and signal dictionary",
+    "group": "event",
+    "source": "try{new AbortSignal();}catch(e){record(e.name);}try{new Event();}catch(e){record(e.name);}try{new EventTarget().addEventListener('x',function(){},{signal:null});}catch(e){record(e.name);}try{AbortSignal.timeout(-1);}catch(e){record(e.name);}try{AbortSignal.any([AbortSignal.abort(),{}]);}catch(e){record(e.name);}",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "try generic constructor runs callback before capability",
+    "group": "promise",
+    "source": "function C(executor){record(\"construct\");executor(function(v){record(\"resolve:\"+v);},function(v){record(\"reject:\"+v);});}Promise.try.call(C,function(){record(\"callback\");return 7;});",
+    "expected": [
+      "callback",
+      "construct",
+      "resolve:7"
+    ],
+    "nodeExpected": [
+      "construct",
+      "callback",
+      "resolve:7"
+    ]
+  },
+  {
+    "name": "try invalid constructor object still invokes callback",
+    "group": "promise",
+    "source": "try{Promise.try.call({},function(){record(\"callback\");});}catch(e){record(e.name);}try{Promise.try.call(1,function(){record(\"invalid\");});}catch(e){record(e.name);}",
+    "expected": [
+      "callback",
+      "TypeError",
+      "TypeError"
+    ],
+    "nodeExpected": [
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "withResolvers generic constructor preserves capability functions",
+    "group": "promise",
+    "source": "let resolve,reject;function C(executor){resolve=function(){};reject=function(){};executor(resolve,reject);}const pair=Promise.withResolvers.call(C);record(pair.promise instanceof C);record(pair.resolve===resolve);record(pair.reject===reject);try{Promise.withResolvers.call(function(){});}catch(e){record(e.name);}",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "host prototypes and branded accessors",
+    "group": "event",
+    "source": "const e=new CustomEvent(\"x\");const c=new AbortController();record(e instanceof Event);record(e instanceof CustomEvent);record(c.signal instanceof EventTarget);record(Object.getPrototypeOf(CustomEvent)===Event);record(Object.getPrototypeOf(AbortSignal)===EventTarget);record(Object.getOwnPropertyDescriptor(Event.prototype,\"type\").enumerable);try{Object.getOwnPropertyDescriptor(Event.prototype,\"type\").get.call({});}catch(error){record(error.name);}",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "readonly event accessors support shadowing except isTrusted",
+    "group": "event",
+    "source": "const e=new Event(\"x\");e.type=\"changed\";record(e.type);record(Object.hasOwn(e,\"type\"));Object.defineProperty(e,\"type\",{value:\"own\"});record(e.type);try{Object.defineProperty(e,\"isTrusted\",{value:true});}catch(error){record(error.name);}record(e.isTrusted);try{(function(){\"use strict\";new AbortController().signal.aborted=true;})();}catch(error){record(error.name);}",
+    "expected": [
+      "x",
+      "false",
+      "own",
+      "TypeError",
+      "false",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "EventTarget methods can be replaced on prototype and instance",
+    "group": "event",
+    "source": "const t=new EventTarget();const original=EventTarget.prototype.addEventListener;EventTarget.prototype.addEventListener=function(){record(\"proto\");};t.addEventListener(\"x\",function(){});t.addEventListener=function(){record(\"own\");};t.addEventListener(\"x\",function(){});delete t.addEventListener;EventTarget.prototype.addEventListener=original;let n=0;t.addEventListener(\"x\",function(){n++;});t.dispatchEvent(new Event(\"x\"));record(n);",
+    "expected": [
+      "proto",
+      "own",
+      "1"
+    ]
+  },
+  {
+    "name": "standalone EventTarget retains stopImmediatePropagation for later dispatch",
+    "group": "event",
+    "source": "const t=new EventTarget();const e=new Event(\"x\");t.addEventListener(\"x\",function(event){record(\"first\");event.stopImmediatePropagation();},{once:true});t.addEventListener(\"x\",function(){record(\"second\");});t.dispatchEvent(e);t.dispatchEvent(e);",
+    "expected": [
+      "first"
+    ]
+  },
+  {
+    "name": "stopPropagation does not skip same target listeners",
+    "group": "event",
+    "source": "const t=new EventTarget();t.addEventListener(\"x\",function(e){record(\"first\");e.stopPropagation();},true);t.addEventListener(\"x\",function(){record(\"second\");});t.dispatchEvent(new Event(\"x\"));",
+    "expected": [
+      "first",
+      "second"
+    ]
+  },
+  {
+    "name": "standalone cancelBubble is retained but does not suppress target listeners",
+    "group": "event",
+    "source": "const e=new Event(\"x\",{cancelable:true});e.cancelBubble=true;e.cancelBubble=false;record(e.cancelBubble);e.returnValue=false;e.returnValue=true;record(e.defaultPrevented);record(e.returnValue);const t=new EventTarget();t.addEventListener(\"x\",function(){record(\"listener\");});record(t.dispatchEvent(e));record(e.cancelBubble);",
+    "expected": [
+      "true",
+      "true",
+      "false",
+      "listener",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "null event listener still validates options",
+    "group": "event",
+    "source": "const t=new EventTarget();try{t.addEventListener(\"x\",null,{signal:null});}catch(e){record(e.name);}t.addEventListener(\"x\",null);record(t.dispatchEvent(new Event(\"x\")));",
+    "expected": [
+      "TypeError",
+      "true"
+    ]
+  },
+  {
+    "name": "duplicate listener retains initial once passive and signal",
+    "group": "event",
+    "source": "const t=new EventTarget();const a=new AbortController();const b=new AbortController();let n=0;function f(){n++;}t.addEventListener(\"x\",f,{signal:a.signal});t.addEventListener(\"x\",f,{signal:b.signal,once:true});b.abort();t.dispatchEvent(new Event(\"x\"));t.dispatchEvent(new Event(\"x\"));a.abort();t.dispatchEvent(new Event(\"x\"));record(n);",
+    "expected": [
+      "2"
+    ]
+  },
+  {
+    "name": "abort removes later listener during the current dispatch",
+    "group": "event",
+    "source": "const t=new EventTarget();const c=new AbortController();t.addEventListener(\"x\",function(){record(\"first\");c.abort();});t.addEventListener(\"x\",function(){record(\"removed\");},{signal:c.signal});t.dispatchEvent(new Event(\"x\"));",
+    "expected": [
+      "first"
+    ]
+  },
+  {
+    "name": "abort handler null removes then appends on replacement",
+    "group": "event",
+    "source": "const s=new AbortController();s.signal.onabort=function(){record(\"old\");};s.signal.addEventListener(\"abort\",function(){record(\"listener\");});s.signal.onabort=null;s.signal.onabort=function(){record(\"new\");};s.signal.oncustom=function(){record(\"unexpected\");};s.signal.dispatchEvent(new Event(\"custom\"));s.abort();",
+    "expected": [
+      "listener",
+      "new"
+    ]
+  },
+  {
+    "name": "AbortSignal timeout validates fractions and infinity",
+    "group": "event",
+    "source": "record(AbortSignal.timeout(-0.9).aborted);try{AbortSignal.timeout(Infinity);}catch(e){record(e.name);}try{AbortSignal.timeout(NaN);}catch(e){record(e.name);}try{AbortSignal.timeout(18446744073709551616);}catch(e){record(e.name);}",
+    "expected": [
+      "false",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "DOMException uses Error inheritance and readonly name",
+    "group": "event",
+    "source": "const e=new DOMException(\"bad\",\"AbortError\");record(e instanceof Error);record(Object.prototype.toString.call(e));e.name=\"changed\";record(e.name);try{Object.getOwnPropertyDescriptor(DOMException.prototype,\"code\").get.call({});}catch(error){record(error.name);}",
+    "expected": [
+      "true",
+      "[object DOMException]",
+      "AbortError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "CustomEvent legacy init resets detail and is ignored during dispatch",
+    "group": "event",
+    "source": "const t=new EventTarget();const e=new CustomEvent(\"x\",{detail:3});t.addEventListener(\"x\",function(){e.initCustomEvent(\"changed\",true,true,9);record(e.type);record(e.detail);});t.dispatchEvent(e);e.initCustomEvent(\"after\");record(e.type);record(e.detail===null);record(e.bubbles);",
+    "expected": [
+      "x",
+      "3",
+      "after",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "MouseEvent UI inheritance coordinates modifiers and readonly fields",
+    "group": "event",
+    "source": "const e=new MouseEvent(\"click\",{clientX:12.8,clientY:-3.7,screenX:20,button:2,buttons:2,ctrlKey:true,detail:2});record(e instanceof MouseEvent);record(e instanceof UIEvent);record(e instanceof Event);record(e.clientX);record(e.clientY);record(e.x);record(e.pageX);record(e.which);record(e.getModifierState(\"Control\"));record(e.getModifierState(\"Alt\"));e.clientX=99;record(e.clientX);record(e.detail);",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "12",
+      "-4",
+      "12",
+      "12",
+      "3",
+      "true",
+      "false",
+      "12",
+      "2"
+    ]
+  },
+  {
+    "name": "KeyboardEvent defaults and initializer-only modifiers",
+    "group": "event",
+    "source": "const e=new KeyboardEvent(\"keydown\",{key:\"A\",code:\"KeyA\",location:2,shiftKey:true,repeat:true,keyCode:65,modifierCapsLock:true});record(e.key);record(e.code);record(e.location);record(e.repeat);record(e.which);record(e.getModifierState(\"Shift\"));record(e.getModifierState(\"CapsLock\"));record(e.modifierCapsLock===undefined);record(KeyboardEvent.DOM_KEY_LOCATION_RIGHT);record(new KeyboardEvent(\"x\").isComposing);",
+    "expected": [
+      "A",
+      "KeyA",
+      "2",
+      "true",
+      "65",
+      "true",
+      "true",
+      "true",
+      "2",
+      "false"
+    ]
+  },
+  {
+    "name": "WheelEvent MouseEvent inheritance and delta constants",
+    "group": "event",
+    "source": "const e=new WheelEvent(\"wheel\",{deltaX:1.5,deltaY:-2.75,deltaMode:1,clientX:4});record(e instanceof MouseEvent);record(e.deltaX);record(e.deltaY);record(e.deltaMode);record(e.clientX);record(WheelEvent.DOM_DELTA_PAGE);try{new WheelEvent(\"x\",{deltaX:Infinity});}catch(error){record(error.name);}",
+    "expected": [
+      "true",
+      "1.5",
+      "-2.75",
+      "1",
+      "4",
+      "2",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "InputEvent FocusEvent and CompositionEvent defaults",
+    "group": "event",
+    "source": "const i=new InputEvent(\"beforeinput\",{data:\"ä\",inputType:\"insertText\",isComposing:true});record(i.data);record(i.inputType);record(i.isComposing);record(i.getTargetRanges().length);record(new InputEvent(\"input\").data===null);const t=new EventTarget();record(new FocusEvent(\"focus\",{relatedTarget:t}).relatedTarget===t);record(new CompositionEvent(\"compositionend\",{data:\"text\"}).data);record(new SubmitEvent(\"submit\").submitter===null);try{new SubmitEvent(\"submit\",{submitter:t});}catch(error){record(error.name);}",
+    "expected": [
+      "ä",
+      "insertText",
+      "true",
+      "0",
+      "true",
+      "true",
+      "text",
+      "true",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Host event field descriptors brand check",
+    "group": "event",
+    "source": "try{Object.getOwnPropertyDescriptor(MouseEvent.prototype,\"clientX\").get.call(new Event(\"x\"));}catch(error){record(error.name);}try{MouseEvent.prototype.getModifierState.call({},\"Shift\");}catch(error){record(error.name);}const e=new UIEvent(\"x\",{detail:3});record(e.which);record(e.view===null);",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "0",
+      "true"
+    ]
+  },
+  {
+    "name": "Promise Symbol value never reads a then property",
+    "group": "event",
+    "source": "let count=0;Object.defineProperty(Symbol.prototype,\"then\",{get:function(){count++;return function(resolve){resolve(\"wrong\");};},configurable:true});const s=Symbol(\"v\");Promise.resolve(s).then(function(value){record(value===s);record(count);});",
+    "expected": [
+      "true",
+      "0"
+    ]
+  },
+  {
+    "name": "Promise native metadata own key order",
+    "group": "promise",
+    "source": "record(Object.getOwnPropertyNames(Promise).join(','));record(Object.getOwnPropertyNames(Promise.resolve).join(','));record(Object.getOwnPropertyNames(Promise.prototype).join(','));record(Object.getOwnPropertyNames(Promise.prototype.then).join(','));",
+    "expected": [
+      "length,name,prototype,all,allSettled,any,race,resolve,reject,withResolvers,try",
+      "length,name",
+      "constructor,then,catch,finally",
+      "length,name"
+    ]
+  }
+]

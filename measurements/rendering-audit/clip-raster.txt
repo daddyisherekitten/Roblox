@@ -1,0 +1,19 @@
+Rendering audit, 2026-09-21
+Runtime: local official Luau CLI, default optimization; no Roblox scheduler or GPU upload.
+Scenario: clip-path ellipse, 256 x 144 output pixels, sixteen coverage samples per pixel.
+Timing: median of nine successive raster calls, same process.
+
+Before: 101.0141 ms; 1,179,648 LengthExpression.resolve calls per raster.
+After:   38.4254 ms;         2 LengthExpression.resolve calls per raster.
+Reduction in measured median CPU time: 61.96% (2.63x throughput).
+
+Pixel comparison: 30 RGBA buffers identical byte-for-byte.
+Dimensions: 1x1, 19x13, 90x45, 400x200, 800x360.
+Shapes per dimension: percentage circle, 17px circle, percentage ellipse,
+31px/12px ellipse, 20px rounded rectangle, zero-radius rectangle.
+Includes downsampled output and the existing antialiasing coverage.
+
+Local reproduction artifacts (build output, not production source):
+build/visual-effect-pixels-audit-before.luau
+build/rendering-audit-benchmark.cjs
+Run: node build/rendering-audit-benchmark.cjs

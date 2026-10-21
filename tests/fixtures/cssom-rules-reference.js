@@ -1,0 +1,24 @@
+const log=[];function record(value){log.push(String(value));}
+const sheet=new CSSStyleSheet();
+sheet.replaceSync('@keyframes grow { from { width: 10px; opacity: .2 !important; } 50%, to { width: 30px; } 50% { width:40px; } 50% { width:50px; } }');
+const frames=sheet.cssRules[0],list=frames.cssRules,first=list[0];
+record(frames instanceof CSSKeyframesRule);record(first instanceof CSSKeyframeRule);record(first.keyText);record(first.style.opacity);record(frames.findRule('50%').style.width);
+frames.deleteRule('50%');record(frames.findRule('50%').style.width);record(frames.findRule('to'));record(frames.findRule('50%,100%').keyText);
+frames.appendRule('to { width: 80px; }');record(list.length);record(frames[3]===list[3]);first.keyText='20%, from';record(first.keyText);
+try{first.keyText='101%';}catch(e){record(e.name);}record(first.keyText);
+first.style.width='25px';record(first.style.parentRule===first);record(first.parentRule===frames);record(first.parentStyleSheet===sheet);
+frames.name='resized';record(frames.name);record(sheet.cssRules[0]===frames);
+const descriptors=new CSSStyleSheet();descriptors.replaceSync('@font-face {font-family: Demo; src: local("Arial"); font-display: swap;} @page :first { margin: 12px; size: A4; @top-left { content:"Report"; } } @layer base, theme; @layer theme { .x { color:red; } } @container panel (width > 200px) { .x { color:blue; } } @scope (.outer) to (.inner) { .x { color: green; } } @property --space {syntax:"<length>"; inherits:false; initial-value:0px;} @counter-style circles {system:cyclic; symbols:"○" "●"; suffix:" ";}');
+record(descriptors.cssRules.length);
+const font=descriptors.cssRules[0];record(font instanceof CSSFontFaceRule);record(font.style.getPropertyValue('src'));font.style.setProperty('font-display','optional');record(font.style.getPropertyValue('font-display'));
+const page=descriptors.cssRules[1];record(page instanceof CSSPageRule);record(page.selectorText);record(page.style.margin);record(page.style.getPropertyValue('size'));record(page.cssRules.length);record(page.cssRules[0].name);
+const statement=descriptors.cssRules[2],layer=descriptors.cssRules[3];record(statement.nameList.join(','));record(layer.name);layer.insertRule('.y {color:black}',1);record(layer.cssRules.length);
+const container=descriptors.cssRules[4];record(container instanceof CSSContainerRule);record(container.containerName);record(container.containerQuery);record(container.conditionText);
+const scope=descriptors.cssRules[5];record(scope instanceof CSSScopeRule);record(scope.start);record(scope.end);
+const property=descriptors.cssRules[6];record(property instanceof CSSPropertyRule);record(property.name);record(property.syntax);record(property.inherits);record(property.initialValue);
+const counter=descriptors.cssRules[7];record(counter instanceof CSSCounterStyleRule);record(counter.system);record(counter.symbols);counter.suffix='"!"';record(counter.suffix);
+const scopes=new CSSStyleSheet();scopes.replaceSync('@scope to (.stop) { .x {color:red} }');
+record(scopes.cssRules.length);record(scopes.cssRules[0].start);record(scopes.cssRules[0].end);
+scopes.replaceSync('@scope (.outer) to(.stop) { .x {color:red} }');record(scopes.cssRules.length);
+scopes.replaceSync('@scope (.outer) to/**/(.stop) { .x {color:red} }');record(scopes.cssRules.length);record(scopes.cssRules[0].end);
+document.body.textContent=JSON.stringify(log);

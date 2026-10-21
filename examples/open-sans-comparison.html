@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Sans · Größe und Linien messen</title>
+  <link rel="stylesheet" href="font-comparison.css">
+  <style>
+    @font-face { font-family: "ComparisonOpenSans"; src: url("fonts/comparison/font083.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+    .sample { font-synthesis: none; }
+    h1 { font-size: 20px; }
+  </style>
+</head>
+<body class="font-pending" data-font-label="Open Sans normal" data-web-font="ComparisonOpenSans" data-sizes="10,20,30,40,50" data-test-factor="1,34">
+  <h1>Open Sans · 10, 20, 30, 40 und 50 px</h1>
+  <p id="font-status" role="status">Open Sans wird geladen …</p>
+  <p>Chrome mit Strg + 0 auf 100 % Zoom stellen. In Roblox das Schriftlabor mit Font = "Open Sans" starten.
+    HTML bleibt bei 10, 20, 30, 40 und 50 px. Roblox verwendet jetzt Faktor 1,34 mit Aufrunden: TextSize 14, 27, 41, 54 und 67.
+    Bitte die neuen Roblox-Höhen messen. Zielhöhen des H: 7, 14, 21, 29 und 36 px.</p>
+  <p>Rosa an die H-Oberkante und Gelb an die H-Unterkante setzen: H-Abstand ablesen.
+    x und p messen wir nach dem Größenabgleich. Die Linien sind 80 % transparent.
+    Roblox-Schriftgrößen werden nach dem Faktor immer aufgerundet.</p>
+  <button id="visibility" type="button" aria-pressed="false">Hilfslinien ausblenden</button>
+  <textarea id="results" readonly aria-label="Manuelle Chrome-Vergleichswerte"></textarea>
+  <main id="samples"></main>
+  <script src="font-comparison.js"></script>
+</body>
+</html>

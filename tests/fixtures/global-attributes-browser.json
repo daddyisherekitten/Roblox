@@ -1,0 +1,418 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "captured": "2026-10-10",
+  "standards": [
+    "https://html.spec.whatwg.org/multipage/interaction.html#attr-autocapitalize",
+    "https://html.spec.whatwg.org/multipage/interaction.html#attr-autocorrect",
+    "https://html.spec.whatwg.org/multipage/interaction.html#attr-writingsuggestions"
+  ],
+  "cases": [
+    {
+      "name": "autocapitalize raw/set div",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"none\",\"on\",\"sentences\",\"words\",\"characters\",\"OFF\",\"invalid\",\" words \"]){if(raw===null)e.removeAttribute('autocapitalize');else e.setAttribute('autocapitalize',raw);out.push([e.getAttribute('autocapitalize'),e.autocapitalize]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocapitalize=value;out.push(['set',e.getAttribute('autocapitalize'),e.autocapitalize]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"\"],[\"\",\"\"],[\"off\",\"none\"],[\"none\",\"none\"],[\"on\",\"sentences\"],[\"sentences\",\"sentences\"],[\"words\",\"words\"],[\"characters\",\"characters\"],[\"OFF\",\"none\"],[\"invalid\",\"sentences\"],[\" words \",\"sentences\"],[\"set\",\"off\",\"none\"],[\"set\",\"on\",\"sentences\"],[\"set\",\"false\",\"sentences\"],[\"set\",\"true\",\"sentences\"],[\"set\",\"null\",\"sentences\"],[\"set\",\"undefined\",\"sentences\"],[\"set\",\"0\",\"sentences\"],[\"set\",\"[object Object]\",\"sentences\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "autocapitalize raw/set input",
+      "html": "<!doctype html><input id=e></input>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"none\",\"on\",\"sentences\",\"words\",\"characters\",\"OFF\",\"invalid\",\" words \"]){if(raw===null)e.removeAttribute('autocapitalize');else e.setAttribute('autocapitalize',raw);out.push([e.getAttribute('autocapitalize'),e.autocapitalize]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocapitalize=value;out.push(['set',e.getAttribute('autocapitalize'),e.autocapitalize]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"\"],[\"\",\"\"],[\"off\",\"none\"],[\"none\",\"none\"],[\"on\",\"sentences\"],[\"sentences\",\"sentences\"],[\"words\",\"words\"],[\"characters\",\"characters\"],[\"OFF\",\"none\"],[\"invalid\",\"sentences\"],[\" words \",\"sentences\"],[\"set\",\"off\",\"none\"],[\"set\",\"on\",\"sentences\"],[\"set\",\"false\",\"sentences\"],[\"set\",\"true\",\"sentences\"],[\"set\",\"null\",\"sentences\"],[\"set\",\"undefined\",\"sentences\"],[\"set\",\"0\",\"sentences\"],[\"set\",\"[object Object]\",\"sentences\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "autocapitalize raw/set textarea",
+      "html": "<!doctype html><textarea id=e></textarea>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"none\",\"on\",\"sentences\",\"words\",\"characters\",\"OFF\",\"invalid\",\" words \"]){if(raw===null)e.removeAttribute('autocapitalize');else e.setAttribute('autocapitalize',raw);out.push([e.getAttribute('autocapitalize'),e.autocapitalize]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocapitalize=value;out.push(['set',e.getAttribute('autocapitalize'),e.autocapitalize]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"\"],[\"\",\"\"],[\"off\",\"none\"],[\"none\",\"none\"],[\"on\",\"sentences\"],[\"sentences\",\"sentences\"],[\"words\",\"words\"],[\"characters\",\"characters\"],[\"OFF\",\"none\"],[\"invalid\",\"sentences\"],[\" words \",\"sentences\"],[\"set\",\"off\",\"none\"],[\"set\",\"on\",\"sentences\"],[\"set\",\"false\",\"sentences\"],[\"set\",\"true\",\"sentences\"],[\"set\",\"null\",\"sentences\"],[\"set\",\"undefined\",\"sentences\"],[\"set\",\"0\",\"sentences\"],[\"set\",\"[object Object]\",\"sentences\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "autocapitalize raw/set select",
+      "html": "<!doctype html><select id=e></select>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"none\",\"on\",\"sentences\",\"words\",\"characters\",\"OFF\",\"invalid\",\" words \"]){if(raw===null)e.removeAttribute('autocapitalize');else e.setAttribute('autocapitalize',raw);out.push([e.getAttribute('autocapitalize'),e.autocapitalize]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocapitalize=value;out.push(['set',e.getAttribute('autocapitalize'),e.autocapitalize]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"\"],[\"\",\"\"],[\"off\",\"none\"],[\"none\",\"none\"],[\"on\",\"sentences\"],[\"sentences\",\"sentences\"],[\"words\",\"words\"],[\"characters\",\"characters\"],[\"OFF\",\"none\"],[\"invalid\",\"sentences\"],[\" words \",\"sentences\"],[\"set\",\"off\",\"none\"],[\"set\",\"on\",\"sentences\"],[\"set\",\"false\",\"sentences\"],[\"set\",\"true\",\"sentences\"],[\"set\",\"null\",\"sentences\"],[\"set\",\"undefined\",\"sentences\"],[\"set\",\"0\",\"sentences\"],[\"set\",\"[object Object]\",\"sentences\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "autocapitalize raw/set button",
+      "html": "<!doctype html><button id=e></button>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"none\",\"on\",\"sentences\",\"words\",\"characters\",\"OFF\",\"invalid\",\" words \"]){if(raw===null)e.removeAttribute('autocapitalize');else e.setAttribute('autocapitalize',raw);out.push([e.getAttribute('autocapitalize'),e.autocapitalize]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocapitalize=value;out.push(['set',e.getAttribute('autocapitalize'),e.autocapitalize]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"\"],[\"\",\"\"],[\"off\",\"none\"],[\"none\",\"none\"],[\"on\",\"sentences\"],[\"sentences\",\"sentences\"],[\"words\",\"words\"],[\"characters\",\"characters\"],[\"OFF\",\"none\"],[\"invalid\",\"sentences\"],[\" words \",\"sentences\"],[\"set\",\"off\",\"none\"],[\"set\",\"on\",\"sentences\"],[\"set\",\"false\",\"sentences\"],[\"set\",\"true\",\"sentences\"],[\"set\",\"null\",\"sentences\"],[\"set\",\"undefined\",\"sentences\"],[\"set\",\"0\",\"sentences\"],[\"set\",\"[object Object]\",\"sentences\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "autocapitalize raw/set fieldset",
+      "html": "<!doctype html><fieldset id=e></fieldset>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"none\",\"on\",\"sentences\",\"words\",\"characters\",\"OFF\",\"invalid\",\" words \"]){if(raw===null)e.removeAttribute('autocapitalize');else e.setAttribute('autocapitalize',raw);out.push([e.getAttribute('autocapitalize'),e.autocapitalize]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocapitalize=value;out.push(['set',e.getAttribute('autocapitalize'),e.autocapitalize]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"\"],[\"\",\"\"],[\"off\",\"none\"],[\"none\",\"none\"],[\"on\",\"sentences\"],[\"sentences\",\"sentences\"],[\"words\",\"words\"],[\"characters\",\"characters\"],[\"OFF\",\"none\"],[\"invalid\",\"sentences\"],[\" words \",\"sentences\"],[\"set\",\"off\",\"none\"],[\"set\",\"on\",\"sentences\"],[\"set\",\"false\",\"sentences\"],[\"set\",\"true\",\"sentences\"],[\"set\",\"null\",\"sentences\"],[\"set\",\"undefined\",\"sentences\"],[\"set\",\"0\",\"sentences\"],[\"set\",\"[object Object]\",\"sentences\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "autocapitalize raw/set output",
+      "html": "<!doctype html><output id=e></output>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"none\",\"on\",\"sentences\",\"words\",\"characters\",\"OFF\",\"invalid\",\" words \"]){if(raw===null)e.removeAttribute('autocapitalize');else e.setAttribute('autocapitalize',raw);out.push([e.getAttribute('autocapitalize'),e.autocapitalize]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocapitalize=value;out.push(['set',e.getAttribute('autocapitalize'),e.autocapitalize]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"\"],[\"\",\"\"],[\"off\",\"none\"],[\"none\",\"none\"],[\"on\",\"sentences\"],[\"sentences\",\"sentences\"],[\"words\",\"words\"],[\"characters\",\"characters\"],[\"OFF\",\"none\"],[\"invalid\",\"sentences\"],[\" words \",\"sentences\"],[\"set\",\"off\",\"none\"],[\"set\",\"on\",\"sentences\"],[\"set\",\"false\",\"sentences\"],[\"set\",\"true\",\"sentences\"],[\"set\",\"null\",\"sentences\"],[\"set\",\"undefined\",\"sentences\"],[\"set\",\"0\",\"sentences\"],[\"set\",\"[object Object]\",\"sentences\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "autocorrect raw/set div",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"on\",\"OFF\",\"invalid\",\" off \"]){if(raw===null)e.removeAttribute('autocorrect');else e.setAttribute('autocorrect',raw);out.push([e.getAttribute('autocorrect'),e.autocorrect]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocorrect=value;out.push(['set',e.getAttribute('autocorrect'),e.autocorrect]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,true],[\"\",true],[\"off\",false],[\"on\",true],[\"OFF\",false],[\"invalid\",true],[\" off \",true],[\"set\",\"on\",true],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"on\",true]]"
+    },
+    {
+      "name": "autocorrect raw/set input",
+      "html": "<!doctype html><input id=e></input>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"on\",\"OFF\",\"invalid\",\" off \"]){if(raw===null)e.removeAttribute('autocorrect');else e.setAttribute('autocorrect',raw);out.push([e.getAttribute('autocorrect'),e.autocorrect]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocorrect=value;out.push(['set',e.getAttribute('autocorrect'),e.autocorrect]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,true],[\"\",true],[\"off\",false],[\"on\",true],[\"OFF\",false],[\"invalid\",true],[\" off \",true],[\"set\",\"on\",true],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"on\",true]]"
+    },
+    {
+      "name": "autocorrect raw/set textarea",
+      "html": "<!doctype html><textarea id=e></textarea>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"on\",\"OFF\",\"invalid\",\" off \"]){if(raw===null)e.removeAttribute('autocorrect');else e.setAttribute('autocorrect',raw);out.push([e.getAttribute('autocorrect'),e.autocorrect]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocorrect=value;out.push(['set',e.getAttribute('autocorrect'),e.autocorrect]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,true],[\"\",true],[\"off\",false],[\"on\",true],[\"OFF\",false],[\"invalid\",true],[\" off \",true],[\"set\",\"on\",true],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"on\",true]]"
+    },
+    {
+      "name": "autocorrect raw/set select",
+      "html": "<!doctype html><select id=e></select>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"on\",\"OFF\",\"invalid\",\" off \"]){if(raw===null)e.removeAttribute('autocorrect');else e.setAttribute('autocorrect',raw);out.push([e.getAttribute('autocorrect'),e.autocorrect]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocorrect=value;out.push(['set',e.getAttribute('autocorrect'),e.autocorrect]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,true],[\"\",true],[\"off\",false],[\"on\",true],[\"OFF\",false],[\"invalid\",true],[\" off \",true],[\"set\",\"on\",true],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"on\",true]]"
+    },
+    {
+      "name": "autocorrect raw/set button",
+      "html": "<!doctype html><button id=e></button>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"on\",\"OFF\",\"invalid\",\" off \"]){if(raw===null)e.removeAttribute('autocorrect');else e.setAttribute('autocorrect',raw);out.push([e.getAttribute('autocorrect'),e.autocorrect]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocorrect=value;out.push(['set',e.getAttribute('autocorrect'),e.autocorrect]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,true],[\"\",true],[\"off\",false],[\"on\",true],[\"OFF\",false],[\"invalid\",true],[\" off \",true],[\"set\",\"on\",true],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"on\",true]]"
+    },
+    {
+      "name": "autocorrect raw/set fieldset",
+      "html": "<!doctype html><fieldset id=e></fieldset>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"on\",\"OFF\",\"invalid\",\" off \"]){if(raw===null)e.removeAttribute('autocorrect');else e.setAttribute('autocorrect',raw);out.push([e.getAttribute('autocorrect'),e.autocorrect]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocorrect=value;out.push(['set',e.getAttribute('autocorrect'),e.autocorrect]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,true],[\"\",true],[\"off\",false],[\"on\",true],[\"OFF\",false],[\"invalid\",true],[\" off \",true],[\"set\",\"on\",true],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"on\",true]]"
+    },
+    {
+      "name": "autocorrect raw/set output",
+      "html": "<!doctype html><output id=e></output>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"off\",\"on\",\"OFF\",\"invalid\",\" off \"]){if(raw===null)e.removeAttribute('autocorrect');else e.setAttribute('autocorrect',raw);out.push([e.getAttribute('autocorrect'),e.autocorrect]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.autocorrect=value;out.push(['set',e.getAttribute('autocorrect'),e.autocorrect]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,true],[\"\",true],[\"off\",false],[\"on\",true],[\"OFF\",false],[\"invalid\",true],[\" off \",true],[\"set\",\"on\",true],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"off\",false],[\"set\",\"on\",true],[\"set\",\"on\",true]]"
+    },
+    {
+      "name": "writingsuggestions raw/set div",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"false\",\"true\",\"FALSE\",\"invalid\",\" false \"]){if(raw===null)e.removeAttribute('writingsuggestions');else e.setAttribute('writingsuggestions',raw);out.push([e.getAttribute('writingsuggestions'),e.writingSuggestions]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.writingSuggestions=value;out.push(['set',e.getAttribute('writingsuggestions'),e.writingSuggestions]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"true\"],[\"\",\"true\"],[\"false\",\"false\"],[\"true\",\"true\"],[\"FALSE\",\"false\"],[\"invalid\",\"true\"],[\" false \",\"true\"],[\"set\",\"off\",\"true\"],[\"set\",\"on\",\"true\"],[\"set\",\"false\",\"false\"],[\"set\",\"true\",\"true\"],[\"set\",\"null\",\"true\"],[\"set\",\"undefined\",\"true\"],[\"set\",\"0\",\"true\"],[\"set\",\"[object Object]\",\"true\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "writingsuggestions raw/set input",
+      "html": "<!doctype html><input id=e></input>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"false\",\"true\",\"FALSE\",\"invalid\",\" false \"]){if(raw===null)e.removeAttribute('writingsuggestions');else e.setAttribute('writingsuggestions',raw);out.push([e.getAttribute('writingsuggestions'),e.writingSuggestions]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.writingSuggestions=value;out.push(['set',e.getAttribute('writingsuggestions'),e.writingSuggestions]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"true\"],[\"\",\"true\"],[\"false\",\"false\"],[\"true\",\"true\"],[\"FALSE\",\"false\"],[\"invalid\",\"true\"],[\" false \",\"true\"],[\"set\",\"off\",\"true\"],[\"set\",\"on\",\"true\"],[\"set\",\"false\",\"false\"],[\"set\",\"true\",\"true\"],[\"set\",\"null\",\"true\"],[\"set\",\"undefined\",\"true\"],[\"set\",\"0\",\"true\"],[\"set\",\"[object Object]\",\"true\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "writingsuggestions raw/set textarea",
+      "html": "<!doctype html><textarea id=e></textarea>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"false\",\"true\",\"FALSE\",\"invalid\",\" false \"]){if(raw===null)e.removeAttribute('writingsuggestions');else e.setAttribute('writingsuggestions',raw);out.push([e.getAttribute('writingsuggestions'),e.writingSuggestions]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.writingSuggestions=value;out.push(['set',e.getAttribute('writingsuggestions'),e.writingSuggestions]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"true\"],[\"\",\"true\"],[\"false\",\"false\"],[\"true\",\"true\"],[\"FALSE\",\"false\"],[\"invalid\",\"true\"],[\" false \",\"true\"],[\"set\",\"off\",\"true\"],[\"set\",\"on\",\"true\"],[\"set\",\"false\",\"false\"],[\"set\",\"true\",\"true\"],[\"set\",\"null\",\"true\"],[\"set\",\"undefined\",\"true\"],[\"set\",\"0\",\"true\"],[\"set\",\"[object Object]\",\"true\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "writingsuggestions raw/set select",
+      "html": "<!doctype html><select id=e></select>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"false\",\"true\",\"FALSE\",\"invalid\",\" false \"]){if(raw===null)e.removeAttribute('writingsuggestions');else e.setAttribute('writingsuggestions',raw);out.push([e.getAttribute('writingsuggestions'),e.writingSuggestions]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.writingSuggestions=value;out.push(['set',e.getAttribute('writingsuggestions'),e.writingSuggestions]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"true\"],[\"\",\"true\"],[\"false\",\"false\"],[\"true\",\"true\"],[\"FALSE\",\"false\"],[\"invalid\",\"true\"],[\" false \",\"true\"],[\"set\",\"off\",\"true\"],[\"set\",\"on\",\"true\"],[\"set\",\"false\",\"false\"],[\"set\",\"true\",\"true\"],[\"set\",\"null\",\"true\"],[\"set\",\"undefined\",\"true\"],[\"set\",\"0\",\"true\"],[\"set\",\"[object Object]\",\"true\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "writingsuggestions raw/set button",
+      "html": "<!doctype html><button id=e></button>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"false\",\"true\",\"FALSE\",\"invalid\",\" false \"]){if(raw===null)e.removeAttribute('writingsuggestions');else e.setAttribute('writingsuggestions',raw);out.push([e.getAttribute('writingsuggestions'),e.writingSuggestions]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.writingSuggestions=value;out.push(['set',e.getAttribute('writingsuggestions'),e.writingSuggestions]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"true\"],[\"\",\"true\"],[\"false\",\"false\"],[\"true\",\"true\"],[\"FALSE\",\"false\"],[\"invalid\",\"true\"],[\" false \",\"true\"],[\"set\",\"off\",\"true\"],[\"set\",\"on\",\"true\"],[\"set\",\"false\",\"false\"],[\"set\",\"true\",\"true\"],[\"set\",\"null\",\"true\"],[\"set\",\"undefined\",\"true\"],[\"set\",\"0\",\"true\"],[\"set\",\"[object Object]\",\"true\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "writingsuggestions raw/set fieldset",
+      "html": "<!doctype html><fieldset id=e></fieldset>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"false\",\"true\",\"FALSE\",\"invalid\",\" false \"]){if(raw===null)e.removeAttribute('writingsuggestions');else e.setAttribute('writingsuggestions',raw);out.push([e.getAttribute('writingsuggestions'),e.writingSuggestions]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.writingSuggestions=value;out.push(['set',e.getAttribute('writingsuggestions'),e.writingSuggestions]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"true\"],[\"\",\"true\"],[\"false\",\"false\"],[\"true\",\"true\"],[\"FALSE\",\"false\"],[\"invalid\",\"true\"],[\" false \",\"true\"],[\"set\",\"off\",\"true\"],[\"set\",\"on\",\"true\"],[\"set\",\"false\",\"false\"],[\"set\",\"true\",\"true\"],[\"set\",\"null\",\"true\"],[\"set\",\"undefined\",\"true\"],[\"set\",\"0\",\"true\"],[\"set\",\"[object Object]\",\"true\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "writingsuggestions raw/set output",
+      "html": "<!doctype html><output id=e></output>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];for(const raw of [null,\"\",\"false\",\"true\",\"FALSE\",\"invalid\",\" false \"]){if(raw===null)e.removeAttribute('writingsuggestions');else e.setAttribute('writingsuggestions',raw);out.push([e.getAttribute('writingsuggestions'),e.writingSuggestions]);}for(const value of ['off','on',false,true,null,undefined,0,{},Symbol()]){try{e.writingSuggestions=value;out.push(['set',e.getAttribute('writingsuggestions'),e.writingSuggestions]);}catch(err){out.push(['error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[null,\"true\"],[\"\",\"true\"],[\"false\",\"false\"],[\"true\",\"true\"],[\"FALSE\",\"false\"],[\"invalid\",\"true\"],[\" false \",\"true\"],[\"set\",\"off\",\"true\"],[\"set\",\"on\",\"true\"],[\"set\",\"false\",\"false\"],[\"set\",\"true\",\"true\"],[\"set\",\"null\",\"true\"],[\"set\",\"undefined\",\"true\"],[\"set\",\"0\",\"true\"],[\"set\",\"[object Object]\",\"true\"],[\"error\",\"TypeError\"]]"
+    },
+    {
+      "name": "autocapitalize form inheritance div",
+      "html": "<!doctype html><form id=f autocapitalize=\"words\"><div id=e></div></form><form id=g autocapitalize=\"off\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocapitalize,e.form?e.form.id:null]);for(const raw of [\"words\",\"off\",\"invalid\"]){f.setAttribute('autocapitalize',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocapitalize','');record();e.removeAttribute('autocapitalize');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"\",null],[\"\",null],[\"\",null],[\"\",null],[\"\",null],[\"\",null],[\"\",null]]"
+    },
+    {
+      "name": "autocapitalize form inheritance input",
+      "html": "<!doctype html><form id=f autocapitalize=\"words\"><input id=e></input></form><form id=g autocapitalize=\"off\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocapitalize,e.form?e.form.id:null]);for(const raw of [\"words\",\"off\",\"invalid\"]){f.setAttribute('autocapitalize',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocapitalize','');record();e.removeAttribute('autocapitalize');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"words\",\"f\"],[\"none\",\"f\"],[\"sentences\",\"f\"],[\"none\",\"g\"],[\"none\",\"g\"],[\"\",null],[\"sentences\",\"f\"]]"
+    },
+    {
+      "name": "autocapitalize form inheritance textarea",
+      "html": "<!doctype html><form id=f autocapitalize=\"words\"><textarea id=e></textarea></form><form id=g autocapitalize=\"off\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocapitalize,e.form?e.form.id:null]);for(const raw of [\"words\",\"off\",\"invalid\"]){f.setAttribute('autocapitalize',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocapitalize','');record();e.removeAttribute('autocapitalize');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"words\",\"f\"],[\"none\",\"f\"],[\"sentences\",\"f\"],[\"none\",\"g\"],[\"none\",\"g\"],[\"\",null],[\"sentences\",\"f\"]]"
+    },
+    {
+      "name": "autocapitalize form inheritance select",
+      "html": "<!doctype html><form id=f autocapitalize=\"words\"><select id=e></select></form><form id=g autocapitalize=\"off\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocapitalize,e.form?e.form.id:null]);for(const raw of [\"words\",\"off\",\"invalid\"]){f.setAttribute('autocapitalize',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocapitalize','');record();e.removeAttribute('autocapitalize');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"words\",\"f\"],[\"none\",\"f\"],[\"sentences\",\"f\"],[\"none\",\"g\"],[\"none\",\"g\"],[\"\",null],[\"sentences\",\"f\"]]"
+    },
+    {
+      "name": "autocapitalize form inheritance button",
+      "html": "<!doctype html><form id=f autocapitalize=\"words\"><button id=e></button></form><form id=g autocapitalize=\"off\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocapitalize,e.form?e.form.id:null]);for(const raw of [\"words\",\"off\",\"invalid\"]){f.setAttribute('autocapitalize',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocapitalize','');record();e.removeAttribute('autocapitalize');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"words\",\"f\"],[\"none\",\"f\"],[\"sentences\",\"f\"],[\"none\",\"g\"],[\"none\",\"g\"],[\"\",null],[\"sentences\",\"f\"]]"
+    },
+    {
+      "name": "autocapitalize form inheritance fieldset",
+      "html": "<!doctype html><form id=f autocapitalize=\"words\"><fieldset id=e></fieldset></form><form id=g autocapitalize=\"off\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocapitalize,e.form?e.form.id:null]);for(const raw of [\"words\",\"off\",\"invalid\"]){f.setAttribute('autocapitalize',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocapitalize','');record();e.removeAttribute('autocapitalize');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"words\",\"f\"],[\"none\",\"f\"],[\"sentences\",\"f\"],[\"none\",\"g\"],[\"none\",\"g\"],[\"\",null],[\"sentences\",\"f\"]]"
+    },
+    {
+      "name": "autocapitalize form inheritance output",
+      "html": "<!doctype html><form id=f autocapitalize=\"words\"><output id=e></output></form><form id=g autocapitalize=\"off\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocapitalize,e.form?e.form.id:null]);for(const raw of [\"words\",\"off\",\"invalid\"]){f.setAttribute('autocapitalize',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocapitalize','');record();e.removeAttribute('autocapitalize');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"words\",\"f\"],[\"none\",\"f\"],[\"sentences\",\"f\"],[\"none\",\"g\"],[\"none\",\"g\"],[\"\",null],[\"sentences\",\"f\"]]"
+    },
+    {
+      "name": "autocapitalize form inheritance object",
+      "html": "<!doctype html><form id=f autocapitalize=\"words\"><object id=e></object></form><form id=g autocapitalize=\"off\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocapitalize,e.form?e.form.id:null]);for(const raw of [\"words\",\"off\",\"invalid\"]){f.setAttribute('autocapitalize',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocapitalize','');record();e.removeAttribute('autocapitalize');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"\",\"f\"],[\"\",\"f\"],[\"\",\"f\"],[\"\",\"g\"],[\"\",\"g\"],[\"\",null],[\"\",\"f\"]]"
+    },
+    {
+      "name": "autocapitalize form inheritance img",
+      "html": "<!doctype html><form id=f autocapitalize=\"words\"><img id=e></img></form><form id=g autocapitalize=\"off\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocapitalize,e.form?e.form.id:null]);for(const raw of [\"words\",\"off\",\"invalid\"]){f.setAttribute('autocapitalize',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocapitalize','');record();e.removeAttribute('autocapitalize');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"\",null],[\"\",null],[\"\",null],[\"\",null],[\"\",null],[\"\",null],[\"\",null]]"
+    },
+    {
+      "name": "autocorrect form inheritance div",
+      "html": "<!doctype html><form id=f autocorrect=\"off\"><div id=e></div></form><form id=g autocorrect=\"on\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocorrect,e.form?e.form.id:null]);for(const raw of [\"off\",\"on\",\"invalid\"]){f.setAttribute('autocorrect',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocorrect','');record();e.removeAttribute('autocorrect');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[true,null],[true,null],[true,null],[true,null],[true,null],[true,null],[true,null]]"
+    },
+    {
+      "name": "autocorrect form inheritance input",
+      "html": "<!doctype html><form id=f autocorrect=\"off\"><input id=e></input></form><form id=g autocorrect=\"on\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocorrect,e.form?e.form.id:null]);for(const raw of [\"off\",\"on\",\"invalid\"]){f.setAttribute('autocorrect',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocorrect','');record();e.removeAttribute('autocorrect');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[false,\"f\"],[true,\"f\"],[true,\"f\"],[true,\"g\"],[true,\"g\"],[true,null],[true,\"f\"]]"
+    },
+    {
+      "name": "autocorrect form inheritance textarea",
+      "html": "<!doctype html><form id=f autocorrect=\"off\"><textarea id=e></textarea></form><form id=g autocorrect=\"on\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocorrect,e.form?e.form.id:null]);for(const raw of [\"off\",\"on\",\"invalid\"]){f.setAttribute('autocorrect',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocorrect','');record();e.removeAttribute('autocorrect');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[false,\"f\"],[true,\"f\"],[true,\"f\"],[true,\"g\"],[true,\"g\"],[true,null],[true,\"f\"]]"
+    },
+    {
+      "name": "autocorrect form inheritance select",
+      "html": "<!doctype html><form id=f autocorrect=\"off\"><select id=e></select></form><form id=g autocorrect=\"on\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocorrect,e.form?e.form.id:null]);for(const raw of [\"off\",\"on\",\"invalid\"]){f.setAttribute('autocorrect',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocorrect','');record();e.removeAttribute('autocorrect');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[false,\"f\"],[true,\"f\"],[true,\"f\"],[true,\"g\"],[true,\"g\"],[true,null],[true,\"f\"]]"
+    },
+    {
+      "name": "autocorrect form inheritance button",
+      "html": "<!doctype html><form id=f autocorrect=\"off\"><button id=e></button></form><form id=g autocorrect=\"on\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocorrect,e.form?e.form.id:null]);for(const raw of [\"off\",\"on\",\"invalid\"]){f.setAttribute('autocorrect',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocorrect','');record();e.removeAttribute('autocorrect');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[false,\"f\"],[true,\"f\"],[true,\"f\"],[true,\"g\"],[true,\"g\"],[true,null],[true,\"f\"]]"
+    },
+    {
+      "name": "autocorrect form inheritance fieldset",
+      "html": "<!doctype html><form id=f autocorrect=\"off\"><fieldset id=e></fieldset></form><form id=g autocorrect=\"on\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocorrect,e.form?e.form.id:null]);for(const raw of [\"off\",\"on\",\"invalid\"]){f.setAttribute('autocorrect',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocorrect','');record();e.removeAttribute('autocorrect');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[false,\"f\"],[true,\"f\"],[true,\"f\"],[true,\"g\"],[true,\"g\"],[true,null],[true,\"f\"]]"
+    },
+    {
+      "name": "autocorrect form inheritance output",
+      "html": "<!doctype html><form id=f autocorrect=\"off\"><output id=e></output></form><form id=g autocorrect=\"on\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocorrect,e.form?e.form.id:null]);for(const raw of [\"off\",\"on\",\"invalid\"]){f.setAttribute('autocorrect',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocorrect','');record();e.removeAttribute('autocorrect');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[false,\"f\"],[true,\"f\"],[true,\"f\"],[true,\"g\"],[true,\"g\"],[true,null],[true,\"f\"]]"
+    },
+    {
+      "name": "autocorrect form inheritance object",
+      "html": "<!doctype html><form id=f autocorrect=\"off\"><object id=e></object></form><form id=g autocorrect=\"on\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocorrect,e.form?e.form.id:null]);for(const raw of [\"off\",\"on\",\"invalid\"]){f.setAttribute('autocorrect',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocorrect','');record();e.removeAttribute('autocorrect');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[true,\"f\"],[true,\"f\"],[true,\"f\"],[true,\"g\"],[true,\"g\"],[true,null],[true,\"f\"]]"
+    },
+    {
+      "name": "autocorrect form inheritance img",
+      "html": "<!doctype html><form id=f autocorrect=\"off\"><img id=e></img></form><form id=g autocorrect=\"on\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.autocorrect,e.form?e.form.id:null]);for(const raw of [\"off\",\"on\",\"invalid\"]){f.setAttribute('autocorrect',raw);record();}e.setAttribute('form','g');record();e.setAttribute('autocorrect','');record();e.removeAttribute('autocorrect');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[true,null],[true,null],[true,null],[true,null],[true,null],[true,null],[true,null]]"
+    },
+    {
+      "name": "writingsuggestions form inheritance div",
+      "html": "<!doctype html><form id=f writingsuggestions=\"false\"><div id=e></div></form><form id=g writingsuggestions=\"true\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.writingSuggestions,e.form?e.form.id:null]);for(const raw of [\"false\",\"true\",\"invalid\"]){f.setAttribute('writingsuggestions',raw);record();}e.setAttribute('form','g');record();e.setAttribute('writingsuggestions','');record();e.removeAttribute('writingsuggestions');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"false\",null],[\"true\",null],[\"true\",null],[\"true\",null],[\"true\",null],[\"true\",null],[\"true\",null]]"
+    },
+    {
+      "name": "writingsuggestions form inheritance input",
+      "html": "<!doctype html><form id=f writingsuggestions=\"false\"><input id=e></input></form><form id=g writingsuggestions=\"true\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.writingSuggestions,e.form?e.form.id:null]);for(const raw of [\"false\",\"true\",\"invalid\"]){f.setAttribute('writingsuggestions',raw);record();}e.setAttribute('form','g');record();e.setAttribute('writingsuggestions','');record();e.removeAttribute('writingsuggestions');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"false\",\"f\"],[\"true\",\"f\"],[\"true\",\"f\"],[\"true\",\"g\"],[\"true\",\"g\"],[\"true\",null],[\"true\",\"f\"]]"
+    },
+    {
+      "name": "writingsuggestions form inheritance textarea",
+      "html": "<!doctype html><form id=f writingsuggestions=\"false\"><textarea id=e></textarea></form><form id=g writingsuggestions=\"true\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.writingSuggestions,e.form?e.form.id:null]);for(const raw of [\"false\",\"true\",\"invalid\"]){f.setAttribute('writingsuggestions',raw);record();}e.setAttribute('form','g');record();e.setAttribute('writingsuggestions','');record();e.removeAttribute('writingsuggestions');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"false\",\"f\"],[\"true\",\"f\"],[\"true\",\"f\"],[\"true\",\"g\"],[\"true\",\"g\"],[\"true\",null],[\"true\",\"f\"]]"
+    },
+    {
+      "name": "writingsuggestions form inheritance select",
+      "html": "<!doctype html><form id=f writingsuggestions=\"false\"><select id=e></select></form><form id=g writingsuggestions=\"true\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.writingSuggestions,e.form?e.form.id:null]);for(const raw of [\"false\",\"true\",\"invalid\"]){f.setAttribute('writingsuggestions',raw);record();}e.setAttribute('form','g');record();e.setAttribute('writingsuggestions','');record();e.removeAttribute('writingsuggestions');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"false\",\"f\"],[\"true\",\"f\"],[\"true\",\"f\"],[\"true\",\"g\"],[\"true\",\"g\"],[\"true\",null],[\"true\",\"f\"]]"
+    },
+    {
+      "name": "writingsuggestions form inheritance button",
+      "html": "<!doctype html><form id=f writingsuggestions=\"false\"><button id=e></button></form><form id=g writingsuggestions=\"true\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.writingSuggestions,e.form?e.form.id:null]);for(const raw of [\"false\",\"true\",\"invalid\"]){f.setAttribute('writingsuggestions',raw);record();}e.setAttribute('form','g');record();e.setAttribute('writingsuggestions','');record();e.removeAttribute('writingsuggestions');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"false\",\"f\"],[\"true\",\"f\"],[\"true\",\"f\"],[\"true\",\"g\"],[\"true\",\"g\"],[\"true\",null],[\"true\",\"f\"]]"
+    },
+    {
+      "name": "writingsuggestions form inheritance fieldset",
+      "html": "<!doctype html><form id=f writingsuggestions=\"false\"><fieldset id=e></fieldset></form><form id=g writingsuggestions=\"true\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.writingSuggestions,e.form?e.form.id:null]);for(const raw of [\"false\",\"true\",\"invalid\"]){f.setAttribute('writingsuggestions',raw);record();}e.setAttribute('form','g');record();e.setAttribute('writingsuggestions','');record();e.removeAttribute('writingsuggestions');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"false\",\"f\"],[\"true\",\"f\"],[\"true\",\"f\"],[\"true\",\"g\"],[\"true\",\"g\"],[\"true\",null],[\"true\",\"f\"]]"
+    },
+    {
+      "name": "writingsuggestions form inheritance output",
+      "html": "<!doctype html><form id=f writingsuggestions=\"false\"><output id=e></output></form><form id=g writingsuggestions=\"true\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.writingSuggestions,e.form?e.form.id:null]);for(const raw of [\"false\",\"true\",\"invalid\"]){f.setAttribute('writingsuggestions',raw);record();}e.setAttribute('form','g');record();e.setAttribute('writingsuggestions','');record();e.removeAttribute('writingsuggestions');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"false\",\"f\"],[\"true\",\"f\"],[\"true\",\"f\"],[\"true\",\"g\"],[\"true\",\"g\"],[\"true\",null],[\"true\",\"f\"]]"
+    },
+    {
+      "name": "writingsuggestions form inheritance object",
+      "html": "<!doctype html><form id=f writingsuggestions=\"false\"><object id=e></object></form><form id=g writingsuggestions=\"true\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.writingSuggestions,e.form?e.form.id:null]);for(const raw of [\"false\",\"true\",\"invalid\"]){f.setAttribute('writingsuggestions',raw);record();}e.setAttribute('form','g');record();e.setAttribute('writingsuggestions','');record();e.removeAttribute('writingsuggestions');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"false\",\"f\"],[\"true\",\"f\"],[\"true\",\"f\"],[\"true\",\"g\"],[\"true\",\"g\"],[\"true\",null],[\"true\",\"f\"]]"
+    },
+    {
+      "name": "writingsuggestions form inheritance img",
+      "html": "<!doctype html><form id=f writingsuggestions=\"false\"><img id=e></img></form><form id=g writingsuggestions=\"true\"></form>",
+      "action": "(()=>{const e=document.getElementById('e'),f=document.getElementById('f'),g=document.getElementById('g'),out=[];const record=()=>out.push([e.writingSuggestions,e.form?e.form.id:null]);for(const raw of [\"false\",\"true\",\"invalid\"]){f.setAttribute('writingsuggestions',raw);record();}e.setAttribute('form','g');record();e.setAttribute('writingsuggestions','');record();e.removeAttribute('writingsuggestions');e.setAttribute('form','missing');record();e.removeAttribute('form');record();return JSON.stringify(out);})()",
+      "expected": "[[\"false\",null],[\"true\",null],[\"true\",null],[\"true\",null],[\"true\",null],[\"true\",null],[\"true\",null]]"
+    },
+    {
+      "name": "autocapitalize tree and shadow inheritance",
+      "html": "<!doctype html><div id=p autocapitalize=\"words\"><span id=e></span><div id=h></div></div>",
+      "action": "(()=>{const e=document.getElementById('e'),p=document.getElementById('p'),h=document.getElementById('h'),root=h.attachShadow({mode:'open'}),child=document.createElement('span');root.append(child);const out=[e.autocapitalize,child.autocapitalize];e.setAttribute('autocapitalize','');out.push(e.autocapitalize);e.removeAttribute('autocapitalize');p.removeAttribute('autocapitalize');out.push(e.autocapitalize);return JSON.stringify(out);})()",
+      "expected": "[\"\",\"\",\"\",\"\"]"
+    },
+    {
+      "name": "autocorrect tree and shadow inheritance",
+      "html": "<!doctype html><div id=p autocorrect=\"off\"><span id=e></span><div id=h></div></div>",
+      "action": "(()=>{const e=document.getElementById('e'),p=document.getElementById('p'),h=document.getElementById('h'),root=h.attachShadow({mode:'open'}),child=document.createElement('span');root.append(child);const out=[e.autocorrect,child.autocorrect];e.setAttribute('autocorrect','');out.push(e.autocorrect);e.removeAttribute('autocorrect');p.removeAttribute('autocorrect');out.push(e.autocorrect);return JSON.stringify(out);})()",
+      "expected": "[true,true,true,true]"
+    },
+    {
+      "name": "writingsuggestions tree and shadow inheritance",
+      "html": "<!doctype html><div id=p writingsuggestions=\"false\"><span id=e></span><div id=h></div></div>",
+      "action": "(()=>{const e=document.getElementById('e'),p=document.getElementById('p'),h=document.getElementById('h'),root=h.attachShadow({mode:'open'}),child=document.createElement('span');root.append(child);const out=[e.writingSuggestions,child.writingSuggestions];e.setAttribute('writingsuggestions','');out.push(e.writingSuggestions);e.removeAttribute('writingsuggestions');p.removeAttribute('writingsuggestions');out.push(e.writingSuggestions);return JSON.stringify(out);})()",
+      "expected": "[\"false\",\"false\",\"true\",\"true\"]",
+      "specExpected": "[\"false\",\"true\",\"true\",\"true\"]",
+      "difference": "HTML interaction computed writing suggestions value step 2 uses parentElement; the shadow child has no parentElement. Chromium crosses the shadow host."
+    },
+    {
+      "name": "autocorrect input type text",
+      "html": "<!doctype html><form id=f autocorrect=off autocapitalize=words><input id=e type=\"text\" autocorrect=on></form>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];out.push([e.autocorrect,e.autocapitalize]);e.removeAttribute('autocorrect');out.push([e.autocorrect,e.autocapitalize]);e.type='text';out.push([e.autocorrect,e.autocapitalize]);return JSON.stringify(out);})()",
+      "expected": "[[true,\"words\"],[false,\"words\"],[false,\"words\"]]"
+    },
+    {
+      "name": "autocorrect input type search",
+      "html": "<!doctype html><form id=f autocorrect=off autocapitalize=words><input id=e type=\"search\" autocorrect=on></form>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];out.push([e.autocorrect,e.autocapitalize]);e.removeAttribute('autocorrect');out.push([e.autocorrect,e.autocapitalize]);e.type='text';out.push([e.autocorrect,e.autocapitalize]);return JSON.stringify(out);})()",
+      "expected": "[[true,\"words\"],[false,\"words\"],[false,\"words\"]]"
+    },
+    {
+      "name": "autocorrect input type tel",
+      "html": "<!doctype html><form id=f autocorrect=off autocapitalize=words><input id=e type=\"tel\" autocorrect=on></form>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];out.push([e.autocorrect,e.autocapitalize]);e.removeAttribute('autocorrect');out.push([e.autocorrect,e.autocapitalize]);e.type='text';out.push([e.autocorrect,e.autocapitalize]);return JSON.stringify(out);})()",
+      "expected": "[[true,\"words\"],[false,\"words\"],[false,\"words\"]]"
+    },
+    {
+      "name": "autocorrect input type url",
+      "html": "<!doctype html><form id=f autocorrect=off autocapitalize=words><input id=e type=\"url\" autocorrect=on></form>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];out.push([e.autocorrect,e.autocapitalize]);e.removeAttribute('autocorrect');out.push([e.autocorrect,e.autocapitalize]);e.type='text';out.push([e.autocorrect,e.autocapitalize]);return JSON.stringify(out);})()",
+      "expected": "[[false,\"words\"],[false,\"words\"],[false,\"words\"]]"
+    },
+    {
+      "name": "autocorrect input type email",
+      "html": "<!doctype html><form id=f autocorrect=off autocapitalize=words><input id=e type=\"email\" autocorrect=on></form>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];out.push([e.autocorrect,e.autocapitalize]);e.removeAttribute('autocorrect');out.push([e.autocorrect,e.autocapitalize]);e.type='text';out.push([e.autocorrect,e.autocapitalize]);return JSON.stringify(out);})()",
+      "expected": "[[false,\"words\"],[false,\"words\"],[false,\"words\"]]"
+    },
+    {
+      "name": "autocorrect input type password",
+      "html": "<!doctype html><form id=f autocorrect=off autocapitalize=words><input id=e type=\"password\" autocorrect=on></form>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];out.push([e.autocorrect,e.autocapitalize]);e.removeAttribute('autocorrect');out.push([e.autocorrect,e.autocapitalize]);e.type='text';out.push([e.autocorrect,e.autocapitalize]);return JSON.stringify(out);})()",
+      "expected": "[[false,\"words\"],[false,\"words\"],[false,\"words\"]]"
+    },
+    {
+      "name": "autocorrect input type INVALID",
+      "html": "<!doctype html><form id=f autocorrect=off autocapitalize=words><input id=e type=\"INVALID\" autocorrect=on></form>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];out.push([e.autocorrect,e.autocapitalize]);e.removeAttribute('autocorrect');out.push([e.autocorrect,e.autocapitalize]);e.type='text';out.push([e.autocorrect,e.autocapitalize]);return JSON.stringify(out);})()",
+      "expected": "[[true,\"words\"],[false,\"words\"],[false,\"words\"]]"
+    },
+    {
+      "name": "autocorrect input type EMAIL",
+      "html": "<!doctype html><form id=f autocorrect=off autocapitalize=words><input id=e type=\"EMAIL\" autocorrect=on></form>",
+      "action": "(()=>{const e=document.getElementById('e'),out=[];out.push([e.autocorrect,e.autocapitalize]);e.removeAttribute('autocorrect');out.push([e.autocorrect,e.autocapitalize]);e.type='text';out.push([e.autocorrect,e.autocapitalize]);return JSON.stringify(out);})()",
+      "expected": "[[false,\"words\"],[false,\"words\"],[false,\"words\"]]"
+    },
+    {
+      "name": "shadow and detached explicit form owner",
+      "html": "<!doctype html><div id=h></div>",
+      "action": "(()=>{const root=document.getElementById('h').attachShadow({mode:'open'});root.innerHTML='<form id=f autocapitalize=words autocorrect=off></form><input id=e form=f>';const e=root.getElementById('e'),out=[[e.form?e.form.id:null,e.autocapitalize,e.autocorrect]];document.getElementById('h').remove();out.push([e.form?e.form.id:null,e.autocapitalize,e.autocorrect]);const detached=document.createElement('div');detached.innerHTML='<form id=f autocapitalize=characters><input id=i></form><input id=j form=f>';for(const id of ['i','j']){const t=detached.querySelector('#'+id);out.push([t.form?t.form.id:null,t.autocapitalize,t.autocorrect]);}return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"words\",false],[null,\"\",true],[\"f\",\"characters\",true],[null,\"\",true]]"
+    },
+    {
+      "name": "autocapitalize descriptors and receiver branding",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const d=Object.getOwnPropertyDescriptor(HTMLElement.prototype,'autocapitalize'),e=document.getElementById('e'),out=[[typeof d.get,typeof d.set,d.enumerable,d.configurable,d.get.length,d.set.length,d.get.name,d.set.name]];for(const value of [e,{},null,document,document.createTextNode('x'),document.createElementNS('http://www.w3.org/2000/svg','g')]){try{out.push(['get',d.get.call(value)]);}catch(err){out.push(['get error',err.name]);}try{d.set.call(value,'off');out.push(['set',value.getAttribute('autocapitalize')]);}catch(err){out.push(['set error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[\"function\",\"function\",true,true,0,1,\"get autocapitalize\",\"set autocapitalize\"],[\"get\",\"\"],[\"set\",\"off\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"]]"
+    },
+    {
+      "name": "autocorrect descriptors and receiver branding",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const d=Object.getOwnPropertyDescriptor(HTMLElement.prototype,'autocorrect'),e=document.getElementById('e'),out=[[typeof d.get,typeof d.set,d.enumerable,d.configurable,d.get.length,d.set.length,d.get.name,d.set.name]];for(const value of [e,{},null,document,document.createTextNode('x'),document.createElementNS('http://www.w3.org/2000/svg','g')]){try{out.push(['get',d.get.call(value)]);}catch(err){out.push(['get error',err.name]);}try{d.set.call(value,'off');out.push(['set',value.getAttribute('autocorrect')]);}catch(err){out.push(['set error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[\"function\",\"function\",true,true,0,1,\"get autocorrect\",\"set autocorrect\"],[\"get\",true],[\"set\",\"on\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"]]"
+    },
+    {
+      "name": "writingsuggestions descriptors and receiver branding",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const d=Object.getOwnPropertyDescriptor(HTMLElement.prototype,'writingSuggestions'),e=document.getElementById('e'),out=[[typeof d.get,typeof d.set,d.enumerable,d.configurable,d.get.length,d.set.length,d.get.name,d.set.name]];for(const value of [e,{},null,document,document.createTextNode('x'),document.createElementNS('http://www.w3.org/2000/svg','g')]){try{out.push(['get',d.get.call(value)]);}catch(err){out.push(['get error',err.name]);}try{d.set.call(value,'off');out.push(['set',value.getAttribute('writingsuggestions')]);}catch(err){out.push(['set error',err.name]);}}return JSON.stringify(out);})()",
+      "expected": "[[\"function\",\"function\",true,true,0,1,\"get writingSuggestions\",\"set writingSuggestions\"],[\"get\",\"true\"],[\"set\",\"off\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"],[\"get error\",\"TypeError\"],[\"set error\",\"TypeError\"]]"
+    },
+    {
+      "name": "global attribute reactions and mutation order",
+      "html": "<!doctype html><div id=container></div>",
+      "action": "(async()=>{const out=[];class EditingHints extends HTMLElement{static get observedAttributes(){return ['autocapitalize','autocorrect','writingsuggestions'];}attributeChangedCallback(name,oldValue,value){out.push(['reaction',name,oldValue,value]);}}customElements.define('editing-hints',EditingHints);const e=document.createElement('editing-hints');document.getElementById('container').append(e);const observer=new MutationObserver(records=>out.push(['observer',...records.map(r=>[r.attributeName,r.oldValue,r.attributeNamespace])]));observer.observe(e,{attributes:true,attributeOldValue:true});e.autocapitalize='words';out.push(['after',e.autocapitalize]);e.autocorrect=false;out.push(['after',e.autocorrect]);e.writingSuggestions='FALSE';out.push(['after',e.writingSuggestions]);e.autocapitalize='words';try{e.writingSuggestions=Symbol();}catch(err){out.push(['error',err.name,e.getAttribute('writingsuggestions')]);}await Promise.resolve();observer.disconnect();return JSON.stringify(out);})()",
+      "await": true,
+      "expected": "[[\"after\",\"words\"],[\"reaction\",\"autocapitalize\",null,\"words\"],[\"reaction\",\"autocorrect\",null,\"off\"],[\"after\",false],[\"reaction\",\"writingsuggestions\",null,\"FALSE\"],[\"after\",\"false\"],[\"error\",\"TypeError\",\"FALSE\"],[\"reaction\",\"autocapitalize\",\"words\",\"words\"],[\"observer\",[\"autocapitalize\",null,null],[\"autocorrect\",null,null],[\"writingsuggestions\",null,null],[\"autocapitalize\",\"words\",null]]]",
+      "specExpected": "[[\"reaction\",\"autocapitalize\",null,\"words\"],[\"after\",\"words\"],[\"reaction\",\"autocorrect\",null,\"off\"],[\"after\",false],[\"reaction\",\"writingsuggestions\",null,\"FALSE\"],[\"after\",\"false\"],[\"reaction\",\"autocapitalize\",\"words\",\"words\"],[\"error\",\"TypeError\",\"FALSE\"],[\"observer\",[\"autocapitalize\",null,null],[\"autocorrect\",null,null],[\"writingsuggestions\",null,null],[\"autocapitalize\",\"words\",null]]]",
+      "difference": "HTML HTMLElement IDL declares [CEReactions, ReflectSetter] autocapitalize. Chromium delays its reactions until a subsequent CEReactions operation or backup queue microtask."
+    },
+    {
+      "name": "form hint ID lookup order moves and adoption",
+      "html": "<!doctype html><div id=f></div><form id=f autocapitalize=words autocorrect=off></form><form id=g autocapitalize=characters></form><input id=e form=f>",
+      "action": "(()=>{const e=document.getElementById('e'),blocker=document.querySelector('div'),f=document.querySelector('form'),g=document.getElementById('g'),out=[],record=()=>out.push([e.form?e.form.id:null,e.autocapitalize,e.autocorrect]);record();blocker.remove();record();f.id='old';record();g.id='f';record();e.remove();record();f.append(e);record();e.removeAttribute('form');record();const other=document.implementation.createHTMLDocument('other'),otherForm=other.createElement('form');other.body.append(otherForm);otherForm.setAttribute('autocapitalize','none');otherForm.setAttribute('autocorrect','off');otherForm.append(other.adoptNode(e));record();return JSON.stringify(out);})()",
+      "expected": "[[null,\"\",true],[\"f\",\"words\",false],[null,\"\",true],[\"f\",\"characters\",true],[null,\"\",true],[\"f\",\"characters\",true],[\"old\",\"words\",false],[\"\",\"none\",false]]"
+    },
+    {
+      "name": "writing suggestions live parents detach and explicit override",
+      "html": "<!doctype html><div id=a writingsuggestions=false><span id=e></span></div><div id=b writingsuggestions=invalid></div>",
+      "action": "(()=>{const e=document.getElementById('e'),a=document.getElementById('a'),b=document.getElementById('b'),out=[e.writingSuggestions];e.remove();out.push(e.writingSuggestions);b.append(e);out.push(e.writingSuggestions);a.append(e);out.push(e.writingSuggestions);e.writingSuggestions='false';b.append(e);out.push(e.writingSuggestions);e.removeAttribute('writingsuggestions');out.push(e.writingSuggestions);return JSON.stringify(out);})()",
+      "expected": "[\"false\",\"true\",\"true\",\"false\",\"false\",\"true\"]"
+    },
+    {
+      "name": "custom form association in connected shadow tree",
+      "html": "<!doctype html><div id=h></div>",
+      "action": "(()=>{const out=[];class HintFace extends HTMLElement{static formAssociated=true;constructor(){super();this.internals=this.attachInternals();}formAssociatedCallback(form){out.push(['reaction',form?form.id:null]);}}customElements.define('hint-face',HintFace);const h=document.getElementById('h'),root=h.attachShadow({mode:'open'});root.innerHTML='<form id=f autocapitalize=words autocorrect=off></form><form id=g autocapitalize=characters></form><hint-face id=e form=f></hint-face>';const e=root.getElementById('e');out.length=0;const record=()=>out.push([e.internals.form?e.internals.form.id:null,e.autocapitalize,e.autocorrect]);record();e.setAttribute('form','g');record();h.remove();record();document.body.append(h);record();e.removeAttribute('form');record();root.getElementById('f').append(e);record();return JSON.stringify(out);})()",
+      "expected": "[[\"f\",\"\",true],[\"reaction\",\"g\"],[\"g\",\"\",true],[\"reaction\",null],[null,\"\",true],[\"reaction\",\"g\"],[\"g\",\"\",true],[\"reaction\",null],[null,\"\",true],[\"reaction\",\"f\"],[\"f\",\"\",true]]"
+    }
+  ]
+}

@@ -1,0 +1,5574 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "standards": [
+    "https://drafts.csswg.org/css-values-4/#deprecated-quirky-length",
+    "https://drafts.csswg.org/css-color-4/#quirky-colors"
+  ],
+  "cases": [
+    {
+      "mode": "no-quirks",
+      "doctype": "<!doctype html>",
+      "values": [
+        {
+          "property": "width",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "width",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "width",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "width",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "width",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-position",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-position",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-position",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-position",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin-top",
+          "value": "2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin-top",
+          "value": "-2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding-left",
+          "value": "2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding-left",
+          "value": "-2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-right-width",
+          "value": "2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-right-width",
+          "value": "-2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1, 20, 30, 0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(auto 20 30 0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1,,20,30,0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1,20,30,0,)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1,20 30,0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "abcdef",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "123456",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "000abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "0012abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "1234",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "1e0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "12ABCD",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "+123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "\\66 00",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "abcdef",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "123456",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "000abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "0012abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "1234",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "1e0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "12ABCD",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "+123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "\\66 00",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "abcdef",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "123456",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "000abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "0012abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1234",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1e0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "12ABCD",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "+123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "\\66 00",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "abcdef",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "123456",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "000abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "0012abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "1234",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "1e0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "12ABCD",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "+123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "\\66 00",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "var(--v)",
+          "inline": "var(--v)",
+          "rule": "var(--v)",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "width",
+          "value": "var(--v)",
+          "inline": "var(--v)",
+          "rule": "var(--v)",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": "0",
+          "inline": "0px",
+          "rule": "0px",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": "0px",
+          "inline": "0px",
+          "rule": "0px",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": ".5px",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": true,
+          "atSupports": true
+        }
+      ]
+    },
+    {
+      "mode": "limited-quirks",
+      "doctype": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">",
+      "values": [
+        {
+          "property": "width",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "width",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "width",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "width",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "width",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "top",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "right",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "bottom",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "left",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "letter-spacing",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "word-spacing",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "text-indent",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": "+2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": ".5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "vertical-align",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-position",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-position",
+          "value": "2px 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-position",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-position",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin-top",
+          "value": "2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin-top",
+          "value": "-2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding-left",
+          "value": "2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding-left",
+          "value": "-2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-right-width",
+          "value": "2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-right-width",
+          "value": "-2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1, 20, 30, 0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(auto 20 30 0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1,,20,30,0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1,20,30,0,)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1,20 30,0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "abcdef",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "123456",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "000abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "0012abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "1234",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "1e0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "12ABCD",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "+123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "\\66 00",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "abcdef",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "123456",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "000abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "0012abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "1234",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "1e0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "12ABCD",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "+123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "\\66 00",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "abcdef",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "123456",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "000abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "0012abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1234",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1e0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "12ABCD",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "+123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "\\66 00",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "abcdef",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "123456",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "000abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "0012abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "1234",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "1e0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "12ABCD",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "+123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "\\66 00",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "var(--v)",
+          "inline": "var(--v)",
+          "rule": "var(--v)",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "width",
+          "value": "var(--v)",
+          "inline": "var(--v)",
+          "rule": "var(--v)",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": "0",
+          "inline": "0px",
+          "rule": "0px",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": "0px",
+          "inline": "0px",
+          "rule": "0px",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": ".5px",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": true,
+          "atSupports": true
+        }
+      ]
+    },
+    {
+      "mode": "quirks",
+      "doctype": "",
+      "values": [
+        {
+          "property": "width",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "width",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "width",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "width",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "width",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "height",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "height",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "height",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "height",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "height",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "min-width",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "min-width",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-width",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "min-width",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "min-width",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "min-height",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "min-height",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "min-height",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "min-height",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "min-height",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "max-width",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "max-width",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-width",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "max-width",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "max-width",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "max-height",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "max-height",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "max-height",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "max-height",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "max-height",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "top",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "top",
+          "value": "-2.5",
+          "inline": "-2.5px",
+          "rule": "-2.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "top",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "top",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "top",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "right",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "right",
+          "value": "-2.5",
+          "inline": "-2.5px",
+          "rule": "-2.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "right",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "right",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "right",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "bottom",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "bottom",
+          "value": "-2.5",
+          "inline": "-2.5px",
+          "rule": "-2.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "bottom",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "bottom",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "bottom",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "left",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "left",
+          "value": "-2.5",
+          "inline": "-2.5px",
+          "rule": "-2.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "left",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "left",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "left",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": "-2.5",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font-size",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "letter-spacing",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "letter-spacing",
+          "value": "-2.5",
+          "inline": "-2.5px",
+          "rule": "-2.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "letter-spacing",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "letter-spacing",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "letter-spacing",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "word-spacing",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "word-spacing",
+          "value": "-2.5",
+          "inline": "-2.5px",
+          "rule": "-2.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "word-spacing",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "word-spacing",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "word-spacing",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "text-indent",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "text-indent",
+          "value": "-2.5",
+          "inline": "-2.5px",
+          "rule": "-2.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "text-indent",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "text-indent",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "text-indent",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "vertical-align",
+          "value": "20",
+          "inline": "20px",
+          "rule": "20px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "vertical-align",
+          "value": "-2.5",
+          "inline": "-2.5px",
+          "rule": "-2.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "vertical-align",
+          "value": "+2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "vertical-align",
+          "value": ".5",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "vertical-align",
+          "value": "1e2",
+          "inline": "100px",
+          "rule": "100px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "margin",
+          "value": "2 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "margin",
+          "value": "2px 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "margin",
+          "value": "-2 3",
+          "inline": "-2px 3px",
+          "rule": "-2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "margin",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "2 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "padding",
+          "value": "2px 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "padding",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "padding",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "2 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-width",
+          "value": "2px 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-width",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-width",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "2 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-spacing",
+          "value": "2px 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-spacing",
+          "value": "-2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-spacing",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-position",
+          "value": "2 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-position",
+          "value": "2px 3",
+          "inline": "2px 3px",
+          "rule": "2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-position",
+          "value": "-2 3",
+          "inline": "-2px 3px",
+          "rule": "-2px 3px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-position",
+          "value": "calc(2 + 3px)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "margin-top",
+          "value": "2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "margin-top",
+          "value": "-2",
+          "inline": "-2px",
+          "rule": "-2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "padding-left",
+          "value": "2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "padding-left",
+          "value": "-2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-right-width",
+          "value": "2",
+          "inline": "2px",
+          "rule": "2px",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-right-width",
+          "value": "-2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1, 20, 30, 0)",
+          "inline": "rect(1px, 20px, 30px, 0px)",
+          "rule": "rect(1px, 20px, 30px, 0px)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "clip",
+          "value": "rect(auto 20 30 0)",
+          "inline": "rect(auto, 20px, 30px, 0px)",
+          "rule": "rect(auto, 20px, 30px, 0px)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "clip",
+          "value": "rect(1,,20,30,0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1,20,30,0,)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "clip",
+          "value": "rect(1,20 30,0)",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "abc",
+          "inline": "rgb(170, 187, 204)",
+          "rule": "rgb(170, 187, 204)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "color",
+          "value": "abcdef",
+          "inline": "rgb(171, 205, 239)",
+          "rule": "rgb(171, 205, 239)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "color",
+          "value": "123",
+          "inline": "rgb(17, 34, 51)",
+          "rule": "rgb(0, 1, 35)",
+          "supports": false,
+          "atSupports": true,
+          "standardInline": "rgb(0, 1, 35)",
+          "divergence": "CSS Color 4 quirky-color token rules; Chromium setProperty fast path treats some three-character number tokens as identifiers."
+        },
+        {
+          "property": "color",
+          "value": "123456",
+          "inline": "rgb(18, 52, 86)",
+          "rule": "rgb(18, 52, 86)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "color",
+          "value": "000abc",
+          "inline": "rgb(0, 10, 188)",
+          "rule": "rgb(0, 10, 188)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "color",
+          "value": "0012abc",
+          "inline": "rgb(1, 42, 188)",
+          "rule": "rgb(1, 42, 188)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "color",
+          "value": "1234",
+          "inline": "rgb(0, 18, 52)",
+          "rule": "rgb(0, 18, 52)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "color",
+          "value": "1e2",
+          "inline": "rgb(17, 238, 34)",
+          "rule": "",
+          "supports": false,
+          "atSupports": false,
+          "standardInline": "",
+          "divergence": "CSS Color 4 quirky-color token rules; Chromium setProperty fast path treats some three-character number tokens as identifiers."
+        },
+        {
+          "property": "color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "1e0abc",
+          "inline": "rgb(30, 10, 188)",
+          "rule": "",
+          "supports": false,
+          "atSupports": false,
+          "standardInline": "",
+          "divergence": "CSS Color 4 quirky-color token rules; Chromium setProperty fast path treats some three-character number tokens as identifiers."
+        },
+        {
+          "property": "color",
+          "value": "12ABCD",
+          "inline": "rgb(18, 171, 205)",
+          "rule": "rgb(18, 171, 205)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "color",
+          "value": "+123",
+          "inline": "rgb(0, 1, 35)",
+          "rule": "rgb(0, 1, 35)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "\\66 00",
+          "inline": "rgb(255, 0, 0)",
+          "rule": "rgb(255, 0, 0)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-color",
+          "value": "abc",
+          "inline": "rgb(170, 187, 204)",
+          "rule": "rgb(170, 187, 204)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-color",
+          "value": "abcdef",
+          "inline": "rgb(171, 205, 239)",
+          "rule": "rgb(171, 205, 239)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-color",
+          "value": "123",
+          "inline": "rgb(17, 34, 51)",
+          "rule": "rgb(0, 1, 35)",
+          "supports": false,
+          "atSupports": true,
+          "standardInline": "rgb(0, 1, 35)",
+          "divergence": "CSS Color 4 quirky-color token rules; Chromium setProperty fast path treats some three-character number tokens as identifiers."
+        },
+        {
+          "property": "background-color",
+          "value": "123456",
+          "inline": "rgb(18, 52, 86)",
+          "rule": "rgb(18, 52, 86)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-color",
+          "value": "000abc",
+          "inline": "rgb(0, 10, 188)",
+          "rule": "rgb(0, 10, 188)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-color",
+          "value": "0012abc",
+          "inline": "rgb(1, 42, 188)",
+          "rule": "rgb(1, 42, 188)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-color",
+          "value": "1234",
+          "inline": "rgb(0, 18, 52)",
+          "rule": "rgb(0, 18, 52)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-color",
+          "value": "1e2",
+          "inline": "rgb(17, 238, 34)",
+          "rule": "",
+          "supports": false,
+          "atSupports": false,
+          "standardInline": "",
+          "divergence": "CSS Color 4 quirky-color token rules; Chromium setProperty fast path treats some three-character number tokens as identifiers."
+        },
+        {
+          "property": "background-color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "1e0abc",
+          "inline": "rgb(30, 10, 188)",
+          "rule": "",
+          "supports": false,
+          "atSupports": false,
+          "standardInline": "",
+          "divergence": "CSS Color 4 quirky-color token rules; Chromium setProperty fast path treats some three-character number tokens as identifiers."
+        },
+        {
+          "property": "background-color",
+          "value": "12ABCD",
+          "inline": "rgb(18, 171, 205)",
+          "rule": "rgb(18, 171, 205)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-color",
+          "value": "+123",
+          "inline": "rgb(0, 1, 35)",
+          "rule": "rgb(0, 1, 35)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "background-color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background-color",
+          "value": "\\66 00",
+          "inline": "rgb(255, 0, 0)",
+          "rule": "rgb(255, 0, 0)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "abc",
+          "inline": "rgb(170, 187, 204)",
+          "rule": "rgb(170, 187, 204)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "abcdef",
+          "inline": "rgb(171, 205, 239)",
+          "rule": "rgb(171, 205, 239)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "123",
+          "inline": "rgb(0, 1, 35)",
+          "rule": "rgb(0, 1, 35)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "123456",
+          "inline": "rgb(18, 52, 86)",
+          "rule": "rgb(18, 52, 86)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "000abc",
+          "inline": "rgb(0, 10, 188)",
+          "rule": "rgb(0, 10, 188)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "0012abc",
+          "inline": "rgb(1, 42, 188)",
+          "rule": "rgb(1, 42, 188)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "1234",
+          "inline": "rgb(0, 18, 52)",
+          "rule": "rgb(0, 18, 52)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "1e0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "12ABCD",
+          "inline": "rgb(18, 171, 205)",
+          "rule": "rgb(18, 171, 205)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "+123",
+          "inline": "rgb(0, 1, 35)",
+          "rule": "rgb(0, 1, 35)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-color",
+          "value": "\\66 00",
+          "inline": "rgb(255, 0, 0)",
+          "rule": "rgb(255, 0, 0)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-left-color",
+          "value": "abc",
+          "inline": "rgb(170, 187, 204)",
+          "rule": "rgb(170, 187, 204)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-left-color",
+          "value": "abcdef",
+          "inline": "rgb(171, 205, 239)",
+          "rule": "rgb(171, 205, 239)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-left-color",
+          "value": "123",
+          "inline": "rgb(17, 34, 51)",
+          "rule": "rgb(0, 1, 35)",
+          "supports": false,
+          "atSupports": true,
+          "standardInline": "rgb(0, 1, 35)",
+          "divergence": "CSS Color 4 quirky-color token rules; Chromium setProperty fast path treats some three-character number tokens as identifiers."
+        },
+        {
+          "property": "border-left-color",
+          "value": "123456",
+          "inline": "rgb(18, 52, 86)",
+          "rule": "rgb(18, 52, 86)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-left-color",
+          "value": "000abc",
+          "inline": "rgb(0, 10, 188)",
+          "rule": "rgb(0, 10, 188)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-left-color",
+          "value": "0012abc",
+          "inline": "rgb(1, 42, 188)",
+          "rule": "rgb(1, 42, 188)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-left-color",
+          "value": "1234",
+          "inline": "rgb(0, 18, 52)",
+          "rule": "rgb(0, 18, 52)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-left-color",
+          "value": "1e2",
+          "inline": "rgb(17, 238, 34)",
+          "rule": "",
+          "supports": false,
+          "atSupports": false,
+          "standardInline": "",
+          "divergence": "CSS Color 4 quirky-color token rules; Chromium setProperty fast path treats some three-character number tokens as identifiers."
+        },
+        {
+          "property": "border-left-color",
+          "value": "1e2f",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "1e0abc",
+          "inline": "rgb(30, 10, 188)",
+          "rule": "",
+          "supports": false,
+          "atSupports": false,
+          "standardInline": "",
+          "divergence": "CSS Color 4 quirky-color token rules; Chromium setProperty fast path treats some three-character number tokens as identifiers."
+        },
+        {
+          "property": "border-left-color",
+          "value": "12ABCD",
+          "inline": "rgb(18, 171, 205)",
+          "rule": "rgb(18, 171, 205)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-left-color",
+          "value": "+123",
+          "inline": "rgb(0, 1, 35)",
+          "rule": "rgb(0, 1, 35)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border-left-color",
+          "value": "-123",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "12.0abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "12345abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-left-color",
+          "value": "\\66 00",
+          "inline": "rgb(255, 0, 0)",
+          "rule": "rgb(255, 0, 0)",
+          "supports": false,
+          "atSupports": true
+        },
+        {
+          "property": "border",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "background",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "font",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "box-shadow",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "column-gap",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "gap",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "flex-basis",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "inline-size",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "border-inline-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "outline-color",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "2 solid red",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "abc",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "20",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "2 3",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "fill",
+          "value": "1e2",
+          "inline": "",
+          "rule": "",
+          "supports": false,
+          "atSupports": false
+        },
+        {
+          "property": "color",
+          "value": "var(--v)",
+          "inline": "var(--v)",
+          "rule": "var(--v)",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "width",
+          "value": "var(--v)",
+          "inline": "var(--v)",
+          "rule": "var(--v)",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": "0",
+          "inline": "0px",
+          "rule": "0px",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": "0px",
+          "inline": "0px",
+          "rule": "0px",
+          "supports": true,
+          "atSupports": true
+        },
+        {
+          "property": "font-size",
+          "value": ".5px",
+          "inline": "0.5px",
+          "rule": "0.5px",
+          "supports": true,
+          "atSupports": true
+        }
+      ]
+    }
+  ],
+  "extra": {
+    "variableWidth": "20px",
+    "variableColor": "rgb(170, 187, 204)",
+    "keyframeWidth": "30px",
+    "keyframeColor": "rgb(170, 187, 204)",
+    "adoptedWidth": "20px",
+    "adoptedNewHeight": "20px"
+  }
+}

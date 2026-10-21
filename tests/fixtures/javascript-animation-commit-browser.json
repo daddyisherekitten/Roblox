@@ -1,0 +1,161 @@
+[
+  {
+    "name": "foreign namespace rejects before rendering check",
+    "pass": true,
+    "values": [
+      "NoModificationAllowedError"
+    ]
+  },
+  {
+    "name": "multi-property commit, one mutation, cancel retention",
+    "pass": true,
+    "values": [
+      "0.45",
+      "rgb(128, 0, 128)",
+      "translate(25px, -5px)",
+      "1",
+      "style",
+      "opacity: 0.1;",
+      "paused",
+      "0.45",
+      "0"
+    ]
+  },
+  {
+    "name": "redundant commit suppresses mutation",
+    "pass": true,
+    "values": [
+      "0",
+      "0.2",
+      "finished"
+    ]
+  },
+  {
+    "name": "null targets and absent effect reject with no modification",
+    "pass": true,
+    "values": [
+      "NoModificationAllowedError",
+      "NoModificationAllowedError",
+      "null",
+      "50"
+    ]
+  },
+  {
+    "name": "empty and invalid keyframes",
+    "pass": true,
+    "values": [
+      "null",
+      "0",
+      "0.3",
+      "0"
+    ]
+  },
+  {
+    "name": "endpoint inclusive, outside intervals and reverse",
+    "pass": true,
+    "values": [
+      "0.1",
+      "0.1",
+      "0.8",
+      "0.2"
+    ]
+  },
+  {
+    "name": "partial replacement stack excludes higher effects",
+    "pass": true,
+    "values": [
+      "0.55",
+      "0.3",
+      "0.3"
+    ]
+  },
+  {
+    "name": "inline importance is cleared, unrelated declarations survive",
+    "pass": true,
+    "values": [
+      "0.1",
+      "",
+      "red",
+      "important",
+      "200px",
+      "persisted",
+      "persisted",
+      "0.1"
+    ]
+  },
+  {
+    "name": "pending styles and rendered-target errors",
+    "pass": true,
+    "values": [
+      "0.5",
+      "InvalidStateError",
+      "InvalidStateError",
+      "InvalidStateError",
+      "0.5"
+    ]
+  },
+  {
+    "name": "computed variables and relative lengths freeze",
+    "pass": true,
+    "values": [
+      "0.4",
+      "translate(20px)",
+      "0.4",
+      "translate(20px)"
+    ]
+  },
+  {
+    "name": "alpha colors use premultiplied interpolation",
+    "pass": true,
+    "values": [
+      "rgba(255, 0, 0, 0.5)"
+    ]
+  },
+  {
+    "name": "percent translations remain a transform list",
+    "pass": true,
+    "values": [
+      "translate(50%)"
+    ]
+  },
+  {
+    "name": "none transform stays none and method receiver is branded",
+    "pass": true,
+    "values": [
+      "none",
+      "TypeError",
+      "0"
+    ]
+  },
+  {
+    "name": "wide inherit reads parent while unset is initial",
+    "pass": true,
+    "values": [
+      "0.2",
+      "1"
+    ]
+  },
+  {
+    "name": "lower paused CSS animation supplies neutral underlying",
+    "pass": true,
+    "values": [
+      "0.6"
+    ]
+  },
+  {
+    "name": "lower CSS alpha color and partial script keyframe",
+    "pass": true,
+    "values": [
+      "rgba(128, 0, 255, 0.5)"
+    ]
+  },
+  {
+    "name": "numeric canonical redundancy does not write raw attribute",
+    "pass": true,
+    "values": [
+      "0",
+      "0.5",
+      "opacity: .5;"
+    ]
+  }
+]

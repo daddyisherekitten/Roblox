@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Starting style native reference</title>
+<h1>Entering CSS transitions</h1>
+<pre id="result">Running</pre>
+<script>
+const cases=[
+ {name:'nested entering dimensions opacity transform',css:'#box{width:200px;height:40px;opacity:1;transform:translateX(20px);transition:width 2s linear,height 2s linear,opacity 2s linear,transform 2s linear;@starting-style{width:100px;height:20px;opacity:0;transform:translateX(0px)}}',expected:['150|30|0.5|10','true|kept']},
+ {name:'standalone entering',css:'#box{width:200px;height:20px;transition:width 2s linear}@starting-style{#box{width:100px}}',expected:['150|20|1|0','true|kept']},
+ {name:'ordinary later rule wins cascade',css:'@starting-style{#box{width:100px;opacity:0}}#box{width:200px;height:20px;opacity:1;transition:width 2s linear,opacity 2s linear}',expected:['200|20|1|0','0']},
+ {name:'important author beats starting normal',css:'#box{width:220px!important;height:20px;transition:width 2s linear}@starting-style{#box{width:100px}}',expected:['220|20|1|0','0']},
+ {name:'rendered style update uses actual before',css:'#box{width:200px;height:20px;transition:width 2s linear}@starting-style{#box{width:100px}}',operation:'update',expected:['220|20|1|0','true|kept']},
+ {name:'display none to rendered starts fresh',css:'#box{width:200px;height:20px;opacity:1;transition:width 2s linear,opacity 2s linear}@starting-style{#box{width:80px;opacity:0}}#box.hidden{display:none}',operation:'reenter',expected:['140|20|0.5|0','true|kept']},
+ {name:'visibility hidden still has before style',css:'#box{width:200px;height:20px;transition:width 2s linear}@starting-style{#box{width:100px}}#box.hidden{visibility:hidden}',operation:'visibility',expected:['220|20|1|0','true|kept']},
+ {name:'percentage transform against animated reference width',css:'#box{width:200px;height:20px;transform:translateX(100%);transform-origin:0px 0px;transition:width 2s linear,transform 2s linear}@starting-style{#box{width:100px;transform:translateX(50%)}}',expected:['150|20|1|112.5','true|kept']}
+];
+function pose(box){const style=box.ownerDocument.defaultView.getComputedStyle(box);const transform=style.transform==='none'?0:new DOMMatrix(style.transform).m41;return [parseFloat(style.width),parseFloat(style.height),Number(style.opacity),transform].join('|');}
+(async()=>{
+ const results=[];
+ for(const item of cases){
+  const frame=document.createElement('iframe');document.body.append(frame);const win=frame.contentWindow,doc=frame.contentDocument;
+  doc.head.innerHTML='<style>html,body{margin:0;padding:0}input{width:40px;height:12px}'+item.css+'</style>';
+  const box=doc.createElement('div');box.id='box';box.innerHTML='<input value="kept">';doc.body.append(box);const field=box.querySelector('input');
+  let values=[],error;
+  try{
+   const initial=box.getAnimations();for(const animation of initial){animation.pause();animation.currentTime=2000;}pose(box);
+   if(item.operation==='update'){box.style.width='240px';}
+   else if(item.operation==='reenter'){box.classList.add('hidden');pose(box);box.classList.remove('hidden');}
+   else if(item.operation==='visibility'){box.classList.add('hidden');pose(box);box.style.width='240px';box.classList.remove('hidden');}
+   const animations=item.operation?box.getAnimations():initial;
+   for(const animation of animations){animation.pause();animation.currentTime=1000;}
+   values.push(pose(box));values.push(animations.length?String(box.querySelector('input')===field)+'|'+field.value:String(animations.length));
+  }catch(exception){error=exception.name+': '+exception.message;}
+  results.push({name:item.name,values,error,pass:!error&&JSON.stringify(values)===JSON.stringify(item.expected)});frame.remove();
+ }
+ document.getElementById('result').textContent=JSON.stringify(results);
+})();
+</script>

@@ -1,0 +1,196 @@
+[
+  {
+    "name": "replace width and height produce current geometry",
+    "actual": [
+      "150",
+      "60",
+      "150",
+      "60"
+    ],
+    "error": null
+  },
+  {
+    "name": "additive width composes with live author value",
+    "actual": [
+      "130",
+      "230",
+      "200"
+    ],
+    "error": null
+  },
+  {
+    "name": "additive margin shifts one box and width changes its size",
+    "actual": [
+      "120",
+      "10"
+    ],
+    "error": null
+  },
+  {
+    "name": "per keyframe composite adds left and replaces right",
+    "actual": [
+      "70"
+    ],
+    "error": null
+  },
+  {
+    "name": "implicit underlying endpoint for a single additive frame",
+    "actual": [
+      "120"
+    ],
+    "error": null
+  },
+  {
+    "name": "two additive effects keep independent underlying values",
+    "actual": [
+      "130",
+      "110",
+      "100"
+    ],
+    "error": null
+  },
+  {
+    "name": "layout commit removes effect without changing geometry",
+    "actual": [
+      "120px",
+      "140",
+      "120"
+    ],
+    "error": null
+  },
+  {
+    "name": "important layout declaration wins over the animation",
+    "actual": [
+      "100",
+      "100px",
+      "100"
+    ],
+    "error": null
+  },
+  {
+    "name": "percentage width and pixel endpoints use containing block",
+    "actual": [
+      "150"
+    ],
+    "error": null
+  },
+  {
+    "name": "percentage height uses parent height rather than box width",
+    "actual": [
+      "75"
+    ],
+    "error": null
+  },
+  {
+    "name": "logical dimensions change physical dimensions",
+    "actual": [
+      "150",
+      "60"
+    ],
+    "error": null
+  },
+  {
+    "name": "min width constrains an animated width",
+    "actual": [
+      "160"
+    ],
+    "error": null
+  },
+  {
+    "name": "padding changes outer size and cancellation restores it",
+    "actual": [
+      "120",
+      "100"
+    ],
+    "error": null
+  },
+  {
+    "name": "individual translate stays separate from additive transform",
+    "actual": [
+      "50",
+      "50"
+    ],
+    "error": null
+  },
+  {
+    "name": "transform add multiplies scale",
+    "actual": [
+      "800"
+    ],
+    "error": null
+  },
+  {
+    "name": "transform accumulate adds scale relative to identity",
+    "actual": [
+      "600"
+    ],
+    "error": null
+  },
+  {
+    "name": "add transform preserves translation before scale order",
+    "actual": [
+      "10",
+      "400"
+    ],
+    "error": null
+  },
+  {
+    "name": "constructor iteration accumulation translates successive iterations",
+    "actual": [
+      "undefined",
+      "10"
+    ],
+    "error": null
+  },
+  {
+    "name": "setter iteration accumulation scales relative to identity",
+    "actual": [
+      "300"
+    ],
+    "error": null
+  },
+  {
+    "name": "iteration accumulation honors fractional iteration start",
+    "actual": [
+      "0"
+    ],
+    "error": null
+  },
+  {
+    "name": "opacity stack clamps final composed result",
+    "actual": [
+      "0.9",
+      "0.4"
+    ],
+    "error": null
+  },
+  {
+    "name": "zero duration infinite iteration replacement remains finite",
+    "actual": [
+      "1",
+      "Infinity",
+      "20"
+    ],
+    "error": null
+  },
+  {
+    "name": "zero duration infinite iteration accumulation stays bounded",
+    "actual": [
+      "1",
+      "Infinity",
+      "20",
+      "0.8"
+    ],
+    "error": null
+  },
+  {
+    "name": "shadow target commits and animation enumeration traverses shadow root",
+    "actual": [
+      "false",
+      "false",
+      "0.5",
+      "0.5"
+    ],
+    "error": null
+  }
+]

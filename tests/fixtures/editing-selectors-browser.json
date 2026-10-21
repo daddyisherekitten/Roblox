@@ -1,0 +1,1182 @@
+{
+  "source": "function editingSelectorChecks() {\n  const H='http://www.w3.org/1999/xhtml', records=[];\n  document.body.innerHTML='';\n  function add(name,e) {\n    records.push({name,value:[e.matches(':read-write'),e.matches(':read-only'),e.isContentEditable]});\n  }\n  const host=document.createElement('section'),child=document.createElement('span'),island=document.createElement('div'),nested=document.createElement('strong');\n  host.append(child,island);island.append(nested);document.body.append(host);\n  for(const value of [null,'','true','TRUE','plaintext-only','false','inherit','invalid']){\n    if(value===null)host.removeAttribute('contenteditable');else host.setAttribute('contenteditable',value);\n    add('host '+String(value),host);add('inherit '+String(value),child);\n  }\n  host.contentEditable='true';island.contentEditable='false';add('blocked island',island);add('blocked descendant',nested);\n  nested.contentEditable='plaintext-only';add('nested plaintext host',nested);\n  island.removeAttribute('contenteditable');add('live unblock',island);add('live nested plaintext',nested);\n  for(const kind of ['input','textarea']){\n    const e=document.createElement(kind);host.append(e);e.contentEditable='true';\n    add(kind+' inherited editing',e);e.readOnly=true;add(kind+' readonly editing',e);e.readOnly=false;e.disabled=true;add(kind+' disabled editing',e);\n    e.disabled=false;if(kind==='input'){e.type='checkbox';add('checkbox editing',e);e.type='text';add('text editing',e);}\n  }\n  const prefixed=document.createElementNS(H,'h:span');host.append(prefixed);add('prefixed inherited editing',prefixed);\n  prefixed.contentEditable='false';add('prefixed explicit false',prefixed);\n  const detached=document.createElement('div');detached.contentEditable='plaintext-only';add('detached plaintext host',detached);\n  const shadowHost=document.createElement('div');host.append(shadowHost);const shadow=shadowHost.attachShadow({mode:'open'}),shadowChild=document.createElement('span');shadow.append(shadowChild);\n  add('shadow does not inherit editing',shadowChild);shadowChild.contentEditable='true';add('shadow own editing',shadowChild);\n  const ordinary=document.createElement('p');document.body.append(ordinary);add('document editing off',ordinary);\n  document.designMode='on';add('document editing on',ordinary);add('document explicit false',prefixed);\n  detached.removeAttribute('contenteditable');add('document detached control',detached);\n  document.designMode='off';add('document editing off again',ordinary);\n  const target=document.createElement('div');document.body.append(target);target.append(child);add('reparent into noneditable',child);\n  target.contentEditable='TRUE';add('live reparented editing',child);\n  for(const kind of ['text','search','tel','url','email','password','date','datetime-local','month','week','time','number','range','color','checkbox','radio','file','hidden','submit','reset','button','image','TEXT','unknown','datetime']){\n    const e=document.createElement('input');e.setAttribute('type',kind);e.required=true;e.placeholder='Hint';document.body.append(e);\n    for(const readonly of [false,true]){\n      e.readOnly=readonly;\n      records.push({name:'input states '+kind+' readonly '+readonly,value:[':read-write',':read-only',':required',':optional',':placeholder-shown',':valid',':invalid'].map(selector=>e.matches(selector))});\n    }\n  }\n  return records;\n}\n",
+  "records": [
+    {
+      "name": "host null",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "inherit null",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "host ",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "inherit ",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "host true",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "inherit true",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "host TRUE",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "inherit TRUE",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "host plaintext-only",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "inherit plaintext-only",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "host false",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "inherit false",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "host inherit",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "inherit inherit",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "host invalid",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "inherit invalid",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "blocked island",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "blocked descendant",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "nested plaintext host",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "live unblock",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "live nested plaintext",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "input inherited editing",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "input readonly editing",
+      "value": [
+        false,
+        true,
+        true
+      ],
+      "json": "[false,true,true]"
+    },
+    {
+      "name": "input disabled editing",
+      "value": [
+        false,
+        true,
+        true
+      ],
+      "json": "[false,true,true]"
+    },
+    {
+      "name": "checkbox editing",
+      "value": [
+        false,
+        true,
+        true
+      ],
+      "json": "[false,true,true]"
+    },
+    {
+      "name": "text editing",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "textarea inherited editing",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "textarea readonly editing",
+      "value": [
+        false,
+        true,
+        true
+      ],
+      "json": "[false,true,true]"
+    },
+    {
+      "name": "textarea disabled editing",
+      "value": [
+        false,
+        true,
+        true
+      ],
+      "json": "[false,true,true]"
+    },
+    {
+      "name": "prefixed inherited editing",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "prefixed explicit false",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "detached plaintext host",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "shadow does not inherit editing",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "shadow own editing",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "document editing off",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "document editing on",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "document explicit false",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "document detached control",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "document editing off again",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "reparent into noneditable",
+      "value": [
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false]"
+    },
+    {
+      "name": "live reparented editing",
+      "value": [
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true]"
+    },
+    {
+      "name": "input states text readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states text readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    },
+    {
+      "name": "input states search readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states search readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    },
+    {
+      "name": "input states tel readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states tel readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    },
+    {
+      "name": "input states url readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states url readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    },
+    {
+      "name": "input states email readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states email readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    },
+    {
+      "name": "input states password readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states password readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    },
+    {
+      "name": "input states date readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,false,false,true]"
+    },
+    {
+      "name": "input states date readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,false,false,false]"
+    },
+    {
+      "name": "input states datetime-local readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,false,false,true]"
+    },
+    {
+      "name": "input states datetime-local readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,false,false,false]"
+    },
+    {
+      "name": "input states month readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,false,false,true]"
+    },
+    {
+      "name": "input states month readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,false,false,false]"
+    },
+    {
+      "name": "input states week readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,false,false,true]"
+    },
+    {
+      "name": "input states week readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,false,false,false]"
+    },
+    {
+      "name": "input states time readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,false,false,true]"
+    },
+    {
+      "name": "input states time readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,false,false,false]"
+    },
+    {
+      "name": "input states number readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states number readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    },
+    {
+      "name": "input states range readonly false",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false,true,false,true,false]"
+    },
+    {
+      "name": "input states range readonly true",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states color readonly false",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false,true,false,true,false]"
+    },
+    {
+      "name": "input states color readonly true",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states checkbox readonly false",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "json": "[false,true,true,false,false,false,true]"
+    },
+    {
+      "name": "input states checkbox readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,false,false,false]"
+    },
+    {
+      "name": "input states radio readonly false",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,true,false,false,true,false]"
+    },
+    {
+      "name": "input states radio readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,false,false,false]"
+    },
+    {
+      "name": "input states file readonly false",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        true
+      ],
+      "json": "[false,true,true,false,false,false,true]"
+    },
+    {
+      "name": "input states file readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,false,false,false]"
+    },
+    {
+      "name": "input states hidden readonly false",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states hidden readonly true",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states submit readonly false",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "json": "[false,true,false,true,false,true,false]"
+    },
+    {
+      "name": "input states submit readonly true",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states reset readonly false",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states reset readonly true",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states button readonly false",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states button readonly true",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states image readonly false",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states image readonly true",
+      "value": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "json": "[false,true,false,true,false,false,false]"
+    },
+    {
+      "name": "input states TEXT readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states TEXT readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    },
+    {
+      "name": "input states unknown readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states unknown readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    },
+    {
+      "name": "input states datetime readonly false",
+      "value": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "json": "[true,false,true,false,true,false,true]"
+    },
+    {
+      "name": "input states datetime readonly true",
+      "value": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "json": "[false,true,true,false,true,false,false]"
+    }
+  ],
+  "normative": {
+    "document explicit false": {
+      "json": "[false,true,false]",
+      "reference": "https://w3c.github.io/editing/docs/execCommand/#editable",
+      "reason": "Editable descendants exclude an explicit contenteditable=false state even below the document editing host. Chromium designMode ignores that state; the raw native record is preserved."
+    },
+    "input states range readonly false": {
+      "json": "[false,true,false,false,false,true,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states range readonly true": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states color readonly false": {
+      "json": "[false,true,false,false,false,true,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states color readonly true": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states hidden readonly false": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states hidden readonly true": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states submit readonly false": {
+      "json": "[false,true,false,false,false,true,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states submit readonly true": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states reset readonly false": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states reset readonly true": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states button readonly false": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states button readonly true": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states image readonly false": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    },
+    "input states image readonly true": {
+      "json": "[false,true,false,false,false,false,false]",
+      "reference": "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-optional",
+      "reason": "HTML requires the required attribute to apply for :optional. It does not apply to this input state; Chromium still matches :optional. The raw native record is preserved."
+    }
+  },
+  "paint": {
+    "setup": "const editingPaintSheet=document.createElement('style');editingPaintSheet.textContent='#editingPaintHolder :read-only{color:rgb(91,53,17)}#editingPaintHolder :read-write{color:rgb(17,53,91)}#editingPaintHolder{background-color:rgb(3,7,11)}#editingPaintHolder:has(#editingPaintText:read-write){background-color:rgb(20,40,60)}';document.head.append(editingPaintSheet);const editingPaintHolder=document.createElement('div');editingPaintHolder.id='editingPaintHolder';editingPaintHolder.innerHTML='<p id=\"editingPaintText\">Retained editable text</p><div id=\"editingPaintIsland\" contenteditable=\"false\"><p id=\"editingPaintIslandText\">Protected text</p></div><input id=\"editingPaintInput\" value=\"retained\">';document.body.append(editingPaintHolder);const editingPaintInput=document.getElementById('editingPaintInput'),editingPaintIsland=document.getElementById('editingPaintIsland');",
+    "sample": "JSON.stringify(['editingPaintText','editingPaintIslandText','editingPaintInput'].map(id=>getComputedStyle(document.getElementById(id)).color).concat(getComputedStyle(editingPaintHolder).backgroundColor))",
+    "states": [
+      {
+        "name": "initial",
+        "code": "",
+        "json": "[\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(17, 53, 91)\",\"rgb(3, 7, 11)\"]"
+      },
+      {
+        "name": "editable host",
+        "code": "editingPaintHolder.contentEditable='true';",
+        "json": "[\"rgb(17, 53, 91)\",\"rgb(91, 53, 17)\",\"rgb(17, 53, 91)\",\"rgb(20, 40, 60)\"]"
+      },
+      {
+        "name": "plaintext host",
+        "code": "editingPaintHolder.contentEditable='plaintext-only';",
+        "json": "[\"rgb(17, 53, 91)\",\"rgb(91, 53, 17)\",\"rgb(17, 53, 91)\",\"rgb(20, 40, 60)\"]"
+      },
+      {
+        "name": "nested host",
+        "code": "editingPaintIsland.contentEditable='true';",
+        "json": "[\"rgb(17, 53, 91)\",\"rgb(17, 53, 91)\",\"rgb(17, 53, 91)\",\"rgb(20, 40, 60)\"]"
+      },
+      {
+        "name": "blocked outer host",
+        "code": "editingPaintHolder.contentEditable='false';",
+        "json": "[\"rgb(91, 53, 17)\",\"rgb(17, 53, 91)\",\"rgb(17, 53, 91)\",\"rgb(3, 7, 11)\"]"
+      },
+      {
+        "name": "nested inherit",
+        "code": "editingPaintIsland.contentEditable='inherit';",
+        "json": "[\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(17, 53, 91)\",\"rgb(3, 7, 11)\"]"
+      },
+      {
+        "name": "readonly input",
+        "code": "editingPaintInput.readOnly=true;",
+        "json": "[\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(3, 7, 11)\"]"
+      },
+      {
+        "name": "unset outer host",
+        "code": "editingPaintHolder.removeAttribute('contenteditable');",
+        "json": "[\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(3, 7, 11)\"]"
+      },
+      {
+        "name": "document editing on",
+        "code": "document.designMode='on';",
+        "json": "[\"rgb(17, 53, 91)\",\"rgb(17, 53, 91)\",\"rgb(91, 53, 17)\",\"rgb(20, 40, 60)\"]"
+      },
+      {
+        "name": "document editing unchanged",
+        "code": "document.designMode='on';",
+        "json": "[\"rgb(17, 53, 91)\",\"rgb(17, 53, 91)\",\"rgb(91, 53, 17)\",\"rgb(20, 40, 60)\"]"
+      },
+      {
+        "name": "document editing off",
+        "code": "document.designMode='off';",
+        "json": "[\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(3, 7, 11)\"]"
+      },
+      {
+        "name": "writable input",
+        "code": "editingPaintInput.readOnly=false;",
+        "json": "[\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(17, 53, 91)\",\"rgb(3, 7, 11)\"]"
+      },
+      {
+        "name": "uppercase host",
+        "code": "editingPaintHolder.setAttribute('contenteditable','TRUE');",
+        "json": "[\"rgb(17, 53, 91)\",\"rgb(17, 53, 91)\",\"rgb(17, 53, 91)\",\"rgb(20, 40, 60)\"]"
+      },
+      {
+        "name": "invalid host",
+        "code": "editingPaintHolder.setAttribute('contenteditable','invalid');",
+        "json": "[\"rgb(91, 53, 17)\",\"rgb(91, 53, 17)\",\"rgb(17, 53, 91)\",\"rgb(3, 7, 11)\"]"
+      }
+    ]
+  },
+  "browser": "Chrome/154.0.8037.98",
+  "references": [
+    "https://html.spec.whatwg.org/multipage/semantics-other.html#selector-read-write",
+    "https://html.spec.whatwg.org/multipage/interaction.html#editing"
+  ]
+}

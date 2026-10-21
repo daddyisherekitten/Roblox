@@ -1,0 +1,230 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "captured": "2026-10-10",
+  "standards": [
+    "https://html.spec.whatwg.org/multipage/dom.html#dom-document-head",
+    "https://html.spec.whatwg.org/multipage/dom.html#document.title",
+    "https://html.spec.whatwg.org/multipage/dom.html#dom-document-body",
+    "https://dom.spec.whatwg.org/#concept-child-text-content"
+  ],
+  "cases": [
+    {
+      "name": "html document prefixed  head body accessors",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument('');d.replaceChild(make(d,H,'html'),d.documentElement);const h=make(d,H,'head'),b=make(d,H,'body');d.documentElement.append(h,b);return JSON.stringify([identity(d.documentElement),d.head===h,d.body===b]);})()",
+      "expected": "[[\"http://www.w3.org/1999/xhtml\",\"html\",null],true,true]"
+    },
+    {
+      "name": "html document prefixed  body setter",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument('');const old=d.body,b=make(d,H,'body');d.body=b;const f=make(d,H,'frameset');d.body=f;return JSON.stringify([old===null||old.parentNode===null,b.parentNode===null,d.body===f,identity(d.body),f.ownerDocument===d]);})()",
+      "expected": "[true,true,true,[\"http://www.w3.org/1999/xhtml\",\"frameset\",null],true]"
+    },
+    {
+      "name": "html document prefixed p: head body accessors",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument('');d.replaceChild(make(d,H,'p:html'),d.documentElement);const h=make(d,H,'p:head'),b=make(d,H,'p:body');d.documentElement.append(h,b);return JSON.stringify([identity(d.documentElement),d.head===h,d.body===b]);})()",
+      "expected": "[[\"http://www.w3.org/1999/xhtml\",\"html\",\"p\"],true,true]"
+    },
+    {
+      "name": "html document prefixed p: body setter",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument('');const old=d.body,b=make(d,H,'p:body');d.body=b;const f=make(d,H,'p:frameset');d.body=f;return JSON.stringify([old===null||old.parentNode===null,b.parentNode===null,d.body===f,identity(d.body),f.ownerDocument===d]);})()",
+      "expected": "[true,true,true,[\"http://www.w3.org/1999/xhtml\",\"frameset\",\"p\"],true]"
+    },
+    {
+      "name": "xml document prefixed  head body accessors",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(H,'html');const h=make(d,H,'head'),b=make(d,H,'body');d.documentElement.append(h,b);return JSON.stringify([identity(d.documentElement),d.head===h,d.body===b]);})()",
+      "expected": "[[\"http://www.w3.org/1999/xhtml\",\"html\",null],true,true]"
+    },
+    {
+      "name": "xml document prefixed  body setter",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(H,'html');const old=d.body,b=make(d,H,'body');d.body=b;const f=make(d,H,'frameset');d.body=f;return JSON.stringify([old===null||old.parentNode===null,b.parentNode===null,d.body===f,identity(d.body),f.ownerDocument===d]);})()",
+      "expected": "[true,true,true,[\"http://www.w3.org/1999/xhtml\",\"frameset\",null],true]"
+    },
+    {
+      "name": "xml document prefixed p: head body accessors",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(H,'p:html');const h=make(d,H,'p:head'),b=make(d,H,'p:body');d.documentElement.append(h,b);return JSON.stringify([identity(d.documentElement),d.head===h,d.body===b]);})()",
+      "expected": "[[\"http://www.w3.org/1999/xhtml\",\"html\",\"p\"],true,true]"
+    },
+    {
+      "name": "xml document prefixed p: body setter",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(H,'html');const old=d.body,b=make(d,H,'p:body');d.body=b;const f=make(d,H,'p:frameset');d.body=f;return JSON.stringify([old===null||old.parentNode===null,b.parentNode===null,d.body===f,identity(d.body),f.ownerDocument===d]);})()",
+      "expected": "[true,true,true,[\"http://www.w3.org/1999/xhtml\",\"frameset\",\"p\"],true]"
+    },
+    {
+      "name": "head body getters exclude foreign and nested counterparts",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(H,'p:html'),r=d.documentElement;const wrongH=make(d,'urn:x','head'),wrongB=make(d,S,'body'),box=make(d,H,'div');box.append(make(d,H,'head'),make(d,H,'body'));r.append(wrongH,wrongB,box);const initial=[d.head,d.body],h=make(d,H,'q:head'),b=make(d,H,'q:frameset');r.append(h,b);return JSON.stringify([initial,d.head===h,d.body===b]);})()",
+      "expected": "[[null,null],true,true]"
+    },
+    {
+      "name": "HTML title uses first matching element even outside head",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument('');d.head.remove();const first=make(d,H,'p:title',' one \\n two '),later=make(d,H,'title','later');d.body.append(first,later);const before=d.title;d.title='changed';return JSON.stringify([before,d.title,first.textContent,later.textContent,d.head]);})()",
+      "expected": "[\"one two\",\"changed\",\"changed\",\"later\",null]"
+    },
+    {
+      "name": "HTML title setter respects first tree title before head",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument('head');const first=make(d,H,'title','first');d.documentElement.prepend(first);const old=d.head.firstChild;d.title='changed';return JSON.stringify([d.title,first.textContent,old.textContent,d.head.firstChild===old]);})()",
+      "expected": "[\"changed\",\"changed\",\"head\",true]"
+    },
+    {
+      "name": "HTML title reads direct child text excluding markup and comments",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument(''),t=d.head.firstChild;t.replaceChildren(d.createTextNode(' \\t one '),make(d,H,'span','excluded'),d.createComment('ignored'),d.createTextNode('\\n two \\r'));return JSON.stringify([d.title,t.textContent]);})()",
+      "expected": "[\"one two\",\" \\t one excluded\\n two \\r\"]"
+    },
+    {
+      "name": "title whitespace collapses only ASCII spaces",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument(' \\t a \\f \\r \\n b \\u00a0 c ');const before=d.title;d.title=' \\t written \\n value ';return JSON.stringify([before,d.title,d.head.firstChild.textContent]);})()",
+      "expected": "[\"a b   c\",\"written value\",\" \\t written \\n value \"]"
+    },
+    {
+      "name": "title ignores foreign title while creating HTML title",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument();const foreign=make(d,S,'title','foreign');d.head.append(foreign);const before=d.title;d.title='created';return JSON.stringify([before,d.title,foreign.textContent,identity(d.head.lastChild),d.head.children.length]);})()",
+      "expected": "[\"\",\"created\",\"foreign\",[\"http://www.w3.org/1999/xhtml\",\"title\",null],2]"
+    },
+    {
+      "name": "title cannot create with nested head alone",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument();d.head.remove();const h=make(d,H,'head');d.body.append(h);d.title='ignored';return JSON.stringify([d.head,d.title,h.childNodes.length]);})()",
+      "expected": "[null,\"\",0]"
+    },
+    {
+      "name": "XML root title getter does not imply an HTML title setter",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument('urn:x','root'),t=make(d,H,'title','first'),head=make(d,H,'head');d.documentElement.append(t,head);const before=d.title;d.title='ignored';return JSON.stringify([before,d.title,t.textContent,head.childNodes.length,d.head===head]);})()",
+      "expected": "[\"first\",\"first\",\"first\",0,true]",
+      "specExpected": "[\"first\",\"first\",\"first\",0,false]",
+      "difference": "Chromium Document.head returns an HTML head under a non-HTML document element. HTML requires the document html element, which is null when the root is not an HTML html element."
+    },
+    {
+      "name": "head and body root requirement http://www.w3.org/1999/xhtml html",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument('http://www.w3.org/1999/xhtml','html'),h=make(d,H,'head'),b=make(d,H,'body');d.documentElement.append(h,b);return JSON.stringify([d.head===h,d.body===b]);})()",
+      "expected": "[true,true]"
+    },
+    {
+      "name": "head and body root requirement http://www.w3.org/1999/xhtml div",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument('http://www.w3.org/1999/xhtml','div'),h=make(d,H,'head'),b=make(d,H,'body');d.documentElement.append(h,b);return JSON.stringify([d.head===h,d.body===b]);})()",
+      "expected": "[true,false]",
+      "specExpected": "[false,false]",
+      "difference": "Chromium Document.head accepts this non-HTML-html root. The normative head accessor requires an HTML html document element; body already follows that root requirement."
+    },
+    {
+      "name": "head and body root requirement urn:x html",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument('urn:x','html'),h=make(d,H,'head'),b=make(d,H,'body');d.documentElement.append(h,b);return JSON.stringify([d.head===h,d.body===b]);})()",
+      "expected": "[true,false]",
+      "specExpected": "[false,false]",
+      "difference": "Chromium Document.head accepts this non-HTML-html root. The normative head accessor requires an HTML html document element; body already follows that root requirement."
+    },
+    {
+      "name": "head and body root requirement urn:x root",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument('urn:x','root'),h=make(d,H,'head'),b=make(d,H,'body');d.documentElement.append(h,b);return JSON.stringify([d.head===h,d.body===b]);})()",
+      "expected": "[true,false]",
+      "specExpected": "[false,false]",
+      "difference": "Chromium Document.head accepts this non-HTML-html root. The normative head accessor requires an HTML html document element; body already follows that root requirement."
+    },
+    {
+      "name": "head and body root requirement http://www.w3.org/2000/svg svg",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument('http://www.w3.org/2000/svg','svg'),h=make(d,H,'head'),b=make(d,H,'body');d.documentElement.append(h,b);return JSON.stringify([d.head===h,d.body===b]);})()",
+      "expected": "[true,false]",
+      "specExpected": "[false,false]",
+      "difference": "Chromium Document.head accepts this non-HTML-html root. The normative head accessor requires an HTML html document element; body already follows that root requirement."
+    },
+    {
+      "name": "head and body root requirement  html",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument('','html'),h=make(d,H,'head'),b=make(d,H,'body');d.documentElement.append(h,b);return JSON.stringify([d.head===h,d.body===b]);})()",
+      "expected": "[true,false]",
+      "specExpected": "[false,false]",
+      "difference": "Chromium Document.head accepts this non-HTML-html root. The normative head accessor requires an HTML html document element; body already follows that root requirement."
+    },
+    {
+      "name": "HTML namespace non-html root can update an existing title",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(H,'div'),t=make(d,H,'p:title','first');d.documentElement.append(t);d.title='changed';return JSON.stringify([d.head,d.body,d.title,t.textContent]);})()",
+      "expected": "[null,null,\"changed\",\"changed\"]"
+    },
+    {
+      "name": "SVG root title uses first direct SVG child only",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(S,'svg'),r=d.documentElement,g=make(d,S,'g'),nested=make(d,S,'title','nested'),html=make(d,H,'title','html'),first=make(d,S,'p:title',' direct \\n title '),last=make(d,S,'title','last');g.append(nested);r.append(g,html,first,last);const before=d.title;d.title='changed';return JSON.stringify([before,d.title,nested.textContent,html.textContent,first.textContent,last.textContent]);})()",
+      "expected": "[\"direct title\",\"changed\",\"nested\",\"html\",\"changed\",\"last\"]"
+    },
+    {
+      "name": "SVG title creation inserts first and remains owned",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(S,'p:svg'),r=d.documentElement,g=make(d,S,'g');g.append(make(d,S,'title','nested'));r.append(g);const before=d.title;d.title='created';const t=r.firstChild;return JSON.stringify([before,d.title,identity(t),t.ownerDocument===d,r.lastChild===g,r.childNodes.length]);})()",
+      "expected": "[\"\",\"created\",[\"http://www.w3.org/2000/svg\",\"title\",null],true,true,2]"
+    },
+    {
+      "name": "SVG title direct text includes CDATA and excludes descendants",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(S,'svg'),t=make(d,S,'title');t.append(d.createTextNode(' one '),make(d,S,'tspan','excluded'),d.createCDATASection(' two '));d.documentElement.append(t);return JSON.stringify([d.title,t.textContent]);})()",
+      "expected": "[\"one excluded two\",\" one excluded two \"]",
+      "specExpected": "[\"one two\",\" one excluded two \"]",
+      "difference": "Chromium includes descendant tspan text in SVG Document.title; HTML Document.title explicitly reads child text content. DOM child text content includes direct Text/CDATA children, excludes nested text."
+    },
+    {
+      "name": "non-root SVG title does not override HTML fallback",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument('urn:x','root'),s=make(d,S,'svg'),t=make(d,H,'title','html');s.append(make(d,S,'title','svg'));d.documentElement.append(s,t);return JSON.stringify(d.title);})()",
+      "expected": "\"html\""
+    },
+    {
+      "name": "body setter accepts HTML body below a foreign root",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(S,'svg'),b=make(d,H,'p:body');d.body=b;return JSON.stringify([d.body,b.parentNode===d.documentElement,b.ownerDocument===d]);})()",
+      "expected": "[null,true,true]"
+    },
+    {
+      "name": "empty document body throws and title remains inert",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument(null,''),b=make(d,H,'body');let error;try{d.body=b;}catch(e){error=e.name;}d.title='ignored';return JSON.stringify([error,d.title,d.documentElement,b.parentNode]);})()",
+      "expected": "[\"HierarchyRequestError\",\"\",null,null]"
+    },
+    {
+      "name": "body setter conversion and hierarchy errors",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createHTMLDocument(),out=[];for(const value of [null,undefined,false,4,'body',{},make(d,S,'body'),d.createTextNode('body'),make(d,H,'div'),make(d,'urn:x','body')]){try{d.body=value;out.push('ok');}catch(e){out.push(e.name);}}return JSON.stringify(out);})()",
+      "expected": "[\"HierarchyRequestError\",\"HierarchyRequestError\",\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\",\"HierarchyRequestError\",\"TypeError\"]"
+    },
+    {
+      "name": "title DOMString conversion precedes ignored setter",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const d=document.implementation.createDocument('urn:x','root'),out=[];for(const value of [null,undefined,Symbol('x'),{toString(){out.push('converted');return 'value';}}]){try{d.title=value;out.push(d.title);}catch(e){out.push(e.name);}}return JSON.stringify(out);})()",
+      "expected": "[\"\",\"\",\"TypeError\",\"converted\",\"\"]"
+    },
+    {
+      "name": "document accessors descriptors and incompatible receivers",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;const out=[];for(const key of ['head','body','title']){const d=Object.getOwnPropertyDescriptor(Document.prototype,key);out.push([key,typeof d.get,typeof d.set,d.enumerable,d.configurable,d.get.name,d.get.length]);for(const value of [{},null,document.body])try{d.get.call(value);}catch(e){out.push(e.name);}if(d.set){out.push([d.set.name,d.set.length]);try{d.set.call(document.body,'value');}catch(e){out.push(e.name);}}}try{(()=>{'use strict';document.head=4;})();}catch(e){out.push(e.name);}return JSON.stringify(out);})()",
+      "expected": "[[\"head\",\"function\",\"undefined\",true,true,\"get head\",0],\"TypeError\",\"TypeError\",\"TypeError\",[\"body\",\"function\",\"function\",true,true,\"get body\",0],\"TypeError\",\"TypeError\",\"TypeError\",[\"set body\",1],\"TypeError\",[\"title\",\"function\",\"function\",true,true,\"get title\",0],\"TypeError\",\"TypeError\",\"TypeError\",[\"set title\",1],\"TypeError\",\"TypeError\"]"
+    },
+    {
+      "name": "body replacement is synchronous and identical body is inert",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;globalThis.log=[];customElements.define('x-body-check',class extends HTMLElement{connectedCallback(){log.push('connected:'+this.id)}disconnectedCallback(){log.push('disconnected:'+this.id)}});const old=document.body,next=document.createElement('body'),oldChild=document.createElement('x-body-check'),newChild=document.createElement('x-body-check');oldChild.id='old';newChild.id='new';old.append(oldChild);next.append(newChild);log=[];const observer=new MutationObserver(()=>{});observer.observe(document.documentElement,{childList:true});document.body=next;log.push('after');document.body=next;return JSON.stringify([log,old.parentNode,next.parentNode===document.documentElement,observer.takeRecords().map(r=>[r.removedNodes[0]===old,r.addedNodes[0]===next])]);})()",
+      "expected": "[[\"disconnected:old\",\"connected:new\",\"after\"],null,true,[[true,true]]]"
+    },
+    {
+      "name": "title replacement disconnects children before returning",
+      "html": "<!doctype html><title>Fixture</title><body></body>",
+      "action": "(()=>{const H='http://www.w3.org/1999/xhtml',S='http://www.w3.org/2000/svg',make=(d,uri,name,text)=>{const e=d.createElementNS(uri,name);if(text!==undefined)e.textContent=text;return e;},identity=e=>e?[e.namespaceURI,e.localName,e.prefix]:null;globalThis.log=[];customElements.define('x-title-check',class extends HTMLElement{disconnectedCallback(){log.push('disconnected')}});const t=document.head.querySelector('title'),child=document.createElement('x-title-check');child.textContent='ignored';t.append(child);const before=document.title;document.title='changed';log.push('after');return JSON.stringify([before,document.title,child.parentNode,log,t===document.head.querySelector('title')]);})()",
+      "expected": "[\"Fixture\",\"changed\",null,[\"disconnected\",\"after\"],true]"
+    }
+  ]
+}

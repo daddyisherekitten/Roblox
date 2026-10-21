@@ -1,0 +1,292 @@
+[
+  {
+    "name": "constructors and branding",
+    "values": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "standalone:mark:12:0:null",
+      "0",
+      "[object PerformanceMark]",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "entry ordering latest timestamp and snapshots",
+    "values": [
+      "early:5|late:20|late:80",
+      "80:-75",
+      "3",
+      "early",
+      "0:0"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "measure overloads",
+    "values": [
+      "a:2:12",
+      "b:15:7",
+      "c:30:5",
+      "d:15:20",
+      "e:0:35",
+      "f:8:-4",
+      "g:-4:7"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "measure errors and timing names",
+    "values": [
+      "TypeError:false",
+      "TypeError:false",
+      "TypeError:false",
+      "TypeError:false",
+      "SyntaxError:true",
+      "TypeError:false",
+      "TypeError:false",
+      "SyntaxError:true",
+      "SyntaxError:true",
+      "0:12"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "cloned detail including cycles and undefined",
+    "values": [
+      "oak:2:true",
+      "3",
+      "1,2",
+      "true",
+      "{\"name\":\"detail-span\",\"entryType\":\"measure\",\"startTime\":1,\"duration\":3}",
+      "false",
+      "DataCloneError:true",
+      "DataCloneError:true",
+      "DataCloneError:true",
+      "0",
+      "null"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "mark conversions",
+    "values": [
+      "name,detail,time",
+      "coerced:7:5",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "0"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "readonly fields and receiver checks",
+    "values": [
+      "5:null",
+      "mark:1:1:0",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "clock and performance EventTarget",
+    "values": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "1"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "supported types are frozen same object",
+    "values": [
+      "true",
+      "true",
+      "true",
+      "TypeError",
+      "undefined"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "observe options and mode permanence",
+    "values": [
+      "TypeError",
+      "TypeError",
+      "accepted",
+      "TypeError",
+      "TypeError",
+      "InvalidModificationError:true",
+      "InvalidModificationError",
+      "InvalidModificationError"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "takeRecords and clear independent",
+    "values": [
+      "one,span",
+      "true",
+      "0",
+      "1",
+      "0"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "observer tasks batching lists and this",
+    "values": [
+      "sync",
+      "microtask",
+      "true",
+      "true",
+      "a,b,c",
+      "2",
+      "10",
+      "0"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "buffered and constructor does not notify",
+    "values": [
+      "old,new"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "single types accumulate multiple replaces",
+    "values": [
+      "mark,measure",
+      "measure"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "repeated buffered registration sorts pending snapshot",
+    "values": [
+      "a,a,b,b"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "callback reentrancy queues another task",
+    "values": [
+      "first:1:true",
+      "between",
+      "second:2:false"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "disconnect cancels queued delivery without resetting mode",
+    "values": [
+      "0",
+      "second"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "optional arguments and conversions",
+    "values": [
+      "1",
+      "0",
+      "0",
+      "1:-1"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "extended observer threshold dictionary",
+    "values": [
+      "buffered,threshold,entries,type",
+      "TypeError"
+    ],
+    "pass": true,
+    "matchesProfile": true,
+    "difference": "Chromium converts buffered/durationThreshold but ignores both with entryTypes; current W3C draft rejects extra known members. The engine follows the captured browser profile."
+  },
+  {
+    "name": "string sequence rejection does not choose observer mode",
+    "values": [
+      "TypeError",
+      "0"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "finite timestamp errors",
+    "values": [
+      "TypeError"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "labelled timestamp and dictionary edges",
+    "values": [
+      "startInf:TypeError",
+      "endInf:TypeError",
+      "startNaN:TypeError",
+      "endNaN:TypeError",
+      "durationInf:TypeError",
+      "durationNaN:TypeError",
+      "durationNegative:1:-2",
+      "durationNegativeEnd:3:-2",
+      "empty:TypeError",
+      "empty:single",
+      "typeAndList:TypeError",
+      "typeAndList:single",
+      "bufferAndList:accepted",
+      "bufferAndList:InvalidModificationError",
+      "thresholdAndList:accepted",
+      "thresholdAndList:InvalidModificationError",
+      "number:TypeError",
+      "number:single",
+      "string:TypeError",
+      "string:single"
+    ],
+    "pass": true,
+    "matchesProfile": true,
+    "difference": "Signed duration is accepted by the browser; start/end timestamps remain nonnegative finite values. Multiple-types observer options follow the captured Chromium profile."
+  }
+]

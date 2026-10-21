@@ -1,0 +1,1605 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "source": "https://drafts.csswg.org/css-conditional-5/",
+  "registration": "@property --count{syntax:\"<number>\";inherits:true;initial-value:1}@property --length{syntax:\"<length>\";inherits:true;initial-value:0px}@property --ink{syntax:\"<color>\";inherits:true;initial-value:black}@property --initial-count{syntax:\"<number>\";inherits:true;initial-value:2}",
+  "values": "--theme:dark;--Theme:Dark;--empty:;--alias:dark;--tokens:a b;--punct:a,b;--quoted:\"hi\";--decimal:1.0;--count:2;--length:20px;--ink:red;--duration:1s;--angle:.5turn;--frequency:1kHz;--resolution:1dppx",
+  "cases": [
+    {
+      "type": "normal",
+      "fontSize": 16,
+      "custom": {
+        "--theme": "dark",
+        "--Theme": "Dark",
+        "--empty": "",
+        "--alias": "dark",
+        "--tokens": "a b",
+        "--punct": "a,b",
+        "--quoted": "\"hi\"",
+        "--decimal": "1.0",
+        "--count": "2",
+        "--length": "20px",
+        "--ink": "rgb(255, 0, 0)",
+        "--duration": "1s",
+        "--angle": ".5turn",
+        "--frequency": "1kHz",
+        "--resolution": "1dppx",
+        "--initial-count": "2"
+      },
+      "matches": [
+        {
+          "source": "style(--theme)",
+          "matches": true
+        },
+        {
+          "source": "style(--missing)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: light)",
+          "matches": false
+        },
+        {
+          "source": "style(--Theme: Dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--Theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "style(--th\\65 me: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty:)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: initial)",
+          "matches": false
+        },
+        {
+          "source": "style(--missing: initial)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: inherit)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: unset)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: revert)",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: revert)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--alias))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--missing, dark))",
+          "matches": true
+        },
+        {
+          "source": "style(--missing: var(--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark !important)",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) and (--Theme: Dark))",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) or (--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(not (--theme: dark))",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "(style(--theme: dark))",
+          "matches": true
+        },
+        {
+          "source": "card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "CARD style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "--card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px) and style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: dark) or (width:0px)",
+          "matches": false
+        },
+        {
+          "source": "style(--tokens: a b)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a/**/b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a , b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a,b)",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: \"hi\")",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: 'hi')",
+          "matches": false
+        },
+        {
+          "source": "style(--decimal: 1.0)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal: 1)",
+          "matches": false
+        },
+        {
+          "source": "style(--count)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: calc(1 + 1))",
+          "matches": true
+        },
+        {
+          "source": "style(--length: 1em)",
+          "matches": false
+        },
+        {
+          "source": "style(--length: 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--length: calc(10px + 10px))",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: red)",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: rgb(255 0 0))",
+          "matches": true
+        },
+        {
+          "source": "style(--initial-count)",
+          "matches": false
+        },
+        {
+          "source": "style(--initial-count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count > 1)",
+          "matches": true
+        },
+        {
+          "source": "style(1 < --count <= 3)",
+          "matches": true
+        },
+        {
+          "source": "style(--length >= 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal = 1)",
+          "matches": true
+        },
+        {
+          "source": "style(--length > 0)",
+          "matches": true
+        },
+        {
+          "source": "style(--duration: 1000ms)",
+          "matches": false
+        },
+        {
+          "source": "style(--duration = 1s)",
+          "matches": true
+        },
+        {
+          "source": "style(--angle = 180deg)",
+          "matches": true
+        },
+        {
+          "source": "style(--frequency = 1000Hz)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 style ranges include frequency; 1kHz equals 1000Hz. Native Chromium does not match this frequency query."
+        },
+        {
+          "source": "style(--resolution = 96dpi)",
+          "matches": true
+        },
+        {
+          "source": "style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "not style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "style((--theme: dark) and (--missing) or (--empty))",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "normal",
+      "fontSize": 20,
+      "custom": {
+        "--theme": "dark",
+        "--Theme": "Dark",
+        "--empty": "",
+        "--alias": "dark",
+        "--tokens": "a b",
+        "--punct": "a,b",
+        "--quoted": "\"hi\"",
+        "--decimal": "1.0",
+        "--count": "2",
+        "--length": "20px",
+        "--ink": "rgb(255, 0, 0)",
+        "--duration": "1s",
+        "--angle": ".5turn",
+        "--frequency": "1kHz",
+        "--resolution": "1dppx",
+        "--initial-count": "2"
+      },
+      "matches": [
+        {
+          "source": "style(--theme)",
+          "matches": true
+        },
+        {
+          "source": "style(--missing)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: light)",
+          "matches": false
+        },
+        {
+          "source": "style(--Theme: Dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--Theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "style(--th\\65 me: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty:)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: initial)",
+          "matches": false
+        },
+        {
+          "source": "style(--missing: initial)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: inherit)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: unset)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: revert)",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: revert)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--alias))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--missing, dark))",
+          "matches": true
+        },
+        {
+          "source": "style(--missing: var(--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark !important)",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) and (--Theme: Dark))",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) or (--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(not (--theme: dark))",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "(style(--theme: dark))",
+          "matches": true
+        },
+        {
+          "source": "card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "CARD style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "--card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px) and style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: dark) or (width:0px)",
+          "matches": false
+        },
+        {
+          "source": "style(--tokens: a b)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a/**/b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a , b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a,b)",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: \"hi\")",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: 'hi')",
+          "matches": false
+        },
+        {
+          "source": "style(--decimal: 1.0)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal: 1)",
+          "matches": false
+        },
+        {
+          "source": "style(--count)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: calc(1 + 1))",
+          "matches": true
+        },
+        {
+          "source": "style(--length: 1em)",
+          "matches": true
+        },
+        {
+          "source": "style(--length: 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--length: calc(10px + 10px))",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: red)",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: rgb(255 0 0))",
+          "matches": true
+        },
+        {
+          "source": "style(--initial-count)",
+          "matches": false
+        },
+        {
+          "source": "style(--initial-count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count > 1)",
+          "matches": true
+        },
+        {
+          "source": "style(1 < --count <= 3)",
+          "matches": true
+        },
+        {
+          "source": "style(--length >= 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal = 1)",
+          "matches": true
+        },
+        {
+          "source": "style(--length > 0)",
+          "matches": true
+        },
+        {
+          "source": "style(--duration: 1000ms)",
+          "matches": false
+        },
+        {
+          "source": "style(--duration = 1s)",
+          "matches": true
+        },
+        {
+          "source": "style(--angle = 180deg)",
+          "matches": true
+        },
+        {
+          "source": "style(--frequency = 1000Hz)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 style ranges include frequency; 1kHz equals 1000Hz. Native Chromium does not match this frequency query."
+        },
+        {
+          "source": "style(--resolution = 96dpi)",
+          "matches": true
+        },
+        {
+          "source": "style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "not style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "style((--theme: dark) and (--missing) or (--empty))",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "inline-size",
+      "fontSize": 16,
+      "custom": {
+        "--theme": "dark",
+        "--Theme": "Dark",
+        "--empty": "",
+        "--alias": "dark",
+        "--tokens": "a b",
+        "--punct": "a,b",
+        "--quoted": "\"hi\"",
+        "--decimal": "1.0",
+        "--count": "2",
+        "--length": "20px",
+        "--ink": "rgb(255, 0, 0)",
+        "--duration": "1s",
+        "--angle": ".5turn",
+        "--frequency": "1kHz",
+        "--resolution": "1dppx",
+        "--initial-count": "2"
+      },
+      "matches": [
+        {
+          "source": "style(--theme)",
+          "matches": true
+        },
+        {
+          "source": "style(--missing)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: light)",
+          "matches": false
+        },
+        {
+          "source": "style(--Theme: Dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--Theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "style(--th\\65 me: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty:)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: initial)",
+          "matches": false
+        },
+        {
+          "source": "style(--missing: initial)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: inherit)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: unset)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: revert)",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: revert)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--alias))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--missing, dark))",
+          "matches": true
+        },
+        {
+          "source": "style(--missing: var(--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark !important)",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) and (--Theme: Dark))",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) or (--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(not (--theme: dark))",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "(style(--theme: dark))",
+          "matches": true
+        },
+        {
+          "source": "card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "CARD style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "--card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px) and style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark) or (width:0px)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a b)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a/**/b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a , b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a,b)",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: \"hi\")",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: 'hi')",
+          "matches": false
+        },
+        {
+          "source": "style(--decimal: 1.0)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal: 1)",
+          "matches": false
+        },
+        {
+          "source": "style(--count)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: calc(1 + 1))",
+          "matches": true
+        },
+        {
+          "source": "style(--length: 1em)",
+          "matches": false
+        },
+        {
+          "source": "style(--length: 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--length: calc(10px + 10px))",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: red)",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: rgb(255 0 0))",
+          "matches": true
+        },
+        {
+          "source": "style(--initial-count)",
+          "matches": false
+        },
+        {
+          "source": "style(--initial-count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count > 1)",
+          "matches": true
+        },
+        {
+          "source": "style(1 < --count <= 3)",
+          "matches": true
+        },
+        {
+          "source": "style(--length >= 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal = 1)",
+          "matches": true
+        },
+        {
+          "source": "style(--length > 0)",
+          "matches": true
+        },
+        {
+          "source": "style(--duration: 1000ms)",
+          "matches": false
+        },
+        {
+          "source": "style(--duration = 1s)",
+          "matches": true
+        },
+        {
+          "source": "style(--angle = 180deg)",
+          "matches": true
+        },
+        {
+          "source": "style(--frequency = 1000Hz)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 style ranges include frequency; 1kHz equals 1000Hz. Native Chromium does not match this frequency query."
+        },
+        {
+          "source": "style(--resolution = 96dpi)",
+          "matches": true
+        },
+        {
+          "source": "style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "not style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "style((--theme: dark) and (--missing) or (--empty))",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "inline-size",
+      "fontSize": 20,
+      "custom": {
+        "--theme": "dark",
+        "--Theme": "Dark",
+        "--empty": "",
+        "--alias": "dark",
+        "--tokens": "a b",
+        "--punct": "a,b",
+        "--quoted": "\"hi\"",
+        "--decimal": "1.0",
+        "--count": "2",
+        "--length": "20px",
+        "--ink": "rgb(255, 0, 0)",
+        "--duration": "1s",
+        "--angle": ".5turn",
+        "--frequency": "1kHz",
+        "--resolution": "1dppx",
+        "--initial-count": "2"
+      },
+      "matches": [
+        {
+          "source": "style(--theme)",
+          "matches": true
+        },
+        {
+          "source": "style(--missing)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: light)",
+          "matches": false
+        },
+        {
+          "source": "style(--Theme: Dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--Theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "style(--th\\65 me: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty:)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: initial)",
+          "matches": false
+        },
+        {
+          "source": "style(--missing: initial)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: inherit)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: unset)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: revert)",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: revert)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--alias))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--missing, dark))",
+          "matches": true
+        },
+        {
+          "source": "style(--missing: var(--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark !important)",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) and (--Theme: Dark))",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) or (--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(not (--theme: dark))",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "(style(--theme: dark))",
+          "matches": true
+        },
+        {
+          "source": "card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "CARD style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "--card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px) and style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark) or (width:0px)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a b)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a/**/b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a , b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a,b)",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: \"hi\")",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: 'hi')",
+          "matches": false
+        },
+        {
+          "source": "style(--decimal: 1.0)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal: 1)",
+          "matches": false
+        },
+        {
+          "source": "style(--count)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: calc(1 + 1))",
+          "matches": true
+        },
+        {
+          "source": "style(--length: 1em)",
+          "matches": true
+        },
+        {
+          "source": "style(--length: 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--length: calc(10px + 10px))",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: red)",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: rgb(255 0 0))",
+          "matches": true
+        },
+        {
+          "source": "style(--initial-count)",
+          "matches": false
+        },
+        {
+          "source": "style(--initial-count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count > 1)",
+          "matches": true
+        },
+        {
+          "source": "style(1 < --count <= 3)",
+          "matches": true
+        },
+        {
+          "source": "style(--length >= 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal = 1)",
+          "matches": true
+        },
+        {
+          "source": "style(--length > 0)",
+          "matches": true
+        },
+        {
+          "source": "style(--duration: 1000ms)",
+          "matches": false
+        },
+        {
+          "source": "style(--duration = 1s)",
+          "matches": true
+        },
+        {
+          "source": "style(--angle = 180deg)",
+          "matches": true
+        },
+        {
+          "source": "style(--frequency = 1000Hz)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 style ranges include frequency; 1kHz equals 1000Hz. Native Chromium does not match this frequency query."
+        },
+        {
+          "source": "style(--resolution = 96dpi)",
+          "matches": true
+        },
+        {
+          "source": "style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "not style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "style((--theme: dark) and (--missing) or (--empty))",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "size",
+      "fontSize": 16,
+      "custom": {
+        "--theme": "dark",
+        "--Theme": "Dark",
+        "--empty": "",
+        "--alias": "dark",
+        "--tokens": "a b",
+        "--punct": "a,b",
+        "--quoted": "\"hi\"",
+        "--decimal": "1.0",
+        "--count": "2",
+        "--length": "20px",
+        "--ink": "rgb(255, 0, 0)",
+        "--duration": "1s",
+        "--angle": ".5turn",
+        "--frequency": "1kHz",
+        "--resolution": "1dppx",
+        "--initial-count": "2"
+      },
+      "matches": [
+        {
+          "source": "style(--theme)",
+          "matches": true
+        },
+        {
+          "source": "style(--missing)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: light)",
+          "matches": false
+        },
+        {
+          "source": "style(--Theme: Dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--Theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "style(--th\\65 me: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty:)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: initial)",
+          "matches": false
+        },
+        {
+          "source": "style(--missing: initial)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: inherit)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: unset)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: revert)",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: revert)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--alias))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--missing, dark))",
+          "matches": true
+        },
+        {
+          "source": "style(--missing: var(--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark !important)",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) and (--Theme: Dark))",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) or (--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(not (--theme: dark))",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "(style(--theme: dark))",
+          "matches": true
+        },
+        {
+          "source": "card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "CARD style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "--card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px) and style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark) or (width:0px)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a b)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a/**/b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a , b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a,b)",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: \"hi\")",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: 'hi')",
+          "matches": false
+        },
+        {
+          "source": "style(--decimal: 1.0)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal: 1)",
+          "matches": false
+        },
+        {
+          "source": "style(--count)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: calc(1 + 1))",
+          "matches": true
+        },
+        {
+          "source": "style(--length: 1em)",
+          "matches": false
+        },
+        {
+          "source": "style(--length: 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--length: calc(10px + 10px))",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: red)",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: rgb(255 0 0))",
+          "matches": true
+        },
+        {
+          "source": "style(--initial-count)",
+          "matches": false
+        },
+        {
+          "source": "style(--initial-count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count > 1)",
+          "matches": true
+        },
+        {
+          "source": "style(1 < --count <= 3)",
+          "matches": true
+        },
+        {
+          "source": "style(--length >= 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal = 1)",
+          "matches": true
+        },
+        {
+          "source": "style(--length > 0)",
+          "matches": true
+        },
+        {
+          "source": "style(--duration: 1000ms)",
+          "matches": false
+        },
+        {
+          "source": "style(--duration = 1s)",
+          "matches": true
+        },
+        {
+          "source": "style(--angle = 180deg)",
+          "matches": true
+        },
+        {
+          "source": "style(--frequency = 1000Hz)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 style ranges include frequency; 1kHz equals 1000Hz. Native Chromium does not match this frequency query."
+        },
+        {
+          "source": "style(--resolution = 96dpi)",
+          "matches": true
+        },
+        {
+          "source": "style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "not style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "style((--theme: dark) and (--missing) or (--empty))",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "size",
+      "fontSize": 20,
+      "custom": {
+        "--theme": "dark",
+        "--Theme": "Dark",
+        "--empty": "",
+        "--alias": "dark",
+        "--tokens": "a b",
+        "--punct": "a,b",
+        "--quoted": "\"hi\"",
+        "--decimal": "1.0",
+        "--count": "2",
+        "--length": "20px",
+        "--ink": "rgb(255, 0, 0)",
+        "--duration": "1s",
+        "--angle": ".5turn",
+        "--frequency": "1kHz",
+        "--resolution": "1dppx",
+        "--initial-count": "2"
+      },
+      "matches": [
+        {
+          "source": "style(--theme)",
+          "matches": true
+        },
+        {
+          "source": "style(--missing)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: light)",
+          "matches": false
+        },
+        {
+          "source": "style(--Theme: Dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--Theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "style(--th\\65 me: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty)",
+          "matches": true
+        },
+        {
+          "source": "style(--empty:)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: initial)",
+          "matches": false
+        },
+        {
+          "source": "style(--missing: initial)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: inherit)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: unset)",
+          "matches": false
+        },
+        {
+          "source": "style(--theme: revert)",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: revert)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--alias))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: var(--missing, dark))",
+          "matches": true
+        },
+        {
+          "source": "style(--missing: var(--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark !important)",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) and (--Theme: Dark))",
+          "matches": true
+        },
+        {
+          "source": "style((--theme: dark) or (--missing))",
+          "matches": true
+        },
+        {
+          "source": "style(not (--theme: dark))",
+          "matches": false
+        },
+        {
+          "source": "not style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "(style(--theme: dark))",
+          "matches": true
+        },
+        {
+          "source": "card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "CARD style(--theme: dark)",
+          "matches": false
+        },
+        {
+          "source": "--card style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px) and style(--theme: dark)",
+          "matches": true
+        },
+        {
+          "source": "style(--theme: dark) or (width:0px)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a b)",
+          "matches": true
+        },
+        {
+          "source": "style(--tokens: a/**/b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a , b)",
+          "matches": false
+        },
+        {
+          "source": "style(--punct: a,b)",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: \"hi\")",
+          "matches": true
+        },
+        {
+          "source": "style(--quoted: 'hi')",
+          "matches": false
+        },
+        {
+          "source": "style(--decimal: 1.0)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal: 1)",
+          "matches": false
+        },
+        {
+          "source": "style(--count)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count: calc(1 + 1))",
+          "matches": true
+        },
+        {
+          "source": "style(--length: 1em)",
+          "matches": true
+        },
+        {
+          "source": "style(--length: 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--length: calc(10px + 10px))",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: red)",
+          "matches": true
+        },
+        {
+          "source": "style(--ink: rgb(255 0 0))",
+          "matches": true
+        },
+        {
+          "source": "style(--initial-count)",
+          "matches": false
+        },
+        {
+          "source": "style(--initial-count: 2)",
+          "matches": true
+        },
+        {
+          "source": "style(--count > 1)",
+          "matches": true
+        },
+        {
+          "source": "style(1 < --count <= 3)",
+          "matches": true
+        },
+        {
+          "source": "style(--length >= 20px)",
+          "matches": true
+        },
+        {
+          "source": "style(--decimal = 1)",
+          "matches": true
+        },
+        {
+          "source": "style(--length > 0)",
+          "matches": true
+        },
+        {
+          "source": "style(--duration: 1000ms)",
+          "matches": false
+        },
+        {
+          "source": "style(--duration = 1s)",
+          "matches": true
+        },
+        {
+          "source": "style(--angle = 180deg)",
+          "matches": true
+        },
+        {
+          "source": "style(--frequency = 1000Hz)",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 style ranges include frequency; 1kHz equals 1000Hz. Native Chromium does not match this frequency query."
+        },
+        {
+          "source": "style(--resolution = 96dpi)",
+          "matches": true
+        },
+        {
+          "source": "style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "not style(unknown())",
+          "matches": false
+        },
+        {
+          "source": "style((--theme: dark) and (--missing) or (--empty))",
+          "matches": false
+        }
+      ]
+    }
+  ]
+}

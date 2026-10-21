@@ -1,0 +1,307 @@
+[
+  {
+    "name": "point-default-and-factory",
+    "source": "const p=new DOMPoint();record([p.x,p.y,p.z,p.w].join(','));const q=DOMPointReadOnly.fromPoint({x:2,y:3});record(JSON.stringify(q));record(q instanceof DOMPointReadOnly);record(q instanceof DOMPoint);",
+    "expected": [
+      "0,0,0,1",
+      "{\"x\":2,\"y\":3,\"z\":0,\"w\":1}",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "point-dictionary-getter-order",
+    "source": "const order=[];const d={get x(){order.push('x');return 1},get y(){order.push('y');return 2},get z(){order.push('z');return 3},get w(){order.push('w');return 4}};const p=DOMPoint.fromPoint(d);record(order.join(','));record([p.x,p.y,p.z,p.w].join(','));",
+    "expected": [
+      "w,x,y,z",
+      "1,2,3,4"
+    ]
+  },
+  {
+    "name": "point-writes-and-readonly",
+    "source": "const p=new DOMPoint();p.x='4';p.w=0;record([p.x,p.w].join(','));const r=new DOMPointReadOnly(2);r.x=99;record(r.x);try{Function('r','\"use strict\";r.x=3')(r)}catch(e){record(e.name)}try{Object.getOwnPropertyDescriptor(DOMPoint.prototype,'x').set.call(r,1)}catch(e){record(e.name)}",
+    "expected": [
+      "4,0",
+      "2",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "point-subclass-brand",
+    "source": "class P extends DOMPoint{}const p=new P(3,5);record(p instanceof P);record(p instanceof DOMPointReadOnly);record(p.x);record(p.matrixTransform() instanceof P);try{DOMPointReadOnly.prototype.matrixTransform.call({x:2})}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "true",
+      "3",
+      "false",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "point-2d-and-homogeneous",
+    "source": "const p=new DOMPoint(2,3,0,1).matrixTransform({a:2,d:3,e:10,f:20});record([p.x,p.y,p.z,p.w].join(','));const q=new DOMPoint(2,3,4,2).matrixTransform({m41:10,m42:20,m43:30,m44:2});record([q.x,q.y,q.z,q.w].join(','));",
+    "expected": [
+      "14,29,0,1",
+      "22,43,64,4"
+    ]
+  },
+  {
+    "name": "matrix-identity-sequences-and-readonly",
+    "source": "const m=new DOMMatrix();record([m.is2D,m.isIdentity,m.toString()].join('|'));const s=new DOMMatrix([2,3,4,5,6,7]);record([s.a,s.b,s.c,s.d,s.e,s.f,s.is2D].join(','));const r=new DOMMatrixReadOnly();record(r.translate(4) instanceof DOMMatrix);record(r.translate(4).e);record(r.e);try{DOMMatrix.prototype.translateSelf.call(r,1)}catch(e){record(e.name)}",
+    "expected": [
+      "true|true|matrix(1, 0, 0, 1, 0, 0)",
+      "2,3,4,5,6,7,true",
+      "true",
+      "4",
+      "0",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "matrix-16-sequence-dimension",
+    "source": "const m=new DOMMatrix([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]);record([m.is2D,m.isIdentity,m.toString()].join('|'));record(DOMMatrix.fromMatrix(m).is2D);record(new DOMMatrix(m.toFloat64Array()).is2D);",
+    "expected": [
+      "false|true|matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+      "false",
+      "false"
+    ]
+  },
+  {
+    "name": "matrix-invalid-sequences",
+    "source": "for(const input of [[],[1,2,3],[1,2,3,4,5,6,7]]){try{new DOMMatrix(input)}catch(e){record(e.name)}}try{DOMMatrix.fromFloat64Array(new Float32Array(6))}catch(e){record(e.name)}try{DOMMatrix.fromFloat32Array([1,0,0,1,0,0])}catch(e){record(e.name)}",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "matrix-dictionary-aliases-and-conflicts",
+    "source": "const m=DOMMatrix.fromMatrix({a:2,m11:2,b:3,d:4,e:5});record([m.a,m.b,m.c,m.d,m.e,m.f,m.is2D].join(','));for(const d of [{a:1,m11:2},{is2D:true,m13:1}]){try{DOMMatrix.fromMatrix(d)}catch(e){record(e.name)}}record(Number.isNaN(DOMMatrix.fromMatrix({a:NaN,m11:NaN}).a));record(DOMMatrix.fromMatrix({a:-0,m11:0}).a);",
+    "expected": [
+      "2,3,0,4,5,0,true",
+      "TypeError",
+      "TypeError",
+      "true",
+      "0"
+    ]
+  },
+  {
+    "name": "matrix-dictionary-dimensions",
+    "source": "record(DOMMatrix.fromMatrix({m13:1}).is2D);record(DOMMatrix.fromMatrix({is2D:false}).is2D);record(DOMMatrix.fromMatrix({m33:1,m44:1}).is2D);const m=new DOMMatrix();m.m13=2;m.m13=0;record([m.is2D,m.isIdentity].join(','));m.setMatrixValue('none');record([m.is2D,m.isIdentity].join(','));",
+    "expected": [
+      "false",
+      "false",
+      "true",
+      "false,true",
+      "true,true"
+    ]
+  },
+  {
+    "name": "matrix-translate-scale-order",
+    "source": "const a=new DOMMatrix().translateSelf(10,20).scaleSelf(2,3);const b=new DOMMatrix().scaleSelf(2,3).translateSelf(10,20);record([a.a,a.d,a.e,a.f].join(','));record([b.a,b.d,b.e,b.f].join(','));record(a.translateSelf()===a);record(a.scale()===a);",
+    "expected": [
+      "2,3,10,20",
+      "2,3,20,60",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "matrix-origin-scale-and-flips",
+    "source": "const m=new DOMMatrix().scale(2,3,1,10,20);record([m.a,m.d,m.e,m.f].join(','));const p=m.transformPoint({x:10,y:20});record([p.x,p.y].join(','));record([m.flipX().a,m.flipX().e,m.flipY().d,m.flipY().f].join(','));record(new DOMMatrix().scaleNonUniform(2).d);record(new DOMMatrix().scale3d(1).is2D);record(new DOMMatrix().scale3d(2).is2D);",
+    "expected": [
+      "2,3,-10,-40",
+      "10,20",
+      "-2,-10,-3,-40",
+      "1",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "matrix-multiply-premultiply",
+    "source": "const m=new DOMMatrix([2,0,0,3,10,20]);const n={e:5,f:7};record([m.multiply(n).e,m.multiply(n).f].join(','));m.preMultiplySelf(n);record([m.e,m.f].join(','));record(new DOMMatrix().multiply(DOMMatrix.fromMatrix({is2D:false})).is2D);",
+    "expected": [
+      "20,41",
+      "15,27",
+      "false"
+    ]
+  },
+  {
+    "name": "matrix-rotation-and-flags",
+    "source": "const m=new DOMMatrix().rotate(90);const p=m.transformPoint({x:1,y:0});record([Math.round(p.x),Math.round(p.y),m.is2D].join(','));record(new DOMMatrix().rotate(0,0).is2D);record(new DOMMatrix().rotate(10,0).is2D);const v=new DOMMatrix().rotateFromVector(0,1).transformPoint({x:1});record(Math.round(v.y));record(new DOMMatrix().rotateAxisAngle(0,0,0,90).isIdentity);",
+    "expected": [
+      "0,1,true",
+      "true",
+      "false",
+      "1",
+      "true"
+    ]
+  },
+  {
+    "name": "matrix-tiny-axis-rotation",
+    "source": "const m=new DOMMatrix().rotateAxisAngle(0,0,1e-20,90);const p=m.transformPoint({x:1});record([Math.round(p.x),Math.round(p.y),m.is2D].join(','));",
+    "expected": [
+      "0,1,true"
+    ]
+  },
+  {
+    "name": "matrix-inverse-affine-and-singular",
+    "source": "const m=new DOMMatrix([2,0,0,4,10,20]);const i=m.inverse();record([i.a,i.d,i.e,i.f,i.is2D].join(','));record(m.multiply(i).isIdentity);const s=new DOMMatrix([0,0,0,0,0,0]).invertSelf();record([s.is2D,s.isIdentity,Number.isNaN(s.a),Number.isNaN(s.m44)].join(','));try{s.toString()}catch(e){record(e.name)}",
+    "expected": [
+      "0.5,0.25,-5,-5,true",
+      "true",
+      "false,false,true,true",
+      "InvalidStateError"
+    ]
+  },
+  {
+    "name": "matrix-small-invertible",
+    "source": "const m=new DOMMatrix([1e-20,0,0,1,0,0]).inverse();record(m.a===1e20);record([m.d,m.is2D].join(','));",
+    "expected": [
+      "true",
+      "1,true"
+    ]
+  },
+  {
+    "name": "matrix-absolute-css-transform",
+    "source": "const m=new DOMMatrix('translate(10px, 20px) scale(2, 3)');record(m.toString());record(new DOMMatrix('translate(1in, 2pt)').e);record(new DOMMatrix('NONE').isIdentity);record(new DOMMatrix('').isIdentity);for(const text of ['translate(10%)','translate(2em)','initial','bad']){try{new DOMMatrix(text)}catch(e){record(e.name)}}",
+    "expected": [
+      "matrix(2, 0, 0, 3, 10, 20)",
+      "96",
+      "true",
+      "true",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "matrix-css-dimension-preserved",
+    "source": "for(const text of ['rotateZ(0deg)','translate3d(0px,0px,0px)','matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)'])record(new DOMMatrix(text).is2D);const m=new DOMMatrix();try{m.setMatrixValue('translate(2em)')}catch(e){record(e.name)}record(m.isIdentity);",
+    "expected": [
+      "true",
+      "false",
+      "false",
+      "SyntaxError",
+      "true"
+    ]
+  },
+  {
+    "name": "matrix-arrays-intrinsic-and-copy",
+    "source": "const m=new DOMMatrix([2,0,0,3,4,5]);const a=m.toFloat32Array(),b=m.toFloat64Array();record([a instanceof Float32Array,b instanceof Float64Array,a.length,b.length,a[12],b[13]].join(','));a[0]=99;record(m.a);record(DOMMatrix.fromFloat32Array(new Float32Array([1,0,0,1,8,9])).e);",
+    "expected": [
+      "true,true,16,16,4,5",
+      "2",
+      "8"
+    ]
+  },
+  {
+    "name": "matrix-factory-subclass-and-alias",
+    "source": "class M extends DOMMatrix{}const m=new M([1,0,0,1,2,3]);record(m instanceof M);record(m instanceof DOMMatrixReadOnly);record(m.translate() instanceof M);record(M.fromMatrix(m) instanceof M);record(WebKitCSSMatrix===DOMMatrix);try{DOMMatrixReadOnly.prototype.translate.call({})}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "true",
+      "false",
+      "false",
+      "true",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "quad-copy-live-points-and-bounds",
+    "source": "const q=DOMQuad.fromRect({x:10,y:20,width:-5,height:7});record([q.p1.x,q.p2.x,q.p3.y,q.p4.y].join(','));const b=q.getBounds();record([b.x,b.y,b.width,b.height,b instanceof DOMRect].join(','));q.p1.x=30;record(q.getBounds().width);const clone=DOMQuad.fromQuad(q);clone.p1.x=99;record(q.p1.x);record(q.p1===q.p1);",
+    "expected": [
+      "10,5,27,27",
+      "5,20,5,7,true",
+      "25",
+      "30",
+      "true"
+    ]
+  },
+  {
+    "name": "quad-nan-safe-bounds",
+    "source": "const q=new DOMQuad({x:NaN,y:2},{x:3,y:4});const b=q.getBounds();record([Number.isNaN(b.x),Number.isNaN(b.width),b.y,b.height].join(','));record(q.toJSON().p1.w);try{DOMQuad.prototype.getBounds.call({})}catch(e){record(e.name)}",
+    "expected": [
+      "true,true,0,4",
+      "1",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "matrix-coercion-before-snapshot-and-mutation",
+    "source": "const m=new DOMMatrix();record(m.translate({valueOf(){m.e=100;return 2}}).e);record(m.e);record(m.transformPoint({get x(){m.translateSelf(10);return 2}}).x);const s=new DOMMatrix();try{s.scaleSelf(2,{valueOf(){throw new Error('stop')}})}catch(e){record(e.message)}record(s.isIdentity);record(new DOMMatrix({toString(){return 'translate(3px)'}}).e);",
+    "expected": ["102","100","112","stop","true","3"]
+  },
+  {
+    "name": "matrix-dictionary-inheritance-getter-order",
+    "source": "const order=[];const d=new Proxy({},{get(t,k){order.push(k);return undefined}});DOMMatrix.fromMatrix(d);record(order.join(','));",
+    "expected": ["a,b,c,d,e,f,m11,m12,m21,m22,m41,m42,is2D,m13,m14,m23,m24,m31,m32,m33,m34,m43,m44"]
+  },
+  {
+    "name": "matrix-sequence-getter-and-conversion-close",
+    "source": "let gets=0,closed=0;const iterable={get [Symbol.iterator](){gets++;return function(){let i=0;return {next(){return i++<6?{value:i,done:false}:{done:true}}}}}};record(new DOMMatrix(iterable).a);record(gets);try{new DOMMatrix({[Symbol.iterator](){return {next(){return {value:Symbol(),done:false}},return(){closed++;return {}}}}})}catch(e){record(e.name)}record(closed);",
+    "expected": ["1","1","TypeError","0"]
+  },
+  {
+    "name": "matrix-typed-array-internal-elements-and-intrinsics",
+    "source": "const a=new Float64Array([1,0,0,1,8,9]);a[Symbol.iterator]=function(){throw new Error('iterator should not run')};Object.defineProperty(a,'length',{value:1});record(DOMMatrix.fromFloat64Array(a).e);const m=new DOMMatrix([2,0,0,3,4,5]);const F=Float64Array;Float64Array=function(){throw new Error('constructor should not run')};Array.prototype[Symbol.iterator]=function(){throw new Error('array iterator should not run')};const b=m.toFloat64Array();record(b instanceof F);record(b[12]);",
+    "expected": ["8","true","4"]
+  },
+  {
+    "name": "geometry-json-order-and-quad-point-identity",
+    "source": "record(Object.keys(new DOMPoint().toJSON()).join(','));record(Object.keys(new DOMMatrix().toJSON()).join(','));const q=new DOMQuad({x:2});const j=q.toJSON();record(j.p1===q.p1);record(j.p1 instanceof DOMPoint);record(Object.keys(j).join(','));record(JSON.stringify(j));",
+    "expected": ["x,y,z,w","a,b,c,d,e,f,m11,m12,m13,m14,m21,m22,m23,m24,m31,m32,m33,m34,m41,m42,m43,m44,is2D,isIdentity","true","true","p1,p2,p3,p4","{\"p1\":{\"x\":2,\"y\":0,\"z\":0,\"w\":1},\"p2\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"p3\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"p4\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1}}"]
+  },
+  {
+    "name": "matrix-inverse-overflow-fails-atomically",
+    "source": "const m=new DOMMatrix([1e-320,0,0,1,0,0]).inverse();record([Number.isNaN(m.a),Number.isNaN(m.m44),m.is2D].join(','));const a=new DOMMatrix([1e-10,0,0,1,0,0]).inverse();record(a.a===1e10);",
+    "expected": ["true,true,false","true"]
+  },
+  {
+    "name": "geometry-structured-clone-brands-state-and-identity",
+    "source": "const values=[new DOMPoint(2,3),new DOMPointReadOnly(4,5),new DOMMatrix([2,0,0,3,4,5]),new DOMMatrixReadOnly(),new DOMRect(1,2,3,4),new DOMRectReadOnly(5,6,7,8),new DOMQuad({x:9})];const copy=structuredClone(values);for(let i=0;i<values.length;i++){record(Object.getPrototypeOf(copy[i])===Object.getPrototypeOf(values[i]));record(JSON.stringify(copy[i])===JSON.stringify(values[i]));record(copy[i]!==values[i])}const m=new DOMMatrix();m.m13=1;m.m13=0;record(structuredClone(m).is2D);const q=new DOMQuad({x:2});const graph=structuredClone({q,p:q.p1,again:q});record(graph.q===graph.again);record(graph.q.p1===graph.p);",
+    "expected": ["true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","false","true","true"],
+    "nativeExpected": ["true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","true","false","true","false"],
+    "nativeDifference": "Chromium duplicates a DOMQuad point that is also referenced elsewhere. Geometry section 7 and HTML sub-serialization require shared graph identity."
+  },
+  {
+    "name": "geometry-clone-two-dimensional-storage-and-signed-zero",
+    "source": "const m=new DOMMatrix();m.m13=-0;m.b=-0;const c=structuredClone(m);record([Object.is(c.m13,-0),Object.is(c.b,-0),c.is2D].join(','));m.m13=1;m.m13=-0;const d=structuredClone(m);record([Object.is(d.m13,-0),d.is2D].join(','));const p=structuredClone(new DOMPointReadOnly(-0,NaN,Infinity,-Infinity));record([Object.is(p.x,-0),Number.isNaN(p.y),p.z,p.w,p instanceof DOMPointReadOnly,p instanceof DOMPoint].join(','));",
+    "expected": ["false,true,true","true,false","true,true,Infinity,-Infinity,true,false"]
+  },
+  {
+    "name": "geometry-and-collection-clone-ignore-overridden-intrinsics",
+    "source": "const M=Map,S=Set,D=DOMMatrix;const m=new M(),s=new S();m.set(m,s);s.add(m);const matrix=new D([1,0,0,1,8,9]);const q=new DOMQuad({x:2});const bad=()=>{throw new Error('author operation must not run')};Object.defineProperty(M.prototype,'set',{get:bad,configurable:true});S.prototype.add=bad;M.prototype[Symbol.iterator]=bad;S.prototype[Symbol.iterator]=bad;M.prototype.forEach=bad;S.prototype.forEach=bad;Map=bad;Set=bad;DOMMatrix=bad;DOMQuad=bad;DOMPoint=bad;const c=structuredClone({m,matrix,q,point:q.p1});record(c.m instanceof M);record(c.m.get(c.m) instanceof S);record(c.m.get(c.m).has(c.m));record(c.matrix instanceof D);record(c.matrix.e);record(c.q.p1===c.point);",
+    "expected": ["true","true","true","true","8","true"],
+    "nativeExpected": ["true","true","true","true","8","false"],
+    "nativeDifference": "Chromium duplicates a DOMQuad point that is also referenced elsewhere; normative graph identity is shared."
+  },
+  {
+    "name": "clone-iterator-internal-slots-are-not-ordinary-objects",
+    "source": "for(const value of [Iterator.from({next(){return {done:true}}}),Iterator.from([1]).map(x=>x),Iterator.concat([1])]){try{structuredClone(value);record('accepted')}catch(e){record(e.name)}}record(JSON.stringify(structuredClone({next:undefined})));",
+    "expected": ["DataCloneError","DataCloneError","DataCloneError","{}"]
+  },
+  {
+    "name": "clone-error-message-data-descriptor-and-order",
+    "source": "let calls=0;const e=new TypeError();Object.defineProperty(e,'stack',{value:'fixed',writable:true,configurable:true});Object.defineProperty(e,'message',{get(){calls++;throw new Error('not called')},configurable:true});const a=structuredClone(e);record([a instanceof TypeError,Object.hasOwn(a,'message'),a.message,calls].join(','));const p=new Error();Object.setPrototypeOf(p,{name:'RangeError',message:'inherited'});const b=structuredClone(p);record([b instanceof RangeError,Object.hasOwn(b,'message'),b.message].join(','));const n=new Error();Object.defineProperty(n,'message',{value:{toString(){calls++;return 'converted'}},configurable:true});const c=structuredClone(n);record(c.message);const d=new Error('old');Object.defineProperty(d,'name',{get(){Object.defineProperty(d,'message',{value:'new'});return 'TypeError'}});record(structuredClone(d).message);record(calls);const bad=new Error();Object.defineProperty(bad,'message',{value:Symbol(),configurable:true});try{structuredClone(bad)}catch(e){record(e.name)}",
+    "expected": ["true,false,,0","true,false,","converted","new","1","TypeError"],
+    "nativeExpected": ["true,false,,0","true,false,","converted","old","1","TypeError"],
+    "nativeDifference": "Chromium does not preserve the specified name-getter-before-message-descriptor effect. HTML StructuredSerializeInternal 17.1 precedes 17.3, so the name getter's message mutation must be observed."
+  },
+  {
+    "name": "clone-raw-json-slot-is-not-an-ordinary-property",
+    "source": "try{structuredClone(JSON.rawJSON('9007199254740993'))}catch(e){record(e.name)}const plain=structuredClone({rawJSON:'9007199254740993'});record(JSON.isRawJSON(plain));record(JSON.stringify(plain));",
+    "expected": ["DataCloneError","false","{\"rawJSON\":\"9007199254740993\"}"]
+  },
+  {
+    "name": "matrix-strict-css-syntax-and-absolute-calc",
+    "source": "for(const text of ['matrix(1 0 0 1 0 0)','translate(1px,,2px)',' ']){try{new DOMMatrix(text);record('accepted')}catch(e){record(e.name)}}record(new DOMMatrix('translate(1px)scale(2)').e);record(new DOMMatrix('translate(calc(1px + 2px))').e);record(Math.round(new DOMMatrix('rotate(1e1deg)').a*1000));record(Math.round(new DOMMatrix('rotate(10DEG)').a*1000));",
+    "expected": ["SyntaxError","SyntaxError","SyntaxError","1","3","985","985"]
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "source": "https://github.com/google/fonts/tree/main/ofl/roboto",
+  "files": [
+    {
+      "file": "Roboto-Variable.ttf",
+      "upstreamFile": "Roboto[wdth,wght].ttf",
+      "gitBlobSha1": "5522a368d9072fd88c299916e61fcff369949061",
+      "sha256": "d7598e12c5dbef095ff8272cfc55da0250bd07fbdecbac8a530b9b277872a134"
+    },
+    {
+      "file": "OFL.txt",
+      "upstreamFile": "OFL.txt",
+      "gitBlobSha1": "9c48e05a24fa2267e207ecf17560291b5621c197",
+      "sha256": "061402327a96aadb0bfb694a960ed289ecd38d383e396243831ab81feb109c41"
+    }
+  ],
+  "license": "SIL Open Font License 1.1; original name and copyright retained"
+}

@@ -1,0 +1,3868 @@
+{
+  "capturedAt": "2026-10-12T18:01:24.461Z",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/154.0.8037.98",
+    "revision": "@b859317bf11f6be47f9b7799ec690a0a42a1fb33",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "jsVersion": "15.4.80.20"
+  },
+  "target": {
+    "revision": "ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c",
+    "date": "2026-10-06",
+    "primary": "build/media-reflection-prep/html-target-source",
+    "sha256": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f",
+    "ranges": [
+      [
+        35528,
+        35538
+      ],
+      [
+        35543,
+        35633
+      ],
+      [
+        35638,
+        35683
+      ],
+      [
+        35685,
+        35722
+      ],
+      [
+        36113,
+        36115
+      ]
+    ]
+  },
+  "productionBase": {
+    "path": "build/no-realm-document-load-implementation-prep/production-source-hold.json",
+    "sha256": "f542af4ea8a449b65d38182c49fe31543ef8a87069380fa09d87c6569112140b"
+  },
+  "oldEngineRed": {
+    "path": "build/no-realm-document-load-implementation-prep/expanded-fourth.log",
+    "sha256": "e39cf68fe2ffa5de2c2ced4566443b369ac24561ac540cd50646fa8599720d23",
+    "actualExit": 1
+  },
+  "cases": [
+    {
+      "name": "src changes",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=\"b.html\"",
+          "kind": "new",
+          "target": "/one/b.html",
+          "immediate": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "http://127.0.0.1:56973/one/b.html",
+            "ready": "complete",
+            "text": "/one/b.html",
+            "script": "ran",
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/b.html"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "E05DC1B88B7E75B28FBFA6C857B2B7DC",
+                "url": "http://127.0.0.1:56973/parent?case=0",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "752E10475DBF1B464047E18662D95891",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "A3582DBC8006580A6FFFA8FB3E294486",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/b.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "same src setter",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=\"a.html\"",
+          "kind": "new",
+          "target": "/one/a.html",
+          "immediate": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "E4F100798E6769551094FBDBCDE6FB37",
+                "url": "http://127.0.0.1:56973/parent?case=1",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "88679EDCB109C04A15C2A8E8D86D63A0",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "17E9CC15971047BB8708B30F7143F0D0",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/a.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "coalesced src setters",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=\"b.html\";f.src=\"c.html\"",
+          "kind": "new",
+          "target": "/one/c.html",
+          "immediate": {
+            "srcAttribute": "c.html",
+            "srcGetter": "http://127.0.0.1:56973/one/c.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "c.html",
+            "srcGetter": "http://127.0.0.1:56973/one/c.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "http://127.0.0.1:56973/one/c.html",
+            "ready": "complete",
+            "text": "/one/c.html",
+            "script": "ran",
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/c.html"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "6B7D5B70E7F148E66DCD3C0210B7B9E1",
+                "url": "http://127.0.0.1:56973/parent?case=2",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "3C5074F4F9841A6B9408372255624AF3",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "F88A85D511D6ABA064FBA5BA6005C874",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/c.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "src removed",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.removeAttribute(\"src\")",
+          "kind": "new",
+          "target": "about:blank",
+          "immediate": {
+            "srcAttribute": null,
+            "srcGetter": "",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": null,
+            "srcGetter": "",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:blank",
+            "ready": "complete",
+            "text": "",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:blank"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "5AD1308112E7F9F4E854C8F57678F9C2",
+                "url": "http://127.0.0.1:56973/parent?case=3",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "383315D064EA45B3587367A853E005CC",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "7589F6CBB419F8901F951CA80D7A086B",
+                    "name": "f",
+                    "url": "about:blank",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "://",
+                    "securityOriginDetails": {
+                      "isLocalhost": false
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "src empty",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=\"\"",
+          "kind": "new",
+          "target": "about:blank",
+          "immediate": {
+            "srcAttribute": "",
+            "srcGetter": "http://127.0.0.1:56973/one/",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "",
+            "srcGetter": "http://127.0.0.1:56973/one/",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:blank",
+            "ready": "complete",
+            "text": "",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:blank"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "D9930CC458CD0395AB9B94ED50E23F97",
+                "url": "http://127.0.0.1:56973/parent?case=4",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "3DD2ED9A2F6CC2EEA7089A11DCE19DF1",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "1B9BB55CAB2E82A3CB4D8E8A0C2D7037",
+                    "name": "f",
+                    "url": "about:blank",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "://",
+                    "securityOriginDetails": {
+                      "isLocalhost": false
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "src invalid",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=\"http://[invalid\"",
+          "kind": "new",
+          "target": "about:blank",
+          "immediate": {
+            "srcAttribute": "http://[invalid",
+            "srcGetter": "http://[invalid",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "http://[invalid",
+            "srcGetter": "http://[invalid",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:blank#blocked",
+            "ready": "complete",
+            "text": "",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:blank#blocked"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "6876EB160D56B69E28078CA1955369DB",
+                "url": "http://127.0.0.1:56973/parent?case=5",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "D8139BB0D7408B5ACEADEF04C081CAAE",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "5A9B29E49099EF65FC82CC6FCC78AE96",
+                    "name": "f",
+                    "url": "about:blank",
+                    "urlFragment": "#blocked",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "://",
+                    "securityOriginDetails": {
+                      "isLocalhost": false
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "srcdoc priority",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.srcdoc=\"<h1 id=child>document</h1>\"",
+          "kind": "new",
+          "target": "about:srcdoc",
+          "immediate": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:srcdoc",
+            "ready": "complete",
+            "text": "document",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "BD8D6012EE0FCEA9D7F0B0DAE191B386",
+                "url": "http://127.0.0.1:56973/parent?case=6",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "057923366FA2E469182D8494F1489B5A",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "D47B199635146273D540C1ECD569E6E8",
+                    "name": "f",
+                    "url": "about:srcdoc",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "://",
+                    "securityOriginDetails": {
+                      "isLocalhost": false
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "action2",
+          "action": "f.src=\"b.html\"",
+          "kind": "stable",
+          "target": "about:srcdoc",
+          "immediate": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:srcdoc",
+            "ready": "complete",
+            "text": "document",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:srcdoc",
+            "ready": "complete",
+            "text": "document",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "BD8D6012EE0FCEA9D7F0B0DAE191B386",
+                "url": "http://127.0.0.1:56973/parent?case=6",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "057923366FA2E469182D8494F1489B5A",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "D47B199635146273D540C1ECD569E6E8",
+                    "name": "f",
+                    "url": "about:srcdoc",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "://",
+                    "securityOriginDetails": {
+                      "isLocalhost": false
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "empty srcdoc",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.srcdoc=\"\"",
+          "kind": "new",
+          "target": "about:srcdoc",
+          "immediate": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": "",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": "",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:srcdoc",
+            "ready": "complete",
+            "text": "",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "44AC719DAFDAADFC7BDF3360E4B18F2F",
+                "url": "http://127.0.0.1:56973/parent?case=7",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "A92C4C0B6B8D2507608B0F2FB4DFC982",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "25B0956AE187A9C937B9796AD35C4F1C",
+                    "name": "f",
+                    "url": "about:srcdoc",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "://",
+                    "securityOriginDetails": {
+                      "isLocalhost": false
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "same srcdoc setter",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.srcdoc=\"<h1 id=child>document</h1>\"",
+          "kind": "new",
+          "target": "about:srcdoc",
+          "immediate": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:srcdoc",
+            "ready": "complete",
+            "text": "document",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "0F2FA01488D6B0C868AC14F5A48D3193",
+                "url": "http://127.0.0.1:56973/parent?case=8",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "3AB4B962CF2AAFEDC4AACFC4BD3267AC",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "5E3AD76B288B44DBB182E0B15DD198D1",
+                    "name": "f",
+                    "url": "about:srcdoc",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "://",
+                    "securityOriginDetails": {
+                      "isLocalhost": false
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "action2",
+          "action": "f.srcdoc=f.srcdoc",
+          "kind": "new",
+          "target": "about:srcdoc",
+          "immediate": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:srcdoc",
+            "ready": "complete",
+            "text": "document",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 4,
+            "url": "about:srcdoc",
+            "ready": "complete",
+            "text": "document",
+            "script": null,
+            "loads": 3,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "0F2FA01488D6B0C868AC14F5A48D3193",
+                "url": "http://127.0.0.1:56973/parent?case=8",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "3AB4B962CF2AAFEDC4AACFC4BD3267AC",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "A8DAA931414EA083900518943C115427",
+                    "name": "f",
+                    "url": "about:srcdoc",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "://",
+                    "securityOriginDetails": {
+                      "isLocalhost": false
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "srcdoc removal uses current src",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.srcdoc=\"<h1 id=child>document</h1>\";f.src=\"b.html\"",
+          "kind": "new",
+          "target": "about:srcdoc",
+          "immediate": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": "<h1 id=child>document</h1>",
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:srcdoc",
+            "ready": "complete",
+            "text": "document",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "77FB4F457529671AEC86D47109FBB5E3",
+                "url": "http://127.0.0.1:56973/parent?case=9",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "C03393A97E0F9AFBBF3DB5384F7D5703",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "D4C875DA3213110F068BE224C6C48B17",
+                    "name": "f",
+                    "url": "about:srcdoc",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "://",
+                    "securityOriginDetails": {
+                      "isLocalhost": false
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "action2",
+          "action": "f.removeAttribute(\"srcdoc\")",
+          "kind": "new",
+          "target": "/one/b.html",
+          "immediate": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "about:srcdoc",
+            "ready": "complete",
+            "text": "document",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 4,
+            "url": "http://127.0.0.1:56973/one/b.html",
+            "ready": "complete",
+            "text": "/one/b.html",
+            "script": "ran",
+            "loads": 3,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "about:srcdoc"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/b.html"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "77FB4F457529671AEC86D47109FBB5E3",
+                "url": "http://127.0.0.1:56973/parent?case=9",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "C03393A97E0F9AFBBF3DB5384F7D5703",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "B3FD8527564A428E89FE435771170CBE",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/b.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "fragment retains document",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=\"a.html#mark\"",
+          "kind": "fragment",
+          "target": "/one/a.html#mark",
+          "immediate": {
+            "srcAttribute": "a.html#mark",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html#mark",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html#mark",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html#mark",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "8BDA6E4587DD53569BCF687A36798AEE",
+                "url": "http://127.0.0.1:56973/parent?case=10",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "FA3D188A8D1BB884225589C02F06B66C",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "4FD60D596E87F6273380F67D91BE243A",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/a.html",
+                    "urlFragment": "#mark",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "action2",
+          "action": "f.contentWindow.location.hash=\"other\"",
+          "kind": "fragment",
+          "target": "/one/a.html#other",
+          "immediate": {
+            "srcAttribute": "a.html#mark",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html#other",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html#mark",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html#other",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "8BDA6E4587DD53569BCF687A36798AEE",
+                "url": "http://127.0.0.1:56973/parent?case=10",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "FA3D188A8D1BB884225589C02F06B66C",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "4FD60D596E87F6273380F67D91BE243A",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/a.html",
+                    "urlFragment": "#other",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "same fragment setter",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=\"a.html#mark\"",
+          "kind": "fragment",
+          "target": "/one/a.html#mark",
+          "immediate": {
+            "srcAttribute": "a.html#mark",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html#mark",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html#mark",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html#mark",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "66CCEDC51DDB45D06FFFECE7239B82D9",
+                "url": "http://127.0.0.1:56973/parent?case=11",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "C89BFEBA123B6E52B63E80496DBD43BE",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "2AFE1DAE52FC9C21C13E748646336E5E",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/a.html",
+                    "urlFragment": "#mark",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "action2",
+          "action": "f.src=f.src",
+          "kind": "fragment",
+          "target": "/one/a.html#mark",
+          "immediate": {
+            "srcAttribute": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html#mark",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html#mark",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html#mark",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "66CCEDC51DDB45D06FFFECE7239B82D9",
+                "url": "http://127.0.0.1:56973/parent?case=11",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "C89BFEBA123B6E52B63E80496DBD43BE",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "2AFE1DAE52FC9C21C13E748646336E5E",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/a.html",
+                    "urlFragment": "#mark",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "base alone no navigation",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "b.href=origin+\"/two/\"",
+          "kind": "stable",
+          "target": "/one/a.html",
+          "immediate": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/two/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/two/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/two/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/two/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "732B00BE7F94B7C851942C3AC2DB6027",
+                "url": "http://127.0.0.1:56973/parent?case=12",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "BEFF706E53162DAB6BDACFBEE9809348",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "AA85238B3F2FBE069C1D3CE617DE98BA",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/a.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "relative setter after base change",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "b.href=origin+\"/two/\";f.src=\"a.html\"",
+          "kind": "new",
+          "target": "/two/a.html",
+          "immediate": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/two/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/two/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/two/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/two/",
+            "documentID": 3,
+            "url": "http://127.0.0.1:56973/two/a.html",
+            "ready": "complete",
+            "text": "/two/a.html",
+            "script": "ran",
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/two/a.html"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "BE30ADD98A58C11BB7961E4D9ABA4E59",
+                "url": "http://127.0.0.1:56973/parent?case=13",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "3A1FB410041A35655C9316431D57DFF8",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "95FD7ED3CA9B7EA4D434230B41784D51",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/two/a.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "setter captures base before later mutation",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=\"b.html\";b.href=origin+\"/two/\"",
+          "kind": "new",
+          "target": "/one/b.html",
+          "immediate": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/two/b.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/two/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/two/b.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/two/",
+            "documentID": 3,
+            "url": "http://127.0.0.1:56973/one/b.html",
+            "ready": "complete",
+            "text": "/one/b.html",
+            "script": "ran",
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/b.html"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "CCD77B95763F0C9AFB1860CE507E2931",
+                "url": "http://127.0.0.1:56973/parent?case=14",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "F8F8BADF10BC2CDBA8F94D224C46CEA3",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "52C13C3D72B2948C3E711EE756D14C1E",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/b.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sandbox applies next navigation",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.setAttribute(\"sandbox\",\"allow-same-origin\")",
+          "kind": "stable",
+          "target": "/one/a.html",
+          "immediate": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": "allow-same-origin",
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": "allow-same-origin",
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "E4C79FB5C0E4B4B79E9CF09EB56D1DE3",
+                "url": "http://127.0.0.1:56973/parent?case=15",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "867524CA5B6E2CF9F0D84AB910C19D46",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "6AF1E2D2918086D524790FDB448427A3",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/a.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "action2",
+          "action": "f.src=\"a.html\"",
+          "kind": "new",
+          "target": "/one/a.html",
+          "immediate": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": "allow-same-origin",
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": "allow-same-origin",
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "E4C79FB5C0E4B4B79E9CF09EB56D1DE3",
+                "url": "http://127.0.0.1:56973/parent?case=15",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "867524CA5B6E2CF9F0D84AB910C19D46",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "34AD42F9E4A95148315B08B04354688F",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/a.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "superseded held document",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=\"held.html\"",
+          "kind": "held",
+          "target": null,
+          "immediate": {
+            "srcAttribute": "held.html",
+            "srcGetter": "http://127.0.0.1:56973/one/held.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "held.html",
+            "srcGetter": "http://127.0.0.1:56973/one/held.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "1D8FF29C928580409A2D194BBE1E85C6",
+                "url": "http://127.0.0.1:56973/parent?case=16",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "3273E3712886A77C936D6DDC8AAAB16C",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "C0C4130C4D6433BDEA0A9F0565A63770",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/a.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "action2",
+          "action": "f.src=\"b.html\"",
+          "kind": "new",
+          "target": "/one/b.html",
+          "immediate": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "http://127.0.0.1:56973/one/b.html",
+            "ready": "complete",
+            "text": "/one/b.html",
+            "script": "ran",
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/b.html"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "1D8FF29C928580409A2D194BBE1E85C6",
+                "url": "http://127.0.0.1:56973/parent?case=16",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "3273E3712886A77C936D6DDC8AAAB16C",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "F649502B5817A1493BF1C881718A76A6",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/one/b.html",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "old response released",
+          "value": {
+            "srcAttribute": "b.html",
+            "srcGetter": "http://127.0.0.1:56973/one/b.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "http://127.0.0.1:56973/one/b.html",
+            "ready": "complete",
+            "text": "/one/b.html",
+            "script": "ran",
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/b.html"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "ancestor URL prevents recursive navigation",
+      "states": [
+        {
+          "name": "initial",
+          "value": {
+            "srcAttribute": "a.html",
+            "srcGetter": "http://127.0.0.1:56973/one/a.html",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          }
+        },
+        {
+          "name": "action1",
+          "action": "f.src=location.href",
+          "kind": "stable",
+          "target": "/one/a.html",
+          "immediate": {
+            "srcAttribute": "http://127.0.0.1:56973/parent?case=17",
+            "srcGetter": "http://127.0.0.1:56973/parent?case=17",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 2,
+            "url": "http://127.0.0.1:56973/one/a.html",
+            "ready": "complete",
+            "text": "/one/a.html",
+            "script": "ran",
+            "loads": 1,
+            "parentLoads": 1,
+            "focused": true,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              }
+            ]
+          },
+          "value": {
+            "srcAttribute": "http://127.0.0.1:56973/parent?case=17",
+            "srcGetter": "http://127.0.0.1:56973/parent?case=17",
+            "srcdocAttribute": null,
+            "sandbox": null,
+            "base": "http://127.0.0.1:56973/one/",
+            "documentID": 3,
+            "url": "http://127.0.0.1:56973/parent?case=17",
+            "ready": "complete",
+            "text": "\n const origin=\"http://127.0.0.1:56973\",f=document.getElementById('f'),b=document.getElementById('b'),e=document.getElementById('e');let loads=0,parentLoads=0,serial=0;const docs=new WeakMap();globalThis.trace=[];\n f.addEventListener('load',()=>{loads++;trace.push({kind:'frame-load',url:f.contentDocument?.URL||null})});addEventListener('load',()=>{parentLoads++;trace.push({kind:'parent-load'})});e.focus();e.setSelectionRange(1,3,'backward');\n globalThis.snapshot=()=>{let doc;try{doc=f.contentDocument}catch{};if(doc&&!docs.has(doc))docs.set(doc,++serial);return {srcAttribute:f.getAttribute('src'),srcGetter:f.src,srcdocAttribute:f.getAttribute('srcdoc'),sandbox:f.getAttribute('sandbox'),base:document.baseURI,documentID:doc?docs.get(doc):null,url:doc?.URL||null,ready:doc?.readyState||null,text:doc?.getElementById('child')?.textContent||doc?.body?.textContent||'',script:doc?.documentElement?.dataset.script||null,loads,parentLoads,focused:document.activeElement===e,selection:[e.selectionStart,e.selectionEnd,e.selectionDirection],trace:trace.slice()}};\n globalThis.ready=true;",
+            "script": null,
+            "loads": 2,
+            "parentLoads": 1,
+            "focused": false,
+            "selection": [
+              1,
+              3,
+              "backward"
+            ],
+            "trace": [
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/one/a.html"
+              },
+              {
+                "kind": "parent-load"
+              },
+              {
+                "kind": "frame-load",
+                "url": "http://127.0.0.1:56973/parent?case=17"
+              }
+            ]
+          },
+          "frameTree": {
+            "frameTree": {
+              "frame": {
+                "id": "B0EB5690943A5DB9E77738F33904D6A9",
+                "loaderId": "E17666BD4733007D0E79C4D032E98905",
+                "url": "http://127.0.0.1:56973/parent?case=17",
+                "domainAndRegistry": "",
+                "securityOrigin": "http://127.0.0.1:56973",
+                "securityOriginDetails": {
+                  "isLocalhost": true
+                },
+                "mimeType": "text/html",
+                "adFrameStatus": {
+                  "adFrameType": "none"
+                },
+                "secureContextType": "SecureLocalhost",
+                "crossOriginIsolatedContextType": "NotIsolated",
+                "gatedAPIFeatures": []
+              },
+              "childFrames": [
+                {
+                  "frame": {
+                    "id": "C742114B8E3B858A4AE0C21C6C98D8BC",
+                    "parentId": "B0EB5690943A5DB9E77738F33904D6A9",
+                    "loaderId": "1528B004467759230B617F51F1D1720C",
+                    "name": "f",
+                    "url": "http://127.0.0.1:56973/parent?case=17",
+                    "domainAndRegistry": "",
+                    "securityOrigin": "http://127.0.0.1:56973",
+                    "securityOriginDetails": {
+                      "isLocalhost": true
+                    },
+                    "mimeType": "text/html",
+                    "adFrameStatus": {
+                      "adFrameType": "none",
+                      "explanations": []
+                    },
+                    "secureContextType": "SecureLocalhost",
+                    "crossOriginIsolatedContextType": "NotIsolated",
+                    "gatedAPIFeatures": []
+                  },
+                  "childFrames": [
+                    {
+                      "frame": {
+                        "id": "B12C17BB5BDF208E9BC3909DFE5178F8",
+                        "parentId": "C742114B8E3B858A4AE0C21C6C98D8BC",
+                        "loaderId": "2D7BE4F5BBFF2561EB4909B880444519",
+                        "name": "f",
+                        "url": "http://127.0.0.1:56973/one/a.html",
+                        "domainAndRegistry": "",
+                        "securityOrigin": "http://127.0.0.1:56973",
+                        "securityOriginDetails": {
+                          "isLocalhost": true
+                        },
+                        "mimeType": "text/html",
+                        "adFrameStatus": {
+                          "adFrameType": "none",
+                          "explanations": []
+                        },
+                        "secureContextType": "SecureLocalhost",
+                        "crossOriginIsolatedContextType": "NotIsolated",
+                        "gatedAPIFeatures": []
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "path": "/parent",
+      "query": "?case=0"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/one/b.html",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=1"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=2"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/one/b.html",
+      "query": ""
+    },
+    {
+      "path": "/one/c.html",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=3"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=4"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=5"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=6"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=7"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=8"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=9"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/one/b.html",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=10"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=11"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=12"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=13"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/two/a.html",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=14"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/one/b.html",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=15"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=16"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/one/held.html",
+      "query": ""
+    },
+    {
+      "path": "/one/b.html",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=17"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    },
+    {
+      "path": "/favicon.ico",
+      "query": ""
+    },
+    {
+      "path": "/parent",
+      "query": "?case=17"
+    },
+    {
+      "path": "/one/a.html",
+      "query": ""
+    }
+  ],
+  "notes": [
+    "Isolated headless Chromium/HTTP only; never attached to user tabs. No Engine test or production edit.",
+    "Document identities and actions are raw; no expected values rewritten or normative deltas inferred yet.",
+    "Parent load remains latched across later source navigation; no full Window facade/iframe lazy/history policy/Studio claim."
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "browser": "Chrome/155.0.8059.40",
+  "captured": "2026-10-13",
+  "retainedHTML": "<!doctype html><html><head><style id=\"sheet\">*|*{box-sizing:border-box}*|*#root{width:380px;padding:12px;border:1px solid #aab5bd;color:rgb(3,7,11)}*|*#outside{color:rgb(3,7,11)}*|*#kept{width:180px;height:32px}*|p{margin:0}@scope (*|*#root){*|*[data-hit]{color:rgb(17,53,91)}}</style></head><body><section id=\"root\" class=\"region\" data-hit=\"yes\"><p id=\"target\" data-hit=\"yes\">Surface</p><input id=\"kept\" value=\"A&#x1f600;BC\"><div id=\"branch\"><p id=\"leaf\" data-leaf=\"yes\">Leaf</p></div></section><aside id=\"outside\"><p>Outside</p></aside></body></html>",
+  "setup": "window.scopeBase=\"*|*{box-sizing:border-box}*|*#root{width:380px;padding:12px;border:1px solid #aab5bd;color:rgb(3,7,11)}*|*#outside{color:rgb(3,7,11)}*|*#kept{width:180px;height:32px}*|p{margin:0}\";window.scopeBody=function(body,prefix){document.getElementById(\"sheet\").textContent=(prefix||\"\")+scopeBase+\"@scope (*|*#root){\"+body+\"{color:rgb(17,53,91)}}\";};",
+  "retained": [
+    {
+      "name": "initial",
+      "code": "",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 0,
+        "selectionEnd": 0,
+        "selectionDirection": "forward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "focus",
+      "code": "document.getElementById(\"kept\").focus();document.getElementById(\"kept\").setSelectionRange(1,3,\"backward\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "explicit logical root",
+      "code": "scopeBody(\"*|*:is(:scope,[data-hit])\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "implicit root excluded",
+      "code": "scopeBody(\"*|*[data-hit]\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "forward reference",
+      "code": "scopeBody(\"*|*:is([data-hit],:scope:unsupported())\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "string does not reference",
+      "code": "scopeBody(\"*|*:is([data-hit],[title=\\\":scope\\\"])\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "escaped reference",
+      "code": "scopeBody(\"*|*:is([data-hit],:\\\\73 cope:unsupported())\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "comment does not reference",
+      "code": "scopeBody(\"*|*[data-hit]/* :scope */\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "relative child",
+      "code": "scopeBody(\"> *|*[data-hit]\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "nesting root",
+      "code": "scopeBody(\"&\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(3, 7, 11)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "live selector CSSOM",
+      "code": "const sheet=document.getElementById(\"sheet\").sheet;sheet.cssRules[sheet.cssRules.length-1].cssRules[0].selectorText=\"*|*[data-hit]\"",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 6,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    },
+    {
+      "name": "namespace explicit equivalent",
+      "code": "scopeBody(\"*|*:is(*|*:scope,*|*[data-hit])\",\"@namespace url(\\\"http://www.w3.org/2000/svg\\\");\")",
+      "expected": {
+        "colors": {
+          "root": "rgb(3, 7, 11)",
+          "target": "rgb(17, 53, 91)",
+          "branch": "rgb(3, 7, 11)",
+          "leaf": "rgb(3, 7, 11)",
+          "outside": "rgb(3, 7, 11)"
+        },
+        "count": 7,
+        "value": "A😀BC",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward"
+      },
+      "paintOnly": true
+    }
+  ]
+}

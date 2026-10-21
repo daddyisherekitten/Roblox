@@ -1,0 +1,32 @@
+{
+  "examples-generated": {
+    "files": 62,
+    "lines": 2257,
+    "bytes": 837499
+  },
+  "examples-handwritten": {
+    "files": 25,
+    "lines": 1827,
+    "bytes": 99138
+  },
+  "scripts": {
+    "files": 45,
+    "lines": 2948,
+    "bytes": 333045
+  },
+  "engine-handwritten": {
+    "files": 267,
+    "lines": 32661,
+    "bytes": 1855340
+  },
+  "engine-generated": {
+    "files": 17,
+    "lines": 5491,
+    "bytes": 2060122
+  },
+  "test-luau": {
+    "files": 187,
+    "lines": 18113,
+    "bytes": 1361550
+  }
+}

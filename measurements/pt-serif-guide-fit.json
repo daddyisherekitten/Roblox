@@ -1,0 +1,55 @@
+{
+  "font": "PT Serif normal",
+  "fontFamily": "rbxassetid://12187606624",
+  "fontWeight": "Regular",
+  "text": "H x p",
+  "lineHeight": 1,
+  "scale": 1.2238622386223863,
+  "confirmedProfileScale": 1.2238622386223863,
+  "textSizeRounding": "ceil",
+  "method": "linear least squares per guide against reported native robloxTextSize",
+  "training": [
+    {
+      "htmlSize": 10,
+      "robloxTextSize": 13,
+      "Top": 2,
+      "XHeight": 4,
+      "Baseline": 11,
+      "Bottom": 14
+    },
+    {
+      "htmlSize": 20,
+      "robloxTextSize": 25,
+      "Top": 5,
+      "XHeight": 9,
+      "Baseline": 20,
+      "Bottom": 24
+    },
+    {
+      "htmlSize": 30,
+      "robloxTextSize": 37,
+      "Top": 8,
+      "XHeight": 14,
+      "Baseline": 30,
+      "Bottom": 36
+    },
+    {
+      "htmlSize": 40,
+      "robloxTextSize": 49,
+      "Top": 11,
+      "XHeight": 19,
+      "Baseline": 39,
+      "Bottom": 47
+    },
+    {
+      "htmlSize": 50,
+      "robloxTextSize": 62,
+      "Top": 14,
+      "XHeight": 24,
+      "Baseline": 49,
+      "Bottom": 59
+    }
+  ],
+  "heldOut": [],
+  "notes": "User visually confirmed size factor despite earlier H-height discrepancy. Manual FONT_REPORT guide positions, not automatic metrics. Fit reproduces Top/XHeight/Baseline after rounding; Bottom at native size 25 predicts 25 instead of measured 24 (1 px error). Intermediate sizes estimated, outside native 13–62 extrapolated. Bold/italic use Regular calibration provisionally."
+}

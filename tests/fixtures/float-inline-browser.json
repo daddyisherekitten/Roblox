@@ -1,0 +1,1872 @@
+{
+  "captured": "2026-10-19T01:13:04.779Z",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "scope": "Isolated native Chromium layout measurements; production engine not used.",
+  "baseCSS": "*{box-sizing:border-box}html,body{margin:0;padding:0}body{font:20px/20px monospace}#container{width:100%;display:flow-root}.atom{display:inline-block;width:30%;height:160px}.floater{float:right;width:68%;margin-right:1%;padding:10px;border:2px solid;height:90px}#before{height:30px;margin-bottom:10px}",
+  "cases": [
+    {
+      "name": "inline block before right float",
+      "body": "<div id=\"left\" class=\"atom\"></div> <div id=\"float\" class=\"floater\"></div>",
+      "width": 300,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 164,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 164
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 0,
+          "width": 90,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 90,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 93,
+          "y": 0,
+          "width": 204,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "lineBoxes": [
+            {
+              "x": 93,
+              "y": 0,
+              "width": 204,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ordinary block before inline block and float",
+      "body": "<div id=\"before\"></div><div id=\"left\" class=\"atom\"></div> <div id=\"float\" class=\"floater\"></div>",
+      "width": 300,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 204,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 204
+            }
+          ]
+        },
+        "before": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 30,
+          "display": "block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 30
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 40,
+          "width": 90,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 40,
+              "width": 90,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 93,
+          "y": 40,
+          "width": 204,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "lineBoxes": [
+            {
+              "x": 93,
+              "y": 40,
+              "width": 204,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "short text before right float",
+      "body": "<span id=\"text\">Short</span><div id=\"float\" class=\"floater\"></div>",
+      "width": 300,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 90,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 90
+            }
+          ]
+        },
+        "float": {
+          "x": 93,
+          "y": 0,
+          "width": 204,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "lineBoxes": [
+            {
+              "x": 93,
+              "y": 0,
+              "width": 204,
+              "height": 90
+            }
+          ]
+        },
+        "text": {
+          "x": 0,
+          "y": -2,
+          "width": 54.984375,
+          "height": 23,
+          "display": "inline",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": -2,
+              "width": 54.984375,
+              "height": 23
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "wrapped text before right float",
+      "body": "<span id=\"text\">one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty</span><div id=\"float\" class=\"floater\"></div>",
+      "width": 300,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 190,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 190
+            }
+          ]
+        },
+        "float": {
+          "x": 93,
+          "y": 100,
+          "width": 204,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "lineBoxes": [
+            {
+              "x": 93,
+              "y": 100,
+              "width": 204,
+              "height": 90
+            }
+          ]
+        },
+        "text": {
+          "x": 0,
+          "y": -2,
+          "width": 296.90625,
+          "height": 103,
+          "display": "inline",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": -2,
+              "width": 296.90625,
+              "height": 23
+            },
+            {
+              "x": 0,
+              "y": 18,
+              "width": 296.90625,
+              "height": 23
+            },
+            {
+              "x": 0,
+              "y": 38,
+              "width": 263.90625,
+              "height": 23
+            },
+            {
+              "x": 0,
+              "y": 58,
+              "width": 274.90625,
+              "height": 23
+            },
+            {
+              "x": 0,
+              "y": 78,
+              "width": 263.90625,
+              "height": 23
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "float too wide for preceding inline block",
+      "css": ".atom{width:60%}.floater{width:60%;margin-right:0}",
+      "body": "<div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div>",
+      "width": 300,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 254,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 254
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 0,
+          "width": 180,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 180,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 120,
+          "y": 164,
+          "width": 180,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 120,
+              "y": 164,
+              "width": 180,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "left float after inline block",
+      "css": ".floater{float:left;margin-right:0;margin-left:1%}",
+      "body": "<div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div>",
+      "width": 300,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 164,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 164
+            }
+          ]
+        },
+        "left": {
+          "x": 207,
+          "y": 0,
+          "width": 90,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 207,
+              "y": 0,
+              "width": 90,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 3,
+          "y": 0,
+          "width": 204,
+          "height": 90,
+          "display": "block",
+          "float": "left",
+          "marginLeft": "3px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 3,
+              "y": 0,
+              "width": 204,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "clear both after inline block and earlier float",
+      "css": "#earlier{float:left;width:10%;height:220px}.floater{clear:both}",
+      "body": "<div id=\"earlier\"></div><div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div>",
+      "width": 300,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 310,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 310
+            }
+          ]
+        },
+        "earlier": {
+          "x": 0,
+          "y": 0,
+          "width": 30,
+          "height": 220,
+          "display": "block",
+          "float": "left",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 30,
+              "height": 220
+            }
+          ]
+        },
+        "left": {
+          "x": 30,
+          "y": 0,
+          "width": 90,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 30,
+              "y": 0,
+              "width": 90,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 93,
+          "y": 220,
+          "width": 204,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "3px",
+          "lineBoxes": [
+            {
+              "x": 93,
+              "y": 220,
+              "width": 204,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "float between inline atoms",
+      "css": ".atom{width:20%}.floater{width:50%;margin-right:0}#after{height:50px}",
+      "body": "<div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div><div id=\"after\" class=\"atom\"></div>",
+      "width": 300,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 164,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 300,
+              "height": 164
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 0,
+          "width": 60,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 60,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 150,
+          "y": 0,
+          "width": 150,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 150,
+              "y": 0,
+              "width": 150,
+              "height": 90
+            }
+          ]
+        },
+        "after": {
+          "x": 60,
+          "y": 110,
+          "width": 60,
+          "height": 50,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 60,
+              "y": 110,
+              "width": 60,
+              "height": 50
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "inline block before right float",
+      "body": "<div id=\"left\" class=\"atom\"></div> <div id=\"float\" class=\"floater\"></div>",
+      "width": 600,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 164,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 600,
+              "height": 164
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 0,
+          "width": 180,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 180,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 186,
+          "y": 0,
+          "width": 408,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "6px",
+          "lineBoxes": [
+            {
+              "x": 186,
+              "y": 0,
+              "width": 408,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ordinary block before inline block and float",
+      "body": "<div id=\"before\"></div><div id=\"left\" class=\"atom\"></div> <div id=\"float\" class=\"floater\"></div>",
+      "width": 600,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 204,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 600,
+              "height": 204
+            }
+          ]
+        },
+        "before": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 30,
+          "display": "block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 600,
+              "height": 30
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 40,
+          "width": 180,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 40,
+              "width": 180,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 186,
+          "y": 40,
+          "width": 408,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "6px",
+          "lineBoxes": [
+            {
+              "x": 186,
+              "y": 40,
+              "width": 408,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "short text before right float",
+      "body": "<span id=\"text\">Short</span><div id=\"float\" class=\"floater\"></div>",
+      "width": 600,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 90,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 600,
+              "height": 90
+            }
+          ]
+        },
+        "float": {
+          "x": 186,
+          "y": 0,
+          "width": 408,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "6px",
+          "lineBoxes": [
+            {
+              "x": 186,
+              "y": 0,
+              "width": 408,
+              "height": 90
+            }
+          ]
+        },
+        "text": {
+          "x": 0,
+          "y": -2,
+          "width": 54.984375,
+          "height": 23,
+          "display": "inline",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": -2,
+              "width": 54.984375,
+              "height": 23
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "wrapped text before right float",
+      "body": "<span id=\"text\">one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty</span><div id=\"float\" class=\"floater\"></div>",
+      "width": 600,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 150,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 600,
+              "height": 150
+            }
+          ]
+        },
+        "float": {
+          "x": 186,
+          "y": 60,
+          "width": 408,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "6px",
+          "lineBoxes": [
+            {
+              "x": 186,
+              "y": 60,
+              "width": 408,
+              "height": 90
+            }
+          ]
+        },
+        "text": {
+          "x": 0,
+          "y": -2,
+          "width": 527.8125,
+          "height": 63,
+          "display": "inline",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": -2,
+              "width": 527.8125,
+              "height": 23
+            },
+            {
+              "x": 0,
+              "y": 18,
+              "width": 516.828125,
+              "height": 23
+            },
+            {
+              "x": 0,
+              "y": 38,
+              "width": 373.875,
+              "height": 23
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "float too wide for preceding inline block",
+      "css": ".atom{width:60%}.floater{width:60%;margin-right:0}",
+      "body": "<div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div>",
+      "width": 600,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 254,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 600,
+              "height": 254
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 0,
+          "width": 360,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 360,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 240,
+          "y": 164,
+          "width": 360,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 240,
+              "y": 164,
+              "width": 360,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "left float after inline block",
+      "css": ".floater{float:left;margin-right:0;margin-left:1%}",
+      "body": "<div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div>",
+      "width": 600,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 164,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 600,
+              "height": 164
+            }
+          ]
+        },
+        "left": {
+          "x": 414,
+          "y": 0,
+          "width": 180,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 414,
+              "y": 0,
+              "width": 180,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 6,
+          "y": 0,
+          "width": 408,
+          "height": 90,
+          "display": "block",
+          "float": "left",
+          "marginLeft": "6px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 6,
+              "y": 0,
+              "width": 408,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "clear both after inline block and earlier float",
+      "css": "#earlier{float:left;width:10%;height:220px}.floater{clear:both}",
+      "body": "<div id=\"earlier\"></div><div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div>",
+      "width": 600,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 310,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 600,
+              "height": 310
+            }
+          ]
+        },
+        "earlier": {
+          "x": 0,
+          "y": 0,
+          "width": 60,
+          "height": 220,
+          "display": "block",
+          "float": "left",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 60,
+              "height": 220
+            }
+          ]
+        },
+        "left": {
+          "x": 60,
+          "y": 0,
+          "width": 180,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 60,
+              "y": 0,
+              "width": 180,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 186,
+          "y": 220,
+          "width": 408,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "6px",
+          "lineBoxes": [
+            {
+              "x": 186,
+              "y": 220,
+              "width": 408,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "float between inline atoms",
+      "css": ".atom{width:20%}.floater{width:50%;margin-right:0}#after{height:50px}",
+      "body": "<div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div><div id=\"after\" class=\"atom\"></div>",
+      "width": 600,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 164,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 600,
+              "height": 164
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 0,
+          "width": 120,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 120,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 300,
+          "y": 0,
+          "width": 300,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 300,
+              "y": 0,
+              "width": 300,
+              "height": 90
+            }
+          ]
+        },
+        "after": {
+          "x": 120,
+          "y": 110,
+          "width": 120,
+          "height": 50,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 120,
+              "y": 110,
+              "width": 120,
+              "height": 50
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "inline block before right float",
+      "body": "<div id=\"left\" class=\"atom\"></div> <div id=\"float\" class=\"floater\"></div>",
+      "width": 1100,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 164,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1100,
+              "height": 164
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 0,
+          "width": 330,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 330,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 341,
+          "y": 0,
+          "width": 748,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "11px",
+          "lineBoxes": [
+            {
+              "x": 341,
+              "y": 0,
+              "width": 748,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "ordinary block before inline block and float",
+      "body": "<div id=\"before\"></div><div id=\"left\" class=\"atom\"></div> <div id=\"float\" class=\"floater\"></div>",
+      "width": 1100,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 204,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1100,
+              "height": 204
+            }
+          ]
+        },
+        "before": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 30,
+          "display": "block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1100,
+              "height": 30
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 40,
+          "width": 330,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 40,
+              "width": 330,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 341,
+          "y": 40,
+          "width": 748,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "11px",
+          "lineBoxes": [
+            {
+              "x": 341,
+              "y": 40,
+              "width": 748,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "short text before right float",
+      "body": "<span id=\"text\">Short</span><div id=\"float\" class=\"floater\"></div>",
+      "width": 1100,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 90,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1100,
+              "height": 90
+            }
+          ]
+        },
+        "float": {
+          "x": 341,
+          "y": 0,
+          "width": 748,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "11px",
+          "lineBoxes": [
+            {
+              "x": 341,
+              "y": 0,
+              "width": 748,
+              "height": 90
+            }
+          ]
+        },
+        "text": {
+          "x": 0,
+          "y": -2,
+          "width": 54.984375,
+          "height": 23,
+          "display": "inline",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": -2,
+              "width": 54.984375,
+              "height": 23
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "wrapped text before right float",
+      "body": "<span id=\"text\">one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty</span><div id=\"float\" class=\"floater\"></div>",
+      "width": 1100,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 130,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1100,
+              "height": 130
+            }
+          ]
+        },
+        "float": {
+          "x": 341,
+          "y": 40,
+          "width": 748,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "11px",
+          "lineBoxes": [
+            {
+              "x": 341,
+              "y": 40,
+              "width": 748,
+              "height": 90
+            }
+          ]
+        },
+        "text": {
+          "x": 0,
+          "y": -2,
+          "width": 1055.625,
+          "height": 43,
+          "display": "inline",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": -2,
+              "width": 1055.625,
+              "height": 23
+            },
+            {
+              "x": 0,
+              "y": 18,
+              "width": 373.875,
+              "height": 23
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "float too wide for preceding inline block",
+      "css": ".atom{width:60%}.floater{width:60%;margin-right:0}",
+      "body": "<div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div>",
+      "width": 1100,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 254,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1100,
+              "height": 254
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 0,
+          "width": 660,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 660,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 440,
+          "y": 164,
+          "width": 660,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 440,
+              "y": 164,
+              "width": 660,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "left float after inline block",
+      "css": ".floater{float:left;margin-right:0;margin-left:1%}",
+      "body": "<div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div>",
+      "width": 1100,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 164,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1100,
+              "height": 164
+            }
+          ]
+        },
+        "left": {
+          "x": 759,
+          "y": 0,
+          "width": 330,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 759,
+              "y": 0,
+              "width": 330,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 11,
+          "y": 0,
+          "width": 748,
+          "height": 90,
+          "display": "block",
+          "float": "left",
+          "marginLeft": "11px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 11,
+              "y": 0,
+              "width": 748,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "clear both after inline block and earlier float",
+      "css": "#earlier{float:left;width:10%;height:220px}.floater{clear:both}",
+      "body": "<div id=\"earlier\"></div><div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div>",
+      "width": 1100,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 310,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1100,
+              "height": 310
+            }
+          ]
+        },
+        "earlier": {
+          "x": 0,
+          "y": 0,
+          "width": 110,
+          "height": 220,
+          "display": "block",
+          "float": "left",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 110,
+              "height": 220
+            }
+          ]
+        },
+        "left": {
+          "x": 110,
+          "y": 0,
+          "width": 330,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 110,
+              "y": 0,
+              "width": 330,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 341,
+          "y": 220,
+          "width": 748,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "11px",
+          "lineBoxes": [
+            {
+              "x": 341,
+              "y": 220,
+              "width": 748,
+              "height": 90
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "float between inline atoms",
+      "css": ".atom{width:20%}.floater{width:50%;margin-right:0}#after{height:50px}",
+      "body": "<div id=\"left\" class=\"atom\"></div><div id=\"float\" class=\"floater\"></div><div id=\"after\" class=\"atom\"></div>",
+      "width": 1100,
+      "geometry": {
+        "container": {
+          "x": 0,
+          "y": 0,
+          "width": 1100,
+          "height": 164,
+          "display": "flow-root",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 1100,
+              "height": 164
+            }
+          ]
+        },
+        "left": {
+          "x": 0,
+          "y": 0,
+          "width": 220,
+          "height": 160,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 0,
+              "y": 0,
+              "width": 220,
+              "height": 160
+            }
+          ]
+        },
+        "float": {
+          "x": 550,
+          "y": 0,
+          "width": 550,
+          "height": 90,
+          "display": "block",
+          "float": "right",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 550,
+              "y": 0,
+              "width": 550,
+              "height": 90
+            }
+          ]
+        },
+        "after": {
+          "x": 220,
+          "y": 110,
+          "width": 220,
+          "height": 50,
+          "display": "inline-block",
+          "float": "none",
+          "marginLeft": "0px",
+          "marginRight": "0px",
+          "lineBoxes": [
+            {
+              "x": 220,
+              "y": 110,
+              "width": 220,
+              "height": 50
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "gamePage": [
+    {
+      "width": 1100,
+      "geometry": {
+        "elements": {
+          "top": {
+            "x": 0,
+            "y": 0,
+            "width": 1085,
+            "height": 63.8125,
+            "display": "block",
+            "float": "none"
+          },
+          "container": {
+            "x": 0,
+            "y": 63.8125,
+            "width": 1085,
+            "height": 757.140625,
+            "display": "block",
+            "float": "none"
+          },
+          "left": {
+            "x": 0,
+            "y": 63.8125,
+            "width": 325.5,
+            "height": 757.140625,
+            "display": "inline-block",
+            "float": "none"
+          },
+          "right": {
+            "x": 336.359375,
+            "y": 63.8125,
+            "width": 737.796875,
+            "height": 1083.40625,
+            "display": "block",
+            "float": "right"
+          }
+        },
+        "images": [
+          {
+            "complete": true,
+            "naturalWidth": 1200,
+            "naturalHeight": 92,
+            "renderedWidth": 760,
+            "renderedHeight": 58
+          },
+          {
+            "complete": true,
+            "naturalWidth": 355,
+            "naturalHeight": 269,
+            "renderedWidth": 326,
+            "renderedHeight": 247
+          },
+          {
+            "complete": true,
+            "naturalWidth": 400,
+            "naturalHeight": 266,
+            "renderedWidth": 326,
+            "renderedHeight": 216
+          },
+          {
+            "complete": true,
+            "naturalWidth": 330,
+            "naturalHeight": 200,
+            "renderedWidth": 326,
+            "renderedHeight": 197
+          },
+          {
+            "complete": true,
+            "naturalWidth": 330,
+            "naturalHeight": 200,
+            "renderedWidth": 330,
+            "renderedHeight": 200
+          }
+        ]
+      }
+    },
+    {
+      "width": 800,
+      "geometry": {
+        "elements": {
+          "top": {
+            "x": 0,
+            "y": 0,
+            "width": 785,
+            "height": 47.71875,
+            "display": "block",
+            "float": "none"
+          },
+          "container": {
+            "x": 0,
+            "y": 47.71875,
+            "width": 785,
+            "height": 574.53125,
+            "display": "block",
+            "float": "none"
+          },
+          "left": {
+            "x": 0,
+            "y": 47.71875,
+            "width": 235.5,
+            "height": 574.53125,
+            "display": "inline-block",
+            "float": "none"
+          },
+          "right": {
+            "x": 243.359375,
+            "y": 47.71875,
+            "width": 533.796875,
+            "height": 1320.9375,
+            "display": "block",
+            "float": "right"
+          }
+        },
+        "images": [
+          {
+            "complete": true,
+            "naturalWidth": 1200,
+            "naturalHeight": 92,
+            "renderedWidth": 550,
+            "renderedHeight": 42
+          },
+          {
+            "complete": true,
+            "naturalWidth": 355,
+            "naturalHeight": 269,
+            "renderedWidth": 236,
+            "renderedHeight": 178
+          },
+          {
+            "complete": true,
+            "naturalWidth": 400,
+            "naturalHeight": 266,
+            "renderedWidth": 236,
+            "renderedHeight": 157
+          },
+          {
+            "complete": true,
+            "naturalWidth": 330,
+            "naturalHeight": 200,
+            "renderedWidth": 236,
+            "renderedHeight": 143
+          },
+          {
+            "complete": true,
+            "naturalWidth": 330,
+            "naturalHeight": 200,
+            "renderedWidth": 330,
+            "renderedHeight": 200
+          }
+        ]
+      }
+    }
+  ],
+  "textMetrics": {
+    "font": "20px / 20px monospace",
+    "fontSize": 20,
+    "lineHeight": 20,
+    "baseline": 16,
+    "widths": {
+      " ": 11,
+      "Short": 54.984375,
+      "one": 33,
+      "two": 33,
+      "three": 54.984375,
+      "four": 43.984375,
+      "five": 43.984375,
+      "six": 33,
+      "seven": 54.984375,
+      "eight": 54.984375,
+      "nine": 43.984375,
+      "ten": 33,
+      "eleven": 65.984375,
+      "twelve": 65.984375,
+      "thirteen": 87.96875,
+      "fourteen": 87.96875,
+      "fifteen": 76.984375,
+      "sixteen": 76.984375,
+      "seventeen": 98.96875,
+      "eighteen": 87.96875,
+      "nineteen": 87.96875,
+      "twenty": 65.984375
+    }
+  }
+}

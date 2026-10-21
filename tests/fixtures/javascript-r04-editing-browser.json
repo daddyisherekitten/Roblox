@@ -1,0 +1,44 @@
+{
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+  "reports": [
+    {
+      "name": "before Enter",
+      "value": "<p id=\"editor\" contenteditable=\"true\">ab<strong>cd</strong></p>"
+    },
+    {
+      "name": "beforeinput",
+      "value": {
+        "inputType": "insertParagraph",
+        "ranges": [
+          [
+            "#text",
+            1,
+            "#text",
+            1
+          ]
+        ],
+        "html": "<p id=\"editor\" contenteditable=\"true\">a<div>b<strong>cd</strong></div></p>",
+        "caret": [
+          "#text",
+          0,
+          "#text",
+          0
+        ]
+      }
+    },
+    {
+      "name": "input",
+      "value": {
+        "inputType": "insertParagraph",
+        "ranges": [],
+        "html": "<p id=\"editor\" contenteditable=\"true\">a<div>b<strong>cd</strong></div></p>",
+        "caret": [
+          "#text",
+          0,
+          "#text",
+          0
+        ]
+      }
+    }
+  ]
+}

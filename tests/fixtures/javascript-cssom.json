@@ -1,0 +1,401 @@
+[
+  {
+    "name": "constructed identities and live lists",
+    "source": "const s=new CSSStyleSheet(),l=s.cssRules; record(s instanceof CSSStyleSheet); record(s instanceof StyleSheet); record(s.ownerNode===null); record(s.href===null); record(s.type); record(l===s.cssRules); record(l instanceof CSSRuleList); record(l.item(0)===null); record(l[0]===undefined); record(s.insertRule('.x { color: red; width: 20px; }')); record(l.length); record(l[0].selectorText); record(l[0].style.color); record(l[0].parentStyleSheet===s); record(l[0].parentRule===null); const r=l[0]; s.deleteRule(0); record(l.length); record(r.parentStyleSheet===null); record(r.parentRule===null);",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "text/css",
+      "true",
+      "true",
+      "true",
+      "true",
+      "0",
+      "1",
+      ".x",
+      "red",
+      "true",
+      "true",
+      "0",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "ordered declarations and shorthands",
+    "source": "const s=new CSSStyleSheet(); s.replaceSync('.x { margin: 1px 2px; color: red; width:20px; color:blue !important; color:green; }'); const d=s.cssRules[0].style; record(d instanceof CSSStyleDeclaration); record(d.length); record(d.item(0)); record(d.getPropertyValue('margin')); record(d.marginTop); record(d.color); record(d.getPropertyPriority('color')); d.setProperty('color','green'); record(d.color); record(d.getPropertyPriority('color')); d.setProperty('color','yellow !important',''); record(d.color); d.setProperty('color','pink; height:40px',''); record(d.color); record(d.height); d.setProperty('color','','bad'); record(d.color); record(d.removeProperty('margin')); record(d.margin);",
+    "expected": [
+      "true",
+      "6",
+      "margin-top",
+      "1px 2px",
+      "1px",
+      "blue",
+      "important",
+      "green",
+      "",
+      "green",
+      "green",
+      "",
+      "",
+      "1px 2px",
+      ""
+    ],
+    "browserExpected": [
+      "true",
+      "6",
+      "margin-top",
+      "1px 2px",
+      "1px",
+      "blue",
+      "important",
+      "green",
+      "",
+      "green",
+      "green",
+      "",
+      "green",
+      "",
+      ""
+    ],
+    "difference": "Current CSSOM setProperty step 3 removes an empty value before validating priority; removeProperty step 8 returns the old shorthand. Chromium instead preserves the color and returns an empty shorthand string in this case."
+  },
+  {
+    "name": "grouping and retained removed rules",
+    "source": "const s=new CSSStyleSheet();s.insertRule('@media screen { .x { color: red; } @supports (display: grid) { .y { display: grid; } } }');const m=s.cssRules[0],n=m.cssRules[1],r=n.cssRules[0];record(m instanceof CSSMediaRule);record(m instanceof CSSGroupingRule);record(m.conditionText);record(m.media===m.media);record(n instanceof CSSSupportsRule);record(n.conditionText);record(r.parentRule===n);record(r.parentStyleSheet===s);const list=m.cssRules;m.insertRule('.z { color: blue; }',1);record(list.length);record(list[1].selectorText);s.deleteRule(0);record(m.parentStyleSheet===null);record(n.parentStyleSheet===null);record(n.parentRule===m);record(r.parentStyleSheet===null);record(r.parentRule===n);",
+    "expected": [
+      "true",
+      "true",
+      "screen",
+      "true",
+      "true",
+      "(display: grid)",
+      "true",
+      "true",
+      "3",
+      ".z",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "selectors, cssText no-op and receiver errors",
+    "source": "const s=new CSSStyleSheet();s.insertRule('.x { color: red; }');const r=s.cssRules[0];r.selectorText='.y, .z';record(r.selectorText);r.selectorText='[';record(r.selectorText);r.cssText='.q { color:blue }';record(r.selectorText);function e(fn){try{fn();record('no error')}catch(x){record(x.name)}}e(()=>CSSStyleSheet());e(()=>new CSSRule());e(()=>CSSStyleSheet.prototype.insertRule.call({},'.a{}'));e(()=>s.insertRule('.a{} .b{}'));e(()=>s.insertRule('@import url(x.css);'));e(()=>s.deleteRule(3));e(()=>s.insertRule('.a{}',3));",
+    "expected": [
+      ".y, .z",
+      ".y, .z",
+      ".y, .z",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "SyntaxError",
+      "SyntaxError",
+      "IndexSizeError",
+      "IndexSizeError"
+    ]
+  },
+  {
+    "name": "media and constructor dictionary",
+    "source": "let reads=[];const s=new CSSStyleSheet({get media(){reads.push('media');return 'screen, print'},get disabled(){reads.push('disabled');return true},get baseURL(){reads.push('baseURL');return null}});record(reads.join(','));record(s.disabled);record(s.media.mediaText);s.media.appendMedium('screen');record(s.media.length);s.media.appendMedium('all');record(s.media.mediaText);s.media.deleteMedium('print');record(s.media.mediaText);try{s.media.deleteMedium('print')}catch(e){record(e.name)}s.media='screen';record(s.media.mediaText);",
+    "expected": [
+      "baseURL,disabled,media",
+      "true",
+      "screen, print",
+      "2",
+      "screen, print, all",
+      "screen, all",
+      "NotFoundError",
+      "screen"
+    ],
+    "browserExpected": [
+      "disabled,media",
+      "true",
+      "screen, print",
+      "2",
+      "screen, print, all",
+      "screen, all",
+      "NotFoundError",
+      "screen"
+    ],
+    "difference": "Current CSSOM CSSStyleSheetInit includes baseURL; installed Chromium does not read that dictionary member."
+  },
+  {
+    "name": "adopted observable array",
+    "source": "const a=new CSSStyleSheet(),b=new CSSStyleSheet();const l=document.adoptedStyleSheets;record(Array.isArray(l));record(l===document.adoptedStyleSheets);document.adoptedStyleSheets=[a];record(l.length);record(l[0]===a);l.push(b);record(l.length);record(l[1]===b);l.splice(0,1);record(l.length);record(l[0]===b);record(Reflect.set(l,'3',a));record(Reflect.set(l,'length',5));record(Reflect.deleteProperty(l,'3'));record(Reflect.deleteProperty(l,'0'));record(l.length);",
+    "expected": [
+      "true",
+      "true",
+      "1",
+      "true",
+      "2",
+      "true",
+      "1",
+      "true",
+      "false",
+      "false",
+      "false",
+      "true",
+      "0"
+    ]
+  },
+  {
+    "name": "owner sheet mutation separation and reassociation",
+    "source": "const el=document.createElement('style');el.textContent='.x{color:red}';document.head.append(el);const list=document.styleSheets,s=el.sheet;record(list.length);record(list[0]===s);record(s.ownerNode===el);s.insertRule('.y{color:blue}',1);record(el.textContent);record(s.cssRules.length);el.firstChild.data='.x{color:red}';record(el.sheet!==s);record(s.ownerNode===null);record(el.sheet.cssRules.length);const t=el.sheet;el.remove();record(list.length);record(t.ownerNode===null);document.head.append(el);record(el.sheet!==t);record(list.length);",
+    "expected": [
+      "1",
+      "true",
+      "true",
+      ".x{color:red}",
+      "2",
+      "true",
+      "true",
+      "1",
+      "0",
+      "true",
+      "true",
+      "1"
+    ]
+  },
+  {
+    "name": "declaration public interface across kinds",
+    "source": "const el=document.createElement('div');el.style.color='red';document.body.append(el);const s=new CSSStyleSheet();s.insertRule('div { color:blue; }');record(el.style instanceof CSSStyleDeclaration);record(s.cssRules[0].style instanceof CSSStyleDeclaration);const c=getComputedStyle(el);record(c instanceof CSSStyleDeclaration);record(c.cssText);const get=CSSStyleDeclaration.prototype.getPropertyValue;record(get.call(el.style,'color'));record(get.call(s.cssRules[0].style,'color'));try{c.setProperty('color','red')}catch(e){record(e.name)}record(el.style===el.style);el.setAttribute('style','color:green');record(el.style.color);",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "",
+      "red",
+      "blue",
+      "NoModificationAllowedError",
+      "true",
+      "green"
+    ]
+  },
+  {
+    "name": "iterables, indices and expandos",
+    "source": "const s=new CSSStyleSheet({media:'screen, print'});s.insertRule('.a{color:red}');s.insertRule('.b{color:blue}',1);record([...s.cssRules].map(r=>r.selectorText).join(','));record([...s.media].join(','));record(s.media[0]);record(Object.getOwnPropertyDescriptor(s.media,'0').writable);s.cssRules.note=42;record(s.cssRules.note);record(Object.keys(s.cssRules).join(','));record([...s.cssRules[0].style].join(','));const it=s.cssRules[Symbol.iterator]();record(it.next().value===s.cssRules[0]);s.insertRule('.c{}',2);record(it.next().value.selectorText);record(it.next().value.selectorText);record(it.next().done);record(Reflect.preventExtensions(s.cssRules));record(Reflect.preventExtensions(s.media));record(Reflect.preventExtensions(s.cssRules[0].style));record(Object.isExtensible(s.cssRules));record(Reflect.deleteProperty(s.cssRules,'99'));record(Reflect.deleteProperty(s.cssRules,'0'));record(Reflect.deleteProperty(s.cssRules[0].style,'99'));",
+    "expected": [
+      ".a,.b",
+      "screen,print",
+      "screen",
+      "false",
+      "42",
+      "0,1,note",
+      "color",
+      "true",
+      ".b",
+      ".c",
+      "true",
+      "false",
+      "false",
+      "false",
+      "true",
+      "true",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "common serialization and logical declaration ordering",
+    "source": "const s=new CSSStyleSheet();s.insertRule('.a { margin: 1px 2px; color: #edd8b9; width: 0; }');const d=s.cssRules[0].style;record(d.cssText);record(s.cssRules[0].cssText);d.cssText='margin-top:1px; margin-inline-start:5px; margin-right:2px; margin-bottom:1px; margin-left:2px';record(d.cssText);d.marginTop='3px';record(d.item(d.length-1));d.cssText='margin-left:1px; margin-inline-start:2px; margin-left:3px';record(d.item(0));record(d.item(1));",
+    "expected": [
+      "margin: 1px 2px; color: rgb(237, 216, 185); width: 0px;",
+      ".a { margin: 1px 2px; color: rgb(237, 216, 185); width: 0px; }",
+      "margin-top: 1px; margin-inline-start: 5px; margin-right: 2px; margin-bottom: 1px; margin-left: 2px;",
+      "margin-top",
+      "margin-inline-start",
+      "margin-left"
+    ],
+    "browserExpected": [
+      "margin: 1px 2px; color: rgb(237, 216, 185); width: 0px;",
+      ".a { margin: 1px 2px; color: rgb(237, 216, 185); width: 0px; }",
+      "margin: 1px 2px; margin-inline-start: 5px;",
+      "margin-top",
+      "margin-inline-start",
+      "margin-left"
+    ],
+    "difference": "Installed Chromium recombines physical margin longhands across an intervening logical longhand. Current CSSOM serialization forbids an intermixed logical mapping because recombination can change the cascade."
+  },
+  {
+    "name": "adopted array conversion and partial mutation",
+    "source": "const a=new CSSStyleSheet(),b=new CSSStyleSheet(),style=document.createElement('style');document.head.append(style);const l=document.adoptedStyleSheets;document.adoptedStyleSheets=[a];try{document.adoptedStyleSheets=[b,{}]}catch(e){record(e.name)}record(l[0]===a);try{document.adoptedStyleSheets=[b,style.sheet]}catch(e){record(e.name)}record(l.length);record(l[0]===b);try{Reflect.set(l,'0','bad',{})}catch(e){record(e.name)}record(l[0]===b);record(Reflect.defineProperty(l,'0',{value:a,writable:false}));try{record(Reflect.defineProperty(l,'0',{}))}catch(e){record(e.name)}record(Reflect.preventExtensions(l));let conversions=0;l.length={valueOf(){conversions++;return 0}};record(conversions);record(l.length);",
+    "expected": [
+      "TypeError",
+      "true",
+      "NotAllowedError",
+      "1",
+      "true",
+      "TypeError",
+      "true",
+      "false",
+      "true",
+      "false",
+      "2",
+      "0"
+    ],
+    "browserExpected": [
+      "TypeError",
+      "true",
+      "NotAllowedError",
+      "1",
+      "true",
+      "TypeError",
+      "true",
+      "false",
+      "TypeError",
+      "false",
+      "2",
+      "0"
+    ],
+    "difference": "Installed Chromium attempts interface conversion when defining an adopted array index without a descriptor value. Current WebIDL ObservableArray [[DefineOwnProperty]] returns true without conversion when [[Value]] is absent."
+  },
+  {
+    "name": "detached subtree, same media and readonly declarations",
+    "source": "const holder=document.createElement('div'),style=document.createElement('style');style.media='screen';style.textContent='.x{color:red}';holder.append(style);document.body.append(holder);const s=style.sheet;s.media='print';record(s.media.mediaText);style.setAttribute('media','screen');record(s.media.mediaText);holder.remove();document.body.append(holder);record(style.sheet!==s);record(s.ownerNode===null);function e(fn){try{fn();record('none')}catch(x){record(x.name)}}e(()=>{(function(){'use strict';document.styleSheets=[]})()});e(()=>{(function(){'use strict';style.sheet=null})()});const rule=style.sheet.cssRules[0];record(rule instanceof CSSGroupingRule);record(rule.cssRules.length);e(()=>Object.getOwnPropertyDescriptor(CSSStyleRule.prototype,'style').get.call(new CSSStyleSheet().cssRules));",
+    "expected": [
+      "print",
+      "screen",
+      "true",
+      "true",
+      "TypeError",
+      "TypeError",
+      "true",
+      "0",
+      "TypeError"
+    ],
+    "browserExpected": [
+      "print",
+      "screen",
+      "true",
+      "true",
+      "TypeError",
+      "TypeError",
+      "false",
+      "0",
+      "TypeError"
+    ],
+    "difference": "Installed Chromium exposes empty CSSStyleRule.cssRules but keeps the older CSSRule prototype parent. Current CSSOM defines CSSStyleRule as a CSSGroupingRule subclass."
+  },
+  {
+    "name": "inline forwarding, properties and mutation records",
+    "async": true,
+    "source": "const el=document.createElement('div');document.body.append(el);const records=[];const observer=new MutationObserver(items=>records.push(...items));observer.observe(el,{attributes:true,attributeOldValue:true});el.style={toString(){record('convert');return 'color:red'}};const held=el.style;el.style=null;record(held===el.style);record(el.style.cssText);await Promise.resolve();record(records.length);records.length=0;el.style.setProperty('height','100px');el.style.setProperty('height','100px');await Promise.resolve();record(records.length);records.length=0;el.style.cssText='height:100px';el.style.cssText='height:100px';await Promise.resolve();record(records.length);const c=getComputedStyle(el);try{c.setProperty('color',{toString(){record('value conversion');return 'red'}},{toString(){record('priority conversion');return ''}})}catch(e){record(e.name)}observer.disconnect();",
+    "expected": [
+      "convert",
+      "true",
+      "",
+      "2",
+      "1",
+      "2",
+      "value conversion",
+      "priority conversion",
+      "NoModificationAllowedError"
+    ]
+  },
+  {
+    "name": "PutForwards observes own properties without precoercion",
+    "source": "const s=new CSSStyleSheet(),value={};let calls=0;Object.defineProperty(s,'media',{value:{set mediaText(x){record(x===value);calls++}}});Object.getOwnPropertyDescriptor(StyleSheet.prototype,'media').set.call(s,value);s.insertRule('.a{}');const r=s.cssRules[0];Object.defineProperty(r,'style',{value:{set cssText(x){record(x===value);calls++}}});Object.getOwnPropertyDescriptor(CSSStyleRule.prototype,'style').set.call(r,value);record(calls);",
+    "expected": [
+      "true",
+      "true",
+      "2"
+    ]
+  },
+  {
+    "name": "asynchronous replace and rejected WebIDL conversions",
+    "async": true,
+    "source": "const s=new CSSStyleSheet();record(await s.replace('@import url(ignored.css); .a{color:red}')===s);record(s.cssRules.length);record(s.cssRules[0].selectorText);const el=document.createElement('style');document.head.append(el);for(const fn of [()=>CSSStyleSheet.prototype.replace.call({},'.a{}'),()=>s.replace(),()=>s.replace(Symbol()),()=>el.sheet.replace('.a{}')]){let p;try{p=fn();record(p instanceof Promise)}catch(e){record('sync '+e.name);continue}try{await p;record('fulfilled')}catch(e){record(e.name)}}",
+    "expected": [
+      "true",
+      "1",
+      ".a",
+      "true",
+      "TypeError",
+      "true",
+      "TypeError",
+      "true",
+      "TypeError",
+      "true",
+      "NotAllowedError"
+    ]
+  },
+  {
+    "name": "nesting interleaved declarations and live child rules",
+    "source": "const s=new CSSStyleSheet();s.replaceSync('.a { color:red; > p { color:blue; } color:green; @media (min-width: 1px) { padding:3px; &.active { width:40px; } } background-color:white; }');const r=s.cssRules[0],l=r.cssRules;record(r.style.color);record(r.style.backgroundColor);record(l.length);record(l[0].selectorText);record(l[1] instanceof CSSNestedDeclarations);record(l[1].type);record(l[1].style.color);record(l[1].cssText);record(l[1].style.parentRule===l[1]);record(l[2].cssRules[0] instanceof CSSNestedDeclarations);record(l[2].cssRules[0].style.padding);record(l[2].cssRules[1].selectorText);record(l[3].style.backgroundColor);record(l[0].parentRule===r);record(l[2].cssRules[1].parentStyleSheet===s);record(l===r.cssRules);",
+    "expected": [
+      "red",
+      "",
+      "4",
+      "& > p",
+      "true",
+      "0",
+      "green",
+      "color: green;",
+      "true",
+      "true",
+      "3px",
+      "&.active",
+      "white",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "nesting CSSOM insertion selector mutation and detachment",
+    "source": "const s=new CSSStyleSheet();s.replaceSync('.a{color:red}');const r=s.cssRules[0],l=r.cssRules;record(r.insertRule('> p { color:blue; }'));record(l[0].selectorText);l[0].selectorText='span';record(l[0].selectorText);l[0].selectorText='&.active';record(l[0].selectorText);l[0].selectorText='&invalid';record(l[0].selectorText);record(r.insertRule('@media all { color:green; > b { color:white; } }',1));const group=l[1],child=group.cssRules[1];record(child.selectorText);record(group.insertRule('&.open {height:20px}',2));record(group.cssRules[2].parentRule===group);const nested=group.cssRules[0];nested.style='color:purple';record(nested.cssText);r.deleteRule(1);record(group.parentRule===null);record(group.parentStyleSheet===null);record(child.parentRule===group);record(child.parentStyleSheet===null);record(l.length);",
+    "expected": [
+      "0",
+      "& > p",
+      "& span",
+      "&.active",
+      "&.active",
+      "1",
+      "& > b",
+      "2",
+      "true",
+      "color: purple;",
+      "true",
+      "true",
+      "true",
+      "true",
+      "1"
+    ]
+  },
+  {
+    "name": "nesting strings component values and recovery",
+    "source": "const s=new CSSStyleSheet();s.replaceSync('.a{--tokens:{inner:{value:1}};color:red; &:hover { content:\"& {};\"; } nonsense:wrong; height:20px; &invalid { color:blue; } width:30px; [data-x=\"&\"] { color:green; }}');const r=s.cssRules[0];record(r.style.getPropertyValue('--tokens'));record(r.style.color);record(r.cssRules.length);for(const c of r.cssRules){record(c.selectorText===undefined?'declarations':c.selectorText);record(c.style.cssText)}",
+    "expected": [
+      "{inner:{value:1}}",
+      "red",
+      "3",
+      "&:hover",
+      "content: \"& {};\";",
+      "declarations",
+      "height: 20px; width: 30px;",
+      "& [data-x=\"&\"]",
+      "color: green;"
+    ]
+  },
+  {
+    "name": "nesting type compound and multiple selector serialization",
+    "source": "const s=new CSSStyleSheet();s.replaceSync('.a,#b { div&,.c& {color:red} &div{color:blue} > p,span{color:green} :is(&,.other){color:white} &&{width:2px} }');const r=s.cssRules[0];record(r.cssRules.length);for(const c of r.cssRules)record(c.selectorText);",
+    "expected": [
+      "4",
+      "div&, .c&",
+      "& > p, & span",
+      ":is(&, .other)",
+      "&&"
+    ]
+  },
+  {
+    "name": "nesting declarations PutForwards uses the visible style property",
+    "source": "const s=new CSSStyleSheet();s.replaceSync('.a{&{color:red}color:green}');const r=s.cssRules[0].cssRules[1];const descriptor=Object.getOwnPropertyDescriptor(CSSNestedDeclarations.prototype,'style');const original=descriptor.get.call(r),replacement={};Object.defineProperty(r,'style',{value:replacement});descriptor.set.call(r,'padding:8px');record(replacement.cssText);record(original.cssText);record(original.parentRule===r);record(r instanceof CSSRule);",
+    "expected": ["padding:8px", "color: green;", "true", "true"]
+  }
+]

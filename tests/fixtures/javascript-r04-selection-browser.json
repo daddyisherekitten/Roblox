@@ -1,0 +1,181 @@
+{
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+  "cases": [
+    {
+      "name": "shadow collapse and public boundaries",
+      "expected": [
+        "1|Caret|true|2|true|2|true|none"
+      ]
+    },
+    {
+      "name": "shadow extended text and range",
+      "expected": [
+        "1|lpha|true|1|5|forward"
+      ]
+    },
+    {
+      "name": "composed shadow ranges hidden and supplied",
+      "expected": [
+        "true|true|true|true|1|5"
+      ]
+    },
+    {
+      "name": "nested roots expose ancestors of supplied root",
+      "expected": [
+        "true|1|4|true|0|1|true"
+      ]
+    },
+    {
+      "name": "shadow addRange",
+      "expected": [
+        "1|shadow|true"
+      ]
+    },
+    {
+      "name": "shadow root getSelection",
+      "expected": [
+        "function|false|sha"
+      ]
+    },
+    {
+      "name": "detached shadow selection ignored",
+      "expected": [
+        "true|1|1"
+      ]
+    },
+    {
+      "name": "invalid composed root closes iterator",
+      "expected": [
+        "TypeError|false"
+      ]
+    },
+    {
+      "name": "modify character respects supplementary text",
+      "expected": [
+        "3",
+        "3|1|😀"
+      ]
+    },
+    {
+      "name": "modify character respects combining text",
+      "expected": [
+        "2",
+        "0"
+      ]
+    },
+    {
+      "name": "modify word movement and extension",
+      "expected": [
+        "6",
+        "6|11|beta ",
+        "6"
+      ]
+    },
+    {
+      "name": "modify across inline text nodes",
+      "expected": [
+        "true|1",
+        "def"
+      ]
+    },
+    {
+      "name": "modify invalid values are no-op",
+      "expected": [
+        "1",
+        "1",
+        "2"
+      ]
+    },
+    {
+      "name": "selection contains own shadow text",
+      "expected": [
+        "true|false|false"
+      ]
+    },
+    {
+      "name": "shadow live selection text mutation",
+      "expected": [
+        "4|7|cde"
+      ]
+    },
+    {
+      "name": "control selection stringification",
+      "expected": [
+        "bcd",
+        ""
+      ]
+    },
+    {
+      "name": "shadow selection view shared identity and filtering",
+      "expected": [
+        "true",
+        "true|1|1|false|forward",
+        "0|None|true|ig",
+        "false|0|1"
+      ]
+    },
+    {
+      "name": "shadow view ranges hide other nested shadow roots",
+      "expected": [
+        "1|true|0|0|est"
+      ]
+    },
+    {
+      "name": "light selection over shadow host excludes shadow text",
+      "expected": [
+        "beforeafter"
+      ]
+    },
+    {
+      "name": "modify paragraph and document boundaries",
+      "expected": [
+        "true|3",
+        "true|3",
+        "true|0",
+        "abc\n\ndef"
+      ]
+    },
+    {
+      "name": "shadow view range is a snapshot",
+      "expected": [
+        "false",
+        "had",
+        "true|2|2|true|2|false|true|0"
+      ]
+    },
+    {
+      "name": "selection crossing shadow boundary",
+      "expected": [
+        "false|3|true|3|true|1|true|3|ight\n\n"
+      ]
+    },
+    {
+      "name": "shadow scoped collapsed and direction getters",
+      "expected": [
+        "true|Range|forward|true",
+        "true|None|forward"
+      ]
+    },
+    {
+      "name": "control selection type stringification",
+      "expected": [
+        "text:abcdef",
+        "search:abcdef",
+        "tel:abcdef",
+        "url:abcdef",
+        "password:••••••",
+        "email:abcdef",
+        "number:12345",
+        "area:pha\nbe"
+      ]
+    },
+    {
+      "name": "password unicode selection stringification",
+      "expected": [
+        "•••",
+        "•",
+        ""
+      ]
+    }
+  ]
+}

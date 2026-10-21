@@ -1,0 +1,81 @@
+{
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+  "reports": [
+    {
+      "name": "typedarray construction order",
+      "value": "length|prototype"
+    },
+    {
+      "name": "Hebrew ltr",
+      "value": "right:character:3|left:character:1|forward:character:3|right:word:5|left:word:0|forward:lineboundary:8|backward:lineboundary:0"
+    },
+    {
+      "name": "Hebrew rtl",
+      "value": "right:character:1|left:character:3|forward:character:3|right:word:0|left:word:5|forward:lineboundary:8|backward:lineboundary:0"
+    },
+    {
+      "name": "Hebrew auto",
+      "value": "right:character:1|left:character:3|forward:character:3|right:word:0|left:word:5|forward:lineboundary:8|backward:lineboundary:0"
+    },
+    {
+      "name": "control combining selection",
+      "value": "0:1:Ä|1:2:|0:2:Ä|2:3:B"
+    },
+    {
+      "name": "complex control text 0 16",
+      "value": "text|0|16|backward|Ä😀👩‍👩‍👧‍👦Z"
+    },
+    {
+      "name": "complex control text 0 2",
+      "value": "text|0|2|backward|Ä"
+    },
+    {
+      "name": "complex control text 2 4",
+      "value": "text|2|4|backward|😀"
+    },
+    {
+      "name": "complex control text 4 15",
+      "value": "text|4|15|backward|👩‍👩‍👧‍👦"
+    },
+    {
+      "name": "complex control text 3 4",
+      "value": "text|3|4|backward|"
+    },
+    {
+      "name": "complex control password 0 16",
+      "value": "password|0|16|backward|••••"
+    },
+    {
+      "name": "complex control password 0 2",
+      "value": "password|0|2|backward|•"
+    },
+    {
+      "name": "complex control password 2 4",
+      "value": "password|2|4|backward|•"
+    },
+    {
+      "name": "complex control password 4 15",
+      "value": "password|4|15|backward|•"
+    },
+    {
+      "name": "complex control password 3 4",
+      "value": "password|3|4|backward|"
+    },
+    {
+      "name": "composed conversion error",
+      "value": "TypeError|false"
+    },
+    {
+      "name": "input ranges conversion error",
+      "value": "TypeError|false"
+    },
+    {
+      "name": "input ranges fresh identity",
+      "value": "false|false"
+    },
+    {
+      "name": "input ranges snapshot",
+      "value": "1|false"
+    }
+  ]
+}

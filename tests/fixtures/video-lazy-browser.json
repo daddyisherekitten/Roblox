@@ -1,0 +1,444 @@
+{
+  "captured": "2026-10-15T22:14:47.013Z",
+  "target": {
+    "commit": "ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c",
+    "sha256": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f"
+  },
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.80",
+    "revision": "@43a195105613ac83c21d3f14de279f4a045c7da0",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.23"
+  },
+  "profile": "Ordinary browser, same-origin local HTTP page and PCM WAV in VIDEO (metadata/audio only), real PNG poster and HTTP requests; no video frame/decoder or fixed UA-distance claim.",
+  "cases": [
+    {
+      "name": "default",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto  src=\"http://127.0.0.1:60539/case0/one.wav\" poster=\"http://127.0.0.1:60539/case0/one.png\"></video>",
+      "before": {
+        "loading": "eager",
+        "attribute": null,
+        "ready": 4,
+        "network": 1,
+        "current": "http://127.0.0.1:60539/case0/one.wav",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/case0/one.png",
+          "range": null
+        },
+        {
+          "url": "/case0/one.wav",
+          "range": "bytes=0-"
+        },
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    },
+    {
+      "name": "eager",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"eager\" src=\"http://127.0.0.1:60539/case1/one.wav\" poster=\"http://127.0.0.1:60539/case1/one.png\"></video>",
+      "before": {
+        "loading": "eager",
+        "attribute": "eager",
+        "ready": 4,
+        "network": 1,
+        "current": "http://127.0.0.1:60539/case1/one.wav",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/case1/one.png",
+          "range": null
+        },
+        {
+          "url": "/case1/one.wav",
+          "range": "bytes=0-"
+        },
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    },
+    {
+      "name": "invalid",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"unknown\" src=\"http://127.0.0.1:60539/case2/one.wav\" poster=\"http://127.0.0.1:60539/case2/one.png\"></video>",
+      "before": {
+        "loading": "eager",
+        "attribute": "unknown",
+        "ready": 4,
+        "network": 1,
+        "current": "http://127.0.0.1:60539/case2/one.wav",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/case2/one.png",
+          "range": null
+        },
+        {
+          "url": "/case2/one.wav",
+          "range": "bytes=0-"
+        },
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    },
+    {
+      "name": "lazy offscreen",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"lazy\" src=\"http://127.0.0.1:60539/case3/one.wav\" poster=\"http://127.0.0.1:60539/case3/one.png\"></video>",
+      "before": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 0,
+        "network": 1,
+        "current": "",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    },
+    {
+      "name": "lazy mixed case",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"LaZy\" src=\"http://127.0.0.1:60539/case4/one.wav\" poster=\"http://127.0.0.1:60539/case4/one.png\"></video>",
+      "before": {
+        "loading": "lazy",
+        "attribute": "LaZy",
+        "ready": 0,
+        "network": 1,
+        "current": "",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    },
+    {
+      "name": "lazy whitespace invalid",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\" lazy \" src=\"http://127.0.0.1:60539/case5/one.wav\" poster=\"http://127.0.0.1:60539/case5/one.png\"></video>",
+      "before": {
+        "loading": "eager",
+        "attribute": " lazy ",
+        "ready": 4,
+        "network": 1,
+        "current": "http://127.0.0.1:60539/case5/one.wav",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/case5/one.png",
+          "range": null
+        },
+        {
+          "url": "/case5/one.wav",
+          "range": "bytes=0-"
+        },
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    },
+    {
+      "name": "lazy visible",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:0px}</style><video id=m muted preload=auto loading=\"lazy\" src=\"http://127.0.0.1:60539/case6/one.wav\" poster=\"http://127.0.0.1:60539/case6/one.png\"></video>",
+      "before": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 4,
+        "network": 1,
+        "current": "http://127.0.0.1:60539/case6/one.wav",
+        "error": null,
+        "rectTop": 0,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/case6/one.png",
+          "range": null
+        },
+        {
+          "url": "/case6/one.wav",
+          "range": "bytes=0-"
+        },
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    },
+    {
+      "name": "lazy eager mutation",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"lazy\" src=\"http://127.0.0.1:60539/case7/one.wav\" poster=\"http://127.0.0.1:60539/case7/one.png\"></video>",
+      "before": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 0,
+        "network": 1,
+        "current": "",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ],
+      "after": {
+        "loading": "eager",
+        "attribute": "eager",
+        "ready": 4,
+        "network": 1,
+        "current": "http://127.0.0.1:60539/case7/one.wav",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "allRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        },
+        {
+          "url": "/case7/one.png",
+          "range": null
+        },
+        {
+          "url": "/case7/one.wav",
+          "range": "bytes=0-"
+        }
+      ]
+    },
+    {
+      "name": "lazy play",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"lazy\" src=\"http://127.0.0.1:60539/case8/one.wav\" poster=\"http://127.0.0.1:60539/case8/one.png\"></video>",
+      "before": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 0,
+        "network": 1,
+        "current": "",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ],
+      "after": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 0,
+        "network": 1,
+        "current": "",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "allRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    },
+    {
+      "name": "lazy load",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"lazy\" src=\"http://127.0.0.1:60539/case9/one.wav\" poster=\"http://127.0.0.1:60539/case9/one.png\"></video>",
+      "before": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 0,
+        "network": 1,
+        "current": "",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ],
+      "after": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 0,
+        "network": 1,
+        "current": "",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "allRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    },
+    {
+      "name": "lazy scroll",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"lazy\" src=\"http://127.0.0.1:60539/case10/one.wav\" poster=\"http://127.0.0.1:60539/case10/one.png\"></video>",
+      "before": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 0,
+        "network": 1,
+        "current": "",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ],
+      "after": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 4,
+        "network": 1,
+        "current": "http://127.0.0.1:60539/case10/one.wav",
+        "error": null,
+        "rectTop": 500,
+        "complete": "complete",
+        "outcome": null
+      },
+      "allRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        },
+        {
+          "url": "/case10/one.png",
+          "range": null
+        },
+        {
+          "url": "/case10/one.wav",
+          "range": "bytes=0-"
+        }
+      ]
+    },
+    {
+      "name": "lazy poster replacement",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"lazy\" src=\"http://127.0.0.1:60539/case11/one.wav\" poster=\"http://127.0.0.1:60539/case11/one.png\"></video>",
+      "before": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 0,
+        "network": 1,
+        "current": "",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ],
+      "after": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 4,
+        "network": 1,
+        "current": "http://127.0.0.1:60539/case11/one.wav",
+        "error": null,
+        "rectTop": 500,
+        "complete": "complete",
+        "outcome": null
+      },
+      "allRequests": [
+        {
+          "url": "/favicon.ico",
+          "range": null
+        },
+        {
+          "url": "/case11/two.png",
+          "range": null
+        },
+        {
+          "url": "/case11/one.wav",
+          "range": "bytes=0-"
+        }
+      ]
+    },
+    {
+      "name": "lazy scripting disabled",
+      "html": "<!doctype html><style>body{margin:0}video{display:block;width:200px;height:100px;margin-top:100000px}</style><video id=m muted preload=auto loading=\"lazy\" src=\"http://127.0.0.1:60539/case12/one.wav\" poster=\"http://127.0.0.1:60539/case12/one.png\"></video>",
+      "before": {
+        "loading": "lazy",
+        "attribute": "lazy",
+        "ready": 4,
+        "network": 1,
+        "current": "http://127.0.0.1:60539/case12/one.wav",
+        "error": null,
+        "rectTop": 100000,
+        "complete": "complete",
+        "outcome": null
+      },
+      "initialRequests": [
+        {
+          "url": "/case12/one.wav",
+          "range": "bytes=0-"
+        },
+        {
+          "url": "/favicon.ico",
+          "range": null
+        }
+      ]
+    }
+  ],
+  "loadingSupported": true
+}

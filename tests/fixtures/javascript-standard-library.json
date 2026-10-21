@@ -1,0 +1,750 @@
+[
+  {
+    "name": "array constructor and holes",
+    "source": "var a=new Array(3); record(a.length); record(a.includes(undefined)); record(a.indexOf(undefined)); record(a.map(function(x){return 8;}).join('|')); record(Array.isArray(a)); record(Array.of(2,3).join(',')); record(Array.from('A😀B').join('|'));",
+    "expected": [
+      "3",
+      "true",
+      "-1",
+      "||",
+      "true",
+      "2,3",
+      "A|😀|B"
+    ]
+  },
+  {
+    "name": "array callback length and mutation",
+    "source": "var a=[1,2,3];var seen=[];var result=a.map(function(x,i){seen.push(x);if(i===0){a.push(4);a[1]=8;}return x*2;});record(seen.join(','));record(result.join(','));record(a.join(','));",
+    "expected": [
+      "1,8,3",
+      "2,16,6",
+      "1,8,3,4"
+    ]
+  },
+  {
+    "name": "array callback holes",
+    "source": "var a=new Array(3);a[1]=5;var seen=[];record(a.every(function(v,i){seen.push(i);return v===5;}));record(seen.join(','));seen=[];record(a.findIndex(function(v,i){seen.push(i);return v===5;}));record(seen.join(','));record(a.reduce(function(a,v){return a+v;},1));",
+    "expected": [
+      "true",
+      "1",
+      "1",
+      "0,1",
+      "6"
+    ]
+  },
+  {
+    "name": "array reduce and receiver errors",
+    "source": "try{[].reduce(function(a,v){return a+v;});}catch(e){record(e.name);}try{[].map(3);}catch(e){record(e.name);}record([1,2,3].reduceRight(function(a,v){return a-v;},10));record(Array.prototype.slice.call({0:'a',2:'c',length:3}).join('|'));",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "4",
+      "a||c"
+    ]
+  },
+  {
+    "name": "array search bounds",
+    "source": "var a=[1,2,1,NaN];record(a.at(-2));record(a.at(9));record(a.lastIndexOf(1));record(a.lastIndexOf(1,undefined));record(a.indexOf(1,-2));record(a.includes(NaN));record(a.indexOf(NaN));record([1,2,3].findLastIndex(function(x){return x<3;}));",
+    "expected": [
+      "1",
+      "undefined",
+      "2",
+      "0",
+      "2",
+      "true",
+      "-1",
+      "1"
+    ]
+  },
+  {
+    "name": "array mutation and copies",
+    "source": "var a=[1,2,3,4];record(a.copyWithin(1,0,3).join(','));record(a.fill(9,-2).join(','));record(a.shift());record(a.unshift(7,8));record(a.join(','));record(a.splice(1,2,5,6,7).join(','));record(a.join(','));record(a.toSpliced(1,2,0).join(','));record(a.toReversed().join(','));record(a.with(-1,2).join(','));",
+    "expected": [
+      "1,1,2,3",
+      "1,1,9,9",
+      "1",
+      "5",
+      "7,8,1,9,9",
+      "8,1",
+      "7,5,6,7,9,9",
+      "7,0,7,9,9",
+      "9,9,7,6,5,7",
+      "7,5,6,7,9,2"
+    ]
+  },
+  {
+    "name": "array stable sort undefined and holes",
+    "source": "var a=new Array(5);a[0]=undefined;a[1]=3;a[3]=1;record(a.sort().join('|'));record(Object.keys(a).join(','));record(a.toSorted().join('|'));record(Object.keys(a.toSorted()).join(','));record([{v:2,id:'a'},{v:1,id:'b'},{v:2,id:'c'}].sort(function(a,b){return a.v-b.v;}).map(function(x){return x.id;}).join(''));",
+    "expected": [
+      "1|3|||",
+      "0,1,2",
+      "1|3|||",
+      "0,1,2,3,4",
+      "bac"
+    ]
+  },
+  {
+    "name": "array flatten concat and iterator",
+    "source": "record([1,[2,[3]],new Array(2)].flat().join(','));record([1,[2,[3]]].flat(2).join(','));record([1,2].flatMap(function(x){return [x,x*2];}).join(','));record([1].concat([2,3],4).join(','));var it=[4,5].entries();record(JSON.stringify(it.next()));record(JSON.stringify(it.next()));record(JSON.stringify(it.next()));",
+    "expected": [
+      "1,2,3",
+      "1,2,3",
+      "1,2,2,4",
+      "1,2,3,4",
+      "{\"value\":[0,4],\"done\":false}",
+      "{\"value\":[1,5],\"done\":false}",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "object enumeration and assignment",
+    "source": "var a={b:2,10:'ten',2:'two',a:1};record(Object.keys(a).join('|'));record(Object.values(a).join('|'));record(JSON.stringify(Object.entries(a)));record(JSON.stringify(Object.assign({x:0},a,{b:9})));record(Object.keys('😀').join(','));record(Object.hasOwn(a,'a'));record(Object.hasOwn(a,'toString'));",
+    "expected": [
+      "2|10|b|a",
+      "two|ten|2|1",
+      "[[\"2\",\"two\"],[\"10\",\"ten\"],[\"b\",2],[\"a\",1]]",
+      "{\"2\":\"two\",\"10\":\"ten\",\"x\":0,\"b\":9,\"a\":1}",
+      "0,1",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "object identity prototype and descriptors",
+    "source": "record(Object.is(NaN,NaN));record(Object.is(0,-0));var p={x:2};var o=Object.create(p);record(o.x);record(Object.getPrototypeOf(o)===p);Object.defineProperty(o,'hidden',{value:7});record(o.hidden);record(Object.keys(o).length);record(Object.getOwnPropertyDescriptor(o,'hidden').writable);record(Object.isExtensible(o));Object.freeze(o);record(Object.isFrozen(o));record(Object.isSealed(o));",
+    "expected": [
+      "true",
+      "false",
+      "2",
+      "true",
+      "7",
+      "0",
+      "false",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "object grouping and entries",
+    "source": "record(JSON.stringify(Object.fromEntries([['a',1],['b',2],['a',3]])));record(JSON.stringify(Object.groupBy([1,2,3,4],function(x){return x%2===0?'even':'odd';})));record(Object.getPrototypeOf(Object.groupBy([],function(x){return x;}))===null);",
+    "expected": [
+      "{\"a\":3,\"b\":2}",
+      "{\"odd\":[1,3],\"even\":[2,4]}",
+      "true"
+    ]
+  },
+  {
+    "name": "string UTF16 and code points",
+    "source": "record('A😀B'.at(-2).charCodeAt(0));record('A😀B'.codePointAt(1));record('A😀B'.codePointAt(2));record(String.fromCharCode(65,55357,56832));record(String.fromCodePoint(65,128512));record('\\ud800x'.isWellFormed());record('\\ud800x'.toWellFormed());record(String.raw({raw:['a\\n','b']},4));",
+    "expected": [
+      "56832",
+      "128512",
+      "56832",
+      "A😀",
+      "A😀",
+      "false",
+      "�x",
+      "a\n4b"
+    ]
+  },
+  {
+    "name": "string padding repetition slicing",
+    "source": "record('7'.padStart(4,'ab'));record('7'.padEnd(4,'ab'));record('ab'.repeat(3));record('abcdef'.substring(4,1));record('abcdef'.slice(-3,-1));record('abcdef'.substr(-3,2));record('aaab'.lastIndexOf('a',1));record('abc'.lastIndexOf('',NaN));record('﻿ x  '.trim());",
+    "expected": [
+      "aba7",
+      "7aba",
+      "ababab",
+      "bcd",
+      "de",
+      "de",
+      "1",
+      "3",
+      "x"
+    ]
+  },
+  {
+    "name": "string replacements and splitting",
+    "source": "record('a-b-a'.replace('a','$&$$'));record('a-b-a'.replaceAll('a',function(m,i,s){return i;}));record('ab'.replaceAll('','-'));record('aba'.replace('b',\"$`:$'\"));record(JSON.stringify('a,,b,'.split(',')));record(JSON.stringify('😀'.split('')));record(JSON.stringify('abc'.split('',2)));record(JSON.stringify('abc'.split(undefined,0)));",
+    "expected": [
+      "a$-b-a",
+      "0-b-4",
+      "-a-b-",
+      "aa:aa",
+      "[\"a\",\"\",\"b\",\"\"]",
+      "[\"\\ud83d\",\"\\ude00\"]",
+      "[\"a\",\"b\"]",
+      "[]"
+    ]
+  },
+  {
+    "name": "string bounds and receiver errors",
+    "source": "try{'x'.repeat(-1);}catch(e){record(e.name);}try{String.fromCodePoint(1.5);}catch(e){record(e.name);}try{String.prototype.trim.call(null);}catch(e){record(e.name);}record(String.prototype.slice.call(12345,1,3));record(new String('hi').valueOf());",
+    "expected": [
+      "RangeError",
+      "RangeError",
+      "TypeError",
+      "23",
+      "hi"
+    ]
+  },
+  {
+    "name": "number and boolean predicates",
+    "source": "record(Number.isNaN('x'));record(isNaN('x'));record(Number.isFinite('2'));record(isFinite('2'));record(Number.isInteger(3));record(Number.isSafeInteger(9007199254740992));record(new Number(4).valueOf());record(new Boolean(false).valueOf());record(Boolean(new Boolean(false)));record((255).toString(16));",
+    "expected": [
+      "false",
+      "true",
+      "false",
+      "true",
+      "true",
+      "false",
+      "4",
+      "false",
+      "true",
+      "ff"
+    ]
+  },
+  {
+    "name": "numeric text parsing",
+    "source": "record(parseInt('  -0xFzz'));record(parseInt('10102',2));record(parseInt('17',8));record(parseInt('0x10',10));record(parseInt('10',1));record(parseFloat(' -1.25e+2junk'));record(parseFloat('1e+bad'));record(parseFloat('+Infinity!'));record(1/parseInt('-0'));",
+    "expected": [
+      "-15",
+      "10",
+      "15",
+      "0",
+      "NaN",
+      "-125",
+      "1",
+      "Infinity",
+      "-Infinity"
+    ]
+  },
+  {
+    "name": "numeric formatting",
+    "source": "record((1.25).toFixed(1));record((2.55).toFixed(1));record((1.005).toFixed(2));record((-0).toFixed(2));record((1234).toExponential(2));record((12.345).toPrecision(4));record((0.0000001).toPrecision(2));try{(3).toString(1);}catch(e){record(e.name);}",
+    "expected": [
+      "1.3",
+      "2.5",
+      "1.00",
+      "0.00",
+      "1.23e+3",
+      "12.35",
+      "1.0e-7",
+      "RangeError"
+    ]
+  },
+  {
+    "name": "math integer and special values",
+    "source": "record(Math.clz32(1));record(Math.imul(4294967295,5));record(Math.trunc(-2.7));record(1/Math.round(-0.5));record(Math.hypot(3,4));record(Math.hypot(Infinity,NaN));record(1/Math.min(0,-0));record(1/Math.max(-0,0));record(Math.sign(NaN));record(Math.fround(1.337));",
+    "expected": [
+      "31",
+      "-5",
+      "-2",
+      "-Infinity",
+      "5",
+      "Infinity",
+      "-Infinity",
+      "Infinity",
+      "NaN",
+      "1.3370000123977661"
+    ]
+  },
+  {
+    "name": "JSON strict parse and reviver",
+    "source": "var order=[];var o=JSON.parse('{\"a\":1,\"b\":[2,3]}',function(k,v){order.push(k);return k==='0'?undefined:v;});record(order.join('|'));record(JSON.stringify(o));record(JSON.parse('1e400'));try{JSON.parse('01');}catch(e){record(e.name);}try{JSON.parse('[1,]');}catch(e){record(e.name);}try{JSON.parse('\"\\\\x41\"');}catch(e){record(e.name);}",
+    "expected": [
+      "a|0|1|b|",
+      "{\"a\":1,\"b\":[null,3]}",
+      "Infinity",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "JSON serialization hooks and values",
+    "source": "record(JSON.stringify({a:undefined,b:NaN,c:Infinity,d:null,e:function(){}}));record(JSON.stringify([undefined,function(){},NaN,new Array(2)]));record(JSON.stringify({a:1,b:2},['b','b']));record(JSON.stringify({toJSON:function(k){return 'key:'+k;}}));record(JSON.stringify({a:1,b:2},function(k,v){return k==='a'?undefined:v;}));record(JSON.stringify('\\ud800'));var o={};o.self=o;try{JSON.stringify(o);}catch(e){record(e.name);}",
+    "expected": [
+      "{\"b\":null,\"c\":null,\"d\":null}",
+      "[null,null,null,[null,null]]",
+      "{\"b\":2}",
+      "\"key:\"",
+      "{\"b\":2}",
+      "\"\\ud800\"",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "JSON indentation and property order",
+    "source": "record(JSON.stringify({2:2,a:[1,{b:2}]},null,2));record(JSON.stringify({x:new Number(3),s:new String('a'),b:new Boolean(false)}));record(JSON.stringify(undefined));",
+    "expected": [
+      "{\n  \"2\": 2,\n  \"a\": [\n    1,\n    {\n      \"b\": 2\n    }\n  ]\n}",
+      "{\"x\":3,\"s\":\"a\",\"b\":false}",
+      "undefined"
+    ]
+  },
+  {
+    "name": "Date UTC arithmetic and clipping",
+    "source": "var d=new Date('2024-02-29T12:34:56.789Z');record(d.toISOString());record(d.getUTCFullYear());record(d.getUTCMonth());record(d.getUTCDay());record(d.getUTCMilliseconds());d.setUTCMonth(12);record(d.toISOString());record(new Date(Date.UTC(99,0,1)).toISOString());record(new Date(8640000000000001).getTime());record(JSON.stringify(new Date(NaN)));try{new Date(NaN).toISOString();}catch(e){record(e.name);}",
+    "expected": [
+      "2024-02-29T12:34:56.789Z",
+      "2024",
+      "1",
+      "4",
+      "789",
+      "2025-01-29T12:34:56.789Z",
+      "1999-01-01T00:00:00.000Z",
+      "NaN",
+      "null",
+      "RangeError"
+    ]
+  },
+  {
+    "name": "Date parsing timezones and setters",
+    "source": "record(new Date('2020-01-02T03:04:05.006+02:30').toISOString());record(new Date(-1).toISOString());record(new Date('+010000-01-01T00:00:00.000Z').toISOString());var d=new Date(NaN);record(d.setUTCFullYear(2024));record(d.toISOString());record(Date.parse('2024-01-01'));record(Date.parse('2024-13-01'));",
+    "expected": [
+      "2020-01-02T00:34:05.006Z",
+      "1969-12-31T23:59:59.999Z",
+      "+010000-01-01T00:00:00.000Z",
+      "1704067200000",
+      "2024-01-01T00:00:00.000Z",
+      "1704067200000",
+      "NaN"
+    ]
+  },
+  {
+    "name": "URI Unicode codec and errors",
+    "source": "record(encodeURIComponent('a b/ä😀'));record(encodeURI('https://e.test/a b?q=ä#x'));record(decodeURI('%2f%20%23%F0%9F%98%80'));record(decodeURIComponent('%2f%20%23'));try{encodeURIComponent('\\ud800');}catch(e){record(e.name);}try{decodeURIComponent('%C0%AF');}catch(e){record(e.name);}try{decodeURIComponent('%');}catch(e){record(e.name);}",
+    "expected": [
+      "a%20b%2F%C3%A4%F0%9F%98%80",
+      "https://e.test/a%20b?q=%C3%A4#x",
+      "%2f %23😀",
+      "/ #",
+      "URIError",
+      "URIError",
+      "URIError"
+    ]
+  },
+  {
+    "name": "URLSearchParams multimap and encoding",
+    "source": "var p=new URLSearchParams('?b=2&a=x+y&a=%F0%9F%98%80&empty&plus=%2B');record(p.size);record(p.get('a'));record(p.get('missing'));record(p.getAll('a').join('|'));record(p.toString());p.set('a','a b~');p.append('z','!');p.sort();record(p.toString());record(p.has('a','a b~'));p.delete('a','no');record(p.get('a'));p.delete('a');record(p.has('a'));",
+    "expected": [
+      "5",
+      "x y",
+      "null",
+      "x y|😀",
+      "b=2&a=x+y&a=%F0%9F%98%80&empty=&plus=%2B",
+      "a=a+b%7E&b=2&empty=&plus=%2B&z=%21",
+      "true",
+      "a b~",
+      "false"
+    ]
+  },
+  {
+    "name": "URLSearchParams construction and live callbacks",
+    "source": "record(new URLSearchParams([['a',1],['a',2]]).toString());record(new URLSearchParams({x:'a b',y:null}).toString());record(new URLSearchParams('a=%FF%FF').get('a'));var p=new URLSearchParams('a=1&b=2');var seen=[];p.forEach(function(v,k){seen.push(k+v);if(k==='a'){p.append('c',3);}});record(seen.join(','));var it=p.entries();record(JSON.stringify(it.next().value));try{new URLSearchParams([['a']]);}catch(e){record(e.name);}",
+    "expected": [
+      "a=1&a=2",
+      "x=a+b&y=null",
+      "��",
+      "a1,b2,c3",
+      "[\"a\",\"1\"]",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "URL resolution fields and query linkage",
+    "source": "var u=new URL('../a/./b/../c?q=a b#hi','https://EXAMPLE.test:443/x/y');record(u.href);record(u.origin);record(u.pathname);record(u.search);record(u.hash);var p=u.searchParams;p.set('q','x y');record(u.href);u.search='?x=1&x=2';record(p===u.searchParams);record(p.getAll('x').join(','));u.hash='';record(u.href);record(URL.canParse('/x'));record(URL.canParse('/x','https://e.test'));record(URL.parse('bad'));",
+    "expected": [
+      "https://example.test/a/c?q=a%20b#hi",
+      "https://example.test",
+      "/a/c",
+      "?q=a%20b",
+      "#hi",
+      "https://example.test/a/c?q=x+y#hi",
+      "true",
+      "1,2",
+      "https://example.test/a/c?x=1&x=2",
+      "false",
+      "true",
+      "null"
+    ]
+  },
+  {
+    "name": "URL credentials opaque values and ports",
+    "source": "var u=new URL('https://user:p%40ss@EXAMPLE.test:080/a//b/');record(u.href);record(u.username);record(u.password);record(u.port);u.protocol='http';record(u.href);record(new URL('mailto:a@example.test').href);record(new URL('mailto:a@example.test').origin);record(new URL('#x','data:text/plain,hi').href);record(new URL('https://e.test/%2e%2e/x').pathname);",
+    "expected": [
+      "https://user:p%40ss@example.test:80/a//b/",
+      "user",
+      "p%40ss",
+      "80",
+      "http://user:p%40ss@example.test/a//b/",
+      "mailto:a@example.test",
+      "null",
+      "data:text/plain,hi#x",
+      "/x"
+    ]
+  },
+  {
+    "name": "prototype primitive values and enumerability",
+    "source": "record(Array.isArray(Array.prototype));record(Number.prototype.valueOf());record(String.prototype.valueOf());record(Boolean.prototype.valueOf());record(Object.keys(Number).length);record(Object.keys(Math).length);record(Object.getOwnPropertyDescriptor(Array.prototype,'map').enumerable);record(Object.getOwnPropertyDescriptor(Number,'MAX_VALUE').writable);",
+    "expected": [
+      "true",
+      "0",
+      "",
+      "false",
+      "0",
+      "0",
+      "false",
+      "false"
+    ]
+  },
+  {
+    "name": "array inherited holes and callback deletion",
+    "source": "var p=Object.create(Array.prototype);Object.defineProperty(p,'0',{get:function(){return 7;},configurable:true});var a=new Array(3);a[1]=2;a[2]=3;Object.setPrototypeOf(a,p);var seen=[];var m=a.map(function(v,i){seen.push(v);if(i===0){delete a[2];}return v*2;});record(seen.join(','));record(m.join('|'));record(Object.keys(m).join(','));",
+    "expected": [
+      "7,2",
+      "14|4|",
+      "0,1"
+    ]
+  },
+  {
+    "name": "array sparse copying operations",
+    "source": "var a=new Array(5);a[0]=1;a[2]=3;a[4]=5;record(a.copyWithin(1,0,3).join('|'));record(Object.keys(a).join(','));var b=new Array(4);b[1]=2;b[3]=4;var removed=b.splice(0,2,9);record(removed.join('|'));record(Object.keys(removed).join(','));record(b.join('|'));record(Object.keys(b).join(','));record(Object.keys(b.toReversed()).join(','));",
+    "expected": [
+      "1|1||3|5",
+      "0,1,3,4",
+      "|2",
+      "1",
+      "9||4",
+      "0,2",
+      "0,1,2"
+    ]
+  },
+  {
+    "name": "array iterator exhaustion and live length",
+    "source": "var a=[1];var i=a.values();record(JSON.stringify(i.next()));a.push(2);record(JSON.stringify(i.next()));record(i.next().done);a.push(3);record(i.next().done);var k=[4,5].keys();record(k[Symbol.iterator]()===k);record(Array.from(k).join(','));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "{\"value\":2,\"done\":false}",
+      "true",
+      "true",
+      "true",
+      "0,1"
+    ]
+  },
+  {
+    "name": "array cyclic join and cleanup after getter error",
+    "source": "var a=[1];a.push(a);record(a.join(','));var b=[1,2];Object.defineProperty(b,'0',{get:function(){throw new Error('bad');},configurable:true});try{b.join(',');}catch(e){record(e.message);}Object.defineProperty(b,'0',{value:3,writable:true});record(b.join(','));",
+    "expected": [
+      "1,",
+      "bad",
+      "3,2"
+    ]
+  },
+  {
+    "name": "array concat spreadability",
+    "source": "var a=[1,2];a[Symbol.isConcatSpreadable]=false;record([0].concat(a).length);var o={0:'a',2:'c',length:3};o[Symbol.isConcatSpreadable]=true;var b=[0].concat(o);record(b.join('|'));record(Object.keys(b).join(','));",
+    "expected": [
+      "2",
+      "0|a||c",
+      "0,1,3"
+    ]
+  },
+  {
+    "name": "Array from closes mapper failures",
+    "source": "var closed=0;var o={};o[Symbol.iterator]=function(){var i=0;return {next:function(){i+=1;return {value:i,done:false};},return:function(){closed+=1;return {};}};};try{Array.from(o,function(v){throw new Error('mapper');});}catch(e){record(e.message);}record(closed);",
+    "expected": [
+      "mapper",
+      "1"
+    ]
+  },
+  {
+    "name": "JSON reviver this and mutations",
+    "source": "var parents=[];var o=JSON.parse('{\"a\":1,\"b\":2}',function(k,v){if(k==='a'){this.b=4;}if(k==='b'){parents.push(this.a);return v*2;}return v;});record(JSON.stringify(o));record(parents.join(','));var src=[];JSON.parse('[9007199254740993,true,null]',function(k,v,context){if(k!==''){src.push(context.source);}return v;});record(src.join('|'));",
+    "expected": [
+      "{\"a\":1,\"b\":8}",
+      "1",
+      "9007199254740993|true|null"
+    ]
+  },
+  {
+    "name": "numeric significant digits and extremes",
+    "source": "record((1000000000000000128).toFixed(0));record((0.000001).toExponential());record((1.25).toPrecision(2));record((9.999).toPrecision(3));record((1e-7).toFixed(9));record((-0.0001).toFixed(2));record(Number.MIN_VALUE.toExponential(2));record(Number.MAX_VALUE.toExponential(3));record(1/Math.trunc(-0.1));record(1/Math.ceil(-0.1));",
+    "expected": [
+      "1000000000000000128",
+      "1e-6",
+      "1.3",
+      "10.0",
+      "0.000000100",
+      "-0.00",
+      "4.94e-324",
+      "1.798e+308",
+      "-Infinity",
+      "-Infinity"
+    ]
+  },
+  {
+    "name": "Date overflow years and invalid setters",
+    "source": "record(new Date(Date.UTC(2024,1,30)).toISOString());record(new Date(Date.UTC(2024,-1,0,25)).toISOString());record(new Date(-8640000000000000).toISOString());record(new Date(8640000000000000).toISOString());var d=new Date(NaN);record(d.setUTCMonth(0));record(d.setTime(0));record(d.toISOString());var x=new Date(0);x.setUTCSeconds(61,1001);record(x.toISOString());",
+    "expected": [
+      "2024-03-01T00:00:00.000Z",
+      "2023-12-01T01:00:00.000Z",
+      "-271821-04-20T00:00:00.000Z",
+      "+275760-09-13T00:00:00.000Z",
+      "NaN",
+      "0",
+      "1970-01-01T00:00:00.000Z",
+      "1970-01-01T00:01:02.001Z"
+    ]
+  },
+  {
+    "name": "Symbol identity registry and wrappers",
+    "source": "var a=Symbol('x');var b=Symbol('x');record(typeof a);record(a===b);record(a.description);record(Symbol().description);record(String(a));record(a.toString());record(Symbol.for('x')===Symbol.for('x'));record(Symbol.keyFor(Symbol.for('x')));record(Symbol.keyFor(a));record(Object(a).valueOf()===a);record(Object.prototype.toString.call(a));try{Number(a);}catch(e){record(e.name);}try{Symbol.keyFor('x');}catch(e){record(e.name);}try{new Symbol();}catch(e){record(e.name);}",
+    "expected": [
+      "symbol",
+      "false",
+      "x",
+      "undefined",
+      "Symbol(x)",
+      "Symbol(x)",
+      "true",
+      "x",
+      "undefined",
+      "true",
+      "[object Symbol]",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Symbol custom primitive and tag",
+    "source": "var a={};a[Symbol.toPrimitive]=function(hint){return hint==='number'?7:'yes';};record(Number(a));record(String(a));record(a+1);a[Symbol.toStringTag]='Example';record(Object.prototype.toString.call(a));record(Object.prototype.toString.call(new Map()));record(Object.prototype.toString.call(new Set()));",
+    "expected": [
+      "7",
+      "yes",
+      "yes1",
+      "[object Example]",
+      "[object Map]",
+      "[object Set]"
+    ]
+  },
+  {
+    "name": "Map identity ordering and SameValueZero",
+    "source": "var o={};var m=new Map([['a',1],['b',2],['a',3],[NaN,4],[-0,5],[o,6]]);record(m.size);record(m.get('a'));record(m.get(NaN));record(m.get(0));record(m.get({}));record(Array.from(m.keys()).map(function(k){return String(k);}).join('|'));record(1/Array.from(m.keys())[3]);record(m.set('c',7)===m);record(m.delete('b'));record(m.has('b'));record(JSON.stringify(Array.from(m.entries()).slice(0,2)));",
+    "expected": [
+      "5",
+      "3",
+      "4",
+      "5",
+      "undefined",
+      "a|b|NaN|0|[object Object]",
+      "Infinity",
+      "true",
+      "true",
+      "false",
+      "[[\"a\",3],[null,4]]"
+    ]
+  },
+  {
+    "name": "Map live iterator delete clear reinsertion",
+    "source": "var m=new Map([['a',1],['b',2]]);var i=m.entries();record(JSON.stringify(i.next().value));m.delete('b');m.set('c',3);record(JSON.stringify(i.next().value));m.clear();m.set('d',4);record(JSON.stringify(i.next().value));record(i.next().done);m.set('e',5);record(i.next().done);var seen=[];m.forEach(function(v,k){seen.push(k);if(k==='d'){m.delete('e');m.set('f',6);}});record(seen.join(','));",
+    "expected": [
+      "[\"a\",1]",
+      "[\"c\",3]",
+      "[\"d\",4]",
+      "true",
+      "true",
+      "d,f"
+    ]
+  },
+  {
+    "name": "Map grouping errors and frozen expando",
+    "source": "var group=Map.groupBy([1,2,3,4],function(v){return v%2;});record(JSON.stringify(Array.from(group)));var m=new Map();m.note=2;record(JSON.stringify(m));Object.freeze(m);record(m.set('x',1).get('x'));try{new Map([1]);}catch(e){record(e.name);}try{Map.prototype.get.call({});}catch(e){record(e.name);}try{m.forEach(2);}catch(e){record(e.name);}",
+    "expected": [
+      "[[1,[1,3]],[0,[2,4]]]",
+      "{\"note\":2}",
+      "1",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Set base methods and live callback semantics",
+    "source": "var s=new Set([NaN,NaN,-0,0,1]);record(s.size);record(s.has(NaN));record(1/Array.from(s)[1]);record(s.add(2)===s);record(s.keys===s.values);record(JSON.stringify(Array.from(s.entries()).slice(1)));var a=new Set([1,2]);var seen=[];a.forEach(function(v,k){seen.push(v===k);if(v===1){a.delete(2);a.add(3);}});record(seen.join(','));record(Array.from(a).join(','));",
+    "expected": [
+      "3",
+      "true",
+      "Infinity",
+      "true",
+      "true",
+      "[[0,0],[1,1],[2,2]]",
+      "true,true",
+      "1,3"
+    ]
+  },
+  {
+    "name": "Set algebra ordering and set-like operands",
+    "source": "var a=new Set([3,1,2]);var b=new Set([2,4]);record(Array.from(a.union(b)).join(','));record(Array.from(a.intersection(b)).join(','));record(Array.from(a.difference(b)).join(','));record(Array.from(a.symmetricDifference(b)).join(','));record(a.isSubsetOf(new Set([1,2,3,4])));record(a.isSupersetOf(new Set([1,2])));record(a.isDisjointFrom(new Set([4,5])));record(Array.from(a.intersection({size:1,has:function(x){return x===3;},keys:function(){return [3].values();}})).join(','));try{a.union([]);}catch(e){record(e.name);}",
+    "expected": [
+      "3,1,2,4",
+      "2",
+      "3,1",
+      "3,1,4",
+      "true",
+      "true",
+      "true",
+      "3",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Weak collections keys symbols and errors",
+    "source": "var key={};var s=Symbol('key');var wm=new WeakMap([[key,2],[s,3]]);record(wm.get(key));record(wm.get(s));record(wm.get({}));record(wm.has(1));record(wm.delete(key));record(wm.has(key));var ws=new WeakSet([s]);record(ws.has(s));try{wm.set(2,1);}catch(e){record(e.name);}try{ws.add(Symbol.for('key'));}catch(e){record(e.name);}try{new WeakMap([[null,1]]);}catch(e){record(e.name);}",
+    "expected": [
+      "2",
+      "3",
+      "undefined",
+      "false",
+      "true",
+      "false",
+      "true",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "object enumeration getter deletion",
+    "source": "var a={};Object.defineProperty(a,'a',{get:function(){delete this.b;return 1;},enumerable:true});a.b=2;record(Object.values(a).join('|'));var b={};Object.defineProperty(b,'a',{get:function(){delete this.b;return 1;},enumerable:true});b.b=2;record(JSON.stringify(Object.entries(b)));var d={};Object.defineProperty(d,'a',{get:function(){delete this.b;return 1;},enumerable:true});d.b=2;record(JSON.stringify(Object.assign({},d)));",
+    "expected": [
+      "1",
+      "[[\"a\",1]]",
+      "{\"a\":1}"
+    ]
+  },
+  {
+    "name": "Math conversion order and numeric errors",
+    "source": "var seen=[];var x={valueOf:function(){seen.push('value');return 2;}};record(Math.min(NaN,x));record(Math.hypot(Infinity,x));record(seen.join(','));record(NaN.toExponential(200));record(Infinity.toPrecision(200));try{NaN.toFixed(200);}catch(e){record(e.name);}record(parseInt('17',Infinity));record(String.raw({raw:['a','b']},undefined));",
+    "expected": [
+      "NaN",
+      "Infinity",
+      "value,value",
+      "NaN",
+      "Infinity",
+      "RangeError",
+      "17",
+      "aundefinedb"
+    ]
+  },
+  {
+    "name": "Date explicit undefined and object input",
+    "source": "record(new Date(2024,undefined).getTime());record(Date.UTC(2024,undefined));record(new Date({toString:function(){return '2024-01-01T00:00:00.1Z';}}).toISOString());record(new Date('2024-01-01T00:00:00.123456Z').toISOString());",
+    "expected": [
+      "NaN",
+      "NaN",
+      "2024-01-01T00:00:00.100Z",
+      "2024-01-01T00:00:00.123Z"
+    ]
+  },
+  {
+    "name": "URLSearchParams null and pair objects",
+    "source": "record(new URLSearchParams(null).toString());try{new URLSearchParams(['ab']);}catch(e){record(e.name);}var p=new URLSearchParams('a=1');p[Symbol.iterator]=function(){return [['b',2]].values();};record(new URLSearchParams(p).toString());record(new URLSearchParams('a=%E2%82&b=%ED%A0%80').toString());",
+    "expected": [
+      "",
+      "TypeError",
+      "b=2",
+      "a=%EF%BF%BD&b=%EF%BF%BD%EF%BF%BD%EF%BF%BD"
+    ]
+  },
+  {
+    "name": "URI unescaped lone surrogate and reserved case",
+    "source": "record(decodeURIComponent('\\uD800').charCodeAt(0));record(decodeURI('%3a%3A%2f%2F'));record(decodeURIComponent('ä%F0%9F%98%80'));",
+    "expected": [
+      "55296",
+      "%3a%3A%2f%2F",
+      "ä😀"
+    ]
+  },
+  {
+    "name": "JSON frozen reviver holder and duplicate keys",
+    "source": "var o=JSON.parse('{\"a\":1,\"b\":2}',function(k,v){if(k==='a'){Object.freeze(this);}return typeof v==='number'?v+1:v;});record(JSON.stringify(o));var x=JSON.parse('{\"x\":1,\"x\":2,\"__proto__\":{\"safe\":7}}');record(x.x);record(Object.hasOwn(x,'__proto__'));record(Object.getPrototypeOf(x)===Object.prototype);record(JSON.stringify(x));",
+    "expected": [
+      "{\"a\":1,\"b\":2}",
+      "2",
+      "true",
+      "true",
+      "{\"x\":2,\"__proto__\":{\"safe\":7}}"
+    ]
+  },
+  {
+    "name": "fromEntries getter reads and iterator close",
+    "source": "var reads=[];var e={};Object.defineProperty(e,'0',{get:function(){reads.push('key');return 'x';}});Object.defineProperty(e,'1',{get:function(){reads.push('value');return 2;}});record(JSON.stringify(Object.fromEntries([e])));record(reads.join(','));var closed=0;var o={};o[Symbol.iterator]=function(){return {next:function(){return {value:1,done:false};},return:function(){closed+=1;return {};}};};try{Object.fromEntries(o);}catch(e){record(e.name);}record(closed);",
+    "expected": [
+      "{\"x\":2}",
+      "key,value",
+      "TypeError",
+      "1"
+    ]
+  },
+  {
+    "name": "Map constructor closes invalid pair",
+    "source": "var closed=0;var o={};o[Symbol.iterator]=function(){return {next:function(){return {value:1,done:false};},return:function(){closed+=1;return {};}};};try{new Map(o);}catch(e){record(e.name);}record(closed);",
+    "expected": [
+      "TypeError",
+      "1"
+    ]
+  },
+  {
+    "name": "Set algebra operand mutates receiver",
+    "source": "var a=new Set([1,2]);var other={size:3,has:function(x){a.delete(x);return true;},keys:function(){return [1,2,3].values();}};record(Array.from(a.intersection(other)).join(','));record(a.size);var b=new Set([1,2]);var o={size:3,has:function(x){b.delete(x);return true;},keys:function(){return [1,2,3].values();}};record(Array.from(b.difference(o)).join(','));",
+    "expected": [
+      "1,2",
+      "0",
+      ""
+    ]
+  },
+  {
+    "name": "URL static conversion exceptions and order",
+    "source": "var bad={toString:function(){throw new Error('convert');}};try{URL.canParse(bad);}catch(e){record(e.message);}try{URL.parse(bad);}catch(e){record(e.message);}var seen=[];var input={toString:function(){seen.push('input');return '/x';}};var base={toString:function(){seen.push('base');return 'https://e.test';}};record(new URL(input,base).href);record(seen.join(','));",
+    "expected": [
+      "convert",
+      "convert",
+      "https://e.test/x",
+      "input,base"
+    ]
+  },
+  {
+    "name": "iterator branded string tags",
+    "source": "record(Object.prototype.toString.call([1].values()));record(Object.prototype.toString.call('x'[Symbol.iterator]()));record(Object.prototype.toString.call(new Map().keys()));record(Object.prototype.toString.call(new Set().values()));record(Object.prototype.toString.call(new URLSearchParams().entries()));",
+    "expected": [
+      "[object Array Iterator]",
+      "[object String Iterator]",
+      "[object Map Iterator]",
+      "[object Set Iterator]",
+      "[object URLSearchParams Iterator]"
+    ]
+  },
+  {
+    "name": "internal descriptors ignore Object prototype getters",
+    "source": "var reads=0;var poison=Object.create(null);poison.get=function(){reads++;return undefined;};poison.configurable=true;Object.defineProperty(Object.prototype,'get',poison);Object.defineProperty(Object.prototype,'set',poison);function build(a){var o={x:a,get y(){return a+1;}};var f=function(v){return v;};return [o.x,o.y,f.bind(null,a)(),Object.fromEntries([['a',a]]).a,Object.groupBy([a],function(){return 'v';}).v[0],Object.freeze({z:a}).z,new Error('ok').message,Object('x').length,Object.getPrototypeOf(Object.getOwnPropertyDescriptor(o,'x'))===Object.prototype];}var result;try{result=build(4);}finally{delete Object.prototype.get;delete Object.prototype.set;}record(JSON.stringify(result));record(reads);",
+    "expected": ["[4,5,4,4,4,4,\"ok\",1,true]", "0"]
+  },
+  {
+    "name": "public descriptors retain inherited fields and getter order",
+    "source": "var reads=[];var parent={get enumerable(){reads.push('enumerable');return 1;},get configurable(){reads.push('configurable');return 0;},get value(){reads.push('value');return 7;},get writable(){reads.push('writable');return 1;}};var descriptor=Object.create(parent);var target={};Object.defineProperty(target,'x',descriptor);record(reads.join(','));record(target.x);var own=Object.getOwnPropertyDescriptor(target,'x');record([own.enumerable,own.configurable,own.writable,Object.getPrototypeOf(own)===Object.prototype].join(','));var accessor=Object.create({get:function(){return 9;},enumerable:true});Object.defineProperties(target,{y:accessor});record(target.y);",
+    "expected": ["enumerable,configurable,value,writable", "7", "true,false,true,true", "9"]
+  },
+  {
+    "name": "public descriptor rejects inherited mixed fields",
+    "source": "var poison=Object.create(null);poison.get=function(){return undefined;};poison.configurable=true;Object.defineProperty(Object.prototype,'get',poison);var name;try{Object.defineProperty({},'x',{value:1});}catch(e){name=e.name;}finally{delete Object.prototype.get;}record(name);",
+    "expected": ["TypeError"]
+  },
+  {
+    "name": "UTF-16 concatenation boundaries preserve string identity",
+    "source": "var high=String.fromCharCode(0xd83d),low=String.fromCharCode(0xde00);record(high+low==='😀');record([high,low].join('')==='😀');record(`${high}${low}`==='😀');record(high.concat(low).length);record((low+high).isWellFormed());record((high+1n+low).length);",
+    "expected": ["true", "true", "true", "2", "false", "3"]
+  }
+]

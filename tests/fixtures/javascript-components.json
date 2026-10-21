@@ -1,0 +1,256 @@
+[
+  {
+    "name": "open closed ownership and tree boundaries",
+    "source": "const h=document.createElement('div');document.body.append(h);const r=h.attachShadow({mode:'open'});r.innerHTML='<span id=inside>Shadow</span>';const i=r.firstChild;record(h.shadowRoot===r);record([r.host===h,r.mode,r.nodeType,r.parentNode,r.isConnected,i.isConnected,i.ownerDocument===document].join('|'));record([document.querySelector('#inside')===null,r.querySelector('#inside')===i,r.getElementById('inside')===i,i.getRootNode()===r,i.getRootNode({composed:true})===document,h.contains(i)].join('|'));h.remove();record(i.isConnected);const c=document.createElement('div'),cr=c.attachShadow({mode:'closed'});record(c.shadowRoot===null&&cr.host===c&&cr.mode==='closed');",
+    "expected": [
+      "true",
+      "true|open|11||true|true|true",
+      "true|true|true|true|true|false",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "attachShadow validation",
+    "source": "for(const f of [()=>document.createElement('input').attachShadow({mode:'open'}),()=>document.createElement('div').attachShadow({mode:'wrong'}),()=>{const h=document.createElement('div');h.attachShadow({mode:'open'});h.attachShadow({mode:'open'});},()=>HTMLElement.prototype.attachShadow.call(document,{mode:'open'})]){try{f();record('none')}catch(e){record(e.name)}}",
+    "expected": [
+      "NotSupportedError",
+      "TypeError",
+      "NotSupportedError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "slots named default duplicate and fallback",
+    "source": "const h=document.createElement('div');h.innerHTML='<b id=a slot=n>A</b>text<i id=b>B</i><u slot=missing>U</u>';const r=h.attachShadow({mode:'open'});r.innerHTML='<slot name=n></slot><slot name=n><em>duplicate</em></slot><slot><strong>fallback</strong></slot>';const s=r.children;record(s[0].assignedElements().map(n=>n.id).join(','));record([s[1].assignedNodes().length,s[1].assignedNodes({flatten:true})[0].textContent,s[2].assignedNodes().length].join('|'));record([h.firstChild.assignedSlot===s[0],h.childNodes[1].assignedSlot===s[2],h.lastChild.assignedSlot===null].join('|'));h.firstChild.slot='';record([s[0].assignedNodes().length,s[2].assignedElements().map(n=>n.id).join(',')].join('|'));",
+    "expected": [
+      "a",
+      "0|duplicate|2",
+      "true|true|true",
+      "0|a,b"
+    ]
+  },
+  {
+    "name": "manual slot reassignment",
+    "source": "const h=document.createElement('div');h.innerHTML='<span id=a>A</span><span id=b>B</span>';const r=h.attachShadow({mode:'open',slotAssignment:'manual'});r.innerHTML='<slot></slot><slot></slot>';const a=h.firstChild,b=h.lastChild,s=r.children;s[0].assign(b,a,b);record(s[0].assignedElements().map(n=>n.id).join(','));s[1].assign(a);record([s[0].assignedElements().map(n=>n.id).join(','),s[1].assignedElements().map(n=>n.id).join(','),r.slotAssignment].join('|'));",
+    "expected": [
+      "b,a",
+      "b|a|manual"
+    ]
+  },
+  {
+    "name": "slotchange coalescing noncomposed and mutations",
+    "source": "const h=document.createElement('div');document.body.append(h);const r=h.attachShadow({mode:'open'});r.innerHTML='<slot></slot>';const s=r.firstChild;let root=0,outer=0;s.addEventListener('slotchange',e=>record([e.bubbles,e.composed,e.target===s].join('|')));r.addEventListener('slotchange',()=>root++);h.addEventListener('slotchange',()=>outer++);h.append(document.createElement('b'));h.append(document.createElement('i'));queueMicrotask(()=>record([root,outer,s.assignedElements().length].join('|')));",
+    "expected": [
+      "true|false|true",
+      "1|0|2"
+    ]
+  },
+  {
+    "name": "composed retarget and host event phase",
+    "source": "const h=document.createElement('div');document.body.append(h);const r=h.attachShadow({mode:'open'});r.innerHTML='<button>Inner</button>';const b=r.firstChild;r.addEventListener('x',e=>record([e.target===b,e.composedPath()[0]===b,e.eventPhase].join('|')));h.addEventListener('x',e=>record([e.target===h,e.composedPath()[0]===b,e.eventPhase].join('|')));document.addEventListener('x',e=>record([e.target===h,e.eventPhase].join('|')));b.dispatchEvent(new Event('x',{bubbles:true,composed:true}));b.dispatchEvent(new Event('x',{bubbles:true}));",
+    "expected": [
+      "true|true|3",
+      "true|true|2",
+      "true|3",
+      "true|true|3"
+    ]
+  },
+  {
+    "name": "closed path privacy and slotted event path",
+    "source": "const h=document.createElement('div');document.body.append(h);const r=h.attachShadow({mode:'closed'});r.innerHTML='<button>Inner</button><slot></slot>';const b=r.firstChild;h.addEventListener('x',e=>record([e.target===h,e.composedPath().includes(r),e.composedPath().includes(b),e.composedPath()[0]===h].join('|')));b.dispatchEvent(new Event('x',{bubbles:true,composed:true}));const light=document.createElement('span');h.append(light);record(light.assignedSlot===null);r.addEventListener('y',e=>record(e.target===light));h.addEventListener('y',e=>record([e.target===light,e.composedPath().includes(r)].join('|')));light.dispatchEvent(new Event('y',{bubbles:true}));",
+    "expected": [
+      "true|false|false|true",
+      "true",
+      "true",
+      "true|false"
+    ]
+  },
+  {
+    "name": "custom element upgrade attributes lifecycle and stable identity",
+    "source": "const h=document.createElement('x-note');h.setAttribute('value','one');document.body.append(h);const log=[];class Note extends HTMLElement{static get observedAttributes(){return ['value']}constructor(){super();this.count=1;this.attachShadow({mode:'open'}).innerHTML='<b>Ready</b>'}connectedCallback(){log.push('connected')}disconnectedCallback(){log.push('disconnected')}attributeChangedCallback(n,o,v){log.push(n+':'+o+':'+v)}read(){return this.count}}customElements.define('x-note',Note);record([h instanceof Note,h instanceof HTMLElement,h instanceof Element,h instanceof Node,h.read(),h.shadowRoot.textContent].join('|'));record(log.join(','));h.setAttribute('value','two');h.setAttribute('value','two');h.remove();document.body.append(h);record(log.join(','));record(customElements.get('x-note')===Note&&customElements.getName(Note)==='x-note');",
+    "expected": [
+      "true|true|true|true|1|Ready",
+      "value:null:one,connected",
+      "value:null:one,connected,value:one:two,value:two:two,disconnected,connected",
+      "true"
+    ]
+  },
+  {
+    "name": "construction class fields private state and accessors",
+    "source": "class Counter extends HTMLElement{#value=7;field='ok';get value(){return this.#value}set value(v){this.#value=v}read(){return this.#value}}customElements.define('x-count',Counter);const a=new Counter(),b=document.createElement('x-count');a.value=9;record([a.localName,b.localName,a.value,a.read(),b.read(),a.field,Object.getPrototypeOf(a)===Counter.prototype,a instanceof Counter].join('|'));Object.defineProperty(a,'secret',{value:2,enumerable:false});record(Object.keys(a).includes('secret'));try{new HTMLElement()}catch(e){record(e.name)}",
+    "expected": [
+      "x-count|x-count|9|9|7|ok|true|true",
+      "false",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "detached upgrades and whenDefined",
+    "source": "const h=document.createElement('x-later');let constructions=0;class Later extends HTMLElement{constructor(){super();constructions++}}const p=customElements.whenDefined('x-later');record(p===customElements.whenDefined('x-later'));p.then(c=>record(c===Later));customElements.define('x-later',Later);record(h instanceof Later);customElements.upgrade(h);record([h instanceof Later,constructions].join('|'));document.body.append(h);record(constructions);customElements.whenDefined('bad').catch(e=>record(e.name));",
+    "expected": [
+      "true",
+      "false",
+      "true|1",
+      "1",
+      "true",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "custom definitions validation and disabled shadow",
+    "source": "class A extends HTMLElement{};for(const f of [()=>customElements.define('bad',A),()=>customElements.define('X-bad',A),()=>customElements.define('x-arrow',()=>{}),()=>customElements.define('x-bad',A,{extends:'x-other'})]){try{f();record('none')}catch(e){record(e.name)}}customElements.define('x-valid',A);try{customElements.define('x-again',A)}catch(e){record(e.name)}class Closed extends HTMLElement{static get disabledFeatures(){return ['shadow']}}customElements.define('x-disabled',Closed);try{new Closed().attachShadow({mode:'open'})}catch(e){record(e.name)}",
+    "expected": [
+      "SyntaxError",
+      "SyntaxError",
+      "TypeError",
+      "NotSupportedError",
+      "NotSupportedError",
+      "NotSupportedError"
+    ]
+  },
+  {
+    "name": "customized built-in and immutable is value",
+    "source": "class Special extends HTMLButtonElement{constructor(){super();this.ready=true}}customElements.define('x-special',Special,{extends:'button'});const b=document.createElement('button',{is:'x-special'});document.body.append(b);record([b instanceof Special,b instanceof HTMLButtonElement,b.localName,b.ready].join('|'));const ordinary=document.createElement('button');ordinary.setAttribute('is','x-special');customElements.upgrade(ordinary);record(ordinary instanceof Special);const direct=new Special();record([direct.localName,direct instanceof Special].join('|'));",
+    "expected": [
+      "true|true|button|true",
+      "false",
+      "button|true"
+    ]
+  },
+  {
+    "name": "declarative shadow adoption and clone",
+    "source": "const h=document.createElement('div');const r=h.attachShadow({mode:'open',clonable:true});r.innerHTML='<span>Copy</span>';const copy=h.cloneNode(true);record([copy.shadowRoot!==r,copy.shadowRoot.host===copy,copy.shadowRoot.textContent,copy.shadowRoot.clonable].join('|'));document.body.append(r);record([r.childNodes.length,document.body.firstChild.textContent].join('|'));",
+    "expected": [
+      "true|true|Copy|true",
+      "0|Copy"
+    ]
+  },
+  {
+    "name": "list reflected attributes and branded prototype accessors",
+    "source": "const list=document.createElement('ol'),li=document.createElement('li');list.append(li);document.body.append(list);record([list.start,list.reversed,list.type,li.value,li.type].join('|'));list.start=4294967295;list.reversed='false';list.type='A';li.value={valueOf(){return 7.9;}};li.type='i';record([list.getAttribute('start'),list.hasAttribute('reversed'),list.type,li.value,li.type].join('|'));list.setAttribute('start',' +12garbage');record(list.start);list.setAttribute('start','2147483648');li.setAttribute('value','broken');record([list.start,li.value].join('|'));const desc=Object.getOwnPropertyDescriptor(HTMLOListElement.prototype,'start');record(desc.get.call(list));desc.set.call(list,NaN);record(list.getAttribute('start'));try{desc.get.call(li)}catch(e){record(e.name)}try{li.value=1n}catch(e){record(e.name)}list.reversed=false;record(list.hasAttribute('reversed'));",
+    "expected": [
+      "1|false||0|",
+      "-1|true|A|7|i",
+      "12",
+      "1|0",
+      "1",
+      "0",
+      "TypeError",
+      "TypeError",
+      "false"
+    ]
+  },
+  {
+    "name": "form-associated value snapshots and disabled ownership",
+    "source": "\nconst calls=[];\nclass R03Field extends HTMLElement {\n static formAssociated=true;\n constructor(){super();this.internals=this.attachInternals();const r=this.attachShadow({mode:'closed'});r.innerHTML='<span><input value=seed></span><slot></slot>';this.editor=r.querySelector('input');this.internals.setFormValue('initial');}\n formAssociatedCallback(f){calls.push('form:'+String(f&&f.id));}\n formDisabledCallback(v){calls.push('disabled:'+v);this.editor.disabled=v;}\n formResetCallback(){calls.push('reset');this.editor.value='seed';this.internals.setFormValue('initial');}\n}\ncustomElements.define('r03-field',R03Field);\ndocument.body.innerHTML='<form id=f><fieldset id=fs><label for=c>Note</label><r03-field id=c name=note></r03-field></fieldset></form>';\nconst c=document.getElementById('c'),f=document.getElementById('f'),fs=document.getElementById('fs'),i=c.internals;\nrecord([i.form===f,f.elements.length,f.elements[1]===c,i.labels.length,i.labels[0].textContent,i.shadowRoot!==null,c.shadowRoot===null].join('|'));\nrecord(new FormData(f).get('note'));\nconst data=new FormData();data.append('one','A');data.append('two','B');i.setFormValue(data,'saved');data.set('one','changed');\nrecord([...new FormData(f)].map(v=>v.join('=')).join('|'));\nfs.disabled=true;record([i.willValidate,new FormData(f).has('one'),c.editor.disabled].join('|'));fs.disabled=false;\nc.editor.value='edited';f.reset();record([c.editor.value,new FormData(f).get('note')].join('|'));\nc.remove();record(i.form===null);record(calls.join('|'));\n",
+    "expected": [
+      "true|2|true|1|Note|true|true",
+      "initial",
+      "one=A|two=B",
+      "false|false|true",
+      "seed|initial",
+      "true",
+      "form:f|disabled:true|disabled:false|reset|form:null"
+    ]
+  },
+  {
+    "name": "live internals validity invalid events and validation anchors",
+    "source": "\nclass R03Valid extends HTMLElement{static formAssociated=true;constructor(){super();this.i=this.attachInternals();this.attachShadow({mode:'open'}).innerHTML='<input>'}}\ncustomElements.define('r03-valid',R03Valid);document.body.innerHTML='<form id=f><r03-valid id=c></r03-valid></form>';const f=document.getElementById('f'),c=document.getElementById('c'),i=c.i,v=i.validity;let invalid=0;c.addEventListener('invalid',e=>{invalid++;record([e.target===c,e.bubbles,e.cancelable].join('|'));e.preventDefault()});\nrecord([v.valid,i.willValidate,i.validationMessage,i.validity===v].join('|'));try{i.setValidity({customError:true})}catch(e){record(e.name)};record(v.valid);\ni.setValidity({customError:true},'wrong\\r\\nline',c.shadowRoot.firstChild);record([v.valid,v.customError,i.validationMessage==='wrong\\nline',c.matches(':invalid')].join('|'));record(f.checkValidity());record(invalid);\ntry{i.setValidity({valueMissing:true},'missing',document.body)}catch(e){record(e.name)};record([v.valueMissing,v.customError,i.validationMessage].join('|'));i.setValidity({});record([v.valid,c.matches(':valid'),f.checkValidity()].join('|'));c.setAttribute('readonly','');record([i.willValidate,c.matches(':valid'),c.matches(':invalid')].join('|'));\n",
+    "expected": [
+      "true|true||true",
+      "TypeError",
+      "true",
+      "false|true|true|true",
+      "true|false|true",
+      "false",
+      "1",
+      "NotFoundError",
+      "false|true|wrong\nline",
+      "true|true|true",
+      "false|true|false"
+    ]
+  },
+  {
+    "name": "internals attachment brands default aria and custom states",
+    "source": "\nclass R03Plain extends HTMLElement{constructor(){super();this.i=this.attachInternals()}}customElements.define('r03-plain',R03Plain);const c=new R03Plain(),i=c.i,s=i.states;record([i instanceof ElementInternals,s instanceof CustomStateSet,i.shadowRoot===null,s===i.states].join('|'));for(const fn of [()=>c.attachInternals(),()=>document.createElement('div').attachInternals(),()=>i.setFormValue('x'),()=>i.checkValidity(),()=>ElementInternals.prototype.checkValidity.call({})]){try{fn();record('none')}catch(e){record(e.name)}}\ni.role='checkbox';i.ariaChecked='false';record([i.role,i.ariaChecked,c.hasAttribute('role'),c.hasAttribute('aria-checked')].join('|'));record(s.add('busy')===undefined);s.add('other');s.add('busy');record([s.size,c.matches(':state(busy)'),[...s].join(','),[...s.entries()].map(v=>v.join(':')).join('|')].join(';'));record(s.delete('busy'));record(c.matches(':state(busy)'));s.clear();record(s.size);\n",
+    "expected": [
+      "true|true|true|true",
+      "NotSupportedError",
+      "NotSupportedError",
+      "NotSupportedError",
+      "NotSupportedError",
+      "TypeError",
+      "checkbox|false|false|false",
+      "true",
+      "2;true;busy,other;busy:busy|other:other",
+      "true",
+      "false",
+      "0"
+    ]
+  },
+  {
+    "name": "scoped registry isolation null initialization and constructor stacks",
+    "source": "\nconst a=new CustomElementRegistry(),b=new CustomElementRegistry();class R03A extends HTMLElement{constructor(){super();this.mark='A'}}class R03B extends HTMLElement{constructor(){super();this.mark='B'}}a.define('r03-scope',R03A);b.define('r03-scope',R03B);const h=document.createElement('div');document.body.append(h);const r=h.attachShadow({mode:'open',customElementRegistry:a});r.innerHTML='<r03-scope></r03-scope>';record([r.firstChild instanceof R03A,r.firstChild.mark,customElements.get('r03-scope')===undefined].join('|'));const cb=document.createElement('r03-scope',{customElementRegistry:b});r.append(cb);record([cb instanceof R03B,cb.mark].join('|'));try{new R03A();record('none')}catch(e){record(e.name)};try{a.define('r03-button',class extends HTMLButtonElement{},{extends:'button'});record('none')}catch(e){record(e.name)};\nconst deferred=document.createElement('r03-scope',{customElementRegistry:null});record(!(deferred instanceof R03A));a.initialize(deferred);record(deferred instanceof R03A);b.initialize(deferred);record(deferred instanceof R03A);\nconst nullHost=document.createElement('div'),nullRoot=nullHost.attachShadow({mode:'open',customElementRegistry:null});nullRoot.innerHTML='<r03-scope></r03-scope>';record(!(nullRoot.firstChild instanceof R03A));a.initialize(nullRoot);record(nullRoot.firstChild instanceof R03A);\n",
+    "expected": [
+      "true|A|true",
+      "true|B",
+      "TypeError",
+      "none",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "registry definition snapshots disabled internals and unicode names",
+    "source": "\nclass R03Off extends HTMLElement{static disabledFeatures=['internals'];}customElements.define('r03-off',R03Off);try{new R03Off().attachInternals()}catch(e){record(e.name)};for(const name of ['r03-a?b','r03-a@b','r03-a\\b','r03-A','r03-ä']){try{customElements.define(name,class extends HTMLElement{});record('ok')}catch(e){record(e.name)}};const calls=[];class R03Snapshot extends HTMLElement{static formAssociated=true;formResetCallback(){calls.push('initial')}}customElements.define('r03-snapshot',R03Snapshot);R03Snapshot.formAssociated=false;R03Snapshot.prototype.formResetCallback=function(){calls.push('changed')};document.body.innerHTML='<form><r03-snapshot></r03-snapshot></form>';document.body.firstChild.reset();record(calls.join('|'));\n",
+    "expected": [
+      "NotSupportedError",
+      "ok",
+      "ok",
+      "ok",
+      "SyntaxError",
+      "ok",
+      "initial"
+    ]
+  },
+  {
+    "name": "custom element adoption state preserving moves and ownership reactions",
+    "source": "\nconst calls=[];class R03Moved extends HTMLElement{static formAssociated=true;constructor(){super();this.i=this.attachInternals();this.i.setFormValue('kept');}connectedCallback(){calls.push('connected')}disconnectedCallback(){calls.push('disconnected')}connectedMoveCallback(){calls.push('moved')}adoptedCallback(oldDoc,newDoc){calls.push('adopted:'+String(oldDoc===document)+':'+String(newDoc===other))}formAssociatedCallback(f){calls.push('form:'+String(f&&f.id))}}\ncustomElements.define('r03-moved',R03Moved);document.body.innerHTML='<form id=f><div id=one></div><div id=two></div></form>';const c=document.createElement('r03-moved');c.setAttribute('name','note');document.getElementById('one').append(c);calls.length=0;document.getElementById('two').moveBefore(c,null);record(calls.join('|'));record([new FormData(document.getElementById('f')).get('note'),c.i.form.id].join('|'));\nconst other=document.implementation.createHTMLDocument('Other');calls.length=0;other.adoptNode(c);record([c.ownerDocument===other,c.i.form===null,c.isConnected].join('|'));record(calls.join('|'));other.body.append(c);record(c.ownerDocument===other&&c.isConnected);document.adoptNode(c);document.getElementById('f').append(c);record(new FormData(document.getElementById('f')).get('note'));\n",
+    "expected": [
+      "form:null|moved|form:f",
+      "kept|f",
+      "true|true|false",
+      "disconnected|form:null|adopted:true:true",
+      "true",
+      "kept"
+    ]
+  },
+  {
+    "name": "direct form component construction barred validity and live state iteration",
+    "source": "\nclass R03Direct extends HTMLElement{static formAssociated=true;constructor(){super();this.i=this.attachInternals();this.i.setFormValue('fresh')}}customElements.define('r03-direct',R03Direct);const c=new R03Direct();c.name='ignored';c.setAttribute('name','note');const f=document.createElement('form');document.body.append(f);f.append(c);record([c.i.form===f,new FormData(f).get('note'),f.matches(':valid'),f.matches(':invalid')].join('|'));c.i.setValidity({customError:true},'wrong');record([c.matches(':valid'),c.matches(':invalid'),f.matches(':valid'),f.matches(':invalid')].join('|'));c.setAttribute('readonly','');record([c.i.willValidate,c.i.validity.valid,c.matches(':valid'),c.matches(':invalid'),f.matches(':valid'),f.matches(':invalid')].join('|'));c.setAttribute('disabled','');record([c.i.willValidate,c.matches(':valid'),c.matches(':invalid'),c.matches(':disabled')].join('|'));c.removeAttribute('readonly');c.removeAttribute('disabled');const s=c.i.states;s.add('one');s.add('two');const it=s.values();record(it.next().value);s.delete('two');s.add('three');record(it.next().value);record(it.next().done);s.add('later');record(it.next().done);const visited=[];s.forEach(v=>{visited.push(v);if(v==='one')s.add('last')});record(visited.join('|'));\n",
+    "expected": [
+      "true|fresh|true|false",
+      "false|true|false|true",
+      "false|false|true|false|true|false",
+      "false|true|false|true",
+      "one",
+      "three",
+      "true",
+      "false",
+      "one|three|later|last"
+    ]
+  },
+  {
+    "name": "custom clone observed attributes roots and fresh internals",
+    "source": "\nconst calls=[];let built=0;class R03Clone extends HTMLElement{static formAssociated=true;static observedAttributes=['data-v'];constructor(){super();built++;this.i=this.attachInternals();this.i.setFormValue('default');if(!this.i.shadowRoot)this.attachShadow({mode:'closed',clonable:true}).innerHTML='<span>Constructor</span>'}attributeChangedCallback(n,o,v){calls.push(n+':'+String(o)+':'+v)}}customElements.define('r03-clone',R03Clone);const c=document.createElement('r03-clone');c.setAttribute('data-v','copied');c.setAttribute('name','note');c.append(document.createTextNode('Light'));c.i.shadowRoot.innerHTML='<slot></slot><strong>Source</strong>';c.i.setFormValue('edited');c.i.states.add('source');calls.length=0;const copy=c.cloneNode(true);record([built,copy instanceof R03Clone,copy!==c,copy.i!==c.i,copy.textContent,copy.i.shadowRoot.textContent,copy.i.shadowRoot!==c.i.shadowRoot,copy.shadowRoot===null].join('|'));record(calls.join('|'));const f=document.createElement('form');document.body.append(f);f.append(copy);record([new FormData(f).get('note'),copy.i.states.size].join('|'));\n",
+    "expected": [
+      "2|true|true|true|Light|Source|true|true",
+      "data-v:null:copied",
+      "default|0"
+    ]
+  }
+]

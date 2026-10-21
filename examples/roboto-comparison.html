@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roboto · Größe und Linien messen</title>
+  <link rel="stylesheet" href="font-comparison.css">
+  <style>
+    @font-face { font-family: "ComparisonRoboto"; src: url("fonts/comparison/font098.ttf") format("truetype"); font-weight: 400; font-style: normal; }
+    .sample { font-synthesis: none; }
+    h1 { font-size: 20px; }
+  </style>
+</head>
+<body class="font-pending" data-font-label="Roboto normal" data-web-font="ComparisonRoboto" data-sizes="10,20,30,40,50" data-test-factor="1,13">
+  <h1>Roboto · 10, 20, 30, 40 und 50 px</h1>
+  <p id="font-status" role="status">Roboto wird geladen …</p>
+  <p>Chrome mit Strg + 0 auf 100 % Zoom stellen. In FontTestConfig.luau Font = "Roboto" wählen.
+    HTML bleibt bei 10, 20, 30, 40 und 50 px; Roblox verwendet den Testfaktor 1,13 und rundet die Schriftgröße immer auf.
+    Roblox-TextSize: 12, 23, 34, 46 und 57.
+    Bitte die neuen Roblox-Höhen prüfen. Zielhöhen des H: 7, 14, 22, 29 und 36 px.</p>
+  <p>Rosa an die H-Oberkante und Gelb an die H-Unterkante setzen: H-Abstand ablesen.
+    x und p messen wir nach dem Größenabgleich. Die Linien sind 80 % transparent.</p>
+  <p><a href="roboto-comparison.html">Roboto</a> · <a href="roboto-condensed-comparison.html">Roboto Condensed</a> · <a href="roboto-mono-comparison.html">Roboto Mono</a> · <a href="roboto-slab-comparison.html">Roboto Slab</a></p>
+  <button id="visibility" type="button" aria-pressed="false">Hilfslinien ausblenden</button>
+  <textarea id="results" readonly aria-label="Manuelle Chrome-Vergleichswerte"></textarea>
+  <main id="samples"></main>
+  <script src="font-comparison.js"></script>
+</body>
+</html>

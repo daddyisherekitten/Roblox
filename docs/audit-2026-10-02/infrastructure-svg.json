@@ -1,0 +1,796 @@
+[
+  {
+    "path": "scripts/svg-acceptance-template.html.in",
+    "responsibility": "Browser comparison template: acceptance",
+    "interfaces": [
+      "@@TITLE@@ / @@CASES@@ / @@FONTS@@ or @@PAGE@@ replacement contract."
+    ],
+    "dependencies": [],
+    "callers": [
+      "scripts/sync-svg-acceptance.py"
+    ],
+    "mutableState": "Page/frame DOM, generation tokens, local interaction/animation state, event callbacks and object URLs where used.",
+    "resourceOwner": "Comparison browser document owns frames/listeners; rebuild replaces frames and old tokens.",
+    "tests": [
+      "scripts/test-svg-acceptance-browser.cjs",
+      "scripts/test-svg-animation-browser.cjs",
+      "scripts/test-svg-integration-browser.cjs",
+      "scripts/test-svg-runtime-browser.cjs",
+      "scripts/test-svg-scripting-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced message provenance, per-frame state, shortcuts, font loading and reset; no native browser execution claimed.",
+    "testStatus": "Covered by linked generator --check and browser-mock tests where applicable; no independent native render verification.",
+    "findings": [],
+    "bytes": 5195,
+    "lines": 52
+  },
+  {
+    "path": "scripts/svg-animation-template.html.in",
+    "responsibility": "Browser comparison template: animation",
+    "interfaces": [
+      "@@TITLE@@ / @@CASES@@ / @@FONTS@@ or @@PAGE@@ replacement contract."
+    ],
+    "dependencies": [],
+    "callers": [
+      "scripts/sync-svg-animation.py"
+    ],
+    "mutableState": "Page/frame DOM, generation tokens, local interaction/animation state, event callbacks and object URLs where used.",
+    "resourceOwner": "Comparison browser document owns frames/listeners; rebuild replaces frames and old tokens.",
+    "tests": [
+      "scripts/test-svg-acceptance-browser.cjs",
+      "scripts/test-svg-animation-browser.cjs",
+      "scripts/test-svg-integration-browser.cjs",
+      "scripts/test-svg-runtime-browser.cjs",
+      "scripts/test-svg-scripting-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced message provenance, per-frame state, shortcuts, font loading and reset; no native browser execution claimed.",
+    "testStatus": "Covered by linked generator --check and browser-mock tests where applicable; no independent native render verification.",
+    "findings": [],
+    "bytes": 5256,
+    "lines": 52
+  },
+  {
+    "path": "scripts/svg-integration-template.html.in",
+    "responsibility": "Browser comparison template: integration",
+    "interfaces": [
+      "@@TITLE@@ / @@CASES@@ / @@FONTS@@ or @@PAGE@@ replacement contract."
+    ],
+    "dependencies": [],
+    "callers": [
+      "scripts/sync-svg-integration.py"
+    ],
+    "mutableState": "Page/frame DOM, generation tokens, local interaction/animation state, event callbacks and object URLs where used.",
+    "resourceOwner": "Comparison browser document owns frames/listeners; rebuild replaces frames and old tokens.",
+    "tests": [
+      "scripts/test-svg-acceptance-browser.cjs",
+      "scripts/test-svg-animation-browser.cjs",
+      "scripts/test-svg-integration-browser.cjs",
+      "scripts/test-svg-runtime-browser.cjs",
+      "scripts/test-svg-scripting-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced message provenance, per-frame state, shortcuts, font loading and reset; no native browser execution claimed.",
+    "testStatus": "Covered by linked generator --check and browser-mock tests where applicable; no independent native render verification.",
+    "findings": [],
+    "bytes": 1452,
+    "lines": 7
+  },
+  {
+    "path": "scripts/svg-runtime-template.html.in",
+    "responsibility": "Browser comparison template: runtime",
+    "interfaces": [
+      "@@TITLE@@ / @@CASES@@ / @@FONTS@@ or @@PAGE@@ replacement contract."
+    ],
+    "dependencies": [],
+    "callers": [
+      "scripts/sync-svg-runtime.py"
+    ],
+    "mutableState": "Page/frame DOM, generation tokens, local interaction/animation state, event callbacks and object URLs where used.",
+    "resourceOwner": "Comparison browser document owns frames/listeners; rebuild replaces frames and old tokens.",
+    "tests": [
+      "scripts/test-svg-acceptance-browser.cjs",
+      "scripts/test-svg-animation-browser.cjs",
+      "scripts/test-svg-integration-browser.cjs",
+      "scripts/test-svg-runtime-browser.cjs",
+      "scripts/test-svg-scripting-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced message provenance, per-frame state, shortcuts, font loading and reset; no native browser execution claimed.",
+    "testStatus": "Covered by linked generator --check and browser-mock tests where applicable; no independent native render verification.",
+    "findings": [],
+    "bytes": 8189,
+    "lines": 74
+  },
+  {
+    "path": "scripts/svg-scripting-template.html.in",
+    "responsibility": "Browser comparison template: scripting",
+    "interfaces": [
+      "@@TITLE@@ / @@CASES@@ / @@FONTS@@ or @@PAGE@@ replacement contract."
+    ],
+    "dependencies": [],
+    "callers": [
+      "scripts/sync-svg-scripting.py"
+    ],
+    "mutableState": "Page/frame DOM, generation tokens, local interaction/animation state, event callbacks and object URLs where used.",
+    "resourceOwner": "Comparison browser document owns frames/listeners; rebuild replaces frames and old tokens.",
+    "tests": [
+      "scripts/test-svg-acceptance-browser.cjs",
+      "scripts/test-svg-animation-browser.cjs",
+      "scripts/test-svg-integration-browser.cjs",
+      "scripts/test-svg-runtime-browser.cjs",
+      "scripts/test-svg-scripting-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced message provenance, per-frame state, shortcuts, font loading and reset; no native browser execution claimed.",
+    "testStatus": "Covered by linked generator --check and browser-mock tests where applicable; no independent native render verification.",
+    "findings": [],
+    "bytes": 5016,
+    "lines": 43
+  },
+  {
+    "path": "scripts/sync-svg-acceptance.py",
+    "responsibility": "S45 combination fixtures; identical SVG/scripts in Luau and native browser.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/AcceptanceSources.luau",
+      "scripts/svg-acceptance-template.html.in",
+      "examples/svg-tests/s45.html"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-acceptance.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 7723,
+    "lines": 50
+  },
+  {
+    "path": "scripts/sync-svg-animation.py",
+    "responsibility": "S39/S40 animation sources and independent native comparison frames.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "scripts/svg-animation-template.html.in"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-animation.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 7716,
+    "lines": 43
+  },
+  {
+    "path": "scripts/sync-svg-arcs.py",
+    "responsibility": "Synchronize S10 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/ArcSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-arcs.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3425,
+    "lines": 31
+  },
+  {
+    "path": "scripts/sync-svg-curves.py",
+    "responsibility": "Synchronize S09 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/CurveSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-curves.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3381,
+    "lines": 31
+  },
+  {
+    "path": "scripts/sync-svg-fill.py",
+    "responsibility": "Synchronize S11 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/FillSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-fill.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3451,
+    "lines": 31
+  },
+  {
+    "path": "scripts/sync-svg-filters.py",
+    "responsibility": "Native SVG and Luau filter fixtures from identical source strings.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-filters.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [
+      "SVG-INFRA-01"
+    ],
+    "bytes": 12598,
+    "lines": 95
+  },
+  {
+    "path": "scripts/sync-svg-gradients.py",
+    "responsibility": "Generate the shared S17/S18 native SVG comparison and Luau sources.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-gradients.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 4638,
+    "lines": 29
+  },
+  {
+    "path": "scripts/sync-svg-images-clips.py",
+    "responsibility": "Generate the shared S21/S22 native SVG comparison and Luau sources.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-images-clips.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 6295,
+    "lines": 46
+  },
+  {
+    "path": "scripts/sync-svg-kernel-filters.py",
+    "responsibility": "S33/S34: native SVG and Luau comparison sources, generated together.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-kernel-filters.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [
+      "SVG-INFRA-01"
+    ],
+    "bytes": 13242,
+    "lines": 83
+  },
+  {
+    "path": "scripts/sync-svg-lengths.py",
+    "responsibility": "Synchronize S05 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/LengthSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-lengths.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3277,
+    "lines": 31
+  },
+  {
+    "path": "scripts/sync-svg-lighting-hit.py",
+    "responsibility": "S35/S36 comparison boards: lighting and native pointer targets.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-lighting-hit.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [
+      "SVG-INFRA-01"
+    ],
+    "bytes": 12871,
+    "lines": 85
+  },
+  {
+    "path": "scripts/sync-svg-masks-blending.py",
+    "responsibility": "Generate the shared S23/S24 native SVG comparison and Luau sources.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-masks-blending.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 6665,
+    "lines": 47
+  },
+  {
+    "path": "scripts/sync-svg-paint.py",
+    "responsibility": "Synchronize S07 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/PaintSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-paint.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3366,
+    "lines": 31
+  },
+  {
+    "path": "scripts/sync-svg-paths.py",
+    "responsibility": "Synchronize S08 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/PathSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-paths.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3340,
+    "lines": 31
+  },
+  {
+    "path": "scripts/sync-svg-patterns-markers.py",
+    "responsibility": "Generate the shared S19/S20 native SVG comparison and Luau sources.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-patterns-markers.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 4829,
+    "lines": 23
+  },
+  {
+    "path": "scripts/sync-svg-rendering.py",
+    "responsibility": "Synchronize S14 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/RenderingSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-rendering.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3715,
+    "lines": 32
+  },
+  {
+    "path": "scripts/sync-svg-runtime.py",
+    "responsibility": "S37/S38: native browser interactions paired with explicit Luau callbacks.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "scripts/svg-runtime-template.html.in"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-runtime.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 6458,
+    "lines": 32
+  },
+  {
+    "path": "scripts/sync-svg-scripting.py",
+    "responsibility": "S41/S42: identical JavaScript sources, conditional branches and native SVG views.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "scripts/svg-scripting-template.html.in"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-scripting.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 8988,
+    "lines": 72
+  },
+  {
+    "path": "scripts/sync-svg-shapes.py",
+    "responsibility": "Synchronize S06 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/ShapeSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-shapes.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3227,
+    "lines": 31
+  },
+  {
+    "path": "scripts/sync-svg-spatial-filters.py",
+    "responsibility": "S31/S32 native SVG parity boards, generated with identical Luau source.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-spatial-filters.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [
+      "SVG-INFRA-01"
+    ],
+    "bytes": 11739,
+    "lines": 77
+  },
+  {
+    "path": "scripts/sync-svg-stroke.py",
+    "responsibility": "Synchronize S12 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/StrokeSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-stroke.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3533,
+    "lines": 32
+  },
+  {
+    "path": "scripts/sync-svg-styles-use.py",
+    "responsibility": "Synchronize the combined S15/S16 CSS and reuse comparison sources.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-styles-use.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 6513,
+    "lines": 47
+  },
+  {
+    "path": "scripts/sync-svg-text-resources.py",
+    "responsibility": "Shared textPath and text resource fixtures. Browser embeds the exact licensed font bytes.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-text-resources.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [
+      "SVG-INFRA-01"
+    ],
+    "bytes": 11065,
+    "lines": 92
+  },
+  {
+    "path": "scripts/sync-svg-text.py",
+    "responsibility": "Shared native SVG text fixtures. Browser embeds the exact licensed font bytes.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-text.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [
+      "SVG-INFRA-01"
+    ],
+    "bytes": 9490,
+    "lines": 119
+  },
+  {
+    "path": "scripts/sync-svg-transform.py",
+    "responsibility": "Synchronize S13 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/TransformSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-transform.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3608,
+    "lines": 32
+  },
+  {
+    "path": "scripts/sync-svg-viewports.py",
+    "responsibility": "Synchronize S04 SVG source strings; viewports are resolved at runtime.",
+    "interfaces": [
+      "CLI --check validates outputs without rewriting; normal invocation rewrites generated sources/pages."
+    ],
+    "dependencies": [
+      "examples/SVGLab/ViewportSources.luau"
+    ],
+    "callers": [],
+    "mutableState": "Generator-local source/case/output dictionaries; normal execution writes listed generated artifacts.",
+    "resourceOwner": "CLI owns temporary memory; generated files belong to repository.",
+    "tests": [
+      "scripts/sync-svg-viewports.py --check"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Traced source SVG/font/image inputs, generated Luau data and browser outputs.",
+    "testStatus": "--check passed; no generated file rewrite.",
+    "findings": [],
+    "bytes": 3318,
+    "lines": 31
+  },
+  {
+    "path": "scripts/test-svg-acceptance-browser.cjs",
+    "responsibility": "Execute generated browser comparison JavaScript against explicit DOM test doubles.",
+    "interfaces": [
+      "Node CLI test runner."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Process-local VM contexts and DOM mock state; reads generated pages.",
+    "resourceOwner": "CLI process owns mocks; no native GUI/EditableImages.",
+    "tests": [
+      "scripts/test-svg-acceptance-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Generated parent/frame source executes in Node; explicit mocks do not verify SVG rendering or native origin/paint performance.",
+    "testStatus": "DOM-mock test passed; not a native browser/render/FPS measurement.",
+    "findings": [],
+    "bytes": 7010,
+    "lines": 65
+  },
+  {
+    "path": "scripts/test-svg-animation-browser.cjs",
+    "responsibility": "Execute generated browser comparison JavaScript against explicit DOM test doubles.",
+    "interfaces": [
+      "Node CLI test runner."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Process-local VM contexts and DOM mock state; reads generated pages.",
+    "resourceOwner": "CLI process owns mocks; no native GUI/EditableImages.",
+    "tests": [
+      "scripts/test-svg-animation-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Generated parent/frame source executes in Node; explicit mocks do not verify SVG rendering or native origin/paint performance.",
+    "testStatus": "DOM-mock test passed; not a native browser/render/FPS measurement.",
+    "findings": [],
+    "bytes": 6636,
+    "lines": 64
+  },
+  {
+    "path": "scripts/test-svg-integration-browser.cjs",
+    "responsibility": "Execute generated browser comparison JavaScript against explicit DOM test doubles.",
+    "interfaces": [
+      "Node CLI test runner."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Process-local VM contexts and DOM mock state; reads generated pages.",
+    "resourceOwner": "CLI process owns mocks; no native GUI/EditableImages.",
+    "tests": [
+      "scripts/test-svg-integration-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Generated parent/frame source executes in Node; explicit mocks do not verify SVG rendering or native origin/paint performance.",
+    "testStatus": "DOM-mock test passed; not a native browser/render/FPS measurement.",
+    "findings": [],
+    "bytes": 2018,
+    "lines": 17
+  },
+  {
+    "path": "scripts/test-svg-runtime-browser.cjs",
+    "responsibility": "Execute generated browser comparison JavaScript against explicit DOM test doubles.",
+    "interfaces": [
+      "Node CLI test runner."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Process-local VM contexts and DOM mock state; reads generated pages.",
+    "resourceOwner": "CLI process owns mocks; no native GUI/EditableImages.",
+    "tests": [
+      "scripts/test-svg-runtime-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Generated parent/frame source executes in Node; explicit mocks do not verify SVG rendering or native origin/paint performance.",
+    "testStatus": "DOM-mock test passed; not a native browser/render/FPS measurement.",
+    "findings": [],
+    "bytes": 6748,
+    "lines": 67
+  },
+  {
+    "path": "scripts/test-svg-scripting-browser.cjs",
+    "responsibility": "Execute generated browser comparison JavaScript against explicit DOM test doubles.",
+    "interfaces": [
+      "Node CLI test runner."
+    ],
+    "dependencies": [],
+    "callers": [],
+    "mutableState": "Process-local VM contexts and DOM mock state; reads generated pages.",
+    "resourceOwner": "CLI process owns mocks; no native GUI/EditableImages.",
+    "tests": [
+      "scripts/test-svg-scripting-browser.cjs"
+    ],
+    "readStatus": "fully-read (complete source including embedded HTML/JS template strings)",
+    "interactionStatus": "Generated parent/frame source executes in Node; explicit mocks do not verify SVG rendering or native origin/paint performance.",
+    "testStatus": "DOM-mock test passed; not a native browser/render/FPS measurement.",
+    "findings": [],
+    "bytes": 6769,
+    "lines": 61
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "LocalScripts": ["app.js"],
+  "LocalStylesheets": ["tokens.css", "namespaces.css"],
+  "LocalSVG": ["morning.svg", "evening.svg", "density-1.svg", "density-2.svg"]
+}

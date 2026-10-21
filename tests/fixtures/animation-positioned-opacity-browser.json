@@ -1,0 +1,5629 @@
+{
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.40",
+    "revision": "@cfaadc5a132d78e1828635aa8405a499f3e14864",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.20"
+  },
+  "records": [
+    {
+      "name": "initial example replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:22px;top:50px;width:100px;height:70px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            43.599998474121094,
+            50,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            22,
+            50,
+            100,
+            70
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            31.900001525878906,
+            50,
+            109.99999237060547,
+            77
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            57.099998474121094,
+            50,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            72.39999389648438,
+            50,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            43.599998474121094,
+            50,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            22,
+            50,
+            100,
+            70
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            31.900001525878906,
+            50,
+            109.99999237060547,
+            77
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            57.099998474121094,
+            50,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            72.39999389648438,
+            50,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "initial example add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:22px;top:50px;width:100px;height:70px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            69.52000427246094,
+            50,
+            144,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            43.599998474121094,
+            50,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            55.47999954223633,
+            50,
+            132,
+            92.39999389648438
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            85.72000122070312,
+            50,
+            156,
+            109.20001220703125
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            104.08000183105469,
+            50,
+            168.00001525878906,
+            117.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            69.52000427246094,
+            50,
+            144,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            43.599998474121094,
+            50,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            55.47999954223633,
+            50,
+            132,
+            92.39999389648438
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            85.72000122070312,
+            50,
+            156,
+            109.20001220703125
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            104.08000183105469,
+            50,
+            168.00001525878906,
+            117.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "initial example accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:22px;top:50px;width:100px;height:70px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            72.39999389648438,
+            50,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            43.599998474121094,
+            50,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            57.099998474121094,
+            50,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            89.5,
+            50,
+            150,
+            105
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            108.4000015258789,
+            50,
+            160,
+            112
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            72.39999389648438,
+            50,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            43.599998474121094,
+            50,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            57.099998474121094,
+            50,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            89.5,
+            50,
+            150,
+            105
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            108.4000015258789,
+            50,
+            160,
+            112
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "negative offsets replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:-28px;top:18px;width:80px;height:45px;opacity:.35}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            -6.399999618530273,
+            18,
+            96,
+            54
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            -28,
+            18,
+            80,
+            45
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            -18.099998474121094,
+            18,
+            88,
+            49.5
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            7.099998474121094,
+            18,
+            104,
+            58.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            22.39999771118164,
+            18,
+            112,
+            63
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            -6.399999618530273,
+            18,
+            96,
+            54
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            -28,
+            18,
+            80,
+            45
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            -18.099998474121094,
+            18,
+            88,
+            49.5
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            7.099998474121094,
+            18,
+            104,
+            58.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            22.39999771118164,
+            18,
+            112,
+            63
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "negative offsets add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:-28px;top:18px;width:80px;height:45px;opacity:.35}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            19.520004272460938,
+            18,
+            115.19999694824219,
+            64.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            -6.399999618530273,
+            18,
+            96,
+            54
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            5.479999542236328,
+            18,
+            105.60000610351562,
+            59.400001525878906
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            35.720001220703125,
+            18,
+            124.80000305175781,
+            70.20000457763672
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            54.08000183105469,
+            18,
+            134.40000915527344,
+            75.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            19.520004272460938,
+            18,
+            115.19999694824219,
+            64.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            -6.399999618530273,
+            18,
+            96,
+            54
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            5.479999542236328,
+            18,
+            105.60000610351562,
+            59.400001525878906
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            35.720001220703125,
+            18,
+            124.80000305175781,
+            70.20000457763672
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            54.08000183105469,
+            18,
+            134.40000915527344,
+            75.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "negative offsets accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:-28px;top:18px;width:80px;height:45px;opacity:.35}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            22.39999771118164,
+            18,
+            112,
+            63
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            -6.399999618530273,
+            18,
+            96,
+            54
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            7.099998474121094,
+            18,
+            104,
+            58.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            39.5,
+            18,
+            120,
+            67.5
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            58.400001525878906,
+            18,
+            127.99999237060547,
+            72
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            22.39999771118164,
+            18,
+            112,
+            63
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            -6.399999618530273,
+            18,
+            96,
+            54
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            7.099998474121094,
+            18,
+            104,
+            58.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            39.5,
+            18,
+            120,
+            67.5
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            58.400001525878906,
+            18,
+            127.99999237060547,
+            72
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "right bottom replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);right:21px;bottom:19px;width:130px;height:90px;opacity:.6}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            210.60000610351562,
+            111,
+            156,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            189,
+            111,
+            130,
+            90
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            198.89999389648438,
+            111,
+            143,
+            99
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            224.10000610351562,
+            111,
+            169,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            239.39999389648438,
+            111,
+            182,
+            126
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            330.6000061035156,
+            171,
+            156,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            309,
+            171,
+            130,
+            90
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            318.8999938964844,
+            171,
+            143,
+            99
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            344.1000061035156,
+            171,
+            168.99996948242188,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            359.3999938964844,
+            171,
+            182.00003051757812,
+            126
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "right bottom add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);right:21px;bottom:19px;width:130px;height:90px;opacity:.6}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            236.52000427246094,
+            111,
+            187.2000274658203,
+            129.60000610351562
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            210.60000610351562,
+            111,
+            156,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            222.47999572753906,
+            111,
+            171.6000213623047,
+            118.80000305175781
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            252.72000122070312,
+            111,
+            202.80001831054688,
+            140.40000915527344
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            271.08001708984375,
+            111,
+            218.4000244140625,
+            151.20001220703125
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            356.52001953125,
+            171,
+            187.20001220703125,
+            129.60000610351562
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            330.6000061035156,
+            171,
+            156,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            342.4800109863281,
+            171,
+            171.60000610351562,
+            118.79998779296875
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            372.7200012207031,
+            171,
+            202.80001831054688,
+            140.4000244140625
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            391.08001708984375,
+            171,
+            218.4000244140625,
+            151.20001220703125
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "right bottom accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);right:21px;bottom:19px;width:130px;height:90px;opacity:.6}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            239.39999389648438,
+            111,
+            182,
+            126
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            210.60000610351562,
+            111,
+            156,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            224.10000610351562,
+            111,
+            169,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            256.5,
+            111,
+            195,
+            135
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            275.3999938964844,
+            111,
+            208,
+            144
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            359.3999938964844,
+            171,
+            182.00003051757812,
+            126
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            330.6000061035156,
+            171,
+            156,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            344.1000061035156,
+            171,
+            168.99996948242188,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            376.5,
+            171,
+            195,
+            135
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            395.3999938964844,
+            171,
+            208.00003051757812,
+            144
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "percentage offsets replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:25%;top:30%;width:120px;height:60px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            106.5999984741211,
+            66,
+            144,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            85,
+            66,
+            120,
+            60
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            94.9000015258789,
+            66,
+            132,
+            66
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            120.0999984741211,
+            66,
+            156,
+            78
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            135.39999389648438,
+            66,
+            168,
+            84
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            136.60000610351562,
+            84,
+            144,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            115,
+            84,
+            120,
+            60
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            124.9000015258789,
+            84,
+            132,
+            66
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            150.10000610351562,
+            84,
+            156,
+            78
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            165.39999389648438,
+            84,
+            168,
+            84
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "percentage offsets add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:25%;top:30%;width:120px;height:60px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            132.52000427246094,
+            66,
+            172.8000030517578,
+            86.39999389648438
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            106.5999984741211,
+            66,
+            144,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            118.47999572753906,
+            66,
+            158.40000915527344,
+            79.20001220703125
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            148.72000122070312,
+            66,
+            187.20001220703125,
+            93.60000610351562
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            167.0800018310547,
+            66,
+            201.59999084472656,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            162.52000427246094,
+            84,
+            172.8000030517578,
+            86.39999389648438
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            136.60000610351562,
+            84,
+            144,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            148.47999572753906,
+            84,
+            158.40000915527344,
+            79.20001220703125
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            178.72000122070312,
+            84,
+            187.20001220703125,
+            93.60000610351562
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            197.0800018310547,
+            84,
+            201.59999084472656,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "percentage offsets accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:25%;top:30%;width:120px;height:60px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            135.39999389648438,
+            66,
+            168,
+            84
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            106.5999984741211,
+            66,
+            144,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            120.0999984741211,
+            66,
+            156,
+            78
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            152.5,
+            66,
+            180,
+            90
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            171.39999389648438,
+            66,
+            192,
+            96
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            165.39999389648438,
+            84,
+            168,
+            84
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            136.60000610351562,
+            84,
+            144,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            150.10000610351562,
+            84,
+            156,
+            78
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            182.5,
+            84,
+            180,
+            90
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            201.39999389648438,
+            84,
+            192,
+            96
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "calculated offsets replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:calc(10% + 7px);top:calc(25% - 9px);width:110px;height:75px;opacity:.5}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            62.599998474121094,
+            46,
+            132,
+            90
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            41,
+            46,
+            110,
+            75
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            50.900001525878906,
+            46,
+            120.99999237060547,
+            82.5
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            76.0999984741211,
+            46,
+            143,
+            97.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            91.39999389648438,
+            46,
+            154,
+            105
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            74.5999984741211,
+            61,
+            132,
+            90
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            53,
+            61,
+            110,
+            75
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            62.900001525878906,
+            61,
+            120.99999237060547,
+            82.5
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            88.0999984741211,
+            61,
+            143,
+            97.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            103.39999389648438,
+            61,
+            154,
+            105
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "calculated offsets add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:calc(10% + 7px);top:calc(25% - 9px);width:110px;height:75px;opacity:.5}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            88.52000427246094,
+            46,
+            158.40000915527344,
+            108
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            62.599998474121094,
+            46,
+            132,
+            90
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            74.47999572753906,
+            46,
+            145.20001220703125,
+            99
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            104.72000122070312,
+            46,
+            171.60000610351562,
+            117
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            123.08000183105469,
+            46,
+            184.8000030517578,
+            126
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            100.52000427246094,
+            61,
+            158.40000915527344,
+            108
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            74.5999984741211,
+            61,
+            132,
+            90
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            86.47999572753906,
+            61,
+            145.20001220703125,
+            99
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            116.72000122070312,
+            61,
+            171.60000610351562,
+            117
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            135.0800018310547,
+            61,
+            184.8000030517578,
+            126
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "calculated offsets accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:calc(10% + 7px);top:calc(25% - 9px);width:110px;height:75px;opacity:.5}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            91.39999389648438,
+            46,
+            154,
+            105
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            62.599998474121094,
+            46,
+            132,
+            90
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            76.0999984741211,
+            46,
+            143,
+            97.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            108.5,
+            46,
+            165,
+            112.5
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            127.4000015258789,
+            46,
+            176,
+            120
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            103.39999389648438,
+            61,
+            154,
+            105
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            74.5999984741211,
+            61,
+            132,
+            90
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            88.0999984741211,
+            61,
+            143,
+            97.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            120.5,
+            61,
+            165,
+            112.5
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            139.39999389648438,
+            61,
+            176,
+            120
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "relative replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);position:relative;left:18px;top:14px;width:100px;height:70px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            39.599998474121094,
+            14,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            18,
+            14,
+            100,
+            70
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            27.900001525878906,
+            14,
+            109.99999237060547,
+            77
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            53.099998474121094,
+            14,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            68.39999389648438,
+            14,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            39.599998474121094,
+            14,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            18,
+            14,
+            100,
+            70
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            27.900001525878906,
+            14,
+            109.99999237060547,
+            77
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            53.099998474121094,
+            14,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            68.39999389648438,
+            14,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "relative add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);position:relative;left:18px;top:14px;width:100px;height:70px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            65.52000427246094,
+            14,
+            144,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            39.599998474121094,
+            14,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            51.47999954223633,
+            14,
+            132,
+            92.4000015258789
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            81.72000122070312,
+            14,
+            156,
+            109.20000457763672
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            100.08000183105469,
+            14,
+            168.00001525878906,
+            117.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            65.52000427246094,
+            14,
+            144,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            39.599998474121094,
+            14,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            51.47999954223633,
+            14,
+            132,
+            92.4000015258789
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            81.72000122070312,
+            14,
+            156,
+            109.20000457763672
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            100.08000183105469,
+            14,
+            168.00001525878906,
+            117.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "relative accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);position:relative;left:18px;top:14px;width:100px;height:70px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            68.39999389648438,
+            14,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            39.599998474121094,
+            14,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            53.099998474121094,
+            14,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            85.5,
+            14,
+            150,
+            105
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            104.4000015258789,
+            14,
+            160,
+            112
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            68.39999389648438,
+            14,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            39.599998474121094,
+            14,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            53.099998474121094,
+            14,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            85.5,
+            14,
+            150,
+            105
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            104.4000015258789,
+            14,
+            160,
+            112
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "flow margin replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);position:static;margin:24px 0 0 33px;width:100px;height:70px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            54.599998474121094,
+            0,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            33,
+            0,
+            100,
+            70
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            42.900001525878906,
+            0,
+            109.99999237060547,
+            77
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            68.0999984741211,
+            0,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            83.39999389648438,
+            0,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            54.599998474121094,
+            0,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            33,
+            0,
+            100,
+            70
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            42.900001525878906,
+            0,
+            109.99999237060547,
+            77
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            68.0999984741211,
+            0,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            83.39999389648438,
+            0,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "flow margin add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);position:static;margin:24px 0 0 33px;width:100px;height:70px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            80.52000427246094,
+            0,
+            144,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            54.599998474121094,
+            0,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            66.47999572753906,
+            0,
+            132,
+            92.4000015258789
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            96.72000122070312,
+            0,
+            156,
+            109.20001220703125
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            115.08000183105469,
+            0,
+            168.00001525878906,
+            117.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            80.52000427246094,
+            0,
+            144,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            54.599998474121094,
+            0,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            66.47999572753906,
+            0,
+            132,
+            92.4000015258789
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            96.72000122070312,
+            0,
+            156,
+            109.20001220703125
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            115.08000183105469,
+            0,
+            168.00001525878906,
+            117.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "flow margin accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);position:static;margin:24px 0 0 33px;width:100px;height:70px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            83.39999389648438,
+            0,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            54.599998474121094,
+            0,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            68.0999984741211,
+            0,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            100.5,
+            0,
+            150,
+            105
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            119.4000015258789,
+            0,
+            160,
+            112
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            83.39999389648438,
+            0,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            54.599998474121094,
+            0,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            68.0999984741211,
+            0,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            100.5,
+            0,
+            150,
+            105
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            119.4000015258789,
+            0,
+            160,
+            112
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "nested opacity replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;opacity:.7}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:20px;top:40px;width:100px;height:70px;opacity:.6}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            41.599998474121094,
+            40,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            20,
+            40,
+            100,
+            70
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            29.900001525878906,
+            40,
+            109.99999237060547,
+            77
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            55.099998474121094,
+            40,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            70.39999389648438,
+            40,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            41.599998474121094,
+            40,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            20,
+            40,
+            100,
+            70
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            29.900001525878906,
+            40,
+            109.99999237060547,
+            77
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            55.099998474121094,
+            40,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            70.39999389648438,
+            40,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "nested opacity add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;opacity:.7}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:20px;top:40px;width:100px;height:70px;opacity:.6}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            67.52000427246094,
+            40,
+            144,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            41.599998474121094,
+            40,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            53.47999954223633,
+            40,
+            132,
+            92.39999389648438
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            83.72000122070312,
+            40,
+            156,
+            109.20001220703125
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            102.08000183105469,
+            40,
+            168.00001525878906,
+            117.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            67.52000427246094,
+            40,
+            144,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            41.599998474121094,
+            40,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            53.47999954223633,
+            40,
+            132,
+            92.39999389648438
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            83.72000122070312,
+            40,
+            156,
+            109.20001220703125
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            102.08000183105469,
+            40,
+            168.00001525878906,
+            117.60000610351562
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "nested opacity accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;opacity:.7}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:20px;top:40px;width:100px;height:70px;opacity:.6}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            70.39999389648438,
+            40,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            41.599998474121094,
+            40,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            55.099998474121094,
+            40,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            87.5,
+            40,
+            150,
+            105
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            106.4000015258789,
+            40,
+            160,
+            112
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            70.39999389648438,
+            40,
+            140,
+            98
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            41.599998474121094,
+            40,
+            120.00000762939453,
+            84
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            55.099998474121094,
+            40,
+            130,
+            91
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            87.5,
+            40,
+            150,
+            105
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            106.4000015258789,
+            40,
+            160,
+            112
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "center origin rotation replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:38px;top:26px;width:110px;height:80px;opacity:.8;transform-origin:50% 50%;transform:rotate(12deg) scale(1.15) translateX(-9px)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"rotate(-20deg) scale(.8) translateX(-17px)\"},{\"transform\":\"rotate(40deg) scale(1.4) translateX(29px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            32.27833938598633,
+            13.308820724487305,
+            134.44277954101562,
+            107.67451477050781
+          ],
+          "transform": "matrix(1.08329, 0.191013, -0.191013, 1.08329, 6.49973, 1.14608)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            27.929059982299805,
+            25.53242301940918,
+            104.58224487304688,
+            90.23809814453125
+          ],
+          "transform": "matrix(0.751754, -0.273616, 0.273616, 0.751754, -12.7798, 4.65147)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            32.431793212890625,
+            24.04610252380371,
+            110.72618103027344,
+            84.81857299804688
+          ],
+          "transform": "matrix(0.946385, -0.082798, 0.082798, 0.946385, -5.20512, 0.455389)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            29.385910034179688,
+            0.8743796348571777,
+            166.879150390625,
+            148.7407989501953
+          ],
+          "transform": "matrix(1.13288, 0.528273, -0.528273, 1.13288, 19.8255, 9.24477)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            29.119876861572266,
+            -0.29595667123794556,
+            189.9630584716797,
+            184.78627014160156
+          ],
+          "transform": "matrix(1.07246, 0.899903, -0.899903, 1.07246, 31.1014, 26.0972)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            32.27833938598633,
+            13.308820724487305,
+            134.44277954101562,
+            107.67451477050781
+          ],
+          "transform": "matrix(1.08329, 0.191013, -0.191013, 1.08329, 6.49973, 1.14608)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            27.929059982299805,
+            25.53242301940918,
+            104.58224487304688,
+            90.23809814453125
+          ],
+          "transform": "matrix(0.751754, -0.273616, 0.273616, 0.751754, -12.7798, 4.65147)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            32.431793212890625,
+            24.04610252380371,
+            110.72618103027344,
+            84.81857299804688
+          ],
+          "transform": "matrix(0.946385, -0.082798, 0.082798, 0.946385, -5.20512, 0.455389)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            29.385910034179688,
+            0.8743796348571777,
+            166.879150390625,
+            148.7407989501953
+          ],
+          "transform": "matrix(1.13288, 0.528273, -0.528273, 1.13288, 19.8255, 9.24477)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            29.119876861572266,
+            -0.29595667123794556,
+            189.9630584716797,
+            184.78627014160156
+          ],
+          "transform": "matrix(1.07246, 0.899903, -0.899903, 1.07246, 31.1014, 26.0972)"
+        }
+      ]
+    },
+    {
+      "name": "center origin rotation add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:38px;top:26px;width:110px;height:80px;opacity:.8;transform-origin:50% 50%;transform:rotate(12deg) scale(1.15) translateX(-9px)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"rotate(-20deg) scale(.8) translateX(-17px)\"},{\"transform\":\"rotate(40deg) scale(1.4) translateX(29px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            6.449587821960449,
+            -6.287378787994385,
+            166.92782592773438,
+            145.95751953125
+          ],
+          "transform": "matrix(1.17289, 0.473877, -0.473877, 1.17289, -3.0865, 0.691378)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            12.159245491027832,
+            22.54075813293457,
+            110.45826721191406,
+            86.96804809570312
+          ],
+          "transform": "matrix(0.911047, -0.128039, 0.128039, 0.911047, -25.6116, 0.0247813)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            11.946906089782715,
+            12.418742179870605,
+            129.9306182861328,
+            101.39418029785156
+          ],
+          "transform": "matrix(1.08436, 0.133142, -0.133142, 1.08436, -16.0878, -2.88417)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            5.220365047454834,
+            -14.51501750946045,
+            195.4929656982422,
+            187.0050811767578
+          ],
+          "transform": "matrix(1.14804, 0.865109, -0.865109, 1.14804, 9.96685, 12.9875)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            6.356693744659424,
+            -8.786612510681152,
+            210.52943420410156,
+            218.8538818359375
+          ],
+          "transform": "matrix(0.991215, 1.2687, -1.2687, 0.991215, 18.6214, 34.6403)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            6.449587821960449,
+            -6.287378787994385,
+            166.92782592773438,
+            145.95751953125
+          ],
+          "transform": "matrix(1.17289, 0.473877, -0.473877, 1.17289, -3.0865, 0.691378)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            12.159245491027832,
+            22.54075813293457,
+            110.45826721191406,
+            86.96804809570312
+          ],
+          "transform": "matrix(0.911047, -0.128039, 0.128039, 0.911047, -25.6116, 0.0247813)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            11.946906089782715,
+            12.418742179870605,
+            129.9306182861328,
+            101.39418029785156
+          ],
+          "transform": "matrix(1.08436, 0.133142, -0.133142, 1.08436, -16.0878, -2.88417)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            5.220365047454834,
+            -14.51501750946045,
+            195.4929656982422,
+            187.0050811767578
+          ],
+          "transform": "matrix(1.14804, 0.865109, -0.865109, 1.14804, 9.96685, 12.9875)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            6.356693744659424,
+            -8.786612510681152,
+            210.52943420410156,
+            218.8538818359375
+          ],
+          "transform": "matrix(0.991215, 1.2687, -1.2687, 0.991215, 18.6214, 34.6403)"
+        }
+      ]
+    },
+    {
+      "name": "center origin rotation accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:38px;top:26px;width:110px;height:80px;opacity:.8;transform-origin:50% 50%;transform:rotate(12deg) scale(1.15) translateX(-9px)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"rotate(-20deg) scale(.8) translateX(-17px)\"},{\"transform\":\"rotate(40deg) scale(1.4) translateX(29px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            7.0488409996032715,
+            -7.5181708335876465,
+            164.9484405517578,
+            144.22679138183594
+          ],
+          "transform": "matrix(1.15898, 0.468258, -0.468258, 1.15898, -3.47694, -1.40477)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            11.510294914245605,
+            24.535594940185547,
+            114.06017303466797,
+            89.803955078125
+          ],
+          "transform": "matrix(0.940755, -0.132214, 0.132214, 0.940755, -24.4596, 3.43758)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            11.757594108581543,
+            13.011056900024414,
+            130.8225860595703,
+            102.09025573730469
+          ],
+          "transform": "matrix(1.0918, 0.134056, -0.134056, 1.0918, -15.8311, -1.94382)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            7.307188510894775,
+            -17.901744842529297,
+            190.3931427001953,
+            182.12669372558594
+          ],
+          "transform": "matrix(1.11809, 0.842541, -0.842541, 1.11809, 9.50376, 7.1616)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            10.743700981140137,
+            -14.920592308044434,
+            202.68360900878906,
+            210.69784545898438
+          ],
+          "transform": "matrix(0.954275, 1.22142, -1.22142, 0.954275, 19.0855, 24.4283)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            7.0488409996032715,
+            -7.5181708335876465,
+            164.9484405517578,
+            144.22679138183594
+          ],
+          "transform": "matrix(1.15898, 0.468258, -0.468258, 1.15898, -3.47694, -1.40477)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            11.510294914245605,
+            24.535594940185547,
+            114.06017303466797,
+            89.803955078125
+          ],
+          "transform": "matrix(0.940755, -0.132214, 0.132214, 0.940755, -24.4596, 3.43758)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            11.757594108581543,
+            13.011056900024414,
+            130.8225860595703,
+            102.09025573730469
+          ],
+          "transform": "matrix(1.0918, 0.134056, -0.134056, 1.0918, -15.8311, -1.94382)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            7.307188510894775,
+            -17.901744842529297,
+            190.3931427001953,
+            182.12669372558594
+          ],
+          "transform": "matrix(1.11809, 0.842541, -0.842541, 1.11809, 9.50376, 7.1616)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            10.743700981140137,
+            -14.920592308044434,
+            202.68360900878906,
+            210.69784545898438
+          ],
+          "transform": "matrix(0.954275, 1.22142, -1.22142, 0.954275, 19.0855, 24.4283)"
+        }
+      ]
+    },
+    {
+      "name": "overflowing positioned child replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;width:200px;height:100px;opacity:.7}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:230px;top:150px;width:90px;height:50px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            251.60000610351562,
+            150,
+            108,
+            60
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            230,
+            150,
+            90,
+            50
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            239.89999389648438,
+            150,
+            99,
+            55
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            265.1000061035156,
+            150,
+            117,
+            65
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            280.3999938964844,
+            150,
+            126,
+            70
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            251.60000610351562,
+            150,
+            108,
+            60
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            230,
+            150,
+            90,
+            50
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            239.89999389648438,
+            150,
+            99,
+            55
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            265.1000061035156,
+            150,
+            117,
+            65
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            280.3999938964844,
+            150,
+            126,
+            70
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "overflowing positioned child add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;width:200px;height:100px;opacity:.7}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:230px;top:150px;width:90px;height:50px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            277.52001953125,
+            150,
+            129.60000610351562,
+            72
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            251.60000610351562,
+            150,
+            108,
+            60
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            263.4800109863281,
+            150,
+            118.80001831054688,
+            66
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            293.7200012207031,
+            150,
+            140.39999389648438,
+            78
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            312.08001708984375,
+            150,
+            151.20001220703125,
+            84
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            277.52001953125,
+            150,
+            129.60000610351562,
+            72
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            251.60000610351562,
+            150,
+            108,
+            60
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            263.4800109863281,
+            150,
+            118.80001831054688,
+            66
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            293.7200012207031,
+            150,
+            140.39999389648438,
+            78
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            312.08001708984375,
+            150,
+            151.20001220703125,
+            84
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "overflowing positioned child accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;width:200px;height:100px;opacity:.7}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:230px;top:150px;width:90px;height:50px;opacity:.8}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            280.3999938964844,
+            150,
+            126,
+            70
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            251.60000610351562,
+            150,
+            108,
+            60
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            265.1000061035156,
+            150,
+            117,
+            65
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            297.5,
+            150,
+            135,
+            75
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            316.3999938964844,
+            150,
+            144,
+            80
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            280.3999938964844,
+            150,
+            126,
+            70
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            251.60000610351562,
+            150,
+            108,
+            60
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            265.1000061035156,
+            150,
+            117,
+            65
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            297.5,
+            150,
+            135,
+            75
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            316.3999938964844,
+            150,
+            144,
+            80
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "paint overflow origin replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:32px;top:44px;width:90px;height:60px;opacity:.5;box-shadow:-12px -8px 0 5px black}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            53.599998474121094,
+            44,
+            108.00000762939453,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            32,
+            44,
+            90,
+            60
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            41.900001525878906,
+            44,
+            98.99999237060547,
+            66
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            67.0999984741211,
+            44,
+            116.99999237060547,
+            78
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            82.39999389648438,
+            44,
+            126,
+            84
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            53.599998474121094,
+            44,
+            108.00000762939453,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            32,
+            44,
+            90,
+            60
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            41.900001525878906,
+            44,
+            98.99999237060547,
+            66
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            67.0999984741211,
+            44,
+            116.99999237060547,
+            78
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            82.39999389648438,
+            44,
+            126,
+            84
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "paint overflow origin add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:32px;top:44px;width:90px;height:60px;opacity:.5;box-shadow:-12px -8px 0 5px black}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            79.52000427246094,
+            44,
+            129.60000610351562,
+            86.39999389648438
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            53.599998474121094,
+            44,
+            108.00000762939453,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            65.47999572753906,
+            44,
+            118.80000305175781,
+            79.20000457763672
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            95.72000122070312,
+            44,
+            140.40000915527344,
+            93.60000610351562
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            114.08000183105469,
+            44,
+            151.2000274658203,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            79.52000427246094,
+            44,
+            129.60000610351562,
+            86.39999389648438
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            53.599998474121094,
+            44,
+            108.00000762939453,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            65.47999572753906,
+            44,
+            118.80000305175781,
+            79.20000457763672
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            95.72000122070312,
+            44,
+            140.40000915527344,
+            93.60000610351562
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            114.08000183105469,
+            44,
+            151.2000274658203,
+            100.80000305175781
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "paint overflow origin accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:32px;top:44px;width:90px;height:60px;opacity:.5;box-shadow:-12px -8px 0 5px black}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\"},{\"transform\":\"scale(1.4) translateX(36px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            82.39999389648438,
+            44,
+            126,
+            84
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            53.599998474121094,
+            44,
+            108.00000762939453,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            67.0999984741211,
+            44,
+            116.99999237060547,
+            78
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            99.5,
+            44,
+            135,
+            90
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            118.4000015258789,
+            44,
+            144,
+            96
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            82.39999389648438,
+            44,
+            126,
+            84
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            53.599998474121094,
+            44,
+            108.00000762939453,
+            72
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            67.0999984741211,
+            44,
+            116.99999237060547,
+            78
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            99.5,
+            44,
+            135,
+            90
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            118.4000015258789,
+            44,
+            144,
+            96
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "alternate transform numbers replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:37px;top:79px;width:137px;height:53px;opacity:.7;transform:scale(.75) translateX(-31px)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(.5) translateX(-18px)\"},{\"transform\":\"scale(1.1) translateX(52px)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            50.599998474121094,
+            79,
+            109.5999984741211,
+            42.400001525878906
+          ],
+          "transform": "matrix(0.8, 0, 0, 0.8, 13.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            28,
+            79,
+            68.5,
+            26.5
+          ],
+          "transform": "matrix(0.5, 0, 0, 0.5, -9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            36.67499923706055,
+            79,
+            89.04998779296875,
+            34.44999694824219
+          ],
+          "transform": "matrix(0.65, 0, 0, 0.65, -0.325, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            69.77499389648438,
+            79,
+            130.14999389648438,
+            50.350006103515625
+          ],
+          "transform": "matrix(0.95, 0, 0, 0.95, 32.775, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            94.19999694824219,
+            79,
+            150.6999969482422,
+            58.30000305175781
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 57.2, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            50.599998474121094,
+            79,
+            109.5999984741211,
+            42.400001525878906
+          ],
+          "transform": "matrix(0.8, 0, 0, 0.8, 13.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            28,
+            79,
+            68.5,
+            26.5
+          ],
+          "transform": "matrix(0.5, 0, 0, 0.5, -9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            36.67499923706055,
+            79,
+            89.04998779296875,
+            34.44999694824219
+          ],
+          "transform": "matrix(0.65, 0, 0, 0.65, -0.325, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            69.77499389648438,
+            79,
+            130.14999389648438,
+            50.350006103515625
+          ],
+          "transform": "matrix(0.95, 0, 0, 0.95, 32.775, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            94.19999694824219,
+            79,
+            150.6999969482422,
+            58.30000305175781
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 57.2, 0)"
+        }
+      ]
+    },
+    {
+      "name": "alternate transform numbers add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:37px;top:79px;width:137px;height:53px;opacity:.7;transform:scale(.75) translateX(-31px)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(.5) translateX(-18px)\"},{\"transform\":\"scale(1.1) translateX(52px)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            23.950000762939453,
+            79,
+            82.20001220703125,
+            31.800003051757812
+          ],
+          "transform": "matrix(0.6, 0, 0, 0.6, -13.05, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            7,
+            79,
+            51.375,
+            19.875
+          ],
+          "transform": "matrix(0.375, 0, 0, 0.375, -30, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            13.506250381469727,
+            79,
+            66.7874984741211,
+            25.837501525878906
+          ],
+          "transform": "matrix(0.4875, 0, 0, 0.4875, -23.4937, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            38.33124923706055,
+            79,
+            97.61248779296875,
+            37.76249694824219
+          ],
+          "transform": "matrix(0.7125, 0, 0, 0.7125, 1.33125, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            56.650001525878906,
+            79,
+            113.02501678466797,
+            43.725006103515625
+          ],
+          "transform": "matrix(0.825, 0, 0, 0.825, 19.65, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            23.950000762939453,
+            79,
+            82.20001220703125,
+            31.800003051757812
+          ],
+          "transform": "matrix(0.6, 0, 0, 0.6, -13.05, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            7,
+            79,
+            51.375,
+            19.875
+          ],
+          "transform": "matrix(0.375, 0, 0, 0.375, -30, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            13.506250381469727,
+            79,
+            66.7874984741211,
+            25.837501525878906
+          ],
+          "transform": "matrix(0.4875, 0, 0, 0.4875, -23.4937, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            38.33124923706055,
+            79,
+            97.61248779296875,
+            37.76249694824219
+          ],
+          "transform": "matrix(0.7125, 0, 0, 0.7125, 1.33125, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            56.650001525878906,
+            79,
+            113.02501678466797,
+            43.725006103515625
+          ],
+          "transform": "matrix(0.825, 0, 0, 0.825, 19.65, 0)"
+        }
+      ]
+    },
+    {
+      "name": "alternate transform numbers accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:37px;top:79px;width:137px;height:53px;opacity:.7;transform:scale(.75) translateX(-31px)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(.5) translateX(-18px)\"},{\"transform\":\"scale(1.1) translateX(52px)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            29.299999237060547,
+            79,
+            75.34999084472656,
+            29.150001525878906
+          ],
+          "transform": "matrix(0.55, 0, 0, 0.55, -7.7, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            24.75,
+            79,
+            34.25,
+            13.25
+          ],
+          "transform": "matrix(0.25, 0, 0, 0.25, -12.25, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            24.399999618530273,
+            79,
+            54.79999542236328,
+            21.199996948242188
+          ],
+          "transform": "matrix(0.4, 0, 0, 0.4, -12.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            39.45000076293945,
+            79,
+            95.90000915527344,
+            37.099998474121094
+          ],
+          "transform": "matrix(0.7, 0, 0, 0.7, 2.45, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            54.849998474121094,
+            79,
+            116.45000457763672,
+            45.05000305175781
+          ],
+          "transform": "matrix(0.85, 0, 0, 0.85, 17.85, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            29.299999237060547,
+            79,
+            75.34999084472656,
+            29.150001525878906
+          ],
+          "transform": "matrix(0.55, 0, 0, 0.55, -7.7, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            24.75,
+            79,
+            34.25,
+            13.25
+          ],
+          "transform": "matrix(0.25, 0, 0, 0.25, -12.25, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            24.399999618530273,
+            79,
+            54.79999542236328,
+            21.199996948242188
+          ],
+          "transform": "matrix(0.4, 0, 0, 0.4, -12.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            39.45000076293945,
+            79,
+            95.90000915527344,
+            37.099998474121094
+          ],
+          "transform": "matrix(0.7, 0, 0, 0.7, 2.45, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            54.849998474121094,
+            79,
+            116.45000457763672,
+            45.05000305175781
+          ],
+          "transform": "matrix(0.85, 0, 0, 0.85, 17.85, 0)"
+        }
+      ]
+    },
+    {
+      "name": "percentage transform replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:10%;top:20%;width:150px;height:90px;opacity:.8;transform-origin:25% 75%;transform:scale(1.1) translateX(12%)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"translateX(-10%) scale(.9)\"},{\"transform\":\"translateX(40%) scale(1.5)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            49,
+            30.5,
+            180,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 22.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            22.75,
+            50.75,
+            135,
+            81
+          ],
+          "transform": "matrix(0.9, 0, 0, 0.9, -15, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            35.875,
+            40.625,
+            157.5,
+            94.5
+          ],
+          "transform": "matrix(1.05, 0, 0, 1.05, 3.75, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            62.125,
+            20.375,
+            202.5,
+            121.5
+          ],
+          "transform": "matrix(1.35, 0, 0, 1.35, 41.25, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            75.25,
+            10.25,
+            225,
+            135
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 60, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            61,
+            42.5,
+            180,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 22.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            34.75,
+            62.75,
+            135,
+            81
+          ],
+          "transform": "matrix(0.9, 0, 0, 0.9, -15, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            47.875,
+            52.625,
+            157.5,
+            94.5
+          ],
+          "transform": "matrix(1.05, 0, 0, 1.05, 3.75, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            74.125,
+            32.375,
+            202.5,
+            121.5
+          ],
+          "transform": "matrix(1.35, 0, 0, 1.35, 41.25, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            87.25,
+            22.25,
+            225,
+            135
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 60, 0)"
+        }
+      ]
+    },
+    {
+      "name": "percentage transform add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:10%;top:20%;width:150px;height:90px;opacity:.8;transform-origin:25% 75%;transform:scale(1.1) translateX(12%)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"translateX(-10%) scale(.9)\"},{\"transform\":\"translateX(40%) scale(1.5)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            66.55000305175781,
+            22.399993896484375,
+            198.00001525878906,
+            118.80000305175781
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 44.55, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            37.67500305175781,
+            44.67500305175781,
+            148.5,
+            89.09999084472656
+          ],
+          "transform": "matrix(0.99, 0, 0, 0.99, 3.3, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            52.11250305175781,
+            33.537498474121094,
+            173.25,
+            103.94998931884766
+          ],
+          "transform": "matrix(1.155, 0, 0, 1.155, 23.925, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            80.98750305175781,
+            11.262496948242188,
+            222.74998474121094,
+            133.64999389648438
+          ],
+          "transform": "matrix(1.485, 0, 0, 1.485, 65.175, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            95.42500305175781,
+            0.12499237060546875,
+            247.50001525878906,
+            148.5
+          ],
+          "transform": "matrix(1.65, 0, 0, 1.65, 85.8, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            78.55000305175781,
+            34.399993896484375,
+            198.00001525878906,
+            118.80000305175781
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 44.55, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            49.67500305175781,
+            56.67500305175781,
+            148.5,
+            89.09999084472656
+          ],
+          "transform": "matrix(0.99, 0, 0, 0.99, 3.3, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            64.11250305175781,
+            45.537498474121094,
+            173.25,
+            103.94998931884766
+          ],
+          "transform": "matrix(1.155, 0, 0, 1.155, 23.925, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            92.98750305175781,
+            23.262496948242188,
+            222.74998474121094,
+            133.64999389648438
+          ],
+          "transform": "matrix(1.485, 0, 0, 1.485, 65.175, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            107.42500305175781,
+            12.124992370605469,
+            247.50001525878906,
+            148.5
+          ],
+          "transform": "matrix(1.65, 0, 0, 1.65, 85.8, 0)"
+        }
+      ]
+    },
+    {
+      "name": "percentage transform accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:10%;top:20%;width:150px;height:90px;opacity:.8;transform-origin:25% 75%;transform:scale(1.1) translateX(12%)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"translateX(-10%) scale(.9)\"},{\"transform\":\"translateX(40%) scale(1.5)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            22.750001907348633,
+            23.750003814697266,
+            195,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            34,
+            44,
+            150,
+            90
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            28.375,
+            33.875,
+            172.5,
+            103.5
+          ],
+          "transform": "matrix(1.15, 0, 0, 1.15, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            17.124998092651367,
+            13.62499713897705,
+            217.5,
+            130.5
+          ],
+          "transform": "matrix(1.45, 0, 0, 1.45, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            11.499999046325684,
+            3.4999983310699463,
+            240,
+            144
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            34.75,
+            35.750003814697266,
+            195,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            46,
+            56,
+            150,
+            90
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            40.375,
+            45.875,
+            172.5,
+            103.5
+          ],
+          "transform": "matrix(1.15, 0, 0, 1.15, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            29.124998092651367,
+            25.624996185302734,
+            217.5,
+            130.5
+          ],
+          "transform": "matrix(1.45, 0, 0, 1.45, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            23.5,
+            15.499998092651367,
+            240,
+            144
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 0, 0)"
+        }
+      ],
+      "normativeReference": "matrix accumulation equivalent pixels accumulate",
+      "nativeDifference": "Chromium 155 serializes zero translation for mismatched percentage-based accumulation. The target width remains 150px before and after resize: 12% = 18px, -10% = -15px, 40% = 60px. CSS Transforms 2 requires matrix conversion and arithmetic accumulation; the independent pixel reference retains the translations."
+    },
+    {
+      "name": "effect creates compositor replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:27px;top:63px;width:125px;height:55px;opacity:1}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\",\"opacity\":0.4},{\"transform\":\"scale(1.4) translateX(36px)\",\"opacity\":0.9}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            48.599998474121094,
+            63,
+            150,
+            66
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            27,
+            63,
+            125,
+            55
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            36.900001525878906,
+            63,
+            137.5,
+            60.5
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            62.099998474121094,
+            63,
+            162.5,
+            71.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            77.39999389648438,
+            63,
+            175,
+            77
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            48.599998474121094,
+            63,
+            150,
+            66
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            27,
+            63,
+            125,
+            55
+          ],
+          "transform": "matrix(1, 0, 0, 1, 0, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            36.900001525878906,
+            63,
+            137.5,
+            60.5
+          ],
+          "transform": "matrix(1.1, 0, 0, 1.1, 9.9, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            62.099998474121094,
+            63,
+            162.5,
+            71.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            77.39999389648438,
+            63,
+            175,
+            77
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "effect creates compositor add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:27px;top:63px;width:125px;height:55px;opacity:1}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\",\"opacity\":0.4},{\"transform\":\"scale(1.4) translateX(36px)\",\"opacity\":0.9}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            74.52000427246094,
+            63,
+            180,
+            79.20001220703125
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            48.599998474121094,
+            63,
+            150,
+            66
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            60.47999954223633,
+            63,
+            165,
+            72.60000610351562
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            90.72000122070312,
+            63,
+            195.00003051757812,
+            85.80000305175781
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            109.08000183105469,
+            63,
+            210.00001525878906,
+            92.39999389648438
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            74.52000427246094,
+            63,
+            180,
+            79.20001220703125
+          ],
+          "transform": "matrix(1.44, 0, 0, 1.44, 47.52, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            48.599998474121094,
+            63,
+            150,
+            66
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            60.47999954223633,
+            63,
+            165,
+            72.60000610351562
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 33.48, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            90.72000122070312,
+            63,
+            195.00003051757812,
+            85.80000305175781
+          ],
+          "transform": "matrix(1.56, 0, 0, 1.56, 63.72, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            109.08000183105469,
+            63,
+            210.00001525878906,
+            92.39999389648438
+          ],
+          "transform": "matrix(1.68, 0, 0, 1.68, 82.08, 0)"
+        }
+      ]
+    },
+    {
+      "name": "effect creates compositor accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:27px;top:63px;width:125px;height:55px;opacity:1}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"scale(1) translateX(0px)\",\"opacity\":0.4},{\"transform\":\"scale(1.4) translateX(36px)\",\"opacity\":0.9}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            77.39999389648438,
+            63,
+            175,
+            77
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            48.599998474121094,
+            63,
+            150,
+            66
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            62.099998474121094,
+            63,
+            162.5,
+            71.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            94.5,
+            63,
+            187.5,
+            82.5
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            113.4000015258789,
+            63,
+            200,
+            88
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            77.39999389648438,
+            63,
+            175,
+            77
+          ],
+          "transform": "matrix(1.4, 0, 0, 1.4, 50.4, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            48.599998474121094,
+            63,
+            150,
+            66
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 21.6, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            62.099998474121094,
+            63,
+            162.5,
+            71.5
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 35.1, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            94.5,
+            63,
+            187.5,
+            82.5
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 67.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            113.4000015258789,
+            63,
+            200,
+            88
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 86.4, 0)"
+        }
+      ]
+    },
+    {
+      "name": "percentage matching primitives replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:10%;top:20%;width:150px;height:90px;opacity:.8;transform-origin:25% 75%;transform:translateX(12%) scale(1.1)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"translateX(-10%) scale(.9)\"},{\"transform\":\"translateX(40%) scale(1.5)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            49,
+            30.5,
+            180,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 22.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            22.75,
+            50.75,
+            135,
+            81
+          ],
+          "transform": "matrix(0.9, 0, 0, 0.9, -15, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            35.875,
+            40.625,
+            157.5,
+            94.5
+          ],
+          "transform": "matrix(1.05, 0, 0, 1.05, 3.75, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            62.125,
+            20.375,
+            202.5,
+            121.5
+          ],
+          "transform": "matrix(1.35, 0, 0, 1.35, 41.25, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            75.25,
+            10.25,
+            225,
+            135
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 60, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            61,
+            42.5,
+            180,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 22.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            34.75,
+            62.75,
+            135,
+            81
+          ],
+          "transform": "matrix(0.9, 0, 0, 0.9, -15, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            47.875,
+            52.625,
+            157.5,
+            94.5
+          ],
+          "transform": "matrix(1.05, 0, 0, 1.05, 3.75, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            74.125,
+            32.375,
+            202.5,
+            121.5
+          ],
+          "transform": "matrix(1.35, 0, 0, 1.35, 41.25, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            87.25,
+            22.25,
+            225,
+            135
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 60, 0)"
+        }
+      ]
+    },
+    {
+      "name": "percentage matching primitives add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:10%;top:20%;width:150px;height:90px;opacity:.8;transform-origin:25% 75%;transform:translateX(12%) scale(1.1)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"translateX(-10%) scale(.9)\"},{\"transform\":\"translateX(40%) scale(1.5)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            64.75,
+            22.399993896484375,
+            198,
+            118.80000305175781
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 42.75, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            35.875,
+            44.67500305175781,
+            148.5,
+            89.09999084472656
+          ],
+          "transform": "matrix(0.99, 0, 0, 0.99, 1.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            50.3125,
+            33.537498474121094,
+            173.25,
+            103.94998931884766
+          ],
+          "transform": "matrix(1.155, 0, 0, 1.155, 22.125, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            79.1875,
+            11.262496948242188,
+            222.75,
+            133.64999389648438
+          ],
+          "transform": "matrix(1.485, 0, 0, 1.485, 63.375, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            93.625,
+            0.12499237060546875,
+            247.5,
+            148.5
+          ],
+          "transform": "matrix(1.65, 0, 0, 1.65, 84, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            76.75,
+            34.399993896484375,
+            198,
+            118.80000305175781
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 42.75, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            47.875,
+            56.67500305175781,
+            148.5,
+            89.09999084472656
+          ],
+          "transform": "matrix(0.99, 0, 0, 0.99, 1.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            62.3125,
+            45.537498474121094,
+            173.25,
+            103.94998931884766
+          ],
+          "transform": "matrix(1.155, 0, 0, 1.155, 22.125, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            91.1875,
+            23.262496948242188,
+            222.75,
+            133.64999389648438
+          ],
+          "transform": "matrix(1.485, 0, 0, 1.485, 63.375, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            105.625,
+            12.124992370605469,
+            247.5,
+            148.5
+          ],
+          "transform": "matrix(1.65, 0, 0, 1.65, 84, 0)"
+        }
+      ]
+    },
+    {
+      "name": "percentage matching primitives accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:10%;top:20%;width:150px;height:90px;opacity:.8;transform-origin:25% 75%;transform:translateX(12%) scale(1.1)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"translateX(-10%) scale(.9)\"},{\"transform\":\"translateX(40%) scale(1.5)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            63.25,
+            23.75,
+            195,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 40.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            37,
+            44,
+            150,
+            90
+          ],
+          "transform": "matrix(1, 0, 0, 1, 3, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            50.125,
+            33.875,
+            172.5,
+            103.5
+          ],
+          "transform": "matrix(1.15, 0, 0, 1.15, 21.75, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            76.375,
+            13.625,
+            217.5,
+            130.5
+          ],
+          "transform": "matrix(1.45, 0, 0, 1.45, 59.25, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            89.5,
+            3.5,
+            240,
+            144
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 78, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            75.25,
+            35.75,
+            195,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 40.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            49,
+            56,
+            150,
+            90
+          ],
+          "transform": "matrix(1, 0, 0, 1, 3, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            62.125,
+            45.875,
+            172.5,
+            103.5
+          ],
+          "transform": "matrix(1.15, 0, 0, 1.15, 21.75, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            88.375,
+            25.625,
+            217.5,
+            130.5
+          ],
+          "transform": "matrix(1.45, 0, 0, 1.45, 59.25, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            101.5,
+            15.5,
+            240,
+            144
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 78, 0)"
+        }
+      ]
+    },
+    {
+      "name": "matrix accumulation equivalent pixels replace",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:10%;top:20%;width:150px;height:90px;opacity:.8;transform-origin:25% 75%;transform:scale(1.1) translateX(18px)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"translateX(-15px) scale(.9)\"},{\"transform\":\"translateX(60px) scale(1.5)\"}],{duration:1000,fill:'both',composite:\"replace\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            49,
+            30.5,
+            180,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 22.5, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            22.75,
+            50.75,
+            135,
+            81
+          ],
+          "transform": "matrix(0.9, 0, 0, 0.9, -15, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            35.875,
+            40.625,
+            157.5,
+            94.5
+          ],
+          "transform": "matrix(1.05, 0, 0, 1.05, 3.75, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            62.125,
+            20.375,
+            202.5,
+            121.5
+          ],
+          "transform": "matrix(1.35, 0, 0, 1.35, 41.25, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            75.25,
+            10.25,
+            225,
+            135
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 60, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            61,
+            42.5,
+            180,
+            108
+          ],
+          "transform": "matrix(1.2, 0, 0, 1.2, 22.5, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            34.75,
+            62.75,
+            135,
+            81
+          ],
+          "transform": "matrix(0.9, 0, 0, 0.9, -15, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            47.875,
+            52.625,
+            157.5,
+            94.5
+          ],
+          "transform": "matrix(1.05, 0, 0, 1.05, 3.75, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            74.125,
+            32.375,
+            202.5,
+            121.5
+          ],
+          "transform": "matrix(1.35, 0, 0, 1.35, 41.25, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            87.25,
+            22.25,
+            225,
+            135
+          ],
+          "transform": "matrix(1.5, 0, 0, 1.5, 60, 0)"
+        }
+      ]
+    },
+    {
+      "name": "matrix accumulation equivalent pixels add",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:10%;top:20%;width:150px;height:90px;opacity:.8;transform-origin:25% 75%;transform:scale(1.1) translateX(18px)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"translateX(-15px) scale(.9)\"},{\"transform\":\"translateX(60px) scale(1.5)\"}],{duration:1000,fill:'both',composite:\"add\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            66.55000305175781,
+            22.399993896484375,
+            198.00001525878906,
+            118.80000305175781
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 44.55, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            37.67500305175781,
+            44.67500305175781,
+            148.5,
+            89.09999084472656
+          ],
+          "transform": "matrix(0.99, 0, 0, 0.99, 3.3, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            52.11250305175781,
+            33.537498474121094,
+            173.25,
+            103.94998931884766
+          ],
+          "transform": "matrix(1.155, 0, 0, 1.155, 23.925, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            80.98750305175781,
+            11.262496948242188,
+            222.74998474121094,
+            133.64999389648438
+          ],
+          "transform": "matrix(1.485, 0, 0, 1.485, 65.175, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            95.42500305175781,
+            0.12499237060546875,
+            247.50001525878906,
+            148.5
+          ],
+          "transform": "matrix(1.65, 0, 0, 1.65, 85.8, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            78.55000305175781,
+            34.399993896484375,
+            198.00001525878906,
+            118.80000305175781
+          ],
+          "transform": "matrix(1.32, 0, 0, 1.32, 44.55, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            49.67500305175781,
+            56.67500305175781,
+            148.5,
+            89.09999084472656
+          ],
+          "transform": "matrix(0.99, 0, 0, 0.99, 3.3, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            64.11250305175781,
+            45.537498474121094,
+            173.25,
+            103.94998931884766
+          ],
+          "transform": "matrix(1.155, 0, 0, 1.155, 23.925, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            92.98750305175781,
+            23.262496948242188,
+            222.74998474121094,
+            133.64999389648438
+          ],
+          "transform": "matrix(1.485, 0, 0, 1.485, 65.175, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            107.42500305175781,
+            12.124992370605469,
+            247.50001525878906,
+            148.5
+          ],
+          "transform": "matrix(1.65, 0, 0, 1.65, 85.8, 0)"
+        }
+      ]
+    },
+    {
+      "name": "matrix accumulation equivalent pixels accumulate",
+      "css": "html,body{margin:0;padding:0}#stage{position:relative;width:340px;height:220px;}#box{position:absolute;box-sizing:border-box;transform-origin:0 0;transform:scale(1.2) translateX(18px);left:10%;top:20%;width:150px;height:90px;opacity:.8;transform-origin:25% 75%;transform:scale(1.1) translateX(18px)}",
+      "source": "globalThis.effect=document.getElementById('box').animate([{\"transform\":\"translateX(-15px) scale(.9)\"},{\"transform\":\"translateX(60px) scale(1.5)\"}],{duration:1000,fill:'both',composite:\"accumulate\"});effect.pause();effect.currentTime=500;",
+      "expected": [
+        {
+          "resized": false,
+          "time": 500,
+          "rect": [
+            65.05000305175781,
+            23.750003814697266,
+            194.99998474121094,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 42.3, 0)"
+        },
+        {
+          "resized": false,
+          "time": 0,
+          "rect": [
+            38.80000305175781,
+            44,
+            150,
+            90
+          ],
+          "transform": "matrix(1, 0, 0, 1, 4.8, 0)"
+        },
+        {
+          "resized": false,
+          "time": 250,
+          "rect": [
+            51.92500305175781,
+            33.875,
+            172.5,
+            103.5
+          ],
+          "transform": "matrix(1.15, 0, 0, 1.15, 23.55, 0)"
+        },
+        {
+          "resized": false,
+          "time": 750,
+          "rect": [
+            78.17500305175781,
+            13.62499713897705,
+            217.50001525878906,
+            130.5
+          ],
+          "transform": "matrix(1.45, 0, 0, 1.45, 61.05, 0)"
+        },
+        {
+          "resized": false,
+          "time": 1000,
+          "rect": [
+            91.30000305175781,
+            3.4999983310699463,
+            240.00001525878906,
+            144
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 79.8, 0)"
+        },
+        {
+          "resized": true,
+          "time": 500,
+          "rect": [
+            77.05000305175781,
+            35.750003814697266,
+            194.99998474121094,
+            117
+          ],
+          "transform": "matrix(1.3, 0, 0, 1.3, 42.3, 0)"
+        },
+        {
+          "resized": true,
+          "time": 0,
+          "rect": [
+            50.80000305175781,
+            56,
+            150,
+            90
+          ],
+          "transform": "matrix(1, 0, 0, 1, 4.8, 0)"
+        },
+        {
+          "resized": true,
+          "time": 250,
+          "rect": [
+            63.92500305175781,
+            45.875,
+            172.5,
+            103.5
+          ],
+          "transform": "matrix(1.15, 0, 0, 1.15, 23.55, 0)"
+        },
+        {
+          "resized": true,
+          "time": 750,
+          "rect": [
+            90.17500305175781,
+            25.624996185302734,
+            217.50001525878906,
+            130.5
+          ],
+          "transform": "matrix(1.45, 0, 0, 1.45, 61.05, 0)"
+        },
+        {
+          "resized": true,
+          "time": 1000,
+          "rect": [
+            103.30000305175781,
+            15.499998092651367,
+            240.00001525878906,
+            144
+          ],
+          "transform": "matrix(1.6, 0, 0, 1.6, 79.8, 0)"
+        }
+      ]
+    }
+  ]
+}

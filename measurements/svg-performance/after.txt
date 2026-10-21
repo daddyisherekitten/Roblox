@@ -1,0 +1,14 @@
+SVG_BENCH_DIAGNOSTIC	invalid-points	nil
+SVG_BENCH state=0 build_ms=22.947 raster_ms=1385.800 hit_build_ms=2.238 query_500_ms=6.721 checks=10352 yields=320 checksum=52bff015
+SVG_BENCH state=1 build_ms=17.169 raster_ms=134.183 hit_build_ms=2.178 query_500_ms=6.641 checks=1780 yields=28 checksum=2207511c
+SVG_BENCH state=2 build_ms=17.178 raster_ms=116.182 hit_build_ms=2.592 query_500_ms=6.892 checks=1780 yields=26 checksum=aa674f26
+SVG_BENCH state=3 build_ms=18.312 raster_ms=119.149 hit_build_ms=3.119 query_500_ms=7.634 checks=1780 yields=27 checksum=b45b4cf0
+SVG_BENCH state=4 build_ms=20.712 raster_ms=113.172 hit_build_ms=2.796 query_500_ms=7.050 checks=1780 yields=26 checksum=29f04ad4
+SVG_BENCH state=5 build_ms=17.913 raster_ms=113.310 hit_build_ms=2.707 query_500_ms=7.623 checks=1780 yields=26 checksum=4cc648ba
+SVG_BENCH_CACHE	6	7160976	521951	0
+SVG_PIXEL_EQUAL state=0 bytes=1193496 sha256=4740683062f5f0459c62211898bea73b3f260ba7d65046c70ad908f4ffe98df2
+SVG_PIXEL_EQUAL state=1 bytes=1193496 sha256=b5dbc000c7b4b8615da17eaf105aea236951aa781c4765fa95a0055a2f705b18
+SVG_PIXEL_EQUAL state=2 bytes=1193496 sha256=6c8006148b220a5b8c2801f271bc90856f42897cad4c7c1fdd34b14b5de288f9
+SVG_PIXEL_EQUAL state=3 bytes=1193496 sha256=1cd0046c76f3b4244c7cd7a7260cfce3d64e4c7108bba408c2fcb89c2dde5c84
+SVG_PIXEL_EQUAL state=4 bytes=1193496 sha256=993e42049511b331c817721f21cfa8c613c936d882b795b03d28c478e2564130
+SVG_PIXEL_EQUAL state=5 bytes=1193496 sha256=8322d691264ea3d3036f21a9adb7f043b1a7254f9e87dc2116f105bd1aff0360

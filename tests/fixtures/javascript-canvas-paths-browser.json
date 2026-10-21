@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Independent geometry and paint state",
+    "values": "255,0,0,255 true false",
+    "passed": true
+  },
+  {
+    "name": "Drawing transforms apply at use time",
+    "values": "true false|0,0,255,255",
+    "passed": true
+  },
+  {
+    "name": "Copies preserve independent path state",
+    "values": "true false true",
+    "passed": true
+  },
+  {
+    "name": "addPath snapshots and matrix aliases",
+    "values": "true false",
+    "passed": true
+  },
+  {
+    "name": "Self addition is finite and snapshots geometry",
+    "values": "true true false",
+    "passed": true
+  },
+  {
+    "name": "Winding rules and hole boundary",
+    "values": "true false true|0 255",
+    "passed": true
+  },
+  {
+    "name": "Explicit paths do not replace current context path",
+    "values": "true false",
+    "passed": true
+  },
+  {
+    "name": "Path clipping survives subsequent geometry changes",
+    "values": "255 0",
+    "passed": true
+  },
+  {
+    "name": "SVG path strings with relative and smooth commands",
+    "values": "true false|true",
+    "passed": true
+  },
+  {
+    "name": "SVG arcs",
+    "values": "true false",
+    "passed": true
+  },
+  {
+    "name": "Native arc and ellipse path methods",
+    "values": "true false",
+    "passed": true
+  },
+  {
+    "name": "Stroke overload",
+    "values": "0,0,255,255 0",
+    "passed": true
+  },
+  {
+    "name": "Closed path continuation returns to its start",
+    "values": "255 0",
+    "passed": true
+  },
+  {
+    "name": "Brands, receiver checks and uncloneable geometry",
+    "values": "[object Path2D] 0 1|TypeError|TypeError|IndexSizeError|DataCloneError",
+    "passed": true
+  },
+  {
+    "name": "Matrix conversion validates aliases and ignores nonfinite transforms",
+    "values": "TypeError|false",
+    "passed": true
+  },
+  {
+    "name": "Path reset follows canvas reset without destroying Path2D",
+    "values": "true false false",
+    "passed": true
+  },
+  {
+    "name": "DOMMatrix2DInit reads every member before validating aliases",
+    "values": "a,b,c,d,e,f,m11,m12,m21,m22,m41,m42",
+    "passed": true
+  },
+  {
+    "name": "Stroke overload distinguishes omitted and invalid explicit path",
+    "values": "TypeError|TypeError|TypeError",
+    "passed": true
+  }
+]

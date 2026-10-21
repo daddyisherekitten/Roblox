@@ -1,0 +1,1321 @@
+{
+  "captured": "2026-10-10",
+  "standard": "https://html.spec.whatwg.org/multipage/rendering.html#hidden-elements",
+  "nativeDifference": "Chromium implements hidden as an author presentational hint; the HTML rendering UA rules instead survive author revert and collapse hidden table columns/groups/rows.",
+  "nativeImplementation": "https://raw.githubusercontent.com/chromium/chromium/main/third_party/blink/renderer/core/html/html_element.cc",
+  "fields": [
+    "display",
+    "content-visibility",
+    "visibility"
+  ],
+  "cases": [
+    {
+      "name": "div/",
+      "html": "<!doctype html><div id=s><span id=child>Content</span></div>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "div/UnTiL-FoUnD",
+      "html": "<!doctype html><div id=s><span id=child>Content</span></div>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "block",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "block",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "span/",
+      "html": "<!doctype html><span id=s>Content</span>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "span/UnTiL-FoUnD",
+      "html": "<!doctype html><span id=s>Content</span>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "inline",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "select/",
+      "html": "<!doctype html><select id=s><option>A</option></select>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "inline-block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "inline-block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "select/UnTiL-FoUnD",
+      "html": "<!doctype html><select id=s><option>A</option></select>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "inline-block",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "inline-block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "inline-block",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "inline-block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "embed/",
+      "html": "<!doctype html><embed id=s>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "embed/UnTiL-FoUnD",
+      "html": "<!doctype html><embed id=s>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "input-hidden/",
+      "html": "<!doctype html><input id=s type=hidden>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "input-hidden/UnTiL-FoUnD",
+      "html": "<!doctype html><input id=s type=hidden>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "none",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "table/",
+      "html": "<!doctype html><table id=s><tbody><tr><td>Cell</td></tr></tbody></table>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "table/UnTiL-FoUnD",
+      "html": "<!doctype html><table id=s><tbody><tr><td>Cell</td></tr></tbody></table>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "table",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "col/",
+      "html": "<!doctype html><table><colgroup><col id=s></colgroup><tbody><tr><td>Cell</td></tr></tbody></table>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-column",
+            "content-visibility": "visible",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table-column",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-column",
+            "content-visibility": "visible",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table-column",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "col/UnTiL-FoUnD",
+      "html": "<!doctype html><table><colgroup><col id=s></colgroup><tbody><tr><td>Cell</td></tr></tbody></table>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "table-column",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-column",
+            "content-visibility": "hidden",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table-column",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-column",
+            "content-visibility": "hidden",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table-column",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "colgroup/",
+      "html": "<!doctype html><table><colgroup id=s><col></colgroup><tbody><tr><td>Cell</td></tr></tbody></table>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-column-group",
+            "content-visibility": "visible",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table-column-group",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-column-group",
+            "content-visibility": "visible",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table-column-group",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "colgroup/UnTiL-FoUnD",
+      "html": "<!doctype html><table><colgroup id=s><col></colgroup><tbody><tr><td>Cell</td></tr></tbody></table>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "table-column-group",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-column-group",
+            "content-visibility": "hidden",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table-column-group",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-column-group",
+            "content-visibility": "hidden",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table-column-group",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "tbody/",
+      "html": "<!doctype html><table><tbody id=s><tr><td>Cell</td></tr></tbody></table>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-row-group",
+            "content-visibility": "visible",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table-row-group",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-row-group",
+            "content-visibility": "visible",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table-row-group",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "tbody/UnTiL-FoUnD",
+      "html": "<!doctype html><table><tbody id=s><tr><td>Cell</td></tr></tbody></table>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "table-row-group",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-row-group",
+            "content-visibility": "hidden",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table-row-group",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-row-group",
+            "content-visibility": "hidden",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table-row-group",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "tr/",
+      "html": "<!doctype html><table><tbody><tr id=s><td>Cell</td></tr></tbody></table>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-row",
+            "content-visibility": "visible",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table-row",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-row",
+            "content-visibility": "visible",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table-row",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "tr/UnTiL-FoUnD",
+      "html": "<!doctype html><table><tbody><tr id=s><td>Cell</td></tr></tbody></table>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "table-row",
+            "content-visibility": "hidden",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-row",
+            "content-visibility": "hidden",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "table-row",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "table-row",
+            "content-visibility": "hidden",
+            "visibility": "collapse"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "table-row",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "svg/",
+      "html": "<!doctype html><svg><rect id=s width=40 height=20></rect></svg>",
+      "value": "",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"\")",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "svg/UnTiL-FoUnD",
+      "html": "<!doctype html><svg><rect id=s width=40 height=20></rect></svg>",
+      "value": "UnTiL-FoUnD",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"UnTiL-FoUnD\")",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "inline",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "div/invalid-token/false",
+      "html": "<!doctype html><div id=s>Content</div>",
+      "value": "false",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"false\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "div/invalid-token/until-found ",
+      "html": "<!doctype html><div id=s>Content</div>",
+      "value": "until-found ",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"until-found \")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "div/invalid-token/ until-found",
+      "html": "<!doctype html><div id=s>Content</div>",
+      "value": " until-found",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\" until-found\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "div/invalid-token/unknown",
+      "html": "<!doctype html><div id=s>Content</div>",
+      "value": "unknown",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(null,'hidden',\"unknown\")",
+          "expected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          },
+          "specExpected": {
+            "display": "none",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(null,'hidden')",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    },
+    {
+      "name": "div/namespaced-hidden",
+      "html": "<!doctype html><div id=s>Content</div>",
+      "value": "",
+      "namespace": "urn:other",
+      "states": [
+        {
+          "action": "hidden",
+          "script": "target.setAttributeNS(\"urn:other\",'hidden',\"\")",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "author-override",
+          "script": "target.style.cssText='display:block;content-visibility:visible;visibility:visible'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "revert",
+          "script": "target.style.cssText='display:revert;content-visibility:revert;visibility:revert'",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        },
+        {
+          "action": "remove",
+          "script": "target.removeAttributeNS(\"urn:other\",'hidden')",
+          "expected": {
+            "display": "block",
+            "content-visibility": "visible",
+            "visibility": "visible"
+          }
+        }
+      ]
+    }
+  ],
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36"
+}

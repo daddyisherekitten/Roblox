@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<style data-wttg2-cursor>[onmouseover*="LinkHover"] { cursor: pointer; }</style>
+<script src="/wttg2-config.js"></script>
+<script src="/wttg2-host-bridge.js"></script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<title>Forgive Me</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<script language="javascript" type="text/javascript" src="../jQuery.min.js"></script>
+<script>WTTG2Host.installJQuery();</script>
+	<script language="javascript" type="text/javascript" src="../basic.js"></script>
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function() {
+			$('#add').click(function(){
+				$("#confForm").fadeOut();
+				
+				$.post( "http://wttg2.reflectstudios.com/stats.php",{
+					action: "addNewConfession",
+					confText: $("#conf").val()
+				}, function(data){
+					var parsedData = JSON.parse(data);
+					
+					$("#returnMessage").html("<p>" + parsedData.message + "</p>");
+					$("#returnMessage").delay(500).fadeIn();
+				});
+			});
+		});		
+	</script>
+</head>
+<body>
+	<header>
+		<a class="CFTAG"><img src="images/logo.png" alt=""></a>
+	</header>
+	<div id="content1">
+		<div class="makeAConfession">
+			<div id="confForm">
+				<form>
+					<textarea id="conf" onKeyUp="KeyPress()"></textarea>
+					<input id="add" onMouseOver="LinkHover()" onMouseOut="LinkOut()" onClick="HolyClick()" type="button" value="SUBMIT">	
+				</form>
+			</div>
+			<div id="returnMessage" style="display: none;">
+				
+			</div>
+			
+			<em class="PTAG"></em>
+			<p style="text-align: center"><a class="CFTAG">Please be orginal.</a></p>
+		</div>
+	</div>
+</body>
+</html>

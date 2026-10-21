@@ -1,0 +1,269 @@
+[
+  {
+    "name": "Storage method strings and independent areas",
+    "source": "record(localStorage===window.localStorage);record(Object.prototype.toString.call(localStorage));record(localStorage.length);record(localStorage.getItem('missing'));record(localStorage.missing);localStorage.setItem('a',12);localStorage.b=null;record(localStorage.a);record(localStorage.getItem('b'));record(localStorage.length);sessionStorage.a='session';record(localStorage.a+','+sessionStorage.a);delete localStorage.a;record(localStorage.getItem('a'));localStorage.clear();record(localStorage.length);",
+    "expected": [
+      "true",
+      "[object Storage]",
+      "0",
+      "null",
+      "undefined",
+      "12",
+      "null",
+      "2",
+      "12,session",
+      "null",
+      "0"
+    ]
+  },
+  {
+    "name": "Storage string conversion and required arguments",
+    "source": "var log=[],key={toString(){log.push('key');return 'k'}},value={toString(){log.push('value');return 'v'}};localStorage.setItem(key,value);record(log.join(','));record(localStorage.k);for(var f of [function(){localStorage.getItem()},function(){localStorage.setItem('a')},function(){localStorage.removeItem()},function(){localStorage.key()}]){try{f()}catch(e){record(e.name)}}try{localStorage.setItem(Symbol(),1)}catch(e){record(e.name)}try{localStorage.setItem('a',Symbol())}catch(e){record(e.name)}record(localStorage.length);",
+    "expected": [
+      "key,value",
+      "v",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "1"
+    ]
+  },
+  {
+    "name": "Storage collisions preserve inherited methods and length",
+    "source": "localStorage.setItem('getItem','stored');localStorage.setItem('length','stored length');localStorage.setItem('__proto__','proto');record(typeof localStorage.getItem);record(localStorage.length);record(localStorage.getItem('getItem'));record(localStorage.__proto__===Storage.prototype);record(Object.getOwnPropertyNames(localStorage).sort().join(','));record(Object.getOwnPropertyDescriptor(localStorage,'length'));localStorage.length='next';record(localStorage.getItem('length'));delete localStorage.length;record(localStorage.getItem('length'));",
+    "expected": [
+      "function",
+      "3",
+      "stored",
+      "true",
+      "__proto__,getItem,length",
+      "undefined",
+      "stored length",
+      "stored length"
+    ]
+  },
+  {
+    "name": "Storage descriptor and extensibility behavior",
+    "source": "record(Reflect.defineProperty(localStorage,'x',{value:'one',writable:false,enumerable:false,configurable:false}));record(JSON.stringify(Object.getOwnPropertyDescriptor(localStorage,'x')));record(Reflect.defineProperty(localStorage,'x',{get(){return 2}}));record(Reflect.preventExtensions(localStorage));record(Object.isExtensible(localStorage));record(localStorage.x);record(Reflect.defineProperty(localStorage,'x',{writable:true}));record(localStorage.x);",
+    "expected": [
+      "true",
+      "{\"value\":\"one\",\"writable\":true,\"enumerable\":true,\"configurable\":true}",
+      "true",
+      "false",
+      "true",
+      "one",
+      "true",
+      "undefined"
+    ]
+  },
+  {
+    "name": "Storage symbols and key unsigned conversion",
+    "source": "localStorage.one='1';var s=Symbol('s');localStorage[s]=3;record(localStorage[s]);record(localStorage.length);record(Object.getOwnPropertySymbols(localStorage)[0]===s);record(localStorage.key(0));record(localStorage.key(-1));record(localStorage.key(4294967296));record(localStorage.key(NaN));var get=localStorage.getItem;try{get.call({},'x')}catch(e){record(e.name)}try{Storage.prototype.getItem.call(new Proxy(localStorage,{}),'x')}catch(e){record(e.name)}try{new Storage()}catch(e){record(e.name)}",
+    "expected": [
+      "3",
+      "1",
+      "true",
+      "one",
+      "null",
+      "one",
+      "one",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "StorageEvent constructor brand and legacy reinitialization",
+    "source": "var e=new StorageEvent('storage',{key:12,oldValue:null,newValue:undefined,url:'a\\uD800',storageArea:localStorage,bubbles:1});record(e instanceof Event);record(Object.prototype.toString.call(e));record(e.key+','+e.oldValue+','+e.newValue);record(e.url==='a\\uFFFD');record(e.storageArea===localStorage);record(e.bubbles);record(e.isTrusted);e.initStorageEvent('other',false,true,'x','a','b','url',sessionStorage);record(e.type+','+e.key+','+e.oldValue+','+e.newValue+','+e.url);record(e.storageArea===sessionStorage);try{new StorageEvent('x',{storageArea:{}})}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "[object StorageEvent]",
+      "12,null,null",
+      "true",
+      "true",
+      "true",
+      "false",
+      "other,x,a,b,url",
+      "true",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Location URL getters and unforgeable properties",
+    "source": "record(location===window.location);record(String(location));record(location.origin);record(location.pathname);record(location.search);record(location.hash);record(Object.prototype.toString.call(location));record(Reflect.deleteProperty(location,'href'));record(Reflect.defineProperty(location,'href',{value:'x'}));record(Object.getOwnPropertyDescriptor(location,'assign').writable);record(Object.getOwnPropertyDescriptor(location,'href').configurable);record(Location.prototype.isPrototypeOf(location));try{location.toString.call({})}catch(e){record(e.name)}try{new Location()}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "http://127.0.0.1:8767/fixture",
+      "http://127.0.0.1:8767",
+      "/fixture",
+      "",
+      "",
+      "[object Location]",
+      "false",
+      "false",
+      "false",
+      "false",
+      "true",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Location hash updates synchronously and events are queued",
+    "source": "var seen=[];window.addEventListener('hashchange',function(e){seen.push(e.oldURL.split('#')[1]+','+e.newURL.split('#')[1]+','+e.isTrusted+','+(e instanceof HashChangeEvent))});var before=history.length;location.hash='one';record(location.hash);record(seen.length);location.hash='one';location.hash='two';pumpEvents();record(seen.join('|'));",
+    "nativeSource": "(async()=>{var seen=[];window.addEventListener('hashchange',function(e){seen.push(e.oldURL.split('#')[1]+','+e.newURL.split('#')[1]+','+e.isTrusted+','+(e instanceof HashChangeEvent))});var before=history.length;location.hash='one';record(location.hash);record(seen.length);location.hash='one';location.hash='two';await pumpEvents();record(seen.join('|'));})()",
+    "expected": [
+      "#one",
+      "0",
+      "undefined,one,true,true|one,two,true,true"
+    ]
+  },
+  {
+    "name": "History push replace and stable cloned state",
+    "source": "var before=history.length,input={a:1};history.pushState(input,'','/first?q=1#one');record(history.length-before);record(location.pathname+location.search+location.hash);record(history.state===history.state);record(history.state===input);input.a=2;record(history.state.a);history.state.a=3;record(history.state.a);history.replaceState({b:4},'','/second');record(history.length-before);record(location.pathname);record(JSON.stringify(history.state));",
+    "expected": [
+      "1",
+      "/first?q=1#one",
+      "true",
+      "false",
+      "1",
+      "3",
+      "1",
+      "/second",
+      "{\"b\":4}"
+    ]
+  },
+  {
+    "name": "History URL validation and clone ordering",
+    "source": "var seen=[],value={get x(){seen.push('clone');return 1}},url={toString(){seen.push('url');return 'https://elsewhere.test/'}};try{history.pushState(value,{toString(){seen.push('unused');return ''}},url)}catch(e){record(e.name)}record(seen.join(','));record(location.pathname);try{history.pushState(function(){},'','https://elsewhere.test/')}catch(e){record(e.name)}try{history.replaceState(1)}catch(e){record(e.name)}record(history.state);history.replaceState(undefined,'',null);record(history.state);",
+    "expected": [
+      "SecurityError",
+      "unused,url,clone",
+      "/fixture",
+      "DataCloneError",
+      "TypeError",
+      "null",
+      "undefined"
+    ]
+  },
+  {
+    "name": "History traversal state restore and event order",
+    "source": "var seen=[];window.addEventListener('popstate',function(e){seen.push('pop:'+e.state.n+','+e.isTrusted+','+(e instanceof PopStateEvent));record(e.state===history.state)});window.addEventListener('hashchange',function(){seen.push('hash')});history.replaceState({n:1},'','#one');history.pushState({n:2},'','#two');history.state.n=99;history.back();record(location.hash);pumpEvents();record(location.hash);record(history.state.n);record(seen.join('|'));seen=[];history.forward();pumpEvents();record(history.state.n);record(seen.join('|'));",
+    "nativeSource": "(async()=>{var seen=[];window.addEventListener('popstate',function(e){seen.push('pop:'+e.state.n+','+e.isTrusted+','+(e instanceof PopStateEvent));record(e.state===history.state)});window.addEventListener('hashchange',function(){seen.push('hash')});history.replaceState({n:1},'','#one');history.pushState({n:2},'','#two');history.state.n=99;history.back();record(location.hash);await pumpEvents();record(location.hash);record(history.state.n);record(seen.join('|'));seen=[];history.forward();await pumpEvents();record(history.state.n);record(seen.join('|'))})()",
+    "expected": [
+      "#two",
+      "true",
+      "#one",
+      "1",
+      "pop:1,true,true|hash",
+      "true",
+      "2",
+      "pop:2,true,true|hash"
+    ]
+  },
+  {
+    "name": "History bounds brands and scrollRestoration",
+    "source": "record(history.scrollRestoration);history.scrollRestoration='manual';record(history.scrollRestoration);try{history.scrollRestoration='other'}catch(e){record(e.name)}record(history.scrollRestoration);record(Object.prototype.toString.call(history));try{History.prototype.pushState.call({},null,'')}catch(e){record(e.name)}try{new History()}catch(e){record(e.name)}history.go(1000);pumpEvents();record(location.pathname);",
+    "nativeSource": "(async()=>{record(history.scrollRestoration);history.scrollRestoration='manual';record(history.scrollRestoration);try{history.scrollRestoration='other'}catch(e){record(e.name)}record(history.scrollRestoration);record(Object.prototype.toString.call(history));try{History.prototype.pushState.call({},null,'')}catch(e){record(e.name)}try{new History()}catch(e){record(e.name)}history.go(1000);await pumpEvents();record(location.pathname)})()",
+    "expected": [
+      "auto",
+      "manual",
+      "manual",
+      "[object History]",
+      "TypeError",
+      "TypeError",
+      "/fixture"
+    ]
+  },
+  {
+    "name": "History state cycles and graph identity",
+    "source": "var a={};a.self=a;a.left={v:1};a.right=a.left;history.pushState(a,'');record(history.state.self===history.state);record(history.state.left===history.state.right);record(history.state.left===a.left);record(history.state.left.v);var old=history.state;history.replaceState({n:2},'','');record(old===history.state);record(location.pathname);",
+    "expected": [
+      "true",
+      "true",
+      "false",
+      "1",
+      "false",
+      "/fixture"
+    ]
+  },
+  {
+    "name": "HashChangeEvent and PopStateEvent init semantics",
+    "source": "var h=new HashChangeEvent('hashchange',{oldURL:'one',newURL:'two'});record(h.oldURL==='one');record(h.newURL);record(h instanceof Event);record(h.isTrusted);var state={n:2},p=new PopStateEvent('popstate',{state:state});record(p.state===state);record(p.hasUAVisualTransition);record(Object.prototype.toString.call(p));record(new PopStateEvent('p').state);",
+    "expected": [
+      "true",
+      "two",
+      "true",
+      "false",
+      "true",
+      "false",
+      "[object PopStateEvent]",
+      "null"
+    ]
+  },
+  {
+    "name": "Storage collision descriptors and deletion",
+    "source": "localStorage.setItem('getItem','stored');localStorage.setItem('__proto__','stored proto');localStorage.setItem('length','stored length');record(JSON.stringify(Object.getOwnPropertyDescriptor(localStorage,'getItem')));record(JSON.stringify(Object.getOwnPropertyDescriptor(localStorage,'__proto__')));record(Object.getOwnPropertyNames(localStorage).sort().join(','));record(Reflect.set(localStorage,'length','new'));record(localStorage.getItem('length'));record(Reflect.deleteProperty(localStorage,'length'));record(localStorage.getItem('length'));record(Reflect.set(localStorage,'getItem','newmethod'));record(Storage.prototype.getItem.call(localStorage,'getItem'));record(Reflect.deleteProperty(localStorage,'getItem'));record(Storage.prototype.getItem.call(localStorage,'getItem'));",
+    "expected": [
+      "undefined",
+      "undefined",
+      "__proto__,getItem,length",
+      "false",
+      "stored length",
+      "true",
+      "stored length",
+      "true",
+      "stored",
+      "true",
+      "stored"
+    ]
+  },
+  {
+    "name": "Shared storage queues remote events and suppresses noops",
+    "peer": true,
+    "source": "var seen=[];window.addEventListener('storage',function(e){seen.push(e.key+','+e.oldValue+','+e.newValue+','+(e.storageArea===localStorage)+','+e.isTrusted+','+(e instanceof StorageEvent))});localStorage.setItem('a','own');changePeerStorage('a','remote');changePeerStorage('a','remote');record(seen.length);pumpEvents();record(seen.join('|'));record(localStorage.a);",
+    "nativeSource": "(async()=>{var frame=document.createElement('iframe');document.body.append(frame);await new Promise(resolve=>{frame.onload=resolve;frame.src='/fixture'});var peer=frame.contentWindow;var seen=[];window.addEventListener('storage',function(e){seen.push(e.key+','+e.oldValue+','+e.newValue+','+(e.storageArea===localStorage)+','+e.isTrusted+','+(e instanceof StorageEvent))});localStorage.setItem('a','own');peer.localStorage.setItem('a','remote');peer.localStorage.setItem('a','remote');record(seen.length);await pumpEvents();record(seen.join('|'));record(localStorage.a);frame.remove()})()",
+    "expected": [
+      "0",
+      "a,own,remote,true,true,true",
+      "remote"
+    ]
+  },
+  {
+    "name": "Navigation event getters enforce separate brands",
+    "source": "var h=new HashChangeEvent('h'),p=new PopStateEvent('p');try{Object.getOwnPropertyDescriptor(HashChangeEvent.prototype,'oldURL').get.call(p)}catch(e){record(e.name)}try{Object.getOwnPropertyDescriptor(PopStateEvent.prototype,'state').get.call(h)}catch(e){record(e.name)}var e=new StorageEvent('s');try{Object.getOwnPropertyDescriptor(StorageEvent.prototype,'key').get.call(h)}catch(e){record(e.name)}record(e.key);e.initStorageEvent('x',false,false,undefined,undefined,undefined,undefined,undefined);record(e.url);record(e.storageArea);",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "null",
+      "",
+      "null"
+    ]
+  },
+  {
+    "name": "Legacy prototype getters and setters respect primitive types",
+    "source": "record((1).__proto__===Number.prototype);record(Symbol().__proto__===Symbol.prototype);var o={};o.__proto__=null;record(Object.getPrototypeOf(o)===null);var x={};x.__proto__=1;record(Object.getPrototypeOf(x)===Object.prototype);try{Object.getOwnPropertyDescriptor(Object.prototype,'__proto__').get.call(null)}catch(e){record(e.name)}var p={};Object.preventExtensions(p);try{p.__proto__=null}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Location removes empty fragment with queued hash events",
+    "source": "var seen=[];window.addEventListener('hashchange',function(e){seen.push(e.oldURL.split('/fixture')[1]+','+e.newURL.split('/fixture')[1])});location.hash='one';location.hash='';location.hash='#';record(location.href);record(location.hash);pumpEvents();record(seen.join('|'));",
+    "nativeSource": "(async()=>{var seen=[];window.addEventListener('hashchange',function(e){seen.push(e.oldURL.split('/fixture')[1]+','+e.newURL.split('/fixture')[1])});location.hash='one';location.hash='';location.hash='#';record(location.href);record(location.hash);await pumpEvents();record(seen.join('|'))})()",
+    "expected": [
+      "http://127.0.0.1:8767/fixture#",
+      "",
+      ",#one|#one,#"
+    ]
+  }
+]

@@ -1,0 +1,796 @@
+[
+  {
+    "name": "constructor abstract subclass newTarget",
+    "source": "for(const f of [()=>Iterator(),()=>new Iterator()]){try{f()}catch(e){record(e.name)}}class I extends Iterator{next(){return {done:true}}}const i=new I();record(i instanceof Iterator);record(i instanceof I);record(i.constructor===I);record(JSON.stringify(i.toArray()));function X(){}record(Object.getPrototypeOf(Reflect.construct(Iterator,[],X))===X.prototype);function Y(){}Y.prototype=1;record(Object.getPrototypeOf(Reflect.construct(Iterator,[],Y))===Iterator.prototype);",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "true",
+      "true",
+      "true",
+      "[]",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "intrinsic properties and method lengths",
+    "source": "record(Iterator.name+':'+Iterator.length);record(JSON.stringify(Object.keys(Iterator.prototype)));for(const k of ['map','filter','flatMap','take','drop','reduce','toArray','some','every','find','forEach']){const d=Object.getOwnPropertyDescriptor(Iterator.prototype,k);record(k+':'+d.value.name+':'+d.value.length+':'+d.writable+':'+d.enumerable+':'+d.configurable)}record(typeof Iterator.prototype.next);record(Iterator.prototype[Symbol.iterator].call(null)===null);",
+    "expected": [
+      "Iterator:0",
+      "[]",
+      "map:map:1:true:false:true",
+      "filter:filter:1:true:false:true",
+      "flatMap:flatMap:1:true:false:true",
+      "take:take:1:true:false:true",
+      "drop:drop:1:true:false:true",
+      "reduce:reduce:1:true:false:true",
+      "toArray:toArray:0:true:false:true",
+      "some:some:1:true:false:true",
+      "every:every:1:true:false:true",
+      "find:find:1:true:false:true",
+      "forEach:forEach:1:true:false:true",
+      "undefined",
+      "true"
+    ]
+  },
+  {
+    "name": "prototype accessor receivers and setter rules",
+    "source": "const p=Iterator.prototype;for(const k of ['constructor',Symbol.toStringTag]){const d=Object.getOwnPropertyDescriptor(p,k);record(d.get.call(null)=== (k==='constructor'?Iterator:'Iterator'));try{d.set.call(p,1)}catch(e){record(e.name)}try{d.set.call(2,1)}catch(e){record(e.name)}const o=Object.create(p);o[k]='custom';const v=Object.getOwnPropertyDescriptor(o,k);record(v.value+':'+v.writable+':'+v.enumerable+':'+v.configurable)}record(Object.prototype.toString.call(Object.create(p)));",
+    "expected": [
+      "true",
+      "TypeError",
+      "TypeError",
+      "custom:true:true:true",
+      "true",
+      "TypeError",
+      "TypeError",
+      "custom:true:true:true",
+      "[object Iterator]"
+    ]
+  },
+  {
+    "name": "native iterator hierarchy metadata and brands",
+    "source": "const list=[[1].values(),'ab'[Symbol.iterator](),new Map([[1,2]]).entries(),new Set([1]).values(),(function*(){yield 1})()];for(const i of list){record(i instanceof Iterator);record(Iterator.from(i)===i);record(Object.prototype.toString.call(i));record(Object.hasOwn(i,'next'));try{i.next.call({})}catch(e){record(e.name)}}record([1].values().next===[2].keys().next);record(typeof [1].values().throw);",
+    "expected": [
+      "true",
+      "true",
+      "[object Array Iterator]",
+      "false",
+      "TypeError",
+      "true",
+      "true",
+      "[object String Iterator]",
+      "false",
+      "TypeError",
+      "true",
+      "true",
+      "[object Map Iterator]",
+      "false",
+      "TypeError",
+      "true",
+      "true",
+      "[object Set Iterator]",
+      "false",
+      "TypeError",
+      "true",
+      "true",
+      "[object Generator]",
+      "false",
+      "TypeError",
+      "true",
+      "undefined"
+    ]
+  },
+  {
+    "name": "from input primitives and boxed string",
+    "source": "for(const v of [undefined,null,1,true,Symbol('x'),1n]){try{Iterator.from(v)}catch(e){record(e.name)}}record(JSON.stringify(Iterator.from('A😀B').toArray()));record(JSON.stringify(Iterator.from(new String('xy')).toArray()));",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "[\"A\",\"😀\",\"B\"]",
+      "[\"x\",\"y\"]"
+    ]
+  },
+  {
+    "name": "from getter and prototype traversal ordering",
+    "source": "const log=[];const proto=Iterator.prototype;const raw={get next(){log.push('next');return function(){return {done:true}}}};const proxy=new Proxy(raw,{get(t,k,r){log.push(typeof k==='symbol'?'symbol':k);return Reflect.get(t,k,r)},getPrototypeOf(){log.push('prototype');return proto}});record(Iterator.from(proxy)===proxy);record(log.join(','));",
+    "expected": [
+      "true",
+      "symbol,next,next,prototype"
+    ]
+  },
+  {
+    "name": "from intrinsic hasInstance and receiver ignored",
+    "source": "const i=[1].values();Object.defineProperty(Iterator,Symbol.hasInstance,{value(){return false}});record(Iterator.from.call(null,i)===i);class Sub extends Iterator{}const out=Sub.from({next(){return {done:true}}});record(out instanceof Iterator);record(out instanceof Sub);",
+    "expected": [
+      "true",
+      "false",
+      "false"
+    ]
+  },
+  {
+    "name": "wrapper captures next ignores args forwards raw results",
+    "source": "const log=[];let gets=0;const raw={get next(){gets++;return function(){log.push('next:'+arguments.length+':'+(this===raw));return 7}},get return(){log.push('return-get');return function(){log.push('return:'+arguments.length);return 8}}};const i=Iterator.from(raw);record(gets);record(i.next(12));record(i.return(13));record(i.return(14));record(log.join(','));record(Object.getOwnPropertyNames(i).length);try{i.next.call({})}catch(e){record(e.name)}try{i.return.call(new Proxy(i,{}))}catch(e){record(e.name)}",
+    "expected": [
+      "1",
+      "7",
+      "8",
+      "8",
+      "next:0:true,return-get,return:0,return-get,return:0",
+      "0",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "wrapper completion is not memoized",
+    "source": "let n=0;const i=Iterator.from({next(){n++;return {done:n===1,value:n}}});record(JSON.stringify(i.next()));record(JSON.stringify(i.next()));record(JSON.stringify(i.return(9)));record(i.next().value);record(n);",
+    "expected": [
+      "{\"done\":true,\"value\":1}",
+      "{\"done\":false,\"value\":2}",
+      "{\"done\":true}",
+      "3",
+      "3"
+    ]
+  },
+  {
+    "name": "from null method fallback and invalid method",
+    "source": "record(Iterator.from({[Symbol.iterator]:null,next(){return {done:true}}}).toArray().length);for(const x of [{[Symbol.iterator]:3,next(){}},{[Symbol.iterator](){return 4}},{get [Symbol.iterator](){throw 'factory'}}]){try{Iterator.from(x)}catch(e){record(e.name||e)}}",
+    "expected": [
+      "0",
+      "TypeError",
+      "TypeError",
+      "factory"
+    ]
+  },
+  {
+    "name": "lazy map filter drop take values indexes",
+    "source": "const log=[];const i=Iterator.from([1,2,3,4,5]).map((v,n)=>{log.push('m'+n);return v*2}).filter((v,n)=>{log.push('f'+n);return v>4}).drop(1).take(1);record(log.length);record(JSON.stringify(i.next()));record(log.join(','));record(JSON.stringify(i.next()));record(log.join(','));",
+    "expected": [
+      "0",
+      "{\"value\":8,\"done\":false}",
+      "m0,f0,m1,f1,m2,f2,m3,f3",
+      "{\"done\":true}",
+      "m0,f0,m1,f1,m2,f2,m3,f3"
+    ]
+  },
+  {
+    "name": "sparse array values and live length",
+    "source": "const a=Array(2);const i=a.values().map((v,n)=>n+':'+v);record(i.next().value);a.push(3);a[1]=2;record(JSON.stringify(i.toArray()));a.push(4);record(i.next().done);record(JSON.stringify(a.keys().toArray()));",
+    "expected": [
+      "0:undefined",
+      "[\"1:2\",\"2:3\"]",
+      "true",
+      "[0,1,2,3]"
+    ]
+  },
+  {
+    "name": "next lookup eager callable validation lazy",
+    "source": "const log=[];const o={get next(){log.push('next');return 3},return(){log.push('return');return {done:true}}};const h=Iterator.prototype.map.call(o,x=>x);record(log.join(','));try{h.next()}catch(e){record(e.name)}record(log.join(','));record(h.next().done);",
+    "expected": [
+      "next",
+      "TypeError",
+      "next",
+      "true"
+    ]
+  },
+  {
+    "name": "creation next getter failure does not close",
+    "source": "for(const method of ['map','filter','flatMap','take','drop','reduce','toArray','some','every','find','forEach']){const log=[];const o={get next(){log.push('next');throw 'bad-next'},return(){log.push('close');return {}}};try{Iterator.prototype[method].call(o,method==='take'||method==='drop'?2:()=>true)}catch(e){log.push(e.name||e)}record(method+':'+log.join(','))}",
+    "expected": [
+      "map:next,bad-next",
+      "filter:next,bad-next",
+      "flatMap:next,bad-next",
+      "take:next,bad-next",
+      "drop:next,bad-next",
+      "reduce:next,bad-next",
+      "toArray:next,bad-next",
+      "some:next,bad-next",
+      "every:next,bad-next",
+      "find:next,bad-next",
+      "forEach:next,bad-next"
+    ]
+  },
+  {
+    "name": "invalid callbacks close before reading next",
+    "source": "for(const method of ['map','filter','flatMap','reduce','some','every','find','forEach']){const log=[];const o={get next(){log.push('next');return ()=>({done:true})},get return(){log.push('return-get');return ()=>{log.push('close');throw 'close-error'}}};try{Iterator.prototype[method].call(o,null)}catch(e){log.push(e.name||e)}record(method+':'+log.join(','))}",
+    "expected": [
+      "map:return-get,close,TypeError",
+      "filter:return-get,close,TypeError",
+      "flatMap:return-get,close,TypeError",
+      "reduce:return-get,close,TypeError",
+      "some:return-get,close,TypeError",
+      "every:return-get,close,TypeError",
+      "find:return-get,close,TypeError",
+      "forEach:return-get,close,TypeError"
+    ]
+  },
+  {
+    "name": "invalid limits close with coercion ordering",
+    "source": "for(const limit of [NaN,-1,-Infinity,1n,Symbol(),{valueOf(){throw 'convert'}}]){const log=[];const o={get next(){log.push('next');return ()=>({done:true})},return(){log.push('close');return 3}};try{Iterator.prototype.take.call(o,limit)}catch(e){log.push(e.name||e)}record(log.join(','))}",
+    "expected": [
+      "close,RangeError",
+      "close,RangeError",
+      "close,RangeError",
+      "close,TypeError",
+      "close,TypeError",
+      "close,convert"
+    ]
+  },
+  {
+    "name": "fractional zero infinity and huge limits",
+    "source": "for(const method of ['take','drop'])for(const n of [-0.5,0,0.9,1.9,Infinity,1e30])try{record(JSON.stringify([1,2,3].values()[method](n).toArray()))}catch(e){record(e.name)}",
+    "expected": [
+      "[]",
+      "[]",
+      "[]",
+      "[1]",
+      "[1,2,3]",
+      "[1,2,3]",
+      "[1,2,3]",
+      "[1,2,3]",
+      "[1,2,3]",
+      "[2,3]",
+      "[]",
+      "[]"
+    ],
+    "browserExpected": [
+      "[]",
+      "[]",
+      "[]",
+      "[1]",
+      "[1,2,3]",
+      "RangeError",
+      "[1,2,3]",
+      "[1,2,3]",
+      "[1,2,3]",
+      "[2,3]",
+      "[]",
+      "RangeError"
+    ],
+    "difference": "Current TC39 limit correction and Chromium reject finite limits above 2^53-1; Node 24 implements the earlier unrestricted algorithm."
+  },
+  {
+    "name": "drop skips value getters",
+    "source": "const log=[];let n=0;const raw={next(){const k=n++;return {done:k>=3,get value(){log.push('value'+k);return k}}}};record(JSON.stringify(Iterator.from(raw).drop(2).toArray()));record(log.join(','));",
+    "expected": [
+      "[2]",
+      "value2"
+    ]
+  },
+  {
+    "name": "take closes on subsequent next not last yield",
+    "source": "const log=[];const raw={next(){log.push('next');return {value:1,done:false}},return(){log.push('close');return {done:false,value:99}}};const h=Iterator.from(raw).take(1);record(JSON.stringify(h.next()));record(log.join(','));record(JSON.stringify(h.next()));record(log.join(','));record(JSON.stringify(h.next()));",
+    "expected": [
+      "{\"value\":1,\"done\":false}",
+      "next",
+      "{\"done\":true}",
+      "next,close",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "take zero and prestart return never pulls",
+    "source": "for(const method of ['map','filter','flatMap','drop','take']){const log=[];const raw={next(){log.push('next');return {value:1,done:false}},return(){log.push('close');return {done:true}}};const h=Iterator.prototype[method].call(raw,method==='take'?0:method==='drop'?3:x=>[x]);record(JSON.stringify(method==='take'?h.next():h.return(8)));record(method+':'+log.join(','));record(JSON.stringify(h.return(9)))}",
+    "expected": [
+      "{\"done\":true}",
+      "map:close",
+      "{\"done\":true}",
+      "{\"done\":true}",
+      "filter:close",
+      "{\"done\":true}",
+      "{\"done\":true}",
+      "flatMap:close",
+      "{\"done\":true}",
+      "{\"done\":true}",
+      "drop:close",
+      "{\"done\":true}",
+      "{\"done\":true}",
+      "take:close",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "lazy callbacks strict undefined receiver and args",
+    "source": "record(JSON.stringify([5,7].values().map(function(v,n){'use strict';return (this===undefined)+':'+arguments.length+':'+v+':'+n}).toArray()));record(JSON.stringify([1,2].values().map(function(){return this===globalThis}).toArray()));",
+    "expected": [
+      "[\"true:2:5:0\",\"true:2:7:1\"]",
+      "[true,true]"
+    ]
+  },
+  {
+    "name": "mapper errors close preserve thrown undefined",
+    "source": "for(const failure of [undefined,'original',Symbol('failure')]){let count=0;const raw={next(){return {value:1}},return(){count++;throw 'close'}};const h=Iterator.from(raw).map(()=>{throw failure});try{h.next()}catch(e){record(e===failure)}record(count);record(h.next().done);record(h.return().done)}",
+    "expected": [
+      "true",
+      "1",
+      "true",
+      "true",
+      "true",
+      "1",
+      "true",
+      "true",
+      "true",
+      "1",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "pull next done value errors do not close source",
+    "source": "for(const stage of ['next','done','value']){const log=[];const raw={next(){log.push('next');if(stage==='next')throw stage;return {get done(){log.push('done');if(stage==='done')throw stage;return false},get value(){log.push('value');throw stage}}},return(){log.push('close');return {done:true}}};const h=Iterator.from(raw).map(x=>x);try{h.next()}catch(e){log.push(e)}record(log.join(','));record(h.next().done)}",
+    "expected": [
+      "next,next",
+      "true",
+      "next,done,done",
+      "true",
+      "next,done,value,value",
+      "true"
+    ]
+  },
+  {
+    "name": "done result does not access value",
+    "source": "const log=[];const h=Iterator.from({next(){return {get done(){log.push('done');return true},get value(){throw 'must-not-read'}}}}).map(x=>x);record(h.next().done);record(log.join(','));record(h.next().done);",
+    "expected": [
+      "true",
+      "done",
+      "true"
+    ]
+  },
+  {
+    "name": "helper next and return reentrancy caught in mapper",
+    "source": "let h;const log=[];h=[1,2].values().map(v=>{for(const key of ['next','return'])try{h[key]()}catch(e){log.push(key+':'+e.name)}return v});record(JSON.stringify(h.toArray()));record(log.join(','));",
+    "expected": [
+      "[1,2]",
+      "next:TypeError,return:TypeError,next:TypeError,return:TypeError"
+    ]
+  },
+  {
+    "name": "uncaught helper reentrancy closes source",
+    "source": "const log=[];let h;const raw={next(){return {value:1}},return(){log.push('close');return {done:true}}};h=Iterator.from(raw).map(()=>h.next());try{h.next()}catch(e){log.push(e.name)}record(log.join(','));record(h.next().done);",
+    "expected": [
+      "close,TypeError",
+      "true"
+    ]
+  },
+  {
+    "name": "prestart completed before return getter reentry",
+    "source": "const log=[];let h;const raw={next(){return {value:1}},return(){log.push('inside:'+h.next().done);return {done:true}}};h=Iterator.from(raw).map(x=>x);record(h.return().done);record(log.join(','));",
+    "expected": [
+      "true",
+      "inside:true"
+    ]
+  },
+  {
+    "name": "yielded helper return reentry stays executing",
+    "source": "const log=[];let h;const raw={next(){return {value:1}},return(){try{h.next()}catch(e){log.push(e.name)}return {done:true}}};h=Iterator.from(raw).map(x=>x);h.next();record(h.return().done);record(log.join(','));",
+    "expected": [
+      "true",
+      ""
+    ],
+    "browserExpected": [
+      "true",
+      "TypeError"
+    ],
+    "difference": "Chromium matches GeneratorResumeAbrupt; Node 24 completes a yielded helper before close instead of retaining the executing state."
+  },
+  {
+    "name": "helper brands proxy wrapper and borrowed generator next",
+    "source": "const h=[1].values().map(x=>x);record(Object.prototype.toString.call(h));record(Object.getOwnPropertyNames(h).length);record(typeof h.throw);for(const receiver of [{},new Proxy(h,{}),(function*(){})()]){try{h.next.call(receiver)}catch(e){record(e.name)}}const g=(function*(){})();try{g.next.call(h)}catch(e){record(e.name)}record(JSON.stringify(h.return(7)));",
+    "expected": [
+      "[object Iterator Helper]",
+      "0",
+      "undefined",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "{\"done\":true}"
+    ]
+  },
+  {
+    "name": "flatMap lazy direct iterators boxed strings and index",
+    "source": "const log=[];const h=[1,2].values().flatMap((v,i)=>{log.push(i);let n=0;return {next(){return n++<2?{value:v}:{done:true}}}});record(log.length);record(h.next().value);record(h.next().value);record(log.join(','));record(JSON.stringify(h.toArray()));record(log.join(','));record(JSON.stringify([1].values().flatMap(()=>new String('xy')).toArray()));",
+    "expected": [
+      "0",
+      "1",
+      "1",
+      "0",
+      "[2,2]",
+      "0,1",
+      "[\"x\",\"y\"]"
+    ]
+  },
+  {
+    "name": "flatMap rejects primitive strings and closes outer",
+    "source": "for(const value of ['abc',2,null,undefined,Symbol(),1n]){const log=[];const raw={next(){return {value:1}},return(){log.push('close');return {done:true}}};try{Iterator.from(raw).flatMap(()=>value).next()}catch(e){log.push(e.name)}record(log.join(','))}",
+    "expected": [
+      "close,TypeError",
+      "close,TypeError",
+      "close,TypeError",
+      "close,TypeError",
+      "close,TypeError",
+      "close,TypeError"
+    ]
+  },
+  {
+    "name": "flatMap acquisition failure closes outer",
+    "source": "for(const stage of ['factory-get','factory','next-get']){const log=[];const inner={get [Symbol.iterator](){if(stage==='factory-get')throw stage;return ()=>{if(stage==='factory')throw stage;return this}},get next(){throw stage},return(){log.push('inner-close');return {done:true}}};const outer={next(){return {value:1}},return(){log.push('outer-close');throw 'closing'}};try{Iterator.from(outer).flatMap(()=>inner).next()}catch(e){log.push(e)}record(log.join(','))}",
+    "expected": [
+      "outer-close,factory-get",
+      "outer-close,factory",
+      "outer-close,next-get"
+    ]
+  },
+  {
+    "name": "flatMap inner next failure closes only outer",
+    "source": "const log=[];const inner={next(){throw 'next-error'},return(){log.push('inner-close');return {done:true}}};const outer={next(){return {value:1}},return(){log.push('outer-close');throw 'close-error'}};const h=Iterator.from(outer).flatMap(()=>inner);try{h.next()}catch(e){log.push(e)}record(log.join(','));record(h.next().done);",
+    "expected": [
+      "outer-close,next-error",
+      "true"
+    ]
+  },
+  {
+    "name": "flatMap return closes inner then outer and preserves first failure",
+    "source": "for(const fail of [false,true]){const log=[];const inner={next(){return {value:2}},return(){log.push('inner');if(fail)throw 'inner-error';return {done:true}}};const outer={next(){return {value:1}},return(){log.push('outer');throw 'outer-error'}};const h=Iterator.from(outer).flatMap(()=>inner);h.next();try{h.return(9)}catch(e){log.push(e)}record(log.join(','));record(h.next().done)}",
+    "expected": [
+      "inner,outer,outer-error",
+      "true",
+      "inner,outer,inner-error",
+      "true"
+    ]
+  },
+  {
+    "name": "flatMap exhausted inner is not closed",
+    "source": "const log=[];let n=0;const inner={next(){return {done:true}},return(){log.push('inner-close');return {}}};const outer={next(){return n++?{done:true}:{value:1}},return(){log.push('outer-close');return {}}};const h=Iterator.from(outer).flatMap(()=>inner);record(h.next().done);h.return();record(log.length);",
+    "expected": [
+      "true",
+      "0"
+    ]
+  },
+  {
+    "name": "flatMap for of break closes inner then outer",
+    "source": "const log=[];function* outer(){try{yield 1;yield 2}finally{log.push('outer')}}function* inner(){try{yield 'x';yield 'y'}finally{log.push('inner')}}for(const value of outer().flatMap(()=>inner())){log.push(value);break}record(log.join(','));",
+    "expected": [
+      "x,inner,outer"
+    ]
+  },
+  {
+    "name": "generator and helpers yield delegation",
+    "source": "const log=[];function* source(){try{yield 1;yield 2;yield 3}finally{log.push('close')}}function* out(){yield* source().map(x=>x*3).take(2)}record(JSON.stringify(out().toArray()));record(log.join(','));",
+    "expected": [
+      "[3,6]",
+      "close"
+    ]
+  },
+  {
+    "name": "reduce accumulator initial undefined and indexes",
+    "source": "const log=[];record([2,4,6].values().reduce((a,v,i)=>{log.push(i);return a+v}));record(log.join(','));record([2].values().reduce((a,v,i)=>String(a)+':'+v+':'+i,undefined));record([].values().reduce(()=>0,undefined));try{[].values().reduce(()=>0)}catch(e){record(e.name)}record([3].values().reduce(()=>{throw 'unexpected'}));",
+    "expected": [
+      "12",
+      "1,2",
+      "undefined:2:0",
+      "undefined",
+      "TypeError",
+      "3"
+    ]
+  },
+  {
+    "name": "terminal methods values indexes and short circuit",
+    "source": "for(const method of ['some','every','find','forEach']){const log=[];let n=0;const raw={next(){log.push('next');return n<3?{value:++n}:{done:true}},return(){log.push('close');return {done:true}}};const value=Iterator.from(raw)[method]((v,i)=>{log.push(v+':'+i);return method==='every'?v<2:v===2});record(method+':'+value);record(log.join(','))}",
+    "expected": [
+      "some:true",
+      "next,1:0,next,2:1,close",
+      "every:false",
+      "next,1:0,next,2:1,close",
+      "find:2",
+      "next,1:0,next,2:1,close",
+      "forEach:undefined",
+      "next,1:0,next,2:1,next,3:2,next"
+    ]
+  },
+  {
+    "name": "terminal callback throws closes and preserves original",
+    "source": "for(const method of ['some','every','find','forEach','reduce']){const log=[];const raw={next(){return {value:1}},return(){log.push('close');return 1}};try{Iterator.from(raw)[method](()=>{throw 'original'},0)}catch(e){log.push(e)}record(method+':'+log.join(','))}",
+    "expected": [
+      "some:close,original",
+      "every:close,original",
+      "find:close,original",
+      "forEach:close,original",
+      "reduce:close,original"
+    ]
+  },
+  {
+    "name": "terminal early close errors replace result",
+    "source": "for(const method of ['some','every','find']){const raw={next(){return {value:1}},return(){throw 'close'}};try{Iterator.from(raw)[method](()=>method!=='every')}catch(e){record(method+':'+e)}}",
+    "expected": [
+      "some:close",
+      "every:close",
+      "find:close"
+    ]
+  },
+  {
+    "name": "terminal empty identity results no callbacks",
+    "source": "for(const method of ['some','every','find','forEach','toArray'])record(method+':'+JSON.stringify([].values()[method](()=>{throw 'callback'})));",
+    "expected": [
+      "some:false",
+      "every:true",
+      "find:undefined",
+      "forEach:undefined",
+      "toArray:[]"
+    ]
+  },
+  {
+    "name": "terminal callback strict receiver and arity",
+    "source": "record([2].values().some(function(v,i){'use strict';record((this===undefined)+':'+arguments.length+':'+i);return v===2}));record([2].values().reduce(function(a,v,i){'use strict';record((this===undefined)+':'+arguments.length+':'+i);return a+v},3));",
+    "expected": [
+      "true:2:0",
+      "true",
+      "true:3:0",
+      "5"
+    ]
+  },
+  {
+    "name": "terminal pull errors do not close iterator",
+    "source": "for(const method of ['some','every','find','forEach','reduce','toArray']){const log=[];const raw={next(){return 1},return(){log.push('close');return {}}};try{Iterator.from(raw)[method](()=>true,0)}catch(e){log.push(e.name)}record(method+':'+log.join(','))}",
+    "expected": [
+      "some:TypeError",
+      "every:TypeError",
+      "find:TypeError",
+      "forEach:TypeError",
+      "reduce:TypeError",
+      "toArray:TypeError"
+    ]
+  },
+  {
+    "name": "dispose generic dynamic return and ignored primitive result",
+    "source": "const log=[];const fn=Iterator.prototype[Symbol.dispose];record(fn.length+':'+fn.name);record(fn.call(3));record(fn.call({return(){log.push(arguments.length);return 7}}));const o={get return(){log.push('get');return null}};record(fn.call(o));try{fn.call({return:4})}catch(e){log.push(e.name)}record(log.join(','));",
+    "expected": [
+      "0:[Symbol.dispose]",
+      "undefined",
+      "undefined",
+      "undefined",
+      "0,get,TypeError"
+    ]
+  },
+  {
+    "name": "using helper closes generator and lexical suppression",
+    "source": "const log=[];function* source(){try{yield 1;yield 2}finally{log.push('closed')}}{using h=source().map(x=>x);log.push(h.next().value)}record(log.join(','));",
+    "expected": [
+      "1,closed"
+    ]
+  },
+  {
+    "name": "return getter is observed at close time",
+    "source": "const log=[];const raw={next(){return {value:1}}};const h=Iterator.from(raw).map(x=>x);h.next();Object.defineProperty(raw,'return',{get(){log.push('get');return function(){log.push('call');return {done:true}}}});h.return();h.return();record(log.join(','));",
+    "expected": [
+      "get,call"
+    ]
+  },
+  {
+    "name": "array iterator reentrancy snapshots index and retries errors",
+    "source": "let busy=false,it;const log=[];const a={get length(){if(!busy){busy=true;log.push('inner:'+it.next().value);busy=false}return 2},0:'a',1:'b'};it=Array.prototype.values.call(a);log.push('outer:'+it.next().value);record(log.join(','));let fails=true;const b={length:2,get 0(){if(fails){fails=false;throw 'element'}return 1},1:2};const j=Array.prototype.values.call(b);try{j.next()}catch(e){record(e)}record(j.next().value);record(j.next().done);",
+    "expected": [
+      "inner:a,outer:a",
+      "element",
+      "2",
+      "true"
+    ]
+  },
+  {
+    "name": "array length failure leaves iterator usable",
+    "source": "let bad=true;const raw={get length(){if(bad){bad=false;throw 'length'}return 1},0:'ok'};const i=Array.prototype.values.call(raw);try{i.next()}catch(e){record(e)}record(i.next().value);record(i.next().done);",
+    "expected": [
+      "length",
+      "ok",
+      "true"
+    ]
+  },
+  {
+    "name": "collection iterators live through helper callbacks",
+    "source": "const map=new Map([['a',1],['b',2]]);record(JSON.stringify(map.entries().map((pair,i)=>{if(i===0){map.delete('b');map.set('c',3)}return pair}).toArray()));const set=new Set([1,2]);record(JSON.stringify(set.values().map((v,i)=>{if(i===0){set.delete(2);set.add(3)}return v}).toArray()));",
+    "expected": [
+      "[[\"a\",1],[\"c\",3]]",
+      "[1,3]"
+    ]
+  },
+  {
+    "name": "from function direct iterator",
+    "source": "function source(){}source.next=()=>({done:true});record(Iterator.from(source).toArray().length);record(Iterator.prototype.toArray.call(source).length);",
+    "expected": [
+      "0",
+      "0"
+    ]
+  },
+  {
+    "name": "native iterator helper readonly tag setters",
+    "source": "for(const i of [[1].values(),'a'[Symbol.iterator](),new Map().keys(),new Set().values(),[1].values().map(x=>x)]){record(Reflect.set(i,Symbol.toStringTag,'custom'));record(Object.prototype.toString.call(i))}",
+    "expected": [
+      "false",
+      "[object Array Iterator]",
+      "false",
+      "[object String Iterator]",
+      "false",
+      "[object Map Iterator]",
+      "false",
+      "[object Set Iterator]",
+      "false",
+      "[object Iterator Helper]"
+    ]
+  },
+  {
+    "name": "concat zero inputs and eager factory lookup lazy opening",
+    "source": "const log=[];function item(label,values){return {get [Symbol.iterator](){log.push('get'+label);return function(){log.push('open'+label);return values.values()}}}}const h=Iterator.concat(item('A',[1,2]),item('B',[3]));record(log.join(','));record(h.next().value);record(log.join(','));record(JSON.stringify(h.toArray()));record(log.join(','));record(JSON.stringify(Iterator.concat().toArray()));",
+    "expected": [
+      "getA,getB",
+      "1",
+      "getA,getB,openA",
+      "[2,3]",
+      "getA,getB,openA,openB",
+      "[]"
+    ],
+    "requires": [
+      "Iterator.concat"
+    ]
+  },
+  {
+    "name": "concat primitive rejects and direct iterators are insufficient",
+    "source": "for(const value of ['ab',1,null,{next(){return {done:true}}},{[Symbol.iterator]:4}])try{Iterator.concat(value)}catch(e){record(e.name)}record(JSON.stringify(Iterator.concat(new String('ab')).toArray()));",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "[\"a\",\"b\"]"
+    ],
+    "requires": [
+      "Iterator.concat"
+    ]
+  },
+  {
+    "name": "concat early return does not open inputs and closes only active",
+    "source": "const log=[];const raw={ [Symbol.iterator](){log.push('open');return {next(){return {value:1}},return(){log.push('close');return {done:true}}}}};const a=Iterator.concat(raw);a.return();record(log.join(','));const b=Iterator.concat(raw,raw);b.next();b.return();record(log.join(','));",
+    "expected": [
+      "",
+      "open,close"
+    ],
+    "requires": [
+      "Iterator.concat"
+    ]
+  },
+  {
+    "name": "concat lookup failures do not open or close inputs",
+    "source": "const log=[];const a={get [Symbol.iterator](){log.push('get-a');return ()=>{log.push('open-a');return [1].values()}}};const b={get [Symbol.iterator](){log.push('get-b');throw 'get-error'}};try{Iterator.concat(a,b)}catch(e){log.push(e)}record(log.join(','));",
+    "expected": [
+      "get-a,get-b,get-error"
+    ],
+    "requires": [
+      "Iterator.concat"
+    ]
+  },
+  {
+    "name": "concat captures factory and pull error does not close",
+    "source": "const log=[];const raw={[Symbol.iterator](){return {next(){throw 'next-error'},return(){log.push('close');return {done:true}}}}};const h=Iterator.concat(raw);raw[Symbol.iterator]=()=>{throw 'new-factory'};try{h.next()}catch(e){log.push(e)}record(log.join(','));record(h.next().done);",
+    "expected": [
+      "next-error",
+      "true"
+    ],
+    "requires": [
+      "Iterator.concat"
+    ],
+    "browserExpected": [
+      "close,next-error",
+      "true"
+    ],
+    "standardExpected": [
+      "next-error",
+      "true"
+    ],
+    "difference": "Chromium closes concat input after a failing IteratorStepValue; both ECMA-262 2026 and the current draft propagate that failure without IteratorClose."
+  },
+  {
+    "name": "take limit completion reentrancy state",
+    "source": "let h;const log=[];const source={next(){return {value:1}},return(){try{log.push(h.next().done)}catch(e){log.push(e.name)}return {done:true}}};h=Iterator.from(source).take(1);h.next();record(h.next().done);record(log.join(','));",
+    "expected": [
+      "true",
+      "true"
+    ],
+    "browserExpected": [
+      "true",
+      "TypeError"
+    ],
+    "difference": "Chromium retains executing state during the take-limit close; Node 24 completes the helper before closing."
+  },
+  {
+    "name": "instanceof symbol hook object callable and receiver",
+    "source": "const log=[];const o={get [Symbol.hasInstance](){log.push('get');return function(v){log.push(this===o);return v===3}}};record(3 instanceof o);record(4 instanceof o);record(log.join(','));for(const v of [null,undefined,3,true,Symbol()])try{record({} instanceof v)}catch(e){record(e.name)}for(const v of [null,undefined,3]){try{record(1 instanceof {[Symbol.hasInstance]:v})}catch(e){record(e.name)}}",
+    "expected": [
+      "true",
+      "false",
+      "get,true,get,true",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "ordinary hasInstance callable and primitive short circuit",
+    "source": "const f=Function.prototype[Symbol.hasInstance];record(f.call({},{}));record(f.call(null,{}));record(f.call(3,{}));function F(){}F.prototype=3;record(f.call(F,1));record(1 instanceof F);try{f.call(F,{})}catch(e){record(e.name)}const arrow=()=>{};record(1 instanceof arrow);try{record({} instanceof arrow)}catch(e){record(e.name)}record(f.name+':'+f.length);const d=Object.getOwnPropertyDescriptor(Function.prototype,Symbol.hasInstance);record(d.writable+':'+d.enumerable+':'+d.configurable);",
+    "expected": [
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "TypeError",
+      "false",
+      "TypeError",
+      "[Symbol.hasInstance]:1",
+      "false:false:false"
+    ]
+  },
+  {
+    "name": "bound hasInstance delegates target custom hook",
+    "source": "const log=[];function F(){}const B=F.bind(null);Object.defineProperty(F,Symbol.hasInstance,{value(v){log.push(this===F);return v===7}});record(7 instanceof B);record(8 instanceof B);record(Function.prototype[Symbol.hasInstance].call(B,7));record(log.join(','));",
+    "expected": [
+      "true",
+      "false",
+      "true",
+      "true,true,true"
+    ]
+  },
+  {
+    "name": "instanceof abrupt symbol getter and prototype access order",
+    "source": "const log=[];function F(){}const p=new Proxy(F,{get(t,k,r){log.push(typeof k==='symbol'?'symbol':k);if(k==='prototype')throw 'prototype';return Reflect.get(t,k,r)}});record(1 instanceof p);record(log.join(','));log.length=0;try{record({} instanceof p)}catch(e){log.push(e)}record(log.join(','));const x={get [Symbol.hasInstance](){throw 'hook'}};try{record(1 instanceof x)}catch(e){record(e)}",
+    "expected": [
+      "false",
+      "symbol",
+      "symbol,prototype,prototype",
+      "hook"
+    ]
+  },
+  {
+    "name": "ordinary hasInstance ignores own custom hook and accepts callable prototypes",
+    "source": "function F(){}const o=Object.create(F.prototype);Object.defineProperty(F,Symbol.hasInstance,{value(){return false}});record(o instanceof F);record(Function.prototype[Symbol.hasInstance].call(F,o));function P(){}function C(){}C.prototype=P;record(Object.create(P) instanceof C);",
+    "expected": [
+      "false",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "instanceof proxy prototype traversal failure",
+    "source": "function F(){}const value=new Proxy({}, {getPrototypeOf(){throw 'proto-error'}});try{record(value instanceof F)}catch(e){record(e)}const raw=Object.create(F.prototype);const log=[];const p=new Proxy(raw,{getPrototypeOf(t){log.push('proto');return Reflect.getPrototypeOf(t)}});record(p instanceof F);record(log.join(','));",
+    "expected": [
+      "proto-error",
+      "true",
+      "proto"
+    ]
+  },
+  {
+    "name": "bound function prototype metadata ordering and no coercion",
+    "source": "const log=[];function F(){}const proto=Object.create(Function.prototype);Object.defineProperty(proto,Symbol.hasInstance,{value(v){return v===9}});Object.setPrototypeOf(F,proto);const p=new Proxy(F,{getPrototypeOf(t){log.push('proto');return Reflect.getPrototypeOf(t)},getOwnPropertyDescriptor(t,k){log.push('own:'+k);return Reflect.getOwnPropertyDescriptor(t,k)},get(t,k,r){log.push('get:'+k);return Reflect.get(t,k,r)}});const B=Function.prototype.bind.call(p,null);record(log.join(','));record(Object.getPrototypeOf(B)===proto);record(9 instanceof B);record(8 instanceof B);record(B.name+':'+B.length);for(const k of ['name','length']){const d=Object.getOwnPropertyDescriptor(B,k);record(k+':'+d.writable+':'+d.enumerable+':'+d.configurable)}const a=function(){};Object.defineProperty(a,'length',{value:{valueOf(){throw 'length-coercion'}}});Object.defineProperty(a,'name',{value:7});const b=a.bind(null);record(b.length+':'+b.name);const c=function(){};delete c.length;Object.setPrototypeOf(c,Object.create(Function.prototype,{length:{get(){throw 'inherited-length'}}}));record(c.bind(null).length);",
+    "expected": [
+      "proto,own:length,get:length,get:name",
+      "true",
+      "true",
+      "false",
+      "bound F:0",
+      "name:false:false:true",
+      "length:false:false:true",
+      "0:bound ",
+      "0"
+    ]
+  }
+]

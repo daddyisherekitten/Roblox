@@ -1,0 +1,106 @@
+{
+  "target": {
+    "date": "2026-10-06",
+    "commit": "b76da7af5fe35a2a368127cc9ec22449ac8fd559",
+    "commitDate": "2026-10-05T19:51:51Z",
+    "url": "https://raw.githubusercontent.com/whatwg/dom/b76da7af5fe35a2a368127cc9ec22449ac8fd559/dom.bs",
+    "sha256": "a7e26185022e0f29650bcd30be7df091419096f6d9bd96bb493662efa34d1e7f"
+  },
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/154.0.8037.98",
+    "revision": "@b859317bf11f6be47f9b7799ec690a0a42a1fb33",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "jsVersion": "15.4.80.20"
+  },
+  "cases": [
+    {
+      "name": "node kinds share document base",
+      "html": "<base href=\"../assets/\"><div id=host title=hello>Text<!--comment--></div>",
+      "source": "\n const host=document.getElementById('host'),frag=document.createDocumentFragment(),pi=document.createProcessingInstruction('probe','value'),attr=host.getAttributeNode('title');\n const nodes=[document,document.doctype,document.documentElement,host,host.firstChild,host.lastChild,frag,pi,attr,document.createAttribute('fresh'),document.createElementNS('urn:test','p:item')];\n console.log(JSON.stringify(nodes.map(n=>[n.nodeType,n.baseURI,n===document?null:n.ownerDocument===document])));\n host.remove();console.log(JSON.stringify(nodes.map(n=>n.baseURI)));",
+      "documentURL": "https://base.invalid/docs/page",
+      "expected": [
+        "[[9,\"https://base.invalid/assets/\",null],[10,\"https://base.invalid/assets/\",true],[1,\"https://base.invalid/assets/\",true],[1,\"https://base.invalid/assets/\",true],[3,\"https://base.invalid/assets/\",true],[8,\"https://base.invalid/assets/\",true],[11,\"https://base.invalid/assets/\",true],[7,\"https://base.invalid/assets/\",true],[2,\"https://base.invalid/assets/\",true],[2,\"https://base.invalid/assets/\",true],[1,\"https://base.invalid/assets/\",true]]",
+        "[\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\"]"
+      ]
+    },
+    {
+      "name": "live base and detached owners",
+      "html": "<base id=base href=\"../assets/\"><div id=host title=value>Text</div>",
+      "source": "\n const base=document.getElementById('base'),host=document.getElementById('host'),text=host.firstChild,attr=host.getAttributeNode('title'),frag=document.createDocumentFragment();\n const own=document.implementation.createHTMLDocument('Other');own.head.innerHTML='<base id=b href=\"https://other.invalid/root/\">';\n function read(){console.log(JSON.stringify([document.baseURI,own.baseURI,host.baseURI,text.baseURI,attr.baseURI,frag.baseURI]));}\n read();base.href='../second/';read();host.remove();read();own.adoptNode(host);read();own.adoptNode(frag);read();\n own.getElementById('b').href='https://other.invalid/changed/';read();document.adoptNode(host);read();base.remove();read();",
+      "documentURL": "https://base.invalid/docs/page",
+      "expected": [
+        "[\"https://base.invalid/assets/\",\"https://other.invalid/root/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\"]",
+        "[\"https://base.invalid/second/\",\"https://other.invalid/root/\",\"https://base.invalid/second/\",\"https://base.invalid/second/\",\"https://base.invalid/second/\",\"https://base.invalid/second/\"]",
+        "[\"https://base.invalid/second/\",\"https://other.invalid/root/\",\"https://base.invalid/second/\",\"https://base.invalid/second/\",\"https://base.invalid/second/\",\"https://base.invalid/second/\"]",
+        "[\"https://base.invalid/second/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://base.invalid/second/\"]",
+        "[\"https://base.invalid/second/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\"]",
+        "[\"https://base.invalid/second/\",\"https://other.invalid/changed/\",\"https://other.invalid/changed/\",\"https://other.invalid/changed/\",\"https://other.invalid/changed/\",\"https://other.invalid/changed/\"]",
+        "[\"https://base.invalid/second/\",\"https://other.invalid/changed/\",\"https://base.invalid/second/\",\"https://base.invalid/second/\",\"https://base.invalid/second/\",\"https://other.invalid/changed/\"]",
+        "[\"https://base.invalid/docs/page\",\"https://other.invalid/changed/\",\"https://base.invalid/docs/page\",\"https://base.invalid/docs/page\",\"https://base.invalid/docs/page\",\"https://other.invalid/changed/\"]"
+      ]
+    },
+    {
+      "name": "template and shadow bases",
+      "html": "<base id=base href=\"../assets/\"><div id=host></div><template id=tpl><span title=inside>Template</span></template>",
+      "source": "\n const host=document.getElementById('host'),shadow=host.attachShadow({mode:'open'}),text=document.createTextNode('Shadow'),tpl=document.getElementById('tpl');shadow.append(text);\n const content=tpl.content,inside=content.firstChild,own=document.implementation.createHTMLDocument('Other');own.head.innerHTML='<base href=\"https://other.invalid/root/\">';\n function read(){console.log(JSON.stringify([host.baseURI,shadow.baseURI,text.baseURI,tpl.baseURI,content.baseURI,inside.baseURI,inside.getAttributeNode('title').baseURI]));}\n read();document.getElementById('base').href='../changed/';read();own.adoptNode(host);read();own.adoptNode(tpl);read();document.adoptNode(host);document.adoptNode(tpl);read();",
+      "documentURL": "https://base.invalid/docs/page",
+      "expected": [
+        "[\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"about:blank\",\"about:blank\",\"about:blank\"]",
+        "[\"https://base.invalid/changed/\",\"https://base.invalid/changed/\",\"https://base.invalid/changed/\",\"https://base.invalid/changed/\",\"about:blank\",\"about:blank\",\"about:blank\"]",
+        "[\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://base.invalid/changed/\",\"about:blank\",\"about:blank\",\"about:blank\"]",
+        "[\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"https://other.invalid/root/\",\"about:blank\",\"about:blank\",\"about:blank\"]",
+        "[\"https://base.invalid/changed/\",\"https://base.invalid/changed/\",\"https://base.invalid/changed/\",\"https://base.invalid/changed/\",\"about:blank\",\"about:blank\",\"about:blank\"]"
+      ]
+    },
+    {
+      "name": "xml bases and adopted attributes",
+      "html": "<base href=\"../assets/\">",
+      "source": "\n const xml=new DOMParser().parseFromString('<root xml:base=\"https://ignored.invalid/\"><child a=\"value\"><![CDATA[content]]><!--comment--><?probe data?></child></root>','text/xml');\n const child=xml.documentElement.firstChild,attr=child.getAttributeNode('a');\n console.log(JSON.stringify([xml,xml.documentElement,child,child.firstChild,child.childNodes[1],child.lastChild,attr].map(n=>[n.nodeType,n.baseURI])));\n child.setAttributeNS('http://www.w3.org/XML/1998/namespace','xml:base','https://also-ignored.invalid/');console.log(JSON.stringify([child.baseURI,attr.baseURI]));\n document.adoptNode(child);console.log(JSON.stringify([child.baseURI,child.firstChild.baseURI,attr.baseURI,xml.baseURI]));",
+      "documentURL": "https://base.invalid/docs/page",
+      "expected": [
+        "[[9,\"https://base.invalid/docs/page\"],[1,\"https://base.invalid/docs/page\"],[1,\"https://base.invalid/docs/page\"],[4,\"https://base.invalid/docs/page\"],[8,\"https://base.invalid/docs/page\"],[7,\"https://base.invalid/docs/page\"],[2,\"https://base.invalid/docs/page\"]]",
+        "[\"https://base.invalid/docs/page\",\"https://base.invalid/docs/page\"]",
+        "[\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/assets/\",\"https://base.invalid/docs/page\"]"
+      ]
+    },
+    {
+      "name": "constructed XML doctype and detached document",
+      "html": "<base href=\"../assets/\">",
+      "source": "\n const type=document.implementation.createDocumentType('root','',''),xml=document.implementation.createDocument('urn:root','r:root',type);\n const text=xml.createTextNode('text'),cdata=xml.createCDATASection('content'),pi=xml.createProcessingInstruction('probe','data');xml.documentElement.append(text,cdata,pi);\n console.log(JSON.stringify([xml,type,xml.documentElement,text,cdata,pi].map(n=>[n.nodeType,n.baseURI])));\n document.adoptNode(type);console.log(JSON.stringify([type.baseURI,xml.baseURI,xml.doctype]));",
+      "documentURL": "https://base.invalid/docs/page",
+      "expected": [
+        "[[9,\"about:blank\"],[10,\"about:blank\"],[1,\"about:blank\"],[3,\"about:blank\"],[4,\"about:blank\"],[7,\"about:blank\"]]",
+        "[\"https://base.invalid/assets/\",\"about:blank\",null]"
+      ]
+    },
+    {
+      "name": "descriptor readonly branding and own override",
+      "html": "<base href=\"../assets/\"><div id=host></div>",
+      "source": "\n const host=document.getElementById('host'),desc=Object.getOwnPropertyDescriptor(Node.prototype,'baseURI');\n function outcome(fn){try{return fn()}catch(e){return e.name}}\n console.log(JSON.stringify([desc.enumerable,desc.configurable,typeof desc.set,desc.get.name,desc.get.length,desc.get.call(host),desc.get.call(document)]));\n console.log(JSON.stringify([null,undefined,{},42,Node.prototype].map(n=>outcome(()=>desc.get.call(n)))));\n host.baseURI='changed';console.log(JSON.stringify([host.baseURI,Object.prototype.hasOwnProperty.call(host,'baseURI')]));\n console.log(outcome(()=>{function strict(){'use strict';host.baseURI='changed'}strict();return 'accepted'}));\n Object.defineProperty(host,'baseURI',{value:'own',configurable:true});console.log(JSON.stringify([host.baseURI,desc.get.call(host)]));delete host.baseURI;console.log(host.baseURI);",
+      "documentURL": "https://base.invalid/docs/page",
+      "expected": [
+        "[true,true,\"undefined\",\"get baseURI\",0,\"https://base.invalid/assets/\",\"https://base.invalid/assets/\"]",
+        "[\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\"]",
+        "[\"https://base.invalid/assets/\",false]",
+        "TypeError",
+        "[\"own\",\"https://base.invalid/assets/\"]",
+        "https://base.invalid/assets/"
+      ]
+    },
+    {
+      "name": "history fallback and frozen first base",
+      "html": "<div id=host>Text</div>",
+      "source": "\n const host=document.getElementById('host'),text=host.firstChild,frag=document.createDocumentFragment();\n function read(){console.log(JSON.stringify([document.baseURI,host.baseURI,text.baseURI,frag.baseURI]));}\n read();history.pushState({},'', '/moved/deep/page');read();const base=document.createElement('base');base.href='../first/';document.head.append(base);read();\n history.pushState({},'', '/elsewhere/page');read();base.setAttribute('href',base.getAttribute('href'));read();base.remove();read();",
+      "documentURL": "https://base.invalid/docs/page",
+      "expected": [
+        "[\"https://base.invalid/docs/page\",\"https://base.invalid/docs/page\",\"https://base.invalid/docs/page\",\"https://base.invalid/docs/page\"]",
+        "[\"https://base.invalid/moved/deep/page\",\"https://base.invalid/moved/deep/page\",\"https://base.invalid/moved/deep/page\",\"https://base.invalid/moved/deep/page\"]",
+        "[\"https://base.invalid/moved/first/\",\"https://base.invalid/moved/first/\",\"https://base.invalid/moved/first/\",\"https://base.invalid/moved/first/\"]",
+        "[\"https://base.invalid/moved/first/\",\"https://base.invalid/moved/first/\",\"https://base.invalid/moved/first/\",\"https://base.invalid/moved/first/\"]",
+        "[\"https://base.invalid/first/\",\"https://base.invalid/first/\",\"https://base.invalid/first/\",\"https://base.invalid/first/\"]",
+        "[\"https://base.invalid/elsewhere/page\",\"https://base.invalid/elsewhere/page\",\"https://base.invalid/elsewhere/page\",\"https://base.invalid/elsewhere/page\"]"
+      ]
+    }
+  ]
+}

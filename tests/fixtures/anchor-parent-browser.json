@@ -1,0 +1,604 @@
+{
+  "captured": "2026-10-10",
+  "standard": "https://drafts.csswg.org/css-anchor-position/#position-anchor",
+  "wpt": "https://github.com/web-platform-tests/wpt/blob/master/css/css-anchor-position/position-anchor-match-parent-rendering.html",
+  "cases": [
+    {
+      "name": "Parent chosen element and live name change",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=two style=\"position:absolute;anchor-name:--b,--ref-two;left:400px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "steps": [
+        {
+          "equivalent": "--ref-one"
+        },
+        {
+          "styles": {
+            "p": "position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--b"
+          },
+          "equivalent": "--ref-two"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=two style=\"position:absolute;anchor-name:--b,--ref-two;left:400px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              100,
+              70,
+              80,
+              20
+            ],
+            "computed": "--ref-one",
+            "declared": "--ref-one"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        },
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              400,
+              70,
+              80,
+              20
+            ],
+            "computed": "--ref-two",
+            "declared": "--ref-two"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    },
+    {
+      "name": "A chain follows the immediate parent default",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=middle style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position-anchor:match-parent\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div></div>",
+      "steps": [
+        {
+          "equivalent": "--ref-one"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=middle style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position-anchor:match-parent\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              100,
+              70,
+              80,
+              20
+            ],
+            "computed": "--ref-one",
+            "declared": "--ref-one"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    },
+    {
+      "name": "An intervening normal parent has no default",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=middle style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position-anchor:normal\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div></div>",
+      "steps": [
+        {
+          "equivalent": "none"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=middle style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position-anchor:normal\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "none",
+            "declared": "none"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    },
+    {
+      "name": "Relative parent anchor property does not apply",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position:relative;position-anchor:--a\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "steps": [
+        {
+          "equivalent": "none"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position:relative;position-anchor:--a\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "none",
+            "declared": "none"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    },
+    {
+      "name": "Static parent anchor property does not apply",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position:static;position-anchor:--a\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "steps": [
+        {
+          "equivalent": "none"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position:static;position-anchor:--a\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "none",
+            "declared": "none"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    },
+    {
+      "name": "Missing parent default uses function fallbacks",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position-anchor:--missing\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "steps": [
+        {
+          "equivalent": "none"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position-anchor:--missing\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "none",
+            "declared": "none"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    },
+    {
+      "name": "None parent default and later restoration",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position-anchor:none\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "steps": [
+        {
+          "equivalent": "none"
+        },
+        {
+          "styles": {
+            "p": "position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a"
+          },
+          "equivalent": "--ref-one"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;position-anchor:none\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "none",
+            "declared": "none"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        },
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              100,
+              70,
+              80,
+              20
+            ],
+            "computed": "--ref-one",
+            "declared": "--ref-one"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    },
+    {
+      "name": "The child does not resolve the same name in its own scope",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><section style=\"anchor-scope:--a\"><div id=local style=\"position:absolute;anchor-name:--a,--ref-local;left:550px;top:40px;width:80px;height:30px\"></div><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></section></div>",
+      "steps": [
+        {
+          "equivalent": "none"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><section style=\"anchor-scope:--a\"><div id=local style=\"position:absolute;anchor-name:--a,--ref-local;left:550px;top:40px;width:80px;height:30px\"></div><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;\"></div></section></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "none",
+            "declared": "none"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    },
+    {
+      "name": "Scoped immediate parent retains the selected element",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;anchor-scope:--a\"></div></div>",
+      "steps": [
+        {
+          "equivalent": "--ref-one"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;anchor-scope:--a\"></div></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              13,
+              17,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              100,
+              70,
+              80,
+              20
+            ],
+            "computed": "--ref-one",
+            "declared": "--ref-one"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    },
+    {
+      "name": "Parent anchor is unacceptable for an absolute child block",
+      "markup": "<div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;position:absolute;position-anchor:match-parent\"></div></div>",
+      "steps": [
+        {
+          "equivalent": "none"
+        }
+      ],
+      "html": "<!doctype html><style>html,body{margin:0;padding:0}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=p style=\"position:fixed;left:250px;top:120px;width:160px;height:100px;position-anchor:--a;\"><div id=t style=\"position:fixed;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:20px;position:absolute;position-anchor:match-parent\"></div></div>",
+      "expected": [
+        {
+          "native": {
+            "rect": [
+              263,
+              137,
+              45,
+              20
+            ],
+            "computed": "normal",
+            "declared": ""
+          },
+          "equivalent": {
+            "rect": [
+              263,
+              137,
+              45,
+              20
+            ],
+            "computed": "none",
+            "declared": "none"
+          },
+          "standardAnchor": "match-parent",
+          "deviation": "Chromium 154 does not parse match-parent. Native equivalent geometry names the standard-selected element explicitly; missing/inapplicable/unacceptable parent references use none."
+        }
+      ]
+    }
+  ],
+  "resets": [
+    {
+      "css": "position-anchor:--one;position:fixed",
+      "anchor": "normal",
+      "native": {
+        "position": "fixed",
+        "anchor": "--one",
+        "computed": "--one",
+        "css": "position-anchor: --one; position: fixed;"
+      }
+    },
+    {
+      "css": "position:fixed;position-anchor:--one",
+      "anchor": "--one",
+      "native": {
+        "position": "fixed",
+        "anchor": "--one",
+        "computed": "--one",
+        "css": "position: fixed; position-anchor: --one;"
+      }
+    },
+    {
+      "css": "position-anchor:--one!important;position:fixed",
+      "anchor": "--one",
+      "native": {
+        "position": "fixed",
+        "anchor": "--one",
+        "computed": "--one",
+        "css": "position: fixed; position-anchor: --one !important;"
+      }
+    },
+    {
+      "css": "position-anchor:--one;position:fixed!important",
+      "anchor": "normal",
+      "native": {
+        "position": "fixed",
+        "anchor": "--one",
+        "computed": "--one",
+        "css": "position-anchor: --one; position: fixed !important;"
+      }
+    },
+    {
+      "css": "position-anchor:--one;position:inherit",
+      "anchor": "--parent",
+      "native": {
+        "position": "inherit",
+        "anchor": "--one",
+        "computed": "--one",
+        "css": "position-anchor: --one; position: inherit;"
+      }
+    },
+    {
+      "css": "--position:fixed;position-anchor:--one;position:var(--position)",
+      "anchor": "normal",
+      "native": {
+        "position": "var(--position)",
+        "anchor": "--one",
+        "computed": "--one",
+        "css": "--position: fixed; position-anchor: --one; position: var(--position);"
+      }
+    },
+    {
+      "css": "--position:invalid;position-anchor:--one;position:var(--position)",
+      "anchor": "normal",
+      "native": {
+        "position": "var(--position)",
+        "anchor": "--one",
+        "computed": "--one",
+        "css": "--position: invalid; position-anchor: --one; position: var(--position);"
+      }
+    },
+    {
+      "css": "position-anchor:--one;position:invalid",
+      "anchor": "--one",
+      "native": {
+        "position": "",
+        "anchor": "--one",
+        "computed": "--one",
+        "css": "position-anchor: --one;"
+      }
+    }
+  ],
+  "picker": {
+    "html": "<!doctype html><style>html,body{margin:0;padding:0}select{appearance:base-select;left:250px;top:120px;width:160px;font:16px/24px Arial}select::picker(select){appearance:base-select;position-area:none;position-try-fallbacks:none;inset:auto;margin:0;border:0;padding:0;min-width:0;position-anchor:match-parent;left:anchor(left,13px);top:anchor(bottom,17px);width:anchor-size(width,45px);height:50px}option{padding:0;border:0;height:25px;box-sizing:border-box}</style><div id=one style=\"position:absolute;anchor-name:--a,--ref-one;left:100px;top:40px;width:80px;height:30px\"></div><div id=two style=\"position:absolute;anchor-name:--b,--ref-two;left:400px;top:40px;width:80px;height:30px\"></div><select id=s><option id=a>A</option><option id=b>B</option></select>",
+    "steps": [
+      {
+        "style": "position:static;position-anchor:--a",
+        "equivalent": "none",
+        "native": {
+          "anchor": "normal",
+          "rect": [
+            13,
+            17,
+            45,
+            50
+          ]
+        },
+        "equivalentGeometry": {
+          "anchor": "none",
+          "rect": [
+            13,
+            17,
+            45,
+            50
+          ]
+        }
+      },
+      {
+        "style": "position:fixed;position-anchor:--a",
+        "equivalent": "--ref-one",
+        "native": {
+          "anchor": "normal",
+          "rect": [
+            13,
+            17,
+            45,
+            50
+          ]
+        },
+        "equivalentGeometry": {
+          "anchor": "--ref-one",
+          "rect": [
+            100,
+            70,
+            80,
+            50
+          ]
+        }
+      },
+      {
+        "style": "position:fixed;position-anchor:--b",
+        "equivalent": "--ref-two",
+        "native": {
+          "anchor": "normal",
+          "rect": [
+            13,
+            17,
+            45,
+            50
+          ]
+        },
+        "equivalentGeometry": {
+          "anchor": "--ref-two",
+          "rect": [
+            400,
+            70,
+            80,
+            50
+          ]
+        }
+      },
+      {
+        "style": "position:fixed;position-anchor:normal",
+        "equivalent": "none",
+        "native": {
+          "anchor": "normal",
+          "rect": [
+            13,
+            17,
+            45,
+            50
+          ]
+        },
+        "equivalentGeometry": {
+          "anchor": "none",
+          "rect": [
+            13,
+            17,
+            45,
+            50
+          ]
+        }
+      }
+    ]
+  },
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "supports": false
+}

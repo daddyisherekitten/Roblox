@@ -1,0 +1,118 @@
+[
+  {
+    "name": "initial before and after versus element and marker",
+    "actual": [
+      "none",
+      "none",
+      "normal",
+      "normal"
+    ],
+    "error": null
+  },
+  {
+    "name": "explicit normal computes differently on before and marker",
+    "actual": [
+      "none",
+      "normal"
+    ],
+    "error": null
+  },
+  {
+    "name": "explicit none remains none",
+    "actual": [
+      "none",
+      "none",
+      "none"
+    ],
+    "error": null
+  },
+  {
+    "name": "text preserves token boundaries and quotes canonically",
+    "actual": [
+      "\"Alpha Beta森\"",
+      "\"\""
+    ],
+    "error": null
+  },
+  {
+    "name": "attribute content resolves current and missing values",
+    "actual": [
+      "\"First / \"",
+      "\"Second 森 / \"",
+      "\" / \""
+    ],
+    "error": null
+  },
+  {
+    "name": "attribute strings serialize CSS escapes",
+    "actual": [
+      "\"\\\"\\\\�\\1 \\9 \\a \\c \\d \\1f \\7f 森\""
+    ],
+    "error": null
+  },
+  {
+    "name": "counter serialization does not resolve displayed digits",
+    "actual": [
+      "counter(part) \". \"",
+      "counter(part, upper-roman)"
+    ],
+    "error": null
+  },
+  {
+    "name": "counters serialize separators and formats",
+    "actual": [
+      "counters(part, \".\")",
+      "counters(part, \" / \", lower-alpha)"
+    ],
+    "error": null
+  },
+  {
+    "name": "explicit decimal format normalizes to implicit decimal",
+    "actual": [
+      "counter(part)",
+      "counters(part, \":\")"
+    ],
+    "error": null
+  },
+  {
+    "name": "quote keywords remain keywords",
+    "actual": [
+      "open-quote \"Hello\" close-quote no-open-quote no-close-quote"
+    ],
+    "error": null
+  },
+  {
+    "name": "native ordered marker remains normal and custom marker remains counter",
+    "actual": [
+      "counter(list-item) \") \"",
+      "normal"
+    ],
+    "error": null
+  },
+  {
+    "name": "pseudo content is distinct from owner content",
+    "actual": [
+      "\"Owner\"",
+      "\"Before\"",
+      "\"After\""
+    ],
+    "error": null
+  },
+  {
+    "name": "inherit and unset respect content inheritance rules",
+    "actual": [
+      "none",
+      "none"
+    ],
+    "error": null
+  },
+  {
+    "name": "legacy pseudo aliases and invalid pseudo return values",
+    "actual": [
+      "\"Before\"",
+      "\"Before\"",
+      ""
+    ],
+    "error": null
+  }
+]

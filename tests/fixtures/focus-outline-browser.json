@@ -1,0 +1,83 @@
+{
+  "schema": "native-focus-outline/v1",
+  "browser": "In-app Chromium on Windows",
+  "samples": [
+    {
+      "border": "1px solid rgb(154, 174, 148)",
+      "name": "Standard",
+      "offset": "0px",
+      "outline": "rgb(16, 16, 16) auto 1px",
+      "visible": true
+    },
+    {
+      "border": "1px solid rgb(154, 174, 148)",
+      "name": "Rot",
+      "offset": "0px",
+      "outline": "rgb(255, 0, 0) auto 1px",
+      "visible": true
+    },
+    {
+      "border": "1px solid rgb(154, 174, 148)",
+      "name": "Breit",
+      "offset": "0px",
+      "outline": "rgb(16, 16, 16) auto 5px",
+      "visible": true
+    },
+    {
+      "border": "1px solid rgb(154, 174, 148)",
+      "name": "Versetzt",
+      "offset": "3px",
+      "outline": "rgb(16, 16, 16) auto 1px",
+      "visible": true
+    },
+    {
+      "border": "1px solid rgb(154, 174, 148)",
+      "name": "Null",
+      "offset": "0px",
+      "outline": "rgb(16, 16, 16) auto 0px",
+      "visible": true
+    },
+    {
+      "border": "1px solid rgb(154, 174, 148)",
+      "name": "Auto",
+      "offset": "0px",
+      "outline": "rgb(34, 60, 52) auto 3px",
+      "visible": true
+    },
+    {
+      "border": "1px solid rgb(154, 174, 148)",
+      "name": "Textarea",
+      "offset": "0px",
+      "outline": "rgb(16, 16, 16) auto 1px",
+      "visible": true
+    }
+  ],
+  "otherFocusSamples": [
+    {
+      "tag": "DIV",
+      "visible": true,
+      "outline": "rgb(16, 16, 16) auto 1px"
+    },
+    {
+      "tag": "BUTTON",
+      "visible": true,
+      "outline": "rgb(16, 16, 16) auto 1px"
+    },
+    {
+      "tag": "SELECT",
+      "visible": true,
+      "outline": "rgb(16, 16, 16) auto 1px"
+    }
+  ],
+  "paint": {
+    "width": 2,
+    "outside": 1,
+    "inside": 1,
+    "minimumInnerRadius": 2,
+    "autoIgnoresWidth": true
+  },
+  "sources": [
+    "https://html.spec.whatwg.org/multipage/rendering.html",
+    "https://drafts.csswg.org/css-ui-4/#outline"
+  ]
+}

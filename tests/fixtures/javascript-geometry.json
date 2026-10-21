@@ -1,0 +1,157 @@
+[
+  {
+    "name": "signed DOMRect dimensions",
+    "source": "var r=new DOMRect(10,20,-5,-8);record(JSON.stringify(r.toJSON()));r.x=5;r.width=2;record([r.left,r.right,r.top,r.bottom].join(','));record(r instanceof DOMRectReadOnly);record(Object.prototype.toString.call(r));",
+    "expected": [
+      "{\"x\":10,\"y\":20,\"width\":-5,\"height\":-8,\"top\":12,\"right\":10,\"bottom\":20,\"left\":5}",
+      "5,7,12,20",
+      "true",
+      "[object DOMRect]"
+    ]
+  },
+  {
+    "name": "rectangle brands and readonly fields",
+    "source": "var r=new DOMRectReadOnly(1,2,3,4);r.x=8;record(r.x);try{Object.getOwnPropertyDescriptor(DOMRectReadOnly.prototype,'x').get.call({})}catch(e){record(e.name)}try{Object.getOwnPropertyDescriptor(DOMRect.prototype,'x').set.call(r,8)}catch(e){record(e.name)}record(Object.keys(r).length);record(Object.getOwnPropertyDescriptor(DOMRectReadOnly.prototype,'x').enumerable);",
+    "expected": [
+      "1",
+      "TypeError",
+      "TypeError",
+      "0",
+      "true"
+    ]
+  },
+  {
+    "name": "DOMRectInit dictionary conversion order",
+    "source": "var log=[];var r=DOMRect.fromRect({get x(){log.push('x');return '2'},get y(){log.push('y');return null},get width(){log.push('w');return undefined},get height(){log.push('h');return 5}});record(log.join(','));record(JSON.stringify(r));record(JSON.stringify(new DOMRect(NaN,Infinity,-Infinity,undefined)));try{DOMRect.fromRect(2)}catch(e){record(e.name)}",
+    "expected": [
+      "h,w,x,y",
+      "{\"x\":2,\"y\":0,\"width\":0,\"height\":5,\"top\":0,\"right\":2,\"bottom\":5,\"left\":2}",
+      "{\"x\":null,\"y\":null,\"width\":null,\"height\":0,\"top\":null,\"right\":null,\"bottom\":null,\"left\":null}",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "border client offset and scroll metrics",
+    "source": "var s=document.getElementById('scroller'),c=document.getElementById('child');record([s.clientWidth,s.clientHeight,s.clientLeft,s.clientTop,s.offsetWidth,s.offsetHeight,s.scrollWidth,s.scrollHeight].join(','));record([c.offsetLeft,c.offsetTop,c.offsetWidth,c.offsetHeight,c.offsetParent===s].join(','));record(JSON.stringify(c.getBoundingClientRect()));record(getComputedStyle(s).width+','+getComputedStyle(s).height);",
+    "expected": [
+      "110,90,2,2,114,94,205,166",
+      "5,6,200,160,true",
+      "{\"x\":17,\"y\":28,\"width\":200,\"height\":160,\"top\":28,\"right\":217,\"bottom\":188,\"left\":17}",
+      "100px,80px"
+    ]
+  },
+  {
+    "name": "transforms affect client bounds only",
+    "source": "var c=document.getElementById('child');c.style.transform='translate(3px,4px) scale(2)';c.style.transformOrigin='0px 0px';record(JSON.stringify(c.getBoundingClientRect()));record([c.offsetWidth,c.offsetHeight,c.offsetLeft,c.offsetTop].join(','));record(getComputedStyle(c).transform);",
+    "expected": [
+      "{\"x\":20,\"y\":32,\"width\":400,\"height\":320,\"top\":32,\"right\":420,\"bottom\":352,\"left\":20}",
+      "200,160,5,6",
+      "matrix(2, 0, 0, 2, 3, 4)"
+    ]
+  },
+  {
+    "name": "client rectangle snapshot and hidden box",
+    "source": "var c=document.getElementById('child');var list=c.getClientRects(),r=c.getBoundingClientRect();c.style.width='80px';record([list.length,list[0].width,r.width,c.getBoundingClientRect().width].join(','));record(list.item(9)===null);record(typeof list.item);record(document.getElementById('invisible').getClientRects().length);record(JSON.stringify(document.getElementById('invisible').getBoundingClientRect()));",
+    "expected": [
+      "1,200,200,80",
+      "true",
+      "function",
+      "0",
+      "{\"x\":0,\"y\":0,\"width\":0,\"height\":0,\"top\":0,\"right\":0,\"bottom\":0,\"left\":0}"
+    ]
+  },
+  {
+    "name": "computed declarations are live and readonly",
+    "source": "var c=document.getElementById('child'),s=getComputedStyle(c);record(s.width);c.style.width='80px';record(s.width);record(s.getPropertyValue('WIDTH'));record(s.getPropertyValue('--absent'));record(s.getPropertyPriority('width'));record(s.cssText);record(s.parentRule===null);record(getComputedStyle(c)!==s);try{s.width='42px'}catch(e){record(e.name)}try{s.setProperty('width','42px')}catch(e){record(e.name)}record(s.width);",
+    "expected": [
+      "200px",
+      "80px",
+      "80px",
+      "",
+      "",
+      "",
+      "true",
+      "true",
+      "NoModificationAllowedError",
+      "NoModificationAllowedError",
+      "80px"
+    ]
+  },
+  {
+    "name": "element scroll clamp and relative options",
+    "source": "var s=document.getElementById('scroller'),c=document.getElementById('child');s.scrollTo({left:20,top:30,behavior:'instant'});record([s.scrollLeft,s.scrollTop,c.getBoundingClientRect().x,c.getBoundingClientRect().y].join(','));s.scrollBy({top:10});record([s.scrollLeft,s.scrollTop].join(','));s.scrollTop=1000;s.scrollLeft=-10;record([s.scrollLeft,s.scrollTop].join(','));s.scrollTo(NaN,Infinity);record([s.scrollLeft,s.scrollTop].join(','));s.scrollTo({behavior:'bad'}).catch(function(e){record(e.name)})",
+    "nativeSource": "(async function(){var s=document.getElementById('scroller'),c=document.getElementById('child');s.scrollTo({left:20,top:30,behavior:'instant'});record([s.scrollLeft,s.scrollTop,c.getBoundingClientRect().x,c.getBoundingClientRect().y].join(','));s.scrollBy({top:10});record([s.scrollLeft,s.scrollTop].join(','));s.scrollTop=1000;s.scrollLeft=-10;record([s.scrollLeft,s.scrollTop].join(','));s.scrollTo(NaN,Infinity);record([s.scrollLeft,s.scrollTop].join(','));await s.scrollTo({behavior:'bad'}).catch(function(e){record(e.name)})})()",
+    "expected": [
+      "20,30,-3,-2",
+      "20,40",
+      "0,76",
+      "0,0",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "scrollIntoView nearest and end",
+    "source": "var c=document.getElementById('child'),s=document.getElementById('scroller');c.scrollIntoView({block:'end',inline:'end',container:'nearest',behavior:'instant'});record([s.scrollLeft,s.scrollTop].join(','));c.scrollIntoView({block:'nearest',inline:'nearest',container:'nearest'});record([s.scrollLeft,s.scrollTop].join(','));",
+    "expected": [
+      "95,76",
+      "95,76"
+    ]
+  },
+  {
+    "name": "window scroll keeps viewport fixed boxes",
+    "source": "var c=document.getElementById('child'),f=document.getElementById('fixed');scrollTo(30,100);record([c.getBoundingClientRect().x,c.getBoundingClientRect().y,f.getBoundingClientRect().x,f.getBoundingClientRect().y].join(','));scrollBy({top:20});record(document.documentElement.scrollTop);record(document.documentElement.clientWidth);",
+    "expected": [
+      "-13,-72,200,40",
+      "120",
+      "640"
+    ]
+  },
+  {
+    "name": "media serialization brands and native events",
+    "source": "var m=matchMedia(' (min-width: 500px) ');record(m.media);record(m.matches);record(m instanceof EventTarget);record(Object.prototype.toString.call(m));var e=new MediaQueryListEvent('change',{matches:true,media:'screen',bubbles:true});record([e.type,e.matches,e.media,e.bubbles,e instanceof Event].join(','));try{Object.getOwnPropertyDescriptor(MediaQueryList.prototype,'matches').get.call({})}catch(e){record(e.name)}record(matchMedia('(').media);",
+    "expected": [
+      "(min-width: 500px)",
+      "true",
+      "true",
+      "[object MediaQueryList]",
+      "change,true,screen,true,true",
+      "TypeError",
+      "("
+    ]
+  },
+  {
+    "name": "media changes use ordered event tasks",
+    "source": "var m=matchMedia('(min-width: 500px)'),log=[];m.addListener(function(e){log.push('legacy:'+e.matches+':'+(this===m))});m.addEventListener('change',function(e){log.push('modern:'+e.media+':'+e.isTrusted)});m.onchange=function(e){log.push('handler:'+e.matches)};resizeViewport(300,800);record(m.matches);record(log.length);pumpEvents();record(log.join('|'));resizeViewport(300,800);pumpEvents();record(log.length);",
+    "nativeSource": "(async function(){var m=matchMedia('(min-width: 500px)'),log=[];m.addListener(function(e){log.push('legacy:'+e.matches+':'+(this===m))});m.addEventListener('change',function(e){log.push('modern:'+e.media+':'+e.isTrusted)});m.onchange=function(e){log.push('handler:'+e.matches)};resizeViewport(300,800);record(m.matches);record(log.length);await pumpEvents();record(log.join('|'));resizeViewport(300,800);await pumpEvents();record(log.length)})()",
+    "expected": [
+      "false",
+      "0",
+      "legacy:false:true|modern:(min-width: 500px):true|handler:false",
+      "3"
+    ]
+  },
+  {
+    "name": "scroll API completion values",
+    "source": "var s=document.getElementById('scroller');record(Object.prototype.toString.call(s.scrollTo(0,0)));record(Object.prototype.toString.call(scrollTo(0,0)));record(Object.prototype.toString.call(s.scrollIntoView({container:'nearest'})));",
+    "expected": [
+      "[object Promise]",
+      "[object Promise]",
+      "[object Promise]"
+    ]
+  },
+  {
+    "name": "rectangle constructors preserve subclass prototypes",
+    "source": "class R extends DOMRect {marker=1}class S extends DOMRectReadOnly {}const r=new R(2,3,4,5),s=new S(7,8,9,10);record(r instanceof R);record(r instanceof DOMRect);record([r.x,r.y,r.width,r.height,r.marker].join(','));record(s instanceof S);record(s.x);record(R.fromRect({x:4}) instanceof R);const log=[];const T=new Proxy(function(){},{get(t,k,v){if(k==='prototype')log.push('prototype');return Reflect.get(t,k,v)}});const a=Reflect.construct(DOMRect,[{valueOf(){log.push('argument');return 2}}],T);record(log.join(','));record(a.x);record(Object.getOwnPropertyDescriptor(DOMRect.prototype,'x').get.call(a));",
+    "expected": [
+      "true",
+      "true",
+      "2,3,4,5,1",
+      "true",
+      "7",
+      "false",
+      "prototype,argument",
+      "undefined",
+      "2"
+    ]
+  }
+]

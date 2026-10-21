@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="de"><meta charset="utf-8"><title>Native Fokusrahmen</title>
+<style>body{font:16px Arial;background:white;padding:30px}label{display:block;margin:20px}input,textarea,button,select,.editor{border:1px solid #9aae94;border-radius:0;color:#223c34;padding:8px;background:white}input{width:230px}.editor{width:230px}</style>
+<label>Standard <input id="default" aria-label="Standard" value="Standard"></label>
+<label>Rot <input id="red" aria-label="Rot" style="outline-color:red" value="Rot"></label>
+<label>Breit <input id="wide" aria-label="Breit" style="outline-width:5px" value="Breit"></label>
+<label>Versetzt <input id="offset" aria-label="Versetzt" style="outline-offset:3px" value="Versetzt"></label>
+<label>Null <input id="zero" aria-label="Null" style="outline-width:0" value="Null"></label>
+<label>Auto <input id="auto" aria-label="Auto" style="outline:auto" value="Auto"></label>
+<label>Textarea <textarea aria-label="Textarea">Text</textarea></label>
+<label>Select <select aria-label="Select"><option>Auswahl</option></select></label>
+<button id="button">Button</button>
+<div class="editor" contenteditable="true" aria-label="Editor">Editor</div>
+</html>

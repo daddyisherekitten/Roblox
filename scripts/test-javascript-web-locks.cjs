@@ -1,0 +1,42 @@
+// Independent real VM and actual Chromium Web Locks checks.
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..'),out=path.join(root,'build','javascript-web-locks');fs.mkdirSync(out,{recursive:true});
+function bundle(){
+ const modules=new Map();function resolve(base){for(const p of[base+'.luau',path.join(base,'init.luau')])if(fs.existsSync(p))return p;throw Error(base);}
+ function add(file){file=path.resolve(file);if(modules.has(file))return modules.get(file).id;const entry={id:modules.size+1,source:''};modules.set(file,entry);
+  entry.source=fs.readFileSync(file,'utf8').replace(/require\(script((?:\.[\w]+)+)\)/g,(_,chain)=>{let base=file.endsWith(path.sep+'init.luau')?path.dirname(file):file.slice(0,-5);for(const part of chain.slice(1).split('.'))base=part==='Parent'?path.dirname(base):path.join(base,part);return `loadModule(${add(resolve(base))})`;});return entry.id;}
+ const ids=['VM','Promises','AsyncFunctions','EventLoop','HostEvents','WebLocks'].map(name=>add(resolve(path.join(root,'src/HTMLEngine/JavaScript',name))));
+ let source='local factories,loaded={},{}\nlocal function loadModule(id)if loaded[id]==nil then loaded[id]=factories[id]()end;return loaded[id]end\n';for(const entry of modules.values())source+=`factories[${entry.id}]=function()\n${entry.source}\nend\n`;
+ source+=`local run=(function()\n${fs.readFileSync(path.join(root,'tests/JavaScriptWebLocks.luau'),'utf8')}\nend)()\nrun(${ids.map(id=>`loadModule(${id})`).join(',')})\n`;
+ const file=path.join(out,'tests-'+process.pid+'.luau');fs.writeFileSync(file,source);return file;
+}
+async function native(){
+ const {openBrowser}=require('./native-browser.cjs'),server=require('node:http').createServer((_,res)=>{res.setHeader('content-type','text/html');res.end('<!doctype html><body>Native Web Locks reference</body>');});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));let browser;
+ try{browser=await openBrowser(out);await browser.send('Page.navigate',{url:'http://127.0.0.1:'+server.address().port+'/'});await browser.evaluate('new Promise(r=>document.readyState==="complete"?r():addEventListener("load",r,{once:true}))');
+  const result=await browser.evaluate(`(async()=>{
+   const trace=['sync'],p=navigator.locks.request('basic',lock=>{trace.push('callback:'+lock.name+':'+lock.mode+':'+(lock instanceof Lock));return 7;}).then(v=>trace.push('done'+v));await p;
+   let releaseA,releaseB,startA,startB;const readyA=new Promise(r=>startA=r),readyB=new Promise(r=>startB=r),fair=[];
+   const a=navigator.locks.request('fair',{mode:'shared'},()=>{fair.push('reader1');startA();return new Promise(r=>releaseA=r);});
+   const b=navigator.locks.request('fair',{mode:'shared'},()=>{fair.push('reader2');startB();return new Promise(r=>releaseB=r);});await Promise.all([readyA,readyB]);
+   const writer=navigator.locks.request('fair',()=>fair.push('writer')),reader=navigator.locks.request('fair',{mode:'shared'},()=>fair.push('late-reader'));
+   const snap=await navigator.locks.query(),snapshot=snap.held.length+':'+snap.pending.length+':'+snap.pending[0].mode+':'+snap.pending[1].mode;
+   releaseA();await a;const partial=fair.join('|');releaseB();await Promise.all([b,writer,reader]);
+   let releaseHeld,startHeld;const heldReady=new Promise(r=>startHeld=r);const held=navigator.locks.request('busy',()=>{startHeld();return new Promise(r=>releaseHeld=r);});await heldReady;
+   const unavailable=await navigator.locks.request('busy',{ifAvailable:true},lock=>lock===null?'miss':'wrong');const c=new AbortController();const aborted=navigator.locks.request('busy',{signal:c.signal},()=> 'wrong').catch(e=>e);c.abort('custom-reason');const abort=await aborted;releaseHeld();await held;
+   let oldRelease,newRelease,oldReady,newReady;const readyOld=new Promise(r=>oldReady=r),readyNew=new Promise(r=>newReady=r),stolen=[];
+   const old=navigator.locks.request('steal',()=>{oldReady();return new Promise(r=>oldRelease=r);}).catch(e=>stolen.push(e.name));await readyOld;
+   const replacement=navigator.locks.request('steal',{steal:true},()=>{newReady();return new Promise(r=>newRelease=r);});await readyNew;await old;oldRelease();
+   const afterSteal=(await navigator.locks.query()).held.filter(x=>x.name==='steal').length;newRelease();await replacement;
+   const errors=[];for(const fn of[()=>navigator.locks.request('-reserved',()=>{}),()=>navigator.locks.request('x',{steal:true,mode:'shared'},()=>{}),()=>navigator.locks.request('x',{steal:true,ifAvailable:true},()=>{}),()=>navigator.locks.request('x',{signal:new AbortController().signal,ifAvailable:true},()=>{}),()=>navigator.locks.request('x',{mode:'invalid'},()=>{}),()=>navigator.locks.request('x',null),()=>navigator.locks.request.call({},'x',()=>{}),()=>navigator.locks.query.call({})]){try{await fn();errors.push('none');}catch(e){errors.push(e.name);}}
+   const immediate=[];const first=navigator.locks.request('immediate',()=>{immediate.push('first');return new Promise(()=>{});}).catch(e=>immediate.push(e.name));const next=navigator.locks.request('immediate',{steal:true},()=>immediate.push('second'));await Promise.all([first,next]);
+   const before=navigator.locks.query();let raceRelease;const raceHeld=navigator.locks.request('snapshot-race',()=>new Promise(r=>raceRelease=r));const beforeSnapshot=await before;const afterSnapshot=await navigator.locks.query();raceRelease();await raceHeld;
+   const earlyAbort=[];const earlyController=new AbortController();const early=navigator.locks.request('early-abort',{signal:earlyController.signal},()=>earlyAbort.push('wrong')).catch(e=>earlyAbort.push(e));earlyController.abort('before-callback');await early;
+   let releaseMicrotask,readyMicrotask;const microtaskReady=new Promise(r=>readyMicrotask=r);const microtaskLock=navigator.locks.request('release-race',()=>{readyMicrotask();return new Promise(r=>releaseMicrotask=r);});await microtaskReady;releaseMicrotask();for(let i=0;i<5;i++)await Promise.resolve();const releaseSnapshot=await navigator.locks.query();await microtaskLock;
+   return {basic:trace.join('|'),snapshot,partial,fair:fair.join('|'),unavailable,abort,stolen:stolen.join('|'),afterSteal,errors:errors.join('|'),immediate:immediate.join('|'),queryRace:[beforeSnapshot.held.length,afterSnapshot.held.length],earlyAbort:earlyAbort.join('|'),releaseRace:releaseSnapshot.held.length};
+  })()`);
+  fs.writeFileSync(path.join(out,'native-results.json'),JSON.stringify(result,null,2)+'\n');
+  assert.equal(result.basic,'sync|callback:basic:exclusive:true|done7');assert.equal(result.snapshot,'2:2:exclusive:shared');assert.equal(result.partial,'reader1|reader2');assert.equal(result.fair,'reader1|reader2|writer|late-reader');assert.equal(result.unavailable,'miss');assert.equal(result.abort,'custom-reason');assert.equal(result.stolen,'AbortError');assert.equal(result.afterSteal,1);assert.equal(result.errors,'NotSupportedError|NotSupportedError|NotSupportedError|NotSupportedError|TypeError|TypeError|TypeError|TypeError');
+  assert.ok(['first|second|AbortError','first|AbortError|second'].includes(result.immediate),'Already posted callback runs; replacement callback versus old rejection ordering varies across broker/realm queues');assert.deepEqual(result.queryRace,[0,1]);assert.equal(result.earlyAbort,'before-callback');assert.ok([0,1].includes(result.releaseRace),'Query may race queued broker release; settled request always completes before cleanup');console.log('Native Chrome Web Locks: async results, fairness, snapshots, ifAvailable/abort/steal passed; immediate-steal and release-race raw scheduling variants retained.');
+ }finally{if(browser)await browser.close();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
+}
+(async()=>{const args=new Set(process.argv.slice(2));if(!args.has('--luau-only'))await native();if(!args.has('--native-only')){const result=cp.spawnSync(process.env.LUAU_BIN||path.join(root,'build/tools/luau/luau.exe'),['-O2',bundle()],{encoding:'utf8',windowsHide:true,timeout:120000,maxBuffer:8*1024*1024});fs.writeFileSync(path.join(out,'luau.log'),(result.stdout||'')+(result.stderr||''));process.stdout.write(result.stdout||'');process.stderr.write(result.stderr||'');if(result.error)throw result.error;process.exitCode=result.status??1;}})().catch(error=>{console.error(error);process.exitCode=1});

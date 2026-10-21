@@ -1,0 +1,515 @@
+[
+  {
+    "name": "shadow readonly intrinsic getters through defineProperty",
+    "source": "const a=new Uint8Array([2,3,4]);const p=Object.getPrototypeOf(Object.getPrototypeOf(a));for(const key of ['length','buffer','byteOffset','byteLength']){const getter=Object.getOwnPropertyDescriptor(p,key).get;const original=getter.call(a);Object.defineProperty(a,key,{value:'own-'+key,configurable:true});record(a[key]);record(Object.hasOwn(a,key));record(getter.call(a)===original);delete a[key];record(a[key]===original)}Object.defineProperty(a,'length',{value:1});record(a.length);record(a.join());record(Array.prototype.join.call(a));",
+    "expected": [
+      "own-length",
+      "true",
+      "true",
+      "true",
+      "own-buffer",
+      "true",
+      "true",
+      "true",
+      "own-byteOffset",
+      "true",
+      "true",
+      "true",
+      "own-byteLength",
+      "true",
+      "true",
+      "true",
+      "1",
+      "2,3,4",
+      "2"
+    ]
+  },
+  {
+    "name": "assignment respects prototype then writable own shadow",
+    "source": "const a=new Uint8Array(2);record(Reflect.set(a,'length',1));try{(()=>{'use strict';a.length=1})()}catch(e){record(e.name)}Object.defineProperty(a,'length',{value:1,writable:true,configurable:true});record(Reflect.set(a,'length',9));record(a.length);delete a.length;record(a.length);record(Reflect.set(a,'byteLength',6));",
+    "expected": [
+      "false",
+      "TypeError",
+      "true",
+      "9",
+      "2",
+      "false"
+    ]
+  },
+  {
+    "name": "own accessors receiver and argument counts",
+    "source": "const a=new Uint8Array(1),other={label:'other'};const log=[];Object.defineProperty(a,'x',{get(){log.push('get:'+this.label);return this===a?1:2},set(v){log.push('set:'+this.label+':'+arguments.length+':'+v)},enumerable:true,configurable:true});a.label='view';record(a.x);a.x=7;record(Reflect.get(a,'x',other));record(Reflect.set(a,'x',8,other));record(log.join(','));record(Object.keys(a).join(','));",
+    "expected": [
+      "1",
+      "2",
+      "true",
+      "get:view,set:view:1:7,get:other,set:other:1:8",
+      "0,x,label"
+    ]
+  },
+  {
+    "name": "descriptor defaults strict writes and nonconfigurable restrictions",
+    "source": "const a=new Uint8Array(1);Object.defineProperty(a,'x',{value:3});record(JSON.stringify(Object.getOwnPropertyDescriptor(a,'x')));record(Reflect.set(a,'x',4));record(Reflect.deleteProperty(a,'x'));record(Reflect.defineProperty(a,'x',{value:3}));record(Reflect.defineProperty(a,'x',{value:4}));record(Reflect.defineProperty(a,'x',{writable:true}));record(Reflect.defineProperty(a,'x',{enumerable:true}));record(Reflect.defineProperty(a,'x',{configurable:true}));try{(()=>{'use strict';a.x=4})()}catch(e){record(e.name)}record(a.x);",
+    "expected": [
+      "{\"value\":3,\"writable\":false,\"enumerable\":false,\"configurable\":false}",
+      "false",
+      "false",
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+      "TypeError",
+      "3"
+    ]
+  },
+  {
+    "name": "configurable descriptor changes preserve attributes",
+    "source": "const a=new Uint8Array(0);Object.defineProperty(a,'x',{value:4,writable:true,enumerable:true,configurable:true});Object.defineProperty(a,'x',{writable:false});record(JSON.stringify(Object.getOwnPropertyDescriptor(a,'x')));Object.defineProperty(a,'x',{get(){return 9}});const d=Object.getOwnPropertyDescriptor(a,'x');record(d.get.call(a)+':'+d.set+':'+d.enumerable+':'+d.configurable);record(Reflect.set(a,'x',3));Object.defineProperty(a,'x',{value:11,writable:true});record(JSON.stringify(Object.getOwnPropertyDescriptor(a,'x')));a.x=12;record(a.x);",
+    "expected": [
+      "{\"value\":4,\"writable\":false,\"enumerable\":true,\"configurable\":true}",
+      "9:undefined:true:true",
+      "false",
+      "{\"value\":11,\"writable\":true,\"enumerable\":true,\"configurable\":true}",
+      "12"
+    ]
+  },
+  {
+    "name": "SameValue descriptor NaN and signed zero",
+    "source": "const a=new Uint8Array(0);Object.defineProperty(a,'nan',{value:NaN});Object.defineProperty(a,'zero',{value:0});record(Reflect.defineProperty(a,'nan',{value:NaN}));record(Reflect.defineProperty(a,'zero',{value:-0}));record(Reflect.defineProperty(a,'zero',{value:0}));",
+    "expected": [
+      "true",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "symbol descriptors own key ordering delete reinsert",
+    "source": "const a=new Uint8Array([7,8]),s=Symbol('first'),t=Symbol('second');a.z=1;a[s]=2;Object.defineProperty(a,'hidden',{value:3,configurable:true});a.y=4;a[t]=5;delete a.z;a.z=6;delete a[s];a[s]=7;record(Reflect.ownKeys(a).map(k=>typeof k==='symbol'?k.description:k).join(','));record(Object.keys(a).join(','));record(Object.getOwnPropertySymbols(a)[0]===t);record(Object.getOwnPropertyDescriptor(a,s).value);",
+    "expected": [
+      "0,1,hidden,y,z,second,first",
+      "0,1,y,z",
+      "true",
+      "7"
+    ]
+  },
+  {
+    "name": "noncanonical numeric strings are ordinary expandos",
+    "source": "const a=new Uint8Array(0);for(const k of ['01','00','+0','1e0','NaN ','Infinity ','','.5','1000000000000000000000']){Object.defineProperty(a,k,{value:k,writable:true,enumerable:true,configurable:true});record(a[k]);record(Object.hasOwn(a,k))}record(Object.keys(a).join('|'));",
+    "expected": [
+      "01",
+      "true",
+      "00",
+      "true",
+      "+0",
+      "true",
+      "1e0",
+      "true",
+      "NaN ",
+      "true",
+      "Infinity ",
+      "true",
+      "",
+      "true",
+      ".5",
+      "true",
+      "1000000000000000000000",
+      "true",
+      "01|00|+0|1e0|NaN |Infinity ||.5|1000000000000000000000"
+    ]
+  },
+  {
+    "name": "canonical invalid indices stay absent ignore prototype",
+    "source": "const a=new Uint8Array(1),p=Object.create(Object.getPrototypeOf(a));for(const k of ['-0','-1','1','1.5','NaN','Infinity','-Infinity','1e+21']){p[k]='prototype';Object.setPrototypeOf(a,p);record(k+':'+a[k]+':'+(k in a)+':'+Reflect.defineProperty(a,k,{value:3})+':'+Reflect.deleteProperty(a,k));record(Reflect.set(a,k,9));record(Object.hasOwn(a,k))}record(a[0]);",
+    "expected": [
+      "-0:undefined:false:false:true",
+      "true",
+      "false",
+      "-1:undefined:false:false:true",
+      "true",
+      "false",
+      "1:undefined:false:false:true",
+      "true",
+      "false",
+      "1.5:undefined:false:false:true",
+      "true",
+      "false",
+      "NaN:undefined:false:false:true",
+      "true",
+      "false",
+      "Infinity:undefined:false:false:true",
+      "true",
+      "false",
+      "-Infinity:undefined:false:false:true",
+      "true",
+      "false",
+      "1e+21:undefined:false:false:true",
+      "true",
+      "false",
+      "0"
+    ]
+  },
+  {
+    "name": "valid index descriptors remain fixed writable enumerable configurable",
+    "source": "const a=new Uint8Array([7]);record(JSON.stringify(Object.getOwnPropertyDescriptor(a,'0')));for(const d of [{},{value:259},{writable:true},{enumerable:true},{configurable:true},{writable:false},{enumerable:false},{configurable:false},{get:undefined},{set(v){}}])record(Reflect.defineProperty(a,'0',d));record(a[0]);record(Reflect.deleteProperty(a,'0'));try{Object.defineProperty(a,'0',{writable:false})}catch(e){record(e.name)}",
+    "expected": [
+      "{\"value\":7,\"writable\":true,\"enumerable\":true,\"configurable\":true}",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "3",
+      "false",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "numeric coercion ordering invalid and detached indexes",
+    "source": "const a=new Uint8Array([7]);const log=[];const value={valueOf(){log.push('convert');return 9}};record(Reflect.set(a,'4',value));record(log.join(','));log.length=0;record(Reflect.defineProperty(a,'4',{value}));record(log.join(','));log.length=0;record(Reflect.defineProperty(a,'0',{value:{valueOf(){log.push('detach');a.buffer.transfer();return 3}}}));record(log.join(','));record(a[0]);record(a.length);",
+    "expected": [
+      "true",
+      "convert",
+      "false",
+      "",
+      "true",
+      "detach",
+      "undefined",
+      "0"
+    ]
+  },
+  {
+    "name": "numeric set with foreign receiver does not coerce",
+    "source": "const a=new Uint8Array([2]),r={};const value={valueOf(){throw 'must-not-coerce'}};record(Reflect.set(a,'0',value,r));record(r[0]===value);record(a[0]);try{record(Reflect.set(a,'1',value,r))}catch(e){record(e)}record(Object.hasOwn(r,'1'));record(Reflect.set(a,'0',value,3));Object.defineProperty(r,'0',{value:1,writable:false});record(Reflect.set(a,'0',value,r));record(a[0]);",
+    "expected": [
+      "true",
+      "true",
+      "2",
+      "must-not-coerce",
+      "false",
+      "false",
+      "false",
+      "2"
+    ],
+    "standardExpected": [
+      "true",
+      "true",
+      "2",
+      "true",
+      "false",
+      "false",
+      "false",
+      "2"
+    ],
+    "browserExpected": [
+      "true",
+      "true",
+      "2",
+      "true",
+      "false",
+      "false",
+      "false",
+      "2"
+    ],
+    "difference": "Chromium follows ECMA-262 TypedArray [[Set]] and returns true without coercion for an invalid index and foreign receiver; Node 24 still coerces and throws."
+  },
+  {
+    "name": "typed view as prototype preserves receiver writes",
+    "source": "const a=new Uint8Array([4]),o=Object.create(a);o[0]='raw';record(o[0]);record(a[0]);record(Object.hasOwn(o,'0'));o[1]='ignored';record(Object.hasOwn(o,'1'));o.x=3;record(o.x);record(a.x);Object.defineProperty(a,'readonly',{value:2});record(Reflect.set(o,'readonly',7));record(o.readonly);",
+    "expected": [
+      "raw",
+      "4",
+      "true",
+      "false",
+      "3",
+      "undefined",
+      "false",
+      "2"
+    ]
+  },
+  {
+    "name": "prototype getter setter and readonly data use real receiver",
+    "source": "const a=new Uint8Array(0),p=Object.create(Object.getPrototypeOf(a)),log=[];Object.defineProperty(p,'x',{get(){log.push(this===a);return 2},set(v){log.push((this===a)+':'+v)},enumerable:true});Object.defineProperty(p,'r',{value:1});Object.setPrototypeOf(a,p);record(a.x);record(Reflect.set(a,'x',5));record(Reflect.set(a,'r',6));record(Object.hasOwn(a,'x'));record(log.join(','));Object.defineProperty(a,'r',{value:8,writable:true});record(a.r);",
+    "expected": [
+      "2",
+      "true",
+      "false",
+      "false",
+      "true,true:5",
+      "8"
+    ]
+  },
+  {
+    "name": "set foreign receivers respects their descriptor protocols",
+    "source": "const a=new Uint8Array(0),r={},log=[];Object.defineProperty(a,'x',{value:1,writable:true});Object.defineProperty(r,'x',{set(v){log.push(v)},configurable:true});record(Reflect.set(a,'x',2,r));record(log.length);Object.preventExtensions(r);record(Reflect.set(a,'new',2,r));const p=new Proxy({}, {defineProperty(t,k,d){log.push(k+':'+d.value+':'+d.writable);return Reflect.defineProperty(t,k,d)}});record(Reflect.set(a,'new',3,p));record(log.join(','));record(p.new);",
+    "expected": [
+      "false",
+      "0",
+      "false",
+      "true",
+      "new:3:true",
+      "3"
+    ]
+  },
+  {
+    "name": "preventExtensions retains integer writes and existing expandos",
+    "source": "const a=new Uint8Array([1]),s=Symbol('s');a.x=2;a[s]=3;Object.preventExtensions(a);record(Object.isExtensible(a));record(Reflect.set(a,'x',4));record(Reflect.set(a,s,5));record(Reflect.set(a,'y',6));record(Reflect.defineProperty(a,'y',{value:7}));record(Reflect.set(a,'0',259));record(a[0]);record(Reflect.defineProperty(a,'0',{value:8}));record(a[0]);record(Reflect.deleteProperty(a,'x'));record(Reflect.set(a,'x',9));record(Reflect.setPrototypeOf(a,Object.getPrototypeOf(a)));record(Reflect.setPrototypeOf(a,{}));",
+    "expected": [
+      "false",
+      "true",
+      "true",
+      "false",
+      "false",
+      "true",
+      "3",
+      "true",
+      "8",
+      "true",
+      "false",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "freeze seal and detached integrity restrictions",
+    "source": "const a=new Uint8Array([1]);try{Object.freeze(a)}catch(e){record(e.name)}record(Object.isExtensible(a));record(Object.isFrozen(a));record(Object.isSealed(a));const b=new Uint8Array(0);b.x=2;record(Object.freeze(b)===b);record(Object.isFrozen(b));record(Reflect.set(b,'x',3));const c=new Uint8Array([1]);c.buffer.transfer();Object.freeze(c);record(Object.isFrozen(c));record(Reflect.ownKeys(c).length);",
+    "expected": [
+      "TypeError",
+      "false",
+      "false",
+      "true",
+      "true",
+      "true",
+      "false",
+      "false",
+      "0"
+    ],
+    "standardExpected": [
+      "TypeError",
+      "false",
+      "false",
+      "false",
+      "true",
+      "true",
+      "false",
+      "true",
+      "0"
+    ],
+    "browserExpected": [
+      "TypeError",
+      "false",
+      "false",
+      "true",
+      "true",
+      "true",
+      "false",
+      "true",
+      "0"
+    ],
+    "difference": "Chromium/Node isSealed report true for a nonextensible TypedArray whose element descriptor remains configurable:true; ECMA-262 TestIntegrityLevel tests that descriptor and returns false; it also returns true for a frozen detached view with no own keys, Chromium agrees for the detached frozen view, while Node 24 reports false."
+  },
+  {
+    "name": "own descriptor parsing order abrupt and no partial property",
+    "source": "const a=new Uint8Array(0),log=[];const d={get enumerable(){log.push('e');return true},get configurable(){log.push('c');return true},get value(){log.push('v');return 4},get writable(){log.push('w');return true},get get(){log.push('g');return undefined},get set(){log.push('s');return undefined}};try{Object.defineProperty(a,'x',d)}catch(e){log.push(e.name)}record(log.join(','));record(Object.hasOwn(a,'x'));const z={get value(){throw 'value-error'}};try{Reflect.defineProperty(a,'z',z)}catch(e){record(e)}record(Object.hasOwn(a,'z'));",
+    "expected": [
+      "e,c,v,w,g,s,TypeError",
+      "false",
+      "value-error",
+      "false"
+    ]
+  },
+  {
+    "name": "delete reinsert descriptor order and setter errors",
+    "source": "const a=new Uint8Array(0);a.first=1;a.second=2;delete a.first;Object.defineProperty(a,'first',{value:3,enumerable:true,configurable:true});record(Object.keys(a).join(','));Object.defineProperty(a,'x',{get(){throw 'get-error'},set(){throw 'set-error'}});try{record(a.x)}catch(e){record(e)}try{Reflect.set(a,'x',3)}catch(e){record(e)}record(Reflect.deleteProperty(a,'x'));",
+    "expected": [
+      "second,first",
+      "get-error",
+      "set-error",
+      "false"
+    ]
+  },
+  {
+    "name": "prototype mutation cycle null and no blacklist",
+    "source": "const a=new Uint8Array(1);record(Reflect.setPrototypeOf(a,a));const p=Object.create(a);record(Reflect.setPrototypeOf(a,p));record(Reflect.setPrototypeOf(a,null));record(a.length);record(Reflect.set(a,'length',7));record(a.length);record(Object.keys(a).join(','));record(a[0]);const b=new Uint8Array(0);Object.setPrototypeOf(a,b);record(Reflect.setPrototypeOf(b,a));",
+    "expected": [
+      "false",
+      "false",
+      "true",
+      "undefined",
+      "true",
+      "7",
+      "0,length",
+      "0",
+      "false"
+    ]
+  },
+  {
+    "name": "proxy forwarding accessors descriptor invariants and index deletion",
+    "source": "const a=new Uint8Array([2]);Object.defineProperty(a,'x',{get(){return this===p},configurable:true});const p=new Proxy(a,{});record(p.x);record(Reflect.set(p,'new',3));record(a.new);Object.defineProperty(p,'length',{value:9});record(a.length);record(Reflect.deleteProperty(p,'0'));Object.preventExtensions(a);try{Reflect.ownKeys(new Proxy(a,{ownKeys(){return []}}))}catch(e){record(e.name)}record(Reflect.defineProperty(p,'later',{value:1}));",
+    "expected": [
+      "true",
+      "true",
+      "3",
+      "9",
+      "false",
+      "TypeError",
+      "false"
+    ]
+  },
+  {
+    "name": "detached views retain ordinary descriptors and prototype behavior",
+    "source": "const a=new Uint8Array([7]),s=Symbol('s');a.x=3;Object.defineProperty(a,s,{get(){return this.x},enumerable:true});const b=a.buffer;b.transfer();record(a.length);record(a[0]);record(a.x);record(a[s]);a.y=4;record(Object.keys(a).join(','));record(Reflect.ownKeys(a).map(k=>typeof k==='symbol'?k.description:k).join(','));record(Reflect.set(a,'0',5));record(Reflect.defineProperty(a,'0',{value:5}));record(Reflect.deleteProperty(a,'0'));record(Reflect.set(a,'x',8));record(a[s]);",
+    "expected": [
+      "0",
+      "undefined",
+      "3",
+      "3",
+      "x,y",
+      "x,y,s",
+      "true",
+      "false",
+      "true",
+      "true",
+      "8"
+    ]
+  },
+  {
+    "name": "defineProperties and Object assign enumerate ordinary expandos",
+    "source": "const a=new Uint8Array([5]),s=Symbol('s');Object.defineProperties(a,{x:{value:2,enumerable:true},hidden:{value:3}});a[s]=4;const b=Object.assign({},a);record(JSON.stringify(b));record(b[s]);record(Object.getOwnPropertyNames(a).join(','));record(Object.getOwnPropertyDescriptor(a,'hidden').enumerable);record(JSON.stringify(Object.entries(a)));",
+    "expected": [
+      "{\"0\":5,\"x\":2}",
+      "4",
+      "0,x,hidden",
+      "false",
+      "[[\"0\",5],[\"x\",2]]"
+    ]
+  },
+  {
+    "name": "integer conversion errors never alter existing elements",
+    "source": "const a=new Uint8Array([3]);for(const k of ['0','-1']){try{Reflect.set(a,k,Symbol('x'))}catch(e){record(e.name)}try{Reflect.set(a,k,{valueOf(){throw 'convert-error'}})}catch(e){record(e)}record(a[0])}record(Reflect.defineProperty(a,'0',{value:undefined}));record(a[0]);",
+    "expected": [
+      "TypeError",
+      "convert-error",
+      "3",
+      "TypeError",
+      "convert-error",
+      "3",
+      "true",
+      "0"
+    ]
+  },
+  {
+    "name": "negative zero noncanonical spelling remains ordinary",
+    "source": "const a=new Uint8Array(0);record(Reflect.defineProperty(a,'-0.0',{value:7,writable:true,enumerable:true,configurable:true}));record(a['-0.0']);record(Object.hasOwn(a,'-0.0'));",
+    "expected": [
+      "false",
+      "undefined",
+      "false"
+    ],
+    "standardExpected": [
+      "true",
+      "7",
+      "true"
+    ],
+    "browserExpected": [
+      "false",
+      "undefined",
+      "false"
+    ],
+    "difference": "V8 classifies -0.0 as an invalid index; CanonicalNumericIndexString only specially handles -0 and otherwise requires ToString(ToNumber(key)) === key."
+  },
+  {
+    "name": "all numeric kinds descriptor writes preserve number conversion",
+    "source": "for(const C of [Int8Array,Uint8Array,Uint8ClampedArray,Int16Array,Uint16Array,Int32Array,Uint32Array,Float32Array,Float64Array]){const a=new C(2);Object.defineProperty(a,'0',{value:259.5});a.extra=1;Object.defineProperty(a,'extra',{enumerable:false});record(C.name+':'+a[0]+':'+Object.keys(a).join(','));record(Reflect.defineProperty(a,'1',{value:-2,writable:true,enumerable:true,configurable:true}));record(a[1]);record(Reflect.deleteProperty(a,'1'))}",
+    "expected": [
+      "Int8Array:3:0,1",
+      "true",
+      "-2",
+      "false",
+      "Uint8Array:3:0,1",
+      "true",
+      "254",
+      "false",
+      "Uint8ClampedArray:255:0,1",
+      "true",
+      "0",
+      "false",
+      "Int16Array:259:0,1",
+      "true",
+      "-2",
+      "false",
+      "Uint16Array:259:0,1",
+      "true",
+      "65534",
+      "false",
+      "Int32Array:259:0,1",
+      "true",
+      "-2",
+      "false",
+      "Uint32Array:259:0,1",
+      "true",
+      "4294967294",
+      "false",
+      "Float32Array:259.5:0,1",
+      "true",
+      "-2",
+      "false",
+      "Float64Array:259.5:0,1",
+      "true",
+      "-2",
+      "false"
+    ]
+  },
+  {
+    "name": "ArrayBuffer and DataView ordinary properties and byte access unchanged",
+    "source": "const b=new ArrayBuffer(4),d=new DataView(b);d.setUint16(0,258);record(d.getUint16(0));record(new Uint8Array(b).join(','));Object.defineProperty(b,'byteLength',{value:'shadow',configurable:true});record(b.byteLength);Object.defineProperty(d,'byteLength',{get(){return 9},configurable:true});record(d.byteLength);d.x=2;Object.defineProperty(d,'x',{writable:false});record(Reflect.set(d,'x',3));record(d.x);record(Object.keys(d).join(','));",
+    "expected": [
+      "258",
+      "1,2,0,0",
+      "shadow",
+      "9",
+      "false",
+      "2",
+      "x"
+    ]
+  },
+  {
+    "name": "ordinary prototype cycle through typed exotic rejected both ways",
+    "source": "for(const direction of [0,1]){const t=new Uint8Array(1),o={};if(direction===0){Object.setPrototypeOf(t,o);record(Reflect.setPrototypeOf(o,t));try{Object.setPrototypeOf(o,t)}catch(e){record(e.name)}}else{Object.setPrototypeOf(o,t);record(Reflect.setPrototypeOf(t,o));try{Object.setPrototypeOf(t,o)}catch(e){record(e.name)}}record(Object.getPrototypeOf(direction===0?o:t)!==(direction===0?t:o))}",
+    "expected": [
+      "false",
+      "TypeError",
+      "true",
+      "false",
+      "TypeError",
+      "true"
+    ]
+  },
+  {
+    "name": "prototype cycle walk stops at proxy without getPrototypeOf trap",
+    "source": "const t=new Uint8Array(0),o={},log=[];Object.setPrototypeOf(t,o);const p=new Proxy(t,{getPrototypeOf(){log.push('trap');throw 'unused'}});record(Reflect.setPrototypeOf(o,p));record(log.length);record(Object.getPrototypeOf(o)===p);Object.setPrototypeOf(o,null);const v=new Uint8Array(0),q=new Proxy({}, {getPrototypeOf(){throw 'unused'}});record(Reflect.setPrototypeOf(v,q));record(Object.getPrototypeOf(v)===q);",
+    "expected": [
+      "true",
+      "0",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "binary private descriptors ignore Object prototype getters",
+    "source": "const a=new Uint8Array([1,2]);let gets=0;const getter=function(){gets++;throw 'poisoned-get'};Object.defineProperty(Object.prototype,'get',{get:getter,configurable:true});try{const i=a.values();record(i.next().value);record(i.next().value);record(i.next().done);const b=new Uint8Array(1);b.x=3;record(b.x);record(gets)}finally{delete Object.prototype.get}",
+    "expected": [
+      "1",
+      "2",
+      "true",
+      "3",
+      "0"
+    ]
+  }
+]

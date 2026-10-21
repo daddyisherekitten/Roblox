@@ -1,0 +1,280 @@
+[
+  {
+    "name": "constructed identities and live lists",
+    "values": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "text/css",
+      "true",
+      "true",
+      "true",
+      "true",
+      "0",
+      "1",
+      ".x",
+      "red",
+      "true",
+      "true",
+      "0",
+      "true",
+      "true"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "ordered declarations and shorthands",
+    "values": [
+      "true",
+      "6",
+      "margin-top",
+      "1px 2px",
+      "1px",
+      "blue",
+      "important",
+      "green",
+      "",
+      "green",
+      "green",
+      "",
+      "green",
+      "",
+      ""
+    ],
+    "pass": true,
+    "matchesProfile": false,
+    "difference": "Current CSSOM setProperty step 3 removes an empty value before validating priority; removeProperty step 8 returns the old shorthand. Chromium instead preserves the color and returns an empty shorthand string in this case."
+  },
+  {
+    "name": "grouping and retained removed rules",
+    "values": [
+      "true",
+      "true",
+      "screen",
+      "true",
+      "true",
+      "(display: grid)",
+      "true",
+      "true",
+      "3",
+      ".z",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "selectors, cssText no-op and receiver errors",
+    "values": [
+      ".y, .z",
+      ".y, .z",
+      ".y, .z",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "SyntaxError",
+      "SyntaxError",
+      "IndexSizeError",
+      "IndexSizeError"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "media and constructor dictionary",
+    "values": [
+      "disabled,media",
+      "true",
+      "screen, print",
+      "2",
+      "screen, print, all",
+      "screen, all",
+      "NotFoundError",
+      "screen"
+    ],
+    "pass": true,
+    "matchesProfile": false,
+    "difference": "Current CSSOM CSSStyleSheetInit includes baseURL; installed Chromium does not read that dictionary member."
+  },
+  {
+    "name": "adopted observable array",
+    "values": [
+      "true",
+      "true",
+      "1",
+      "true",
+      "2",
+      "true",
+      "1",
+      "true",
+      "false",
+      "false",
+      "false",
+      "true",
+      "0"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "owner sheet mutation separation and reassociation",
+    "values": [
+      "1",
+      "true",
+      "true",
+      ".x{color:red}",
+      "2",
+      "true",
+      "true",
+      "1",
+      "0",
+      "true",
+      "true",
+      "1"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "declaration public interface across kinds",
+    "values": [
+      "true",
+      "true",
+      "true",
+      "",
+      "red",
+      "blue",
+      "NoModificationAllowedError",
+      "true",
+      "green"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "iterables, indices and expandos",
+    "values": [
+      ".a,.b",
+      "screen,print",
+      "screen",
+      "false",
+      "42",
+      "0,1,note",
+      "color",
+      "true",
+      ".b",
+      ".c",
+      "true",
+      "false",
+      "false",
+      "false",
+      "true",
+      "true",
+      "false",
+      "true"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "common serialization and logical declaration ordering",
+    "values": [
+      "margin: 1px 2px; color: rgb(237, 216, 185); width: 0px;",
+      ".a { margin: 1px 2px; color: rgb(237, 216, 185); width: 0px; }",
+      "margin: 1px 2px; margin-inline-start: 5px;",
+      "margin-top",
+      "margin-inline-start",
+      "margin-left"
+    ],
+    "pass": true,
+    "matchesProfile": false,
+    "difference": "Installed Chromium recombines physical margin longhands across an intervening logical longhand. Current CSSOM serialization forbids an intermixed logical mapping because recombination can change the cascade."
+  },
+  {
+    "name": "adopted array conversion and partial mutation",
+    "values": [
+      "TypeError",
+      "true",
+      "NotAllowedError",
+      "1",
+      "true",
+      "TypeError",
+      "true",
+      "false",
+      "TypeError",
+      "false",
+      "2",
+      "0"
+    ],
+    "pass": true,
+    "matchesProfile": false,
+    "difference": "Installed Chromium attempts interface conversion when defining an adopted array index without a descriptor value. Current WebIDL ObservableArray [[DefineOwnProperty]] returns true without conversion when [[Value]] is absent."
+  },
+  {
+    "name": "detached subtree, same media and readonly declarations",
+    "values": [
+      "print",
+      "screen",
+      "true",
+      "true",
+      "TypeError",
+      "TypeError",
+      "false",
+      "0",
+      "TypeError"
+    ],
+    "pass": true,
+    "matchesProfile": false,
+    "difference": "Installed Chromium exposes empty CSSStyleRule.cssRules but keeps the older CSSRule prototype parent. Current CSSOM defines CSSStyleRule as a CSSGroupingRule subclass."
+  },
+  {
+    "name": "inline forwarding, properties and mutation records",
+    "values": [
+      "convert",
+      "true",
+      "",
+      "2",
+      "1",
+      "2",
+      "value conversion",
+      "priority conversion",
+      "NoModificationAllowedError"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "PutForwards observes own properties without precoercion",
+    "values": [
+      "true",
+      "true",
+      "2"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  },
+  {
+    "name": "asynchronous replace and rejected WebIDL conversions",
+    "values": [
+      "true",
+      "1",
+      ".a",
+      "true",
+      "TypeError",
+      "true",
+      "TypeError",
+      "true",
+      "TypeError",
+      "true",
+      "NotAllowedError"
+    ],
+    "pass": true,
+    "matchesProfile": true
+  }
+]

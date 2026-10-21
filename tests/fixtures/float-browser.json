@@ -1,0 +1,81 @@
+{
+  "fontSize": 14,
+  "lineHeight": 21.7,
+  "lines": [
+    {
+      "right": 479.390625,
+      "text": "Dieser Text fließt um eine kreisförmige Fläche. Oben und ",
+      "x": 126.390625,
+      "y": 2
+    },
+    {
+      "right": 471.59375,
+      "text": "unten bleibt mehr Platz als in der Mitte. Der zusätzliche ",
+      "x": 130,
+      "y": 23.6875
+    },
+    {
+      "right": 474.765625,
+      "text": "Shape-Abstand schützt die Buchstaben davor, direkt an ",
+      "x": 130,
+      "y": 45.375
+    },
+    {
+      "right": 463.8125,
+      "text": "der Kontur zu kleben. Nach dem Kreis wird wieder die ",
+      "x": 130,
+      "y": 67.0625
+    },
+    {
+      "right": 298.890625,
+      "text": "ganze Zeilenbreite genutzt.",
+      "x": 130,
+      "y": 88.75
+    }
+  ],
+  "source": "html-css-stress-type/index.html .lab-shape-story",
+  "text": "Dieser Text fließt um eine kreisförmige Fläche. Oben und unten bleibt mehr Platz als in der Mitte. Der zusätzliche Shape-Abstand schützt die Buchstaben davor, direkt an der Kontur zu kleben. Nach dem Kreis wird wieder die ganze Zeilenbreite genutzt.",
+  "width": 481,
+  "words": {
+    " ": 3.640625,
+    "Buchstaben": 73.953125,
+    "Der": 22.578125,
+    "Dieser": 40.46875,
+    "Fläche.": 45.921875,
+    "Kontur": 41.265625,
+    "Kreis": 31.921875,
+    "Mitte.": 34.25,
+    "Nach": 32.6875,
+    "Oben": 34.265625,
+    "Platz": 31.140625,
+    "Shape-Abstand": 96.53125,
+    "Text": 25.703125,
+    "Zeilenbreite": 73.15625,
+    "als": 17.90625,
+    "an": 15.578125,
+    "bleibt": 33.484375,
+    "davor,": 38.15625,
+    "dem": 27.25,
+    "der": 20.234375,
+    "die": 18.6875,
+    "direkt": 34.25,
+    "eine": 26.484375,
+    "fließt": 30.34375,
+    "ganze": 38.15625,
+    "genutzt.": 49.828125,
+    "in": 10.90625,
+    "kleben.": 45.15625,
+    "kreisförmige": 76.25,
+    "mehr": 31.90625,
+    "schützt": 44.359375,
+    "um": 19.46875,
+    "und": 23.375,
+    "unten": 35.046875,
+    "wieder": 41.265625,
+    "wird": 25.671875,
+    "zu": 14.8125,
+    "zusätzliche": 69.265625,
+    "Abstand": 51.390625,
+    "Shape-": 45.15625
+  }
+}

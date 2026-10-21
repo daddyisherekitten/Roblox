@@ -1,0 +1,1956 @@
+{
+  "date": "2026-10-19",
+  "authority": "shipped-artifact",
+  "confidence": "derived",
+  "selection": "User narrowed the port to 15 real pages. These 15 sites are all confirmed members of the 59-site Wiki-I candidate pool. This is a fixed allowed selection, not a newly observed in-game random run.",
+  "selectionReview": {
+    "replacedSite": "DeepJournal",
+    "replacementSite": "TheBlackWaves",
+    "reason": "DeepJournal contains explicit sexual stalking fantasy; replaced the entire site with a nonsexual original poem site."
+  },
+  "sourceMembership": "wiki1-membership.json",
+  "realCount": 15,
+  "deadLinkCount": 10,
+  "htmlCount": 34,
+  "sites": [
+    {
+      "object": {
+        "pathID": "1641",
+        "start": 2093592,
+        "length": 208,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "20055e83aba5c3fd31b642d60280dd2e18015f0e081c0394a1af847242eb3f73",
+      "m_Name": "FortuneCookie",
+      "id": 15,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": false,
+      "WindowTime": 3,
+      "PageTitle": "Fortune Cookie",
+      "PageDesc": "Test Your Luck.",
+      "PageURL": "caf94ba5b0dc05352adb2b88fc7d954f",
+      "DocumentRoot": "fortuneCookie",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1642"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1642",
+            "start": 2093800,
+            "length": 664,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 29,
+          "PageName": "Fortune Cookie",
+          "FileName": "index.html",
+          "htmlBytes": 533,
+          "htmlSHA256": "fea12ed93474a79d467721375b296462e7a868819755e2937572f4f4f5c1ac22",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "fortuneCookie/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1733",
+        "start": 2349280,
+        "length": 340,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "5af700fcb8ecc3f55165aff7e625e724ec8d94fe0db480cc035fb3af29810b51",
+      "m_Name": "ThanksForVisiting",
+      "id": 39,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": false,
+      "WindowTime": 0,
+      "PageTitle": "Thanks For Visiting",
+      "PageDesc": "Just random jiberish.",
+      "PageURL": "",
+      "DocumentRoot": "ThanksForVisiting",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1742"
+      },
+      "SubPages": [
+        {
+          "fileID": 0,
+          "pathID": "1734"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1735"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1736"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1737"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1738"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1739"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1740"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1741"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1743"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1744"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1745"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1746"
+        }
+      ],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1742",
+            "start": 2376608,
+            "length": 808,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 98,
+          "PageName": "Thanks For Visiting",
+          "FileName": "index.html",
+          "htmlBytes": 675,
+          "htmlSHA256": "d7e8df06d0a32cd2d3d0495ece311be2551bb3bec664829931f52226642bc265",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/index.html"
+        },
+        {
+          "object": {
+            "pathID": "1734",
+            "start": 2349624,
+            "length": 2180,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "babyshrimp",
+          "id": 90,
+          "PageName": "Thanks For Visiting",
+          "FileName": "babyshrimp.html",
+          "htmlBytes": 2039,
+          "htmlSHA256": "3c76f895a728269f4d9311d1f3a76f7a82fad918fc539976c71fc37333ce1298",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/babyshrimp.html"
+        },
+        {
+          "object": {
+            "pathID": "1735",
+            "start": 2351808,
+            "length": 16216,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "bar",
+          "id": 91,
+          "PageName": "Thanks For Visiting",
+          "FileName": "bar.html",
+          "htmlBytes": 16089,
+          "htmlSHA256": "bfa4a9c8e12dfe628270b56f0b0e5283d95f0ad17f486e76d5722026c46d9eb2",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/bar.html"
+        },
+        {
+          "object": {
+            "pathID": "1736",
+            "start": 2368024,
+            "length": 2012,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "black",
+          "id": 92,
+          "PageName": "Thanks For Visiting",
+          "FileName": "black.html",
+          "htmlBytes": 1880,
+          "htmlSHA256": "8b13915653e9ad473a83f58301e1cb56f8133e3f68391ee2e41ecba3b6c03a43",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/black.html"
+        },
+        {
+          "object": {
+            "pathID": "1737",
+            "start": 2370040,
+            "length": 800,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "creepy",
+          "id": 93,
+          "PageName": "Thanks For Visiting",
+          "FileName": "creepy.html",
+          "htmlBytes": 668,
+          "htmlSHA256": "af282d23633f8e2154a6f41c9dc1653c48aec95be1838e3ca121ba4712aea201",
+          "HasMusic": true,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "1862"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/creepy.html"
+        },
+        {
+          "object": {
+            "pathID": "1738",
+            "start": 2370840,
+            "length": 1516,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "donttalktome",
+          "id": 94,
+          "PageName": "Thanks For Visiting",
+          "FileName": "donttalktome.html",
+          "htmlBytes": 1372,
+          "htmlSHA256": "f4eaccd9de44790158224d5ac35847dde2e1277d46cb158580b84e76681c073d",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/donttalktome.html"
+        },
+        {
+          "object": {
+            "pathID": "1739",
+            "start": 2372360,
+            "length": 2412,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "evilmonster",
+          "id": 95,
+          "PageName": "Thanks For Visiting",
+          "FileName": "evilmonster.html",
+          "htmlBytes": 2271,
+          "htmlSHA256": "4ef2f7845fee58e0c1346e4a3b5a0b189b11073ac211814eeca3b7f75ba63a4a",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/evilmonster.html"
+        },
+        {
+          "object": {
+            "pathID": "1740",
+            "start": 2374776,
+            "length": 788,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "face",
+          "id": 96,
+          "PageName": "Thanks For Visiting",
+          "FileName": "face.html",
+          "htmlBytes": 658,
+          "htmlSHA256": "1ef8074544300d4500031020603be10b1359364de6f0068c0a22ce750cd4a3a0",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/face.html"
+        },
+        {
+          "object": {
+            "pathID": "1741",
+            "start": 2375568,
+            "length": 1040,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "fakeMain",
+          "id": 97,
+          "PageName": "Thanks For Visiting",
+          "FileName": "fakemain.html",
+          "htmlBytes": 903,
+          "htmlSHA256": "b60936b1257622ace7399bda59ed2041254ed8775245c9f937fd574c548331e0",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/fakemain.html"
+        },
+        {
+          "object": {
+            "pathID": "1743",
+            "start": 2377416,
+            "length": 1108,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "numbers",
+          "id": 99,
+          "PageName": "Thanks For Visiting",
+          "FileName": "numbers.html",
+          "htmlBytes": 976,
+          "htmlSHA256": "6a8b0cde72c7888e3d12adcf886963622017c9ade74748a0159a24405dc76dd1",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/numbers.html"
+        },
+        {
+          "object": {
+            "pathID": "1744",
+            "start": 2378528,
+            "length": 1412,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "posture",
+          "id": 100,
+          "PageName": "Thanks For Visiting",
+          "FileName": "posture.html",
+          "htmlBytes": 1278,
+          "htmlSHA256": "0f8df1147709777357d49109c3f01481a8fab8b45643db72366991db323a5a5b",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/posture.html"
+        },
+        {
+          "object": {
+            "pathID": "1745",
+            "start": 2379944,
+            "length": 808,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "slide",
+          "id": 101,
+          "PageName": "Thanks For Visiting",
+          "FileName": "slide.html",
+          "htmlBytes": 676,
+          "htmlSHA256": "7f0e7460173ba521d8733544f9dd73da9dd1b83399c1199dd5f8d4e828374fd1",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/slide.html"
+        },
+        {
+          "object": {
+            "pathID": "1746",
+            "start": 2380752,
+            "length": 1080,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "slide2",
+          "id": 102,
+          "PageName": "Thanks For Visiting",
+          "FileName": "slide2.html",
+          "htmlBytes": 945,
+          "htmlSHA256": "2df538ee34a02a7ab47983b14c1ae1f95543c251b239afa5073fca74c3530fe9",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ThanksForVisiting/slide2.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1747",
+        "start": 2381832,
+        "length": 212,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "f2cc62d025f69e6d10612c3ee749d621ca3df6996fd23c561dad046fde60f009",
+      "m_Name": "TheBlackWaves",
+      "id": 29,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": true,
+      "WasVisted": false,
+      "HasWindow": false,
+      "WindowTime": 1,
+      "PageTitle": "The Black Waves",
+      "PageDesc": "Random poem site.",
+      "PageURL": "9f79cfbf1293dcfdf3463307ce0aca0b",
+      "DocumentRoot": "TheBlackWaves",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1748"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1748",
+            "start": 2382048,
+            "length": 1584,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 75,
+          "PageName": "The Black Waves",
+          "FileName": "index.html",
+          "htmlBytes": 1443,
+          "htmlSHA256": "d98597d398125664ab75fb9f195bc0466d2aac8c977f09a103159997efba65a1",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "TheBlackWaves/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1572",
+        "start": 1931776,
+        "length": 224,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "d9214975c9ad7438741c7ad13cc9393420c3155657c56972668e9a113f05d2a8",
+      "m_Name": "BeWarned",
+      "id": 1,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": false,
+      "WindowTime": 0,
+      "PageTitle": "St Louis Arch",
+      "PageDesc": "Theory behind the power of the St Lous Arch.",
+      "PageURL": "",
+      "DocumentRoot": "bewarned",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1575"
+      },
+      "SubPages": [
+        {
+          "fileID": 0,
+          "pathID": "1573"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1574"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1576"
+        }
+      ],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1575",
+            "start": 1935176,
+            "length": 1552,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 1,
+          "PageName": "Home",
+          "FileName": "index.html",
+          "htmlBytes": 1433,
+          "htmlSHA256": "629269cf124a83e11708a015c05edd4cd8a494c540e192aee0cdbf168bc8ed16",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "bewarned/index.html"
+        },
+        {
+          "object": {
+            "pathID": "1573",
+            "start": 1932000,
+            "length": 1508,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "aliens",
+          "id": 2,
+          "PageName": "Aliens",
+          "FileName": "aliens.html",
+          "htmlBytes": 1386,
+          "htmlSHA256": "fe6175ef7242a0202e937caf4a2742c8d810a58bd3d9b563919e227ccf279123",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "bewarned/aliens.html"
+        },
+        {
+          "object": {
+            "pathID": "1574",
+            "start": 1933512,
+            "length": 1664,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "arch",
+          "id": 2,
+          "PageName": "The Arch",
+          "FileName": "arch.html",
+          "htmlBytes": 1547,
+          "htmlSHA256": "d3558d567705030f001dac501c88cdc2955d350c8c1635eefa51dddd4afb1c0c",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "bewarned/arch.html"
+        },
+        {
+          "object": {
+            "pathID": "1576",
+            "start": 1936728,
+            "length": 1656,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "whydie",
+          "id": 2,
+          "PageName": "Why Kill You",
+          "FileName": "whydie.html",
+          "htmlBytes": 1531,
+          "htmlSHA256": "a658364e4ed5694f2cdd392edc3c81ab8d0012da17f6af1bc9430886dbe7b972",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "bewarned/whydie.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1708",
+        "start": 2315888,
+        "length": 188,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "d783eba9cd67d0f441b44bd304f28b46e11c2e16043576377f09642ae8a33014",
+      "m_Name": "Numbers",
+      "id": 30,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": true,
+      "WasVisted": false,
+      "HasWindow": false,
+      "WindowTime": 0,
+      "PageTitle": "Red Triangle",
+      "PageDesc": "Crypto site. ",
+      "PageURL": "494e13c25de544f667e53fb3ba0a451c",
+      "DocumentRoot": "numbers",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1709"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1709",
+            "start": 2316080,
+            "length": 1896,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 76,
+          "PageName": "Numbers",
+          "FileName": "index.html",
+          "htmlBytes": 1773,
+          "htmlSHA256": "28ed7d2711f0c3b734cee16a9ac6cf29b21b8928d41f14e16e0f4735cee0ffa0",
+          "HasMusic": true,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "1860"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "numbers/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1710",
+        "start": 2317976,
+        "length": 164,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "24bfe73413b9ae22037ecc1de72f0490a4ca538e5d54d2d7a607f1781123f0a3",
+      "m_Name": "Numbers2",
+      "id": 31,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": true,
+      "WindowTime": 2,
+      "PageTitle": "Fifty Seven",
+      "PageDesc": "Random mysterious page.",
+      "PageURL": "",
+      "DocumentRoot": "numbers2",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1711"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1711",
+            "start": 2318144,
+            "length": 728,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 77,
+          "PageName": "Numbers2",
+          "FileName": "index.html",
+          "htmlBytes": 608,
+          "htmlSHA256": "83d61c2d905d10e8bf0dfe131854dea0a9ec147b83a71c3980937fcf280f1c12",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "numbers2/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1706",
+        "start": 2314328,
+        "length": 188,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "5dcb5fa53b437e7db298589069f997dec65d5b280c934c5293e2fcaf4e8b2818",
+      "m_Name": "NumberStation",
+      "id": 32,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": true,
+      "WindowTime": 2,
+      "PageTitle": "Number Station",
+      "PageDesc": "What do the numbers mean?!?",
+      "PageURL": "",
+      "DocumentRoot": "numberStation",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1707"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1707",
+            "start": 2314520,
+            "length": 1364,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 78,
+          "PageName": "Number Station",
+          "FileName": "index.html",
+          "htmlBytes": 1223,
+          "htmlSHA256": "fd4377af98630b2f72c1d293b4eb3d16256a8e0f723dca8b6da09453a8e05083",
+          "HasMusic": true,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "1859"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "numberStation/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1666",
+        "start": 2222328,
+        "length": 144,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "9ead12be17b047dbc6e02590d0de3b51bf62edc31a1ff64bda5699bee6a03a68",
+      "m_Name": "IAMHERE",
+      "id": 20,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": true,
+      "WindowTime": 0,
+      "PageTitle": "IAMHERE",
+      "PageDesc": "Or Am I?",
+      "PageURL": "",
+      "DocumentRoot": "Iamhere",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1667"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1667",
+            "start": 2222472,
+            "length": 6244,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 53,
+          "PageName": "01001001",
+          "FileName": "index.html",
+          "htmlBytes": 6123,
+          "htmlSHA256": "68e957f97796fbb63735d55e6587f71b2f33a0ceada5d4be822c40c0cd5b9c9f",
+          "HasMusic": true,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "1858"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "Iamhere/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1568",
+        "start": 1927024,
+        "length": 172,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "9260e7de0e6524775a1519f64c86fa8d41e0cd3c52218e0cf4f9e2975a6ded81",
+      "m_Name": "Ascii",
+      "id": 3,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": true,
+      "WindowTime": 4,
+      "PageTitle": "YOU THERE?",
+      "PageDesc": "Some random page with ASCII art.",
+      "PageURL": "",
+      "DocumentRoot": "ascii",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1569"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1569",
+            "start": 1927200,
+            "length": 1140,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 4,
+          "PageName": "YOU THERE?",
+          "FileName": "index.html",
+          "htmlBytes": 1013,
+          "htmlSHA256": "caee8f734e8d03e707d7896fe206ad2f6149ed96c2244944ffc61f4da42c9055",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "ascii/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1627",
+        "start": 2073400,
+        "length": 132,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "41fe0788bf1ffd664a6d21253e5ab1633f0cf8280614fe567a19ee7f29cdea5f",
+      "m_Name": "Eye",
+      "id": 14,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": false,
+      "WindowTime": 0,
+      "PageTitle": "Eye",
+      "PageDesc": "?????",
+      "PageURL": "",
+      "DocumentRoot": "eye",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1628"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1628",
+            "start": 2073536,
+            "length": 664,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 14,
+          "PageName": "???",
+          "FileName": "index.html",
+          "htmlBytes": 546,
+          "htmlSHA256": "461683544c6d3b6fe0916e8f33c57c86667c04319e5a1e2b2d6863b0e592326f",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "eye/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1590",
+        "start": 1973680,
+        "length": 188,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "fde0720581c093bbce528401005e6e9a2dcfecb4be9136ac754f2ed253f2f33e",
+      "m_Name": "CreepyFace",
+      "id": 2,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": true,
+      "WindowTime": 3,
+      "PageTitle": "THANATOS",
+      "PageDesc": "?????????",
+      "PageURL": "c30e8a9b1ff2c6f54d375231d049b01d",
+      "DocumentRoot": "CreepyFace",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1591"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1591",
+            "start": 1973872,
+            "length": 620,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 3,
+          "PageName": "THANATOS",
+          "FileName": "index.html",
+          "htmlBytes": 497,
+          "htmlSHA256": "3f2dec1e0d69f45cd5907e9c25dd9418dbe67a1ba9f25ee8dff948ac2f60fd60",
+          "HasMusic": true,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "1854"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "CreepyFace/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1762",
+        "start": 2421360,
+        "length": 244,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "5d3300f130cc73e56369cadf4c2c6a254b66b5671795562ba65db713069348b7",
+      "m_Name": "TheGrey",
+      "id": 42,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": false,
+      "WindowTime": 0,
+      "PageTitle": "The Grey",
+      "PageDesc": "Will you walk in the shade?",
+      "PageURL": "71fcd1888594ee05ec02226bb93708cf",
+      "DocumentRoot": "TheGrey",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1765"
+      },
+      "SubPages": [
+        {
+          "fileID": 0,
+          "pathID": "1763"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1764"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1766"
+        },
+        {
+          "fileID": 0,
+          "pathID": "1767"
+        }
+      ],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1765",
+            "start": 2427136,
+            "length": 4156,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 107,
+          "PageName": "The Grey",
+          "FileName": "index.html",
+          "htmlBytes": 4033,
+          "htmlSHA256": "69018b218fcda96f19bb9410ae3af9e29a7eef204d8b0a8a014f5ba9e8cae0c1",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "TheGrey/index.html"
+        },
+        {
+          "object": {
+            "pathID": "1763",
+            "start": 2421608,
+            "length": 2584,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "centrum",
+          "id": 105,
+          "PageName": "The Grey - Centrum",
+          "FileName": "centrum.html",
+          "htmlBytes": 2450,
+          "htmlSHA256": "221c09a1832043e22d01f7a931be58c82207e9a7b06f1fc6cf59bb5e9cbbf24c",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "TheGrey/centrum.html"
+        },
+        {
+          "object": {
+            "pathID": "1764",
+            "start": 2424192,
+            "length": 2944,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "inanis",
+          "id": 106,
+          "PageName": "The Grey - Inanis",
+          "FileName": "inanis.html",
+          "htmlBytes": 2812,
+          "htmlSHA256": "03d1d64366047aaf7aadcb14c3435715ea89450b5fc8f8405979f72b1bccf2b3",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "TheGrey/inanis.html"
+        },
+        {
+          "object": {
+            "pathID": "1766",
+            "start": 2431296,
+            "length": 1856,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "interius",
+          "id": 108,
+          "PageName": "The Grey - Interius",
+          "FileName": "interius.html",
+          "htmlBytes": 1718,
+          "htmlSHA256": "6e2f9483c89a7630ec01c149d78c0a37722f940672dd133a12a9a96fb55c46d3",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "TheGrey/interius.html"
+        },
+        {
+          "object": {
+            "pathID": "1767",
+            "start": 2433152,
+            "length": 3456,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "latus",
+          "id": 109,
+          "PageName": "The Grey - Latus",
+          "FileName": "latus.html",
+          "htmlBytes": 3326,
+          "htmlSHA256": "53df6b720aec126708c36b95c3cef484171c68ce78b6fabd9cdeca38ff7a3845",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "TheGrey/latus.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1768",
+        "start": 2436608,
+        "length": 184,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "1aa40c949c746172a50123d03936b50c38edc07184a514b873b6488522b4d093",
+      "m_Name": "TheHall",
+      "id": 43,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": false,
+      "WindowTime": 5,
+      "PageTitle": "The Hall",
+      "PageDesc": "Don't enter...",
+      "PageURL": "a2cac1f29f0b6c87cc3cd1c762afdb2f",
+      "DocumentRoot": "thehall",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1769"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1769",
+            "start": 2436792,
+            "length": 640,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 110,
+          "PageName": "The Hall",
+          "FileName": "index.html",
+          "htmlBytes": 518,
+          "htmlSHA256": "0c9d3656e92c389ebe5508d4057772c26ea97c4535b557aa5de323d4305c2a57",
+          "HasMusic": true,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "1863"
+          },
+          "KeyDiscoverMode": 1,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "thehall/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1787",
+        "start": 2471728,
+        "length": 160,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "02b55d920196aa59fdd88dc5cc6f3eac67cffda88dd9849768c5106551cfb460",
+      "m_Name": "WeRock",
+      "id": 47,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": false,
+      "WindowTime": 0,
+      "PageTitle": "We Rock",
+      "PageDesc": "Rock collection site.",
+      "PageURL": "",
+      "DocumentRoot": "WeRock",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1788"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1788",
+            "start": 2471888,
+            "length": 5860,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 115,
+          "PageName": "We Rock",
+          "FileName": "index.html",
+          "htmlBytes": 5739,
+          "htmlSHA256": "6428038e1c99de2b664af3a4c4c472bc106e98401c206ce89ba64a5c013ada10",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "WeRock/index.html"
+        }
+      ]
+    },
+    {
+      "object": {
+        "pathID": "1789",
+        "start": 2477752,
+        "length": 188,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "sha256": "a0d0039539008746c70ca01f48a9a3c0c32b82d20f94bf57d126bd3bc7e8c5bf",
+      "m_Name": "YourData",
+      "id": 48,
+      "isFake": false,
+      "DoNotList": false,
+      "DoNotTap": false,
+      "isStatic": false,
+      "WikiSpecific": false,
+      "WikiIndex": 0,
+      "HoldsSecondWikiLink": false,
+      "IsTapped": false,
+      "WasVisted": false,
+      "HasWindow": true,
+      "WindowTime": 2,
+      "PageTitle": "Your Data",
+      "PageDesc": "Ransomware site.",
+      "PageURL": "3585db92fc5bf8f994b0e7b55881a3bf",
+      "DocumentRoot": "yourdata",
+      "HomePage": {
+        "fileID": 0,
+        "pathID": "1790"
+      },
+      "SubPages": [],
+      "Pages": [
+        {
+          "object": {
+            "pathID": "1790",
+            "start": 2477944,
+            "length": 1120,
+            "typeIndex": 38,
+            "classID": 114
+          },
+          "m_Name": "index",
+          "id": 116,
+          "PageName": "Your Data",
+          "FileName": "index.html",
+          "htmlBytes": 995,
+          "htmlSHA256": "05568d9b2ae4dfdf3d080b6b472b34f14762aa2505bac06996f842b2e10d358e",
+          "HasMusic": false,
+          "AudioFile": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "KeyDiscoverMode": 2,
+          "PageEvent": {
+            "fileID": 0,
+            "pathID": "0"
+          },
+          "logicalPath": "yourdata/index.html"
+        }
+      ]
+    }
+  ],
+  "deadLinks": [
+    {
+      "object": {
+        "pathID": "1244",
+        "start": 1872992,
+        "length": 160,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake1",
+      "PageTitle": "DeepVape",
+      "PageDesc": "The vape nation of the Deep Web"
+    },
+    {
+      "object": {
+        "pathID": "1245",
+        "start": 1873152,
+        "length": 148,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake10",
+      "PageTitle": "Chosen Awake",
+      "PageDesc": "Are you awoke?"
+    },
+    {
+      "object": {
+        "pathID": "1250",
+        "start": 1873976,
+        "length": 184,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake15",
+      "PageTitle": "Flame",
+      "PageDesc": "Deep web search engine."
+    },
+    {
+      "object": {
+        "pathID": "1255",
+        "start": 1874912,
+        "length": 136,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake2",
+      "PageTitle": "Illumanti",
+      "PageDesc": "333"
+    },
+    {
+      "object": {
+        "pathID": "1256",
+        "start": 1875048,
+        "length": 188,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake20",
+      "PageTitle": "SKYWEB",
+      "PageDesc": "Deep web hosting company."
+    },
+    {
+      "object": {
+        "pathID": "1260",
+        "start": 1875816,
+        "length": 196,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake24",
+      "PageTitle": "DEEPDOTWEB",
+      "PageDesc": "News site behind the deep web."
+    },
+    {
+      "object": {
+        "pathID": "1263",
+        "start": 1876384,
+        "length": 184,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake27",
+      "PageTitle": "DeDo",
+      "PageDesc": "Hacker group protal site. "
+    },
+    {
+      "object": {
+        "pathID": "1264",
+        "start": 1876568,
+        "length": 192,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake28",
+      "PageTitle": "Secure Drop",
+      "PageDesc": "Secure webhosting dead drop."
+    },
+    {
+      "object": {
+        "pathID": "1271",
+        "start": 1877792,
+        "length": 144,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake7",
+      "PageTitle": "Legion",
+      "PageDesc": "Hacker group."
+    },
+    {
+      "object": {
+        "pathID": "1268",
+        "start": 1877328,
+        "length": 148,
+        "typeIndex": 25,
+        "classID": 114
+      },
+      "m_Name": "Fake4",
+      "PageTitle": "Hail Satan",
+      "PageDesc": "Satanist site."
+    }
+  ],
+  "pageAudit": [
+    {
+      "path": "fortuneCookie/index.html",
+      "archiveOffset": 20332670,
+      "archiveLength": 1193,
+      "archiveSHA256": "891cff7a4776bcdbb49ca02d599e69e21aeccd84ffd21d9f28731c9e33d69c28",
+      "serializedHTMLSHA256": "fea12ed93474a79d467721375b296462e7a868819755e2937572f4f4f5c1ac22",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 14,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/index.html",
+      "archiveOffset": 56028001,
+      "archiveLength": 1042,
+      "archiveSHA256": "bf34ae16b2d03c447d99277a7028a03a22cfe062fb1d66928df43356707a9266",
+      "serializedHTMLSHA256": "d7e8df06d0a32cd2d3d0495ece311be2551bb3bec664829931f52226642bc265",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 27,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/babyshrimp.html",
+      "archiveOffset": 55999214,
+      "archiveLength": 2432,
+      "archiveSHA256": "a7a1783edb877f00ef43939e2d2b8b0d8b47235e7f689b2824eb467bf60fb83a",
+      "serializedHTMLSHA256": "3c76f895a728269f4d9311d1f3a76f7a82fad918fc539976c71fc37333ce1298",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 45,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/bar.html",
+      "archiveOffset": 56001646,
+      "archiveLength": 16513,
+      "archiveSHA256": "fc289615537f1fb53cfe7b0cc87d718d8536a9d914744404669a47b3f950a565",
+      "serializedHTMLSHA256": "bfa4a9c8e12dfe628270b56f0b0e5283d95f0ad17f486e76d5722026c46d9eb2",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 19,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/black.html",
+      "archiveOffset": 56018159,
+      "archiveLength": 2237,
+      "archiveSHA256": "68c0cd42ba5446ee3dfd540b10d544cf967f757cba7304107f2a6cbcec80e5c4",
+      "serializedHTMLSHA256": "8b13915653e9ad473a83f58301e1cb56f8133e3f68391ee2e41ecba3b6c03a43",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 372,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/creepy.html",
+      "archiveOffset": 56020396,
+      "archiveLength": 968,
+      "archiveSHA256": "040bdeb819d395599638aaae2db9945c43885b2e24c35bf5c4e81696988ac0e8",
+      "serializedHTMLSHA256": "af282d23633f8e2154a6f41c9dc1653c48aec95be1838e3ca121ba4712aea201",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 32,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/donttalktome.html",
+      "archiveOffset": 56021364,
+      "archiveLength": 1841,
+      "archiveSHA256": "1b1b506d9506a7df19c81edf33fa6d1ba7a54bca3082b137ab22a279ab0ee5ba",
+      "serializedHTMLSHA256": "f4eaccd9de44790158224d5ac35847dde2e1277d46cb158580b84e76681c073d",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 57,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/evilmonster.html",
+      "archiveOffset": 56023205,
+      "archiveLength": 2641,
+      "archiveSHA256": "e38478358f102bb3108a83edb5c876197b354e1ab8a9c85c1cf43f60a4cfa4b6",
+      "serializedHTMLSHA256": "4ef2f7845fee58e0c1346e4a3b5a0b189b11073ac211814eeca3b7f75ba63a4a",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 997,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/face.html",
+      "archiveOffset": 56025846,
+      "archiveLength": 983,
+      "archiveSHA256": "90b9e856dac93c77eb2794832c1a699b35cd5cbccfd577e45d2a723759503465",
+      "serializedHTMLSHA256": "1ef8074544300d4500031020603be10b1359364de6f0068c0a22ce750cd4a3a0",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 25,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/fakemain.html",
+      "archiveOffset": 56026829,
+      "archiveLength": 1172,
+      "archiveSHA256": "310e65b00ff8be1bd7c3178f240e1eb8c51acc46380b87008d83cf66bb69ae23",
+      "serializedHTMLSHA256": "b60936b1257622ace7399bda59ed2041254ed8775245c9f937fd574c548331e0",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 48,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/numbers.html",
+      "archiveOffset": 56029043,
+      "archiveLength": 1636,
+      "archiveSHA256": "b8a03ea1d3910ccd0fd5054850aa6f8343a8a4bd369d1044e976bcf81eb48b73",
+      "serializedHTMLSHA256": "6a8b0cde72c7888e3d12adcf886963622017c9ade74748a0159a24405dc76dd1",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 19,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/posture.html",
+      "archiveOffset": 56030679,
+      "archiveLength": 1642,
+      "archiveSHA256": "17912fea68208c6b5eab90efe09de8523aac8a3913858d65d7ed9f316c6785d9",
+      "serializedHTMLSHA256": "0f8df1147709777357d49109c3f01481a8fab8b45643db72366991db323a5a5b",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 544,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/slide.html",
+      "archiveOffset": 56032321,
+      "archiveLength": 1167,
+      "archiveSHA256": "7ab5ef889fe637faf2ec97d77fee3c3fc2cb47f5e6067298ba4b2d8d2dddcf23",
+      "serializedHTMLSHA256": "7f0e7460173ba521d8733544f9dd73da9dd1b83399c1199dd5f8d4e828374fd1",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 36,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ThanksForVisiting/slide2.html",
+      "archiveOffset": 56033488,
+      "archiveLength": 1352,
+      "archiveSHA256": "8a78ac184b5cadbefc3493202b95c5b1d2b915068e3ba49e6316724a18575ec9",
+      "serializedHTMLSHA256": "2df538ee34a02a7ab47983b14c1ae1f95543c251b239afa5073fca74c3530fe9",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 44,
+      "reviewKeywords": []
+    },
+    {
+      "path": "TheBlackWaves/index.html",
+      "archiveOffset": 57234054,
+      "archiveLength": 1808,
+      "archiveSHA256": "3f1c6f68d3f1a80682ebb63b71deae797b4613c4597fe4dd8fa5955e28857f48",
+      "serializedHTMLSHA256": "d98597d398125664ab75fb9f195bc0466d2aac8c977f09a103159997efba65a1",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 574,
+      "reviewKeywords": []
+    },
+    {
+      "path": "bewarned/index.html",
+      "archiveOffset": 435293,
+      "archiveLength": 1799,
+      "archiveSHA256": "269d5d488a3ac84902ebc4ee04b2cda8d899337cd0d1594d42f8c71f36b884aa",
+      "serializedHTMLSHA256": "629269cf124a83e11708a015c05edd4cd8a494c540e192aee0cdbf168bc8ed16",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 428,
+      "reviewKeywords": []
+    },
+    {
+      "path": "bewarned/aliens.html",
+      "archiveOffset": 401469,
+      "archiveLength": 1600,
+      "archiveSHA256": "a710b6743580a852dcf587627539ef45a2a493cf1d352a4b6f429ad8fdb46422",
+      "serializedHTMLSHA256": "fe6175ef7242a0202e937caf4a2742c8d810a58bd3d9b563919e227ccf279123",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 546,
+      "reviewKeywords": []
+    },
+    {
+      "path": "bewarned/arch.html",
+      "archiveOffset": 403069,
+      "archiveLength": 1808,
+      "archiveSHA256": "5122fc774b187382bcc9f3d6c17549c710da29f4ed328224ba43210790e4a41c",
+      "serializedHTMLSHA256": "d3558d567705030f001dac501c88cdc2955d350c8c1635eefa51dddd4afb1c0c",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 715,
+      "reviewKeywords": []
+    },
+    {
+      "path": "bewarned/whydie.html",
+      "archiveOffset": 439039,
+      "archiveLength": 1801,
+      "archiveSHA256": "91911af348633a65dfd6cd53dc8229283944ff57a4e4f99cb2cb83782a8308dd",
+      "serializedHTMLSHA256": "a658364e4ed5694f2cdd392edc3c81ab8d0012da17f6af1bc9430886dbe7b972",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 694,
+      "reviewKeywords": []
+    },
+    {
+      "path": "numbers/index.html",
+      "archiveOffset": 44946067,
+      "archiveLength": 2136,
+      "archiveSHA256": "9b7d841c502c86017fb0f87660b5f0cb15bb74fe29dad0c55d73ad4c05bbdad1",
+      "serializedHTMLSHA256": "28ed7d2711f0c3b734cee16a9ac6cf29b21b8928d41f14e16e0f4735cee0ffa0",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 917,
+      "reviewKeywords": []
+    },
+    {
+      "path": "numbers2/index.html",
+      "archiveOffset": 45256198,
+      "archiveLength": 1180,
+      "archiveSHA256": "92ed5d9dfb9bf197297ae372bd5e201c4963be3d4ce84198a095605df3930b4b",
+      "serializedHTMLSHA256": "83d61c2d905d10e8bf0dfe131854dea0a9ec147b83a71c3980937fcf280f1c12",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 8,
+      "reviewKeywords": []
+    },
+    {
+      "path": "numberStation/index.html",
+      "archiveOffset": 45413570,
+      "archiveLength": 1586,
+      "archiveSHA256": "479d24dae6fec19d5e0db81e38b130c6f1da531e281c275bf843637611a0fbbc",
+      "serializedHTMLSHA256": "fd4377af98630b2f72c1d293b4eb3d16256a8e0f723dca8b6da09453a8e05083",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 113,
+      "reviewKeywords": []
+    },
+    {
+      "path": "Iamhere/index.html",
+      "archiveOffset": 35424983,
+      "archiveLength": 6486,
+      "archiveSHA256": "e49a3e89fa58f24b5fdd321153e457a5075fd1aae927738cd1f5c4647771a80f",
+      "serializedHTMLSHA256": "68e957f97796fbb63735d55e6587f71b2f33a0ceada5d4be822c40c0cd5b9c9f",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 5139,
+      "reviewKeywords": []
+    },
+    {
+      "path": "ascii/index.html",
+      "archiveOffset": 124141,
+      "archiveLength": 106262,
+      "archiveSHA256": "c7292a67e968a76490626ba2f8aebb920248a87c8bd4e1bd09fafeb6fd675a43",
+      "serializedHTMLSHA256": "caee8f734e8d03e707d7896fe206ad2f6149ed96c2244944ffc61f4da42c9055",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 98642,
+      "reviewKeywords": []
+    },
+    {
+      "path": "eye/index.html",
+      "archiveOffset": 16172644,
+      "archiveLength": 1035,
+      "archiveSHA256": "9c34ea8e1b2d78407e1b69337817b80d4cbe37a11df10171f3de2be0e173bf11",
+      "serializedHTMLSHA256": "461683544c6d3b6fe0916e8f33c57c86667c04319e5a1e2b2d6863b0e592326f",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 7,
+      "reviewKeywords": []
+    },
+    {
+      "path": "CreepyFace/index.html",
+      "archiveOffset": 3104284,
+      "archiveLength": 1390,
+      "archiveSHA256": "23168c4a8d13fd2cbfdab46a732ac75672e12ea3819169829ea386f3ffd00ed6",
+      "serializedHTMLSHA256": "3f2dec1e0d69f45cd5907e9c25dd9418dbe67a1ba9f25ee8dff948ac2f60fd60",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 10,
+      "reviewKeywords": []
+    },
+    {
+      "path": "TheGrey/index.html",
+      "archiveOffset": 76187496,
+      "archiveLength": 4396,
+      "archiveSHA256": "e827c6fb0316292870d1f4b586a177a79a126ed46f8153f5265ed83a6ca06219",
+      "serializedHTMLSHA256": "69018b218fcda96f19bb9410ae3af9e29a7eef204d8b0a8a014f5ba9e8cae0c1",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 2757,
+      "reviewKeywords": []
+    },
+    {
+      "path": "TheGrey/centrum.html",
+      "archiveOffset": 76181508,
+      "archiveLength": 2813,
+      "archiveSHA256": "b24ca52f3e705cf6caf84a087746efc784e1781dcd929686cf8ba02565e64f6e",
+      "serializedHTMLSHA256": "221c09a1832043e22d01f7a931be58c82207e9a7b06f1fc6cf59bb5e9cbbf24c",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 1496,
+      "reviewKeywords": []
+    },
+    {
+      "path": "TheGrey/inanis.html",
+      "archiveOffset": 76184321,
+      "archiveLength": 3175,
+      "archiveSHA256": "15b1adee225a5874f1068274c3cc0b36264151f53f5bb603b889eb35f62b377b",
+      "serializedHTMLSHA256": "03d1d64366047aaf7aadcb14c3435715ea89450b5fc8f8405979f72b1bccf2b3",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 1829,
+      "reviewKeywords": []
+    },
+    {
+      "path": "TheGrey/interius.html",
+      "archiveOffset": 76191892,
+      "archiveLength": 2094,
+      "archiveSHA256": "3a8b55d4c02d48e917e7b9f996dd7cda4bffdddb267031f44db2a5e902a0fddb",
+      "serializedHTMLSHA256": "6e2f9483c89a7630ec01c149d78c0a37722f940672dd133a12a9a96fb55c46d3",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 459,
+      "reviewKeywords": []
+    },
+    {
+      "path": "TheGrey/latus.html",
+      "archiveOffset": 76193986,
+      "archiveLength": 3695,
+      "archiveSHA256": "79c2157e12750ff6ec5635fb76c853ee4771d9f4e82ece9e07b8a1fe013d6afd",
+      "serializedHTMLSHA256": "53df6b720aec126708c36b95c3cef484171c68ce78b6fabd9cdeca38ff7a3845",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 2328,
+      "reviewKeywords": []
+    },
+    {
+      "path": "thehall/index.html",
+      "archiveOffset": 76313842,
+      "archiveLength": 1067,
+      "archiveSHA256": "b0f177d12a3565f456f9dda23685ffd319e7d2d292e26faf303e8b6cbf06dc5c",
+      "serializedHTMLSHA256": "0c9d3656e92c389ebe5508d4057772c26ea97c4535b557aa5de323d4305c2a57",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 8,
+      "reviewKeywords": []
+    },
+    {
+      "path": "WeRock/index.html",
+      "archiveOffset": 146007424,
+      "archiveLength": 6105,
+      "archiveSHA256": "a2d8e8a9e58a23f06411ed579fa26665daab4f828214ed9f8b9de5a410099ca3",
+      "serializedHTMLSHA256": "6428038e1c99de2b664af3a4c4c472bc106e98401c206ce89ba64a5c013ada10",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 3363,
+      "reviewKeywords": [
+        "breast"
+      ]
+    },
+    {
+      "path": "yourdata/index.html",
+      "archiveOffset": 146586246,
+      "archiveLength": 1223,
+      "archiveSHA256": "8fee394d9937c3988bcf938a3370527b3ed876208763ff67d7a404b7b0955c99",
+      "serializedHTMLSHA256": "05568d9b2ae4dfdf3d080b6b472b34f14762aa2505bac06996f842b2e10d358e",
+      "archiveMatchesSerialized": false,
+      "visibleTextCharacters": 246,
+      "reviewKeywords": []
+    }
+  ]
+}

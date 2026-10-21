@@ -1,0 +1,7 @@
+SVG_BENCH_DIAGNOSTIC	invalid-points	nil
+SVG_BENCH state=0 build_ms=146.429 raster_ms=1551.763 hit_build_ms=7.740 query_500_ms=80.609 checks=15535 yields=368 checksum=52bff015
+SVG_BENCH state=1 build_ms=143.509 raster_ms=1531.238 hit_build_ms=9.121 query_500_ms=78.250 checks=15535 yields=358 checksum=2207511c
+SVG_BENCH state=2 build_ms=155.070 raster_ms=1569.257 hit_build_ms=7.801 query_500_ms=72.405 checks=15535 yields=368 checksum=aa674f26
+SVG_BENCH state=3 build_ms=135.400 raster_ms=1505.652 hit_build_ms=7.401 query_500_ms=75.033 checks=15535 yields=357 checksum=b45b4cf0
+SVG_BENCH state=4 build_ms=138.655 raster_ms=1489.918 hit_build_ms=7.393 query_500_ms=73.587 checks=15535 yields=354 checksum=29f04ad4
+SVG_BENCH state=5 build_ms=131.577 raster_ms=1556.961 hit_build_ms=7.669 query_500_ms=85.048 checks=15535 yields=365 checksum=4cc648ba

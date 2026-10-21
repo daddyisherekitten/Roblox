@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "resets": [
+      {
+        "counterReset": "none",
+        "itemCounterSet": [
+          "none",
+          "none",
+          "none"
+        ],
+        "reversed": false,
+        "start": "5"
+      },
+      {
+        "counterReset": "none",
+        "itemCounterSet": [
+          "none",
+          "none",
+          "none"
+        ],
+        "reversed": true,
+        "start": null
+      },
+      {
+        "counterReset": "none",
+        "itemCounterSet": [
+          "none",
+          "none"
+        ],
+        "reversed": true,
+        "start": null
+      },
+      {
+        "counterReset": "none",
+        "itemCounterSet": [
+          "none",
+          "none"
+        ],
+        "reversed": false,
+        "start": null
+      },
+      {
+        "counterReset": "none",
+        "itemCounterSet": [
+          "none",
+          "none",
+          "none"
+        ],
+        "reversed": false,
+        "start": "5"
+      },
+      {
+        "counterReset": "none",
+        "itemCounterSet": [
+          "none",
+          "none",
+          "none"
+        ],
+        "reversed": true,
+        "start": null
+      }
+    ],
+    "reversedCounter": false
+  },
+  "results": [
+    {
+      "actual": "rgb(0, 128, 0)",
+      "expected": "rgb(0, 128, 0)",
+      "name": "normal",
+      "pass": true
+    },
+    {
+      "actual": "rgb(0, 0, 255)",
+      "expected": "rgb(0, 0, 255)",
+      "name": "important",
+      "pass": true
+    },
+    {
+      "actual": "rgb(0, 0, 255)",
+      "expected": "rgb(0, 0, 255)",
+      "name": "near",
+      "pass": true
+    },
+    {
+      "actual": "rgb(0, 0, 0)",
+      "expected": "rgb(0, 0, 0)",
+      "name": "excluded",
+      "pass": true
+    },
+    {
+      "actual": "rgb(255, 0, 0)",
+      "expected": "rgb(255, 0, 0)",
+      "name": "outer",
+      "pass": true
+    },
+    {
+      "actual": "rgb(32, 59, 49)",
+      "expected": "rgb(32, 59, 49)",
+      "name": "outside",
+      "pass": true
+    },
+    {
+      "actual": "12px",
+      "expected": "12px",
+      "name": "initial",
+      "pass": true
+    },
+    {
+      "actual": "40px",
+      "expected": "40px",
+      "name": "relative",
+      "pass": true
+    },
+    {
+      "actual": "12px",
+      "expected": "12px",
+      "name": "invalid",
+      "pass": true
+    },
+    {
+      "actual": "rgb(0, 128, 0)",
+      "expected": "rgb(0, 128, 0)",
+      "name": "part",
+      "pass": true
+    },
+    {
+      "actual": "rgb(0, 0, 255)",
+      "expected": "rgb(0, 0, 255)",
+      "name": "important part",
+      "pass": true
+    },
+    {
+      "actual": "rgb(0, 0, 255)",
+      "expected": "rgb(0, 0, 255)",
+      "name": "forwarded",
+      "pass": true
+    },
+    {
+      "actual": "7px",
+      "expected": "7px",
+      "name": "context",
+      "pass": true
+    },
+    {
+      "actual": "rgb(0, 128, 0)",
+      "expected": "rgb(0, 128, 0)",
+      "name": "outer part vs inner inline normal",
+      "pass": true
+    },
+    {
+      "actual": "rgb(0, 0, 255)",
+      "expected": "rgb(0, 0, 255)",
+      "name": "inner host vs outer inline important",
+      "pass": true
+    },
+    {
+      "actual": "rgb(128, 0, 128)",
+      "expected": "rgb(128, 0, 128)",
+      "name": "inner inline vs outer part important",
+      "pass": true
+    },
+    {
+      "actual": "6",
+      "expected": "6",
+      "name": "constructed host rule count",
+      "pass": true
+    },
+    {
+      "actual": "rgb(246, 230, 216)",
+      "expected": "rgb(246, 230, 216)",
+      "name": "adopted host paint",
+      "pass": true
+    },
+    {
+      "actual": "rgb(0, 0, 255)",
+      "expected": "rgb(0, 0, 255)",
+      "name": "adopted qualified slot",
+      "pass": true
+    }
+  ]
+}

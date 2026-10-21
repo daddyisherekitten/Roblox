@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flexbox · Layout-Test</title>
+<style>
+html { font-size: 20px; }
+body { box-sizing: border-box; margin: 0; padding: 24px; font-family: Roboto, sans-serif; font-size: 18px; color: #172033; background: #f4f6fa; }
+h1 { font-size: 28px; margin: 0 0 20px; }
+h2 { font-size: 20px; margin: 24px 0 8px; }
+#table-basic { width: 100%; max-width: 560px; border-collapse: collapse; table-layout: fixed; }
+#table-basic th, #table-basic td { border: 1px solid #8799b1; padding: 6px 8px; overflow-wrap: break-word; }
+#table-basic thead { background: #dce6f4; }
+#table-empty td { border: 1px solid #8799b1; padding: 4px 8px; }
+#table-tracks td, .css-cell { border:1px solid #8799b1; padding:4px; }
+#image-filters img { width:100px; height:62px; vertical-align:middle; }
+#cursor-test { width: 100%; max-width: 560px; table-layout: fixed; border-spacing: 4px; }
+#cursor-test td { padding: 5px; font-size: 14px; background: #e4eaf3; overflow-wrap: break-word; }
+p { margin: 8px 0; }
+.stage { display: flex; max-width: 560px; padding: 12px; background: #dce6f4; }
+.tile { box-sizing: border-box; width: 64px; padding: 8px; background: #94b6e6; }
+.light { background: #b3ccef; }
+.dark { background: #6c99d5; }
+#row-gap { flex-direction: row; gap: 12px; align-items: stretch; }
+#tall { height: 72px; }
+#row-alignment { height: 100px; justify-content: space-between; align-items: center; }
+#short { height: 36px; }
+#medium { height: 54px; }
+#column { flex-direction: column; height: 180px; gap: 10px; justify-content: center; align-items: flex-end; }
+#column .tile { width: auto; }
+#flex-sizes { gap: 12px; }
+#flex-sizes .tile { width: auto; min-width: 0; }
+#flex-sizes #fixed { flex: none; width: 72px; }
+#grow-one { flex-grow: 1; flex-shrink: 1; flex-basis: 120px; }
+#grow-two { flex: 2 1 120px; }
+#wrap { flex-wrap: wrap; gap: 8px 12px; height: 180px; align-content: center; }
+#wrap .tile { flex: 1 1 160px; min-width: 0; height: 40px; }
+#item-controls { flex-direction: row-reverse; gap: 12px; height: 140px; align-items: flex-start; }
+#control-a { order: 1; align-self: flex-end; height: 40px; }
+#control-b { order: -1; align-self: center; height: 40px; }
+#control-column { display: flex; flex-direction: column-reverse; height: 100px; gap: 8px; }
+#auto-margins { flex-flow: row wrap; gap: 12px; height: 100px; }
+#auto-margins .tile { flex: none; height: 40px; }
+#auto-end { margin-left: auto; margin-top: auto; }
+#baselines { align-items: baseline; gap: 12px; }
+#baselines .tile { flex: none; width: auto; }
+#baseline-small { font-size: 18px; padding-top: 12px; }
+#baseline-medium { font-size: 28px; padding-top: 4px; }
+#baseline-large { font-size: 40px; align-self: baseline; }
+#position-card { position: relative; max-width: 560px; height: 140px; padding: 12px; background: #dce6f4; }
+#position-badge { position: absolute; inset: 8px 8px auto auto; padding: 5px 10px; background: #2557a7; color: white; z-index: 2; }
+#position-label { position: relative; left: 8px; top: 6px; width: 140px; padding: 8px; background: #94b6e6; }
+#position-under { position: absolute; bottom: 12px; right: 12px; width: 90px; height: 120px; background: #b3ccef; z-index: 1; }
+#simple-features { display: flex; flex-wrap: wrap; max-width: 260px; row-gap: 8px; column-gap: 12px; }
+#simple-features .sample { box-sizing: border-box; flex: none; width: 110px; padding: 6px; border-style: solid; }
+#simple-start { text-align: start; border-width: thin; border-color: orange; background: pink; color: navy; }
+#simple-start ins { font-size: larger; }
+#simple-end { text-align: end; border-width: medium; border-color: purple; background: silver; }
+#simple-italic { border-width: thick; border-color: rebeccapurple; }
+kbd, samp { font-family: 'Roboto Mono', monospace; font-size: 18px; }
+#counter-tests { display: flex; flex-wrap: wrap; gap: 12px; }
+#counter-tests ol { margin: 0; padding-left: 40px; }
+#counter-zero { list-style-type: decimal-leading-zero; }
+#counter-alpha { list-style-type: lower-alpha; }
+#counter-upper-alpha { list-style-type: upper-alpha; }
+#counter-roman { list-style-type: lower-roman; }
+#counter-upper-roman { list-style-type: upper-roman; }
+#decoration-short { text-decoration: underline wavy red; }
+.scroll-test { box-sizing: border-box; max-width: 360px; padding: 8px; background: #dce6f4; }
+#scroll-text { height: 100px; overflow: auto; }
+#scroll-cards { display: flex; gap: 8px; overflow-x: scroll; overflow-y: hidden; }
+#scroll-cards .tile { flex: none; width: 100px; }
+#border-sides { max-width: 320px; padding: 12px; background: #dce6f4; border-width: 2px 4px 6px 8px; border-style: dashed dotted double solid; border-color: red blue green orange; }
+#relative-units { display: flex; flex-wrap: wrap; gap: .5rem; font-size: 1.25rem; }
+#relative-units div { padding: .5em; background: #dce6f4; }
+#relative-em { font-size: 1.2em; }
+#relative-rem { font-size: 1rem; }
+/* Formular-Test: native Browserfelder und Roblox-Control-Nachbildung. */
+#form-preview { max-width: 480px; padding: 16px; background: white; }
+#form-preview .field { margin-bottom: 12px; }
+#form-preview .field > label { display: block; margin-bottom: 4px; }
+#form-preview .field input, #form-preview textarea { box-sizing: border-box; max-width: 100%; width: 100%; }
+#form-preview .choices, #form-preview .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+#form-preview output { display: block; margin-top: 12px; }
+</style>
+</head>
+<body>
+<h1>Flexbox · Layout-Test</h1>
+<h2>1. Reihe · gap · stretch</h2>
+<div id="row-gap" class="stage"><div class="tile">A</div><div id="tall" class="tile light">B</div><div class="tile dark">C</div></div>
+<p>12 px Abstand. Die drei Karten sind gleich hoch.</p>
+<h2>2. space-between · center</h2>
+<div id="row-alignment" class="stage"><div id="short" class="tile">A</div><div id="medium" class="tile light">B</div><div id="high" class="tile dark" style="height:72px;">C</div></div>
+<p>Außen bündig, freier Platz dazwischen, vertikal mittig.</p>
+<h2>3. Spalte · center · flex-end</h2>
+<div id="column" class="stage"><div class="tile">Kurz</div><div class="tile light">Etwas länger</div><div class="tile dark">Ende</div></div>
+<p id="following">10 px Abstand. Als Gruppe vertikal mittig und rechts ausgerichtet.</p>
+<h2>4. Flexible Größen</h2>
+<div id="flex-sizes" class="stage"><div id="fixed" class="tile">Fix</div><div id="grow-one" class="tile light">A</div><div id="grow-two" class="tile dark">B</div></div>
+<p>Fix: 72 px. A und B starten bei 120 px; B erhält doppelt so viel zusätzlichen Platz. Bei Platzmangel schrumpfen beide.</p>
+<h2>5. Umbruch · align-content</h2>
+<div id="wrap" class="stage"><div class="tile">A</div><div class="tile light">B</div><div class="tile dark">C</div><div class="tile">D</div></div>
+<p>Neue Reihe bei Platzmangel. 8 px zwischen Reihen, 12 px zwischen Karten. Die Reihen sind zusammen vertikal mittig.</p>
+<h2>6. Reihenfolge · einzelne Ausrichtung</h2>
+<div id="item-controls" class="stage"><div id="control-a" class="tile">A</div><div id="control-b" class="tile light">B</div><div id="control-column" class="tile dark"><div>C1</div><div>C2</div></div></div>
+<p>Von links: A unten, C oben, B mittig. order und row-reverse ändern die Anordnung; in C steht durch column-reverse C2 über C1.</p>
+<h2>7. Automatische Abstände · flex-flow</h2>
+<div id="auto-margins" class="stage"><div class="tile">Start</div><div id="auto-end" class="tile light">Ende</div></div>
+<p>Ende sitzt durch margin-left/top: auto rechts unten. flex-flow: row wrap erlaubt bei Platzmangel eine neue Reihe.</p>
+<h2>8. Gemeinsame Grundlinie</h2>
+<div id="baselines" class="stage"><div id="baseline-small" class="tile">Aa</div><div id="baseline-medium" class="tile light">Aa</div><div id="baseline-large" class="tile dark">Aa</div></div>
+<p>18, 28 und 40 px Schriftgröße mit verschiedenen Innenabständen. Die Texte stehen durch baseline auf derselben Grundlinie.</p>
+<h2>9. Positionierung · Ebenen</h2>
+<div id="position-card"><span id="position-badge">NEU</span><div id="position-label">Relativ versetzt</div><p>Der Platz im Fluss bleibt.</p><div id="position-under"></div></div>
+<p>Das Badge bleibt rechts oben und liegt durch z-index über der hellen Fläche. Die Fläche bleibt rechts unten. Zum Vergleichen das Fenster breiter ziehen.</p>
+<h2>10. Kleine HTML- und CSS-Ergänzungen</h2>
+<div id="simple-features"><div id="simple-start" class="sample"><ins>Neu</ins></div><div id="simple-end" class="sample"><kbd>Enter</kbd><br><samp>OK</samp></div><div id="simple-italic" class="sample"><var>x</var> <cite>Buch</cite> <dfn>Begriff</dfn></div></div>
+<p>8 px Reihenabstand, 12 px Spaltenabstand. Rahmen: thin, medium, thick. Neu ist größer und unterstrichen; Enter/OK rechtsbündig in Monospace, die drei Begriffe kursiv.</p>
+<h2>11. Listennummerierung</h2>
+<div id="counter-tests"><ol id="counter-zero" start="9"><li>Null</li><li>Zehn</li></ol><ol id="counter-alpha" start="26"><li>Klein</li><li>Weiter</li></ol><ol id="counter-upper-alpha" start="26"><li>Gross</li><li>Weiter</li></ol><ol id="counter-roman" start="9"><li>Römisch</li><li>Klein</li></ol><ol id="counter-upper-roman" start="9"><li>Römisch</li><li>Gross</li></ol></div>
+<h2>12. Textdekoration als Kurzform</h2>
+<p><span id="decoration-short">Rote Wellenlinie</span></p>
+<h2>13. Vertikal scrollen · auto</h2>
+<div id="scroll-text" class="scroll-test">Dieser Bereich hat eine feste Höhe und scrollt bei Platzmangel.<br>Zeile 2: Der Text bleibt vollständig vorhanden.<br>Zeile 3: Nur dieser Bereich bewegt sich.<br>Zeile 4: Die Seite bleibt an ihrer Position.<br>Zeile 5: Beim Verbreitern wird neu umgebrochen.<br>Zeile 6: Das ist das Ende des Inhalts.</div>
+<h2>14. Horizontal scrollen · getrennte Achsen</h2>
+<div id="scroll-cards" class="scroll-test"><div class="tile">Karte 1</div><div class="tile">Karte 2</div><div class="tile">Karte 3</div><div class="tile">Karte 4</div></div>
+<h2>15. Einzelne Rahmenkanten</h2>
+<div id="border-sides">Oben gestrichelt · rechts gepunktet<br>Unten doppelt · links durchgehend</div>
+<h2>16. Outline · Abstand ohne Layoutänderung</h2>
+<div id="outline-test" style="max-width: 320px; margin: 16px 0; padding: 12px; background: #dce6f4; outline: 2px solid #245bb3; outline-offset: 5px;">Die Kontur liegt 5 px außerhalb der Karte.</div>
+<h2>17. Text kürzen · ellipsis</h2>
+<div id="ellipsis-test" style="padding: 12px; background: #dce6f4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Dieser lange Text endet bei wenig Platz mit Auslassungspunkten und erscheint beim Verbreitern wieder vollständig.</div>
+<h2>18. Kontakt · outset · HSL</h2>
+<address id="contact-test" style="padding: 8px; border: 6px outset #7d98b8; color: hsl(215, 65%, 35%);">Tobias<br>Beispielstrasse 12</address>
+<h2>19. Beschreibungsliste · groove · word-wrap</h2>
+<dl id="description-test" style="padding: 8px; border: 6px groove #7d98b8;"><dt>Begriff</dt><dd id="word-wrap-test" style="word-wrap: break-word;">BeschreibungMitEinemSehrLangenZusammenhaengendenWort</dd></dl>
+<h2>20. Abbildung · ridge · HSLA</h2>
+<figure id="figure-test" style="padding: 8px; border: 6px ridge #7d98b8; background: hsla(215, 65%, 50%, 0.15);"><div>A + B = C</div><figcaption>Eine Darstellung mit Beschriftung.</figcaption></figure>
+<h2>21. Zusätzliche Umbrüche</h2>
+<div style="width: 180px; max-width: 100%; background: #dce6f4;">Gezielte<wbr>Umbruchstelle</div>
+<div style="width: 180px; max-width: 100%; word-break: break-all;">break-all: ABCDEFGHIJKLMNOPQRST</div>
+<div style="width: 180px; max-width: 100%; overflow-wrap: anywhere;">anywhere: ABCDEFGHIJKLMNOPQRST</div>
+<h2>22. Listenmarker innen · list-style</h2>
+<ol id="inside-list" style="padding: 0; max-width: 280px; list-style: lower-alpha inside;"><li>Dieser Eintrag zeigt, dass die zweite Zeile wieder ganz links beginnt.</li></ol>
+<h2>23. Prozentabstände · negative Margin</h2>
+<div id="percent-spacing" style="background: #dce6f4; margin: 3%; padding: 5%;"><div style="background: #adc5e5; height: 30px;">Erste Fläche</div><div style="background: #c9dded; margin-top: -6px; margin-left: 8px;">6 px überlappend</div></div>
+<h2>24. font · inherit · initial · unset</h2>
+<div id="font-short" style="font: italic bold 20px/1.5 Roboto, sans-serif; color: #245bb3;"><span>Kurzform</span> <code style="font: inherit;">geerbt</code><br><b style="font-weight: initial;">Normal</b> <i style="font-style: unset;">weiter kursiv</i></div>
+<h2>25. Gemeinsame Transparenz</h2>
+<div id="opacity-test" style="opacity: .6; padding: 8px; background: #245bb3; color: white;">Text und Fläche mit 60 % Deckkraft.<div style="opacity: .5; background: #9ac7eb; color: #102a4e;">Dieses Kind zusätzlich mit 50 %.</div></div>
+<h2>26. Blockbild · Bilder als Flexitems</h2>
+<img id="block-image" src="landschaft.png" alt="Landschaft" width="120" height="74" style="display: block; margin: 8px auto;">
+<div id="flex-images" style="display: flex; gap: 12px;"><img src="landschaft.png" alt="Landschaft" width="120" height="74" style="flex: 1; min-width: 0; height: 74px; object-fit: cover;"><img src="landschaft.png" alt="Landschaft" width="120" height="74" style="flex: 2; min-width: 0; height: 74px; object-fit: cover;"></div>
+<h2>27. Ellipsis beim Scrollen</h2>
+<div id="scroll-ellipsis" style="padding: 8px; background: #dce6f4; overflow: auto; white-space: nowrap; text-overflow: ellipsis;">Beim horizontalen Scrollen werden weitere Zeichen sichtbar. Ganz am Ende verschwinden die Auslassungspunkte.</div>
+<h2>28. em und rem</h2>
+<p>Root: 20 px · Elternschrift: 25 px · Abstand: .5rem = 10 px</p>
+<div id="relative-units"><div id="relative-em">1.2em = 30 px<br>Padding: .5em = 15 px</div><div id="relative-rem">1rem = 20 px<br>Padding: .5em = 10 px</div></div>
+<h2 id="form-preview-heading">29. Formular-Test</h2>
+<form id="form-preview" aria-labelledby="form-preview-heading" onsubmit="event.preventDefault(); this.querySelector('output').textContent = 'Button geklickt.';" onreset="this.querySelector('output').textContent = ''">
+<div class="field"><label for="preview-email">E-Mail</label><input id="preview-email" name="email" type="email" placeholder="name@example.com" maxlength="80" autofocus></div>
+<div class="field"><label for="preview-url">Webadresse</label><input id="preview-url" name="website" type="url" placeholder="https://example.com"></div>
+<div class="field"><label for="preview-message">Nachricht (mindestens 5 Zeichen, optional)</label><textarea id="preview-message" name="message" rows="3" minlength="5" placeholder="Deine Nachricht"></textarea></div>
+<div class="field"><label for="preview-mode">Modus (K oder S tippen)</label><select id="preview-mode" name="mode"><optgroup label="Verfügbar"><option value="standard" selected>Standard</option><option value="compact">Kompakt</option></optgroup><optgroup label="Geplant" disabled><option value="later">Bald verfügbar</option></optgroup></select></div>
+<div class="field"><label for="preview-volume">Lautstärke (0–100)</label><input id="preview-volume" name="volume" type="range" min="0" max="100" step="1" value="50"></div>
+<div class="field"><label for="preview-quantity">Anzahl (1–10)</label><input id="preview-quantity" name="quantity" type="number" min="1" max="10" step="1" value="2"></div>
+<div class="field"><label for="preview-progress">Fortschritt (60 %)</label><progress id="preview-progress" value="60" max="100">60 %</progress></div>
+<div class="field"><label for="preview-meter">Auslastung (70 %)</label><meter id="preview-meter" min="0" max="100" low="40" high="80" optimum="20" value="70">70 %</meter></div>
+<fieldset id="preview-options"><legend>Auswahl</legend>
+<label><input type="checkbox" name="remember"> Auswahl merken</label>
+<div class="choices"><label><input type="radio" name="choice" value="a" checked> Option A</label><label><input type="radio" name="choice" value="b"> Option B</label></div>
+</fieldset>
+<div class="actions"><button type="submit">Testen</button><button type="button" disabled>Deaktiviert</button><button type="reset">Zurücksetzen</button></div>
+<output id="preview-result" aria-live="polite"></output>
+</form>
+<h2>30. Aufklappbarer Inhalt</h2>
+<details id="preview-details"><summary>Weitere Informationen</summary><p>Dieser Inhalt erscheint beim Aufklappen.</p></details>
+<p>Dieser Text steht unter dem Aufklappbereich.</p>
+<h2>31. Feste Tabellenaufteilung: 100px, 20%, Rest</h2>
+<table id="table-basic">
+<caption style="padding-bottom:6px">Bestellung · Beschriftung oben</caption>
+<colgroup style="background: white"><col style="width: 100px; background: #e8eef8"><col style="width: 20%"><col></colgroup>
+<thead><tr><th rowspan="2">Artikel</th><th colspan="2">Bestellung</th></tr><tr><th>Anzahl</th><th>Beschreibung</th></tr></thead>
+<tbody>
+<tr><td>Tastatur</td><td>1</td><td>Kompakt</td></tr>
+<tr style="background:#d7e9db"><td>Monitor</td><td>2</td><td>Diese längere Beschreibung bricht bei einem schmalen Fenster um.</td></tr>
+</tbody>
+</table>
+<table id="table-empty" style="margin-top:12px;empty-cells:hide;background:#fff0ca">
+<caption style="caption-side:bottom;padding-top:6px">Leer: ausgeblendet · sichtbar</caption>
+<tbody style="background:#dce6f4"><tr><td>Zellen</td><td></td><td style="empty-cells:show"></td></tr></tbody>
+<tfoot style="background:#d7e9db"><tr><td colspan="3">Tabellenfuß</td></tr></tfoot>
+</table>
+<h2>32. Mauszeiger</h2>
+<table id="cursor-test">
+<tr><td style="cursor:auto">auto</td><td style="cursor:default">default</td><td style="cursor:pointer">pointer</td></tr>
+<tr><td style="cursor:text">text</td><td style="cursor:not-allowed">not-allowed</td><td style="cursor:no-drop">no-drop</td></tr>
+<tr><td style="cursor:help">help</td><td style="cursor:crosshair">crosshair</td><td style="cursor:n-resize">n-resize</td></tr>
+<tr><td style="cursor:e-resize">e-resize</td><td style="cursor:s-resize">s-resize</td><td style="cursor:w-resize">w-resize</td></tr>
+<tr><td style="cursor:ne-resize">ne-resize</td><td style="cursor:nw-resize">nw-resize</td><td style="cursor:se-resize">se-resize</td></tr>
+<tr><td style="cursor:sw-resize">sw-resize</td><td style="cursor:ew-resize">ew-resize</td><td style="cursor:ns-resize">ns-resize</td></tr>
+<tr><td style="cursor:nesw-resize">nesw-resize</td><td style="cursor:nwse-resize">nwse-resize</td><td style="cursor:all-scroll">all-scroll</td></tr>
+<tr><td style="cursor:move">move</td><td style="cursor:zoom-in">zoom-in</td><td style="cursor:zoom-out">zoom-out</td></tr>
+<tr><td style="cursor:none">none</td><td style="cursor:cell">cell</td><td style="cursor:vertical-text">vertical-text</td></tr>
+<tr><td style="cursor:col-resize">col-resize</td><td style="cursor:row-resize">row-resize</td><td style="cursor:alias">alias</td></tr>
+<tr><td style="cursor:grab">grab</td><td style="cursor:grabbing">grabbing</td><td style="cursor:copy">copy</td></tr>
+<tr><td colspan="3" style="cursor:url(rbxassetid://119334102167665), default">url · Roblox-Asset, Browser-Fallback</td></tr>
+</table>
+<h2>33. Tabellen: Höhen und Raster</h2>
+<div style="height:160px"><div id="css-table" style="display:table;width:100%;height:75%;direction:rtl">
+<div style="display:table-row;height:50%"><div class="css-cell" style="display:table-cell">Rechts · 50 %</div><div class="css-cell" style="display:table-cell">Links</div></div>
+<div style="display:table-row"><div class="css-cell" style="display:table-cell">CSS-Tabelle</div><div class="css-cell" style="display:table-cell">120 px hoch</div></div>
+</div></div>
+<table id="table-tracks" style="width:240px;table-layout:fixed;border-collapse:collapse">
+<col><col style="visibility:collapse"><col>
+<tr><td rowspan="3">rowspan 3</td><td>Weg</td><td>Sichtbar</td></tr>
+<tr style="visibility:collapse"><td>Weg</td><td>Weg</td></tr>
+</table>
+<h2>34. Bildfilter</h2>
+<div id="image-filters">
+<p>Original <img src="landschaft.png" alt="Original"></p>
+<p>brightness(150%) <img src="landschaft.png" style="filter:brightness(150%)" alt="Heller"></p>
+<p>contrast(180%) <img src="landschaft.png" style="filter:contrast(180%)" alt="Kontrast"></p>
+<p>grayscale(100%) <img src="landschaft.png" style="filter:grayscale(100%)" alt="Graustufen"></p>
+<p>invert(100%) <img src="landschaft.png" style="filter:invert(100%)" alt="Invertiert"></p>
+<p>sepia(100%) <img src="landschaft.png" style="filter:sepia(100%)" alt="Sepia"></p>
+<p>saturate(200%) <img src="landschaft.png" style="filter:saturate(200%)" alt="Sättigung"></p>
+<p>hue-rotate(90deg) <img src="landschaft.png" style="filter:hue-rotate(90deg)" alt="Farbton"></p>
+<p>opacity(50%) <img src="landschaft.png" style="filter:opacity(50%)" alt="Transparent"></p>
+<p>Kombiniert <img src="landschaft.png" style="filter:sepia(60%) contrast(120%)" alt="Kombination"></p>
+<p>blur(2px) <img src="landschaft.png" style="filter:blur(2px)" alt="Weichgezeichnet"></p>
+<p>Graustufen + blur(4px) <img src="landschaft.png" style="filter:grayscale(100%) blur(4px)" alt="Weiche Graustufen"></p>
+<p>drop-shadow <img src="landschaft.png" style="border-radius:20px;filter:drop-shadow(4px 4px 3px rgba(0,0,0,.5))" alt="Weicher Schatten"></p>
+<p>Zwei Schatten <img src="landschaft.png" style="filter:drop-shadow(-4px 0 #e86b35) drop-shadow(4px 4px 2px #325fa8)" alt="Verkettete Schatten"></p>
+</div>
+</body>
+</html>

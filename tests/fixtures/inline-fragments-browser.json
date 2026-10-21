@@ -1,0 +1,15 @@
+{
+  "source": "http://localhost:8000/html-css-stress-css-visual/index.html?feasible=20261001#css-box-decoration-break",
+  "date": "2026-10-01",
+  "font": "14px Arial",
+  "contentWidth": 130,
+  "space": 3.875,
+  "words": [
+    {"text": "Alpha", "width": 35.8125, "x": 8, "line": 1},
+    {"text": "Beta", "width": 28.8125, "x": 47.6875, "line": 1},
+    {"text": "Gamma", "width": 49.796875, "x": 8, "line": 2},
+    {"text": "Delta", "width": 32.6875, "x": 61.671875, "line": 2},
+    {"text": "Epsilon", "width": 45.921875, "x": 8, "line": 3}
+  ],
+  "fragmentWidths": [84.5, 102.359375, 61.921875]
+}

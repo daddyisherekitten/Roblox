@@ -1,0 +1,25 @@
+{
+  "name": "Wayline Independent Browser",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Browser": { "$path": "src/Browser" }
+    },
+    "ServerScriptService": {
+      "$ignoreUnknownInstances": true,
+      "BrowserPersistenceServer": {
+        "$path": "examples/compat/RetiredPersistence.server.luau",
+        "$properties": { "Disabled": true }
+      },
+      "HTMLStorageServer": {
+        "$path": "examples/compat/RetiredPersistence.server.luau",
+        "$properties": { "Disabled": true }
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "BrowserDemo": { "$path": "examples/Browser.client.luau" }
+      }
+    }
+  }
+}

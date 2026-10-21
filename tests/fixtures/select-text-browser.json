@@ -1,0 +1,73 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "standard": "https://html.spec.whatwg.org/multipage/form-elements.html#get-html-aware-text-content",
+  "cases": [
+    {
+      "name": "ASCII whitespace and non-ASCII spaces",
+      "html": "<!doctype html><select id=s style=\"appearance:base-select\"><option id=o > \n A  <b>B</b>\tC &#160; D &#160; </option></select>",
+      "code": "const s=document.getElementById('s'),o=document.getElementById('o');record(o.text,o.value,o.label,s.value);o.label='';record(o.text,o.value,o.label);o.removeAttribute('label');record(o.label);o.text=' Changed  text ';record(o.text,o.value,o.label,o.textContent);",
+      "expected": [
+        "A B C   D  |A B C   D  |A B C   D  |A B C   D  ",
+        "A B C   D  |A B C   D  |",
+        "A B C   D  ",
+        "Changed text|Changed text|Changed text| Changed  text "
+      ]
+    },
+    {
+      "name": "Images do not enter text or value",
+      "html": "<!doctype html><select id=s style=\"appearance:base-select\"><option id=o >A <img alt=\"picture\"> B</option></select>",
+      "code": "const s=document.getElementById('s'),o=document.getElementById('o');record(o.text,o.value,o.label,s.value);o.label='';record(o.text,o.value,o.label);o.removeAttribute('label');record(o.label);o.text=' Changed  text ';record(o.text,o.value,o.label,o.textContent);",
+      "expected": [
+        "A B|A B|A B|A B",
+        "A B|A B|",
+        "A B",
+        "Changed text|Changed text|Changed text| Changed  text "
+      ]
+    },
+    {
+      "name": "An empty label reflects empty but text supplies the value",
+      "html": "<!doctype html><select id=s style=\"appearance:base-select\"><option id=o label=\"\">A <img alt=\"picture\"> B</option></select>",
+      "code": "const s=document.getElementById('s'),o=document.getElementById('o');record(o.text,o.value,o.label,s.value);o.label='';record(o.text,o.value,o.label);o.removeAttribute('label');record(o.label);o.text=' Changed  text ';record(o.text,o.value,o.label,o.textContent);",
+      "expected": [
+        "A B|A B||A B",
+        "A B|A B|",
+        "A B",
+        "Changed text|Changed text|Changed text| Changed  text "
+      ]
+    },
+    {
+      "name": "A specified label and value remain uncollapsed",
+      "html": "<!doctype html><select id=s style=\"appearance:base-select\"><option id=o label=\"  L   M  \" value=\"  V   W  \">Text</option></select>",
+      "code": "const s=document.getElementById('s'),o=document.getElementById('o');record(o.text,o.value,o.label,s.value);o.label='';record(o.text,o.value,o.label);o.removeAttribute('label');record(o.label);o.text=' Changed  text ';record(o.text,o.value,o.label,o.textContent);",
+      "expected": [
+        "Text|  V   W  |  L   M  |  V   W  ",
+        "Text|  V   W  |",
+        "Text",
+        "Changed text|  V   W  |Changed text| Changed  text "
+      ]
+    },
+    {
+      "name": "HTML and SVG scripts are excluded",
+      "html": "<!doctype html><select id=s style=\"appearance:base-select\"><option id=o >A<script>ignored()</script><svg><script>ignoredSvg()</script><text>S</text></svg> B</option></select>",
+      "code": "const s=document.getElementById('s'),o=document.getElementById('o');record(o.text,o.value,o.label,s.value);o.label='';record(o.text,o.value,o.label);o.removeAttribute('label');record(o.label);o.text=' Changed  text ';record(o.text,o.value,o.label,o.textContent);",
+      "expected": [
+        "AS B|AS B|AS B|AS B",
+        "AS B|AS B|",
+        "AS B",
+        "Changed text|Changed text|Changed text| Changed  text "
+      ]
+    },
+    {
+      "name": "Style text is retained; templates have no DOM child text",
+      "html": "<!doctype html><select id=s style=\"appearance:base-select\"><option id=o >A<style>visible-as-text</style><template>ignored-template</template> B</option></select>",
+      "code": "const s=document.getElementById('s'),o=document.getElementById('o');record(o.text,o.value,o.label,s.value);o.label='';record(o.text,o.value,o.label);o.removeAttribute('label');record(o.label);o.text=' Changed  text ';record(o.text,o.value,o.label,o.textContent);",
+      "expected": [
+        "Avisible-as-text B|Avisible-as-text B|Avisible-as-text B|Avisible-as-text B",
+        "Avisible-as-text B|Avisible-as-text B|",
+        "Avisible-as-text B",
+        "Changed text|Changed text|Changed text| Changed  text "
+      ]
+    }
+  ]
+}

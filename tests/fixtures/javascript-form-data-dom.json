@@ -1,0 +1,98 @@
+[
+  {
+    "name": "FormData successful controls and tree order",
+    "html": "<input name=\"before\" form=\"f\" value=\"0\"><form id=\"f\"><input name=\"text\" value=\"old\"><input name=\"off\" disabled value=\"no\"><input name=\"c\" type=\"checkbox\" checked><input name=\"c\" type=\"checkbox\" value=\"skip\"><input name=\"r\" type=\"radio\" value=\"A\" checked><input name=\"r\" type=\"radio\" value=\"B\" checked><button name=\"button\" value=\"go\">Go</button><input type=\"reset\" name=\"reset\" value=\"skip\"><input value=\"nameless\"><textarea name=\"area\">one\ntwo</textarea><input type=\"hidden\" name=\"_charset_\" value=\"legacy\"><output name=\"output\">skip</output></form><input name=\"after\" form=\"f\" value=\"9\">",
+    "source": "record(Array.from(new FormData(document.getElementById('f'))).map(function(p){return p[0]+'='+p[1];}).join('|'));",
+    "expected": [
+      "before=0|text=old|c=on|r=B|area=one\ntwo|_charset_=UTF-8|after=9"
+    ]
+  },
+  {
+    "name": "FormData uses dirty current values and options",
+    "html": "<form id=\"f\"><input id=\"i\" name=\"i\" value=\"old\"><textarea id=\"t\" name=\"t\">default</textarea><select id=\"s\" name=\"s\"><option value=\"A\">A</option><option value=\"B\" selected>B</option></select><select id=\"m\" name=\"m\" multiple><option id=\"m1\" value=\"one\" selected>one</option><option id=\"m2\" value=\"two\">two</option></select></form>",
+    "source": "document.getElementById('i').value='edited';document.getElementById('i').defaultValue='later';document.getElementById('t').value='current';document.getElementById('s').value='A';document.getElementById('m1').selected=false;document.getElementById('m2').selected=true;record(Array.from(new FormData(document.getElementById('f'))).map(function(p){return p.join('=');}).join('|'));",
+    "expected": [
+      "i=edited|t=current|s=A|m=two"
+    ]
+  },
+  {
+    "name": "FormData disabled fieldsets legends datalist and option groups",
+    "html": "<form id=\"f\"><fieldset disabled><legend><input name=\"exempt\" value=\"yes\"></legend><legend><input name=\"second\" value=\"no\"></legend><input name=\"blocked\" value=\"no\"><fieldset><legend><input name=\"nested\" value=\"no\"></legend></fieldset></fieldset><datalist><input name=\"data\" value=\"no\"></datalist><select name=\"s\" multiple><option value=\"a\" selected>A</option><option value=\"b\" disabled selected>B</option><optgroup disabled><option value=\"c\" selected>C</option></optgroup></select><input name=\"hidden\" value=\"yes\" style=\"display:none\"><input readonly name=\"readonly\" value=\"yes\"></form>",
+    "source": "record(Array.from(new FormData(document.getElementById('f'))).map(function(p){return p.join('=');}).join('|'));",
+    "expected": [
+      "exempt=yes|s=a|hidden=yes|readonly=yes"
+    ],
+    "browserExpected": [
+      "exempt=yes|data=no|s=a|hidden=yes|readonly=yes"
+    ],
+    "browserDifference": "Current Chromium includes controls inside datalist; WHATWG constructing-entry-list step 5.1 explicitly skips them. Engine follows the standard."
+  },
+  {
+    "name": "FormData submitter selection and image coordinates",
+    "html": "<form id=\"f\"><input name=\"a\" value=\"1\"><button id=\"b\" name=\"action\" value=\"save\">save</button><input id=\"image\" type=\"image\" name=\"img\"><input id=\"unnamed\" type=\"image\"></form>",
+    "source": "const f=document.getElementById('f');for(const id of ['b','image','unnamed'])record(Array.from(new FormData(f,document.getElementById(id))).map(function(p){return p.join('=');}).join('|'));",
+    "expected": [
+      "a=1|action=save",
+      "a=1|img.x=0|img.y=0",
+      "a=1|x=0|y=0"
+    ]
+  },
+  {
+    "name": "FormData validates form and submitter ownership",
+    "html": "<form id=\"f\"><input id=\"text\"><button id=\"reset\" type=\"reset\"></button></form><form id=\"other\"><button id=\"foreign\"></button></form>",
+    "source": "const f=document.getElementById('f');for(const run of [function(){new FormData(null);},function(){new FormData(document.body);},function(){new FormData(f,document.getElementById('text'));},function(){new FormData(f,document.getElementById('reset'));},function(){new FormData(f,document.getElementById('foreign'));}])try{run();}catch(e){record(e.name);}record(Array.from(new FormData(f,null)).length);",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "NotFoundError",
+      "0"
+    ]
+  },
+  {
+    "name": "FormData event mutation clones lists and prevents recursive construction",
+    "html": "<form id=\"f\"><input name=\"a\" value=\"1\"></form>",
+    "source": "const f=document.getElementById('f');let captured;f.addEventListener('formdata',function(e){captured=e.formData;record(e instanceof FormDataEvent);record(e.bubbles&&!e.cancelable);e.formData.append('b','2');try{new FormData(f);}catch(err){record(err.name);}});const result=new FormData(f);record(result.get('b'));record(result===captured);captured.set('a','later');record(result.get('a'));",
+    "expected": [
+      "true",
+      "true",
+      "InvalidStateError",
+      "2",
+      "false",
+      "1"
+    ]
+  },
+  {
+    "name": "FormData event bubbles and constructor validates dictionary",
+    "html": "<form id=\"f\"></form>",
+    "source": "document.body.addEventListener('formdata',function(e){record(e.target.id);});new FormData(document.getElementById('f'));const data=new FormData();const e=new FormDataEvent('formdata',{formData:data});record(e instanceof Event);record(e.formData===data);record(e.bubbles);try{new FormDataEvent('bad',{});}catch(err){record(err.name);}try{FormDataEvent('bad',{});}catch(err){record(err.name);}",
+    "expected": [
+      "f",
+      "true",
+      "true",
+      "false",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "FormData dirname uses inherited and auto strong direction",
+    "html": "<form id=\"f\" dir=\"rtl\"><input name=\"a\" value=\"abc\" dirname=\"a.dir\"><input name=\"b\" value=\"123 שלום\" dir=\"auto\" dirname=\"b.dir\"><input name=\"c\" value=\"123 abc\" dir=\"auto\" dirname=\"c.dir\"><textarea name=\"d\" dir=\"ltr\" dirname=\"d.dir\">مرحبا</textarea></form>",
+    "source": "const data=new FormData(document.getElementById('f'));record(['a','b','c','d'].map(function(k){return data.get(k+'.dir');}).join(','));",
+    "expected": [
+      "rtl,rtl,ltr,ltr"
+    ]
+  },
+  {
+    "name": "FormData empty file controls and detached forms",
+    "html": "<form id=\"f\"><input name=\"file\" type=\"file\"></form>",
+    "source": "const form=document.getElementById('f');form.remove();const file=new FormData(form).get('file');record(file instanceof File);record(file.name);record(file.type);record(file.size);",
+    "expected": [
+      "true",
+      "",
+      "application/octet-stream",
+      "0"
+    ]
+  }
+]

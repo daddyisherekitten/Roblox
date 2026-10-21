@@ -1,0 +1,334 @@
+{
+  "entry": "/verzeichnis/index.html",
+  "pages": [
+    {
+      "route": "/verzeichnis/index.html",
+      "module": "Nachtverzeichnis",
+      "title": "Das Nachtverzeichnis",
+      "home": true,
+      "description": "Adressen für die Stunden, in denen sonst niemand mehr antwortet."
+    },
+    {
+      "route": "/verzeichnis/hinweis.html",
+      "module": "Nachtverzeichnis_Hinweis",
+      "title": "Anmerkung des Abschreibers",
+      "home": false,
+      "description": "Ein Beiblatt zur dritten Abschrift."
+    },
+    {
+      "route": "/fundbuero-04/index.html",
+      "module": "Fundbuero04",
+      "title": "Fundbüro 04",
+      "home": true,
+      "description": "Anonymes Fundarchiv für wiederhergestellte Daten aus geschlossenen Knoten. Datensatz 017 ist nach seiner Löschung erneut aufgetaucht.",
+      "interaction": {
+        "control": "suchen",
+        "event": "click",
+        "result": "treffer",
+        "before": "6 Einträge im öffentlichen Bestand.",
+        "after": "1 Eintrag im öffentlichen Bestand.",
+        "value": "sitzung",
+        "probe": "document.getElementById('suchwort').value='sitzung';document.getElementById('suchen').click();if(document.getElementById('treffer').textContent.indexOf('1 Eintrag')<0)throw new Error('Fundarchivfilter');if(document.getElementById('fund-17').style.display==='none')throw new Error('Sitzungsfragment fehlt');"
+      }
+    },
+    {
+      "route": "/fundbuero-04/objekt-17.html",
+      "module": "Fundbuero04_Objekt17",
+      "title": "Fundbüro 04 · Datensatz 017",
+      "home": false,
+      "description": "Eine gelöschte Sitzung mit gültiger Signatur und einer unmöglichen Teilnehmerliste."
+    },
+    {
+      "route": "/letzte-schicht/index.html",
+      "module": "LetzteSchicht",
+      "title": "Letzte Schicht",
+      "home": true,
+      "description": "Geschlossenes Insiderforum mit widerrufenen Kennungen, entfernten Beiträgen und einer Lesebestätigung von einem fremden Spiegel.",
+      "interaction": {
+        "control": "pruefen",
+        "event": "click",
+        "result": "lesestatus",
+        "before": "Keine Archivkennung eingegeben.",
+        "after": "Lesestatus: bestätigt.",
+        "value": "17",
+        "probe": "document.getElementById('kennung').value='17';document.getElementById('pruefen').click();if(document.getElementById('lesestatus').textContent.indexOf('Lesestatus: bestätigt.')<0)throw new Error('Lesebestaetigung');if(document.getElementById('fundhinweis').hidden)throw new Error('Fundhinweis verborgen');"
+      }
+    },
+    {
+      "route": "/letzte-schicht/protokoll.html",
+      "module": "LetzteSchicht_Protokoll",
+      "title": "Letzte Schicht · Nachtprotokoll",
+      "home": false,
+      "description": "Sechs archivierte Forenbeiträge über die Rückseite eines internen Aushangs."
+    },
+    {
+      "route": "/kanal-sechs/index.html",
+      "module": "KanalSechs",
+      "title": "Kanal Sechs",
+      "home": true,
+      "description": "Verborgener Übertragungsverteiler mit signierten Sendeblöcken und einer doppelten Empfangsquittung um 03:17.",
+      "interaction": {
+        "control": "abgleichen",
+        "event": "click",
+        "result": "empfangstext",
+        "before": "Kein bestätigtes Fragment ausgewählt.",
+        "after": "BLOCK 013 / SIGNATUR GÜLTIG",
+        "value": "4",
+        "probe": "document.getElementById('frequenz').value='4';document.getElementById('abgleichen').click();if(document.getElementById('empfangstext').textContent.indexOf('BLOCK 013 / SIGNATUR GÜLTIG')<0)throw new Error('Sendeblock');if(document.getElementById('anzeige').textContent!=='6.170')throw new Error('Bandanzeige');"
+      }
+    },
+    {
+      "route": "/nullpost/index.html",
+      "module": "Nullpost",
+      "title": "Nullpost",
+      "home": true,
+      "description": "Anonyme Nachrichtenablage mit Postfach 017, lokal prüfbaren Entwürfen und einer Nachricht, die vor ihrem Postfach eintraf.",
+      "interaction": {
+        "control": "pruefen",
+        "event": "click",
+        "result": "zustand",
+        "before": "Der Ausgang ist leer.",
+        "after": "Entwurf geprüft:",
+        "probe": "document.getElementById('betreff').value='Archiv 017';document.getElementById('inhalt').value='Fenster bleibt geschlossen.';document.getElementById('pruefen').click();if(document.getElementById('zustand').textContent.indexOf('Entwurf geprüft:')<0)throw new Error('Entwurfspruefung');if(document.getElementById('vorschautext').textContent!=='Fenster bleibt geschlossen.')throw new Error('Nachrichtenvorschau');if(document.getElementById('vorschau').hidden)throw new Error('Vorschau verborgen');"
+      }
+    },
+    {
+      "route": "/nullpost/nachricht.html",
+      "module": "Nullpost_Nachricht",
+      "title": "Nullpost · Die Rückseite war beschrieben",
+      "home": false,
+      "description": "Eine gespeicherte Nachricht nennt die Einladung M17 und beschreibt eine Liste, die es nicht geben sollte."
+    },
+    {
+      "route": "/haus-ohne-nummer/index.html",
+      "module": "HausOhneNummer",
+      "title": "Haus ohne Nummer",
+      "home": true,
+      "description": "Einladungsbasierter Mitgliederknoten verborgener Dienste. Die alte Hausordnung warnt vor Schlüsseln, die den Besitzer gewechselt haben.",
+      "interaction": {
+        "control": "tuer",
+        "event": "click",
+        "result": "antwort",
+        "before": "Noch keine Kennung geprüft.",
+        "after": "Kennung M17 bestätigt.",
+        "value": "M17",
+        "probe": "document.getElementById('schluessel').value='M17';document.getElementById('tuer').click();if(document.getElementById('antwort').textContent.indexOf('Kennung M17 bestätigt.')<0)throw new Error('Einladungskennung');if(document.getElementById('raum17').hidden)throw new Error('Zugeordneter Raum verborgen');"
+      }
+    },
+    {
+      "route": "/nachtlinie/index.html",
+      "module": "Nachtlinie",
+      "title": "Nachtlinie",
+      "home": true,
+      "description": "Geschlossene Spiegelrouten. Ein Knoten antwortet mit einer gesperrten Kennung.",
+      "interaction": {
+        "control": "anzeigen",
+        "event": "click",
+        "result": "auskunft",
+        "value": "17",
+        "probe": "document.getElementById('linie').value='17';document.getElementById('anzeigen').click();if(document.getElementById('auskunft').textContent.indexOf('Ihrer Kennung')<0)throw new Error('N17 route did not change');if(document.getElementById(\"halt-a\").textContent!==\"einstieg.n17\"||document.getElementById(\"status-b\").textContent!==\"unbekannt\")throw new Error(\"N17 node status stale\");"
+      }
+    },
+    {
+      "route": "/nachtlinie/haltestelle.html",
+      "module": "Nachtlinie_Haltestelle",
+      "title": "Nachtlinie // Knoten ohne Kennung",
+      "home": false,
+      "description": "Interne Rückmeldung aus Route N17.",
+      "interaction": {
+        "control": "protokoll-button",
+        "event": "click",
+        "result": "protokoll",
+        "probe": "document.getElementById('protokoll-button').click();if(document.getElementById('protokoll').textContent.indexOf('03:19 / M')<0)throw new Error('N17 report missing');"
+      }
+    },
+    {
+      "route": "/zimmer-13/index.html",
+      "module": "Zimmer13",
+      "title": "Raum 13",
+      "home": true,
+      "description": "Ein geschlossener Kreis. Gelöschte Kennungen schreiben weiter.",
+      "interaction": {
+        "control": "suchen",
+        "event": "click",
+        "result": "zimmer-auskunft",
+        "value": "13",
+        "probe": "document.getElementById('zimmer').value='13';document.getElementById('suchen').click();if(document.getElementById('zimmer-auskunft').textContent.indexOf('Eine Sitzung')<0)throw new Error('Area13 lookup did not change');"
+      }
+    },
+    {
+      "route": "/zimmer-13/gaestebuch.html",
+      "module": "Zimmer13_Gaestebuch",
+      "title": "Raum 13 // Thread 000137",
+      "home": false,
+      "description": "Drei Beiträge aus der letzten Nacht. Keine Antworten mehr.",
+      "interaction": {
+        "control": "eintragen",
+        "event": "click",
+        "result": "gast-status",
+        "probe": "document.getElementById('gastname').value='archiv';document.getElementById('nachricht').value='Das Fenster ist offen.';document.getElementById('eintragen').click();if(document.getElementById('gast-status').textContent.indexOf('Hinweis von archiv')<0)throw new Error('Forum notice did not submit');"
+      }
+    },
+    {
+      "route": "/restlicht/index.html",
+      "module": "Restlicht",
+      "title": "Restlicht",
+      "home": true,
+      "description": "Zurückgezogene Bilder. Dossier 17 zeigt dieselbe Fassade von beiden Seiten.",
+      "interaction": {
+        "control": "frame-3",
+        "event": "click",
+        "result": "bild-text",
+        "probe": "document.getElementById('frame-3').click();if(document.getElementById('bild-text').textContent.indexOf('Innenansicht')<0)throw new Error('Photo frame did not change');"
+      }
+    },
+    {
+      "route": "/echoarchiv/index.html",
+      "module": "Echoarchiv",
+      "title": "Echoarchiv",
+      "home": true,
+      "description": "Anonyme Tonträger und unfreigegebene Abschriften. Band 04 verändert sich.",
+      "interaction": {
+        "control": "pruefen",
+        "event": "click",
+        "result": "pruefung",
+        "probe": "document.getElementById('pruefen').click();if(document.getElementById('pruefung').textContent.indexOf('Eine Stimme')<0)throw new Error('Tape check did not change');"
+      }
+    },
+    {
+      "route": "/echoarchiv/band-04.html",
+      "module": "Echoarchiv_Band04",
+      "title": "Echoarchiv // Band 04",
+      "home": false,
+      "description": "Die entfernte Zeile aus einer unkenntlich gemachten Aufnahme.",
+      "interaction": {
+        "control": "fehlstelle",
+        "event": "click",
+        "result": "fehlstelle-text",
+        "probe": "document.getElementById('fehlstelle').click();if(document.getElementById('fehlstelle-text').textContent.indexOf('hinter ihm')<0)throw new Error('Removed transcript line missing');"
+      }
+    },
+    {
+      "route": "/blindes-fenster/index.html",
+      "module": "BlindesFenster",
+      "title": "Blindes Fenster",
+      "home": true,
+      "description": "Private Kamerabestände. Die letzte Sitzung ist noch offen.",
+      "interaction": {
+        "control": "abrufen",
+        "event": "click",
+        "result": "zugriff",
+        "value": "ost",
+        "probe": "document.getElementById('ausschnitt').value='ost';document.getElementById('abrufen').click();if(document.getElementById('zugriff').textContent.indexOf('Kennung: Ihre.')<0)throw new Error('Camera access log did not change');"
+      }
+    },
+    {
+      "route": "/stillstand/index.html",
+      "module": "Stillstand",
+      "title": "Stillstand",
+      "home": true,
+      "description": "Versiegelte Hinterlegungen warten auf das nächste Zeichen ihres Absenders.",
+      "interaction": {
+        "control": "clock-check",
+        "event": "click",
+        "result": "clock-result",
+        "after": "QUITTUNG FEHLT",
+        "probe": "document.getElementById(\"clock-check\").click();if(document.getElementById(\"clock-result\").textContent.indexOf(\"QUITTUNG FEHLT\")<0)throw new Error(\"Stillstand interaction failed\");"
+      }
+    },
+    {
+      "route": "/stillstand/auftrag.html",
+      "module": "Stillstand_Auftrag",
+      "title": "Stillstand — Hinterlegung",
+      "home": false,
+      "description": "Vormerkung einer neuen Hinterlegung mit Kennung und Quittungsintervall.",
+      "interaction": {
+        "control": "release-send",
+        "event": "click",
+        "result": "release-result",
+        "after": "Auftrag M-17 vorgemerkt.",
+        "probe": "document.getElementById(\"release-key\").value=\"M-17\";document.getElementById(\"release-send\").click();if(document.getElementById(\"release-result\").textContent.indexOf(\"Auftrag M-17 vorgemerkt.\")<0)throw new Error(\"Stillstand_Auftrag interaction failed\");",
+        "input": "release-key",
+        "value": "M-17"
+      }
+    },
+    {
+      "route": "/gegenstelle/index.html",
+      "module": "Gegenstelle",
+      "title": "Gegenstelle",
+      "home": true,
+      "description": "Ein anonymer Vermittlungsknoten mit zurückgezogenen Verbindungen.",
+      "interaction": {
+        "control": "terminal-send",
+        "event": "click",
+        "result": "terminal-result",
+        "after": "AKTE 17",
+        "probe": "document.getElementById(\"terminal-command\").value=\"17\";document.getElementById(\"terminal-send\").click();if(document.getElementById(\"terminal-result\").textContent.indexOf(\"AKTE 17\")<0)throw new Error(\"Gegenstelle interaction failed\");",
+        "input": "terminal-command",
+        "value": "17"
+      }
+    },
+    {
+      "route": "/tiefenmessung/index.html",
+      "module": "Tiefenmessung",
+      "title": "Tiefenmessung",
+      "home": true,
+      "description": "Ungeführte Sicherungen, unvollständige Abzüge und eine auffällige Lücke.",
+      "interaction": {
+        "control": "depth-check",
+        "event": "click",
+        "result": "depth-result",
+        "after": "M-17: KEIN GEGENSTÜCK.",
+        "probe": "document.getElementById(\"depth-check\").click();if(document.getElementById(\"depth-result\").textContent.indexOf(\"M-17: KEIN GEGENST\\u00dcCK.\")<0)throw new Error(\"Tiefenmessung interaction failed\");"
+      }
+    },
+    {
+      "route": "/tiefenmessung/messreihe.html",
+      "module": "Tiefenmessung_Messreihe",
+      "title": "Tiefenmessung — Segmentliste",
+      "home": false,
+      "description": "Rekonstruierte Blattfolge des Bestands M. Das siebzehnte Segment fehlt.",
+      "interaction": {
+        "control": "series-read",
+        "event": "click",
+        "result": "series-result",
+        "after": "SEGMENT 17: vor der Sicherung entfernt.",
+        "probe": "document.getElementById(\"series-segment\").value=\"17\";document.getElementById(\"series-read\").click();if(document.getElementById(\"series-result\").textContent.indexOf(\"SEGMENT 17: vor der Sicherung entfernt.\")<0)throw new Error(\"Tiefenmessung_Messreihe interaction failed\");",
+        "input": "series-segment",
+        "value": "17"
+      }
+    },
+    {
+      "route": "/fremde-frequenz/index.html",
+      "module": "FremdeFrequenz",
+      "title": "Fremde Frequenz",
+      "home": true,
+      "description": "Ein abgeschalteter Bildträger hat seinen Rückkanal behalten.",
+      "interaction": {
+        "control": "channel-tune",
+        "event": "click",
+        "result": "channel-result",
+        "after": "TRÄGER 03:17 / M.",
+        "probe": "document.getElementById(\"channel-code\").value=\"0317\";document.getElementById(\"channel-tune\").click();if(document.getElementById(\"channel-result\").textContent.indexOf(\"TR\\u00c4GER 03:17 / M.\")<0)throw new Error(\"FremdeFrequenz interaction failed\");",
+        "input": "channel-code",
+        "value": "0317"
+      }
+    },
+    {
+      "route": "/papiermond/index.html",
+      "module": "Papiermond",
+      "title": "Papiermond",
+      "home": true,
+      "description": "Ein geschlossener Tausch von Herkunftsvermerken zu Unterlagen, die nie existiert haben sollen.",
+      "interaction": {
+        "control": "paper-reveal",
+        "event": "click",
+        "result": "paper-result",
+        "after": "BLATT 17: Zwei gültige Eingänge",
+        "probe": "document.getElementById(\"paper-sheet\").value=\"17\";document.getElementById(\"paper-reveal\").click();if(document.getElementById(\"paper-result\").textContent.indexOf(\"BLATT 17: Zwei g\\u00fcltige Eing\\u00e4nge\")<0)throw new Error(\"Papiermond interaction failed\");",
+        "input": "paper-sheet",
+        "value": "17"
+      }
+    }
+  ]
+}

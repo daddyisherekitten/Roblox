@@ -1,0 +1,231 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "captured": "2026-10-10",
+  "standards": [
+    "https://dom.spec.whatwg.org/#concept-element-attributes-set",
+    "https://dom.spec.whatwg.org/#concept-element-attributes-set-value",
+    "https://dom.spec.whatwg.org/#concept-node-equals",
+    "https://dom.spec.whatwg.org/#dom-namednodemap",
+    "https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#reflecting-content-attributes-in-idl-attributes",
+    "https://html.spec.whatwg.org/multipage/parsing.html#serialising-html-fragments",
+    "https://drafts.csswg.org/selectors-4/#attribute-selectors"
+  ],
+  "cases": [
+    {
+      "name": "same qualified name three expanded identities",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'title','one');e.setAttributeNS(B,'title','two');e.title='plain';return JSON.stringify([attrs(),e.title,e.getAttribute('title'),e.getAttributeNS(A,'title'),e.getAttributeNS(B,'title'),e.getAttributeNames(),e.outerHTML]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,\"urn:one\",\"one\"],[\"title\",\"title\",null,\"urn:two\",\"two\"],[\"title\",\"title\",null,null,\"plain\"]],\"plain\",\"one\",\"one\",\"two\",[\"id\",\"title\",\"title\",\"title\"],\"<div id=\\\"e\\\" title=\\\"one\\\" title=\\\"two\\\" title=\\\"plain\\\"></div>\"]"
+    },
+    {
+      "name": "qualified setters removals and toggles choose first identity",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'title','one');e.setAttributeNS(B,'title','two');e.title='plain';const out=[];e.setAttribute('TITLE','changed');out.push(attrs());e.removeAttribute('title');out.push(attrs());e.toggleAttribute('title',false);out.push(attrs());e.toggleAttribute('title',true);out.push(attrs());return JSON.stringify(out);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,\"urn:one\",\"changed\"],[\"title\",\"title\",null,\"urn:two\",\"two\"],[\"title\",\"title\",null,null,\"plain\"]],[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,\"urn:two\",\"two\"],[\"title\",\"title\",null,null,\"plain\"]],[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,null,\"plain\"]],[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,null,\"plain\"]]]"
+    },
+    {
+      "name": "prefix does not change when namespace setter changes only value",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'p:thing','one');const a=e.getAttributeNodeNS(A,'thing');e.setAttributeNS(A,'q:thing','two');a.value='three';return JSON.stringify([attrs(),a===e.getAttributeNodeNS(A,'thing'),e.getAttribute('p:thing'),e.getAttribute('q:thing'),a.value,a.cloneNode().value]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"p:thing\",\"thing\",\"p\",\"urn:one\",\"three\"]],true,\"three\",null,\"three\",\"three\"]"
+    },
+    {
+      "name": "same prefix name across namespaces",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'p:thing','one');e.setAttributeNS(B,'p:thing','two');e.setAttribute('p:thing','changed');return JSON.stringify([attrs(),e.getAttribute('p:thing'),e.getAttributeNS(B,'thing'),e.getAttributeNames(),e.outerHTML]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"p:thing\",\"thing\",\"p\",\"urn:one\",\"changed\"],[\"p:thing\",\"thing\",\"p\",\"urn:two\",\"two\"]],\"changed\",\"two\",[\"id\",\"p:thing\",\"p:thing\"],\"<div id=\\\"e\\\" p:thing=\\\"changed\\\" p:thing=\\\"two\\\"></div>\"]"
+    },
+    {
+      "name": "setAttributeNode replaces expanded identity and retains position",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttribute('before','a');e.setAttributeNS(A,'p:thing','one');e.setAttribute('after','b');const old=e.getAttributeNodeNS(A,'thing'),next=document.createAttributeNS(A,'q:thing');next.value='two';const result=e.setAttributeNode(next);return JSON.stringify([attrs(),result===old,old.ownerElement===null,next.ownerElement===e,old.name,old.value,next.name,e.getAttribute('q:thing'),e.getAttribute('p:thing')]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"before\",\"before\",null,null,\"a\"],[\"q:thing\",\"thing\",\"q\",\"urn:one\",\"two\"],[\"after\",\"after\",null,null,\"b\"]],true,true,true,\"p:thing\",\"one\",\"q:thing\",null,\"two\"]",
+      "difference": "Chromium exposes the replacement Attr with the new q prefix but qualified-name lookup retains the old p prefix. DOM replace replaces the attribute-list entry, and qualified-name lookup must read that new entry.",
+      "specExpected": "[[[\"id\",\"id\",null,null,\"e\"],[\"before\",\"before\",null,null,\"a\"],[\"q:thing\",\"thing\",\"q\",\"urn:one\",\"two\"],[\"after\",\"after\",null,null,\"b\"]],true,true,true,\"p:thing\",\"one\",\"q:thing\",\"two\",null]"
+    },
+    {
+      "name": "setAttributeNodeNS replaces expanded identity and retains position",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttribute('before','a');e.setAttributeNS(A,'p:thing','one');e.setAttribute('after','b');const old=e.getAttributeNodeNS(A,'thing'),next=document.createAttributeNS(A,'q:thing');next.value='two';const result=e.setAttributeNodeNS(next);return JSON.stringify([attrs(),result===old,old.ownerElement===null,next.ownerElement===e,old.name,old.value,next.name,e.getAttribute('q:thing'),e.getAttribute('p:thing')]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"before\",\"before\",null,null,\"a\"],[\"q:thing\",\"thing\",\"q\",\"urn:one\",\"two\"],[\"after\",\"after\",null,null,\"b\"]],true,true,true,\"p:thing\",\"one\",\"q:thing\",null,\"two\"]",
+      "difference": "Chromium exposes the replacement Attr with the new q prefix but qualified-name lookup retains the old p prefix. DOM replace replaces the attribute-list entry, and qualified-name lookup must read that new entry.",
+      "specExpected": "[[[\"id\",\"id\",null,null,\"e\"],[\"before\",\"before\",null,null,\"a\"],[\"q:thing\",\"thing\",\"q\",\"urn:one\",\"two\"],[\"after\",\"after\",null,null,\"b\"]],true,true,true,\"p:thing\",\"one\",\"q:thing\",\"two\",null]"
+    },
+    {
+      "name": "attr replacement keeps independent null namespace identity",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'title','one');e.title='plain';const next=document.createAttributeNS(A,'title');next.value='two';const old=e.attributes.setNamedItem(next);return JSON.stringify([attrs(),e.title,old.value,old.ownerElement===null,e.attributes.getNamedItem('title')===next]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,\"urn:one\",\"two\"],[\"title\",\"title\",null,null,\"plain\"]],\"plain\",\"one\",true,true]"
+    },
+    {
+      "name": "attr node removal and detached value independence",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'title','one');e.title='plain';const a=e.getAttributeNodeNS(A,'title');e.removeAttributeNode(a);a.value='detached';return JSON.stringify([attrs(),a.value,a.ownerElement===null,e.title,e.getAttributeNodeNS(A,'title')]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,null,\"plain\"]],\"detached\",true,\"plain\",null]"
+    },
+    {
+      "name": "namespace removals empty namespace and retained named map",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);const map=e.attributes;e.setAttributeNS(A,'title','one');e.title='plain';const a=e.getAttributeNodeNS(null,'title');e.removeAttributeNS('','title');return JSON.stringify([attrs(),map===e.attributes,map.length,a.ownerElement===null,a.value,e.hasAttribute('title'),e.hasAttributeNS(null,'title'),e.hasAttributeNS(A,'title')]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,\"urn:one\",\"one\"]],true,2,true,\"plain\",true,false,true]"
+    },
+    {
+      "name": "null namespace colon name coexists with qualified foreign name",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'p:thing','one');const a=document.createAttribute('p:thing');a.value='plain';e.setAttributeNode(a);return JSON.stringify([attrs(),e.getAttribute('p:thing'),e.getAttributeNS(null,'p:thing'),e.outerHTML]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"p:thing\",\"thing\",\"p\",\"urn:one\",\"one\"],[\"p:thing\",\"p:thing\",null,null,\"plain\"]],\"plain\",\"plain\",\"<div id=\\\"e\\\" p:thing=\\\"one\\\" p:thing=\\\"plain\\\"></div>\"]",
+      "difference": "Chromium qualified lookup prefers the newly attached Attr despite its second position. DOM getAttribute by qualified name returns the first matching attribute-list entry.",
+      "specExpected": "[[[\"id\",\"id\",null,null,\"e\"],[\"p:thing\",\"thing\",\"p\",\"urn:one\",\"one\"],[\"p:thing\",\"p:thing\",null,null,\"plain\"]],\"one\",\"plain\",\"<div id=\\\"e\\\" p:thing=\\\"one\\\" p:thing=\\\"plain\\\"></div>\"]"
+    },
+    {
+      "name": "clone keeps order identities and independently materialized attrs",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'title','one');e.title='plain';const clone=e.cloneNode(true);clone.getAttributeNodeNS(A,'title').value='clone';return JSON.stringify([attrs(),Array.from(clone.attributes,a=>[a.name,a.namespaceURI,a.value]),clone.getAttributeNames(),e.outerHTML,clone.outerHTML]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,\"urn:one\",\"one\"],[\"title\",\"title\",null,null,\"plain\"]],[[\"id\",null,\"e\"],[\"title\",\"urn:one\",\"clone\"],[\"title\",null,\"plain\"]],[\"id\",\"title\",\"title\"],\"<div id=\\\"e\\\" title=\\\"one\\\" title=\\\"plain\\\"></div>\",\"<div id=\\\"e\\\" title=\\\"clone\\\" title=\\\"plain\\\"></div>\"]"
+    },
+    {
+      "name": "known namespaces use canonical HTML serialization prefixes",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS('http://www.w3.org/XML/1998/namespace','p:lang','de');e.setAttributeNS('http://www.w3.org/1999/xlink','q:href','a');e.setAttributeNS('http://www.w3.org/2000/xmlns/','xmlns:r','urn:r');return JSON.stringify([attrs(),e.outerHTML]);})()",
+      "expected": "[[[\"id\",\"id\",null,null,\"e\"],[\"p:lang\",\"lang\",\"p\",\"http://www.w3.org/XML/1998/namespace\",\"de\"],[\"q:href\",\"href\",\"q\",\"http://www.w3.org/1999/xlink\",\"a\"],[\"xmlns:r\",\"r\",\"xmlns\",\"http://www.w3.org/2000/xmlns/\",\"urn:r\"]],\"<div id=\\\"e\\\" xml:lang=\\\"de\\\" xlink:href=\\\"a\\\" xmlns:r=\\\"urn:r\\\"></div>\"]"
+    },
+    {
+      "name": "title reflection excludes foreign attributes",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'title','false');const before=e.title;e.title='words';return JSON.stringify([before,e.title,attrs()]);})()",
+      "expected": "[\"\",\"words\",[[\"id\",\"id\",null,null,\"e\"],[\"title\",\"title\",null,\"urn:one\",\"false\"],[\"title\",\"title\",null,null,\"words\"]]]"
+    },
+    {
+      "name": "lang reflection excludes foreign attributes",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'lang','false');const before=e.lang;e.lang='words';return JSON.stringify([before,e.lang,attrs()]);})()",
+      "expected": "[\"\",\"words\",[[\"id\",\"id\",null,null,\"e\"],[\"lang\",\"lang\",null,\"urn:one\",\"false\"],[\"lang\",\"lang\",null,null,\"words\"]]]"
+    },
+    {
+      "name": "dir reflection excludes foreign attributes",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'dir','false');const before=e.dir;e.dir='words';return JSON.stringify([before,e.dir,attrs()]);})()",
+      "expected": "[\"\",\"\",[[\"id\",\"id\",null,null,\"e\"],[\"dir\",\"dir\",null,\"urn:one\",\"false\"],[\"dir\",\"dir\",null,null,\"words\"]]]"
+    },
+    {
+      "name": "autocapitalize reflection excludes foreign attributes",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'autocapitalize','false');const before=e.autocapitalize;e.autocapitalize='words';return JSON.stringify([before,e.autocapitalize,attrs()]);})()",
+      "expected": "[\"\",\"words\",[[\"id\",\"id\",null,null,\"e\"],[\"autocapitalize\",\"autocapitalize\",null,\"urn:one\",\"false\"],[\"autocapitalize\",\"autocapitalize\",null,null,\"words\"]]]"
+    },
+    {
+      "name": "writingSuggestions reflection excludes foreign attributes",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'writingsuggestions','false');const before=e.writingSuggestions;e.writingSuggestions='words';return JSON.stringify([before,e.writingSuggestions,attrs()]);})()",
+      "expected": "[\"true\",\"true\",[[\"id\",\"id\",null,null,\"e\"],[\"writingsuggestions\",\"writingsuggestions\",null,\"urn:one\",\"false\"],[\"writingsuggestions\",\"writingsuggestions\",null,null,\"words\"]]]"
+    },
+    {
+      "name": "ID and class null namespace with qualified dataset semantics",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'id','wrong');e.setAttributeNS(A,'class','wrong');e.setAttributeNS(A,'data-x','wrong');const before=[e.id,e.className,e.classList.length,e.dataset.x,document.getElementById('wrong')===e];e.id='right';e.classList.add('right');e.dataset.x='right';return JSON.stringify([before,e.id,e.className,e.dataset.x,document.getElementById('right')===e,attrs()]);})()",
+      "expected": "[[\"e\",\"\",0,\"wrong\",false],\"right\",\"right\",\"right\",true,[[\"id\",\"id\",null,null,\"right\"],[\"id\",\"id\",null,\"urn:one\",\"wrong\"],[\"class\",\"class\",null,\"urn:one\",\"wrong\"],[\"data-x\",\"data-x\",null,\"urn:one\",\"right\"],[\"class\",\"class\",null,null,\"right\"]]]",
+      "difference": "The DOMStringMap getter includes qualifying foreign names, but its setter is specified to set an attribute value with null namespace. Chromium instead changes the existing foreign attribute.",
+      "specExpected": "[[\"e\",\"\",0,\"wrong\",false],\"right\",\"right\",\"wrong\",true,[[\"id\",\"id\",null,null,\"right\"],[\"id\",\"id\",null,\"urn:one\",\"wrong\"],[\"class\",\"class\",null,\"urn:one\",\"wrong\"],[\"data-x\",\"data-x\",null,\"urn:one\",\"wrong\"],[\"class\",\"class\",null,null,\"right\"],[\"data-x\",\"data-x\",null,null,\"right\"]]]"
+    },
+    {
+      "name": "foreign form does not reset exceptional parser ownership",
+      "html": "<!doctype html><table><form id=f autocapitalize=words><input id=e></table>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'form','missing');const out=[e.form?e.form.id:null,e.autocapitalize];e.removeAttributeNS(A,'form');out.push(e.form?e.form.id:null,e.autocapitalize);return JSON.stringify(out);})()",
+      "expected": "[\"f\",\"words\",\"f\",\"words\"]"
+    },
+    {
+      "name": "ordinary control ignores foreign disabled checked value and type",
+      "html": "<!doctype html><input id=e value=plain>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'disabled','');e.setAttributeNS(A,'checked','');e.setAttributeNS(A,'value','foreign');e.setAttributeNS(A,'type','password');return JSON.stringify([e.disabled,e.checked,e.defaultValue,e.value,e.type,attrs()]);})()",
+      "expected": "[false,false,\"plain\",\"plain\",\"text\",[[\"id\",\"id\",null,null,\"e\"],[\"value\",\"value\",null,null,\"plain\"],[\"disabled\",\"disabled\",null,\"urn:one\",\"\"],[\"checked\",\"checked\",null,\"urn:one\",\"\"],[\"value\",\"value\",null,\"urn:one\",\"foreign\"],[\"type\",\"type\",null,\"urn:one\",\"password\"]]]"
+    },
+    {
+      "name": "foreign ID does not become a form identity",
+      "html": "<!doctype html><form id=f autocapitalize=words><input id=e></form>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);document.getElementById('f').setAttributeNS(A,'id','fake');e.setAttribute('form','fake');return JSON.stringify([e.form?e.form.id:null,e.autocapitalize,document.getElementById('fake')!==null]);})()",
+      "expected": "[null,\"\",false]"
+    },
+    {
+      "name": "selectors consider every attribute in wildcard namespace",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'title','one two');e.setAttributeNS(B,'title','THREE');e.title='plain';return JSON.stringify(['[title=plain]','[title=THREE]','[*|title=THREE]','[*|title=three i]','[*|title~=two]','[*|title^=one]','[*|title$=two]','[*|title*=HR]','[*|title|=plain]','[|title=plain]'].map(s=>e.matches(s)));})()",
+      "expected": "[true,false,true,true,true,true,true,true,true,true]"
+    },
+    {
+      "name": "namespaced onclick is inert with independent real handler",
+      "html": "<!doctype html><button id=e>Go</button>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);globalThis.calls=[];e.setAttributeNS(A,'onclick',\"calls.push('foreign')\");e.click();e.onclick=()=>calls.push('real');e.click();e.removeAttributeNS(A,'onclick');e.click();return JSON.stringify(calls);})()",
+      "expected": "[\"real\",\"real\"]"
+    },
+    {
+      "name": "custom element namespace callbacks and mutation records",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);globalThis.log=[];customElements.define('x-fields',class extends HTMLElement{static get observedAttributes(){return ['title']}attributeChangedCallback(name,old,value,namespace){log.push(['ce',name,old,value,namespace])}});const x=document.createElement('x-fields');document.body.append(x);const observer=new MutationObserver(()=>{});observer.observe(x,{attributes:true,attributeOldValue:true});x.setAttributeNS(A,'p:title','one');x.title='plain';x.setAttributeNS(A,'q:title','two');x.removeAttributeNS(A,'title');log.push(observer.takeRecords().map(r=>[r.attributeName,r.attributeNamespace,r.oldValue]));return JSON.stringify(log);})()",
+      "expected": "[[\"ce\",\"title\",null,\"one\",\"urn:one\"],[\"ce\",\"title\",null,\"plain\",null],[\"ce\",\"title\",\"one\",\"two\",\"urn:one\"],[\"ce\",\"title\",\"two\",null,\"urn:one\"],[[\"title\",\"urn:one\",null],[\"title\",null,null],[\"title\",\"urn:one\",\"one\"],[\"title\",\"urn:one\",\"two\"]]]"
+    },
+    {
+      "name": "named map upper case names omitted only on HTML elements",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'Upper','one');e.setAttributeNS(A,'lower','two');const map=e.attributes;const svg=document.createElementNS('http://www.w3.org/2000/svg','g');svg.setAttributeNS(A,'Upper','one');return JSON.stringify([map.Upper===undefined,map.lower===e.getAttributeNodeNS(A,'lower'),Reflect.ownKeys(map),map.getNamedItem('Upper'),svg.attributes.Upper===svg.getAttributeNodeNS(A,'Upper'),Reflect.ownKeys(svg.attributes)]);})()",
+      "expected": "[true,true,[\"0\",\"1\",\"2\",\"id\",\"lower\"],null,true,[\"0\",\"Upper\"]]"
+    },
+    {
+      "name": "attribute equality ignores namespace prefix and insertion order",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);e.setAttributeNS(A,'p:thing','one');e.setAttributeNS(B,'thing','two');const other=document.createElement('div');other.setAttributeNS(B,'thing','two');other.setAttributeNS(A,'q:thing','one');other.id='e';const a=e.getAttributeNodeNS(A,'thing'),b=other.getAttributeNodeNS(A,'thing');const before=[e.isEqualNode(other),a.isEqualNode(b),e.isEqualNode(e.cloneNode()),e.isEqualNode(null)];b.value='changed';return JSON.stringify([before,e.isEqualNode(other),a.isEqualNode(b)]);})()",
+      "expected": "[[true,true,true,false],false,false]"
+    },
+    {
+      "name": "attribute equality compares namespace count and attached values",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);const a=document.createElement('div'),b=document.createElementNS('http://www.w3.org/1999/xhtml','div');a.setAttributeNS(A,'p:thing','one');b.setAttributeNS(B,'p:thing','one');const out=[a.isEqualNode(b)];b.removeAttributeNS(B,'thing');b.setAttributeNS(A,'p:thing','one');out.push(a.isEqualNode(b));b.setAttribute('thing','one');out.push(a.isEqualNode(b));return JSON.stringify(out);})()",
+      "expected": "[false,true,false]"
+    },
+    {
+      "name": "element equality compares element prefixes",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);const a=document.createElementNS('http://www.w3.org/2000/svg','p:g'),b=document.createElementNS('http://www.w3.org/2000/svg','q:g');return JSON.stringify([a.isEqualNode(b),a.isEqualNode(a.cloneNode())]);})()",
+      "expected": "[false,true]"
+    },
+    {
+      "name": "HTML serialization uses local names and HTML void rules",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);const html='http://www.w3.org/1999/xhtml',svg='http://www.w3.org/2000/svg';const a=document.createElementNS(html,'p:input'),b=document.createElementNS(svg,'p:g'),c=document.createElement('p:input');a.setAttribute('value','x');a.append(document.createTextNode('ignored'));b.append(document.createElementNS(svg,'q:circle'));c.append(document.createTextNode('kept'));return JSON.stringify([a.outerHTML,a.innerHTML,b.outerHTML,c.outerHTML]);})()",
+      "expected": "[\"<p:input value=\\\"x\\\">\",\"\",\"<p:g><q:circle></q:circle></p:g>\",\"<p:input>kept</p:input>\"]",
+      "specExpected": "[\"<input value=\\\"x\\\">\",\"\",\"<g><circle></circle></g>\",\"<p:input>kept</p:input>\"]",
+      "difference": "Chromium serializes explicit prefixes for HTML/SVG elements. HTML fragment serialization uses local names in HTML, SVG and MathML namespaces."
+    },
+    {
+      "name": "HTML raw serialization uses expanded element identity",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);const a=document.createElementNS('http://www.w3.org/1999/xhtml','p:script'),b=document.createElementNS('http://www.w3.org/2000/svg','q:script');a.textContent='x<1&&y>0';b.textContent='x<1&&y>0';return JSON.stringify([a.outerHTML,a.innerHTML,b.outerHTML]);})()",
+      "expected": "[\"<p:script>x&lt;1&amp;&amp;y&gt;0</p:script>\",\"x&lt;1&amp;&amp;y&gt;0\",\"<q:script>x&lt;1&amp;&amp;y&gt;0</q:script>\"]",
+      "specExpected": "[\"<script>x<1&&y>0</script>\",\"x<1&&y>0\",\"<script>x&lt;1&amp;&amp;y&gt;0</script>\"]",
+      "difference": "Chromium uses explicit prefixes and escapes prefixed HTML script text. HTML fragment serialization uses local names and the HTML script element raw-text rule."
+    },
+    {
+      "name": "HTML serialization void legacy elements discard children",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);return JSON.stringify(['basefont','bgsound','frame','keygen','param','br','input'].map(name=>{const a=document.createElement(name);a.append(document.createTextNode('ignored'));return [a.outerHTML,a.innerHTML]}));})()",
+      "expected": "[[\"<basefont>\",\"\"],[\"<bgsound>\",\"\"],[\"<frame>\",\"\"],[\"<keygen>\",\"\"],[\"<param>\",\"\"],[\"<br>\",\"\"],[\"<input>\",\"\"]]"
+    },
+    {
+      "name": "HTML serialization covers processing instructions and imported CDATA",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);const xml=new DOMParser().parseFromString('<root/>','application/xml');const p=xml.createProcessingInstruction('target',''),c=xml.createCDATASection('x<1&&y>0');e.append(document.importNode(p),document.importNode(c));const s=document.createElementNS('http://www.w3.org/2000/svg','script');s.append(document.importNode(c));return JSON.stringify([e.innerHTML,s.outerHTML]);})()",
+      "expected": "[\"<?target ?>x&lt;1&amp;&amp;y&gt;0\",\"<script>x&lt;1&amp;&amp;y&gt;0</script>\"]"
+    },
+    {
+      "name": "attribute replacement publishes identity before synchronous reactions",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);globalThis.log=[];globalThis.next=null;globalThis.old=null;customElements.define('x-fields',class extends HTMLElement{static get observedAttributes(){return ['title']}attributeChangedCallback(name,previous,value,namespace){if(next)log.push([next.ownerElement===this,this.getAttributeNodeNS(A,'title')===next,old.ownerElement===null,old.value,value,namespace])}});const x=document.createElement('x-fields');document.body.append(x);x.setAttributeNS(A,'p:title','one');old=x.getAttributeNodeNS(A,'title');next=document.createAttributeNS(A,'q:title');next.value='two';x.setAttributeNode(next);return JSON.stringify(log);})()",
+      "expected": "[[true,true,true,\"one\",\"two\",\"urn:one\"]]"
+    },
+    {
+      "name": "attribute replacement preserves reentrant removal",
+      "html": "<!doctype html><div id=e></div>",
+      "action": "(()=>{const A='urn:one',B='urn:two',e=document.getElementById('e'),attrs=()=>Array.from(e.attributes,a=>[a.name,a.localName,a.prefix,a.namespaceURI,a.value]);globalThis.next=null;customElements.define('x-fields',class extends HTMLElement{static get observedAttributes(){return ['title']}attributeChangedCallback(){if(next&&next.ownerElement===this)this.removeAttributeNode(next)}});const x=document.createElement('x-fields');x.setAttributeNS(A,'p:title','one');const old=x.getAttributeNodeNS(A,'title');next=document.createAttributeNS(A,'q:title');next.value='two';const returned=x.setAttributeNode(next);return JSON.stringify([returned===old,old.ownerElement===null,next.ownerElement===null,x.hasAttributeNS(A,'title'),next.value,old.value]);})()",
+      "expected": "[true,true,true,false,\"two\",\"one\"]"
+    }
+  ]
+}

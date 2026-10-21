@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Independent geometry and paint state",
+    "source": "const p=new Path2D();p.rect(4,4,16,16);ctx.fillStyle='red';ctx.fill(p);console.log(Array.from(ctx.getImageData(10,10,1,1).data).join(','),ctx.isPointInPath(p,10,10),ctx.isPointInPath(p,30,30));",
+    "expected": "255,0,0,255 true false"
+  },
+  {
+    "name": "Drawing transforms apply at use time",
+    "source": "const p=new Path2D();p.rect(2,2,8,8);ctx.translate(20,10);console.log(ctx.isPointInPath(p,25,15),ctx.isPointInPath(p,5,5));ctx.fillStyle='blue';ctx.fill(p);console.log(Array.from(ctx.getImageData(25,15,1,1).data).join(','));",
+    "expected": "true false|0,0,255,255"
+  },
+  {
+    "name": "Copies preserve independent path state",
+    "source": "const p=new Path2D();p.rect(2,2,8,8);const q=new Path2D(p);p.rect(20,20,8,8);console.log(ctx.isPointInPath(q,5,5),ctx.isPointInPath(q,24,24),ctx.isPointInPath(p,24,24));",
+    "expected": "true false true"
+  },
+  {
+    "name": "addPath snapshots and matrix aliases",
+    "source": "const p=new Path2D();p.rect(1,1,6,6);const q=new Path2D();q.addPath(p,{m11:2,m22:2,m41:20,m42:10});p.rect(40,40,5,5);console.log(ctx.isPointInPath(q,25,15),ctx.isPointInPath(q,43,43));",
+    "expected": "true false"
+  },
+  {
+    "name": "Self addition is finite and snapshots geometry",
+    "source": "const p=new Path2D();p.rect(1,1,6,6);p.addPath(p,{e:20});console.log(ctx.isPointInPath(p,3,3),ctx.isPointInPath(p,23,3),ctx.isPointInPath(p,43,3));",
+    "expected": "true true false"
+  },
+  {
+    "name": "Winding rules and hole boundary",
+    "source": "const p=new Path2D();p.rect(2,2,30,30);p.rect(10,10,8,8);console.log(ctx.isPointInPath(p,14,14),ctx.isPointInPath(p,14,14,'evenodd'),ctx.isPointInPath(p,10,14,'evenodd'));ctx.fillStyle='red';ctx.fill(p,'evenodd');console.log(ctx.getImageData(14,14,1,1).data[3],ctx.getImageData(5,5,1,1).data[3]);",
+    "expected": "true false true|0 255"
+  },
+  {
+    "name": "Explicit paths do not replace current context path",
+    "source": "ctx.beginPath();ctx.rect(40,40,8,8);const p=new Path2D();p.rect(2,2,8,8);ctx.fill(p);console.log(ctx.isPointInPath(44,44),ctx.isPointInPath(5,5));",
+    "expected": "true false"
+  },
+  {
+    "name": "Path clipping survives subsequent geometry changes",
+    "source": "const p=new Path2D();p.rect(2,2,8,8);ctx.save();ctx.clip(p);p.rect(20,20,8,8);ctx.fillStyle='red';ctx.fillRect(0,0,64,64);ctx.restore();console.log(ctx.getImageData(5,5,1,1).data[3],ctx.getImageData(24,24,1,1).data[3]);",
+    "expected": "255 0"
+  },
+  {
+    "name": "SVG path strings with relative and smooth commands",
+    "source": "const p=new Path2D('M2 2 h20 v20 h-20 z');console.log(ctx.isPointInPath(p,12,12),ctx.isPointInPath(p,25,25));const q=new Path2D('M2 10 Q12 0 22 10 T42 10 L42 30 L2 30 Z');console.log(ctx.isPointInPath(q,12,20));",
+    "expected": "true false|true"
+  },
+  {
+    "name": "SVG arcs",
+    "source": "const p=new Path2D('M10 30 A20 20 0 1 1 50 30 A20 20 0 1 1 10 30 Z');console.log(ctx.isPointInPath(p,30,30),ctx.isPointInPath(p,2,2));",
+    "expected": "true false"
+  },
+  {
+    "name": "Native arc and ellipse path methods",
+    "source": "const p=new Path2D();p.ellipse(30,30,12,8,0,0,Math.PI*2);console.log(ctx.isPointInPath(p,30,30),ctx.isPointInPath(p,30,45));",
+    "expected": "true false"
+  },
+  {
+    "name": "Stroke overload",
+    "source": "const p=new Path2D();p.moveTo(4,10);p.lineTo(30,10);ctx.strokeStyle='blue';ctx.lineWidth=4;ctx.stroke(p);console.log(Array.from(ctx.getImageData(12,10,1,1).data).join(','),ctx.getImageData(12,18,1,1).data[3]);",
+    "expected": "0,0,255,255 0"
+  },
+  {
+    "name": "Closed path continuation returns to its start",
+    "source": "const p=new Path2D();p.moveTo(4,4);p.lineTo(20,4);p.lineTo(20,20);p.closePath();p.lineTo(4,30);ctx.strokeStyle='red';ctx.lineWidth=2;ctx.stroke(p);console.log(ctx.getImageData(4,24,1,1).data[3],ctx.getImageData(16,24,1,1).data[3]);",
+    "expected": "255 0"
+  },
+  {
+    "name": "Brands, receiver checks and uncloneable geometry",
+    "source": "console.log(Object.prototype.toString.call(new Path2D()),Path2D.length,Path2D.prototype.addPath.length);for(const fn of [()=>Path2D(),()=>Path2D.prototype.rect.call({},1,1,1,1),()=>new Path2D().arc(0,0,-1,0,1),()=>structuredClone(new Path2D())]){try{fn();}catch(e){console.log(e.name);}}",
+    "expected": "[object Path2D] 0 1|TypeError|TypeError|IndexSizeError|DataCloneError"
+  },
+  {
+    "name": "Matrix conversion validates aliases and ignores nonfinite transforms",
+    "source": "const p=new Path2D();p.rect(2,2,8,8);const q=new Path2D();try{q.addPath(p,{a:2,m11:3});}catch(e){console.log(e.name);}q.addPath(p,{a:NaN});console.log(ctx.isPointInPath(q,5,5));",
+    "expected": "TypeError|false"
+  },
+  {
+    "name": "Path reset follows canvas reset without destroying Path2D",
+    "source": "const p=new Path2D();p.rect(2,2,8,8);ctx.translate(20,20);c.width=64;console.log(ctx.isPointInPath(p,5,5),ctx.isPointInPath(p,25,25),ctx.isPointInPath(5,5));",
+    "expected": "true false false"
+  },
+  {
+    "name": "DOMMatrix2DInit reads every member before validating aliases",
+    "source": "const p=new Path2D();const trace=[],init={};for(const key of ['a','b','c','d','e','f','m11','m12','m21','m22','m41','m42'])Object.defineProperty(init,key,{get(){trace.push(key);return undefined;}});p.addPath(p,init);console.log(trace.join(','));",
+    "expected": "a,b,c,d,e,f,m11,m12,m21,m22,m41,m42"
+  },
+  {
+    "name": "Stroke overload distinguishes omitted and invalid explicit path",
+    "source": "for(const value of [undefined,null,4]){try{ctx.stroke(value);console.log('ok');}catch(e){console.log(e.name);}}",
+    "expected": "TypeError|TypeError|TypeError"
+  }
+]

@@ -1,0 +1,1229 @@
+{
+  "date": "2026-10-19",
+  "publisher": "scripts/publish-nightweb.cjs",
+  "entry": "/verzeichnis/index.html",
+  "origin": "http://localhost:8000",
+  "counts": {
+    "sites": 15,
+    "htmlRoutes": 25,
+    "subpages": 9
+  },
+  "Modules": [
+    {
+      "name": "Nachtverzeichnis",
+      "url": "http://localhost:8000/verzeichnis/index.html",
+      "sourcePath": "/verzeichnis/index.html",
+      "title": "Das Nachtverzeichnis",
+      "description": "Adressen für die Stunden, in denen sonst niemand mehr antwortet.",
+      "CatalogHidden": false,
+      "interaction": null,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Nachtverzeichnis/init.luau",
+          "sha256": "881a956a0bbc60919797b0be3a5f9472870bd96a7541cb8d231b58ca457893ad",
+          "byteLength": 441
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtverzeichnis/HTML.luau",
+          "sha256": "322d3248e9e0bc474c19688eae42485019b14cce028e9b5eea0286115258fac8",
+          "byteLength": 3680
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtverzeichnis/CSS.luau",
+          "sha256": "7feda1fd790f169824f55335cf919da88324beb33dd5a97504fb24ba8062df72",
+          "byteLength": 1799
+        }
+      ]
+    },
+    {
+      "name": "Nachtverzeichnis_Hinweis",
+      "url": "http://localhost:8000/verzeichnis/hinweis.html",
+      "sourcePath": "/verzeichnis/hinweis.html",
+      "title": "Anmerkung des Abschreibers",
+      "description": "Ein Beiblatt zur dritten Abschrift.",
+      "CatalogHidden": true,
+      "interaction": null,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Nachtverzeichnis_Hinweis/init.luau",
+          "sha256": "2c30ece2b0d2310034b611d0ec53ba2f8aa294011c2cdaa33324b81ff004fffb",
+          "byteLength": 450
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtverzeichnis_Hinweis/HTML.luau",
+          "sha256": "ba9540145c3cd844b11b5a6230c8777f23f51e8bacb0cae1630026066f9a4bbb",
+          "byteLength": 1281
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtverzeichnis_Hinweis/CSS.luau",
+          "sha256": "7feda1fd790f169824f55335cf919da88324beb33dd5a97504fb24ba8062df72",
+          "byteLength": 1799
+        }
+      ]
+    },
+    {
+      "name": "Fundbuero04",
+      "url": "http://localhost:8000/fundbuero-04/index.html",
+      "sourcePath": "/fundbuero-04/index.html",
+      "title": "Fundbüro 04",
+      "description": "Anonymes Fundarchiv für wiederhergestellte Daten aus geschlossenen Knoten. Datensatz 017 ist nach seiner Löschung erneut aufgetaucht.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "suchen",
+        "event": "click",
+        "result": "treffer",
+        "before": "6 Einträge im öffentlichen Bestand.",
+        "after": "1 Eintrag im öffentlichen Bestand.",
+        "value": "sitzung",
+        "probe": "document.getElementById('suchwort').value='sitzung';document.getElementById('suchen').click();if(document.getElementById('treffer').textContent.indexOf('1 Eintrag')<0)throw new Error('Fundarchivfilter');if(document.getElementById('fund-17').style.display==='none')throw new Error('Sitzungsfragment fehlt');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Fundbuero04/init.luau",
+          "sha256": "64f35e40de682dbede24f60426b51ae21b7b5c0c979ef4a1c2dc110a12335075",
+          "byteLength": 559
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Fundbuero04/HTML.luau",
+          "sha256": "59a7aad41b3908b639d6a758e1697cd16970806782953336e76cdd493a15af3d",
+          "byteLength": 3853
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Fundbuero04/CSS.luau",
+          "sha256": "655028e2cdd0bf8dce5f960c801908f492bb4cb7c875eb783930e86aff522503",
+          "byteLength": 2256
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Fundbuero04/JavaScript.luau",
+          "sha256": "8b549b7255cb88e54ae0a9bca802696a3f91de314178fd2921dff884390f2085",
+          "byteLength": 1139
+        }
+      ]
+    },
+    {
+      "name": "Fundbuero04_Objekt17",
+      "url": "http://localhost:8000/fundbuero-04/objekt-17.html",
+      "sourcePath": "/fundbuero-04/objekt-17.html",
+      "title": "Fundbüro 04 · Datensatz 017",
+      "description": "Eine gelöschte Sitzung mit gültiger Signatur und einer unmöglichen Teilnehmerliste.",
+      "CatalogHidden": true,
+      "interaction": null,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Fundbuero04_Objekt17/init.luau",
+          "sha256": "5a035dbea717a4317d626df85b09094de7f51fd056f6f0c2b0772b6e49516839",
+          "byteLength": 460
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Fundbuero04_Objekt17/HTML.luau",
+          "sha256": "21486fc67caf4da5a6b6019bbcd46b05e57afb5e1a1e54fb6f919dcc160ef4b1",
+          "byteLength": 2405
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Fundbuero04_Objekt17/CSS.luau",
+          "sha256": "655028e2cdd0bf8dce5f960c801908f492bb4cb7c875eb783930e86aff522503",
+          "byteLength": 2256
+        }
+      ]
+    },
+    {
+      "name": "LetzteSchicht",
+      "url": "http://localhost:8000/letzte-schicht/index.html",
+      "sourcePath": "/letzte-schicht/index.html",
+      "title": "Letzte Schicht",
+      "description": "Geschlossenes Insiderforum mit widerrufenen Kennungen, entfernten Beiträgen und einer Lesebestätigung von einem fremden Spiegel.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "pruefen",
+        "event": "click",
+        "result": "lesestatus",
+        "before": "Keine Archivkennung eingegeben.",
+        "after": "Lesestatus: bestätigt.",
+        "value": "17",
+        "probe": "document.getElementById('kennung').value='17';document.getElementById('pruefen').click();if(document.getElementById('lesestatus').textContent.indexOf('Lesestatus: bestätigt.')<0)throw new Error('Lesebestaetigung');if(document.getElementById('fundhinweis').hidden)throw new Error('Fundhinweis verborgen');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/LetzteSchicht/init.luau",
+          "sha256": "1586a1b776bc571dad8d565280c42e4d6a893ded0d49691c851162f956aab46c",
+          "byteLength": 569
+        },
+        {
+          "path": "src/HTMLEngine/Websites/LetzteSchicht/HTML.luau",
+          "sha256": "6a0c46c50a2c516ce22e1c489a73876c1e1d0801fbe57cfdba3a87c21b1dfb55",
+          "byteLength": 3768
+        },
+        {
+          "path": "src/HTMLEngine/Websites/LetzteSchicht/CSS.luau",
+          "sha256": "4a31bffd705e4025aa22f3443a41d87b980dc654fef1714c0b267864324a8024",
+          "byteLength": 2875
+        },
+        {
+          "path": "src/HTMLEngine/Websites/LetzteSchicht/JavaScript.luau",
+          "sha256": "7fcecfb6fad84d476a6d219db6964376cb0aa47a711ad48499b3ef13af22064a",
+          "byteLength": 499
+        }
+      ]
+    },
+    {
+      "name": "LetzteSchicht_Protokoll",
+      "url": "http://localhost:8000/letzte-schicht/protokoll.html",
+      "sourcePath": "/letzte-schicht/protokoll.html",
+      "title": "Letzte Schicht · Nachtprotokoll",
+      "description": "Sechs archivierte Forenbeiträge über die Rückseite eines internen Aushangs.",
+      "CatalogHidden": true,
+      "interaction": null,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/LetzteSchicht_Protokoll/init.luau",
+          "sha256": "2f94d69f09e060f95c65b6b72a754e51686d8867dcb0f3574690e306c2347724",
+          "byteLength": 469
+        },
+        {
+          "path": "src/HTMLEngine/Websites/LetzteSchicht_Protokoll/HTML.luau",
+          "sha256": "1a2aa810a387a519d19d4d76aa0f0ebaad4eca24371e3fed2c6aaf914b5ed3d5",
+          "byteLength": 3361
+        },
+        {
+          "path": "src/HTMLEngine/Websites/LetzteSchicht_Protokoll/CSS.luau",
+          "sha256": "4a31bffd705e4025aa22f3443a41d87b980dc654fef1714c0b267864324a8024",
+          "byteLength": 2875
+        }
+      ]
+    },
+    {
+      "name": "KanalSechs",
+      "url": "http://localhost:8000/kanal-sechs/index.html",
+      "sourcePath": "/kanal-sechs/index.html",
+      "title": "Kanal Sechs",
+      "description": "Verborgener Übertragungsverteiler mit signierten Sendeblöcken und einer doppelten Empfangsquittung um 03:17.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "abgleichen",
+        "event": "click",
+        "result": "empfangstext",
+        "before": "Kein bestätigtes Fragment ausgewählt.",
+        "after": "BLOCK 013 / SIGNATUR GÜLTIG",
+        "value": "4",
+        "probe": "document.getElementById('frequenz').value='4';document.getElementById('abgleichen').click();if(document.getElementById('empfangstext').textContent.indexOf('BLOCK 013 / SIGNATUR GÜLTIG')<0)throw new Error('Sendeblock');if(document.getElementById('anzeige').textContent!=='6.170')throw new Error('Bandanzeige');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/KanalSechs/init.luau",
+          "sha256": "81758d2b9c43c2d1c48e85acced4bbeedd7913cf749cf16ee1b9490b4b8e166f",
+          "byteLength": 3863
+        },
+        {
+          "path": "src/HTMLEngine/Websites/KanalSechs/HTML.luau",
+          "sha256": "14f5c5e31fcd62d4dd11175e064c8a33e49cdb2aa704aca47a06113cbf2edd0f",
+          "byteLength": 3270
+        },
+        {
+          "path": "src/HTMLEngine/Websites/KanalSechs/CSS.luau",
+          "sha256": "d60e4ca0817470048fe8d8ce13c0ce440f53b9e83b8c26dad1e4cff9abcc259e",
+          "byteLength": 2182
+        },
+        {
+          "path": "src/HTMLEngine/Websites/KanalSechs/JavaScript.luau",
+          "sha256": "43b715742c1f0725ad9faef5b5c8eaa06b1df641ddbd76e5561380ad76db117b",
+          "byteLength": 824
+        }
+      ]
+    },
+    {
+      "name": "Nullpost",
+      "url": "http://localhost:8000/nullpost/index.html",
+      "sourcePath": "/nullpost/index.html",
+      "title": "Nullpost",
+      "description": "Anonyme Nachrichtenablage mit Postfach 017, lokal prüfbaren Entwürfen und einer Nachricht, die vor ihrem Postfach eintraf.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "pruefen",
+        "event": "click",
+        "result": "zustand",
+        "before": "Der Ausgang ist leer.",
+        "after": "Entwurf geprüft:",
+        "probe": "document.getElementById('betreff').value='Archiv 017';document.getElementById('inhalt').value='Fenster bleibt geschlossen.';document.getElementById('pruefen').click();if(document.getElementById('zustand').textContent.indexOf('Entwurf geprüft:')<0)throw new Error('Entwurfspruefung');if(document.getElementById('vorschautext').textContent!=='Fenster bleibt geschlossen.')throw new Error('Nachrichtenvorschau');if(document.getElementById('vorschau').hidden)throw new Error('Vorschau verborgen');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Nullpost/init.luau",
+          "sha256": "060679e5f303982b83a14ca558ed075f77f3081e24f0a50ca56f02a27caed79d",
+          "byteLength": 539
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nullpost/HTML.luau",
+          "sha256": "fca73dae0c3ce6412f53bb24bec16a345c4d3ee78ec84a6e04fa188e2a2aeecb",
+          "byteLength": 3698
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nullpost/CSS.luau",
+          "sha256": "6c5472604afb7319b3b975be16c2f25d55221653d81922d9fe75c92a880de95e",
+          "byteLength": 3093
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nullpost/JavaScript.luau",
+          "sha256": "1996a312b0cda355b6e806b7984053f9b6326687f9f0d7ea4315114a0647449e",
+          "byteLength": 1140
+        }
+      ]
+    },
+    {
+      "name": "Nullpost_Nachricht",
+      "url": "http://localhost:8000/nullpost/nachricht.html",
+      "sourcePath": "/nullpost/nachricht.html",
+      "title": "Nullpost · Die Rückseite war beschrieben",
+      "description": "Eine gespeicherte Nachricht nennt die Einladung M17 und beschreibt eine Liste, die es nicht geben sollte.",
+      "CatalogHidden": true,
+      "interaction": null,
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Nullpost_Nachricht/init.luau",
+          "sha256": "5a1c5a10dd0ed0bd81852939dde0c8f80bd03369e104a6974f935cf196950a55",
+          "byteLength": 461
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nullpost_Nachricht/HTML.luau",
+          "sha256": "93a3f0634b35904434318166709cedd1494a65302493c955706e768e2e15f630",
+          "byteLength": 2405
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nullpost_Nachricht/CSS.luau",
+          "sha256": "6c5472604afb7319b3b975be16c2f25d55221653d81922d9fe75c92a880de95e",
+          "byteLength": 3093
+        }
+      ]
+    },
+    {
+      "name": "HausOhneNummer",
+      "url": "http://localhost:8000/haus-ohne-nummer/index.html",
+      "sourcePath": "/haus-ohne-nummer/index.html",
+      "title": "Haus ohne Nummer",
+      "description": "Einladungsbasierter Mitgliederknoten verborgener Dienste. Die alte Hausordnung warnt vor Schlüsseln, die den Besitzer gewechselt haben.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "tuer",
+        "event": "click",
+        "result": "antwort",
+        "before": "Noch keine Kennung geprüft.",
+        "after": "Kennung M17 bestätigt.",
+        "value": "M17",
+        "probe": "document.getElementById('schluessel').value='M17';document.getElementById('tuer').click();if(document.getElementById('antwort').textContent.indexOf('Kennung M17 bestätigt.')<0)throw new Error('Einladungskennung');if(document.getElementById('raum17').hidden)throw new Error('Zugeordneter Raum verborgen');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/HausOhneNummer/init.luau",
+          "sha256": "e8f735bb8b1ce3a9ad22d1a38c8cb542d9c7a3ff53df56fab48d56ed822f10b5",
+          "byteLength": 2149
+        },
+        {
+          "path": "src/HTMLEngine/Websites/HausOhneNummer/HTML.luau",
+          "sha256": "31e354924cd3f21241652c98b26fe4ccc3240666a4c2a252bf4daee71e6ad1b9",
+          "byteLength": 4027
+        },
+        {
+          "path": "src/HTMLEngine/Websites/HausOhneNummer/CSS.luau",
+          "sha256": "0ab177603cece9de3e140140aa23dc5426551fb07ae31afd2cb5d257caf0f83b",
+          "byteLength": 2484
+        },
+        {
+          "path": "src/HTMLEngine/Websites/HausOhneNummer/JavaScript.luau",
+          "sha256": "792ffe8f892545efdfca281fa30b79b215a374d0da58065fb8182775c479c083",
+          "byteLength": 492
+        }
+      ]
+    },
+    {
+      "name": "Nachtlinie",
+      "url": "http://localhost:8000/nachtlinie/index.html",
+      "sourcePath": "/nachtlinie/index.html",
+      "title": "Nachtlinie",
+      "description": "Geschlossene Spiegelrouten. Ein Knoten antwortet mit einer gesperrten Kennung.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "anzeigen",
+        "event": "click",
+        "result": "auskunft",
+        "value": "17",
+        "probe": "document.getElementById('linie').value='17';document.getElementById('anzeigen').click();if(document.getElementById('auskunft').textContent.indexOf('Ihrer Kennung')<0)throw new Error('N17 route did not change');if(document.getElementById(\"halt-a\").textContent!==\"einstieg.n17\"||document.getElementById(\"status-b\").textContent!==\"unbekannt\")throw new Error(\"N17 node status stale\");"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Nachtlinie/init.luau",
+          "sha256": "7266e5988ae1d004455815a579dcff3e7505897073bbc880ff43cf08fcbb03d7",
+          "byteLength": 3313
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtlinie/HTML.luau",
+          "sha256": "87b626babfb9287a9fe15da79c3c1e06cd8657ddb0a0856b5686e239ccd93627",
+          "byteLength": 3023
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtlinie/CSS.luau",
+          "sha256": "40d4b1f64ae1c64d499548b7c215bd146f266a0254ee96141298541417aa8d2e",
+          "byteLength": 2382
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtlinie/JavaScript.luau",
+          "sha256": "fd4a2989028e0ee33e1dc3a75e85dd17049cd68d2d737159a35e841b99df4113",
+          "byteLength": 1982
+        }
+      ]
+    },
+    {
+      "name": "Nachtlinie_Haltestelle",
+      "url": "http://localhost:8000/nachtlinie/haltestelle.html",
+      "sourcePath": "/nachtlinie/haltestelle.html",
+      "title": "Nachtlinie // Knoten ohne Kennung",
+      "description": "Interne Rückmeldung aus Route N17.",
+      "CatalogHidden": true,
+      "interaction": {
+        "control": "protokoll-button",
+        "event": "click",
+        "result": "protokoll",
+        "probe": "document.getElementById('protokoll-button').click();if(document.getElementById('protokoll').textContent.indexOf('03:19 / M')<0)throw new Error('N17 report missing');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Nachtlinie_Haltestelle/init.luau",
+          "sha256": "1427ca56bcd8f5db32d24b6dcc6eee9b9a4ffc5b82ab4951c79bc517c21acc74",
+          "byteLength": 3347
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtlinie_Haltestelle/HTML.luau",
+          "sha256": "9524f431442d4f8192d7e6ed5f858ddd613c7af24bfb3a7bd09afae9efb06c1f",
+          "byteLength": 1943
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtlinie_Haltestelle/CSS.luau",
+          "sha256": "40d4b1f64ae1c64d499548b7c215bd146f266a0254ee96141298541417aa8d2e",
+          "byteLength": 2382
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Nachtlinie_Haltestelle/JavaScript.luau",
+          "sha256": "fd4a2989028e0ee33e1dc3a75e85dd17049cd68d2d737159a35e841b99df4113",
+          "byteLength": 1982
+        }
+      ]
+    },
+    {
+      "name": "Zimmer13",
+      "url": "http://localhost:8000/zimmer-13/index.html",
+      "sourcePath": "/zimmer-13/index.html",
+      "title": "Raum 13",
+      "description": "Ein geschlossener Kreis. Gelöschte Kennungen schreiben weiter.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "suchen",
+        "event": "click",
+        "result": "zimmer-auskunft",
+        "value": "13",
+        "probe": "document.getElementById('zimmer').value='13';document.getElementById('suchen').click();if(document.getElementById('zimmer-auskunft').textContent.indexOf('Eine Sitzung')<0)throw new Error('Area13 lookup did not change');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Zimmer13/init.luau",
+          "sha256": "7cf05bd1d338259e67ada35105c2fd0e8871124113c861209fae9ac64c9dc278",
+          "byteLength": 542
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Zimmer13/HTML.luau",
+          "sha256": "340ce6aba310dcb98d38339f62974cf68cd26b2a9cbc44f898dd56a23601b67d",
+          "byteLength": 2590
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Zimmer13/CSS.luau",
+          "sha256": "bdbf595848b4d279fa51bb224424bb905c41c69edab8e1b3a9e9c7591c38487d",
+          "byteLength": 2211
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Zimmer13/JavaScript.luau",
+          "sha256": "2657be68c65f31e542576d3400613e7fc487c021505cbc56b7ab301ee77493ae",
+          "byteLength": 1097
+        }
+      ]
+    },
+    {
+      "name": "Zimmer13_Gaestebuch",
+      "url": "http://localhost:8000/zimmer-13/gaestebuch.html",
+      "sourcePath": "/zimmer-13/gaestebuch.html",
+      "title": "Raum 13 // Thread 000137",
+      "description": "Drei Beiträge aus der letzten Nacht. Keine Antworten mehr.",
+      "CatalogHidden": true,
+      "interaction": {
+        "control": "eintragen",
+        "event": "click",
+        "result": "gast-status",
+        "probe": "document.getElementById('gastname').value='archiv';document.getElementById('nachricht').value='Das Fenster ist offen.';document.getElementById('eintragen').click();if(document.getElementById('gast-status').textContent.indexOf('Hinweis von archiv')<0)throw new Error('Forum notice did not submit');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Zimmer13_Gaestebuch/init.luau",
+          "sha256": "8bb1bc327131ca37c631e1bae930ad55335b57b0c1bc55f57ff660857303ddd6",
+          "byteLength": 568
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Zimmer13_Gaestebuch/HTML.luau",
+          "sha256": "a24c8557ff23782ccdf746d511cca22e3226d43e03f52ef3f64050161df950a4",
+          "byteLength": 2117
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Zimmer13_Gaestebuch/CSS.luau",
+          "sha256": "bdbf595848b4d279fa51bb224424bb905c41c69edab8e1b3a9e9c7591c38487d",
+          "byteLength": 2211
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Zimmer13_Gaestebuch/JavaScript.luau",
+          "sha256": "2657be68c65f31e542576d3400613e7fc487c021505cbc56b7ab301ee77493ae",
+          "byteLength": 1097
+        }
+      ]
+    },
+    {
+      "name": "Restlicht",
+      "url": "http://localhost:8000/restlicht/index.html",
+      "sourcePath": "/restlicht/index.html",
+      "title": "Restlicht",
+      "description": "Zurückgezogene Bilder. Dossier 17 zeigt dieselbe Fassade von beiden Seiten.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "frame-3",
+        "event": "click",
+        "result": "bild-text",
+        "probe": "document.getElementById('frame-3').click();if(document.getElementById('bild-text').textContent.indexOf('Innenansicht')<0)throw new Error('Photo frame did not change');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Restlicht/init.luau",
+          "sha256": "7be759b3eb3166cd9b69773fd4e5c70d78898d36dd8f184ea5e71950ff22b354",
+          "byteLength": 10577
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Restlicht/HTML.luau",
+          "sha256": "3cb6001d00fb24a970dd47f2305c071b5f60a0ff6928a3d4c288b269a4cdf9cb",
+          "byteLength": 2279
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Restlicht/CSS.luau",
+          "sha256": "8b6c0695496e0aac7d492e8e336e7d285a500e40e3aa9cd769ce2ee2b6d565e6",
+          "byteLength": 1569
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Restlicht/JavaScript.luau",
+          "sha256": "d9ab0eddc5dc277669d543986a0dac01d14f1f07e7628323d63e039582d19740",
+          "byteLength": 816
+        }
+      ]
+    },
+    {
+      "name": "Echoarchiv",
+      "url": "http://localhost:8000/echoarchiv/index.html",
+      "sourcePath": "/echoarchiv/index.html",
+      "title": "Echoarchiv",
+      "description": "Anonyme Tonträger und unfreigegebene Abschriften. Band 04 verändert sich.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "pruefen",
+        "event": "click",
+        "result": "pruefung",
+        "probe": "document.getElementById('pruefen').click();if(document.getElementById('pruefung').textContent.indexOf('Eine Stimme')<0)throw new Error('Tape check did not change');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Echoarchiv/init.luau",
+          "sha256": "9c27cafd84dda4976086fafa255ed5b7388e76c2aef11d9f18c9394a25fee27c",
+          "byteLength": 549
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Echoarchiv/HTML.luau",
+          "sha256": "80c278fd913bce499114dd5ed6f964c9704704a533c461a11f21f28eac87ce4c",
+          "byteLength": 2341
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Echoarchiv/CSS.luau",
+          "sha256": "96e189249689a07e020891d35276f024f3bf2fe66a5e66d61cd0f86883c8f090",
+          "byteLength": 1574
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Echoarchiv/JavaScript.luau",
+          "sha256": "1bc68dfabd268fe63755a77eb67fa665471b18e3a095931f7928d2f49199d199",
+          "byteLength": 594
+        }
+      ]
+    },
+    {
+      "name": "Echoarchiv_Band04",
+      "url": "http://localhost:8000/echoarchiv/band-04.html",
+      "sourcePath": "/echoarchiv/band-04.html",
+      "title": "Echoarchiv // Band 04",
+      "description": "Die entfernte Zeile aus einer unkenntlich gemachten Aufnahme.",
+      "CatalogHidden": true,
+      "interaction": {
+        "control": "fehlstelle",
+        "event": "click",
+        "result": "fehlstelle-text",
+        "probe": "document.getElementById('fehlstelle').click();if(document.getElementById('fehlstelle-text').textContent.indexOf('hinter ihm')<0)throw new Error('Removed transcript line missing');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Echoarchiv_Band04/init.luau",
+          "sha256": "49c1de32a5233e148f2a478305e51a42b7026208966262741505cbfe6959d00d",
+          "byteLength": 563
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Echoarchiv_Band04/HTML.luau",
+          "sha256": "34f89e8c2dc5bdb1c8d3f433bf62400f3a2ff11b67e72b12c27b27d550a2c2b3",
+          "byteLength": 1818
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Echoarchiv_Band04/CSS.luau",
+          "sha256": "96e189249689a07e020891d35276f024f3bf2fe66a5e66d61cd0f86883c8f090",
+          "byteLength": 1574
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Echoarchiv_Band04/JavaScript.luau",
+          "sha256": "1bc68dfabd268fe63755a77eb67fa665471b18e3a095931f7928d2f49199d199",
+          "byteLength": 594
+        }
+      ]
+    },
+    {
+      "name": "BlindesFenster",
+      "url": "http://localhost:8000/blindes-fenster/index.html",
+      "sourcePath": "/blindes-fenster/index.html",
+      "title": "Blindes Fenster",
+      "description": "Private Kamerabestände. Die letzte Sitzung ist noch offen.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "abrufen",
+        "event": "click",
+        "result": "zugriff",
+        "value": "ost",
+        "probe": "document.getElementById('ausschnitt').value='ost';document.getElementById('abrufen').click();if(document.getElementById('zugriff').textContent.indexOf('Kennung: Ihre.')<0)throw new Error('Camera access log did not change');"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/BlindesFenster/init.luau",
+          "sha256": "4691956e5a36e0491f355452fe4502f1dc7a5e749587124e33b27400a65381fd",
+          "byteLength": 4356
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BlindesFenster/HTML.luau",
+          "sha256": "673cd8be5f17b855c7ac0879edf75b0eea0d919e3e85d069fbaaf94c30e05f6d",
+          "byteLength": 2498
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BlindesFenster/CSS.luau",
+          "sha256": "d4676e567446f1a00c846fb4d8e20f4fd46960055d0cb4b5dcbdb87eb2064d0b",
+          "byteLength": 1727
+        },
+        {
+          "path": "src/HTMLEngine/Websites/BlindesFenster/JavaScript.luau",
+          "sha256": "2bb705d968aefa337de3a83917ac9133fc7bbe6bbcc242c55159fa3db3e9c822",
+          "byteLength": 574
+        }
+      ]
+    },
+    {
+      "name": "Stillstand",
+      "url": "http://localhost:8000/stillstand/index.html",
+      "sourcePath": "/stillstand/index.html",
+      "title": "Stillstand",
+      "description": "Versiegelte Hinterlegungen warten auf das nächste Zeichen ihres Absenders.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "clock-check",
+        "event": "click",
+        "result": "clock-result",
+        "after": "QUITTUNG FEHLT",
+        "probe": "document.getElementById(\"clock-check\").click();if(document.getElementById(\"clock-result\").textContent.indexOf(\"QUITTUNG FEHLT\")<0)throw new Error(\"Stillstand interaction failed\");"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Stillstand/init.luau",
+          "sha256": "c8d1c582ad8d7f24dff9d3b2adb3f30b56532307018446ccb2bc54c6544fb909",
+          "byteLength": 3946
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Stillstand/HTML.luau",
+          "sha256": "a1ad4ecf632b70b4a70bb5cb36d51c12c334409b8b783752275475fc1bac19b1",
+          "byteLength": 2121
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Stillstand/CSS.luau",
+          "sha256": "bf8ff86a282e58a7df3f55c497c24dba3103fb4e84d736645403dcdcb60bf6ca",
+          "byteLength": 1581
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Stillstand/JavaScript.luau",
+          "sha256": "070e116e2b96be97dbf7ec483f818200cd37b00a69654df3332339a420e2880a",
+          "byteLength": 748
+        }
+      ]
+    },
+    {
+      "name": "Stillstand_Auftrag",
+      "url": "http://localhost:8000/stillstand/auftrag.html",
+      "sourcePath": "/stillstand/auftrag.html",
+      "title": "Stillstand — Hinterlegung",
+      "description": "Vormerkung einer neuen Hinterlegung mit Kennung und Quittungsintervall.",
+      "CatalogHidden": true,
+      "interaction": {
+        "control": "release-send",
+        "event": "click",
+        "result": "release-result",
+        "after": "Auftrag M-17 vorgemerkt.",
+        "probe": "document.getElementById(\"release-key\").value=\"M-17\";document.getElementById(\"release-send\").click();if(document.getElementById(\"release-result\").textContent.indexOf(\"Auftrag M-17 vorgemerkt.\")<0)throw new Error(\"Stillstand_Auftrag interaction failed\");",
+        "input": "release-key",
+        "value": "M-17"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Stillstand_Auftrag/init.luau",
+          "sha256": "a9ee1de7ab5c4db2ada92a65e0f1b645167e4d6bbfcc9a190feac6ac3ec81de9",
+          "byteLength": 3966
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Stillstand_Auftrag/HTML.luau",
+          "sha256": "bf5985e3e0c4ac56fbb16a04793f2ecac42bae617542006b63cda155bc2d4abb",
+          "byteLength": 1710
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Stillstand_Auftrag/CSS.luau",
+          "sha256": "bf8ff86a282e58a7df3f55c497c24dba3103fb4e84d736645403dcdcb60bf6ca",
+          "byteLength": 1581
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Stillstand_Auftrag/JavaScript.luau",
+          "sha256": "070e116e2b96be97dbf7ec483f818200cd37b00a69654df3332339a420e2880a",
+          "byteLength": 748
+        }
+      ]
+    },
+    {
+      "name": "Gegenstelle",
+      "url": "http://localhost:8000/gegenstelle/index.html",
+      "sourcePath": "/gegenstelle/index.html",
+      "title": "Gegenstelle",
+      "description": "Ein anonymer Vermittlungsknoten mit zurückgezogenen Verbindungen.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "terminal-send",
+        "event": "click",
+        "result": "terminal-result",
+        "after": "AKTE 17",
+        "probe": "document.getElementById(\"terminal-command\").value=\"17\";document.getElementById(\"terminal-send\").click();if(document.getElementById(\"terminal-result\").textContent.indexOf(\"AKTE 17\")<0)throw new Error(\"Gegenstelle interaction failed\");",
+        "input": "terminal-command",
+        "value": "17"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Gegenstelle/init.luau",
+          "sha256": "b8d018f947c2eee093d872a50c677c9fb10bdfab263a2d5f3a70799c079a1881",
+          "byteLength": 554
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Gegenstelle/HTML.luau",
+          "sha256": "99eeb2e39db017187feb2ddf68851286b7a633d8c05aad4ceff551f803e83f80",
+          "byteLength": 2059
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Gegenstelle/CSS.luau",
+          "sha256": "4654ed8b7f8e1e4b098b91a128ba3cb8f544997607c93e5b69e1b91445beff4f",
+          "byteLength": 1196
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Gegenstelle/JavaScript.luau",
+          "sha256": "ac0ea7836526bf0046306ad976264db5d702dcd0a75987d3a5e228dee0c7325e",
+          "byteLength": 721
+        }
+      ]
+    },
+    {
+      "name": "Tiefenmessung",
+      "url": "http://localhost:8000/tiefenmessung/index.html",
+      "sourcePath": "/tiefenmessung/index.html",
+      "title": "Tiefenmessung",
+      "description": "Ungeführte Sicherungen, unvollständige Abzüge und eine auffällige Lücke.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "depth-check",
+        "event": "click",
+        "result": "depth-result",
+        "after": "M-17: KEIN GEGENSTÜCK.",
+        "probe": "document.getElementById(\"depth-check\").click();if(document.getElementById(\"depth-result\").textContent.indexOf(\"M-17: KEIN GEGENST\\u00dcCK.\")<0)throw new Error(\"Tiefenmessung interaction failed\");"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Tiefenmessung/init.luau",
+          "sha256": "57e8110c2365167c0ebc3040714865753aa8518e0585aed7d89b96bbc21cb8ae",
+          "byteLength": 3946
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Tiefenmessung/HTML.luau",
+          "sha256": "d576f4a688028569f4de152a04a9e3dbe65c2327efddeafc32a4db43e80a8d2e",
+          "byteLength": 2294
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Tiefenmessung/CSS.luau",
+          "sha256": "6958b54e4fd0507b55bdd1b04d8b0fe7263905bc6886a97fac8992f957b129e2",
+          "byteLength": 1380
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Tiefenmessung/JavaScript.luau",
+          "sha256": "a67d89c8a199f77181a5d03d08e635bf65fe9c8e7bc5d91a1b3650805ee8baae",
+          "byteLength": 961
+        }
+      ]
+    },
+    {
+      "name": "Tiefenmessung_Messreihe",
+      "url": "http://localhost:8000/tiefenmessung/messreihe.html",
+      "sourcePath": "/tiefenmessung/messreihe.html",
+      "title": "Tiefenmessung — Segmentliste",
+      "description": "Rekonstruierte Blattfolge des Bestands M. Das siebzehnte Segment fehlt.",
+      "CatalogHidden": true,
+      "interaction": {
+        "control": "series-read",
+        "event": "click",
+        "result": "series-result",
+        "after": "SEGMENT 17: vor der Sicherung entfernt.",
+        "probe": "document.getElementById(\"series-segment\").value=\"17\";document.getElementById(\"series-read\").click();if(document.getElementById(\"series-result\").textContent.indexOf(\"SEGMENT 17: vor der Sicherung entfernt.\")<0)throw new Error(\"Tiefenmessung_Messreihe interaction failed\");",
+        "input": "series-segment",
+        "value": "17"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Tiefenmessung_Messreihe/init.luau",
+          "sha256": "b9d52c056a5958584e0391eb168a877fb33873750bf483e6fb79d25121165ff8",
+          "byteLength": 3970
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Tiefenmessung_Messreihe/HTML.luau",
+          "sha256": "c0915456f39d6c9fc7f7fa09ad6342200bb34098b1cf86a2142e27081d168303",
+          "byteLength": 2010
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Tiefenmessung_Messreihe/CSS.luau",
+          "sha256": "6958b54e4fd0507b55bdd1b04d8b0fe7263905bc6886a97fac8992f957b129e2",
+          "byteLength": 1380
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Tiefenmessung_Messreihe/JavaScript.luau",
+          "sha256": "a67d89c8a199f77181a5d03d08e635bf65fe9c8e7bc5d91a1b3650805ee8baae",
+          "byteLength": 961
+        }
+      ]
+    },
+    {
+      "name": "FremdeFrequenz",
+      "url": "http://localhost:8000/fremde-frequenz/index.html",
+      "sourcePath": "/fremde-frequenz/index.html",
+      "title": "Fremde Frequenz",
+      "description": "Ein abgeschalteter Bildträger hat seinen Rückkanal behalten.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "channel-tune",
+        "event": "click",
+        "result": "channel-result",
+        "after": "TRÄGER 03:17 / M.",
+        "probe": "document.getElementById(\"channel-code\").value=\"0317\";document.getElementById(\"channel-tune\").click();if(document.getElementById(\"channel-result\").textContent.indexOf(\"TR\\u00c4GER 03:17 / M.\")<0)throw new Error(\"FremdeFrequenz interaction failed\");",
+        "input": "channel-code",
+        "value": "0317"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/FremdeFrequenz/init.luau",
+          "sha256": "92b785150f8a9ad8c9ae1cb6bfa35c564adb4a7832ed44e70e287ae6f6ce45c5",
+          "byteLength": 574
+        },
+        {
+          "path": "src/HTMLEngine/Websites/FremdeFrequenz/HTML.luau",
+          "sha256": "203b906913bb01e8ef3a8d6d7b8fce0a46bfbe457f4c04d2b68e147b1f14e7a0",
+          "byteLength": 2146
+        },
+        {
+          "path": "src/HTMLEngine/Websites/FremdeFrequenz/CSS.luau",
+          "sha256": "1dafb94317f332e08152cdec3e7f15996281a0494cab787e7918358398f31a7e",
+          "byteLength": 1375
+        },
+        {
+          "path": "src/HTMLEngine/Websites/FremdeFrequenz/JavaScript.luau",
+          "sha256": "e2d7935d92bbf83946865917131789e47258f1f9a0fc9a1a61be7ba295babcd6",
+          "byteLength": 758
+        }
+      ]
+    },
+    {
+      "name": "Papiermond",
+      "url": "http://localhost:8000/papiermond/index.html",
+      "sourcePath": "/papiermond/index.html",
+      "title": "Papiermond",
+      "description": "Ein geschlossener Tausch von Herkunftsvermerken zu Unterlagen, die nie existiert haben sollen.",
+      "CatalogHidden": false,
+      "interaction": {
+        "control": "paper-reveal",
+        "event": "click",
+        "result": "paper-result",
+        "after": "BLATT 17: Zwei gültige Eingänge",
+        "probe": "document.getElementById(\"paper-sheet\").value=\"17\";document.getElementById(\"paper-reveal\").click();if(document.getElementById(\"paper-result\").textContent.indexOf(\"BLATT 17: Zwei g\\u00fcltige Eing\\u00e4nge\")<0)throw new Error(\"Papiermond interaction failed\");",
+        "input": "paper-sheet",
+        "value": "17"
+      },
+      "files": [
+        {
+          "path": "src/HTMLEngine/Websites/Papiermond/init.luau",
+          "sha256": "50a1a47d5034b122e8dc9841689373b8cf8615baefcc17c804353ad39a6ea0fb",
+          "byteLength": 4039
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Papiermond/HTML.luau",
+          "sha256": "12e6c0683a3bab911d036651acdb481d341efbbc52e026281f5f8089de72d61d",
+          "byteLength": 2707
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Papiermond/CSS.luau",
+          "sha256": "726825d3073c4e073f22baf8cbf30e4b29be2182e10cee98744343ae663f741b",
+          "byteLength": 1503
+        },
+        {
+          "path": "src/HTMLEngine/Websites/Papiermond/JavaScript.luau",
+          "sha256": "8e67aa639fe62c49ea9daefc9b5698b26fbf159c47b95f3f6722f0132749ec7e",
+          "byteLength": 710
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "target": "examples/websites/blindes-fenster/app.js",
+      "sha256": "9a4ef0bff39bf66ab1b06201dd12cca4d4c9e5277bf17b3073ac6e4e072ddc1f",
+      "byteLength": 547
+    },
+    {
+      "target": "examples/websites/blindes-fenster/bestand.svg",
+      "sha256": "4da3cb1b05ade97bf52a7784a8724fd787db7386b3d9b1bb8c70000fdd6692a0",
+      "byteLength": 1205
+    },
+    {
+      "target": "examples/websites/blindes-fenster/index.html",
+      "sha256": "c7b565f24f83364d4b58ce63c40b6a36c1c68b048352584672ba8ce4ef6c3c2b",
+      "byteLength": 2471
+    },
+    {
+      "target": "examples/websites/blindes-fenster/styles.css",
+      "sha256": "9682a4a4e56cb8c404c80c8c1a18906863c4e8a1ea5ae18cc47b3d52ab4041fb",
+      "byteLength": 1700
+    },
+    {
+      "target": "examples/websites/echoarchiv/app.js",
+      "sha256": "7803c706578fc81822708efb974358f9569cb61f824ad5d0a89b8c4ffd12f474",
+      "byteLength": 567
+    },
+    {
+      "target": "examples/websites/echoarchiv/band-04.html",
+      "sha256": "84c34b8095d8096f72475f7ac659fefdb4001332367c7ab7bdc80994c031456f",
+      "byteLength": 1791
+    },
+    {
+      "target": "examples/websites/echoarchiv/index.html",
+      "sha256": "f44c49279e5b26defcd10e322bc6051784764b4899d2a7bc5bf643c64e36fa69",
+      "byteLength": 2314
+    },
+    {
+      "target": "examples/websites/echoarchiv/styles.css",
+      "sha256": "c26470ac280a4772e0c1666fe622e308a5a02918adb829765a43df581600a72c",
+      "byteLength": 1547
+    },
+    {
+      "target": "examples/websites/fremde-frequenz/app.js",
+      "sha256": "efe7ca8ba5f5f659f155d2a449f0ca891492251d3f5e320d48a52f88b954e88d",
+      "byteLength": 739
+    },
+    {
+      "target": "examples/websites/fremde-frequenz/index.html",
+      "sha256": "1022ef1fb040b5ae5a09ee9d5baef24dd4d1f0c2b8c880b69e6a4d680b2471dc",
+      "byteLength": 2125
+    },
+    {
+      "target": "examples/websites/fremde-frequenz/styles.css",
+      "sha256": "c38e0d427da4b528291a55c2b116f5d8dea2bd1d6e710e369430665bdaccf119",
+      "byteLength": 1349
+    },
+    {
+      "target": "examples/websites/fundbuero-04/app.js",
+      "sha256": "c55aa900f7fed635a01c56c238d9c04e88ce27fbf1b96e3cc10b249e22231a21",
+      "byteLength": 1113
+    },
+    {
+      "target": "examples/websites/fundbuero-04/index.html",
+      "sha256": "83a5cc013c46b9dcbe2544b90959b7ba316b7d9e36920a45c72c2bdf3f822add",
+      "byteLength": 3827
+    },
+    {
+      "target": "examples/websites/fundbuero-04/objekt-17.html",
+      "sha256": "3647f4803ed88578401e7a0c4ae7dc3cd4339007885692db64944a7d79bfeb47",
+      "byteLength": 2379
+    },
+    {
+      "target": "examples/websites/fundbuero-04/styles.css",
+      "sha256": "bd2e28e6746a8c80cac0b88b2935a95f586c8843e641c90956bdb0bc52ccd7e9",
+      "byteLength": 2229
+    },
+    {
+      "target": "examples/websites/gegenstelle/app.js",
+      "sha256": "95e88ed956cef388f922067d5fd89c44056f1f3686936447cccf65db824fa418",
+      "byteLength": 702
+    },
+    {
+      "target": "examples/websites/gegenstelle/index.html",
+      "sha256": "65fee8472d727ef538b091d344e1eba06b1f2c4231f827b06c5b8f53e7654c91",
+      "byteLength": 2037
+    },
+    {
+      "target": "examples/websites/gegenstelle/styles.css",
+      "sha256": "f2092346d59784be522b6534cece29f3ea95a388ee47b8f316698e8acaa33e81",
+      "byteLength": 1170
+    },
+    {
+      "target": "examples/websites/haus-ohne-nummer/app.js",
+      "sha256": "8c765cf553286c0834b413b2ccf24bdea55e19b799b1f271264c195cb8bf2373",
+      "byteLength": 465
+    },
+    {
+      "target": "examples/websites/haus-ohne-nummer/index.html",
+      "sha256": "472207be64a27d0082f78bfe1ac6628fbd90a04d42d54ec5f84a0c10822bde07",
+      "byteLength": 4000
+    },
+    {
+      "target": "examples/websites/haus-ohne-nummer/styles.css",
+      "sha256": "daf248ff90afb62fd0949e65844a5f0b44d04aca376f9c9d1ddad6a67d662a5a",
+      "byteLength": 2457
+    },
+    {
+      "target": "examples/websites/haus-ohne-nummer/zeichen.svg",
+      "sha256": "1e1cc54c959081e4b5c0910034f59973bd23022149cfb6c989644cdc30511ccc",
+      "byteLength": 467
+    },
+    {
+      "target": "examples/websites/kanal-sechs/app.js",
+      "sha256": "3b816d4610fb9d8d78d2f55e45bdf631835993c57a5ab9fe4c3063b991ee7276",
+      "byteLength": 797
+    },
+    {
+      "target": "examples/websites/kanal-sechs/index.html",
+      "sha256": "836654fcb8de6698b9f6bbb3c87cd1164a6e5aa3d4218c97fb1eb4c21a4f7077",
+      "byteLength": 3243
+    },
+    {
+      "target": "examples/websites/kanal-sechs/kanal.svg",
+      "sha256": "bfcd041f81ad475f4d58ee62cb7556d7ebae7d8b920c37743a1faa63c153f7ab",
+      "byteLength": 1052
+    },
+    {
+      "target": "examples/websites/kanal-sechs/styles.css",
+      "sha256": "cfc543388afdbe17643a00644543e26c45c2a78ae839ceccdbed65ffeed17360",
+      "byteLength": 2155
+    },
+    {
+      "target": "examples/websites/letzte-schicht/app.js",
+      "sha256": "d1d1f0c8d40348b51c5563d530b9095f96254200f001c96191ccdad207d0277c",
+      "byteLength": 472
+    },
+    {
+      "target": "examples/websites/letzte-schicht/index.html",
+      "sha256": "7977cada2b85a4a7690e914ef1fa331c5eba914640b860a756677cf938794196",
+      "byteLength": 3741
+    },
+    {
+      "target": "examples/websites/letzte-schicht/protokoll.html",
+      "sha256": "1243aea1f8f88a6f1cae745b6f47834ee9a7454abfaeb24c530b7b2ca7d667e3",
+      "byteLength": 3334
+    },
+    {
+      "target": "examples/websites/letzte-schicht/styles.css",
+      "sha256": "e4047443a44623c8ffd98b905c71d70a4fb1a2cc9b6922203dbf063be8542ee3",
+      "byteLength": 2848
+    },
+    {
+      "target": "examples/websites/nachtlinie/app.js",
+      "sha256": "6ba2dd2d5dd835e9a86cbb96baf8de6e9fb43e3939f102a32c6fb1067fb840b6",
+      "byteLength": 1979
+    },
+    {
+      "target": "examples/websites/nachtlinie/haltestelle.html",
+      "sha256": "96812629f65a4ec9cefbfd5a51d922eaa1529cb8379f481a4ce9f3cdb17f5c22",
+      "byteLength": 1921
+    },
+    {
+      "target": "examples/websites/nachtlinie/index.html",
+      "sha256": "bcfe7a6f58b9c77f0de4609e8110f000cd4d3c782915783fc46dca2fda974fec",
+      "byteLength": 3009
+    },
+    {
+      "target": "examples/websites/nachtlinie/strecke.svg",
+      "sha256": "aa137c4b85a94a53092606b5e08d23e822c0446dc0e40f1245258adc5b12272d",
+      "byteLength": 869
+    },
+    {
+      "target": "examples/websites/nachtlinie/styles.css",
+      "sha256": "9b3ace9e4591f10a751bcafed78a9ffea0543efc69bc7fed939064c7a97d12fc",
+      "byteLength": 2355
+    },
+    {
+      "target": "examples/websites/nullpost/app.js",
+      "sha256": "923431f1efd1da0f8f0bb82deb7c3ce607c633c94157a1813c1d328fe15ffd9a",
+      "byteLength": 1113
+    },
+    {
+      "target": "examples/websites/nullpost/index.html",
+      "sha256": "c962323fbe33d7275cd59bd68597b02559c710d37e80164a39ad48e665a2532b",
+      "byteLength": 3671
+    },
+    {
+      "target": "examples/websites/nullpost/nachricht.html",
+      "sha256": "5b21644b9d0fec2a0b0d41880b4489235b7f0fca2e958750f2e48b4db6c11dcb",
+      "byteLength": 2378
+    },
+    {
+      "target": "examples/websites/nullpost/styles.css",
+      "sha256": "299e0ce82999aafa1a8eb3eabaffe21125c91190c7514bf750452d7d96b96a93",
+      "byteLength": 3066
+    },
+    {
+      "target": "examples/websites/papiermond/app.js",
+      "sha256": "95b3e1ebca6c19d621eaf629d1bce9171b8f50761633f08b8a89911718e0c85c",
+      "byteLength": 691
+    },
+    {
+      "target": "examples/websites/papiermond/index.html",
+      "sha256": "3ac1181e026876a1222652af936c98dcfbaa9a3061a7fcc507f216a07a5c7b2b",
+      "byteLength": 2684
+    },
+    {
+      "target": "examples/websites/papiermond/mond.svg",
+      "sha256": "0a6ba466986d7a2548a3fe81d3d81220f416f938c5aba0d3238bac1f937e7fd1",
+      "byteLength": 1114
+    },
+    {
+      "target": "examples/websites/papiermond/styles.css",
+      "sha256": "bfe1809ce6afc2a9d8f168de0933073a2d01d6357b82e3b708f590f3769a5dfb",
+      "byteLength": 1477
+    },
+    {
+      "target": "examples/websites/restlicht/app.js",
+      "sha256": "d8ba385083e4f6de4fb3ef36f3e6ba5e6309d02c745465873a24c1b4a4fed4ba",
+      "byteLength": 789
+    },
+    {
+      "target": "examples/websites/restlicht/bild-01.svg",
+      "sha256": "5da0dd9044f459c11be203a1b1c153f9bb2459a4925d7b611620e3805dbd5031",
+      "byteLength": 1167
+    },
+    {
+      "target": "examples/websites/restlicht/bild-02.svg",
+      "sha256": "ac76748a69e47c736549947a3f47a1a760519f3a764a81d50f2c1736b75a2142",
+      "byteLength": 1055
+    },
+    {
+      "target": "examples/websites/restlicht/bild-03.svg",
+      "sha256": "96c15a2cd5cf2bdfb6aa0ece12d661f64d50fc8929c0d987abb866d17a3593f2",
+      "byteLength": 978
+    },
+    {
+      "target": "examples/websites/restlicht/index.html",
+      "sha256": "080dd95b5f52487887a52ae9f64e905069b83d550c26d65fe4d780b6fb2a4a51",
+      "byteLength": 2252
+    },
+    {
+      "target": "examples/websites/restlicht/styles.css",
+      "sha256": "4ab1097f3e35ae75eec9e6724b3abaa9e4ffea429eb62ac5c66c154f9744a1c6",
+      "byteLength": 1542
+    },
+    {
+      "target": "examples/websites/stillstand/app.js",
+      "sha256": "f5b836a123ac040a6f23e214efde9389e4652c53994fa0b297dddf349493b932",
+      "byteLength": 731
+    },
+    {
+      "target": "examples/websites/stillstand/auftrag.html",
+      "sha256": "8c49cb944d9864a733fd0c57e98dacda0be74d8e8415a977031469a579aa1c2e",
+      "byteLength": 1687
+    },
+    {
+      "target": "examples/websites/stillstand/index.html",
+      "sha256": "59b03faee4e501d7858badf6640bfd82368ffa9f8536c01dec993de70ee250f1",
+      "byteLength": 2098
+    },
+    {
+      "target": "examples/websites/stillstand/styles.css",
+      "sha256": "e5eb7f261dc2c19ac320ef49174f06c4586bb2f9e8e086aeec160eee7735cabd",
+      "byteLength": 1555
+    },
+    {
+      "target": "examples/websites/stillstand/uhr.svg",
+      "sha256": "a9cf635bb572a23634418d60154b9c89399b351f83a8c0f29ce1a47524edaaa5",
+      "byteLength": 1084
+    },
+    {
+      "target": "examples/websites/tiefenmessung/app.js",
+      "sha256": "76c0a0557ec808f456c415bcef38bdfb63c548f22df7d6793dfd0d0c4260bca6",
+      "byteLength": 947
+    },
+    {
+      "target": "examples/websites/tiefenmessung/index.html",
+      "sha256": "81db90edf7169410138d1941e6c620b157b62c09872b10e5861436eeda212ed0",
+      "byteLength": 2271
+    },
+    {
+      "target": "examples/websites/tiefenmessung/messreihe.html",
+      "sha256": "b0a460171b2b6df1e7d2a322d9674a093fb523aca1eced69e5669a37f43008d3",
+      "byteLength": 1987
+    },
+    {
+      "target": "examples/websites/tiefenmessung/styles.css",
+      "sha256": "de1a7601faf3a09c9910b7734faf8bdfac8df5008c84e30dcd2a1e2862dc7ed6",
+      "byteLength": 1354
+    },
+    {
+      "target": "examples/websites/tiefenmessung/tiefe.svg",
+      "sha256": "9e40e4276f38dc55ef3c1a9e9d031157447f9c93ba26a7d602a7de9d9a680c0f",
+      "byteLength": 1075
+    },
+    {
+      "target": "examples/websites/verzeichnis/hinweis.html",
+      "sha256": "4ca4a3b23e170e956ec85ffb5ae94d1262b6a06180a855f554623ba96b2d5df5",
+      "byteLength": 1254
+    },
+    {
+      "target": "examples/websites/verzeichnis/index.html",
+      "sha256": "dbcc05c0579b8c2121b569937ca7ea0b6db6a2ea48d5a5f83f2cfe96d3bc68e5",
+      "byteLength": 3653
+    },
+    {
+      "target": "examples/websites/verzeichnis/styles.css",
+      "sha256": "a5971caecbb66868b9bddb2ab146240a3f5fc9afd6ebbfe4ab7ab7221bf42c61",
+      "byteLength": 1772
+    },
+    {
+      "target": "examples/websites/zimmer-13/app.js",
+      "sha256": "2eff9d5c1db46cfe3526dcaefb83a76b980b83f2e45121ef458938dd73d3ca11",
+      "byteLength": 1087
+    },
+    {
+      "target": "examples/websites/zimmer-13/gaestebuch.html",
+      "sha256": "4a6495ad230903e0ef1f28ad0678e72e85dfc30c34c4254dbf789145b6b4c573",
+      "byteLength": 2092
+    },
+    {
+      "target": "examples/websites/zimmer-13/index.html",
+      "sha256": "d4152afd513060da5f34b8dba08b607d2caab99606d487dfff1149232262b4f3",
+      "byteLength": 2567
+    },
+    {
+      "target": "examples/websites/zimmer-13/styles.css",
+      "sha256": "527a56dd9944dfd591c2795b2f660ca9da032b4d1695c0a996de19fa217c0641",
+      "byteLength": 2184
+    }
+  ]
+}

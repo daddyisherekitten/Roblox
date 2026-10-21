@@ -1,0 +1,21 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "captured": "2026-10-08",
+  "standard": "https://html.spec.whatwg.org/multipage/form-elements.html#the-selectedcontent-element",
+  "cases": [
+    {
+      "name": "selected-content",
+      "source": "document.body.innerHTML='<select id=\"choice\"><button><selectedcontent id=\"mirror\"></selectedcontent></button><option value=\"a\"><b>A</b></option><option value=\"b\"><i>B</i></option></select>';const s=document.getElementById('choice'),m=document.getElementById('mirror');record(m.innerHTML);s.value='b';record(m.innerHTML);s.options[1].firstChild.textContent='B2';record(m.innerHTML);s.value='b';record(m.innerHTML);const extra=document.createElement('selectedcontent');s.appendChild(extra);record(extra.innerHTML);s.multiple=true;s.value='a';record(m.innerHTML);s.multiple=false;record(m.innerHTML);s.selectedIndex=-1;record(m.innerHTML);",
+      "expected": [
+        "<b>A</b>",
+        "<i>B</i>",
+        "<i>B</i>",
+        "<i>B2</i>",
+        "<i>B2</i>",
+        "<i>B2</i>",
+        "<b>A</b>",
+        ""
+      ]
+    }
+  ]
+}

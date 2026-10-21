@@ -1,0 +1,659 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "captured": "2026-10-10",
+  "standards": [
+    "https://www.w3.org/TR/2026/WD-selectors-4-20260122/#relational",
+    "https://www.w3.org/TR/2026/WD-selectors-4-20260122/#forgiving-selector",
+    "https://www.w3.org/TR/css-syntax-3/#any-value"
+  ],
+  "boundaries": {
+    "namespaces": "Default namespace subject exceptions and synthetic relative-anchor namespaces remain a separate unresolved slice. These captures do not redefine their standard expectations.",
+    "serialization": "Native selectorText strings are raw observations. Forgiving branch serialization differs from the engine and remains unresolved in CSSWG issue 3676; rule counts and actual cascade behavior are asserted independently. https://github.com/w3c/csswg-drafts/issues/3676"
+  },
+  "grammarHTML": "<!doctype html><body><div id=e class=hit><section id=branch><p class=leaf></p></section><p class=other></p></div><p class=other></p></body>",
+  "grammar": [
+    {
+      "source": ":is(.hit,#no:unsupported())",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":where(.hit,#no:unsupported())",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":where(.hit)"
+    },
+    {
+      "source": ":not(.hit,:unsupported())",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(.leaf,:unsupported())",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has()",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has( )",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(/**/)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(,.leaf)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(.leaf,)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(.leaf,,.other)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(:is(.leaf,))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":has(:is(.leaf))"
+    },
+    {
+      "source": ":has(:has(.leaf))",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(section:has(.leaf))",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":is(.hit,:has(section:has(.leaf)))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":where(.hit,:has(section:has(.leaf)))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":where(.hit)"
+    },
+    {
+      "source": ":has(:is(.leaf,:has(.leaf)))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":has(:is(.leaf))"
+    },
+    {
+      "source": ":has(:where(:has(.leaf),section))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":has(:where(section))"
+    },
+    {
+      "source": ":has(:not(:has(.leaf)))",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(:nth-child(1 of :has(.leaf)))",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":is(.hit,> .other)",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":where(.hit,::before)",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":where(.hit)"
+    },
+    {
+      "source": ":not(:is(.hit,:unsupported()))",
+      "expected": false,
+      "count": 1,
+      "selectorText": ":not(:is(.hit))"
+    },
+    {
+      "source": ":has(:is(.leaf,::before))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":has(:is(.leaf))"
+    },
+    {
+      "source": ":nth-child(1 of .hit,:unsupported())",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":nth-child(1 of :is(.hit,:unsupported()))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":nth-child(1 of :is(.hit))"
+    },
+    {
+      "source": ":nth-child(1 of .hit,)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":is(.hit,.other])",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":is(.hit,[title=\"bad\nvalue\"])",
+      "expected": true,
+      "count": 0,
+      "selectorText": null,
+      "specExpected": "SyntaxError",
+      "difference": "CSS Syntax <any-value> excludes bad-string tokens before forgiving selector-list recovery; native DOM matching accepts this input, while its stylesheet parser rejects it."
+    },
+    {
+      "source": ":is(.hit,#no:has( ))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":has([title=\"bad\nvalue\"],.leaf)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":is(.hit,:not(.other,))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":is(.hit,:nth-child(1 of .hit,))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":is(.hit,[title=\"abc\"\"abc\"])",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":has(> .leaf + .other)",
+      "expected": false,
+      "count": 1,
+      "selectorText": ":has(> .leaf + .other)"
+    },
+    {
+      "source": ":has(> section > .leaf)",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":has(> section > .leaf)"
+    },
+    {
+      "source": ":has(> section + .other)",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":has(> section + .other)"
+    },
+    {
+      "source": ":has(+ .other)",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":has(+ .other)"
+    },
+    {
+      "source": ":nth-child(1 of #no,.hit)",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":nth-child(1 of #no, .hit)"
+    },
+    {
+      "source": ":is(.hit,#no)",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit, #no)"
+    },
+    {
+      "source": ":not(.other,#no)",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":not(.other, #no)"
+    },
+    {
+      "source": ":where(#no,.hit)",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":where(#no, .hit)"
+    }
+  ],
+  "domHTML": "<!doctype html><body><div class=host><div id=e class=\"host hit other\"><section><p class=leaf></p></section><p class=other></p></div></div></body>",
+  "dom": [
+    {
+      "source": ":is(.hit,#no:unsupported())",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":where(.hit,#no:unsupported())",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":where(.hit)"
+    },
+    {
+      "source": ":not(.hit,:unsupported())",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(.leaf,:unsupported())",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has( )",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(,.leaf)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(.leaf,)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(.leaf,,.other)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(:has(.leaf))",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(section:has(.leaf))",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":is(.hit,:has(section:has(.leaf)))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":is(.hit,#no:has( ))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":is(.hit)"
+    },
+    {
+      "source": ":has(:is(.leaf,:has(.leaf)))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":has(:is(.leaf))"
+    },
+    {
+      "source": ":has(:not(:has(.leaf)))",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":has(:nth-child(1 of :has(.leaf)))",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":nth-child(1 of .hit,:unsupported())",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":nth-child(1 of :is(.hit,:unsupported()))",
+      "expected": true,
+      "count": 1,
+      "selectorText": ":nth-child(1 of :is(.hit))"
+    },
+    {
+      "source": ":nth-child(1 of .hit,)",
+      "expected": "SyntaxError",
+      "count": 0,
+      "selectorText": null
+    },
+    {
+      "source": ":is(.hit",
+      "expected": true,
+      "count": 0,
+      "selectorText": null,
+      "profileExpected": "SyntaxError",
+      "difference": "Native DOM auto-closes a function at EOF under CSS Syntax. This existing engine DOM parser gap is outside the relational-selector slice; the native result is preserved, not reclassified as a standard error."
+    },
+    {
+      "source": ":is(.hit,[title=\"bad\nvalue\"])",
+      "expected": true,
+      "count": 0,
+      "selectorText": null,
+      "specExpected": "SyntaxError",
+      "difference": "CSS Syntax <any-value> excludes bad-string tokens before forgiving selector-list recovery; native DOM matching accepts this input, while its stylesheet parser rejects it."
+    },
+    {
+      "source": "*|/**/div",
+      "expected": true,
+      "count": 1,
+      "selectorText": "div"
+    }
+  ],
+  "winners": [
+    {
+      "name": "is valid maximum ID",
+      "selector": ":is(.hit,#no)",
+      "competitor": ".hit",
+      "specificity": [
+        1,
+        0,
+        0
+      ],
+      "css": ":is(.hit,#no){color:rgb(17,53,91)}.hit{color:rgb(101,23,7)}",
+      "color": "rgb(17, 53, 91)",
+      "count": 2,
+      "selectorText": ":is(.hit, #no)",
+      "nestedCount": 0,
+      "nestedSelectorText": null
+    },
+    {
+      "name": "not valid maximum ID",
+      "selector": ":not(.missing,#no)",
+      "competitor": ".hit",
+      "specificity": [
+        1,
+        0,
+        0
+      ],
+      "css": ":not(.missing,#no){color:rgb(17,53,91)}.hit{color:rgb(101,23,7)}",
+      "color": "rgb(17, 53, 91)",
+      "count": 2,
+      "selectorText": ":not(.missing, #no)",
+      "nestedCount": 0,
+      "nestedSelectorText": null
+    },
+    {
+      "name": "where zero",
+      "selector": ":where(.hit,#no)",
+      "competitor": "div",
+      "specificity": [
+        0,
+        0,
+        0
+      ],
+      "css": ":where(.hit,#no){color:rgb(17,53,91)}div{color:rgb(101,23,7)}",
+      "color": "rgb(101, 23, 7)",
+      "count": 2,
+      "selectorText": ":where(.hit, #no)",
+      "nestedCount": 0,
+      "nestedSelectorText": null
+    },
+    {
+      "name": "nth filter adds pseudo specificity",
+      "selector": ":nth-child(1 of #no,.hit)",
+      "competitor": "#e",
+      "specificity": [
+        1,
+        1,
+        0
+      ],
+      "css": ":nth-child(1 of #no,.hit){color:rgb(17,53,91)}#e{color:rgb(101,23,7)}",
+      "color": "rgb(17, 53, 91)",
+      "count": 2,
+      "selectorText": ":nth-child(1 of #no, .hit)",
+      "nestedCount": 0,
+      "nestedSelectorText": null
+    },
+    {
+      "name": "is invalid nested has branch contributes zero",
+      "selector": ":is(.hit,:has(section:has(.leaf)))",
+      "competitor": ".hit",
+      "specificity": [
+        0,
+        1,
+        0
+      ],
+      "css": ":is(.hit,:has(section:has(.leaf))){color:rgb(17,53,91)}.hit{color:rgb(101,23,7)}",
+      "color": "rgb(101, 23, 7)",
+      "count": 2,
+      "selectorText": ":is(.hit)",
+      "nestedCount": 0,
+      "nestedSelectorText": null
+    },
+    {
+      "name": "is invalid empty has branch contributes zero",
+      "selector": ":is(.hit,#no:has( ))",
+      "competitor": ".hit.other",
+      "specificity": [
+        0,
+        1,
+        0
+      ],
+      "css": ":is(.hit,#no:has( )){color:rgb(17,53,91)}.hit.other{color:rgb(101,23,7)}",
+      "color": "rgb(101, 23, 7)",
+      "count": 2,
+      "selectorText": ":is(.hit)",
+      "nestedCount": 0,
+      "nestedSelectorText": null
+    }
+  ],
+  "nesting": [
+    {
+      "name": "nesting parent maximum",
+      "parent": ".host,#no",
+      "child": "& .hit",
+      "specificity": [
+        1,
+        1,
+        0
+      ],
+      "css": ".host,#no{& .hit{color:rgb(17,53,91)}}.host .hit{color:rgb(101,23,7)}",
+      "color": "rgb(17, 53, 91)",
+      "count": 2,
+      "selectorText": ".host, #no",
+      "nestedCount": 1,
+      "nestedSelectorText": "& .hit"
+    },
+    {
+      "name": "nesting invalid has branch specificity",
+      "parent": ".host",
+      "child": "&:is(.hit,:has(section:has(.leaf)))",
+      "specificity": [
+        0,
+        2,
+        0
+      ],
+      "css": ".host{&:is(.hit,:has(section:has(.leaf))){color:rgb(17,53,91)}}.host.hit{color:rgb(101,23,7)}",
+      "color": "rgb(101, 23, 7)",
+      "count": 2,
+      "selectorText": ".host",
+      "nestedCount": 1,
+      "nestedSelectorText": "&:is(.hit)"
+    }
+  ],
+  "retainedHTML": "<!doctype html><html><head><style id=sheet>.host:is(.hit,:has(section:has(.leaf))){color:rgb(17,53,91)}.host.hit{color:rgb(101,23,7)}</style></head><body><div id=target class=\"host hit other\">Surface<section class=branch><p id=leaf class=leaf>Leaf</p></section><input id=kept value=kept></div><p id=outside>Outside</p><script>globalThis.relationalReady=true;</script></body></html>",
+  "retained": [
+    {
+      "name": "initial invalid nested branch loses specificity tie",
+      "code": "",
+      "expected": {
+        "color": "rgb(101, 23, 7)",
+        "count": 2,
+        "selectorText": ".host:is(.hit)",
+        "value": "kept",
+        "selectionStart": 0,
+        "selectionEnd": 0,
+        "selectionDirection": "forward",
+        "insertError": null
+      }
+    },
+    {
+      "name": "valid forgiving rest branch",
+      "code": "document.getElementById('kept').value='edited';document.getElementById('kept').setSelectionRange(1,3,'backward');document.getElementById('sheet').sheet.cssRules[0].selectorText='.host.other:has(:is(.leaf,:has(.leaf)))';",
+      "expected": {
+        "color": "rgb(17, 53, 91)",
+        "count": 2,
+        "selectorText": ".host.other:has(:is(.leaf))",
+        "value": "edited",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward",
+        "insertError": null
+      }
+    },
+    {
+      "name": "descendant class removal updates retained paint",
+      "code": "document.getElementById('leaf').className='missing';",
+      "expected": {
+        "color": "rgb(101, 23, 7)",
+        "count": 2,
+        "selectorText": ".host.other:has(:is(.leaf))",
+        "value": "edited",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward",
+        "insertError": null
+      }
+    },
+    {
+      "name": "descendant class restoration updates retained paint",
+      "code": "document.getElementById('leaf').className='leaf';",
+      "expected": {
+        "color": "rgb(17, 53, 91)",
+        "count": 2,
+        "selectorText": ".host.other:has(:is(.leaf))",
+        "value": "edited",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward",
+        "insertError": null
+      }
+    },
+    {
+      "name": "forbidden branch cannot supply a match",
+      "code": "document.getElementById('sheet').sheet.cssRules[0].selectorText='.host.other:has(:is(.missing,:has(.leaf)))';",
+      "expected": {
+        "color": "rgb(101, 23, 7)",
+        "count": 2,
+        "selectorText": ".host.other:has(:is(.missing))",
+        "value": "edited",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward",
+        "insertError": null
+      }
+    },
+    {
+      "name": "invalid selectorText leaves existing rule intact",
+      "code": "document.getElementById('sheet').sheet.cssRules[0].selectorText='.host.other:has( )';",
+      "expected": {
+        "color": "rgb(101, 23, 7)",
+        "count": 2,
+        "selectorText": ".host.other:has(:is(.missing))",
+        "value": "edited",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward",
+        "insertError": null
+      }
+    },
+    {
+      "name": "invalid relative insertRule throws without inserting",
+      "code": "const sheet=document.getElementById('sheet').sheet;sheet.deleteRule(0);globalThis.relativeInsertError='';try{sheet.insertRule('.host.other:has( ){color:rgb(17,53,91)}',0);}catch(error){relativeInsertError=error.name;}",
+      "expected": {
+        "color": "rgb(101, 23, 7)",
+        "count": 1,
+        "selectorText": ".host.hit",
+        "value": "edited",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward",
+        "insertError": "SyntaxError"
+      }
+    },
+    {
+      "name": "valid relative combinator inserts and paints",
+      "code": "document.getElementById('sheet').sheet.insertRule('.host.other:has(> section > .leaf){color:rgb(17,53,91)}',0);",
+      "expected": {
+        "color": "rgb(17, 53, 91)",
+        "count": 2,
+        "selectorText": ".host.other:has(> section > .leaf)",
+        "value": "edited",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward",
+        "insertError": "SyntaxError"
+      }
+    },
+    {
+      "name": "valid relational CSSOM color edit only repaints",
+      "code": "document.getElementById('sheet').sheet.cssRules[0].style.color='rgb(41,67,89)';",
+      "paintOnly": true,
+      "expected": {
+        "color": "rgb(41, 67, 89)",
+        "count": 2,
+        "selectorText": ".host.other:has(> section > .leaf)",
+        "value": "edited",
+        "selectionStart": 1,
+        "selectionEnd": 3,
+        "selectionDirection": "backward",
+        "insertError": "SyntaxError"
+      }
+    }
+  ]
+}

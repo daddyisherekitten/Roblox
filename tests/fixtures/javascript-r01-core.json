@@ -1,0 +1,413 @@
+[
+  {
+    "name": "ordinary this boxes every primitive intrinsically",
+    "source": "function f(){record(typeof this);record(Object.prototype.toString.call(this));return this}const n=f.call(7);record(n.valueOf());record(Object.getPrototypeOf(n)===Number.prototype);f.call('xy');f.call(true);f.call(2n);f.call(Symbol('x'));record(f.call(null)===globalThis);",
+    "expected": [
+      "object",
+      "[object Number]",
+      "7",
+      "true",
+      "object",
+      "[object String]",
+      "object",
+      "[object Boolean]",
+      "object",
+      "[object BigInt]",
+      "object",
+      "[object Symbol]",
+      "object",
+      "[object Object]",
+      "true"
+    ]
+  },
+  {
+    "name": "strict this preserves primitives and undefined",
+    "source": "function f(){'use strict';return this}record(f());record(f.call(null));record(typeof f.call(7));record(f.call(7));record(typeof f.call(Symbol('x')));record(typeof f.call(2n));",
+    "expected": [
+      "undefined",
+      "null",
+      "number",
+      "7",
+      "symbol",
+      "bigint"
+    ]
+  },
+  {
+    "name": "boxing does not call replaced global constructors",
+    "source": "const p=Number.prototype;Number=function(){throw Error('replacement')};function f(){return this}const a=f.call(8),b=f.call(8);record(a!==b);record(Object.getPrototypeOf(a)===p);record(a.valueOf());const s=f.call('ab');record(s.length+':'+s[0]+':'+s[1]);record(Object.getOwnPropertyDescriptor(s,'0').writable);",
+    "expected": [
+      "true",
+      "true",
+      "8",
+      "2:a:b",
+      "false"
+    ]
+  },
+  {
+    "name": "global properties and lexical bindings are independent",
+    "source": "globalThis.separate=10;let separate=20;record(separate);record(globalThis.separate);globalThis.separate=30;record(separate);record(globalThis.separate);record(delete globalThis.separate);record(separate);record(Object.hasOwn(globalThis,'separate'));",
+    "expected": [
+      "20",
+      "10",
+      "20",
+      "30",
+      "true",
+      "20",
+      "false"
+    ]
+  },
+  {
+    "name": "global var and function descriptor deletion",
+    "source": "var shared=1;record(globalThis.shared);globalThis.shared=3;record(shared);shared=4;record(globalThis.shared);record(Object.getOwnPropertyDescriptor(globalThis,'shared').configurable);record(delete shared);function task(){return 8}record(globalThis.task===task);record(Object.getOwnPropertyDescriptor(globalThis,'task').enumerable);record(delete globalThis.task);",
+    "expected": [
+      "1",
+      "3",
+      "4",
+      "false",
+      "false",
+      "true",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "implicit globals are configurable and unresolved delete succeeds",
+    "source": "temporary=3;record(Object.getOwnPropertyDescriptor(globalThis,'temporary').configurable);record(delete temporary);record(typeof temporary);record(delete neverDeclared);globalThis.fromProperty=6;record(fromProperty);record(delete globalThis.fromProperty);record(typeof fromProperty);",
+    "expected": [
+      "true",
+      "true",
+      "undefined",
+      "true",
+      "6",
+      "true",
+      "undefined"
+    ]
+  },
+  {
+    "name": "global accessors participate in name resolution",
+    "source": "let stored=2;Object.defineProperty(globalThis,'globalAccessor',{get(){return stored},set(value){stored=value},configurable:true});record(globalAccessor);globalAccessor=7;record(stored);record(Reflect.set(globalThis,'globalAccessor',9));record(globalAccessor);record(delete globalAccessor);",
+    "expected": [
+      "2",
+      "7",
+      "true",
+      "9",
+      "true"
+    ]
+  },
+  {
+    "name": "global readonly rejection follows strictness",
+    "source": "NaN=7;Infinity=4;undefined=9;record(Number.isNaN(NaN));record(Infinity);record(undefined);try{(function(){'use strict';undefined=4})()}catch(e){record(e.name)}record(Reflect.set(globalThis,'Infinity',3));record(Object.getOwnPropertyDescriptor(globalThis,'Infinity').writable);",
+    "expected": [
+      "true",
+      "Infinity",
+      "undefined",
+      "TypeError",
+      "false",
+      "false"
+    ]
+  },
+  {
+    "name": "inherited global property lookup",
+    "source": "const previous=Object.getPrototypeOf(globalThis);Object.setPrototypeOf(globalThis,{inheritedGlobal:13});record(inheritedGlobal);record(typeof inheritedGlobal);record(Object.hasOwn(globalThis,'inheritedGlobal'));record(delete inheritedGlobal);record(inheritedGlobal);Object.setPrototypeOf(globalThis,previous);",
+    "expected": [
+      "13",
+      "number",
+      "false",
+      "true",
+      "13"
+    ]
+  },
+  {
+    "name": "strict reserved names and function names reject before effects",
+    "source": "for(const code of [\"'use strict';var implements;\",\"'use strict';function eval(){}\",\"'use strict';function f(interface){}\",\"'use strict';let yield;\",\"class eval{}\",\"let let;\",\"function* f(yield){}\"]){try{eval(code);record('accepted')}catch(e){record(e.name)}}",
+    "expected": [
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "switch and loop lexical declaration conflicts reject early",
+    "source": "for(const code of [\"switch(1){case 1:let a;break;case 2:let a;}\",\"for(let x,x;;){}\",\"for(let x=0;x<1;x++){var x;}\",\"{let x;function x(){}}\",\"'use strict';{function x(){}function x(){}}\",\"while(false)function x(){}\",\"if(false)async function x(){}\",\"'use strict';if(false)function x(){}\"]){try{eval(code);record('accepted')}catch(e){record(e.name)}}",
+    "expected": [
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "cross-script conflicts reject before declarations and effects",
+    "steps": [
+      {
+        "source": "let reserved=1;var old=2;"
+      },
+      {
+        "source": "record('ran');var reserved;var leaked;",
+        "error": "SyntaxError"
+      },
+      {
+        "source": "record(typeof leaked);record(reserved);"
+      },
+      {
+        "source": "record('ran');let old;",
+        "error": "SyntaxError"
+      },
+      {
+        "source": "record('still');"
+      }
+    ],
+    "expected": [
+      "undefined",
+      "1",
+      "still"
+    ]
+  },
+  {
+    "name": "restricted global function rejection leaves no declarations",
+    "steps": [
+      {
+        "source": "Object.defineProperty(globalThis,'blocked',{value:2,configurable:false});"
+      },
+      {
+        "source": "record('ran');var untouched;function blocked(){}",
+        "error": "TypeError",
+        "nativeError": "SyntaxError"
+      },
+      {
+        "source": "record(typeof untouched);record(blocked);"
+      }
+    ],
+    "expected": [
+      "undefined",
+      "2"
+    ]
+  },
+  {
+    "name": "ordinary functions use their own realm for this and objects",
+    "realmSource": "var foreignGlobal=globalThis,foreignNumberPrototype=Number.prototype;function foreignBox(){return this}function foreignArray(){return []}function ForeignCtor(){this.value=7}var foreignObjectPrototype=Object.prototype;",
+    "realmExports": [
+      "foreignGlobal",
+      "foreignNumberPrototype",
+      "foreignBox",
+      "foreignArray",
+      "ForeignCtor",
+      "foreignObjectPrototype"
+    ],
+    "source": "record(foreignBox()===foreignGlobal);record(Object.getPrototypeOf(foreignBox.call(8))===foreignNumberPrototype);record(Object.getPrototypeOf(foreignArray())!==Array.prototype);record(foreignArray() instanceof Array);record(Object.getPrototypeOf(new ForeignCtor())===ForeignCtor.prototype);ForeignCtor.prototype=3;function Own(){}record(Object.getPrototypeOf(Reflect.construct(Own,[],ForeignCtor))===foreignObjectPrototype);",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "false",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "builtin constructors derive default prototype from new target realm",
+    "realmSource": "function Foreign(){}Foreign.prototype=2;var foreignNumberPrototype=Number.prototype,foreignArrayPrototype=Array.prototype;",
+    "realmExports": [
+      "Foreign",
+      "foreignNumberPrototype",
+      "foreignArrayPrototype"
+    ],
+    "source": "record(Object.getPrototypeOf(Reflect.construct(Number,[8],Foreign))===foreignNumberPrototype);record(Object.getPrototypeOf(Reflect.construct(Array,[2],Foreign))===foreignArrayPrototype);",
+    "expected": [
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "global direct eval creates deletable object bindings",
+    "source": "eval('var evalGlobal=3;function evalFunction(){return 7}');record(globalThis.evalGlobal);record(evalFunction());record(Object.getOwnPropertyDescriptor(globalThis,'evalGlobal').configurable);record(delete evalGlobal);record(delete evalFunction);record(typeof evalGlobal);record(typeof evalFunction);eval('let isolated=8');record(typeof isolated);",
+    "expected": [
+      "3",
+      "7",
+      "true",
+      "true",
+      "true",
+      "undefined",
+      "undefined",
+      "undefined"
+    ]
+  },
+  {
+    "name": "cross-realm proxy traps brands species and new targets",
+    "realmSource": "var foreignArray=[1,2];var foreignProxy=new Proxy(foreignArray,{get(target,key,receiver){if(key==='answer')return 42;return Reflect.get(target,key,receiver)}});var foreignRevocable=Proxy.revocable([3],{});function Foreign(){}Foreign.prototype=2;var boundForeign=Foreign.bind(null),foreignNumberPrototype=Number.prototype;var ForeignClass=class{#value=9;get(){return this.#value}};",
+    "realmExports": [
+      "foreignArray",
+      "foreignProxy",
+      "foreignRevocable",
+      "Foreign",
+      "boundForeign",
+      "foreignNumberPrototype",
+      "ForeignClass"
+    ],
+    "source": "record(foreignProxy.answer);record(Array.isArray(foreignProxy));record(Object.keys(foreignProxy).join(','));record(Array.prototype.map.call(foreignArray,x=>x+1) instanceof Array);const p=new Proxy(Foreign,{});record(Object.getPrototypeOf(Reflect.construct(Number,[3],p))===foreignNumberPrototype);record(Object.getPrototypeOf(Reflect.construct(Number,[3],boundForeign))===foreignNumberPrototype);record(new ForeignClass().get());foreignRevocable.revoke();try{Array.isArray(foreignRevocable.proxy)}catch(e){record(e.name)}",
+    "expected": [
+      "42",
+      "true",
+      "0,1",
+      "true",
+      "true",
+      "true",
+      "9",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "binary cross-realm brands backing buffers and ordinary properties",
+    "binary": true,
+    "realmSource": "var foreignBuffer=new ArrayBuffer(4),foreignView=new Uint8Array(foreignBuffer);foreignView.set([1,2,3,4]);var foreignDataView=new DataView(foreignBuffer);function Foreign(){}Foreign.prototype=2;var foreignUintPrototype=Uint8Array.prototype;",
+    "realmExports": [
+      "foreignBuffer",
+      "foreignView",
+      "foreignDataView",
+      "Foreign",
+      "foreignUintPrototype"
+    ],
+    "source": "record(ArrayBuffer.isView(foreignView));record(ArrayBuffer.isView(foreignDataView));record(foreignView[1]);record(Uint8Array.prototype.at.call(foreignView,2));const localView=new Uint8Array(foreignBuffer);localView[0]=9;record(foreignView[0]);record(DataView.prototype.getUint8.call(foreignDataView,0));Object.defineProperty(foreignView,'label',{value:'kept'});record(foreignView.label);record(Object.keys(foreignView).join(','));record(Object.getPrototypeOf(Reflect.construct(Uint8Array,[2],Foreign))===foreignUintPrototype);class Derived extends Uint8Array{}const d=new Derived([5,6]);record(d instanceof Derived);record(d[1]);",
+    "expected": [
+      "true",
+      "true",
+      "2",
+      "3",
+      "9",
+      "9",
+      "kept",
+      "0,1,2,3",
+      "true",
+      "true",
+      "6"
+    ]
+  },
+  {
+    "name": "global lexical names shadow configurable intrinsics",
+    "source": "let Array=17;record(Array);record(typeof globalThis.Array);record([1,2].length);class Number{}record(typeof Number);record(Number===globalThis.Number);",
+    "expected": [
+      "17",
+      "function",
+      "2",
+      "function",
+      "false"
+    ]
+  },
+  {
+    "name": "iteration destructuring assignment and early target validation",
+    "source": "let a,b;for([a,b]of [[1,2],[3,4]])record(a+':'+b);for({x:a}of [{x:5}])record(a);for(const code of [\"for(1 of [2]){}\",\"for(x of [],[]){}\",\"'use strict';({eval}={eval:1});\",\"const C=class arguments{}\"]){try{eval(code);record('accepted')}catch(e){record(e.name)}}",
+    "expected": [
+      "1:2",
+      "3:4",
+      "5",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "native function and Error constructor descriptors",
+    "source": "for(const f of [Error,TypeError,Function.prototype.call,Function.prototype.apply]){const n=Object.getOwnPropertyDescriptor(f,'name'),l=Object.getOwnPropertyDescriptor(f,'length');record(n.writable+':'+n.enumerable+':'+n.configurable);record(l.writable+':'+l.enumerable+':'+l.configurable)}const p=Object.getOwnPropertyDescriptor(Error,'prototype');record(p.writable+':'+p.enumerable+':'+p.configurable);",
+    "expected": [
+      "false:false:true",
+      "false:false:true",
+      "false:false:true",
+      "false:false:true",
+      "false:false:true",
+      "false:false:true",
+      "false:false:true",
+      "false:false:true",
+      "false:false:false"
+    ]
+  },
+  {
+    "name": "cross-realm errors preserve realm and constructor default prototype",
+    "realmSource": "function Foreign(){}Foreign.prototype=2;var foreignTypeErrorPrototype=TypeError.prototype,ForeignTypeError=TypeError;function foreignThrow(){null.value}",
+    "realmExports": [
+      "Foreign",
+      "foreignTypeErrorPrototype",
+      "ForeignTypeError",
+      "foreignThrow"
+    ],
+    "source": "record(Object.getPrototypeOf(Reflect.construct(TypeError,['x'],Foreign))===foreignTypeErrorPrototype);try{foreignThrow()}catch(e){record(e instanceof ForeignTypeError);record(e instanceof TypeError);record(e.name)}",
+    "expected": [
+      "true",
+      "true",
+      "false",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Error call and construct ignore ordinary call receiver",
+    "source": "const a=Error('ordinary'),b=Error.call({prototype:7},'borrowed'),c=new Error('constructed'),d=AggregateError([1,2],'combined');record(a.message);record(Object.getPrototypeOf(a)===Error.prototype);record(b.message);record(Object.getPrototypeOf(b)===Error.prototype);record(c.message);record(d.message);record(d.errors.join(','));",
+    "expected": [
+      "ordinary",
+      "true",
+      "borrowed",
+      "true",
+      "constructed",
+      "combined",
+      "1,2"
+    ]
+  },
+  {
+    "name": "Binary constructor conversion and new target observation order",
+    "binary": true,
+    "source": "let trace=[];const n=name=>({valueOf(){trace.push(name);return 2}});function Target(){}const T=new Proxy(Target,{get(target,key){if(key==='prototype')trace.push('prototype');return Reflect.get(target,key)}});Reflect.construct(ArrayBuffer,[n('length'),{get maxByteLength(){trace.push('max');return undefined}}],T);record(trace.join('|'));trace=[];Reflect.construct(DataView,[new ArrayBuffer(8),n('offset'),n('length')],T);record(trace.join('|'));trace=[];const input={get length(){trace.push('length');return 2},get 0(){trace.push('zero');return 3},get 1(){trace.push('one');return 4}};const v=Reflect.construct(Uint8Array,[input],T);record(trace.join('|'));record(v[0]+':'+v[1]);trace=[];const bad=new Proxy(Target,{get(t,key){if(key==='prototype'){trace.push('prototype');throw Error('blocked')}return Reflect.get(t,key)}});try{Reflect.construct(Uint8Array,[input],bad)}catch(e){record(e.message)}record(trace.join('|'));",
+    "expected": [
+      "length|max|prototype",
+      "offset|length|prototype",
+      "length|prototype|zero|one",
+      "3:4",
+      "blocked",
+      "length|prototype"
+    ],
+    "referenceProfile": "Chromium 154 and Node 24/V8; object input allocation order differs from current ECMA-262"
+  },
+  {
+    "name": "Binary iterator is read once and list coercion follows exhaustion",
+    "binary": true,
+    "source": "let trace=[],i=0;function Target(){}const T=new Proxy(Target,{get(target,key){if(key==='prototype')trace.push('prototype');return Reflect.get(target,key)}});const source={get [Symbol.iterator](){trace.push('iterator');return function(){trace.push('call');return{next(){trace.push('next');i++;const value=i;return{done:i>2,value:{valueOf(){trace.push('value'+value);return value}}}}}}}};const view=Reflect.construct(Uint8Array,[source],T);record(trace.join('|'));record(view[0]+':'+view[1]);const typed=new Uint8Array([7,8]);Object.defineProperty(typed,Symbol.iterator,{get(){throw Error('override')}});const copy=Reflect.construct(Uint8Array,[typed],T);record(copy[0]+':'+copy[1]);trace=[];try{Reflect.construct(Uint8Array,[{get [Symbol.iterator](){trace.push('iterator');return 3}}],T)}catch(e){record(e.name)}record(trace.join('|'));const empty=Reflect.construct(Uint8Array,[{length:-7}],T);record(Object.getOwnPropertyDescriptor(Object.getPrototypeOf(Uint8Array.prototype),'length').get.call(empty));",
+    "expected": [
+      "iterator|call|next|next|next|prototype|value1|value2",
+      "1:2",
+      "7:8",
+      "TypeError",
+      "iterator",
+      "0"
+    ],
+    "referenceProfile": "Chromium/V8 constructor input ordering"
+  },
+  {
+    "name": "TypedArray internal constructors remain callable",
+    "binary": true,
+    "source": "const of=Uint8Array.of(1,258,-1);record(of.join(','));let seen=[];const from=Uint8Array.from({0:4,1:5,length:2},function(value,index){seen.push(this.tag+':'+value+':'+index);return value+index;},{tag:'map'});record(from.join(','));record(seen.join('|'));const mapped=of.map((value,index)=>value+index);record(mapped.join(','));const filtered=of.filter(value=>value>1);record(filtered.join(','));record(of.filter(()=>false).length);record(Object.getPrototypeOf(of)===Uint8Array.prototype&&Object.getPrototypeOf(from)===Uint8Array.prototype&&Object.getPrototypeOf(mapped)===Uint8Array.prototype&&Object.getPrototypeOf(filtered)===Uint8Array.prototype);",
+    "expected": ["1,2,255","4,6","map:4:0|map:5:1","1,3,1","2,255","0","true"]
+  },
+  {
+    "name": "Foreign suspended exception retains originating realm",
+    "realmSource": "function* fail(){yield 1;null.value}var foreignGenerator=fail();var foreignTypeError=TypeError;",
+    "realmExports": ["foreignGenerator","foreignTypeError"],
+    "source": "foreignGenerator.next();try{foreignGenerator.next()}catch(error){record(Object.getPrototypeOf(error)===foreignTypeError.prototype);record(error instanceof TypeError);record(error instanceof foreignTypeError);}",
+    "expected": ["true","false","true"]
+  },
+  {
+    "name": "Trailing continue is consumed by for-of and for-in",
+    "source": "function run(){const trace=[];for(const n of [1,2]){if(n===2)continue;trace.push(n);}trace.push('of');for(const key in {a:1,b:2}){continue;}trace.push('in');outer:for(const n of [1,2]){for(const m of [0]){continue outer;}trace.push('unreachable');}trace.push('end');return trace.join('|');}record(run());for(const n of [1])continue;record('top-level end');",
+    "expected": ["1|of|in|end","top-level end"]
+  },
+  {
+    "name": "Continue exhausts iterators without closing but propagating completions close",
+    "source": "let closed=0;const iterable={[Symbol.iterator](){let n=0;return{next(){return{value:++n,done:n>2};},return(){closed++;return{};}};}};for(const n of iterable){continue;}record(closed);for(const n of iterable){break;}record(closed);function early(){for(const n of iterable){return n;}return 0;}record(early());record(closed);outer:for(const n of [1,2]){for(const m of iterable){continue outer;}}record(closed);record('after loops');",
+    "expected": ["0","1","1","2","4","after loops"]
+  }
+]

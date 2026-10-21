@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schriftvergleich · 50 px</title>
+  <style>
+    body { margin: 8px; color: black; background: white; font: 16px/20px Arial, sans-serif; }
+    .font-name { height: 20px; white-space: nowrap; }
+    .sample { white-space: nowrap; font-weight: 400; font-style: normal; font-synthesis: none; }
+  </style>
+</head>
+<body>
+  <script src="font-comparison-catalog.js"></script>
+  <script>
+    const catalog = globalThis.FONT_COMPARISON_CATALOG;
+    const samples = catalog.fonts.map((font, index) => {
+      const row = document.createElement('div');
+      row.style.height = `${catalog.size + 50}px`;
+      const name = document.createElement('div');
+      name.className = 'font-name';
+      name.textContent = `${String(index + 1).padStart(3, '0')} ${font.name}`;
+      const sample = document.createElement('div');
+      sample.className = 'sample';
+      sample.textContent = catalog.text;
+      sample.style.fontSize = `${catalog.size}px`;
+      sample.style.lineHeight = '1';
+      sample.style.height = `${catalog.size + 30}px`;
+      sample.style.visibility = 'hidden';
+      row.append(name, sample);
+      document.body.append(row);
+      return { font, name, sample };
+    });
+    let next = 0;
+    async function loadFonts() {
+      while (next < samples.length) {
+        const { font, name, sample } = samples[next++];
+        try {
+          const family = `Comparison_${font.key}`;
+          const face = new FontFace(family, `url("${font.file}")`, { weight: '400', style: 'normal' });
+          await face.load();
+          document.fonts.add(face);
+          sample.style.fontFamily = `"${family}"`;
+          sample.style.visibility = 'visible';
+        } catch (error) {
+          name.textContent += ' (Ladefehler)';
+          console.error(font.name, error);
+        }
+      }
+    }
+    Promise.all([loadFonts(), loadFonts()]).catch(console.error);
+  </script>
+</body>
+</html>

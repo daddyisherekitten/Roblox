@@ -1,0 +1,2059 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "source": "https://drafts.csswg.org/cssom-view/#dom-element-getclientrects",
+  "cases": [
+    {
+      "name": "no-quirks empty",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\"></span><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          0,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        0,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        0,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks collapsed space",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\">X <span id=\"target\"> </span> X<img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          12,
+          17,
+          0,
+          0
+        ]
+      ],
+      "bounding": [
+        12,
+        17,
+        0,
+        0
+      ],
+      "offset": [
+        12,
+        17,
+        0,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks empty padding",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"padding:2px;border:1px solid\"></span><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          14,
+          6,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        6,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        6,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks background around image",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"background:red\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks padded image",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"padding:2px;border:1px solid\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          14,
+          26,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        26,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        26,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks plain image",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks neutral merged text",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\">X<span id=\"target\">Y Z</span>X<img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          5,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        5,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        5,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks source spaces",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\"> X Y </span>X<img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          10,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        10,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        10,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks wrapped images",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"> <img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{width:30px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ],
+        [
+          7,
+          37,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        37,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        20,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundingSpec": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "deviation": "Chromium returns the last zero-height line; CSSOM View requires the first."
+    },
+    {
+      "name": "no-quirks wrapped background images",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"background:red\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"> <img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{width:30px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ],
+        [
+          7,
+          37,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        37,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        20,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundingSpec": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "deviation": "Chromium returns the last zero-height line; CSSOM View requires the first."
+    },
+    {
+      "name": "no-quirks hidden visibility",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"visibility:hidden\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks hidden padding",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"visibility:hidden;padding:2px;border:1px solid\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          14,
+          26,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        26,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        26,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks hidden background",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"visibility:hidden;background:red\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks hidden ancestor",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"padding:2px;border:1px solid\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{visibility:hidden}",
+      "rects": [
+        [
+          7,
+          14,
+          26,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        26,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        26,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks display none",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"display:none\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [],
+      "bounding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        0,
+        0,
+        0,
+        0,
+        null
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks transformed ancestor",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{transform:translate(12px,8px) scale(2);transform-origin:0 0}",
+      "rects": [
+        [
+          22,
+          38,
+          40,
+          0
+        ]
+      ],
+      "bounding": [
+        22,
+        38,
+        40,
+        0
+      ],
+      "offset": [
+        3,
+        13,
+        20,
+        0,
+        "host"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks static body margin",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}body{margin:8px}",
+      "rects": [
+        [
+          15,
+          21,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        15,
+        21,
+        20,
+        0
+      ],
+      "offset": [
+        15,
+        21,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks static body padding",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}body{margin:8px;padding:5px;border:2px solid}",
+      "rects": [
+        [
+          22,
+          32,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        22,
+        32,
+        20,
+        0
+      ],
+      "offset": [
+        22,
+        32,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "no-quirks positioned body",
+      "mode": "no-quirks",
+      "html": "<!doctype html><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}body{margin:8px;padding:5px;border:2px solid;position:relative}",
+      "rects": [
+        [
+          22,
+          32,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        22,
+        32,
+        20,
+        0
+      ],
+      "offset": [
+        14,
+        24,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks empty",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\"></span><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          0,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        0,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        0,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks collapsed space",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\">X <span id=\"target\"> </span> X<img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          12,
+          17,
+          0,
+          0
+        ]
+      ],
+      "bounding": [
+        12,
+        17,
+        0,
+        0
+      ],
+      "offset": [
+        12,
+        17,
+        0,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks empty padding",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"padding:2px;border:1px solid\"></span><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          14,
+          6,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        6,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        6,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks background around image",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"background:red\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks padded image",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"padding:2px;border:1px solid\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          14,
+          26,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        26,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        26,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks plain image",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks neutral merged text",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\">X<span id=\"target\">Y Z</span>X<img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          5,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        5,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        5,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks source spaces",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\"> X Y </span>X<img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          10,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        10,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        10,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks wrapped images",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"> <img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{width:30px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ],
+        [
+          7,
+          27,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        27,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        10,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundingSpec": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "deviation": "Chromium returns the last zero-height line; CSSOM View requires the first."
+    },
+    {
+      "name": "limited-quirks wrapped background images",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"background:red\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"> <img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{width:30px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ],
+        [
+          7,
+          27,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        27,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        10,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundingSpec": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "deviation": "Chromium returns the last zero-height line; CSSOM View requires the first."
+    },
+    {
+      "name": "limited-quirks hidden visibility",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"visibility:hidden\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks hidden padding",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"visibility:hidden;padding:2px;border:1px solid\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          14,
+          26,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        26,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        26,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks hidden background",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"visibility:hidden;background:red\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks hidden ancestor",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"padding:2px;border:1px solid\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{visibility:hidden}",
+      "rects": [
+        [
+          7,
+          14,
+          26,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        26,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        26,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks display none",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\" style=\"display:none\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [],
+      "bounding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        0,
+        0,
+        0,
+        0,
+        null
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks transformed ancestor",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{transform:translate(12px,8px) scale(2);transform-origin:0 0}",
+      "rects": [
+        [
+          22,
+          38,
+          40,
+          0
+        ]
+      ],
+      "bounding": [
+        22,
+        38,
+        40,
+        0
+      ],
+      "offset": [
+        3,
+        13,
+        20,
+        0,
+        "host"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks static body margin",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}body{margin:8px}",
+      "rects": [
+        [
+          15,
+          21,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        15,
+        21,
+        20,
+        0
+      ],
+      "offset": [
+        15,
+        21,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks static body padding",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}body{margin:8px;padding:5px;border:2px solid}",
+      "rects": [
+        [
+          22,
+          32,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        22,
+        32,
+        20,
+        0
+      ],
+      "offset": [
+        22,
+        32,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "limited-quirks positioned body",
+      "mode": "limited-quirks",
+      "html": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"><html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}body{margin:8px;padding:5px;border:2px solid;position:relative}",
+      "rects": [
+        [
+          22,
+          32,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        22,
+        32,
+        20,
+        0
+      ],
+      "offset": [
+        14,
+        24,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks empty",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\"></span><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          0,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        0,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        0,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks collapsed space",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\">X <span id=\"target\"> </span> X<img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          12,
+          17,
+          0,
+          0
+        ]
+      ],
+      "bounding": [
+        12,
+        17,
+        0,
+        0
+      ],
+      "offset": [
+        12,
+        17,
+        0,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks empty padding",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\" style=\"padding:2px;border:1px solid\"></span><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          14,
+          6,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        6,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        6,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks background around image",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\" style=\"background:red\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks padded image",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\" style=\"padding:2px;border:1px solid\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          14,
+          26,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        26,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        26,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks plain image",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks neutral merged text",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\">X<span id=\"target\">Y Z</span>X<img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          5,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        5,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        5,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks source spaces",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\"> X Y </span>X<img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          10,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        10,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        10,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks wrapped images",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"> <img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{width:30px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ],
+        [
+          7,
+          27,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        27,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        10,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundingSpec": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "deviation": "Chromium returns the last zero-height line; CSSOM View requires the first."
+    },
+    {
+      "name": "quirks wrapped background images",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\" style=\"background:red\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"> <img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{width:30px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ],
+        [
+          7,
+          27,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        27,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        10,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundingSpec": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "deviation": "Chromium returns the last zero-height line; CSSOM View requires the first."
+    },
+    {
+      "name": "quirks hidden visibility",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\" style=\"visibility:hidden\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks hidden padding",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\" style=\"visibility:hidden;padding:2px;border:1px solid\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          14,
+          26,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        26,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        26,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks hidden background",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\" style=\"visibility:hidden;background:red\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [
+        [
+          7,
+          17,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        7,
+        17,
+        20,
+        0
+      ],
+      "offset": [
+        7,
+        17,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks hidden ancestor",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\" style=\"padding:2px;border:1px solid\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{visibility:hidden}",
+      "rects": [
+        [
+          7,
+          14,
+          26,
+          6
+        ]
+      ],
+      "bounding": [
+        7,
+        14,
+        26,
+        6
+      ],
+      "offset": [
+        7,
+        14,
+        26,
+        6,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks display none",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\" style=\"display:none\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}",
+      "rects": [],
+      "bounding": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "offset": [
+        0,
+        0,
+        0,
+        0,
+        null
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks transformed ancestor",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}#host{transform:translate(12px,8px) scale(2);transform-origin:0 0}",
+      "rects": [
+        [
+          22,
+          38,
+          40,
+          0
+        ]
+      ],
+      "bounding": [
+        22,
+        38,
+        40,
+        0
+      ],
+      "offset": [
+        3,
+        13,
+        20,
+        0,
+        "host"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks static body margin",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}body{margin:8px}",
+      "rects": [
+        [
+          15,
+          21,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        15,
+        21,
+        20,
+        0
+      ],
+      "offset": [
+        15,
+        21,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks static body padding",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}body{margin:8px;padding:5px;border:2px solid}",
+      "rects": [
+        [
+          22,
+          32,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        22,
+        32,
+        20,
+        0
+      ],
+      "offset": [
+        22,
+        32,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "quirks positioned body",
+      "mode": "quirks",
+      "html": "<html><head></head><body><div id=\"host\"><span id=\"target\"><img width=\"20\" height=\"10\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='10'%3E%3C/svg%3E\"></span></div></body></html>",
+      "css": "body{margin:0;font-size:0;line-height:20px;word-spacing:5px}#host{width:80px;padding:3px;margin:4px}body{margin:8px;padding:5px;border:2px solid;position:relative}",
+      "rects": [
+        [
+          22,
+          32,
+          20,
+          0
+        ]
+      ],
+      "bounding": [
+        22,
+        32,
+        20,
+        0
+      ],
+      "offset": [
+        14,
+        24,
+        20,
+        0,
+        "body"
+      ],
+      "client": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

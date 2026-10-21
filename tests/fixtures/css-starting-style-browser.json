@@ -1,0 +1,66 @@
+[
+  {
+    "name": "nested entering dimensions opacity transform",
+    "values": [
+      "150|30|0.5|10",
+      "true|kept"
+    ],
+    "pass": true
+  },
+  {
+    "name": "standalone entering",
+    "values": [
+      "150|20|1|0",
+      "true|kept"
+    ],
+    "pass": true
+  },
+  {
+    "name": "ordinary later rule wins cascade",
+    "values": [
+      "200|20|1|0",
+      "0"
+    ],
+    "pass": true
+  },
+  {
+    "name": "important author beats starting normal",
+    "values": [
+      "220|20|1|0",
+      "0"
+    ],
+    "pass": true
+  },
+  {
+    "name": "rendered style update uses actual before",
+    "values": [
+      "220|20|1|0",
+      "true|kept"
+    ],
+    "pass": true
+  },
+  {
+    "name": "display none to rendered starts fresh",
+    "values": [
+      "140|20|0.5|0",
+      "true|kept"
+    ],
+    "pass": true
+  },
+  {
+    "name": "visibility hidden still has before style",
+    "values": [
+      "220|20|1|0",
+      "true|kept"
+    ],
+    "pass": true
+  },
+  {
+    "name": "percentage transform against animated reference width",
+    "values": [
+      "150|20|1|112.5",
+      "true|kept"
+    ],
+    "pass": true
+  }
+]

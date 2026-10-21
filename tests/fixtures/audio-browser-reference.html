@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<title>Audio – native Browserreferenz</title>
+<style>body{font:16px system-ui;margin:32px}pre{white-space:pre-wrap}audio{display:block!important;width:200px;height:90px}</style>
+<h1>Audio – native Browserreferenz</h1>
+<p>Eine stumme PCM-Datei prüft Zustände und Ereignisse; kein hörbarer Ton.</p>
+<button id="run">Prüfen</button>
+<pre id="result">Bereit.</pre>
+<script>
+function wave() {
+  const bytes=new Uint8Array(8044),view=new DataView(bytes.buffer);
+  const word=(offset,value)=>{for(let i=0;i<value.length;i++)bytes[offset+i]=value.charCodeAt(i);};
+  word(0,'RIFF');view.setUint32(4,8036,true);word(8,'WAVE');word(12,'fmt ');
+  view.setUint32(16,16,true);view.setUint16(20,1,true);view.setUint16(22,1,true);
+  view.setUint32(24,8000,true);view.setUint32(28,16000,true);view.setUint16(32,2,true);view.setUint16(34,16,true);
+  word(36,'data');view.setUint32(40,8000,true);
+  return 'data:audio/wav;base64,'+btoa(String.fromCharCode(...bytes));
+}
+const once=(target,name)=>new Promise(resolve=>target.addEventListener(name,resolve,{once:true}));
+document.getElementById('run').onclick=async function() {
+  this.disabled=true;const result={},sounds=[];const output=document.getElementById('result');
+  try {
+    const empty=new Audio();sounds.push(empty);document.body.append(empty);
+    result.defaults=[empty instanceof Audio,empty instanceof HTMLAudioElement,empty instanceof HTMLMediaElement,empty.preload,empty.paused,empty.volume,empty.muted,empty.currentTime,empty.readyState,empty.networkState,Number.isNaN(empty.duration),empty.error===null];
+    result.hidden=getComputedStyle(empty).display;
+    result.bounds=[];
+    for(const value of [-1,2,NaN,Infinity])try{empty.volume=value;}catch(error){result.bounds.push(error.name);}
+    const source=wave(),first=new Audio(source);sounds.push(first);first.muted=true;
+    const early=first.play();first.pause();result.earlyPause=await early.then(()=>'resolved',error=>error.name);
+    const a=new Audio(source);sounds.push(a);a.muted=true;
+    await once(a,'canplaythrough');
+    const order=[];a.onplay=()=>order.push('play');a.onplaying=()=>{order.push('playing');queueMicrotask(()=>order.push('playing-micro'));};
+    await a.play().then(()=>order.push('resolved'));result.readySequence=order.slice();
+    a.pause();const seek=once(a,'seeked');a.currentTime=.1;await seek;
+    await a.play();result.seekResumed=a.currentTime>=.1;
+    const ended=once(a,'ended');await ended;result.ended=[a.ended,a.paused,a.currentTime,a.duration];
+    a.volume=.25;result.mutedVolume=[a.volume,a.muted];
+    a.src='';result.emptySource=await a.play().then(()=>'resolved',error=>error.name);
+    output.textContent=JSON.stringify(result,null,2);
+  }catch(error){output.textContent=JSON.stringify({result,error:error.name+': '+error.message},null,2);}
+  finally{for(const sound of sounds){sound.pause();sound.removeAttribute('src');sound.load();sound.remove();}this.disabled=false;}
+};
+</script>
+</html>

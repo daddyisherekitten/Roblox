@@ -1,0 +1,2 @@
+Stress catalog: 14251 nodes, 1013 properties, 30793 mock GUIs, 707 diagnostics; parse 46.0 ms, build 3888.3 ms, layout/resize 10722.1 ms
+Stress diagnostics are expected capability gaps; native visual/memory testing remains separate.

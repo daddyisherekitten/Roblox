@@ -1,0 +1,6265 @@
+{
+  "captured": "2026-10-10",
+  "standards": [
+    "https://drafts.csswg.org/css-sizing-3/#intrinsic",
+    "https://drafts.csswg.org/css-inline-3/#atomic-inline"
+  ],
+  "cases": [
+    {
+      "name": "Inline block with live editor",
+      "html": "<!doctype html><style>body{margin:0}#owner{width:250px;font:16px/20px \"Courier New\"}#atomic{display:inline-block;max-width:150px;border:2px solid;padding:4px;vertical-align:top;}#caption{display:block}input{display:block;appearance:none;box-sizing:border-box;width:50px;height:22px;border:0;padding:0;font:inherit}#nested{display:inline-flex;max-width:90px;flex-direction:column}#nested span{display:block}</style><div id=owner>Before <span id=atomic><span id=caption>ALPHA BETA GAMMA DELTA EPSILON</span><input id=editor value=retained></span> after</div>",
+      "styles": [
+        "",
+        "width:min-content",
+        "width:max-content",
+        "width:fit-content",
+        "min-width:100px;max-width:120px",
+        "margin:3px 7px 5px 9px"
+      ],
+      "expected": [
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                134
+              ],
+              "client": [
+                250,
+                134
+              ],
+              "scroll": [
+                250,
+                134
+              ],
+              "values": [
+                "250px",
+                "134px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                79.203125,
+                134
+              ],
+              "client": [
+                75,
+                130
+              ],
+              "scroll": [
+                75,
+                130
+              ],
+              "values": [
+                "67.2031px",
+                "122px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                67.203125,
+                100
+              ],
+              "client": [
+                67,
+                100
+              ],
+              "scroll": [
+                67,
+                100
+              ],
+              "values": [
+                "67.2031px",
+                "100px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                106,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                132,
+                94
+              ],
+              "client": [
+                128,
+                90
+              ],
+              "scroll": [
+                128,
+                90
+              ],
+              "values": [
+                "120px",
+                "82px",
+                "100px",
+                "120px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                120,
+                60
+              ],
+              "client": [
+                120,
+                60
+              ],
+              "scroll": [
+                120,
+                60
+              ],
+              "values": [
+                "120px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                122
+              ],
+              "client": [
+                250,
+                122
+              ],
+              "scroll": [
+                250,
+                122
+              ],
+              "values": [
+                "250px",
+                "122px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                76.21875,
+                3,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                82.21875,
+                9,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                82.21875,
+                69,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Inline flex column with live editor",
+      "html": "<!doctype html><style>body{margin:0}#owner{width:250px;font:16px/20px \"Courier New\"}#atomic{display:inline-flex;max-width:150px;border:2px solid;padding:4px;vertical-align:top;flex-direction:column;align-items:start;}#caption{display:block}input{display:block;appearance:none;box-sizing:border-box;width:50px;height:22px;border:0;padding:0;font:inherit}#nested{display:inline-flex;max-width:90px;flex-direction:column}#nested span{display:block}</style><div id=owner>Before <span id=atomic><span id=caption>ALPHA BETA GAMMA DELTA EPSILON</span><input id=editor value=retained></span> after</div>",
+      "styles": [
+        "",
+        "width:min-content",
+        "width:max-content",
+        "width:fit-content",
+        "min-width:100px;max-width:120px",
+        "margin:3px 7px 5px 9px"
+      ],
+      "expected": [
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                134
+              ],
+              "client": [
+                250,
+                134
+              ],
+              "scroll": [
+                250,
+                134
+              ],
+              "values": [
+                "250px",
+                "134px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                79.203125,
+                134
+              ],
+              "client": [
+                75,
+                130
+              ],
+              "scroll": [
+                75,
+                130
+              ],
+              "values": [
+                "67.2031px",
+                "122px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                67.203125,
+                100
+              ],
+              "client": [
+                67,
+                100
+              ],
+              "scroll": [
+                67,
+                100
+              ],
+              "values": [
+                "67.2031px",
+                "100px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                106,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                132,
+                94
+              ],
+              "client": [
+                128,
+                90
+              ],
+              "scroll": [
+                128,
+                90
+              ],
+              "values": [
+                "120px",
+                "82px",
+                "100px",
+                "120px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                120,
+                60
+              ],
+              "client": [
+                120,
+                60
+              ],
+              "scroll": [
+                120,
+                60
+              ],
+              "values": [
+                "120px",
+                "60px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                122
+              ],
+              "client": [
+                250,
+                122
+              ],
+              "scroll": [
+                250,
+                122
+              ],
+              "values": [
+                "250px",
+                "122px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                76.21875,
+                3,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                82.21875,
+                9,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                82.21875,
+                69,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Inline grid with fixed tracks and live editor",
+      "html": "<!doctype html><style>body{margin:0}#owner{width:250px;font:16px/20px \"Courier New\"}#atomic{display:inline-grid;max-width:150px;border:2px solid;padding:4px;vertical-align:top;grid-template-columns:70px 60px;gap:8px;align-items:start;}#caption{display:block}input{display:block;appearance:none;box-sizing:border-box;width:50px;height:22px;border:0;padding:0;font:inherit}#nested{display:inline-flex;max-width:90px;flex-direction:column}#nested span{display:block}</style><div id=owner>Before <span id=atomic><span id=caption>ALPHA BETA GAMMA DELTA EPSILON</span><input id=editor value=retained></span> after</div>",
+      "styles": [
+        "",
+        "width:min-content",
+        "width:max-content",
+        "width:fit-content",
+        "min-width:100px;max-width:120px",
+        "margin:3px 7px 5px 9px"
+      ],
+      "expected": [
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                132
+              ],
+              "client": [
+                250,
+                132
+              ],
+              "scroll": [
+                250,
+                132
+              ],
+              "values": [
+                "250px",
+                "132px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                150,
+                112
+              ],
+              "client": [
+                146,
+                108
+              ],
+              "scroll": [
+                146,
+                108
+              ],
+              "values": [
+                "138px",
+                "100px",
+                "0px",
+                "150px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                70,
+                100
+              ],
+              "client": [
+                70,
+                100
+              ],
+              "scroll": [
+                70,
+                100
+              ],
+              "values": [
+                "70px",
+                "100px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                151.21875,
+                6,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                132
+              ],
+              "client": [
+                250,
+                132
+              ],
+              "scroll": [
+                250,
+                132
+              ],
+              "values": [
+                "250px",
+                "132px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                150,
+                112
+              ],
+              "client": [
+                146,
+                108
+              ],
+              "scroll": [
+                146,
+                108
+              ],
+              "values": [
+                "138px",
+                "100px",
+                "0px",
+                "150px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                70,
+                100
+              ],
+              "client": [
+                70,
+                100
+              ],
+              "scroll": [
+                70,
+                100
+              ],
+              "values": [
+                "70px",
+                "100px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                151.21875,
+                6,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                132
+              ],
+              "client": [
+                250,
+                132
+              ],
+              "scroll": [
+                250,
+                132
+              ],
+              "values": [
+                "250px",
+                "132px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                150,
+                112
+              ],
+              "client": [
+                146,
+                108
+              ],
+              "scroll": [
+                146,
+                108
+              ],
+              "values": [
+                "138px",
+                "100px",
+                "0px",
+                "150px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                70,
+                100
+              ],
+              "client": [
+                70,
+                100
+              ],
+              "scroll": [
+                70,
+                100
+              ],
+              "values": [
+                "70px",
+                "100px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                151.21875,
+                6,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                132
+              ],
+              "client": [
+                250,
+                132
+              ],
+              "scroll": [
+                250,
+                132
+              ],
+              "values": [
+                "250px",
+                "132px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                150,
+                112
+              ],
+              "client": [
+                146,
+                108
+              ],
+              "scroll": [
+                146,
+                108
+              ],
+              "values": [
+                "138px",
+                "100px",
+                "0px",
+                "150px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                70,
+                100
+              ],
+              "client": [
+                70,
+                100
+              ],
+              "scroll": [
+                70,
+                100
+              ],
+              "values": [
+                "70px",
+                "100px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                151.21875,
+                6,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                132
+              ],
+              "client": [
+                250,
+                132
+              ],
+              "scroll": [
+                250,
+                132
+              ],
+              "values": [
+                "250px",
+                "132px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                132,
+                112
+              ],
+              "client": [
+                128,
+                108
+              ],
+              "scroll": [
+                132,
+                108
+              ],
+              "values": [
+                "120px",
+                "100px",
+                "100px",
+                "120px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                70,
+                100
+              ],
+              "client": [
+                70,
+                100
+              ],
+              "scroll": [
+                70,
+                100
+              ],
+              "values": [
+                "70px",
+                "100px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                151.21875,
+                6,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                140
+              ],
+              "client": [
+                250,
+                140
+              ],
+              "scroll": [
+                250,
+                140
+              ],
+              "values": [
+                "250px",
+                "140px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                76.21875,
+                3,
+                150,
+                112
+              ],
+              "client": [
+                146,
+                108
+              ],
+              "scroll": [
+                146,
+                108
+              ],
+              "values": [
+                "138px",
+                "100px",
+                "0px",
+                "150px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                82.21875,
+                9,
+                70,
+                100
+              ],
+              "client": [
+                70,
+                100
+              ],
+              "scroll": [
+                70,
+                100
+              ],
+              "values": [
+                "70px",
+                "100px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                160.21875,
+                9,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nested inline flex in an inline block",
+      "html": "<!doctype html><style>body{margin:0}#owner{width:250px;font:16px/20px \"Courier New\"}#atomic{display:inline-block;max-width:150px;border:2px solid;padding:4px;vertical-align:top;}#caption{display:block}input{display:block;appearance:none;box-sizing:border-box;width:50px;height:22px;border:0;padding:0;font:inherit}#nested{display:inline-flex;max-width:90px;flex-direction:column}#nested span{display:block}</style><div id=owner>Before <span id=atomic><span id=caption>ALPHA <span id=nested><span>BETA GAMMA DELTA</span><input id=editor value=retained></span> EPSILON</span></span> after</div>",
+      "styles": [
+        "",
+        "width:min-content",
+        "width:max-content",
+        "width:fit-content",
+        "min-width:100px;max-width:120px",
+        "margin:3px 7px 5px 9px"
+      ],
+      "expected": [
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                134
+              ],
+              "client": [
+                250,
+                134
+              ],
+              "scroll": [
+                250,
+                134
+              ],
+              "values": [
+                "250px",
+                "134px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                114
+              ],
+              "client": [
+                158,
+                110
+              ],
+              "scroll": [
+                158,
+                110
+              ],
+              "values": [
+                "150px",
+                "102px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                102
+              ],
+              "client": [
+                150,
+                102
+              ],
+              "scroll": [
+                150,
+                102
+              ],
+              "values": [
+                "150px",
+                "102px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                130.828125,
+                6,
+                90,
+                82
+              ],
+              "client": [
+                90,
+                82
+              ],
+              "scroll": [
+                90,
+                82
+              ],
+              "values": [
+                "90px",
+                "82px",
+                "0px",
+                "90px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                130.828125,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                134
+              ],
+              "client": [
+                250,
+                134
+              ],
+              "scroll": [
+                250,
+                134
+              ],
+              "values": [
+                "250px",
+                "134px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                79.203125,
+                134
+              ],
+              "client": [
+                75,
+                130
+              ],
+              "scroll": [
+                75,
+                130
+              ],
+              "values": [
+                "67.2031px",
+                "122px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                67.203125,
+                122
+              ],
+              "client": [
+                67,
+                122
+              ],
+              "scroll": [
+                67,
+                122
+              ],
+              "values": [
+                "67.2031px",
+                "122px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                73.21875,
+                26,
+                67.203125,
+                82
+              ],
+              "client": [
+                67,
+                82
+              ],
+              "scroll": [
+                67,
+                82
+              ],
+              "values": [
+                "67.2031px",
+                "82px",
+                "0px",
+                "90px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                86,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                134
+              ],
+              "client": [
+                250,
+                134
+              ],
+              "scroll": [
+                250,
+                134
+              ],
+              "values": [
+                "250px",
+                "134px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                114
+              ],
+              "client": [
+                158,
+                110
+              ],
+              "scroll": [
+                158,
+                110
+              ],
+              "values": [
+                "150px",
+                "102px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                102
+              ],
+              "client": [
+                150,
+                102
+              ],
+              "scroll": [
+                150,
+                102
+              ],
+              "values": [
+                "150px",
+                "102px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                130.828125,
+                6,
+                90,
+                82
+              ],
+              "client": [
+                90,
+                82
+              ],
+              "scroll": [
+                90,
+                82
+              ],
+              "values": [
+                "90px",
+                "82px",
+                "0px",
+                "90px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                130.828125,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                134
+              ],
+              "client": [
+                250,
+                134
+              ],
+              "scroll": [
+                250,
+                134
+              ],
+              "values": [
+                "250px",
+                "134px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                114
+              ],
+              "client": [
+                158,
+                110
+              ],
+              "scroll": [
+                158,
+                110
+              ],
+              "values": [
+                "150px",
+                "102px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                102
+              ],
+              "client": [
+                150,
+                102
+              ],
+              "scroll": [
+                150,
+                102
+              ],
+              "values": [
+                "150px",
+                "102px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                130.828125,
+                6,
+                90,
+                82
+              ],
+              "client": [
+                90,
+                82
+              ],
+              "scroll": [
+                90,
+                82
+              ],
+              "values": [
+                "90px",
+                "82px",
+                "0px",
+                "90px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                130.828125,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                154
+              ],
+              "client": [
+                250,
+                154
+              ],
+              "scroll": [
+                250,
+                154
+              ],
+              "values": [
+                "250px",
+                "154px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                132,
+                134
+              ],
+              "client": [
+                128,
+                130
+              ],
+              "scroll": [
+                128,
+                130
+              ],
+              "values": [
+                "120px",
+                "122px",
+                "100px",
+                "120px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                120,
+                122
+              ],
+              "client": [
+                120,
+                122
+              ],
+              "scroll": [
+                120,
+                122
+              ],
+              "values": [
+                "120px",
+                "122px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                73.21875,
+                26,
+                90,
+                82
+              ],
+              "client": [
+                90,
+                82
+              ],
+              "scroll": [
+                90,
+                82
+              ],
+              "values": [
+                "90px",
+                "82px",
+                "0px",
+                "90px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                86,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                142
+              ],
+              "client": [
+                250,
+                142
+              ],
+              "scroll": [
+                250,
+                142
+              ],
+              "values": [
+                "250px",
+                "142px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                76.21875,
+                3,
+                162,
+                114
+              ],
+              "client": [
+                158,
+                110
+              ],
+              "scroll": [
+                158,
+                110
+              ],
+              "values": [
+                "150px",
+                "102px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                82.21875,
+                9,
+                150,
+                102
+              ],
+              "client": [
+                150,
+                102
+              ],
+              "scroll": [
+                150,
+                102
+              ],
+              "values": [
+                "150px",
+                "102px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                139.828125,
+                9,
+                90,
+                82
+              ],
+              "client": [
+                90,
+                82
+              ],
+              "scroll": [
+                90,
+                82
+              ],
+              "values": [
+                "90px",
+                "82px",
+                "0px",
+                "90px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                139.828125,
+                69,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nested inline grid in an inline flex",
+      "html": "<!doctype html><style>body{margin:0}#owner{width:250px;font:16px/20px \"Courier New\"}#atomic{display:inline-flex;max-width:150px;border:2px solid;padding:4px;vertical-align:top;flex-direction:column;}#caption{display:block}input{display:block;appearance:none;box-sizing:border-box;width:50px;height:22px;border:0;padding:0;font:inherit}#nested{display:inline-flex;max-width:90px;flex-direction:column}#nested span{display:block}</style><div id=owner>Before <span id=atomic><span id=caption>ALPHA <span id=nested style=\"display:inline-grid;grid-template-columns:50px 40px;gap:4px\"><span>BETA GAMMA DELTA</span><input id=editor value=retained></span> EPSILON</span></span> after</div>",
+      "styles": [
+        "",
+        "width:min-content",
+        "width:max-content",
+        "width:fit-content",
+        "min-width:100px;max-width:120px",
+        "margin:3px 7px 5px 9px"
+      ],
+      "expected": [
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                112
+              ],
+              "client": [
+                250,
+                112
+              ],
+              "scroll": [
+                250,
+                112
+              ],
+              "values": [
+                "250px",
+                "112px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                92
+              ],
+              "client": [
+                158,
+                88
+              ],
+              "scroll": [
+                166,
+                88
+              ],
+              "values": [
+                "150px",
+                "80px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                80
+              ],
+              "client": [
+                150,
+                80
+              ],
+              "scroll": [
+                162,
+                80
+              ],
+              "values": [
+                "150px",
+                "80px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                130.828125,
+                6,
+                90,
+                60
+              ],
+              "client": [
+                90,
+                60
+              ],
+              "scroll": [
+                104,
+                60
+              ],
+              "values": [
+                "90px",
+                "60px",
+                "0px",
+                "90px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                184.828125,
+                6,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                112
+              ],
+              "client": [
+                250,
+                112
+              ],
+              "scroll": [
+                250,
+                112
+              ],
+              "values": [
+                "250px",
+                "112px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                102,
+                112
+              ],
+              "client": [
+                98,
+                108
+              ],
+              "scroll": [
+                108,
+                108
+              ],
+              "values": [
+                "90px",
+                "100px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                90,
+                100
+              ],
+              "client": [
+                90,
+                100
+              ],
+              "scroll": [
+                104,
+                100
+              ],
+              "values": [
+                "90px",
+                "100px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                73.21875,
+                26,
+                90,
+                60
+              ],
+              "client": [
+                90,
+                60
+              ],
+              "scroll": [
+                104,
+                60
+              ],
+              "values": [
+                "90px",
+                "60px",
+                "0px",
+                "90px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                127.21875,
+                26,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                112
+              ],
+              "client": [
+                250,
+                112
+              ],
+              "scroll": [
+                250,
+                112
+              ],
+              "values": [
+                "250px",
+                "112px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                92
+              ],
+              "client": [
+                158,
+                88
+              ],
+              "scroll": [
+                166,
+                88
+              ],
+              "values": [
+                "150px",
+                "80px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                80
+              ],
+              "client": [
+                150,
+                80
+              ],
+              "scroll": [
+                162,
+                80
+              ],
+              "values": [
+                "150px",
+                "80px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                130.828125,
+                6,
+                90,
+                60
+              ],
+              "client": [
+                90,
+                60
+              ],
+              "scroll": [
+                104,
+                60
+              ],
+              "values": [
+                "90px",
+                "60px",
+                "0px",
+                "90px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                184.828125,
+                6,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                112
+              ],
+              "client": [
+                250,
+                112
+              ],
+              "scroll": [
+                250,
+                112
+              ],
+              "values": [
+                "250px",
+                "112px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                92
+              ],
+              "client": [
+                158,
+                88
+              ],
+              "scroll": [
+                166,
+                88
+              ],
+              "values": [
+                "150px",
+                "80px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                80
+              ],
+              "client": [
+                150,
+                80
+              ],
+              "scroll": [
+                162,
+                80
+              ],
+              "values": [
+                "150px",
+                "80px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                130.828125,
+                6,
+                90,
+                60
+              ],
+              "client": [
+                90,
+                60
+              ],
+              "scroll": [
+                104,
+                60
+              ],
+              "values": [
+                "90px",
+                "60px",
+                "0px",
+                "90px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                184.828125,
+                6,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                132
+              ],
+              "client": [
+                250,
+                132
+              ],
+              "scroll": [
+                250,
+                132
+              ],
+              "values": [
+                "250px",
+                "132px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                132,
+                112
+              ],
+              "client": [
+                128,
+                108
+              ],
+              "scroll": [
+                128,
+                108
+              ],
+              "values": [
+                "120px",
+                "100px",
+                "100px",
+                "120px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                120,
+                100
+              ],
+              "client": [
+                120,
+                100
+              ],
+              "scroll": [
+                120,
+                100
+              ],
+              "values": [
+                "120px",
+                "100px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                73.21875,
+                26,
+                90,
+                60
+              ],
+              "client": [
+                90,
+                60
+              ],
+              "scroll": [
+                104,
+                60
+              ],
+              "values": [
+                "90px",
+                "60px",
+                "0px",
+                "90px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                127.21875,
+                26,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                120
+              ],
+              "client": [
+                250,
+                120
+              ],
+              "scroll": [
+                250,
+                120
+              ],
+              "values": [
+                "250px",
+                "120px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                76.21875,
+                3,
+                162,
+                92
+              ],
+              "client": [
+                158,
+                88
+              ],
+              "scroll": [
+                166,
+                88
+              ],
+              "values": [
+                "150px",
+                "80px",
+                "0px",
+                "150px",
+                "inline-flex"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                82.21875,
+                9,
+                150,
+                80
+              ],
+              "client": [
+                150,
+                80
+              ],
+              "scroll": [
+                162,
+                80
+              ],
+              "values": [
+                "150px",
+                "80px",
+                "auto",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "nested",
+              "rect": [
+                139.828125,
+                9,
+                90,
+                60
+              ],
+              "client": [
+                90,
+                60
+              ],
+              "scroll": [
+                104,
+                60
+              ],
+              "values": [
+                "90px",
+                "60px",
+                "0px",
+                "90px",
+                "inline-grid"
+              ]
+            },
+            {
+              "id": "editor",
+              "rect": [
+                193.828125,
+                9,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "auto",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Explicit percentage containing inline line",
+      "html": "<!doctype html><style>body{margin:0}#owner{width:250px;font:16px/20px \"Courier New\"}#atomic{display:inline-block;max-width:150px;border:2px solid;padding:4px;vertical-align:top;width:44%;}#caption{display:block}input{display:block;appearance:none;box-sizing:border-box;width:50px;height:22px;border:0;padding:0;font:inherit}#nested{display:inline-flex;max-width:90px;flex-direction:column}#nested span{display:block}</style><div id=owner>Before <span id=atomic><span id=caption>ALPHA BETA GAMMA DELTA EPSILON</span><input id=editor value=retained></span> after</div>",
+      "styles": [
+        "",
+        "width:min-content",
+        "width:max-content",
+        "width:fit-content",
+        "min-width:100px;max-width:120px",
+        "margin:3px 7px 5px 9px"
+      ],
+      "expected": [
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                94
+              ],
+              "client": [
+                250,
+                94
+              ],
+              "scroll": [
+                250,
+                94
+              ],
+              "values": [
+                "250px",
+                "94px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                122,
+                94
+              ],
+              "client": [
+                118,
+                90
+              ],
+              "scroll": [
+                118,
+                90
+              ],
+              "values": [
+                "110px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                110,
+                60
+              ],
+              "client": [
+                110,
+                60
+              ],
+              "scroll": [
+                110,
+                60
+              ],
+              "values": [
+                "110px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                134
+              ],
+              "client": [
+                250,
+                134
+              ],
+              "scroll": [
+                250,
+                134
+              ],
+              "values": [
+                "250px",
+                "134px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                79.203125,
+                134
+              ],
+              "client": [
+                75,
+                130
+              ],
+              "scroll": [
+                75,
+                130
+              ],
+              "values": [
+                "67.2031px",
+                "122px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                67.203125,
+                100
+              ],
+              "client": [
+                67,
+                100
+              ],
+              "scroll": [
+                67,
+                100
+              ],
+              "values": [
+                "67.2031px",
+                "100px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                106,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                94
+              ],
+              "client": [
+                250,
+                94
+              ],
+              "scroll": [
+                250,
+                94
+              ],
+              "values": [
+                "250px",
+                "94px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                122,
+                94
+              ],
+              "client": [
+                118,
+                90
+              ],
+              "scroll": [
+                118,
+                90
+              ],
+              "values": [
+                "110px",
+                "82px",
+                "100px",
+                "120px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                110,
+                60
+              ],
+              "client": [
+                110,
+                60
+              ],
+              "scroll": [
+                110,
+                60
+              ],
+              "values": [
+                "110px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                122
+              ],
+              "client": [
+                250,
+                122
+              ],
+              "scroll": [
+                250,
+                122
+              ],
+              "values": [
+                "250px",
+                "122px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                76.21875,
+                3,
+                122,
+                94
+              ],
+              "client": [
+                118,
+                90
+              ],
+              "scroll": [
+                118,
+                90
+              ],
+              "values": [
+                "110px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                82.21875,
+                9,
+                110,
+                60
+              ],
+              "client": [
+                110,
+                60
+              ],
+              "scroll": [
+                110,
+                60
+              ],
+              "values": [
+                "110px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                82.21875,
+                69,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Logical fit and physical constraints",
+      "html": "<!doctype html><style>body{margin:0}#owner{width:250px;font:16px/20px \"Courier New\"}#atomic{display:inline-block;max-width:150px;border:2px solid;padding:4px;vertical-align:top;inline-size:fit-content;min-inline-size:80px;max-inline-size:130px;}#caption{display:block}input{display:block;appearance:none;box-sizing:border-box;width:50px;height:22px;border:0;padding:0;font:inherit}#nested{display:inline-flex;max-width:90px;flex-direction:column}#nested span{display:block}</style><div id=owner>Before <span id=atomic><span id=caption>ALPHA BETA GAMMA DELTA EPSILON</span><input id=editor value=retained></span> after</div>",
+      "styles": [
+        "",
+        "width:min-content",
+        "width:max-content",
+        "width:fit-content",
+        "min-width:100px;max-width:120px",
+        "margin:3px 7px 5px 9px"
+      ],
+      "expected": [
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                142,
+                94
+              ],
+              "client": [
+                138,
+                90
+              ],
+              "scroll": [
+                138,
+                90
+              ],
+              "values": [
+                "130px",
+                "82px",
+                "80px",
+                "130px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                130,
+                60
+              ],
+              "client": [
+                130,
+                60
+              ],
+              "scroll": [
+                130,
+                60
+              ],
+              "values": [
+                "130px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                134
+              ],
+              "client": [
+                250,
+                134
+              ],
+              "scroll": [
+                250,
+                134
+              ],
+              "values": [
+                "250px",
+                "134px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                92,
+                134
+              ],
+              "client": [
+                88,
+                130
+              ],
+              "scroll": [
+                88,
+                130
+              ],
+              "values": [
+                "80px",
+                "122px",
+                "80px",
+                "130px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                80,
+                100
+              ],
+              "client": [
+                80,
+                100
+              ],
+              "scroll": [
+                80,
+                100
+              ],
+              "values": [
+                "80px",
+                "100px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                106,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                142,
+                94
+              ],
+              "client": [
+                138,
+                90
+              ],
+              "scroll": [
+                138,
+                90
+              ],
+              "values": [
+                "130px",
+                "82px",
+                "80px",
+                "130px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                130,
+                60
+              ],
+              "client": [
+                130,
+                60
+              ],
+              "scroll": [
+                130,
+                60
+              ],
+              "values": [
+                "130px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                142,
+                94
+              ],
+              "client": [
+                138,
+                90
+              ],
+              "scroll": [
+                138,
+                90
+              ],
+              "values": [
+                "130px",
+                "82px",
+                "80px",
+                "130px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                130,
+                60
+              ],
+              "client": [
+                130,
+                60
+              ],
+              "scroll": [
+                130,
+                60
+              ],
+              "values": [
+                "130px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                132,
+                94
+              ],
+              "client": [
+                128,
+                90
+              ],
+              "scroll": [
+                128,
+                90
+              ],
+              "values": [
+                "120px",
+                "82px",
+                "100px",
+                "120px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                120,
+                60
+              ],
+              "client": [
+                120,
+                60
+              ],
+              "scroll": [
+                120,
+                60
+              ],
+              "values": [
+                "120px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                122
+              ],
+              "client": [
+                250,
+                122
+              ],
+              "scroll": [
+                250,
+                122
+              ],
+              "values": [
+                "250px",
+                "122px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                76.21875,
+                3,
+                142,
+                94
+              ],
+              "client": [
+                138,
+                90
+              ],
+              "scroll": [
+                138,
+                90
+              ],
+              "values": [
+                "130px",
+                "82px",
+                "80px",
+                "130px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                82.21875,
+                9,
+                130,
+                60
+              ],
+              "client": [
+                130,
+                60
+              ],
+              "scroll": [
+                130,
+                60
+              ],
+              "values": [
+                "130px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                82.21875,
+                69,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Block-axis fit, margins and retained scrollport",
+      "html": "<!doctype html><style>body{margin:0}#owner{width:250px;font:16px/20px \"Courier New\"}#atomic{display:inline-block;max-width:150px;border:2px solid;padding:4px;vertical-align:top;block-size:fit-content;margin:2px 5px 6px 7px;}#caption{display:block}input{display:block;appearance:none;box-sizing:border-box;width:50px;height:22px;border:0;padding:0;font:inherit}#nested{display:inline-flex;max-width:90px;flex-direction:column}#nested span{display:block}</style><div id=owner>Before <span id=atomic><span id=caption style=\"height:30px;overflow:auto\">ALPHA BETA GAMMA DELTA EPSILON</span><input id=editor value=retained></span> after</div>",
+      "styles": [
+        "",
+        "width:min-content",
+        "width:max-content",
+        "width:fit-content",
+        "min-width:100px;max-width:120px",
+        "margin:3px 7px 5px 9px"
+      ],
+      "profileDifferences": {
+        "states": {
+          "2": [
+            "atomic",
+            "caption"
+          ]
+        },
+        "reason": "The existing min-content width does not include the native intrinsic scrollbar gutter. Scrollbar appearance/width is a separate host profile."
+      },
+      "expected": [
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                92
+              ],
+              "client": [
+                250,
+                92
+              ],
+              "scroll": [
+                250,
+                92
+              ],
+              "values": [
+                "250px",
+                "92px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                74.21875,
+                2,
+                162,
+                64
+              ],
+              "client": [
+                158,
+                60
+              ],
+              "scroll": [
+                158,
+                60
+              ],
+              "values": [
+                "150px",
+                "52px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                80.21875,
+                8,
+                150,
+                30
+              ],
+              "client": [
+                135,
+                30
+              ],
+              "scroll": [
+                135,
+                60
+              ],
+              "values": [
+                "135px",
+                "30px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                80.21875,
+                38,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                72
+              ],
+              "client": [
+                250,
+                72
+              ],
+              "scroll": [
+                250,
+                72
+              ],
+              "values": [
+                "250px",
+                "72px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                74.21875,
+                2,
+                94.203125,
+                64
+              ],
+              "client": [
+                90,
+                60
+              ],
+              "scroll": [
+                90,
+                60
+              ],
+              "values": [
+                "82.2031px",
+                "52px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                80.21875,
+                8,
+                82.203125,
+                30
+              ],
+              "client": [
+                67,
+                30
+              ],
+              "scroll": [
+                67,
+                100
+              ],
+              "values": [
+                "67.2031px",
+                "30px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                80.21875,
+                38,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                92
+              ],
+              "client": [
+                250,
+                92
+              ],
+              "scroll": [
+                250,
+                92
+              ],
+              "values": [
+                "250px",
+                "92px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                74.21875,
+                2,
+                162,
+                64
+              ],
+              "client": [
+                158,
+                60
+              ],
+              "scroll": [
+                158,
+                60
+              ],
+              "values": [
+                "150px",
+                "52px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                80.21875,
+                8,
+                150,
+                30
+              ],
+              "client": [
+                135,
+                30
+              ],
+              "scroll": [
+                135,
+                60
+              ],
+              "values": [
+                "135px",
+                "30px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                80.21875,
+                38,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                92
+              ],
+              "client": [
+                250,
+                92
+              ],
+              "scroll": [
+                250,
+                92
+              ],
+              "values": [
+                "250px",
+                "92px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                74.21875,
+                2,
+                162,
+                64
+              ],
+              "client": [
+                158,
+                60
+              ],
+              "scroll": [
+                158,
+                60
+              ],
+              "values": [
+                "150px",
+                "52px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                80.21875,
+                8,
+                150,
+                30
+              ],
+              "client": [
+                135,
+                30
+              ],
+              "scroll": [
+                135,
+                60
+              ],
+              "values": [
+                "135px",
+                "30px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                80.21875,
+                38,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                92
+              ],
+              "client": [
+                250,
+                92
+              ],
+              "scroll": [
+                250,
+                92
+              ],
+              "values": [
+                "250px",
+                "92px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                74.21875,
+                2,
+                132,
+                64
+              ],
+              "client": [
+                128,
+                60
+              ],
+              "scroll": [
+                128,
+                60
+              ],
+              "values": [
+                "120px",
+                "52px",
+                "100px",
+                "120px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                80.21875,
+                8,
+                120,
+                30
+              ],
+              "client": [
+                105,
+                30
+              ],
+              "scroll": [
+                105,
+                80
+              ],
+              "values": [
+                "105px",
+                "30px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                80.21875,
+                38,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                92
+              ],
+              "client": [
+                250,
+                92
+              ],
+              "scroll": [
+                250,
+                92
+              ],
+              "values": [
+                "250px",
+                "92px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                76.21875,
+                3,
+                162,
+                64
+              ],
+              "client": [
+                158,
+                60
+              ],
+              "scroll": [
+                158,
+                60
+              ],
+              "values": [
+                "150px",
+                "52px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                82.21875,
+                9,
+                150,
+                30
+              ],
+              "client": [
+                135,
+                30
+              ],
+              "scroll": [
+                135,
+                60
+              ],
+              "values": [
+                "135px",
+                "30px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                82.21875,
+                39,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tracked glyphs and bordered inline text",
+      "html": "<!doctype html><style>body{margin:0}#owner{width:250px;font:16px/20px \"Courier New\"}#atomic{display:inline-block;max-width:150px;border:2px solid;padding:4px;vertical-align:top;}#caption{display:block}input{display:block;appearance:none;box-sizing:border-box;width:50px;height:22px;border:0;padding:0;font:inherit}#nested{display:inline-flex;max-width:90px;flex-direction:column}#nested span{display:block}</style><div id=owner>Before <span id=atomic><span id=caption style=\"letter-spacing:2px\">ALPHA <span style=\"border:1px solid;padding:1px 3%\">BETA</span> GAMMA DELTA EPSILON</span><input id=editor value=retained></span> after</div>",
+      "styles": [
+        "",
+        "width:min-content",
+        "width:max-content",
+        "width:fit-content",
+        "min-width:100px;max-width:120px",
+        "margin:3px 7px 5px 9px"
+      ],
+      "profileDifferences": {
+        "states": {
+          "2": [
+            "atomic",
+            "caption"
+          ]
+        },
+        "reason": "The existing independently rendered letter-spacing profile omits native trailing tracking in min-content width (2px in this capture). Full CSS Text tracking edges remain open."
+      },
+      "expected": [
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                134
+              ],
+              "client": [
+                250,
+                134
+              ],
+              "scroll": [
+                250,
+                134
+              ],
+              "values": [
+                "250px",
+                "134px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                93.203125,
+                134
+              ],
+              "client": [
+                89,
+                130
+              ],
+              "scroll": [
+                89,
+                130
+              ],
+              "values": [
+                "81.2031px",
+                "122px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                81.203125,
+                100
+              ],
+              "client": [
+                81,
+                100
+              ],
+              "scroll": [
+                81,
+                100
+              ],
+              "values": [
+                "81.2031px",
+                "100px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                106,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                114
+              ],
+              "client": [
+                250,
+                114
+              ],
+              "scroll": [
+                250,
+                114
+              ],
+              "values": [
+                "250px",
+                "114px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                66,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                154
+              ],
+              "client": [
+                250,
+                154
+              ],
+              "scroll": [
+                250,
+                154
+              ],
+              "values": [
+                "250px",
+                "154px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                67.21875,
+                0,
+                132,
+                134
+              ],
+              "client": [
+                128,
+                130
+              ],
+              "scroll": [
+                128,
+                130
+              ],
+              "values": [
+                "120px",
+                "122px",
+                "100px",
+                "120px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                73.21875,
+                6,
+                120,
+                100
+              ],
+              "client": [
+                120,
+                100
+              ],
+              "scroll": [
+                120,
+                100
+              ],
+              "values": [
+                "120px",
+                "100px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                73.21875,
+                106,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        },
+        {
+          "boxes": [
+            {
+              "id": "owner",
+              "rect": [
+                0,
+                0,
+                250,
+                122
+              ],
+              "client": [
+                250,
+                122
+              ],
+              "scroll": [
+                250,
+                122
+              ],
+              "values": [
+                "250px",
+                "122px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            {
+              "id": "atomic",
+              "rect": [
+                76.21875,
+                3,
+                162,
+                94
+              ],
+              "client": [
+                158,
+                90
+              ],
+              "scroll": [
+                158,
+                90
+              ],
+              "values": [
+                "150px",
+                "82px",
+                "0px",
+                "150px",
+                "inline-block"
+              ]
+            },
+            {
+              "id": "caption",
+              "rect": [
+                82.21875,
+                9,
+                150,
+                60
+              ],
+              "client": [
+                150,
+                60
+              ],
+              "scroll": [
+                150,
+                60
+              ],
+              "values": [
+                "150px",
+                "60px",
+                "0px",
+                "none",
+                "block"
+              ]
+            },
+            null,
+            {
+              "id": "editor",
+              "rect": [
+                82.21875,
+                69,
+                50,
+                22
+              ],
+              "client": [
+                50,
+                22
+              ],
+              "scroll": [
+                58,
+                22
+              ],
+              "values": [
+                "50px",
+                "22px",
+                "0px",
+                "none",
+                "block"
+              ]
+            }
+          ],
+          "editor": [
+            "edited",
+            1,
+            4,
+            "backward",
+            "editor"
+          ]
+        }
+      ]
+    }
+  ],
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "glyphWidths": {
+    "16": 9.6015625
+  }
+}

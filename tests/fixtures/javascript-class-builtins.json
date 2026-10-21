@@ -1,0 +1,425 @@
+[
+  {
+    "name": "Array derived constructor preserves exotic length and holes",
+    "source": "class A extends Array { marker=7 } const a=new A(3);record(a instanceof A);record(a instanceof Array);record(a.length);record(Object.keys(a).join(','));a.push(9);record(a.length);record(a[3]);record(a.marker);record(Object.getPrototypeOf(a)===A.prototype)",
+    "expected": [
+      "true",
+      "true",
+      "3",
+      "marker",
+      "4",
+      "9",
+      "7",
+      "true"
+    ]
+  },
+  {
+    "name": "Object derived construction ignores source and primitive argument",
+    "source": "class O extends Object {marker=1}const source={x:3};const a=new O(source),b=new O(9);record(a!==source);record(a instanceof O);record(Object.keys(a).join(','));record(a.x);record(Object.prototype.toString.call(b));record(Object.getPrototypeOf(b)===O.prototype);record(Object(source)===source);record(new Object(source)===source)",
+    "expected": [
+      "true",
+      "true",
+      "marker",
+      "undefined",
+      "[object Object]",
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "Primitive wrappers support subclass branding",
+    "source": "class S extends String {marker=1}class N extends Number {}class B extends Boolean {}const s=new S('😀a'),n=new N(12),b=new B(0);record(s instanceof S);record(s.length);record(s[0].charCodeAt(0));record(s.valueOf());record(n instanceof N);record(n.valueOf());record(b instanceof B);record(b.valueOf());record(Object.keys(s).join(','));try{new S(Symbol('x'))}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "3",
+      "55357",
+      "😀a",
+      "true",
+      "12",
+      "true",
+      "false",
+      "0,1,2,marker",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Date derived constructor preserves internal time value",
+    "source": "class D extends Date {extra=4}const d=new D('2020-01-02T03:04:05.000Z');record(d instanceof D);record(d instanceof Date);record(d.toISOString());record(d.extra);record(new D(d).getTime()===d.getTime());record(Object.prototype.toString.call(d))",
+    "expected": [
+      "true",
+      "true",
+      "2020-01-02T03:04:05.000Z",
+      "4",
+      "true",
+      "[object Date]"
+    ]
+  },
+  {
+    "name": "Map initializer dispatches subclass setter before fields",
+    "source": "const log=[];class M extends Map {field=log.push('field');set(k,v){log.push(k+':'+v);return super.set(k,v*2)}}const m=new M([['a',3],['b',4]]);record(log.join('|'));record(m instanceof M);record(m.size);record(m.get('a'));record(m.get('b'));record(M[Symbol.species]===M)",
+    "expected": [
+      "a:3|b:4|field",
+      "true",
+      "2",
+      "6",
+      "8",
+      "true"
+    ]
+  },
+  {
+    "name": "Set initializer dispatches subclass adder",
+    "source": "const log=[];class S extends Set {add(v){log.push(v);return super.add(v*2)}}const s=new S([1,2]);record(s instanceof S);record(s.size);record(Array.from(s).join(','));record(log.join(','));record(S[Symbol.species]===S);record(s.union(new Set([9])) instanceof S)",
+    "expected": [
+      "true",
+      "2",
+      "2,4",
+      "1,2",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "Weak collections subclass branded methods initialize",
+    "source": "const key={};class M extends WeakMap {set(k,v){return super.set(k,v+1)}}class S extends WeakSet {}const m=new M([[key,4]]),s=new S([key]);record(m instanceof M);record(m.get(key));record(s instanceof S);record(s.has(key));record(m.set(key,8)===m);record(m.get(key))",
+    "expected": [
+      "true",
+      "5",
+      "true",
+      "true",
+      "true",
+      "9"
+    ]
+  },
+  {
+    "name": "Collection validates overridden adder before empty iterator",
+    "source": "let iterated=0;const source={[Symbol.iterator](){iterated++;return [][Symbol.iterator]()}};for(const C of [Map,Set,WeakMap,WeakSet]){class Bad extends C {}Object.defineProperty(Bad.prototype,C===Map||C===WeakMap?'set':'add',{value:1});try{new Bad(source)}catch(e){record(e.name)}record(new Bad() instanceof Bad)}record(iterated)",
+    "expected": [
+      "TypeError",
+      "true",
+      "TypeError",
+      "true",
+      "TypeError",
+      "true",
+      "TypeError",
+      "true",
+      "0"
+    ]
+  },
+  {
+    "name": "Native prototype getter and coercion order",
+    "source": "for(const C of [Array,Date,Number,String,Boolean,Map,Set,WeakMap,WeakSet]){const log=[];const input={valueOf(){log.push('arg');return 3},toString(){log.push('arg');return '3'}};const T=new Proxy(function(){},{get(t,k,r){if(k==='prototype')log.push('prototype');return Reflect.get(t,k,r)}});try{Reflect.construct(C,C===Map||C===Set||C===WeakMap||C===WeakSet?[]:[input],T)}catch(e){log.push(e.name)}record(C.name+':'+log.join(','))}",
+    "expected": [
+      "Array:prototype",
+      "Date:arg,prototype",
+      "Number:arg,prototype",
+      "String:arg,prototype",
+      "Boolean:prototype",
+      "Map:prototype",
+      "Set:prototype",
+      "WeakMap:prototype",
+      "WeakSet:prototype"
+    ]
+  },
+  {
+    "name": "Native fallback prototype excludes null and primitive",
+    "source": "for(const C of [Array,Date,Number,String,Boolean,Map,Set,WeakMap,WeakSet]){function T(){}T.prototype=null;const o=Reflect.construct(C,[],T);record(Object.getPrototypeOf(o)===C.prototype)}function T(){}T.prototype={};const m=Reflect.construct(Map,[],T);record(m.size);record(Map.prototype.get.call(m,1));const u=Reflect.construct(URL,['https://a.test/'],T);record(u.href);record(URL.prototype.toString.call(u))",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "undefined",
+      "undefined",
+      "undefined",
+      "https://a.test/"
+    ]
+  },
+  {
+    "name": "URL and query subclasses retain WebIDL accessors",
+    "source": "class U extends URL {}class P extends URLSearchParams {}const u=new U('/p?q=3','https://a.test/'),p=new P('a=1&a=2');record(u instanceof U);record(u.href);u.pathname='/x';record(u.pathname);record(p instanceof P);record(p.getAll('a').join(','));p.append('b',3);record(p.toString());record(Object.prototype.toString.call(u))",
+    "expected": [
+      "true",
+      "https://a.test/p?q=3",
+      "/x",
+      "true",
+      "1,2",
+      "a=1&a=2&b=3",
+      "[object URL]"
+    ]
+  },
+  {
+    "name": "WebIDL prototype lookup precedes conversion",
+    "source": "for(const C of [URL,URLSearchParams]){const log=[];const input={toString(){log.push('arg');return 'https://a.test/'}};const T=new Proxy(function(){},{get(t,k,r){if(k==='prototype')log.push('prototype');return Reflect.get(t,k,r)}});Reflect.construct(C,C===URL?[input]:['a=1'],T);record(C.name+':'+log.join(','))}",
+    "expected": [
+      "URL:prototype,arg",
+      "URLSearchParams:prototype"
+    ]
+  },
+  {
+    "name": "Array static factories inherit constructor receiver",
+    "source": "class A extends Array {}const of=A.of(3,4),from=A.from([1,2],x=>x*2);record(of instanceof A);record(of.join(','));record(from instanceof A);record(from.join(','));record(Array.of.call({},5) instanceof Array);record(Array.from.call(()=>{},[7]).join(','))",
+    "expected": [
+      "true",
+      "3,4",
+      "true",
+      "2,4",
+      "true",
+      "7"
+    ]
+  },
+  {
+    "name": "Array factories support arbitrary constructor objects",
+    "source": "const log=[];function C(n){log.push(arguments.length+':'+n);this.tag=1}const a=Array.of.call(C,3,4),b=Array.from.call(C,[5,6]),c=Array.from.call(C,{0:7,length:1});record(a instanceof C);record(JSON.stringify(a));record(JSON.stringify(b));record(JSON.stringify(c));record(log.join('|'))",
+    "expected": [
+      "true",
+      "{\"0\":3,\"1\":4,\"tag\":1,\"length\":2}",
+      "{\"0\":5,\"1\":6,\"tag\":1,\"length\":2}",
+      "{\"0\":7,\"tag\":1,\"length\":1}",
+      "1:2|0:undefined|1:1"
+    ]
+  },
+  {
+    "name": "Array from getter capture and allocation order",
+    "source": "const log=[];let gets=0;const source={get [Symbol.iterator](){gets++;log.push('iterator getter');return function(){log.push('iterator call');return [3].values()}}};function C(){log.push('construct')}const a=Array.from.call(C,source,x=>(log.push('map'),x));record(gets);record(log.join('|'));record(JSON.stringify(a));log.length=0;Array.from.call(C,{get length(){log.push('length');return 1},get 0(){log.push('value');return 4}});record(log.join('|'))",
+    "expected": [
+      "1",
+      "iterator getter|construct|iterator call|map",
+      "{\"0\":3,\"length\":1}",
+      "length|construct|value"
+    ]
+  },
+  {
+    "name": "Array from closes mapper and definition failures only",
+    "source": "function source(kind){return {[Symbol.iterator](){return {next(){if(kind==='next')throw 'next';return kind==='value'?{get value(){throw 'value'},done:false}:{value:1,done:false}},get return(){record('return getter');return function(){record('return call');throw 'close'}}}}}}try{Array.from(source('next'))}catch(e){record(e)}try{Array.from(source('value'))}catch(e){record(e)}try{Array.from(source('map'),()=>{throw 'mapper'})}catch(e){record(e)}function C(){return Object.preventExtensions({})}try{Array.from.call(C,source('define'))}catch(e){record(e.name)}",
+    "expected": [
+      "next",
+      "value",
+      "return getter",
+      "return call",
+      "mapper",
+      "return getter",
+      "return call",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Array from final length failure occurs after iterator done",
+    "source": "let n=0;const source={[Symbol.iterator](){return {next(){return ++n===1?{value:1,done:false}:{done:true}},return(){record('wrong close');return {}}}}};function C(){Object.defineProperty(this,'length',{value:0,writable:false})}try{Array.from.call(C,source)}catch(e){record(e.name)}record(n)",
+    "expected": [
+      "TypeError",
+      "2"
+    ]
+  },
+  {
+    "name": "Array species defaults retain subclasses",
+    "source": "class A extends Array {}const a=new A(1,2,3);for(const b of [a.map(x=>x*2),a.filter(x=>x>1),a.slice(1),a.concat([4]),a.flat(),a.flatMap(x=>[x,x]),a.splice(1,1)]){record(b instanceof A);record(b.join(','))}record(a.join(','))",
+    "expected": [
+      "true",
+      "2,4,6",
+      "true",
+      "2,3",
+      "true",
+      "2,3",
+      "true",
+      "1,2,3,4",
+      "true",
+      "1,2,3",
+      "true",
+      "1,1,2,2,3,3",
+      "true",
+      "2",
+      "1,3"
+    ]
+  },
+  {
+    "name": "Array species constructor may return ordinary object",
+    "source": "function C(n){this.requested=n}class A extends Array {static get [Symbol.species](){return C}}const a=new A(1,2,3);for(const b of [a.map(x=>x+1),a.filter(x=>x>1),a.slice(1),a.concat([4]),a.flat(),a.flatMap(x=>[x,x]),a.splice(1,1)]){record(b instanceof C);record(JSON.stringify(b))}",
+    "expected": [
+      "true",
+      "{\"0\":2,\"1\":3,\"2\":4,\"requested\":3}",
+      "true",
+      "{\"0\":2,\"1\":3,\"requested\":0}",
+      "true",
+      "{\"0\":2,\"1\":3,\"requested\":2,\"length\":2}",
+      "true",
+      "{\"0\":1,\"1\":2,\"2\":3,\"3\":4,\"requested\":0,\"length\":4}",
+      "true",
+      "{\"0\":1,\"1\":2,\"2\":3,\"requested\":0}",
+      "true",
+      "{\"0\":1,\"1\":1,\"2\":2,\"3\":2,\"4\":3,\"5\":3,\"requested\":0}",
+      "true",
+      "{\"0\":2,\"requested\":1,\"length\":1}"
+    ]
+  },
+  {
+    "name": "Array species null fallback and invalid constructor errors",
+    "source": "const a=[1,2];a.constructor={[Symbol.species]:null};record(a.map(x=>x) instanceof Array);a.constructor=1;try{a.slice()}catch(e){record(e.name)}a.constructor=null;try{a.filter(x=>true)}catch(e){record(e.name)}a.constructor={[Symbol.species]:()=>{}};try{a.concat()}catch(e){record(e.name)}record(Array.prototype.map.call({0:1,length:1,constructor:null},x=>x).join(','))",
+    "expected": [
+      "true",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "1"
+    ]
+  },
+  {
+    "name": "Copy by change array methods bypass species",
+    "source": "class A extends Array {static get [Symbol.species](){throw 'wrong species'}}const a=new A(3,1,2);for(const b of [a.toReversed(),a.toSorted(),a.toSpliced(1,1),a.with(0,9)]){record(b instanceof A);record(b instanceof Array);record(b.join(','))}",
+    "expected": [
+      "false",
+      "true",
+      "2,1,3",
+      "false",
+      "true",
+      "1,2,3",
+      "false",
+      "true",
+      "3,2",
+      "false",
+      "true",
+      "9,1,2"
+    ]
+  },
+  {
+    "name": "Array species can mutate source after length snapshot",
+    "source": "let a=[1,2,3];a.constructor={get [Symbol.species](){a.length=1;return Array}};const m=a.map(x=>x);record(m.length);record(Object.keys(m).join(','));a=[1,[2],3];a.constructor={get [Symbol.species](){a.length=1;return Array}};record(a.flat().join(','))",
+    "expected": [
+      "3",
+      "0",
+      "1"
+    ]
+  },
+  {
+    "name": "Array species definition bypasses inherited setter and preserves holes",
+    "source": "const log=[];function C(n){this.requested=n}Object.defineProperty(C.prototype,'0',{set(v){log.push(v)},configurable:true});const a=[1,,3];a.constructor={[Symbol.species]:C};const m=a.map(x=>x*2),s=a.slice();record(Object.keys(m).join(','));record(JSON.stringify(m));record(JSON.stringify(s));record(log.length)",
+    "expected": [
+      "0,2,requested",
+      "{\"0\":2,\"2\":6,\"requested\":3}",
+      "{\"0\":1,\"2\":3,\"requested\":3,\"length\":3}",
+      "0"
+    ]
+  },
+  {
+    "name": "Function prototype is callable and not constructable",
+    "source": "record(typeof Function.prototype);record(Function.prototype()===undefined);record(Object.getPrototypeOf(Function.prototype)===Object.prototype);record(Function.prototype.length);record(Function.prototype.name);try{new Function.prototype()}catch(e){record(e.name)}record(Object.prototype.toString.call(Function.prototype))",
+    "expected": [
+      "function",
+      "true",
+      "true",
+      "0",
+      "",
+      "TypeError",
+      "[object Function]"
+    ]
+  },
+  {
+    "name": "Base fields initialize before constructor parameter defaults",
+    "source": "const log=[];class C {x=log.push('field');constructor(a=(log.push('parameter'),1)){log.push('body')}}new C();record(log.join('|'));log.length=0;class D extends C {y=log.push('derived field');constructor(a=(log.push('derived parameter'),2)){log.push('before');super();log.push('after')}}new D();record(log.join('|'))",
+    "expected": [
+      "field|parameter|body",
+      "derived parameter|before|field|parameter|body|derived field|after"
+    ]
+  },
+  {
+    "name": "Derived duplicate super executes parent before throwing",
+    "source": "let n=0;class A {constructor(){n++}}class B extends A {constructor(){super();try{super()}catch(e){record(e.name)}}}new B();record(n)",
+    "expected": [
+      "ReferenceError",
+      "2"
+    ]
+  },
+  {
+    "name": "Private stamping on returned object and duplicate branding",
+    "source": "class A {constructor(value){return value}}class B extends A {#x=3;read(){return this.#x}static read(o){return o.#x}}const o={};const b=new B(o);record(b===o);record(B.read(o));record(Object.keys(o).length);try{new B(o)}catch(e){record(e.name)}",
+    "expected": [
+      "true",
+      "3",
+      "0",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Computed public field and method inferred names",
+    "source": "const s=Symbol('k');class C {['a']=function(){};[s]=()=>{};['m'](){};get ['v'](){return 1}}const c=new C();record(c.a.name);record(c[s].name);record(c.m.name);record(Object.getOwnPropertyDescriptor(C.prototype,'v').get.name);class D {#f=()=>{};get(){return this.#f.name}}record(new D().get())",
+    "expected": [
+      "a",
+      "[k]",
+      "m",
+      "get v",
+      "#f"
+    ]
+  },
+  {
+    "name": "Constructor new target propagates through field lexical arrows",
+    "source": "class A {x=()=>new.target;constructor(){this.target=new.target}}class B extends A {}const b=new B();record(b.target===B);record(b.x()===undefined);class C {constructor(){this.arrow=()=>new.target}}class D extends C {}record(new D().arrow()===D)",
+    "expected": [
+      "true",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "Private inherited methods retain brand across prototype changes",
+    "source": "class A {#x=this;self(){return this.#x}}const a=new A(),f=a.self;Object.setPrototypeOf(a,null);record(f.call(a)===a);try{f.call(new Proxy(a,{}))}catch(e){record(e.name)}class B extends A {}const b=new B();record(b.self()===b)",
+    "expected": [
+      "true",
+      "TypeError",
+      "true"
+    ]
+  },
+  {
+    "name": "Constructor default closures exclude body var bindings",
+    "source": "class C {constructor(a=()=>x){var x=1;this.read=a}}const c=new C();try{c.read()}catch(e){record(e.name)}function f(a=()=>x){var x=1;return a}try{f()()}catch(e){record(e.name)}function same(a=1,b=()=>a){var a=2;return b}record(same()())",
+    "expected": [
+      "ReferenceError",
+      "ReferenceError",
+      "1"
+    ]
+  },
+  {
+    "name": "Collection iterator step errors do not close but adder errors do",
+    "source": "for(const C of [Map,Set,WeakMap,WeakSet]){for(const kind of ['next','done','value']){let closed=0;const source={[Symbol.iterator](){return {next(){if(kind==='next')throw kind;if(kind==='done')return {get done(){throw kind}};return {done:false,get value(){throw kind}}},return(){closed++;return {}}}}};try{new C(source)}catch(e){record(e+':'+closed)}}let closed=0;const source={[Symbol.iterator](){return {next(){return {value:[{},1],done:false}},return(){closed++;throw 'close'}}}};class D extends C {}Object.defineProperty(D.prototype,C===Map||C===WeakMap?'set':'add',{value(){throw 'adder'}});try{new D(source)}catch(e){record(e+':'+closed)}}",
+    "expected": [
+      "next:0",
+      "done:0",
+      "value:0",
+      "adder:1",
+      "next:0",
+      "done:0",
+      "value:0",
+      "adder:1",
+      "next:0",
+      "done:0",
+      "value:0",
+      "adder:1",
+      "next:0",
+      "done:0",
+      "value:0",
+      "adder:1"
+    ]
+  },
+  {
+    "name": "Collection and array iteration do not read completed result value",
+    "source": "let reads=0;const source={[Symbol.iterator](){return {next(){return {done:true,get value(){reads++;throw 'wrong'}}}}}};for(const C of [Map,Set,WeakMap,WeakSet]){new C(source)}record(Array.from(source).length);for(const x of source){record('wrong body')}record(reads)",
+    "expected": [
+      "0",
+      "0"
+    ]
+  },
+  {
+    "name": "Object iterable factories preserve closing boundaries",
+    "source": "for(const method of ['fromEntries','groupBy']){let closed=0;const source={[Symbol.iterator](){return {next(){throw 'next'},return(){closed++;return {}}}}};try{Object[method](source,x=>x)}catch(e){record(e+':'+closed)}}const s=Symbol('k'),g=Object.groupBy([1,2],()=>Object(s));record(Object.getOwnPropertySymbols(g)[0]===s);record(g[s].join(','))",
+    "expected": [
+      "next:1",
+      "next:0",
+      "true",
+      "1,2"
+    ]
+  }
+]

@@ -1,0 +1,2735 @@
+{
+  "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "captured": "2026-10-09",
+  "source": "https://drafts.csswg.org/css-conditional-5/",
+  "cases": [
+    {
+      "type": "size",
+      "writingMode": "horizontal-tb",
+      "fontSize": 16,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": true
+        },
+        {
+          "source": "(height)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px)",
+          "matches": true
+        },
+        {
+          "source": "(height:200px)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": true
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": true
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": true
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": true
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": true
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30em)",
+          "matches": true
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": true
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "type": "size",
+      "writingMode": "horizontal-tb",
+      "fontSize": 20,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": true
+        },
+        {
+          "source": "(height)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px)",
+          "matches": true
+        },
+        {
+          "source": "(height:200px)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": true
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": true
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": true
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": true
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": true
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": true
+        },
+        {
+          "source": "(width:30em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": true
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": true
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "type": "size",
+      "writingMode": "vertical-rl",
+      "fontSize": 16,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": true
+        },
+        {
+          "source": "(height)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px)",
+          "matches": true
+        },
+        {
+          "source": "(height:200px)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": true
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": true
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": true
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": true
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30em)",
+          "matches": true
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": true
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "type": "size",
+      "writingMode": "vertical-rl",
+      "fontSize": 20,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": true
+        },
+        {
+          "source": "(height)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px)",
+          "matches": true
+        },
+        {
+          "source": "(height:200px)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": true
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": true
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": true
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": true
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": true
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": true
+        },
+        {
+          "source": "(width:30em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": true
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "type": "inline-size",
+      "writingMode": "horizontal-tb",
+      "fontSize": 16,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": true
+        },
+        {
+          "source": "(height)",
+          "matches": false
+        },
+        {
+          "source": "(width:480px)",
+          "matches": true
+        },
+        {
+          "source": "(height:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": true
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": true
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30em)",
+          "matches": true
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": true
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "type": "inline-size",
+      "writingMode": "horizontal-tb",
+      "fontSize": 20,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": true
+        },
+        {
+          "source": "(height)",
+          "matches": false
+        },
+        {
+          "source": "(width:480px)",
+          "matches": true
+        },
+        {
+          "source": "(height:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": true
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": true
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": true
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": true
+        },
+        {
+          "source": "(width:30em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": true
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": true
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": true
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "type": "inline-size",
+      "writingMode": "vertical-rl",
+      "fontSize": 16,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": false
+        },
+        {
+          "source": "(height)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px)",
+          "matches": false
+        },
+        {
+          "source": "(height:200px)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": true
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": true
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": false
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "inline-size",
+      "writingMode": "vertical-rl",
+      "fontSize": 20,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": false
+        },
+        {
+          "source": "(height)",
+          "matches": true
+        },
+        {
+          "source": "(width:480px)",
+          "matches": false
+        },
+        {
+          "source": "(height:200px)",
+          "matches": true
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": true
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": true
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": true
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false,
+          "normativeMatches": true,
+          "deviation": "CSS Conditional 5 resolves var() against the selected container. Chromium does not implement size-query variable substitution in this snapshot."
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": false
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "normal",
+      "writingMode": "horizontal-tb",
+      "fontSize": 16,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": false
+        },
+        {
+          "source": "(height)",
+          "matches": false
+        },
+        {
+          "source": "(width:480px)",
+          "matches": false
+        },
+        {
+          "source": "(height:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": false
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": false
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": false
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "normal",
+      "writingMode": "horizontal-tb",
+      "fontSize": 20,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": false
+        },
+        {
+          "source": "(height)",
+          "matches": false
+        },
+        {
+          "source": "(width:480px)",
+          "matches": false
+        },
+        {
+          "source": "(height:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": false
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": false
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": false
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "normal",
+      "writingMode": "vertical-rl",
+      "fontSize": 16,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": false
+        },
+        {
+          "source": "(height)",
+          "matches": false
+        },
+        {
+          "source": "(width:480px)",
+          "matches": false
+        },
+        {
+          "source": "(height:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": false
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": false
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": false
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": false
+        }
+      ]
+    },
+    {
+      "type": "normal",
+      "writingMode": "vertical-rl",
+      "fontSize": 20,
+      "viewportWidth": 800,
+      "viewportHeight": 600,
+      "custom": {
+        "--size": "480px",
+        "--height": "200px",
+        "--minimum": "100px",
+        "--ratio": "12/5",
+        "--orientation": "landscape",
+        "--ink": "red"
+      },
+      "width": 480,
+      "height": 200,
+      "names": [
+        "karte",
+        "--karte",
+        "käste"
+      ],
+      "matches": [
+        {
+          "source": "(width)",
+          "matches": false
+        },
+        {
+          "source": "(height)",
+          "matches": false
+        },
+        {
+          "source": "(width:480px)",
+          "matches": false
+        },
+        {
+          "source": "(height:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(min-inline-size:480px)",
+          "matches": false
+        },
+        {
+          "source": "(max-block-size:200px)",
+          "matches": false
+        },
+        {
+          "source": "(100px < inline-size <= 480px)",
+          "matches": false
+        },
+        {
+          "source": "(480px >= inline-size > 100px)",
+          "matches": false
+        },
+        {
+          "source": "(width>400px) and (height>100px)",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:12/5)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:landscape)",
+          "matches": false
+        },
+        {
+          "source": "(orientation:portrait)",
+          "matches": false
+        },
+        {
+          "source": "(width:24em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30em)",
+          "matches": false
+        },
+        {
+          "source": "(width:30rem)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:10em)",
+          "matches": false
+        },
+        {
+          "source": "(block-size:24em)",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:calc(10em + 280px))",
+          "matches": false
+        },
+        {
+          "source": "karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "KARTE (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "missing (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "--karte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\61 rte (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "käste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "k\\e4 ste (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "not (unknown)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) or (width>0px)",
+          "matches": false
+        },
+        {
+          "source": "(unknown) and (width<0px)",
+          "matches": false
+        },
+        {
+          "source": "not ((unknown) and (width<0px))",
+          "matches": false
+        },
+        {
+          "source": "not ((width>0px) and (height>0px))",
+          "matches": false
+        },
+        {
+          "source": "not (width>0px) and (height>0px)",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--missing,480px))",
+          "matches": false
+        },
+        {
+          "source": "not (width:var(--missing))",
+          "matches": false
+        },
+        {
+          "source": "(width:var(--ink))",
+          "matches": false
+        },
+        {
+          "source": "(height:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(inline-size:var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(block-size:var(--height))",
+          "matches": false
+        },
+        {
+          "source": "(width:calc(var(--size) + 0px))",
+          "matches": false
+        },
+        {
+          "source": "(var(--minimum) < width <= var(--size))",
+          "matches": false
+        },
+        {
+          "source": "(aspect-ratio:var(--ratio))",
+          "matches": false
+        },
+        {
+          "source": "(orientation:var(--orientation))",
+          "matches": false
+        },
+        {
+          "source": "(width:50vw)",
+          "matches": false
+        },
+        {
+          "source": "karte/**/(width>0px)",
+          "matches": false
+        },
+        {
+          "source": "/*prefix*/karte (width>0px)",
+          "matches": false
+        }
+      ]
+    }
+  ]
+}

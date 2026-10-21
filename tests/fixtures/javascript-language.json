@@ -1,0 +1,420 @@
+[
+  {
+    "name": "arrow lexical this and defaults",
+    "source": "const o={x:7,f:function(){return (n=2)=>this.x+n;}}; const f=o.f();record(f.call({x:99},3));record(f());",
+    "expected": [
+      "10",
+      "9"
+    ]
+  },
+  {
+    "name": "arrow implicit objects",
+    "source": "const f=(x,y=3)=>({sum:x+y});record(f(4).sum);record(((x)=>x*2)(5));",
+    "expected": [
+      "7",
+      "10"
+    ]
+  },
+  {
+    "name": "rest and parameters length",
+    "source": "function f(a,b=2,...rest){record(f.length);return a+b+rest.length;}record(f(1,4,6,7));",
+    "expected": [
+      "1",
+      "7"
+    ]
+  },
+  {
+    "name": "pattern parameters",
+    "source": "function f({x=4},[a,,b=8],...r){record(x+a+b+r.length);}f({},[2],9,10);",
+    "expected": [
+      "16"
+    ]
+  },
+  {
+    "name": "binding patterns defaults",
+    "source": "const [a,,b=5,...r]=[1,2,undefined,6,7];const {x:y=8,...rest}={z:9};record(a);record(b);record(r.join());record(y);record(rest.z);",
+    "expected": [
+      "1",
+      "5",
+      "6,7",
+      "8",
+      "9"
+    ]
+  },
+  {
+    "name": "computed destructuring",
+    "source": "let n=0;const {[++n]:a,...rest}={1:7,2:8};record(n);record(a);record(rest[2]);",
+    "expected": [
+      "1",
+      "7",
+      "8"
+    ]
+  },
+  {
+    "name": "spread values and holes",
+    "source": "const a=[,3];const b=[1,...a,4];record(b.length);record(1 in b);record(b.join());record(Math.max(...b.slice(2)));",
+    "expected": [
+      "4",
+      "true",
+      "1,,3,4",
+      "4"
+    ]
+  },
+  {
+    "name": "object spread accessors",
+    "source": "let hits=0;const a={get x(){hits++;return 4;}};const b={...a,y:7};record(b.x);record(hits);record(Object.keys(b));",
+    "expected": [
+      "4",
+      "1",
+      "x,y"
+    ]
+  },
+  {
+    "name": "optional chain laziness",
+    "source": "let n=0;const a=null;record(a?.[++n].x);record(a?.f(++n));record(n);record(a?.x??8);",
+    "expected": [
+      "undefined",
+      "undefined",
+      "0",
+      "8"
+    ]
+  },
+  {
+    "name": "optional call receiver",
+    "source": "const a={x:4,f(){return this.x;}};record(a.f?.());record(a?.f());record(a.missing?.());",
+    "expected": [
+      "4",
+      "4",
+      "undefined"
+    ]
+  },
+  {
+    "name": "optional grouped boundary",
+    "source": "try{record((null?.x).y);}catch(e){record(e.name);}",
+    "expected": [
+      "TypeError"
+    ]
+  },
+  {
+    "name": "nullish versus logical",
+    "source": "record(0??7);record(false??8);record(null??9);record(0||7);",
+    "expected": [
+      "0",
+      "false",
+      "9",
+      "7"
+    ]
+  },
+  {
+    "name": "logical assignment once",
+    "source": "let reads=0,writes=0;const a={get x(){reads++;return 0;},set x(v){writes++;record(v);}};a.x&&=99;a.x||=4;record(reads);record(writes);",
+    "expected": [
+      "4",
+      "2",
+      "1"
+    ]
+  },
+  {
+    "name": "bitwise operations",
+    "source": "record(-1>>>1);record(1<<31);record(-8>>2);record(7^3);record(~0);let a=2;a**=3;a<<=2;record(a);",
+    "expected": [
+      "2147483647",
+      "-2147483648",
+      "-2",
+      "4",
+      "-1",
+      "32"
+    ]
+  },
+  {
+    "name": "updates",
+    "source": "let x=2;record(++x);record(x++);record(x);record(--x);",
+    "expected": [
+      "3",
+      "3",
+      "4",
+      "3"
+    ]
+  },
+  {
+    "name": "template interpolation",
+    "source": "const x=4;record(`a${x+1}b${false}`);record(`outer ${`inner ${x}`}`);",
+    "expected": [
+      "a5bfalse",
+      "outer inner 4"
+    ]
+  },
+  {
+    "name": "tagged template receiver and identity",
+    "source": "let previous;const o={tag(strings,n){record(this===o);record(Object.isFrozen(strings));record(Object.isFrozen(strings.raw));if(previous)record(previous===strings);previous=strings;return strings.raw[0]+n;}};function run(n){return o.tag`x${n}`;}record(run(2));record(run(3));",
+    "expected": [
+      "true",
+      "true",
+      "true",
+      "x2",
+      "true",
+      "true",
+      "true",
+      "true",
+      "x3"
+    ]
+  },
+  {
+    "name": "do while and continue",
+    "source": "let a=0,n=0;do{a++;if(a<3)continue;n++;}while(a<4);record(a);record(n);",
+    "expected": [
+      "4",
+      "2"
+    ]
+  },
+  {
+    "name": "switch fallthrough default",
+    "source": "let a=\"\";switch(2){default:a+=\"d\";case 1:a+=\"a\";case 2:a+=\"b\";case 3:a+=\"c\";break;case 4:a+=\"x\";}record(a);",
+    "expected": [
+      "bc"
+    ]
+  },
+  {
+    "name": "label break continue finally",
+    "source": "let out=\"\";outer:for(let i=0;i<3;i++){for(let j=0;j<2;j++){try{if(j===0)continue outer;}finally{out+=i;}}}record(out); done:{out+=\"x\";break done;out+=\"z\";}record(out);",
+    "expected": [
+      "012",
+      "012x"
+    ]
+  },
+  {
+    "name": "for of and in",
+    "source": "let out=\"\";for(const x of [3,4])out+=x;record(out);const a=Object.create({z:1});a.x=2;let keys=\"\";for(let k in a)keys+=k;record(keys);",
+    "expected": [
+      "34",
+      "xz"
+    ]
+  },
+  {
+    "name": "for of fresh closures",
+    "source": "const out=[];for(let v of [3,4,5])out.push(()=>v);record(out.map(f=>f()).join());",
+    "expected": [
+      "3,4,5"
+    ]
+  },
+  {
+    "name": "for loop fresh closures",
+    "source": "const out=[];for(let i=0;i<3;i++)out.push(()=>i);record(out.map(f=>f()).join());",
+    "expected": [
+      "0,1,2"
+    ]
+  },
+  {
+    "name": "automatic semicolons",
+    "source": "let x=1\nx++\nrecord(x)\nfunction f(){return\n99;}record(f());",
+    "expected": [
+      "2",
+      "undefined"
+    ]
+  },
+  {
+    "name": "literal grammar collisions",
+    "source": "record('-');record('delete');record('true');record('async');record('('.length);record(';');",
+    "expected": [
+      "-",
+      "delete",
+      "true",
+      "async",
+      "1",
+      ";"
+    ]
+  },
+  {
+    "name": "numeric literals and unicode strings",
+    "source": "record(0b1010+0o12+0x10+1_000);record('\\u{1F600}'.length);record('\\x41\\u0042');",
+    "expected": [
+      "1036",
+      "2",
+      "AB"
+    ]
+  },
+  {
+    "name": "typeof TDZ and missing",
+    "source": "record(typeof absent);try{record(typeof x);let x=2;}catch(e){record(e.name);}",
+    "expected": [
+      "undefined",
+      "ReferenceError"
+    ]
+  },
+  {
+    "name": "object coercion",
+    "source": "const a={valueOf(){return 4;},toString(){return \"txt\";}};record(a+2);record(String(a));record(Number(a));record(a==4);",
+    "expected": [
+      "6",
+      "txt",
+      "4",
+      "true"
+    ]
+  },
+  {
+    "name": "constructor new target",
+    "source": "function F(x){this.x=x;record(new.target===F);}const a=new F(7);record(a instanceof F);record(a.x);record(F.prototype.constructor===F);",
+    "expected": [
+      "true",
+      "true",
+      "7",
+      "true"
+    ]
+  },
+  {
+    "name": "call apply bind",
+    "source": "function f(a,b){return this.x+a+b;}record(f.call({x:1},2,3));record(f.apply({x:2},[4,5]));const b=f.bind({x:3},6);record(b(7));record(b.length);",
+    "expected": [
+      "6",
+      "11",
+      "16",
+      "1"
+    ]
+  },
+  {
+    "name": "bound constructor",
+    "source": "function F(x){this.x=x;}const B=F.bind({x:99},7);const b=new B();record(b.x);record(b instanceof F);record(b instanceof B);",
+    "expected": [
+      "7",
+      "true",
+      "true"
+    ]
+  },
+  {
+    "name": "accessor borrowed receiver",
+    "source": "const proto={get x(){return this.y;},set x(v){this.y=v;}};const a=Object.create(proto);a.x=7;record(a.x);record(a.y);record(Object.hasOwn(a,\"x\"));",
+    "expected": [
+      "7",
+      "7",
+      "false"
+    ]
+  },
+  {
+    "name": "strict descriptors",
+    "source": "\"use strict\";const a={};Object.defineProperty(a,\"x\",{value:3});try{a.x=7;}catch(e){record(e.name);}try{delete a.x;}catch(e){record(e.name);}record(a.x);",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "3"
+    ]
+  },
+  {
+    "name": "property keys order",
+    "source": "const a={z:1,2:2,a:3,1:4};delete a.z;a.z=5;record(Object.keys(a));",
+    "expected": [
+      "1,2,a,z"
+    ]
+  },
+  {
+    "name": "freeze accessor",
+    "source": "let v=1;const a={get x(){return v;},set x(n){v=n;}};Object.freeze(a);a.x=7;record(a.x);record(Object.isFrozen(a));",
+    "expected": [
+      "7",
+      "true"
+    ]
+  },
+  {
+    "name": "null loose equality",
+    "source": "record(null==undefined);record(null!=undefined);record(null===undefined);",
+    "expected": [
+      "true",
+      "false",
+      "false"
+    ]
+  },
+  {
+    "name": "strict false receiver",
+    "source": "function f(){\"use strict\";return this;}record(f.call(false));record(f.apply(false,[]));record(f.bind(false)());",
+    "expected": [
+      "false",
+      "false",
+      "false"
+    ]
+  },
+  {
+    "name": "function descriptors",
+    "source": "function f(a,b){}record(Object.getOwnPropertyDescriptor(f,\"length\").value);Object.defineProperty(f,\"length\",{value:7});Object.defineProperty(f,\"name\",{value:\"new name\"});record(f.length);record(f.name);",
+    "expected": [
+      "2",
+      "7",
+      "new name"
+    ]
+  },
+  {
+    "name": "lexical for rhs TDZ",
+    "source": "let x={a:1};try{for(let x in x){}}catch(e){record(e.name);}",
+    "expected": [
+      "ReferenceError"
+    ]
+  },
+  {
+    "name": "optional delete",
+    "source": "const a={x:1};record(delete a?.x);record(\"x\" in a);record(delete null?.x);",
+    "expected": [
+      "true",
+      "false",
+      "true"
+    ]
+  },
+  {
+    "name": "destructuring assignment",
+    "source": "let a,b,r;const o={};({x:a=3,y:o.v,...r}={y:7,z:8});[b,...r]=[4,5,6];record(a);record(o.v);record(b);record(r.join());",
+    "expected": [
+      "3",
+      "7",
+      "4",
+      "5,6"
+    ]
+  },
+  {
+    "name": "iterator closing on break",
+    "source": "let closed=0;const iterable={[Symbol.iterator](){let n=0;return {next(){return {value:++n,done:false};},return(){closed++;return {};}};}};for(const n of iterable){record(n);break;}record(closed);",
+    "expected": [
+      "1",
+      "1"
+    ]
+  },
+  {
+    "name": "iterator closing on destructuring",
+    "source": "let closed=0;const iterable={[Symbol.iterator](){let n=0;return {next(){return {value:++n,done:false};},return(){closed++;return {};}};}};const [n]=iterable;record(n);record(closed);",
+    "expected": [
+      "1",
+      "1"
+    ]
+  },
+  {
+    "name": "iterable spread and map",
+    "source": "const map=new Map([[\"a\",1],[\"b\",2]]);record([...map.keys()].join());record([...new Set([1,1,2])].join());",
+    "expected": [
+      "a,b",
+      "1,2"
+    ]
+  },
+  {
+    "name": "Unicode identifier and line terminator",
+    "source": "const größe=3;const α=4;const \\u0062=5;record(größe+α+b);let n=1 n++ record(n);",
+    "expected": [
+      "12",
+      "2"
+    ]
+  },
+  {
+    "name": "directive sequence strict",
+    "source": "function f(){\"other\";\"use strict\";return this;}record(f.call(false));try{f.call(null).missing;}catch(e){record(e.name);}",
+    "expected": [
+      "false",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "undefined builtin shadows and method prototypes",
+    "source": "const list=[];Object.defineProperty(list,'map',{get(){return undefined;}});Object.defineProperty(String.prototype,'trim',{get(){return undefined;},configurable:true});const method={run(){}}.run;const fn=function(){};fn.call=undefined;record(typeof list.map);record(typeof ''.trim);record(typeof fn.call);record('prototype' in method);record(method.prototype===undefined);",
+    "expected": [
+      "undefined",
+      "undefined",
+      "undefined",
+      "false",
+      "true"
+    ]
+  }
+]

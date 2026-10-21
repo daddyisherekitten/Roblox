@@ -1,0 +1,3511 @@
+{
+  "target": {
+    "commit": "ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c",
+    "sha": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f"
+  },
+  "browser": "Chrome/154.0.8037.98",
+  "raw": {
+    "basic": {
+      "target": {
+        "commit": "ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c",
+        "sha": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f"
+      },
+      "browser": "Chrome/154.0.8037.98",
+      "reflection": [
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": null,
+          "value": {
+            "value": 0,
+            "raw": null
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "",
+          "value": {
+            "value": 0,
+            "raw": ""
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "23",
+          "value": {
+            "value": 23,
+            "raw": "23"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "23px",
+          "value": {
+            "value": 23,
+            "raw": "23px"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": " 23",
+          "value": {
+            "value": 23,
+            "raw": " 23"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "-2",
+          "value": {
+            "value": 0,
+            "raw": "-2"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "+23",
+          "value": {
+            "value": 23,
+            "raw": "+23"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "3.7",
+          "value": {
+            "value": 3,
+            "raw": "3.7"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "0",
+          "value": {
+            "value": 0,
+            "raw": "0"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "2147483647",
+          "value": {
+            "value": 2147483647,
+            "raw": "2147483647"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "2147483648",
+          "value": {
+            "value": 0,
+            "raw": "2147483648"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "4294967295",
+          "value": {
+            "value": 0,
+            "raw": "4294967295"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "4294967296",
+          "value": {
+            "value": 0,
+            "raw": "4294967296"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "1e2",
+          "value": {
+            "value": 1,
+            "raw": "1e2"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "023",
+          "value": {
+            "value": 23,
+            "raw": "023"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "0x10",
+          "value": {
+            "value": 0,
+            "raw": "0x10"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "\n5",
+          "value": {
+            "value": 5,
+            "raw": "\n5"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "width",
+          "raw": "NaN",
+          "value": {
+            "value": 0,
+            "raw": "NaN"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": null,
+          "value": {
+            "value": 0,
+            "raw": null
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "",
+          "value": {
+            "value": 0,
+            "raw": ""
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "23",
+          "value": {
+            "value": 23,
+            "raw": "23"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "23px",
+          "value": {
+            "value": 23,
+            "raw": "23px"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": " 23",
+          "value": {
+            "value": 23,
+            "raw": " 23"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "-2",
+          "value": {
+            "value": 0,
+            "raw": "-2"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "+23",
+          "value": {
+            "value": 23,
+            "raw": "+23"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "3.7",
+          "value": {
+            "value": 3,
+            "raw": "3.7"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "0",
+          "value": {
+            "value": 0,
+            "raw": "0"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "2147483647",
+          "value": {
+            "value": 2147483647,
+            "raw": "2147483647"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "2147483648",
+          "value": {
+            "value": 0,
+            "raw": "2147483648"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "4294967295",
+          "value": {
+            "value": 0,
+            "raw": "4294967295"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "4294967296",
+          "value": {
+            "value": 0,
+            "raw": "4294967296"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "1e2",
+          "value": {
+            "value": 1,
+            "raw": "1e2"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "023",
+          "value": {
+            "value": 23,
+            "raw": "023"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "0x10",
+          "value": {
+            "value": 0,
+            "raw": "0x10"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "\n5",
+          "value": {
+            "value": 5,
+            "raw": "\n5"
+          }
+        },
+        {
+          "kind": "attribute",
+          "key": "height",
+          "raw": "NaN",
+          "value": {
+            "value": 0,
+            "raw": "NaN"
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "-1",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "NaN",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "Infinity",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "2147483648",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "4294967295",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "4294967296",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "4.7",
+          "value": {
+            "value": 4,
+            "raw": "4",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "true",
+          "value": {
+            "value": 1,
+            "raw": "1",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "null",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "undefined",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "width",
+          "expr": "\"5\"",
+          "value": {
+            "value": 5,
+            "raw": "5",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "-1",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "NaN",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "Infinity",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "2147483648",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "4294967295",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "4294967296",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "4.7",
+          "value": {
+            "value": 4,
+            "raw": "4",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "true",
+          "value": {
+            "value": 1,
+            "raw": "1",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "null",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "undefined",
+          "value": {
+            "value": 0,
+            "raw": "0",
+            "error": null
+          }
+        },
+        {
+          "kind": "setter",
+          "key": "height",
+          "expr": "\"5\"",
+          "value": {
+            "value": 5,
+            "raw": "5",
+            "error": null
+          }
+        },
+        {
+          "kind": "video",
+          "name": "initial",
+          "action": "v.removeAttribute(\"poster\");v.removeAttribute(\"playsinline\")",
+          "value": {
+            "poster": "",
+            "posterRaw": null,
+            "playsInline": false,
+            "inlineRaw": null,
+            "videoWidth": 0,
+            "videoHeight": 0
+          }
+        },
+        {
+          "kind": "video",
+          "name": "relative poster",
+          "action": "v.poster=\"cover.png\"",
+          "value": {
+            "poster": "https://video.test/one/cover.png",
+            "posterRaw": "cover.png",
+            "playsInline": false,
+            "inlineRaw": null,
+            "videoWidth": 0,
+            "videoHeight": 0
+          }
+        },
+        {
+          "kind": "video",
+          "name": "base changes getter",
+          "action": "document.querySelector(\"base\").href=\"https://video.test/two/\"",
+          "value": {
+            "poster": "https://video.test/two/cover.png",
+            "posterRaw": "cover.png",
+            "playsInline": false,
+            "inlineRaw": null,
+            "videoWidth": 0,
+            "videoHeight": 0
+          }
+        },
+        {
+          "kind": "video",
+          "name": "empty poster",
+          "action": "v.poster=\"\"",
+          "value": {
+            "poster": "https://video.test/two/",
+            "posterRaw": "",
+            "playsInline": false,
+            "inlineRaw": null,
+            "videoWidth": 0,
+            "videoHeight": 0
+          }
+        },
+        {
+          "kind": "video",
+          "name": "USV poster",
+          "action": "v.poster=\"A\\uD800B\"",
+          "value": {
+            "poster": "A\ud800B",
+            "posterRaw": "A\ud800B",
+            "playsInline": false,
+            "inlineRaw": null,
+            "videoWidth": 0,
+            "videoHeight": 0
+          }
+        },
+        {
+          "kind": "video",
+          "name": "inline true",
+          "action": "v.playsInline=true",
+          "value": {
+            "poster": "A\ud800B",
+            "posterRaw": "A\ud800B",
+            "playsInline": true,
+            "inlineRaw": "",
+            "videoWidth": 0,
+            "videoHeight": 0
+          }
+        },
+        {
+          "kind": "video",
+          "name": "inline string false",
+          "action": "v.setAttribute(\"playsinline\",\"false\")",
+          "value": {
+            "poster": "A\ud800B",
+            "posterRaw": "A\ud800B",
+            "playsInline": true,
+            "inlineRaw": "false",
+            "videoWidth": 0,
+            "videoHeight": 0
+          }
+        },
+        {
+          "kind": "video",
+          "name": "inline false",
+          "action": "v.playsInline=false",
+          "value": {
+            "poster": "A\ud800B",
+            "posterRaw": "A\ud800B",
+            "playsInline": false,
+            "inlineRaw": null,
+            "videoWidth": 0,
+            "videoHeight": 0
+          }
+        }
+      ],
+      "geometry": [
+        {
+          "name": "initial",
+          "action": "",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "posterRaw": null,
+            "widthAttr": null,
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "wide poster",
+          "action": "v.poster=wide",
+          "value": {
+            "width": 200,
+            "height": 100,
+            "posterRaw": "wide",
+            "widthAttr": null,
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "tall poster",
+          "action": "v.poster=tall",
+          "value": {
+            "width": 120,
+            "height": 240,
+            "posterRaw": "tall",
+            "widthAttr": null,
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "remove poster",
+          "action": "v.removeAttribute(\"poster\")",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "posterRaw": null,
+            "widthAttr": null,
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "empty poster",
+          "action": "v.poster=\"\"",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "posterRaw": "",
+            "widthAttr": null,
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "width only no intrinsic",
+          "action": "v.width=80",
+          "value": {
+            "width": 80,
+            "height": 150,
+            "posterRaw": "",
+            "widthAttr": "80",
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 80,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "height both no intrinsic",
+          "action": "v.height=60",
+          "value": {
+            "width": 80,
+            "height": 60,
+            "posterRaw": "",
+            "widthAttr": "80",
+            "heightAttr": "60",
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 80,
+            "heightIDL": 60,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "height only no intrinsic",
+          "action": "v.removeAttribute(\"width\")",
+          "value": {
+            "width": 300,
+            "height": 60,
+            "posterRaw": "",
+            "widthAttr": null,
+            "heightAttr": "60",
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 60,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "remove dimensions",
+          "action": "v.removeAttribute(\"height\")",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "posterRaw": "",
+            "widthAttr": null,
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "wide poster restored",
+          "action": "v.poster=wide",
+          "value": {
+            "width": 200,
+            "height": 100,
+            "posterRaw": "wide",
+            "widthAttr": null,
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "width only poster ratio",
+          "action": "v.width=80",
+          "value": {
+            "width": 80,
+            "height": 40,
+            "posterRaw": "wide",
+            "widthAttr": "80",
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 80,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "height only poster ratio",
+          "action": "v.removeAttribute(\"width\");v.height=60",
+          "value": {
+            "width": 120,
+            "height": 60,
+            "posterRaw": "wide",
+            "widthAttr": null,
+            "heightAttr": "60",
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 60,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "CSS width authority",
+          "action": "v.style.width=\"90px\";v.height=60",
+          "value": {
+            "width": 90,
+            "height": 60,
+            "posterRaw": "wide",
+            "widthAttr": null,
+            "heightAttr": "60",
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 60,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "CSS both authority",
+          "action": "v.style.height=\"70px\";v.width=120;v.height=30",
+          "value": {
+            "width": 90,
+            "height": 70,
+            "posterRaw": "wide",
+            "widthAttr": "120",
+            "heightAttr": "30",
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 120,
+            "heightIDL": 30,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "change poster CSS fixed",
+          "action": "v.poster=tall",
+          "value": {
+            "width": 90,
+            "height": 70,
+            "posterRaw": "tall",
+            "widthAttr": "120",
+            "heightAttr": "30",
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 120,
+            "heightIDL": 30,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "clear CSS",
+          "action": "v.removeAttribute(\"style\")",
+          "value": {
+            "width": 120,
+            "height": 30,
+            "posterRaw": "tall",
+            "widthAttr": "120",
+            "heightAttr": "30",
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 120,
+            "heightIDL": 30,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "missing poster with dims",
+          "action": "v.removeAttribute(\"poster\")",
+          "value": {
+            "width": 120,
+            "height": 30,
+            "posterRaw": null,
+            "widthAttr": "120",
+            "heightAttr": "30",
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 120,
+            "heightIDL": 30,
+            "posterFrameOnly": true
+          }
+        },
+        {
+          "name": "clear dims again",
+          "action": "v.removeAttribute(\"width\");v.removeAttribute(\"height\")",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "posterRaw": null,
+            "widthAttr": null,
+            "heightAttr": null,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "posterFrameOnly": true
+          }
+        }
+      ]
+    },
+    "deep": {
+      "target": {
+        "commit": "ba3400bb4f3d86477a5c8cfc07ff91fc0caaf21c",
+        "sourceSHA": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f"
+      },
+      "browser": "Chrome/154.0.8037.98",
+      "descriptors": [
+        {
+          "key": "poster",
+          "get": "function",
+          "set": "function",
+          "enumerable": true,
+          "configurable": true,
+          "own": false
+        },
+        {
+          "key": "width",
+          "get": "function",
+          "set": "function",
+          "enumerable": true,
+          "configurable": true,
+          "own": false
+        },
+        {
+          "key": "height",
+          "get": "function",
+          "set": "function",
+          "enumerable": true,
+          "configurable": true,
+          "own": false
+        },
+        {
+          "key": "playsInline",
+          "get": "function",
+          "set": "function",
+          "enumerable": true,
+          "configurable": true,
+          "own": false
+        },
+        {
+          "key": "videoWidth",
+          "get": "function",
+          "set": "undefined",
+          "enumerable": true,
+          "configurable": true,
+          "own": false
+        },
+        {
+          "key": "videoHeight",
+          "get": "function",
+          "set": "undefined",
+          "enumerable": true,
+          "configurable": true,
+          "own": false
+        }
+      ],
+      "brands": [
+        {
+          "name": "poster getter {}",
+          "key": "poster",
+          "receiver": "{}",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "poster getter document.getElementById(\"a\")",
+          "key": "poster",
+          "receiver": "document.getElementById(\"a\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "poster getter HTMLVideoElement.prototype",
+          "key": "poster",
+          "receiver": "HTMLVideoElement.prototype",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "poster getter document.createElementNS(\"urn:foreign\",\"video\")",
+          "key": "poster",
+          "receiver": "document.createElementNS(\"urn:foreign\",\"video\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "poster getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "key": "poster",
+          "receiver": "document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "value": {
+            "error": null,
+            "value": "",
+            "prototype": true
+          }
+        },
+        {
+          "name": "width getter {}",
+          "key": "width",
+          "receiver": "{}",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "width getter document.getElementById(\"a\")",
+          "key": "width",
+          "receiver": "document.getElementById(\"a\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "width getter HTMLVideoElement.prototype",
+          "key": "width",
+          "receiver": "HTMLVideoElement.prototype",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "width getter document.createElementNS(\"urn:foreign\",\"video\")",
+          "key": "width",
+          "receiver": "document.createElementNS(\"urn:foreign\",\"video\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "width getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "key": "width",
+          "receiver": "document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "value": {
+            "error": null,
+            "value": 0,
+            "prototype": true
+          }
+        },
+        {
+          "name": "height getter {}",
+          "key": "height",
+          "receiver": "{}",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "height getter document.getElementById(\"a\")",
+          "key": "height",
+          "receiver": "document.getElementById(\"a\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "height getter HTMLVideoElement.prototype",
+          "key": "height",
+          "receiver": "HTMLVideoElement.prototype",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "height getter document.createElementNS(\"urn:foreign\",\"video\")",
+          "key": "height",
+          "receiver": "document.createElementNS(\"urn:foreign\",\"video\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "height getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "key": "height",
+          "receiver": "document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "value": {
+            "error": null,
+            "value": 0,
+            "prototype": true
+          }
+        },
+        {
+          "name": "playsInline getter {}",
+          "key": "playsInline",
+          "receiver": "{}",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "playsInline getter document.getElementById(\"a\")",
+          "key": "playsInline",
+          "receiver": "document.getElementById(\"a\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "playsInline getter HTMLVideoElement.prototype",
+          "key": "playsInline",
+          "receiver": "HTMLVideoElement.prototype",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "playsInline getter document.createElementNS(\"urn:foreign\",\"video\")",
+          "key": "playsInline",
+          "receiver": "document.createElementNS(\"urn:foreign\",\"video\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "playsInline getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "key": "playsInline",
+          "receiver": "document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "value": {
+            "error": null,
+            "value": false,
+            "prototype": true
+          }
+        },
+        {
+          "name": "videoWidth getter {}",
+          "key": "videoWidth",
+          "receiver": "{}",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "videoWidth getter document.getElementById(\"a\")",
+          "key": "videoWidth",
+          "receiver": "document.getElementById(\"a\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "videoWidth getter HTMLVideoElement.prototype",
+          "key": "videoWidth",
+          "receiver": "HTMLVideoElement.prototype",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "videoWidth getter document.createElementNS(\"urn:foreign\",\"video\")",
+          "key": "videoWidth",
+          "receiver": "document.createElementNS(\"urn:foreign\",\"video\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "videoWidth getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "key": "videoWidth",
+          "receiver": "document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "value": {
+            "error": null,
+            "value": 0,
+            "prototype": true
+          }
+        },
+        {
+          "name": "videoHeight getter {}",
+          "key": "videoHeight",
+          "receiver": "{}",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "videoHeight getter document.getElementById(\"a\")",
+          "key": "videoHeight",
+          "receiver": "document.getElementById(\"a\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "videoHeight getter HTMLVideoElement.prototype",
+          "key": "videoHeight",
+          "receiver": "HTMLVideoElement.prototype",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "videoHeight getter document.createElementNS(\"urn:foreign\",\"video\")",
+          "key": "videoHeight",
+          "receiver": "document.createElementNS(\"urn:foreign\",\"video\")",
+          "value": {
+            "error": "TypeError",
+            "value": null,
+            "prototype": false
+          }
+        },
+        {
+          "name": "videoHeight getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "key": "videoHeight",
+          "receiver": "document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+          "value": {
+            "error": null,
+            "value": 0,
+            "prototype": true
+          }
+        },
+        {
+          "name": "poster setter brand before conversion",
+          "key": "poster",
+          "value": {
+            "error": "TypeError",
+            "calls": 0
+          }
+        },
+        {
+          "name": "width setter brand before conversion",
+          "key": "width",
+          "value": {
+            "error": "TypeError",
+            "calls": 0
+          }
+        },
+        {
+          "name": "height setter brand before conversion",
+          "key": "height",
+          "value": {
+            "error": "TypeError",
+            "calls": 0
+          }
+        },
+        {
+          "name": "playsInline setter brand before conversion",
+          "key": "playsInline",
+          "value": {
+            "error": "TypeError",
+            "calls": 0
+          }
+        },
+        {
+          "name": "videoWidth readonly assignments",
+          "key": "videoWidth",
+          "value": {
+            "before": 0,
+            "after": 0,
+            "own": false,
+            "error": "TypeError"
+          }
+        },
+        {
+          "name": "videoHeight readonly assignments",
+          "key": "videoHeight",
+          "value": {
+            "before": 0,
+            "after": 0,
+            "own": false,
+            "error": "TypeError"
+          }
+        }
+      ],
+      "coercions": [
+        {
+          "name": "poster = null",
+          "key": "poster",
+          "expr": "null",
+          "value": {
+            "error": null,
+            "raw": "null",
+            "value": "https://video.test/a/null",
+            "units": [
+              110,
+              117,
+              108,
+              108
+            ]
+          }
+        },
+        {
+          "name": "poster = undefined",
+          "key": "poster",
+          "expr": "undefined",
+          "value": {
+            "error": null,
+            "raw": "undefined",
+            "value": "https://video.test/a/undefined",
+            "units": [
+              117,
+              110,
+              100,
+              101,
+              102,
+              105,
+              110,
+              101,
+              100
+            ]
+          }
+        },
+        {
+          "name": "poster = Symbol(\"s\")",
+          "key": "poster",
+          "expr": "Symbol(\"s\")",
+          "value": {
+            "error": "TypeError",
+            "raw": "11",
+            "value": "https://video.test/a/11",
+            "units": [
+              49,
+              49
+            ]
+          }
+        },
+        {
+          "name": "poster = ({toString(){return \"cover.png\"}})",
+          "key": "poster",
+          "expr": "({toString(){return \"cover.png\"}})",
+          "value": {
+            "error": null,
+            "raw": "cover.png",
+            "value": "https://video.test/a/cover.png",
+            "units": [
+              99,
+              111,
+              118,
+              101,
+              114,
+              46,
+              112,
+              110,
+              103
+            ]
+          }
+        },
+        {
+          "name": "poster = ({toString(){throw new RangeError(\"marker\")}})",
+          "key": "poster",
+          "expr": "({toString(){throw new RangeError(\"marker\")}})",
+          "value": {
+            "error": "RangeError",
+            "raw": "11",
+            "value": "https://video.test/a/11",
+            "units": [
+              49,
+              49
+            ]
+          }
+        },
+        {
+          "name": "poster = \"A\\uD800B\"",
+          "key": "poster",
+          "expr": "\"A\\uD800B\"",
+          "value": {
+            "error": null,
+            "raw": "A\ud800B",
+            "value": "A\ud800B",
+            "units": [
+              65,
+              55296,
+              66
+            ]
+          }
+        },
+        {
+          "name": "poster = \"A\\uD83D\\uDE00B\"",
+          "key": "poster",
+          "expr": "\"A\\uD83D\\uDE00B\"",
+          "value": {
+            "error": null,
+            "raw": "A😀B",
+            "value": "https://video.test/a/A%F0%9F%98%80B",
+            "units": [
+              65,
+              55357,
+              56832,
+              66
+            ]
+          }
+        },
+        {
+          "name": "width = Symbol(\"s\")",
+          "key": "width",
+          "expr": "Symbol(\"s\")",
+          "value": {
+            "error": "TypeError",
+            "raw": "11",
+            "value": 11,
+            "units": [
+              49,
+              49
+            ]
+          }
+        },
+        {
+          "name": "width = 1n",
+          "key": "width",
+          "expr": "1n",
+          "value": {
+            "error": "TypeError",
+            "raw": "11",
+            "value": 11,
+            "units": [
+              49,
+              49
+            ]
+          }
+        },
+        {
+          "name": "width = ({valueOf(){return 19.8}})",
+          "key": "width",
+          "expr": "({valueOf(){return 19.8}})",
+          "value": {
+            "error": null,
+            "raw": "19",
+            "value": 19,
+            "units": [
+              49,
+              57
+            ]
+          }
+        },
+        {
+          "name": "width = ({valueOf(){throw new RangeError(\"marker\")}})",
+          "key": "width",
+          "expr": "({valueOf(){throw new RangeError(\"marker\")}})",
+          "value": {
+            "error": "RangeError",
+            "raw": "11",
+            "value": 11,
+            "units": [
+              49,
+              49
+            ]
+          }
+        },
+        {
+          "name": "width = -4294967295",
+          "key": "width",
+          "expr": "-4294967295",
+          "value": {
+            "error": null,
+            "raw": "1",
+            "value": 1,
+            "units": [
+              49
+            ]
+          }
+        },
+        {
+          "name": "width = 4294967297",
+          "key": "width",
+          "expr": "4294967297",
+          "value": {
+            "error": null,
+            "raw": "1",
+            "value": 1,
+            "units": [
+              49
+            ]
+          }
+        },
+        {
+          "name": "height = -4294967295",
+          "key": "height",
+          "expr": "-4294967295",
+          "value": {
+            "error": null,
+            "raw": "1",
+            "value": 1,
+            "units": [
+              49
+            ]
+          }
+        },
+        {
+          "name": "height = 4294967297",
+          "key": "height",
+          "expr": "4294967297",
+          "value": {
+            "error": null,
+            "raw": "1",
+            "value": 1,
+            "units": [
+              49
+            ]
+          }
+        },
+        {
+          "name": "playsInline = false",
+          "key": "playsInline",
+          "expr": "false",
+          "value": {
+            "error": null,
+            "raw": null,
+            "value": false,
+            "units": null
+          }
+        },
+        {
+          "name": "playsInline = 0",
+          "key": "playsInline",
+          "expr": "0",
+          "value": {
+            "error": null,
+            "raw": null,
+            "value": false,
+            "units": null
+          }
+        },
+        {
+          "name": "playsInline = \"false\"",
+          "key": "playsInline",
+          "expr": "\"false\"",
+          "value": {
+            "error": null,
+            "raw": "",
+            "value": true,
+            "units": []
+          }
+        },
+        {
+          "name": "playsInline = []",
+          "key": "playsInline",
+          "expr": "[]",
+          "value": {
+            "error": null,
+            "raw": "",
+            "value": true,
+            "units": []
+          }
+        },
+        {
+          "name": "playsInline = Symbol(\"s\")",
+          "key": "playsInline",
+          "expr": "Symbol(\"s\")",
+          "value": {
+            "error": null,
+            "raw": "",
+            "value": true,
+            "units": []
+          }
+        }
+      ],
+      "ownerBase": [
+        {
+          "name": "relative current owner",
+          "action": "v.poster=\"cover.png\"",
+          "value": {
+            "raw": "cover.png",
+            "value": "https://video.test/a/cover.png",
+            "base": "https://video.test/a/",
+            "detached": false
+          }
+        },
+        {
+          "name": "base-only changes getter",
+          "action": "document.querySelector(\"base\").href=\"https://video.test/b/\"",
+          "value": {
+            "raw": "cover.png",
+            "value": "https://video.test/b/cover.png",
+            "base": "https://video.test/b/",
+            "detached": false
+          }
+        },
+        {
+          "name": "adopt changes getter",
+          "action": "globalThis.owner=document.implementation.createHTMLDocument(\"other\");const b=owner.createElement(\"base\");b.href=\"https://owner.test/c/\";owner.head.appendChild(b);owner.body.appendChild(owner.adoptNode(v))",
+          "value": {
+            "raw": "cover.png",
+            "value": "https://owner.test/c/cover.png",
+            "base": "https://owner.test/c/",
+            "detached": true
+          }
+        },
+        {
+          "name": "new owner base changes getter",
+          "action": "owner.querySelector(\"base\").href=\"https://owner.test/d/\"",
+          "value": {
+            "raw": "cover.png",
+            "value": "https://owner.test/d/cover.png",
+            "base": "https://owner.test/d/",
+            "detached": true
+          }
+        },
+        {
+          "name": "remove poster getter empty",
+          "action": "v.removeAttribute(\"poster\")",
+          "value": {
+            "raw": null,
+            "value": "",
+            "base": "https://owner.test/d/",
+            "detached": true
+          }
+        },
+        {
+          "name": "empty poster getter ownerbase",
+          "action": "v.poster=\"\"",
+          "value": {
+            "raw": "",
+            "value": "https://owner.test/d/",
+            "base": "https://owner.test/d/",
+            "detached": true
+          }
+        }
+      ],
+      "intrinsics": [
+        {
+          "name": "missing initial",
+          "action": "",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "ready": 0,
+            "paused": true,
+            "poster": null,
+            "events": []
+          }
+        },
+        {
+          "name": "poster wide no source",
+          "action": "v.poster=wide",
+          "value": {
+            "width": 200,
+            "height": 100,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "ready": 0,
+            "paused": true,
+            "poster": "wide",
+            "events": []
+          }
+        },
+        {
+          "name": "poster tall no source",
+          "action": "v.poster=tall",
+          "value": {
+            "width": 120,
+            "height": 240,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "ready": 0,
+            "paused": true,
+            "poster": "tall",
+            "events": []
+          }
+        },
+        {
+          "name": "metadata with poster",
+          "action": "v.src=clip;v.preload=\"auto\"",
+          "value": {
+            "width": 120,
+            "height": 240,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": "tall",
+            "events": [
+              {
+                "type": "loadstart",
+                "width": 0,
+                "height": 0,
+                "ready": 0
+              },
+              {
+                "type": "resize",
+                "width": 80,
+                "height": 40,
+                "ready": 1
+              },
+              {
+                "type": "loadedmetadata",
+                "width": 80,
+                "height": 40,
+                "ready": 1
+              }
+            ]
+          }
+        },
+        {
+          "name": "seek before first play",
+          "action": "v.currentTime=.1",
+          "value": {
+            "width": 80,
+            "height": 40,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": "tall",
+            "events": []
+          }
+        },
+        {
+          "name": "explicit load resets poster flag",
+          "action": "v.load()",
+          "value": {
+            "width": 120,
+            "height": 240,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": "tall",
+            "events": [
+              {
+                "type": "emptied",
+                "width": 0,
+                "height": 0,
+                "ready": 0
+              },
+              {
+                "type": "loadstart",
+                "width": 0,
+                "height": 0,
+                "ready": 0
+              },
+              {
+                "type": "resize",
+                "width": 80,
+                "height": 40,
+                "ready": 1
+              },
+              {
+                "type": "loadedmetadata",
+                "width": 80,
+                "height": 40,
+                "ready": 1
+              }
+            ]
+          }
+        },
+        {
+          "name": "actual play hides poster",
+          "action": "await v.play()",
+          "value": {
+            "width": 80,
+            "height": 40,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": false,
+            "poster": "tall",
+            "events": [
+              {
+                "type": "play",
+                "width": 80,
+                "height": 40,
+                "ready": 4
+              }
+            ]
+          }
+        },
+        {
+          "name": "pause keeps video frame",
+          "action": "v.pause()",
+          "value": {
+            "width": 80,
+            "height": 40,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": "tall",
+            "events": [
+              {
+                "type": "pause",
+                "width": 80,
+                "height": 40,
+                "ready": 4
+              }
+            ]
+          }
+        },
+        {
+          "name": "change poster after playback",
+          "action": "v.poster=wide",
+          "value": {
+            "width": 80,
+            "height": 40,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": "wide",
+            "events": []
+          }
+        },
+        {
+          "name": "remove poster after playback",
+          "action": "v.removeAttribute(\"poster\")",
+          "value": {
+            "width": 80,
+            "height": 40,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": null,
+            "events": []
+          }
+        },
+        {
+          "name": "same source reset metadata",
+          "action": "v.src=clip",
+          "value": {
+            "width": 80,
+            "height": 40,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": null,
+            "events": [
+              {
+                "type": "emptied",
+                "width": 0,
+                "height": 0,
+                "ready": 0
+              },
+              {
+                "type": "loadstart",
+                "width": 0,
+                "height": 0,
+                "ready": 0
+              },
+              {
+                "type": "resize",
+                "width": 80,
+                "height": 40,
+                "ready": 1
+              },
+              {
+                "type": "loadedmetadata",
+                "width": 80,
+                "height": 40,
+                "ready": 1
+              }
+            ]
+          }
+        },
+        {
+          "name": "restore poster after source reset",
+          "action": "v.poster=tall",
+          "value": {
+            "width": 120,
+            "height": 240,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": "tall",
+            "events": []
+          }
+        },
+        {
+          "name": "poster remove retains video intrinsic",
+          "action": "v.removeAttribute(\"poster\")",
+          "value": {
+            "width": 80,
+            "height": 40,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": null,
+            "events": []
+          }
+        },
+        {
+          "name": "width only video ratio",
+          "action": "v.width=100",
+          "value": {
+            "width": 100,
+            "height": 50,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": null,
+            "events": []
+          }
+        },
+        {
+          "name": "height only video ratio",
+          "action": "v.removeAttribute(\"width\");v.height=60",
+          "value": {
+            "width": 120,
+            "height": 60,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": null,
+            "events": []
+          }
+        },
+        {
+          "name": "CSS width with height attr",
+          "action": "v.style.width=\"90px\"",
+          "value": {
+            "width": 90,
+            "height": 60,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": null,
+            "events": []
+          }
+        },
+        {
+          "name": "CSS fixed both",
+          "action": "v.style.height=\"70px\"",
+          "value": {
+            "width": 90,
+            "height": 70,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": null,
+            "events": []
+          }
+        },
+        {
+          "name": "source removal retains dimensions",
+          "action": "v.removeAttribute(\"src\")",
+          "value": {
+            "width": 90,
+            "height": 70,
+            "videoWidth": 80,
+            "videoHeight": 40,
+            "ready": 4,
+            "paused": true,
+            "poster": null,
+            "events": []
+          }
+        },
+        {
+          "name": "empty source resets dimensions",
+          "action": "v.src=\"\"",
+          "value": {
+            "width": 90,
+            "height": 70,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "ready": 0,
+            "paused": true,
+            "poster": null,
+            "events": [
+              {
+                "type": "emptied",
+                "width": 0,
+                "height": 0,
+                "ready": 0
+              },
+              {
+                "type": "loadstart",
+                "width": 0,
+                "height": 0,
+                "ready": 0
+              }
+            ]
+          }
+        },
+        {
+          "name": "clear all missing default",
+          "action": "v.removeAttribute(\"src\");v.removeAttribute(\"width\");v.removeAttribute(\"height\");v.removeAttribute(\"style\")",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "videoWidth": 0,
+            "videoHeight": 0,
+            "ready": 0,
+            "paused": true,
+            "poster": null,
+            "events": []
+          }
+        }
+      ]
+    },
+    "dimensions": {
+      "sourceSHA": "49641dedf6fd316141e44a8f0596fab586e455c7cb5946c54b5e19df88ea0a4f",
+      "browser": "Chrome/154.0.8037.98",
+      "rawDimensions": [
+        {
+          "name": "width raw \"\"",
+          "key": "width",
+          "raw": "",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \"0\"",
+          "key": "width",
+          "raw": "0",
+          "value": {
+            "width": 0,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "0",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \"23px\"",
+          "key": "width",
+          "raw": "23px",
+          "value": {
+            "width": 23,
+            "height": 150,
+            "widthIDL": 23,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "23px",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \"3.7\"",
+          "key": "width",
+          "raw": "3.7",
+          "value": {
+            "width": 3.6875,
+            "height": 150,
+            "widthIDL": 3,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "3.7",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \"+23\"",
+          "key": "width",
+          "raw": "+23",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 23,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "+23",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \"23%\"",
+          "key": "width",
+          "raw": "23%",
+          "value": {
+            "width": 184,
+            "height": 150,
+            "widthIDL": 23,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "23%",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \"0x10\"",
+          "key": "width",
+          "raw": "0x10",
+          "value": {
+            "width": 0,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "0x10",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \" 23\"",
+          "key": "width",
+          "raw": " 23",
+          "value": {
+            "width": 23,
+            "height": 150,
+            "widthIDL": 23,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": " 23",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \" 23\"",
+          "key": "width",
+          "raw": " 23",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": " 23",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \"23oops\"",
+          "key": "width",
+          "raw": "23oops",
+          "value": {
+            "width": 23,
+            "height": 150,
+            "widthIDL": 23,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "23oops",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \"80.5\"",
+          "key": "width",
+          "raw": "80.5",
+          "value": {
+            "width": 80.5,
+            "height": 150,
+            "widthIDL": 80,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "80.5",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "width raw \"-2\"",
+          "key": "width",
+          "raw": "-2",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "-2",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "height raw \"\"",
+          "key": "height",
+          "raw": "",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": ""
+          }
+        },
+        {
+          "name": "height raw \"0\"",
+          "key": "height",
+          "raw": "0",
+          "value": {
+            "width": 300,
+            "height": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": "0"
+          }
+        },
+        {
+          "name": "height raw \"23px\"",
+          "key": "height",
+          "raw": "23px",
+          "value": {
+            "width": 300,
+            "height": 23,
+            "widthIDL": 0,
+            "heightIDL": 23,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": "23px"
+          }
+        },
+        {
+          "name": "height raw \"3.7\"",
+          "key": "height",
+          "raw": "3.7",
+          "value": {
+            "width": 300,
+            "height": 3.6875,
+            "widthIDL": 0,
+            "heightIDL": 3,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": "3.7"
+          }
+        },
+        {
+          "name": "height raw \"+23\"",
+          "key": "height",
+          "raw": "+23",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 23,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": "+23"
+          }
+        },
+        {
+          "name": "height raw \"23%\"",
+          "key": "height",
+          "raw": "23%",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 23,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": "23%"
+          }
+        },
+        {
+          "name": "height raw \"0x10\"",
+          "key": "height",
+          "raw": "0x10",
+          "value": {
+            "width": 300,
+            "height": 0,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": "0x10"
+          }
+        },
+        {
+          "name": "height raw \" 23\"",
+          "key": "height",
+          "raw": " 23",
+          "value": {
+            "width": 300,
+            "height": 23,
+            "widthIDL": 0,
+            "heightIDL": 23,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": " 23"
+          }
+        },
+        {
+          "name": "height raw \" 23\"",
+          "key": "height",
+          "raw": " 23",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": " 23"
+          }
+        },
+        {
+          "name": "height raw \"23oops\"",
+          "key": "height",
+          "raw": "23oops",
+          "value": {
+            "width": 300,
+            "height": 23,
+            "widthIDL": 0,
+            "heightIDL": 23,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": "23oops"
+          }
+        },
+        {
+          "name": "height raw \"80.5\"",
+          "key": "height",
+          "raw": "80.5",
+          "value": {
+            "width": 300,
+            "height": 80.5,
+            "widthIDL": 0,
+            "heightIDL": 80,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": "80.5"
+          }
+        },
+        {
+          "name": "height raw \"-2\"",
+          "key": "height",
+          "raw": "-2",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": null,
+            "heightAttr": "-2"
+          }
+        }
+      ],
+      "cascade": [
+        {
+          "name": "width-only hint",
+          "action": "v.width=80;v.removeAttribute(\"height\")",
+          "value": {
+            "width": 80,
+            "height": 150,
+            "widthIDL": 80,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "80",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "CSS auto removes width hint",
+          "action": "v.style.width=\"auto\"",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 80,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "80",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "CSS initial removes width hint",
+          "action": "v.style.width=\"initial\"",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 80,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "80",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "CSS revert removes width hint",
+          "action": "v.style.width=\"revert\"",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 80,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "80",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "CSS authored width beats hint",
+          "action": "v.style.width=\"90px\"",
+          "value": {
+            "width": 90,
+            "height": 150,
+            "widthIDL": 80,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "80",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "both dims ratio fallback",
+          "action": "v.width=80;v.height=60;v.style.height=\"auto\"",
+          "value": {
+            "width": 90,
+            "height": 67.5,
+            "widthIDL": 80,
+            "heightIDL": 60,
+            "ratio": "auto 80 / 60",
+            "widthAttr": "80",
+            "heightAttr": "60"
+          }
+        },
+        {
+          "name": "CSS dimension ratio wins",
+          "action": "v.style.aspectRatio=\"3\"",
+          "value": {
+            "width": 90,
+            "height": 30,
+            "widthIDL": 80,
+            "heightIDL": 60,
+            "ratio": "3 / 1",
+            "widthAttr": "80",
+            "heightAttr": "60"
+          }
+        },
+        {
+          "name": "CSS auto ratio removes fallback",
+          "action": "v.style.aspectRatio=\"auto\"",
+          "value": {
+            "width": 90,
+            "height": 150,
+            "widthIDL": 80,
+            "heightIDL": 60,
+            "ratio": "auto",
+            "widthAttr": "80",
+            "heightAttr": "60"
+          }
+        },
+        {
+          "name": "width percent no intrinsic",
+          "action": "v.removeAttribute(\"style\");v.removeAttribute(\"height\");v.setAttribute(\"width\",\"50%\")",
+          "value": {
+            "width": 400,
+            "height": 150,
+            "widthIDL": 50,
+            "heightIDL": 0,
+            "ratio": "auto",
+            "widthAttr": "50%",
+            "heightAttr": null
+          }
+        },
+        {
+          "name": "both dimensions decimal fallback",
+          "action": "v.setAttribute(\"width\",\"80.5\");v.setAttribute(\"height\",\"40.25\");v.style.height=\"auto\"",
+          "value": {
+            "width": 80.5,
+            "height": 40.25,
+            "widthIDL": 80,
+            "heightIDL": 40,
+            "ratio": "auto 80.5 / 40.25",
+            "widthAttr": "80.5",
+            "heightAttr": "40.25"
+          }
+        },
+        {
+          "name": "zero denominator",
+          "action": "v.height=0",
+          "value": {
+            "width": 80.5,
+            "height": 150,
+            "widthIDL": 80,
+            "heightIDL": 0,
+            "ratio": "auto 80.5 / 0",
+            "widthAttr": "80.5",
+            "heightAttr": "0"
+          }
+        },
+        {
+          "name": "zero numerator",
+          "action": "v.width=0;v.height=60",
+          "value": {
+            "width": 0,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 60,
+            "ratio": "auto 0 / 60",
+            "widthAttr": "0",
+            "heightAttr": "60"
+          }
+        },
+        {
+          "name": "both zero",
+          "action": "v.height=0",
+          "value": {
+            "width": 0,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto 0 / 0",
+            "widthAttr": "0",
+            "heightAttr": "0"
+          }
+        },
+        {
+          "name": "zero width CSS auto",
+          "action": "v.style.width=\"auto\"",
+          "value": {
+            "width": 300,
+            "height": 150,
+            "widthIDL": 0,
+            "heightIDL": 0,
+            "ratio": "auto 0 / 0",
+            "widthAttr": "0",
+            "heightAttr": "0"
+          }
+        }
+      ]
+    },
+    "posterBarrier": [
+      {
+        "name": "pending initial poster delays load",
+        "value": {
+          "ready": "interactive",
+          "loaded": 0,
+          "width": 0,
+          "height": 0,
+          "videoWidth": 0,
+          "videoHeight": 0,
+          "poster": "/slow1.svg"
+        }
+      },
+      {
+        "name": "fulfilled initial poster releases load",
+        "value": {
+          "ready": "complete",
+          "loaded": 1,
+          "width": 200,
+          "height": 100,
+          "videoWidth": 0,
+          "videoHeight": 0,
+          "poster": "/slow1.svg"
+        }
+      },
+      {
+        "name": "pending second document poster",
+        "value": {
+          "ready": "interactive",
+          "loaded": 0,
+          "width": 0,
+          "height": 0,
+          "videoWidth": 0,
+          "videoHeight": 0,
+          "poster": "/slow2.svg"
+        }
+      },
+      {
+        "name": "removed pending poster releases load",
+        "value": {
+          "ready": "complete",
+          "loaded": 1,
+          "width": 300,
+          "height": 150,
+          "videoWidth": 0,
+          "videoHeight": 0,
+          "poster": null
+        }
+      },
+      {
+        "name": "valid replacement poster",
+        "value": {
+          "ready": "complete",
+          "loaded": 1,
+          "width": 200,
+          "height": 100,
+          "videoWidth": 0,
+          "videoHeight": 0,
+          "poster": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22200%22%20height%3D%22100%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22red%22%2F%3E%3C%2Fsvg%3E"
+        }
+      },
+      {
+        "name": "failed replacement clears poster frame",
+        "value": {
+          "ready": "complete",
+          "loaded": 1,
+          "width": 300,
+          "height": 150,
+          "videoWidth": 0,
+          "videoHeight": 0,
+          "poster": "/bad.svg"
+        }
+      }
+    ],
+    "scalarGetter": {
+      "group": "extra",
+      "name": "poster DOMString content scalar getter fallback",
+      "action": "(()=>{v.setAttribute(\"poster\",\"A\\uD800B\");const getter=v.poster;return {raw:v.getAttribute(\"poster\"),getter,units:Array.from({length:getter.length},(_,i)=>getter.charCodeAt(i))}})()",
+      "expected": "{\"raw\":\"A\\ud800B\",\"getter\":\"A\\ud800B\",\"units\":[65,55296,66]}",
+      "targetExpected": "{\"raw\":\"A\\ud800B\",\"getter\":\"A�B\",\"units\":[65,65533,66]}",
+      "normDelta": "poster-usv-scalar-getter"
+    }
+  },
+  "domCases": [
+    {
+      "group": "basic",
+      "name": "attribute width null",
+      "action": "(()=>{v.removeAttribute(\"width\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":0,\"raw\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"23\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"23\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":23,\"raw\":\"23\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"23px\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"23px\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":23,\"raw\":\"23px\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \" 23\"",
+      "action": "(()=>{v.setAttribute(\"width\",\" 23\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":23,\"raw\":\" 23\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"-2\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"-2\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"-2\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"+23\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"+23\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":23,\"raw\":\"+23\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"3.7\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"3.7\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":3,\"raw\":\"3.7\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"0\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"0\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"2147483647\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"2147483647\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":2147483647,\"raw\":\"2147483647\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"2147483648\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"2147483648\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"2147483648\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"4294967295\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"4294967295\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"4294967295\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"4294967296\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"4294967296\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"4294967296\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"1e2\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"1e2\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":1,\"raw\":\"1e2\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"023\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"023\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":23,\"raw\":\"023\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"0x10\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"0x10\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"0x10\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"\\n5\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"\\n5\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":5,\"raw\":\"\\n5\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute width \"NaN\"",
+      "action": "(()=>{v.setAttribute(\"width\",\"NaN\");return {value:v[\"width\"],raw:v.getAttribute(\"width\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"NaN\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height null",
+      "action": "(()=>{v.removeAttribute(\"height\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":0,\"raw\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"23\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"23\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":23,\"raw\":\"23\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"23px\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"23px\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":23,\"raw\":\"23px\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \" 23\"",
+      "action": "(()=>{v.setAttribute(\"height\",\" 23\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":23,\"raw\":\" 23\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"-2\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"-2\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"-2\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"+23\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"+23\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":23,\"raw\":\"+23\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"3.7\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"3.7\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":3,\"raw\":\"3.7\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"0\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"0\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"2147483647\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"2147483647\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":2147483647,\"raw\":\"2147483647\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"2147483648\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"2147483648\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"2147483648\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"4294967295\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"4294967295\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"4294967295\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"4294967296\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"4294967296\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"4294967296\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"1e2\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"1e2\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":1,\"raw\":\"1e2\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"023\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"023\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":23,\"raw\":\"023\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"0x10\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"0x10\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"0x10\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"\\n5\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"\\n5\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":5,\"raw\":\"\\n5\"}"
+    },
+    {
+      "group": "basic",
+      "name": "attribute height \"NaN\"",
+      "action": "(()=>{v.setAttribute(\"height\",\"NaN\");return {value:v[\"height\"],raw:v.getAttribute(\"height\")}})()",
+      "expected": "{\"value\":0,\"raw\":\"NaN\"}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width -1",
+      "action": "(()=>{let error=null;try{v[\"width\"]=-1}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width NaN",
+      "action": "(()=>{let error=null;try{v[\"width\"]=NaN}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width Infinity",
+      "action": "(()=>{let error=null;try{v[\"width\"]=Infinity}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width 2147483648",
+      "action": "(()=>{let error=null;try{v[\"width\"]=2147483648}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width 4294967295",
+      "action": "(()=>{let error=null;try{v[\"width\"]=4294967295}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width 4294967296",
+      "action": "(()=>{let error=null;try{v[\"width\"]=4294967296}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width 4.7",
+      "action": "(()=>{let error=null;try{v[\"width\"]=4.7}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":4,\"raw\":\"4\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width true",
+      "action": "(()=>{let error=null;try{v[\"width\"]=true}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":1,\"raw\":\"1\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width null",
+      "action": "(()=>{let error=null;try{v[\"width\"]=null}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width undefined",
+      "action": "(()=>{let error=null;try{v[\"width\"]=undefined}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter width \"5\"",
+      "action": "(()=>{let error=null;try{v[\"width\"]=\"5\"}catch(e){error=e.name}return {value:v[\"width\"],raw:v.getAttribute(\"width\"),error}})()",
+      "expected": "{\"value\":5,\"raw\":\"5\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height -1",
+      "action": "(()=>{let error=null;try{v[\"height\"]=-1}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height NaN",
+      "action": "(()=>{let error=null;try{v[\"height\"]=NaN}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height Infinity",
+      "action": "(()=>{let error=null;try{v[\"height\"]=Infinity}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height 2147483648",
+      "action": "(()=>{let error=null;try{v[\"height\"]=2147483648}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height 4294967295",
+      "action": "(()=>{let error=null;try{v[\"height\"]=4294967295}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height 4294967296",
+      "action": "(()=>{let error=null;try{v[\"height\"]=4294967296}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height 4.7",
+      "action": "(()=>{let error=null;try{v[\"height\"]=4.7}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":4,\"raw\":\"4\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height true",
+      "action": "(()=>{let error=null;try{v[\"height\"]=true}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":1,\"raw\":\"1\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height null",
+      "action": "(()=>{let error=null;try{v[\"height\"]=null}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height undefined",
+      "action": "(()=>{let error=null;try{v[\"height\"]=undefined}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":0,\"raw\":\"0\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "setter height \"5\"",
+      "action": "(()=>{let error=null;try{v[\"height\"]=\"5\"}catch(e){error=e.name}return {value:v[\"height\"],raw:v.getAttribute(\"height\"),error}})()",
+      "expected": "{\"value\":5,\"raw\":\"5\",\"error\":null}"
+    },
+    {
+      "group": "basic",
+      "name": "initial",
+      "action": "(()=>{v.removeAttribute(\"poster\");v.removeAttribute(\"playsinline\");return {poster:v.poster,posterRaw:v.getAttribute(\"poster\"),playsInline:v.playsInline,inlineRaw:v.getAttribute(\"playsinline\"),videoWidth:v.videoWidth,videoHeight:v.videoHeight}})()",
+      "expected": "{\"poster\":\"\",\"posterRaw\":null,\"playsInline\":false,\"inlineRaw\":null,\"videoWidth\":0,\"videoHeight\":0}"
+    },
+    {
+      "group": "basic",
+      "name": "relative poster",
+      "action": "(()=>{v.poster=\"cover.png\";return {poster:v.poster,posterRaw:v.getAttribute(\"poster\"),playsInline:v.playsInline,inlineRaw:v.getAttribute(\"playsinline\"),videoWidth:v.videoWidth,videoHeight:v.videoHeight}})()",
+      "expected": "{\"poster\":\"https://video.test/one/cover.png\",\"posterRaw\":\"cover.png\",\"playsInline\":false,\"inlineRaw\":null,\"videoWidth\":0,\"videoHeight\":0}"
+    },
+    {
+      "group": "basic",
+      "name": "base changes getter",
+      "action": "(()=>{document.querySelector(\"base\").href=\"https://video.test/two/\";return {poster:v.poster,posterRaw:v.getAttribute(\"poster\"),playsInline:v.playsInline,inlineRaw:v.getAttribute(\"playsinline\"),videoWidth:v.videoWidth,videoHeight:v.videoHeight}})()",
+      "expected": "{\"poster\":\"https://video.test/two/cover.png\",\"posterRaw\":\"cover.png\",\"playsInline\":false,\"inlineRaw\":null,\"videoWidth\":0,\"videoHeight\":0}"
+    },
+    {
+      "group": "basic",
+      "name": "empty poster",
+      "action": "(()=>{v.poster=\"\";return {poster:v.poster,posterRaw:v.getAttribute(\"poster\"),playsInline:v.playsInline,inlineRaw:v.getAttribute(\"playsinline\"),videoWidth:v.videoWidth,videoHeight:v.videoHeight}})()",
+      "expected": "{\"poster\":\"https://video.test/two/\",\"posterRaw\":\"\",\"playsInline\":false,\"inlineRaw\":null,\"videoWidth\":0,\"videoHeight\":0}"
+    },
+    {
+      "group": "basic",
+      "name": "USV poster",
+      "action": "(()=>{v.poster=\"A\\uD800B\";return {poster:v.poster,posterRaw:v.getAttribute(\"poster\"),playsInline:v.playsInline,inlineRaw:v.getAttribute(\"playsinline\"),videoWidth:v.videoWidth,videoHeight:v.videoHeight}})()",
+      "expected": "{\"poster\":\"A\\ud800B\",\"posterRaw\":\"A\\ud800B\",\"playsInline\":false,\"inlineRaw\":null,\"videoWidth\":0,\"videoHeight\":0}",
+      "targetExpected": "{\"poster\":\"https://video.test/two/A%EF%BF%BDB\",\"posterRaw\":\"A�B\",\"playsInline\":false,\"inlineRaw\":null,\"videoWidth\":0,\"videoHeight\":0}",
+      "normDelta": "poster-usv-lone-surrogate"
+    },
+    {
+      "group": "basic",
+      "name": "inline true",
+      "action": "(()=>{v.playsInline=true;return {poster:v.poster,posterRaw:v.getAttribute(\"poster\"),playsInline:v.playsInline,inlineRaw:v.getAttribute(\"playsinline\"),videoWidth:v.videoWidth,videoHeight:v.videoHeight}})()",
+      "expected": "{\"poster\":\"A\\ud800B\",\"posterRaw\":\"A\\ud800B\",\"playsInline\":true,\"inlineRaw\":\"\",\"videoWidth\":0,\"videoHeight\":0}",
+      "targetExpected": "{\"poster\":\"https://video.test/two/A%EF%BF%BDB\",\"posterRaw\":\"A�B\",\"playsInline\":true,\"inlineRaw\":\"\",\"videoWidth\":0,\"videoHeight\":0}",
+      "normDelta": "poster-usv-lone-surrogate"
+    },
+    {
+      "group": "basic",
+      "name": "inline string false",
+      "action": "(()=>{v.setAttribute(\"playsinline\",\"false\");return {poster:v.poster,posterRaw:v.getAttribute(\"poster\"),playsInline:v.playsInline,inlineRaw:v.getAttribute(\"playsinline\"),videoWidth:v.videoWidth,videoHeight:v.videoHeight}})()",
+      "expected": "{\"poster\":\"A\\ud800B\",\"posterRaw\":\"A\\ud800B\",\"playsInline\":true,\"inlineRaw\":\"false\",\"videoWidth\":0,\"videoHeight\":0}",
+      "targetExpected": "{\"poster\":\"https://video.test/two/A%EF%BF%BDB\",\"posterRaw\":\"A�B\",\"playsInline\":true,\"inlineRaw\":\"false\",\"videoWidth\":0,\"videoHeight\":0}",
+      "normDelta": "poster-usv-lone-surrogate"
+    },
+    {
+      "group": "basic",
+      "name": "inline false",
+      "action": "(()=>{v.playsInline=false;return {poster:v.poster,posterRaw:v.getAttribute(\"poster\"),playsInline:v.playsInline,inlineRaw:v.getAttribute(\"playsinline\"),videoWidth:v.videoWidth,videoHeight:v.videoHeight}})()",
+      "expected": "{\"poster\":\"A\\ud800B\",\"posterRaw\":\"A\\ud800B\",\"playsInline\":false,\"inlineRaw\":null,\"videoWidth\":0,\"videoHeight\":0}",
+      "targetExpected": "{\"poster\":\"https://video.test/two/A%EF%BF%BDB\",\"posterRaw\":\"A�B\",\"playsInline\":false,\"inlineRaw\":null,\"videoWidth\":0,\"videoHeight\":0}",
+      "normDelta": "poster-usv-lone-surrogate"
+    },
+    {
+      "group": "deep",
+      "name": "six video presentation descriptors",
+      "action": "keys.map(key=>{const d=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,key);return {key,get:typeof d.get,set:typeof d.set,enumerable:d.enumerable,configurable:d.configurable,own:v.hasOwnProperty(key)}})",
+      "expected": "[{\"key\":\"poster\",\"get\":\"function\",\"set\":\"function\",\"enumerable\":true,\"configurable\":true,\"own\":false},{\"key\":\"width\",\"get\":\"function\",\"set\":\"function\",\"enumerable\":true,\"configurable\":true,\"own\":false},{\"key\":\"height\",\"get\":\"function\",\"set\":\"function\",\"enumerable\":true,\"configurable\":true,\"own\":false},{\"key\":\"playsInline\",\"get\":\"function\",\"set\":\"function\",\"enumerable\":true,\"configurable\":true,\"own\":false},{\"key\":\"videoWidth\",\"get\":\"function\",\"set\":\"undefined\",\"enumerable\":true,\"configurable\":true,\"own\":false},{\"key\":\"videoHeight\",\"get\":\"function\",\"set\":\"undefined\",\"enumerable\":true,\"configurable\":true,\"own\":false}]"
+    },
+    {
+      "group": "deep",
+      "name": "poster getter {}",
+      "action": "(()=>{const r={};let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"poster\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "poster getter document.getElementById(\"a\")",
+      "action": "(()=>{const r=document.getElementById(\"a\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"poster\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "poster getter HTMLVideoElement.prototype",
+      "action": "(()=>{const r=HTMLVideoElement.prototype;let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"poster\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "poster getter document.createElementNS(\"urn:foreign\",\"video\")",
+      "action": "(()=>{const r=document.createElementNS(\"urn:foreign\",\"video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"poster\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "poster getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+      "action": "(()=>{const r=document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"poster\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":null,\"value\":\"\",\"prototype\":true}"
+    },
+    {
+      "group": "deep",
+      "name": "width getter {}",
+      "action": "(()=>{const r={};let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"width\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "width getter document.getElementById(\"a\")",
+      "action": "(()=>{const r=document.getElementById(\"a\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"width\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "width getter HTMLVideoElement.prototype",
+      "action": "(()=>{const r=HTMLVideoElement.prototype;let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"width\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "width getter document.createElementNS(\"urn:foreign\",\"video\")",
+      "action": "(()=>{const r=document.createElementNS(\"urn:foreign\",\"video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"width\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "width getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+      "action": "(()=>{const r=document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"width\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":null,\"value\":0,\"prototype\":true}"
+    },
+    {
+      "group": "deep",
+      "name": "height getter {}",
+      "action": "(()=>{const r={};let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"height\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "height getter document.getElementById(\"a\")",
+      "action": "(()=>{const r=document.getElementById(\"a\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"height\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "height getter HTMLVideoElement.prototype",
+      "action": "(()=>{const r=HTMLVideoElement.prototype;let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"height\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "height getter document.createElementNS(\"urn:foreign\",\"video\")",
+      "action": "(()=>{const r=document.createElementNS(\"urn:foreign\",\"video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"height\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "height getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+      "action": "(()=>{const r=document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"height\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":null,\"value\":0,\"prototype\":true}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline getter {}",
+      "action": "(()=>{const r={};let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"playsInline\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline getter document.getElementById(\"a\")",
+      "action": "(()=>{const r=document.getElementById(\"a\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"playsInline\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline getter HTMLVideoElement.prototype",
+      "action": "(()=>{const r=HTMLVideoElement.prototype;let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"playsInline\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline getter document.createElementNS(\"urn:foreign\",\"video\")",
+      "action": "(()=>{const r=document.createElementNS(\"urn:foreign\",\"video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"playsInline\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+      "action": "(()=>{const r=document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"playsInline\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":null,\"value\":false,\"prototype\":true}"
+    },
+    {
+      "group": "deep",
+      "name": "videoWidth getter {}",
+      "action": "(()=>{const r={};let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoWidth\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "videoWidth getter document.getElementById(\"a\")",
+      "action": "(()=>{const r=document.getElementById(\"a\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoWidth\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "videoWidth getter HTMLVideoElement.prototype",
+      "action": "(()=>{const r=HTMLVideoElement.prototype;let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoWidth\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "videoWidth getter document.createElementNS(\"urn:foreign\",\"video\")",
+      "action": "(()=>{const r=document.createElementNS(\"urn:foreign\",\"video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoWidth\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "videoWidth getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+      "action": "(()=>{const r=document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoWidth\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":null,\"value\":0,\"prototype\":true}"
+    },
+    {
+      "group": "deep",
+      "name": "videoHeight getter {}",
+      "action": "(()=>{const r={};let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoHeight\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "videoHeight getter document.getElementById(\"a\")",
+      "action": "(()=>{const r=document.getElementById(\"a\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoHeight\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "videoHeight getter HTMLVideoElement.prototype",
+      "action": "(()=>{const r=HTMLVideoElement.prototype;let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoHeight\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "videoHeight getter document.createElementNS(\"urn:foreign\",\"video\")",
+      "action": "(()=>{const r=document.createElementNS(\"urn:foreign\",\"video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoHeight\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":\"TypeError\",\"value\":null,\"prototype\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "videoHeight getter document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\")",
+      "action": "(()=>{const r=document.createElementNS(\"http://www.w3.org/1999/xhtml\",\"x:video\");let error=null,value;try{value=Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"videoHeight\").get.call(r)}catch(e){error=e.name}return {error,value:value===undefined?null:value,prototype:r instanceof HTMLVideoElement}})()",
+      "expected": "{\"error\":null,\"value\":0,\"prototype\":true}"
+    },
+    {
+      "group": "deep",
+      "name": "poster setter brand before conversion",
+      "action": "(()=>{let calls=0,error=null;try{Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"poster\").set.call({}, {toString(){calls++;return \"1\"},valueOf(){calls++;return 1}})}catch(e){error=e.name}return {error,calls}})()",
+      "expected": "{\"error\":\"TypeError\",\"calls\":0}"
+    },
+    {
+      "group": "deep",
+      "name": "width setter brand before conversion",
+      "action": "(()=>{let calls=0,error=null;try{Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"width\").set.call({}, {toString(){calls++;return \"1\"},valueOf(){calls++;return 1}})}catch(e){error=e.name}return {error,calls}})()",
+      "expected": "{\"error\":\"TypeError\",\"calls\":0}"
+    },
+    {
+      "group": "deep",
+      "name": "height setter brand before conversion",
+      "action": "(()=>{let calls=0,error=null;try{Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"height\").set.call({}, {toString(){calls++;return \"1\"},valueOf(){calls++;return 1}})}catch(e){error=e.name}return {error,calls}})()",
+      "expected": "{\"error\":\"TypeError\",\"calls\":0}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline setter brand before conversion",
+      "action": "(()=>{let calls=0,error=null;try{Object.getOwnPropertyDescriptor(HTMLVideoElement.prototype,\"playsInline\").set.call({}, {toString(){calls++;return \"1\"},valueOf(){calls++;return 1}})}catch(e){error=e.name}return {error,calls}})()",
+      "expected": "{\"error\":\"TypeError\",\"calls\":0}"
+    },
+    {
+      "group": "deep",
+      "name": "videoWidth readonly assignments",
+      "action": "(()=>{const before=v[\"videoWidth\"];v[\"videoWidth\"]=99;let error=null;try{(function(){\"use strict\";v[\"videoWidth\"]=99})()}catch(e){error=e.name}return {before,after:v[\"videoWidth\"],own:v.hasOwnProperty(\"videoWidth\"),error}})()",
+      "expected": "{\"before\":0,\"after\":0,\"own\":false,\"error\":\"TypeError\"}"
+    },
+    {
+      "group": "deep",
+      "name": "videoHeight readonly assignments",
+      "action": "(()=>{const before=v[\"videoHeight\"];v[\"videoHeight\"]=99;let error=null;try{(function(){\"use strict\";v[\"videoHeight\"]=99})()}catch(e){error=e.name}return {before,after:v[\"videoHeight\"],own:v.hasOwnProperty(\"videoHeight\"),error}})()",
+      "expected": "{\"before\":0,\"after\":0,\"own\":false,\"error\":\"TypeError\"}"
+    },
+    {
+      "group": "deep",
+      "name": "poster = null",
+      "action": "(()=>{v.setAttribute(\"poster\",\"11\");let error=null;try{v[\"poster\"]=null}catch(e){error=e.name}const raw=v.getAttribute(\"poster\");return {error,raw,value:v[\"poster\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"null\",\"value\":\"https://video.test/a/null\",\"units\":[110,117,108,108]}"
+    },
+    {
+      "group": "deep",
+      "name": "poster = undefined",
+      "action": "(()=>{v.setAttribute(\"poster\",\"11\");let error=null;try{v[\"poster\"]=undefined}catch(e){error=e.name}const raw=v.getAttribute(\"poster\");return {error,raw,value:v[\"poster\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"undefined\",\"value\":\"https://video.test/a/undefined\",\"units\":[117,110,100,101,102,105,110,101,100]}"
+    },
+    {
+      "group": "deep",
+      "name": "poster = Symbol(\"s\")",
+      "action": "(()=>{v.setAttribute(\"poster\",\"11\");let error=null;try{v[\"poster\"]=Symbol(\"s\")}catch(e){error=e.name}const raw=v.getAttribute(\"poster\");return {error,raw,value:v[\"poster\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":\"TypeError\",\"raw\":\"11\",\"value\":\"https://video.test/a/11\",\"units\":[49,49]}"
+    },
+    {
+      "group": "deep",
+      "name": "poster = ({toString(){return \"cover.png\"}})",
+      "action": "(()=>{v.setAttribute(\"poster\",\"11\");let error=null;try{v[\"poster\"]=({toString(){return \"cover.png\"}})}catch(e){error=e.name}const raw=v.getAttribute(\"poster\");return {error,raw,value:v[\"poster\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"cover.png\",\"value\":\"https://video.test/a/cover.png\",\"units\":[99,111,118,101,114,46,112,110,103]}"
+    },
+    {
+      "group": "deep",
+      "name": "poster = ({toString(){throw new RangeError(\"marker\")}})",
+      "action": "(()=>{v.setAttribute(\"poster\",\"11\");let error=null;try{v[\"poster\"]=({toString(){throw new RangeError(\"marker\")}})}catch(e){error=e.name}const raw=v.getAttribute(\"poster\");return {error,raw,value:v[\"poster\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":\"RangeError\",\"raw\":\"11\",\"value\":\"https://video.test/a/11\",\"units\":[49,49]}"
+    },
+    {
+      "group": "deep",
+      "name": "poster = \"A\\uD800B\"",
+      "action": "(()=>{v.setAttribute(\"poster\",\"11\");let error=null;try{v[\"poster\"]=\"A\\uD800B\"}catch(e){error=e.name}const raw=v.getAttribute(\"poster\");return {error,raw,value:v[\"poster\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"A\\ud800B\",\"value\":\"A\\ud800B\",\"units\":[65,55296,66]}",
+      "targetExpected": "{\"error\":null,\"raw\":\"A�B\",\"value\":\"https://video.test/a/A%EF%BF%BDB\",\"units\":[65,65533,66]}",
+      "normDelta": "poster-usv-lone-surrogate"
+    },
+    {
+      "group": "deep",
+      "name": "poster = \"A\\uD83D\\uDE00B\"",
+      "action": "(()=>{v.setAttribute(\"poster\",\"11\");let error=null;try{v[\"poster\"]=\"A\\uD83D\\uDE00B\"}catch(e){error=e.name}const raw=v.getAttribute(\"poster\");return {error,raw,value:v[\"poster\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"A😀B\",\"value\":\"https://video.test/a/A%F0%9F%98%80B\",\"units\":[65,55357,56832,66]}"
+    },
+    {
+      "group": "deep",
+      "name": "width = Symbol(\"s\")",
+      "action": "(()=>{v.setAttribute(\"width\",\"11\");let error=null;try{v[\"width\"]=Symbol(\"s\")}catch(e){error=e.name}const raw=v.getAttribute(\"width\");return {error,raw,value:v[\"width\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":\"TypeError\",\"raw\":\"11\",\"value\":11,\"units\":[49,49]}"
+    },
+    {
+      "group": "deep",
+      "name": "width = 1n",
+      "action": "(()=>{v.setAttribute(\"width\",\"11\");let error=null;try{v[\"width\"]=1n}catch(e){error=e.name}const raw=v.getAttribute(\"width\");return {error,raw,value:v[\"width\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":\"TypeError\",\"raw\":\"11\",\"value\":11,\"units\":[49,49]}"
+    },
+    {
+      "group": "deep",
+      "name": "width = ({valueOf(){return 19.8}})",
+      "action": "(()=>{v.setAttribute(\"width\",\"11\");let error=null;try{v[\"width\"]=({valueOf(){return 19.8}})}catch(e){error=e.name}const raw=v.getAttribute(\"width\");return {error,raw,value:v[\"width\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"19\",\"value\":19,\"units\":[49,57]}"
+    },
+    {
+      "group": "deep",
+      "name": "width = ({valueOf(){throw new RangeError(\"marker\")}})",
+      "action": "(()=>{v.setAttribute(\"width\",\"11\");let error=null;try{v[\"width\"]=({valueOf(){throw new RangeError(\"marker\")}})}catch(e){error=e.name}const raw=v.getAttribute(\"width\");return {error,raw,value:v[\"width\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":\"RangeError\",\"raw\":\"11\",\"value\":11,\"units\":[49,49]}"
+    },
+    {
+      "group": "deep",
+      "name": "width = -4294967295",
+      "action": "(()=>{v.setAttribute(\"width\",\"11\");let error=null;try{v[\"width\"]=-4294967295}catch(e){error=e.name}const raw=v.getAttribute(\"width\");return {error,raw,value:v[\"width\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"1\",\"value\":1,\"units\":[49]}"
+    },
+    {
+      "group": "deep",
+      "name": "width = 4294967297",
+      "action": "(()=>{v.setAttribute(\"width\",\"11\");let error=null;try{v[\"width\"]=4294967297}catch(e){error=e.name}const raw=v.getAttribute(\"width\");return {error,raw,value:v[\"width\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"1\",\"value\":1,\"units\":[49]}"
+    },
+    {
+      "group": "deep",
+      "name": "height = -4294967295",
+      "action": "(()=>{v.setAttribute(\"height\",\"11\");let error=null;try{v[\"height\"]=-4294967295}catch(e){error=e.name}const raw=v.getAttribute(\"height\");return {error,raw,value:v[\"height\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"1\",\"value\":1,\"units\":[49]}"
+    },
+    {
+      "group": "deep",
+      "name": "height = 4294967297",
+      "action": "(()=>{v.setAttribute(\"height\",\"11\");let error=null;try{v[\"height\"]=4294967297}catch(e){error=e.name}const raw=v.getAttribute(\"height\");return {error,raw,value:v[\"height\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"1\",\"value\":1,\"units\":[49]}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline = false",
+      "action": "(()=>{v.setAttribute(\"playsinline\",\"11\");let error=null;try{v[\"playsInline\"]=false}catch(e){error=e.name}const raw=v.getAttribute(\"playsinline\");return {error,raw,value:v[\"playsInline\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":null,\"value\":false,\"units\":null}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline = 0",
+      "action": "(()=>{v.setAttribute(\"playsinline\",\"11\");let error=null;try{v[\"playsInline\"]=0}catch(e){error=e.name}const raw=v.getAttribute(\"playsinline\");return {error,raw,value:v[\"playsInline\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":null,\"value\":false,\"units\":null}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline = \"false\"",
+      "action": "(()=>{v.setAttribute(\"playsinline\",\"11\");let error=null;try{v[\"playsInline\"]=\"false\"}catch(e){error=e.name}const raw=v.getAttribute(\"playsinline\");return {error,raw,value:v[\"playsInline\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"\",\"value\":true,\"units\":[]}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline = []",
+      "action": "(()=>{v.setAttribute(\"playsinline\",\"11\");let error=null;try{v[\"playsInline\"]=[]}catch(e){error=e.name}const raw=v.getAttribute(\"playsinline\");return {error,raw,value:v[\"playsInline\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"\",\"value\":true,\"units\":[]}"
+    },
+    {
+      "group": "deep",
+      "name": "playsInline = Symbol(\"s\")",
+      "action": "(()=>{v.setAttribute(\"playsinline\",\"11\");let error=null;try{v[\"playsInline\"]=Symbol(\"s\")}catch(e){error=e.name}const raw=v.getAttribute(\"playsinline\");return {error,raw,value:v[\"playsInline\"],units:raw===null?null:Array.from({length:raw.length},(_,i)=>raw.charCodeAt(i))}})()",
+      "expected": "{\"error\":null,\"raw\":\"\",\"value\":true,\"units\":[]}"
+    },
+    {
+      "group": "deep",
+      "name": "relative current owner",
+      "action": "(()=>{v.poster=\"cover.png\";return {raw:v.getAttribute(\"poster\"),value:v.poster,base:v.baseURI,detached:v.ownerDocument!==document}})()",
+      "expected": "{\"raw\":\"cover.png\",\"value\":\"https://video.test/a/cover.png\",\"base\":\"https://video.test/a/\",\"detached\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "base-only changes getter",
+      "action": "(()=>{document.querySelector(\"base\").href=\"https://video.test/b/\";return {raw:v.getAttribute(\"poster\"),value:v.poster,base:v.baseURI,detached:v.ownerDocument!==document}})()",
+      "expected": "{\"raw\":\"cover.png\",\"value\":\"https://video.test/b/cover.png\",\"base\":\"https://video.test/b/\",\"detached\":false}"
+    },
+    {
+      "group": "deep",
+      "name": "adopt changes getter",
+      "action": "(()=>{globalThis.owner=document.implementation.createHTMLDocument(\"other\");const b=owner.createElement(\"base\");b.href=\"https://owner.test/c/\";owner.head.appendChild(b);owner.body.appendChild(owner.adoptNode(v));return {raw:v.getAttribute(\"poster\"),value:v.poster,base:v.baseURI,detached:v.ownerDocument!==document}})()",
+      "expected": "{\"raw\":\"cover.png\",\"value\":\"https://owner.test/c/cover.png\",\"base\":\"https://owner.test/c/\",\"detached\":true}"
+    },
+    {
+      "group": "deep",
+      "name": "new owner base changes getter",
+      "action": "(()=>{owner.querySelector(\"base\").href=\"https://owner.test/d/\";return {raw:v.getAttribute(\"poster\"),value:v.poster,base:v.baseURI,detached:v.ownerDocument!==document}})()",
+      "expected": "{\"raw\":\"cover.png\",\"value\":\"https://owner.test/d/cover.png\",\"base\":\"https://owner.test/d/\",\"detached\":true}"
+    },
+    {
+      "group": "deep",
+      "name": "remove poster getter empty",
+      "action": "(()=>{v.removeAttribute(\"poster\");return {raw:v.getAttribute(\"poster\"),value:v.poster,base:v.baseURI,detached:v.ownerDocument!==document}})()",
+      "expected": "{\"raw\":null,\"value\":\"\",\"base\":\"https://owner.test/d/\",\"detached\":true}"
+    },
+    {
+      "group": "deep",
+      "name": "empty poster getter ownerbase",
+      "action": "(()=>{v.poster=\"\";return {raw:v.getAttribute(\"poster\"),value:v.poster,base:v.baseURI,detached:v.ownerDocument!==document}})()",
+      "expected": "{\"raw\":\"\",\"value\":\"https://owner.test/d/\",\"base\":\"https://owner.test/d/\",\"detached\":true}"
+    },
+    {
+      "group": "extra",
+      "name": "poster DOMString content scalar getter fallback",
+      "action": "(()=>{v.setAttribute(\"poster\",\"A\\uD800B\");const getter=v.poster;return {raw:v.getAttribute(\"poster\"),getter,units:Array.from({length:getter.length},(_,i)=>getter.charCodeAt(i))}})()",
+      "expected": "{\"raw\":\"A\\ud800B\",\"getter\":\"A\\ud800B\",\"units\":[65,55296,66]}",
+      "targetExpected": "{\"raw\":\"A\\ud800B\",\"getter\":\"A�B\",\"units\":[65,65533,66]}",
+      "normDelta": "poster-usv-scalar-getter"
+    }
+  ],
+  "normativeDeltas": [
+    {
+      "id": "poster-usv-lone-surrogate",
+      "writes": 2,
+      "states": [
+        "basic:USV poster",
+        "basic:inline true",
+        "basic:inline string false",
+        "basic:inline false",
+        "deep:poster = \"A\\uD800B\""
+      ],
+      "reason": "Frozen HTML poster is USVString; Chromium preserves the lone surrogate and returns an invalid-URL raw getter. Two writes and three retained continuation states use U+FFFD content and the resulting valid absolute URL in the exact engine projection."
+    }
+  ],
+  "boundaries": [
+    "Mapped backend scheduling and fake GUI geometry do not prove Roblox Studio video pixels.",
+    "Source/track children and full detached video playback remain outside.",
+    "Lazy video/poster resumption is not closed by these eager captures.",
+    "Host IsLoaded/Loaded is the available-frame proxy; separate native metadata-only frame availability, anamorphic/clean-aperture/orientation pixels remain unverified."
+  ]
+}

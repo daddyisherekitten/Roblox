@@ -1,0 +1,1517 @@
+{
+  "reference": "Isolated Chromium headless; actual CSSAnimation/CSSTransition DOM objects and rendering-frame event updates, 10 October 2026",
+  "cases": [
+    {
+      "name": "event constructor values",
+      "css": "",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=new AnimationEvent('animationend',{animationName:'move',elapsedTime:2.5,pseudoElement:'::before',bubbles:true,cancelable:true,composed:true});for(const key of ['type','animationName','elapsedTime','pseudoElement','bubbles','cancelable','composed'])record(a[key]);record(a instanceof Event);record(a instanceof AnimationEvent);const t=new TransitionEvent('transitionend',{propertyName:'opacity',elapsedTime:.5,pseudoElement:'::after'});for(const key of ['type','propertyName','elapsedTime','pseudoElement'])record(t[key]);record(t instanceof Event);record(t instanceof TransitionEvent);record(Object.getOwnPropertyDescriptor(AnimationEvent.prototype,'animationName').enumerable);record(Object.getOwnPropertyDescriptor(TransitionEvent.prototype,'elapsedTime').set===undefined);return output;",
+      "asynchronous": false,
+      "expected": [
+        "animationend",
+        "move",
+        "2.5",
+        "::before",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "transitionend",
+        "opacity",
+        "0.5",
+        "::after",
+        "true",
+        "true",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "name": "event conversion and receivers",
+      "css": "",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const trace=[];const init={get bubbles(){trace.push('bubbles');return 1},get cancelable(){trace.push('cancelable');return 0},get composed(){trace.push('composed');return 1},get animationName(){trace.push('animationName');return null},get elapsedTime(){trace.push('elapsedTime');return '1.5'},get pseudoElement(){trace.push('pseudoElement');return undefined}};const a=new AnimationEvent('test',init);record(trace.join(','));record(a.animationName);record(a.elapsedTime);record(a.pseudoElement);errorName(()=>new AnimationEvent());errorName(()=>new AnimationEvent('x',{elapsedTime:Infinity}));errorName(()=>new TransitionEvent('x',{elapsedTime:NaN}));errorName(()=>Object.getOwnPropertyDescriptor(AnimationEvent.prototype,'animationName').get.call({}));errorName(()=>Object.getOwnPropertyDescriptor(TransitionEvent.prototype,'propertyName').get.call(a));errorName(()=>AnimationEvent('x'));return output;",
+      "asynchronous": false,
+      "expected": [
+        "bubbles,cancelable,composed,animationName,elapsedTime,pseudoElement",
+        "null",
+        "1.5",
+        "",
+        "TypeError",
+        "TypeError",
+        "TypeError",
+        "TypeError",
+        "TypeError",
+        "TypeError"
+      ]
+    },
+    {
+      "name": "CSS animation list identity",
+      "css": "#box{animation:second 2s linear -1s both paused,first 4s linear both paused}#leaf{animation:first 1s linear both paused}@keyframes first{from{opacity:0}to{opacity:1}}@keyframes second{from{transform:translateX(0)}to{transform:translateX(40px)}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const values=box.getAnimations();record(values.length);record(values.map(a=>a.animationName).join(','));record(values.every(a=>a instanceof CSSAnimation&&a instanceof Animation));record(values[0]===box.getAnimations()[0]);record(box.getAnimations({subtree:true}).length);record(document.getAnimations().length);record(values[0].effect.target===box);record(values[0].timeline===document.timeline);record(values[0].playState);record(values[0].effect.getTiming().delay);record(values[0].effect.getComputedTiming().progress);errorName(()=>new CSSAnimation());errorName(()=>new CSSTransition());return output;",
+      "asynchronous": false,
+      "expected": [
+        "2",
+        "second,first",
+        "true",
+        "true",
+        "3",
+        "3",
+        "true",
+        "true",
+        "paused",
+        "-1000",
+        "0.5",
+        "TypeError",
+        "TypeError"
+      ]
+    },
+    {
+      "name": "CSS animation paused seek cancel restart",
+      "css": "#box{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.currentTime=500;record(a.currentTime);record(a.playState);record(getComputedStyle(box).opacity);record(a.effect.getComputedTiming().progress);a.cancel();record(a.currentTime);record(a.playState);record(a.animationName);record(box.getAnimations().length);record(getComputedStyle(box).opacity);box.style.animationName='none';box.offsetWidth;box.style.animationName='move';box.offsetWidth;const b=box.getAnimations()[0];record(a===b);record(b.animationName);record(b.playState);return output;",
+      "asynchronous": false,
+      "expected": [
+        "500",
+        "paused",
+        "0.25",
+        "0.25",
+        "null",
+        "idle",
+        "move",
+        "0",
+        "1",
+        "false",
+        "move",
+        "paused"
+      ]
+    },
+    {
+      "name": "CSS animation finish reverse error",
+      "css": "#box{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.finish();record(a.currentTime);record(a.playState);record(getComputedStyle(box).opacity);a.playbackRate=0;errorName(()=>a.finish());a.playbackRate=1;a.currentTime=500;a.reverse();record(a.playbackRate);record(a.playState);record(a.pending);a.pause();a.currentTime=500;record(getComputedStyle(box).opacity);errorName(()=>Object.getOwnPropertyDescriptor(CSSAnimation.prototype,'animationName').get.call(new Animation()));return output;",
+      "asynchronous": false,
+      "expected": [
+        "2000",
+        "finished",
+        "1",
+        "InvalidStateError",
+        "1",
+        "running",
+        "true",
+        "0.25",
+        "TypeError"
+      ]
+    },
+    {
+      "name": "CSS transition seek reversal identity",
+      "css": "#box{opacity:0;transition:opacity 2s linear}#box.active{opacity:1}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=1000;record(a instanceof CSSTransition&&a instanceof Animation);record(a.transitionProperty);record(a.currentTime);record(getComputedStyle(box).opacity);record(a.effect.getTiming().duration);record(a===box.getAnimations()[0]);box.className='';box.offsetWidth;const b=box.getAnimations()[0];record(a===b);record(a.playState);record(b.transitionProperty);record(b.effect.getTiming().duration);b.finished.catch(()=>{});b.ready.catch(()=>{});b.pause();b.currentTime=500;record(getComputedStyle(box).opacity);b.cancel();record(box.getAnimations().length);record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "true",
+        "opacity",
+        "1000",
+        "0.5",
+        "2000",
+        "true",
+        "false",
+        "idle",
+        "opacity",
+        "1000",
+        "0.25",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "name": "CSS animation author timing overrides",
+      "css": "#box{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];a.currentTime=500;a.effect.updateTiming({duration:1000});box.style.animationDuration='4s';box.style.animationDelay='200ms';box.offsetWidth;record(a===box.getAnimations()[0]);record(a.effect.getTiming().duration);record(a.effect.getTiming().delay);record(a.effect.getComputedTiming().progress);record(getComputedStyle(box).opacity);errorName(()=>a.effect.updateTiming({iterations:-1}));box.style.animationIterationCount='2';box.offsetWidth;record(a.effect.getTiming().iterations);record(a.effect.getTiming().duration);return output;",
+      "asynchronous": false,
+      "expected": [
+        "true",
+        "1000",
+        "200",
+        "0.3",
+        "0.075",
+        "TypeError",
+        "2",
+        "1000"
+      ],
+      "afterRenderingExpected": [
+        "true",
+        "1000",
+        "200",
+        "0.3",
+        "0.075",
+        "TypeError",
+        "2",
+        "1000"
+      ],
+      "engineExpected": [
+        "true",
+        "1000",
+        "200",
+        "0.3",
+        "0.3",
+        "TypeError",
+        "2",
+        "1000"
+      ],
+      "normativeDifference": "CSS Animations 2 section 2: successful updateTiming member overrides, setKeyframes and effect replacement take precedence over later corresponding authored CSS changes. Chromium reports the overridden API timing/keyframes but paints using newly authored CSS; unchanged after two rendering frames."
+    },
+    {
+      "name": "CSS animation author play overrides",
+      "css": "#box{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];a.finished.catch(()=>{});a.currentTime=500;a.play();a.ready.catch(()=>{});box.style.animationPlayState='paused';box.offsetWidth;record(a.playState);record(a.pending);a.pause();a.ready.catch(()=>{});a.currentTime=500;box.style.animationPlayState='running';box.offsetWidth;record(a.playState);record(a.currentTime);record(getComputedStyle(box).opacity);record(a===box.getAnimations()[0]);return output;",
+      "asynchronous": false,
+      "expected": [
+        "running",
+        "true",
+        "paused",
+        "500",
+        "0.25",
+        "true"
+      ]
+    },
+    {
+      "name": "CSS animation keyframes override",
+      "css": "#box{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];a.currentTime=500;a.effect.setKeyframes([{opacity:.2},{opacity:.6}]);box.style.animationTimingFunction='steps(2,start)';box.offsetWidth;record(getComputedStyle(box).opacity);record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity].join('|')).join(','));box.style.animationName='none';box.offsetWidth;record(a.playState);record(a.animationName);record(box.getAnimations().length);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0.5",
+        "|0|linear|auto|0.2,|1|linear|auto|0.6",
+        "idle",
+        "move",
+        "0"
+      ],
+      "afterRenderingExpected": [
+        "0.5",
+        "|0|linear|auto|0.2,|1|linear|auto|0.6",
+        "idle",
+        "move",
+        "0"
+      ],
+      "engineExpected": [
+        "0.3",
+        "|0|linear|auto|0.2,|1|linear|auto|0.6",
+        "idle",
+        "move",
+        "0"
+      ],
+      "normativeDifference": "CSS Animations 2 section 2: successful updateTiming member overrides, setKeyframes and effect replacement take precedence over later corresponding authored CSS changes. Chromium reports the overridden API timing/keyframes but paints using newly authored CSS; unchanged after two rendering frames."
+    },
+    {
+      "name": "CSS animation commit additive",
+      "css": "#box{opacity:.2;animation:move 2s linear both paused;animation-composition:add}@keyframes move{from{opacity:.1}to{opacity:.3}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];a.currentTime=1000;record(getComputedStyle(box).opacity);a.commitStyles();record(box.style.opacity);record(getComputedStyle(box).opacity);a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0.4",
+        "0.4",
+        "0.6",
+        "0.4"
+      ]
+    },
+    {
+      "name": "CSS animation computed sparse keyframes",
+      "css": "#box{opacity:.7;animation:move 2s ease both paused}@keyframes move{25%{opacity:.2;transform:translateX(10px)}75%{opacity:.6}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getTiming().easing);record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity,f.transform].join('|')).join(','));record(a.effect.getComputedTiming().progress);return output;",
+      "asynchronous": false,
+      "expected": [
+        "linear",
+        "0|0|ease|replace|0.7|none,0.25|0.25|ease|auto|0.2|translateX(10px),0.75|0.75|ease|auto|0.6|,1|1|ease|replace|0.7|none",
+        "0"
+      ]
+    },
+    {
+      "name": "event dispatch and handler identity",
+      "css": "",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=new AnimationEvent('animationend',{animationName:'move',elapsedTime:1,pseudoElement:'',bubbles:true});box.onanimationend=e=>{record(e===a);record(e.animationName);record(e.target===box);record(e.currentTarget===box);record(e.isTrusted);};document.addEventListener('animationend',e=>record(e.target===box));record(box.dispatchEvent(a));record(a.target===box);return output;",
+      "asynchronous": false,
+      "expected": [
+        "true",
+        "move",
+        "true",
+        "true",
+        "false",
+        "true",
+        "true",
+        "true"
+      ]
+    },
+    {
+      "name": "pending playback reverse paused",
+      "css": "",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=new Animation(new KeyframeEffect(box,[{opacity:0},{opacity:1}],{duration:1000,fill:'both'}));a.finished.catch(()=>{});a.pause();a.ready.catch(()=>{});a.currentTime=400;const ready=a.ready;a.reverse();a.ready.catch(()=>{});record(a.playbackRate);record(a.pending);record(a.playState);record(a.currentTime);record(a.ready===ready);a.reverse();record(a.playbackRate);record(a.pending);a.cancel();record(a.playbackRate);record(a.pending);record(a.playState);return output;",
+      "asynchronous": false,
+      "expected": [
+        "1",
+        "true",
+        "running",
+        "400",
+        "false",
+        "1",
+        "true",
+        "1",
+        "false",
+        "idle"
+      ]
+    },
+    {
+      "name": "pending playback play update cancel",
+      "css": "",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=new Animation(new KeyframeEffect(box,[],1000));a.finished.catch(()=>{});a.play();a.ready.catch(()=>{});const ready=a.ready;a.updatePlaybackRate(3);record(a.playbackRate);record(a.pending);record(a.ready===ready);a.cancel();record(a.playbackRate);record(a.pending);record(a.currentTime);return output;",
+      "asynchronous": false,
+      "expected": [
+        "1",
+        "true",
+        "true",
+        "3",
+        "false",
+        "null"
+      ]
+    },
+    {
+      "name": "pending playback reverse finish",
+      "css": "",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=new Animation(new KeyframeEffect(box,[],1000));a.finished.catch(()=>{});a.pause();a.ready.catch(()=>{});a.currentTime=400;a.reverse();a.ready.catch(()=>{});a.finish();record(a.playbackRate);record(a.pending);record(a.playState);record(a.currentTime);return output;",
+      "asynchronous": false,
+      "expected": [
+        "-1",
+        "false",
+        "finished",
+        "0"
+      ]
+    },
+    {
+      "name": "pending playback direct rate clears update",
+      "css": "",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=new Animation(new KeyframeEffect(box,[],1000));a.finished.catch(()=>{});a.play();a.ready.catch(()=>{});a.updatePlaybackRate(3);a.playbackRate=2;record(a.playbackRate);record(a.pending);a.cancel();record(a.playbackRate);record(a.pending);return output;",
+      "asynchronous": false,
+      "expected": [
+        "2",
+        "true",
+        "2",
+        "false"
+      ]
+    },
+    {
+      "name": "pending playback idle paused update",
+      "css": "",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=new Animation(new KeyframeEffect(box,[],1000));a.updatePlaybackRate(-2);record(a.playbackRate);record(a.pending);record(a.playState);a.pause();a.ready.catch(()=>{});a.currentTime=400;a.updatePlaybackRate(0);record(a.playbackRate);record(a.pending);record(a.playState);record(a.currentTime);a.finished.catch(()=>{});a.cancel();return output;",
+      "asynchronous": false,
+      "expected": [
+        "-2",
+        "false",
+        "idle",
+        "0",
+        "false",
+        "paused",
+        "400"
+      ]
+    },
+    {
+      "name": "pending playback infinite reverse rollback",
+      "css": "",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=new Animation(new KeyframeEffect(box,[],{duration:1000,iterations:Infinity}));errorName(()=>a.reverse());record(a.playbackRate);record(a.pending);record(a.playState);record(a.currentTime);a.updatePlaybackRate(2);record(a.playbackRate);return output;",
+      "asynchronous": false,
+      "expected": [
+        "InvalidStateError",
+        "1",
+        "false",
+        "idle",
+        "null",
+        "2"
+      ]
+    },
+    {
+      "name": "animation lifecycle events",
+      "css": "#box.active{animation:move 1s linear -.25s 2 both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['animationstart','animationiteration','animationend','animationcancel'])box.addEventListener(type,e=>events.push([e.type,e.animationName,e.elapsedTime,e.pseudoElement,e.bubbles,e.cancelable,e.isTrusted].join('|')));box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.currentTime=1000;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.currentTime=1750;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.cancel();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        "animationstart|move|0.25||true|true|true,animationiteration|move|1||true|true|true,animationend|move|2||true|true|true"
+      ],
+      "engineExpected": [
+        "animationstart|move|0.25||true|false|true,animationiteration|move|1||true|false|true,animationend|move|2||true|false|true"
+      ],
+      "normativeDifference": "CSS Animations 1 and CSS Transitions 1 lifecycle event definitions require bubbles=true and cancelable=false. Raw Chromium generated events report cancelable=true; elapsed times, identity, order and trust remain captured unchanged."
+    },
+    {
+      "name": "transition lifecycle events",
+      "css": "#box{opacity:0;transition:opacity 1s linear -.25s}#box.active{opacity:1}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['transitionrun','transitionstart','transitionend','transitioncancel'])box.addEventListener(type,e=>events.push([e.type,e.propertyName,e.elapsedTime,e.pseudoElement,e.bubbles,e.cancelable,e.isTrusted].join('|')));box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.pause();a.currentTime=0;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.finish();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        "transitionrun|opacity|0.25||true|true|true,transitionstart|opacity|0.25||true|true|true,transitionend|opacity|1||true|true|true"
+      ],
+      "engineExpected": [
+        "transitionrun|opacity|0.25||true|false|true,transitionstart|opacity|0.25||true|false|true,transitionend|opacity|1||true|false|true"
+      ],
+      "normativeDifference": "CSS Animations 1 and CSS Transitions 1 lifecycle event definitions require bubbles=true and cancelable=false. Raw Chromium generated events report cancelable=true; elapsed times, identity, order and trust remain captured unchanged."
+    },
+    {
+      "name": "animation lifecycle coalesced reverse seeks",
+      "css": "#box.active{animation:move 1s linear 3 both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['animationstart','animationiteration','animationend','animationcancel'])box.addEventListener(type,e=>events.push([e.type,e.animationName,e.elapsedTime,e.pseudoElement,e.bubbles,e.cancelable,e.isTrusted].join('|')));box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.currentTime=2500;a.currentTime=500;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.currentTime=3500;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.currentTime=500;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.currentTime=-50;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.cancel();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        "animationstart|move|0||true|true|true,animationend|move|3||true|true|true,animationstart|move|3||true|true|true,animationend|move|0||true|true|true,animationcancel|move|-0.05||true|true|true"
+      ],
+      "engineExpected": [
+        "animationstart|move|0||true|false|true,animationend|move|3||true|false|true,animationstart|move|3||true|false|true,animationend|move|0||true|false|true,animationcancel|move|0||true|false|true"
+      ],
+      "normativeDifference": "CSS Animations 1 and CSS Transitions 1 lifecycle event definitions require bubbles=true and cancelable=false. Raw Chromium generated events report cancelable=true; elapsed times, identity, order and trust remain captured unchanged. CSS Animations 2 cancellation uses active time with fill=both; Web Animations 1 clamps before-phase active time to zero, while Chromium exposes negative local time."
+    },
+    {
+      "name": "animation lifecycle reverse iteration",
+      "css": "#box.active{animation:move 1s linear 3 both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['animationstart','animationiteration','animationend','animationcancel'])box.addEventListener(type,e=>events.push([e.type,e.animationName,e.elapsedTime,e.pseudoElement,e.bubbles,e.cancelable,e.isTrusted].join('|')));box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.currentTime=2500;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.currentTime=500;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.cancel();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        "animationstart|move|0||true|true|true,animationiteration|move|2||true|true|true,animationiteration|move|1||true|true|true,animationcancel|move|0.5||true|true|true"
+      ],
+      "engineExpected": [
+        "animationstart|move|0||true|false|true,animationiteration|move|2||true|false|true,animationiteration|move|1||true|false|true,animationcancel|move|0.5||true|false|true"
+      ],
+      "normativeDifference": "CSS Animations 1 and CSS Transitions 1 lifecycle event definitions require bubbles=true and cancelable=false. Raw Chromium generated events report cancelable=true; elapsed times, identity, order and trust remain captured unchanged."
+    },
+    {
+      "name": "transition lifecycle cancel before delay",
+      "css": "#box{opacity:0;transition:opacity 1s linear 1s}#box.active{opacity:1}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['transitionrun','transitionstart','transitionend','transitioncancel'])box.addEventListener(type,e=>events.push([e.type,e.propertyName,e.elapsedTime,e.pseudoElement,e.bubbles,e.cancelable,e.isTrusted].join('|')));box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=500;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.cancel();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        "transitionrun|opacity|0||true|true|true,transitioncancel|opacity|0||true|true|true"
+      ],
+      "engineExpected": [
+        "transitionrun|opacity|0||true|false|true,transitioncancel|opacity|0||true|false|true"
+      ],
+      "normativeDifference": "CSS Animations 1 and CSS Transitions 1 lifecycle event definitions require bubbles=true and cancelable=false. Raw Chromium generated events report cancelable=true; elapsed times, identity, order and trust remain captured unchanged."
+    },
+    {
+      "name": "CSS concurrent transition property order",
+      "css": "#box{opacity:0;width:100px;transition:width 2s linear,opacity 4s linear}#box.active{opacity:1;width:200px}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const values=box.getAnimations();record(values.map(a=>a.transitionProperty).join(','));for(const a of values){a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=1000;}record(getComputedStyle(box).opacity);record(getComputedStyle(box).width);values[0].cancel();record(getComputedStyle(box).opacity);record(getComputedStyle(box).width);record(box.getAnimations().map(a=>a.transitionProperty).join(','));return output;",
+      "asynchronous": false,
+      "expected": [
+        "opacity,width",
+        "0.25",
+        "150px",
+        "1",
+        "150px",
+        "width"
+      ]
+    },
+    {
+      "name": "CSS transition replaced by later script opacity",
+      "css": "#box{opacity:0;transition:opacity 4s linear}#box.active{opacity:1}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=1000;const script=box.animate([{opacity:.8},{opacity:.8}],{duration:1000,fill:'both'});script.finished.catch(()=>{});script.ready.catch(()=>{});script.pause();script.currentTime=500;record(getComputedStyle(box).opacity);a.cancel();record(getComputedStyle(box).opacity);script.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0.8",
+        "0.8",
+        "1"
+      ]
+    },
+    {
+      "name": "CSS transition importance and script property stacks",
+      "css": "#box{opacity:0!important;transition:opacity 4s linear}#box.active{opacity:1!important}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=1000;record(getComputedStyle(box).opacity);const transform=box.animate([{transform:'translateX(10px)'},{transform:'translateX(10px)'}],{duration:1000,fill:'both'});transform.finished.catch(()=>{});transform.ready.catch(()=>{});transform.pause();transform.currentTime=500;record(getComputedStyle(box).opacity);const script=box.animate([{opacity:.8},{opacity:.8}],{duration:1000,fill:'both'});script.finished.catch(()=>{});script.ready.catch(()=>{});script.pause();script.currentTime=500;record(getComputedStyle(box).opacity);script.cancel();record(getComputedStyle(box).opacity);a.finish();record(getComputedStyle(box).opacity);record(getComputedStyle(box).transform);transform.cancel();record(getComputedStyle(box).transform);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0.25",
+        "0.25",
+        "1",
+        "0.25",
+        "1",
+        "matrix(1, 0, 0, 1, 10, 0)",
+        "none"
+      ]
+    },
+    {
+      "name": "CSS animation effect replacement author timing",
+      "css": "#box{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];a.currentTime=500;const original=a.effect;a.effect=new KeyframeEffect(box,[{opacity:.2},{opacity:.6}],{duration:1000,fill:'both'});record(getComputedStyle(box).opacity);box.style.animationDuration='4s';box.style.animationDelay='200ms';box.offsetWidth;record(a.effect.getTiming().duration);record(a.effect.getTiming().delay);record(getComputedStyle(box).opacity);a.effect=null;record(getComputedStyle(box).opacity);record(box.getAnimations().length);a.effect=original;record(getComputedStyle(box).opacity);box.style.animationName='none';box.offsetWidth;record(a.playState);record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0.4",
+        "1000",
+        "0",
+        "0.075",
+        "1",
+        "0",
+        "0.25",
+        "idle",
+        "1"
+      ],
+      "afterRenderingExpected": [
+        "0.4",
+        "1000",
+        "0",
+        "0.075",
+        "1",
+        "0",
+        "0.25",
+        "idle",
+        "1"
+      ],
+      "engineExpected": [
+        "0.4",
+        "1000",
+        "0",
+        "0.4",
+        "1",
+        "0",
+        "0.25",
+        "idle",
+        "1"
+      ],
+      "normativeDifference": "CSS Animations 2 section 2: successful updateTiming member overrides, setKeyframes and effect replacement take precedence over later corresponding authored CSS changes. Chromium reports the overridden API timing/keyframes but paints using newly authored CSS; unchanged after two rendering frames."
+    },
+    {
+      "name": "CSS animation effect retarget restores both boxes",
+      "css": "#box{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];a.currentTime=500;record(getComputedStyle(box).opacity);record(getComputedStyle(leaf).opacity);a.effect.target=leaf;record(getComputedStyle(box).opacity);record(getComputedStyle(leaf).opacity);record(box.getAnimations().length);record(leaf.getAnimations()[0]===a);a.effect.target=box;record(getComputedStyle(box).opacity);record(getComputedStyle(leaf).opacity);a.cancel();record(getComputedStyle(box).opacity);record(getComputedStyle(leaf).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0.25",
+        "1",
+        "1",
+        "0.25",
+        "0",
+        "true",
+        "0.25",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    {
+      "name": "CSS transition script additive underlying",
+      "css": "#box{opacity:0;transition:opacity 4s linear}#box.active{opacity:1}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=1000;const script=box.animate([{opacity:.1},{opacity:.3}],{duration:1000,fill:'both',composite:'add'});script.finished.catch(()=>{});script.ready.catch(()=>{});script.pause();script.currentTime=500;record(getComputedStyle(box).opacity);script.cancel();record(getComputedStyle(box).opacity);a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "1",
+        "0.25",
+        "1"
+      ],
+      "afterRenderingExpected": [
+        "1",
+        "0.25",
+        "1"
+      ],
+      "engineExpected": [
+        "0.45",
+        "0.25",
+        "1"
+      ],
+      "normativeDifference": "Web Animations 1 sections 5.4.2-5.4.5 compose all in-effect property values in class order before inserting the result at the final effect origin: held transition .25 plus script additive .2 = .45. Chromium instead adds the script value to the authored base 1, yielding 1 after clamping; unchanged after two rendering frames."
+    },
+    {
+      "name": "CSS transition commit with important author",
+      "css": "#box{opacity:0!important;transition:opacity 4s linear}#box.active{opacity:1!important}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=1000;record(getComputedStyle(box).opacity);a.commitStyles();record(box.style.opacity);record(getComputedStyle(box).opacity);a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0.25",
+        "1",
+        "0.25",
+        "1"
+      ]
+    },
+    {
+      "name": "animation lifecycle retarget owning element",
+      "css": "#box.active{animation:move 1s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const node of [box,leaf])for(const type of ['animationstart','animationend'])node.addEventListener(type,e=>events.push([e.type,e.target.id,e.currentTarget.id,e.elapsedTime,e.cancelable].join('|')));box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.effect.target=leaf;a.currentTime=1000;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        "animationstart|box|box|0|true,animationend|box|box|1|true"
+      ],
+      "engineExpected": [
+        "animationstart|box|box|0|false,animationend|box|box|1|false"
+      ],
+      "normativeDifference": "CSS Animations 1 and CSS Transitions 1 lifecycle event definitions require bubbles=true and cancelable=false. Raw Chromium generated events report cancelable=true; elapsed times, identity, order and trust remain captured unchanged."
+    },
+    {
+      "name": "animation lifecycle effect removed before event task",
+      "css": "#box.active{animation:move 1s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['animationstart','animationend','animationcancel'])box.addEventListener(type,e=>events.push([e.type,e.animationName,e.elapsedTime,e.cancelable].join('|')));box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.currentTime=500;a.effect=null;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": true,
+      "expected": [
+        "animationstart|move|0|true,animationend|move|1|true",
+        "1"
+      ],
+      "engineExpected": [
+        "animationstart|move|0|false,animationend|move|1|false",
+        "1"
+      ],
+      "normativeDifference": "CSS Animations 1 and CSS Transitions 1 lifecycle event definitions require bubbles=true and cancelable=false. Raw Chromium generated events report cancelable=true; elapsed times, identity, order and trust remain captured unchanged."
+    },
+    {
+      "name": "animation lifecycle canceled before rendering",
+      "css": "#box.active{animation:move 1s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['animationstart','animationend','animationcancel'])box.addEventListener(type,e=>events.push([e.type,e.animationName,e.elapsedTime,e.cancelable].join('|')));box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.cancel();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        ""
+      ]
+    },
+    {
+      "name": "CSS keyframes duplicate offset cascade",
+      "css": "#box{animation:move 1s linear both paused}@keyframes move{from{opacity:0;transform:translateX(0)}50%{opacity:.2}50%{opacity:.6;transform:translateX(40px)}to{opacity:1;transform:translateX(100px)}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity,f.transform].join('|')).join(','));for(const time of [250,500,750]){a.currentTime=time;record(getComputedStyle(box).opacity);record(getComputedStyle(box).transform);}a.cancel();record(getComputedStyle(box).opacity);record(getComputedStyle(box).transform);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0|0|linear|auto|0|translateX(0px),0.5|0.5|linear|auto|0.6|translateX(40px),1|1|linear|auto|1|translateX(100px)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 20, 0)",
+        "0.6",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "0.8",
+        "matrix(1, 0, 0, 1, 70, 0)",
+        "1",
+        "none"
+      ],
+      "paintSamples": {
+        "values": [
+          {
+            "time": 250,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 20, 0)"
+          },
+          {
+            "time": 500,
+            "opacity": "0.6",
+            "transform": "matrix(1, 0, 0, 1, 40, 0)"
+          },
+          {
+            "time": 750,
+            "opacity": "0.8",
+            "transform": "matrix(1, 0, 0, 1, 70, 0)"
+          }
+        ],
+        "restored": {
+          "opacity": "1",
+          "transform": "none"
+        }
+      }
+    },
+    {
+      "name": "CSS keyframes duplicate offset different easing",
+      "css": "#box{animation:move 1s linear both paused}@keyframes move{from{opacity:0}50%{opacity:.2;animation-timing-function:linear}50%{opacity:.6;animation-timing-function:steps(2,start)}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity].join('|')).join(','));for(const time of [250,499,500,501,750]){a.currentTime=time;record(getComputedStyle(box).opacity);}a.cancel();return output;",
+      "asynchronous": false,
+      "expected": [
+        "0|0|linear|auto|0,0.5|0.5|linear|auto|0.2,0.5|0.5|steps(2, start)|auto|0.6,1|1|linear|auto|1",
+        "0.1",
+        "0.1996",
+        "0.8",
+        "0.8",
+        "1"
+      ],
+      "paintSamples": {
+        "values": [
+          {
+            "time": 250,
+            "opacity": "0.1",
+            "transform": "none"
+          },
+          {
+            "time": 499,
+            "opacity": "0.1996",
+            "transform": "none"
+          },
+          {
+            "time": 500,
+            "opacity": "0.8",
+            "transform": "none"
+          },
+          {
+            "time": 501,
+            "opacity": "0.8",
+            "transform": "none"
+          },
+          {
+            "time": 750,
+            "opacity": "1",
+            "transform": "none"
+          }
+        ],
+        "restored": {
+          "opacity": "1",
+          "transform": "none"
+        }
+      }
+    },
+    {
+      "name": "CSS keyframes individual stop composition",
+      "css": "#box{opacity:.2;animation:move 1s linear both paused}@keyframes move{from{opacity:.1;animation-composition:add}50%{opacity:.4;animation-composition:replace}to{opacity:.3;animation-composition:accumulate}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.composite);record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity].join('|')).join(','));for(const time of [0,250,500,750,1000]){a.currentTime=time;record(getComputedStyle(box).opacity);}a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "replace",
+        "0|0|linear|add|0.1,0.5|0.5|linear|replace|0.4,1|1|linear|accumulate|0.3",
+        "0.3",
+        "0.35",
+        "0.4",
+        "0.45",
+        "0.5",
+        "0.2"
+      ],
+      "paintSamples": {
+        "values": [
+          {
+            "time": 0,
+            "opacity": "0.3",
+            "transform": "none"
+          },
+          {
+            "time": 250,
+            "opacity": "0.35",
+            "transform": "none"
+          },
+          {
+            "time": 500,
+            "opacity": "0.4",
+            "transform": "none"
+          },
+          {
+            "time": 750,
+            "opacity": "0.45",
+            "transform": "none"
+          },
+          {
+            "time": 1000,
+            "opacity": "0.5",
+            "transform": "none"
+          }
+        ],
+        "restored": {
+          "opacity": "0.2",
+          "transform": "none"
+        }
+      }
+    },
+    {
+      "name": "CSS keyframes synthetic mixed property endpoints",
+      "css": "#box{opacity:.2;transform:translateX(20px);animation:move 1s linear both paused;animation-composition:add}@keyframes move{from{opacity:.1}50%{transform:translateX(40px)}to{opacity:.3}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity,f.transform].join('|')).join(','));for(const time of [0,250,500,750,1000]){a.currentTime=time;record(getComputedStyle(box).opacity);record(getComputedStyle(box).transform);}a.cancel();record(getComputedStyle(box).opacity);record(getComputedStyle(box).transform);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0|0|linear|auto|0.1|translateX(20px),0.5|0.5|linear|auto||translateX(40px),1|1|linear|auto|0.3|translateX(20px)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 20, 0)",
+        "0.35",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "0.4",
+        "matrix(1, 0, 0, 1, 60, 0)",
+        "0.45",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "0.5",
+        "matrix(1, 0, 0, 1, 20, 0)",
+        "0.2",
+        "matrix(1, 0, 0, 1, 20, 0)"
+      ],
+      "paintSamples": {
+        "values": [
+          {
+            "time": 0,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 20, 0)"
+          },
+          {
+            "time": 250,
+            "opacity": "0.35",
+            "transform": "matrix(1, 0, 0, 1, 40, 0)"
+          },
+          {
+            "time": 500,
+            "opacity": "0.4",
+            "transform": "matrix(1, 0, 0, 1, 60, 0)"
+          },
+          {
+            "time": 750,
+            "opacity": "0.45",
+            "transform": "matrix(1, 0, 0, 1, 40, 0)"
+          },
+          {
+            "time": 1000,
+            "opacity": "0.5",
+            "transform": "matrix(1, 0, 0, 1, 20, 0)"
+          }
+        ],
+        "restored": {
+          "opacity": "0.2",
+          "transform": "matrix(1, 0, 0, 1, 20, 0)"
+        }
+      }
+    },
+    {
+      "name": "CSS keyframes duplicate invalid and important values",
+      "css": "#box{opacity:.8;animation:move 1s linear both paused}@keyframes move{from{opacity:0}50%{opacity:.2;animation-timing-function:linear}50%{opacity:invalid;opacity:.9!important;animation-composition:invalid;animation-timing-function:invalid}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity].join('|')).join(','));for(const time of [250,500,750]){a.currentTime=time;record(getComputedStyle(box).opacity);}a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0|0|linear|auto|0,0.5|0.5|linear|auto|0.2,1|1|linear|auto|1",
+        "0.1",
+        "0.2",
+        "0.6",
+        "0.8"
+      ],
+      "paintSamples": {
+        "values": [
+          {
+            "time": 250,
+            "opacity": "0.1",
+            "transform": "none"
+          },
+          {
+            "time": 500,
+            "opacity": "0.2",
+            "transform": "none"
+          },
+          {
+            "time": 750,
+            "opacity": "0.6",
+            "transform": "none"
+          }
+        ],
+        "restored": {
+          "opacity": "0.8",
+          "transform": "none"
+        }
+      }
+    },
+    {
+      "name": "CSS keyframes duplicate automatic explicit replace",
+      "css": "#box{opacity:.2;animation:move 1s linear both paused}@keyframes move{from{opacity:0}50%{opacity:.2}50%{opacity:.6;animation-composition:replace}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity].join('|')).join(','));for(const time of [250,500,750]){a.currentTime=time;record(getComputedStyle(box).opacity);}a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0|0|linear|auto|0,0.5|0.5|linear|auto|0.2,0.5|0.5|linear|replace|0.6,1|1|linear|auto|1",
+        "0.1",
+        "0.6",
+        "0.8",
+        "0.2"
+      ],
+      "paintSamples": {
+        "values": [
+          {
+            "time": 250,
+            "opacity": "0.1",
+            "transform": "none"
+          },
+          {
+            "time": 500,
+            "opacity": "0.6",
+            "transform": "none"
+          },
+          {
+            "time": 750,
+            "opacity": "0.8",
+            "transform": "none"
+          }
+        ],
+        "restored": {
+          "opacity": "0.2",
+          "transform": "none"
+        }
+      },
+      "afterRenderingExpected": [
+        "0|0|linear|auto|0,0.5|0.5|linear|auto|0.2,0.5|0.5|linear|replace|0.6,1|1|linear|auto|1",
+        "0.1",
+        "0.6",
+        "0.8",
+        "0.2"
+      ],
+      "engineExpected": [
+        "0|0|linear|auto|0,0.5|0.5|linear|auto|0.6,1|1|linear|auto|1",
+        "0.3",
+        "0.6",
+        "0.8",
+        "0.2"
+      ],
+      "enginePaintSamples": {
+        "values": [
+          {
+            "time": 250,
+            "opacity": "0.3",
+            "transform": "none"
+          },
+          {
+            "time": 500,
+            "opacity": "0.6",
+            "transform": "none"
+          },
+          {
+            "time": 750,
+            "opacity": "0.8",
+            "transform": "none"
+          }
+        ],
+        "restored": {
+          "opacity": "0.2",
+          "transform": "none"
+        }
+      },
+      "normativeDifference": "CSS Animations 2 section 3.2 groups declarations by the computed composition, defaulting to the element composition. Omitted and explicit replace therefore form one offset group here; Chromium instead distinguishes its API auto token, retaining two frames and sampling .1 instead of .3 at 250ms. Raw results are stable after rendering."
+    },
+    {
+      "name": "CSS keyframes synthetic endpoint different metadata",
+      "css": "#box{opacity:.2;transform:translateX(20px);animation:move 1s linear both paused;animation-composition:add}@keyframes move{from{opacity:.1;animation-timing-function:steps(2,start)}50%{transform:translateX(40px)}to{opacity:.3;animation-composition:replace}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity,f.transform].join('|')).join(','));for(const time of [0,250,500,750,1000]){a.currentTime=time;record(getComputedStyle(box).opacity);record(getComputedStyle(box).transform);}a.cancel();record(getComputedStyle(box).opacity);record(getComputedStyle(box).transform);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0|0|steps(2, start)|auto|0.1|,0|0|linear|replace||translateX(20px),0.5|0.5|linear|auto||translateX(40px),1|1|linear|replace|0.3|translateX(20px)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 60, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 60, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 20, 0)",
+        "0.2",
+        "matrix(1, 0, 0, 1, 20, 0)"
+      ],
+      "paintSamples": {
+        "values": [
+          {
+            "time": 0,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 40, 0)"
+          },
+          {
+            "time": 250,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 60, 0)"
+          },
+          {
+            "time": 500,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 60, 0)"
+          },
+          {
+            "time": 750,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 40, 0)"
+          },
+          {
+            "time": 1000,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 20, 0)"
+          }
+        ],
+        "restored": {
+          "opacity": "0.2",
+          "transform": "matrix(1, 0, 0, 1, 20, 0)"
+        }
+      },
+      "afterRenderingExpected": [
+        "0|0|steps(2, start)|auto|0.1|,0|0|linear|replace||translateX(20px),0.5|0.5|linear|auto||translateX(40px),1|1|linear|replace|0.3|translateX(20px)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 60, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 60, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 20, 0)",
+        "0.2",
+        "matrix(1, 0, 0, 1, 20, 0)"
+      ],
+      "engineExpected": [
+        "0|0|linear|replace||translateX(20px),0|0|steps(2, start)|auto|0.1|,0.5|0.5|linear|auto||translateX(40px),1|1|linear|replace|0.3|translateX(20px)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 20, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 60, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 40, 0)",
+        "0.3",
+        "matrix(1, 0, 0, 1, 20, 0)",
+        "0.2",
+        "matrix(1, 0, 0, 1, 20, 0)"
+      ],
+      "enginePaintSamples": {
+        "values": [
+          {
+            "time": 0,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 20, 0)"
+          },
+          {
+            "time": 250,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 40, 0)"
+          },
+          {
+            "time": 500,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 60, 0)"
+          },
+          {
+            "time": 750,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 40, 0)"
+          },
+          {
+            "time": 1000,
+            "opacity": "0.3",
+            "transform": "matrix(1, 0, 0, 1, 20, 0)"
+          }
+        ],
+        "restored": {
+          "opacity": "0.2",
+          "transform": "matrix(1, 0, 0, 1, 20, 0)"
+        }
+      },
+      "exportedFrameReplay": [
+        {
+          "time": 0,
+          "opacity": "0.3",
+          "transform": "matrix(1, 0, 0, 1, 20, 0)"
+        },
+        {
+          "time": 250,
+          "opacity": "0.3",
+          "transform": "matrix(1, 0, 0, 1, 40, 0)"
+        },
+        {
+          "time": 500,
+          "opacity": "0.3",
+          "transform": "matrix(1, 0, 0, 1, 60, 0)"
+        },
+        {
+          "time": 750,
+          "opacity": "0.3",
+          "transform": "matrix(1, 0, 0, 1, 40, 0)"
+        },
+        {
+          "time": 1000,
+          "opacity": "0.3",
+          "transform": "matrix(1, 0, 0, 1, 20, 0)"
+        }
+      ],
+      "normativeDifference": "CSS Animations 2 section 3.2 keeps metadata-only frames, inserts missing property endpoints with default timing, and prepends the synthetic initial frame. Web Animations 1 section 5.3.4 removes frames without the sampled property. Chromium reports separate linear synthetic frames but samples the metadata-only steps frame for other properties; stable after rendering. Replaying the exported frames as a WAAPI effect confirms the per-property standard result; raw paint and replay are both preserved."
+    },
+    {
+      "name": "CSS keyframes metadata only and implicit endpoints",
+      "css": "#box{opacity:.2;animation:move 1s linear both paused}@keyframes move{from{animation-timing-function:steps(2,start)}50%{opacity:.6;animation-composition:add}to{animation-composition:accumulate}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getKeyframes().map(f=>[f.offset,f.computedOffset,f.easing,f.composite,f.opacity].join('|')).join(','));for(const time of [0,250,500,750,1000]){a.currentTime=time;record(getComputedStyle(box).opacity);}a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0|0|steps(2, start)|auto|,0|0|linear|replace|0.2,0.5|0.5|linear|add|0.6,1|1|linear|accumulate|,1|1|linear|replace|0.2",
+        "0.5",
+        "0.8",
+        "0.8",
+        "0.5",
+        "0.2",
+        "0.2"
+      ],
+      "paintSamples": {
+        "values": [
+          {
+            "time": 0,
+            "opacity": "0.5",
+            "transform": "none"
+          },
+          {
+            "time": 250,
+            "opacity": "0.8",
+            "transform": "none"
+          },
+          {
+            "time": 500,
+            "opacity": "0.8",
+            "transform": "none"
+          },
+          {
+            "time": 750,
+            "opacity": "0.5",
+            "transform": "none"
+          },
+          {
+            "time": 1000,
+            "opacity": "0.2",
+            "transform": "none"
+          }
+        ],
+        "restored": {
+          "opacity": "0.2",
+          "transform": "none"
+        }
+      },
+      "afterRenderingExpected": [
+        "0|0|steps(2, start)|auto|,0|0|linear|replace|0.2,0.5|0.5|linear|add|0.6,1|1|linear|accumulate|,1|1|linear|replace|0.2",
+        "0.5",
+        "0.8",
+        "0.8",
+        "0.5",
+        "0.2",
+        "0.2"
+      ],
+      "engineExpected": [
+        "0|0|linear|replace|0.2,0|0|steps(2, start)|auto|,0.5|0.5|linear|add|0.6,1|1|linear|accumulate|,1|1|linear|replace|0.2",
+        "0.2",
+        "0.5",
+        "0.8",
+        "0.5",
+        "0.2",
+        "0.2"
+      ],
+      "enginePaintSamples": {
+        "values": [
+          {
+            "time": 0,
+            "opacity": "0.2",
+            "transform": "none"
+          },
+          {
+            "time": 250,
+            "opacity": "0.5",
+            "transform": "none"
+          },
+          {
+            "time": 500,
+            "opacity": "0.8",
+            "transform": "none"
+          },
+          {
+            "time": 750,
+            "opacity": "0.5",
+            "transform": "none"
+          },
+          {
+            "time": 1000,
+            "opacity": "0.2",
+            "transform": "none"
+          }
+        ],
+        "restored": {
+          "opacity": "0.2",
+          "transform": "none"
+        }
+      },
+      "exportedFrameReplay": [
+        {
+          "time": 0,
+          "opacity": "0.2",
+          "transform": "none"
+        },
+        {
+          "time": 250,
+          "opacity": "0.5",
+          "transform": "none"
+        },
+        {
+          "time": 500,
+          "opacity": "0.8",
+          "transform": "none"
+        },
+        {
+          "time": 750,
+          "opacity": "0.5",
+          "transform": "none"
+        },
+        {
+          "time": 1000,
+          "opacity": "0.2",
+          "transform": "none"
+        }
+      ],
+      "normativeDifference": "CSS Animations 2 section 3.2 keeps metadata-only frames, inserts missing property endpoints with default timing, and prepends the synthetic initial frame. Web Animations 1 section 5.3.4 removes frames without the sampled property. Chromium reports separate linear synthetic frames but samples the metadata-only steps frame for other properties; stable after rendering. Replaying the exported frames as a WAAPI effect confirms the per-property standard result; raw paint and replay are both preserved."
+    },
+    {
+      "name": "CSS animation API cancel replay owning order",
+      "css": "#box{opacity:.9}#box.active{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const script=box.animate([{opacity:.4},{opacity:.4}],{duration:1000,fill:'both'});script.finished.catch(()=>{});script.ready.catch(()=>{});script.pause();script.currentTime=500;box.className='active';box.offsetWidth;const a=box.getAnimations().find(value=>value instanceof CSSAnimation);a.finished.catch(()=>{});a.ready.catch(()=>{});a.currentTime=500;record(getComputedStyle(box).opacity);a.cancel();record(getComputedStyle(box).opacity);a.pause();a.ready.catch(()=>{});a.currentTime=1000;record(a.playState);record(getComputedStyle(box).opacity);record(box.getAnimations().map(value=>value===a?'css':'script').join(','));script.cancel();record(getComputedStyle(box).opacity);a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0.4",
+        "0.4",
+        "paused",
+        "0.4",
+        "css,script",
+        "0.5",
+        "0.9"
+      ]
+    },
+    {
+      "name": "CSS animation disassociated replay global order",
+      "css": "#box{opacity:.9;animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.currentTime=500;const script=box.animate([{opacity:.4},{opacity:.4}],{duration:1000,fill:'both'});script.finished.catch(()=>{});script.ready.catch(()=>{});script.pause();script.currentTime=500;box.style.animationName='none';box.offsetWidth;record(a.playState);record(getComputedStyle(box).opacity);a.pause();a.ready.catch(()=>{});a.currentTime=1000;record(getComputedStyle(box).opacity);record(box.getAnimations().map(value=>value===a?'css':'script').join(','));a.cancel();record(getComputedStyle(box).opacity);script.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "idle",
+        "0.4",
+        "0.4",
+        "css,script",
+        "0.4",
+        "0.9"
+      ]
+    },
+    {
+      "name": "CSS transition API cancel replay important origin",
+      "css": "#box{opacity:0!important;transition:opacity 2s linear}#box.active{opacity:1!important}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=500;record(getComputedStyle(box).opacity);a.cancel();record(getComputedStyle(box).opacity);a.pause();a.ready.catch(()=>{});a.currentTime=1000;record(getComputedStyle(box).opacity);record(a.transitionProperty);record(box.getAnimations()[0]===a);a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "0.25",
+        "1",
+        "0.5",
+        "opacity",
+        "true",
+        "1"
+      ]
+    },
+    {
+      "name": "CSS transition finish seek owning origin",
+      "css": "#box{opacity:0!important;transition:opacity 2s linear}#box.active{opacity:1!important}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=500;a.finish();record(a.playState);record(getComputedStyle(box).opacity);a.pause();a.ready.catch(()=>{});a.currentTime=1000;record(getComputedStyle(box).opacity);record(a.transitionProperty);record(box.getAnimations()[0]===a);a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "finished",
+        "1",
+        "0.5",
+        "opacity",
+        "true",
+        "1"
+      ]
+    },
+    {
+      "name": "CSS transition disassociated replay importance",
+      "css": "#box{opacity:0!important;transition:opacity 2s linear}#box.active{opacity:1!important}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=500;box.style.transitionProperty='none';box.offsetWidth;record(a.playState);record(getComputedStyle(box).opacity);a.pause();a.ready.catch(()=>{});a.currentTime=1000;record(getComputedStyle(box).opacity);record(a.transitionProperty);record(box.getAnimations()[0]===a);a.cancel();record(getComputedStyle(box).opacity);return output;",
+      "asynchronous": false,
+      "expected": [
+        "idle",
+        "1",
+        "1",
+        "opacity",
+        "true",
+        "1"
+      ]
+    },
+    {
+      "name": "animation lifecycle API cancel replay owning element",
+      "css": "#box.active{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['animationstart','animationend','animationcancel'])box.addEventListener(type,e=>events.push(e.type+'|'+e.elapsedTime));box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.currentTime=500;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.cancel();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.pause();a.ready.catch(()=>{});a.currentTime=1000;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.cancel();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        "animationstart|0,animationcancel|0.5,animationstart|0,animationcancel|1"
+      ]
+    },
+    {
+      "name": "animation lifecycle disassociated replay",
+      "css": "#box.active{animation:move 2s linear both paused}@keyframes move{from{opacity:0}to{opacity:1}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['animationstart','animationend','animationcancel'])box.addEventListener(type,e=>events.push(e.type+'|'+e.elapsedTime));box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.currentTime=500;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));box.style.animationName='none';box.offsetWidth;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.pause();a.ready.catch(()=>{});a.currentTime=1000;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.cancel();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        "animationstart|0,animationcancel|0.5"
+      ]
+    },
+    {
+      "name": "transition lifecycle API cancel replay owning element",
+      "css": "#box{opacity:0;transition:opacity 2s linear}#box.active{opacity:1}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const events=[];for(const type of ['transitionrun','transitionstart','transitionend','transitioncancel'])box.addEventListener(type,e=>events.push(e.type+'|'+e.elapsedTime));box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=500;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.cancel();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.pause();a.ready.catch(()=>{});a.currentTime=1000;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.finish();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));a.cancel();record(events.join(','));return output;",
+      "asynchronous": true,
+      "expected": [
+        "transitionrun|0,transitionstart|0,transitioncancel|0.5,transitionrun|0,transitionstart|0,transitionend|2"
+      ]
+    },
+    {
+      "name": "CSS transition finished fractional border owning seek",
+      "css": "#box{border-top:2.5px solid red;transition:border-top-width 2s linear}#box.active{border-top-width:6.5px}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}box.offsetWidth;box.className='active';box.offsetWidth;const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});a.pause();a.currentTime=500;record(getComputedStyle(box).borderTopWidth);a.finish();record(getComputedStyle(box).borderTopWidth);a.pause();a.ready.catch(()=>{});a.currentTime=1000;record(getComputedStyle(box).borderTopWidth);record(box.getAnimations()[0]===a);a.cancel();record(getComputedStyle(box).borderTopWidth);return output;",
+      "asynchronous": false,
+      "expected": [
+        "3px",
+        "6px",
+        "4px",
+        "true",
+        "6px"
+      ]
+    },
+    {
+      "name": "CSS animation transform keyframe source forms",
+      "css": "#box{animation:move 1s linear both paused}@keyframes move{from{transform:translate(10px,0px) translateY(2px) translateZ(0px) scale(2,2) scaleX(1) scaleZ(1) rotateZ(0deg) skewX(0deg) skewY(0deg) matrix(1,0,0,1,0,0) matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)}to{transform:translate(30px,0px) translateY(6px) translateZ(0px) scale(4,4) scaleX(1) scaleZ(1) rotateZ(0deg) skewX(0deg) skewY(0deg) matrix(1,0,0,1,0,0) matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getKeyframes().map(f=>f.transform).join('|'));a.cancel();record(getComputedStyle(box).transform);return output;",
+      "asynchronous": false,
+      "expected": [
+        "translate(10px) translateY(2px) translateZ(0px) scale(2) scaleX(1) scaleZ(1) rotateZ(0deg) skewX(0deg) skewY(0deg) matrix(1, 0, 0, 1, 0, 0) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)|translate(30px) translateY(6px) translateZ(0px) scale(4) scaleX(1) scaleZ(1) rotateZ(0deg) skewX(0deg) skewY(0deg) matrix(1, 0, 0, 1, 0, 0) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+        "none"
+      ]
+    },
+    {
+      "name": "CSS animation variable transform invalid later declaration",
+      "css": "#box{--motion:translateX(12px) scaleY(2);animation:move 1s linear both paused}@keyframes move{from{transform:var(--motion);transform:invalid}to{transform:translateY(40px);transform:invalid}}",
+      "source": "const box=document.getElementById('box'),leaf=document.getElementById('leaf');const output=[];function record(value){output.push(String(value));}function errorName(fn){try{fn();record('no error');}catch(error){record(error.name);}}const a=box.getAnimations()[0];record(a.effect.getKeyframes().map(f=>f.transform).join('|'));box.style.setProperty('--motion','translateX(20px) scaleY(4)');box.offsetWidth;record(a.effect.getKeyframes().map(f=>f.transform).join('|'));record(a===box.getAnimations()[0]);a.cancel();record(getComputedStyle(box).transform);return output;",
+      "asynchronous": false,
+      "expected": [
+        "translateX(12px) scaleY(2)|translateY(40px)",
+        "translateX(20px) scaleY(4)|translateY(40px)",
+        "true",
+        "none"
+      ]
+    },
+    {
+      "name": "animation replacement complete channels and event",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);const events=[];for(const x of[a,b]){x.onfinish=()=>events.push(x===a?'af':'bf');x.onremove=e=>events.push((x===a?'ar':'br')+'|'+e.currentTime+'|'+(e.timelineTime!==null)+'|'+e.bubbles+'|'+e.cancelable+'|'+e.isTrusted+'|'+(e.target===a));x.finish();}record(a.replaceState);record(box.getAnimations().length);await nextRender();record(a.replaceState);record(b.replaceState);record(box.getAnimations().length);record(getComputedStyle(box).opacity);record(events.join(','));for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "active",
+        "2",
+        "removed",
+        "active",
+        "1",
+        "0.7",
+        "af,bf,ar|1000|true|false|false|true|true"
+      ]
+    },
+    {
+      "name": "animation replacement unfinished higher effect",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);a.finish();b.pause();b.currentTime=500;await nextRender();record(a.replaceState);record(box.getAnimations().length);b.finish();await nextRender();record(a.replaceState);record(box.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "active",
+        "2",
+        "removed",
+        "1"
+      ]
+    },
+    {
+      "name": "animation replacement removed replay cancel persist",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);a.finish();b.finish();await nextRender();b.cancel();record(a.replaceState);record(getComputedStyle(box).opacity);a.pause();a.currentTime=500;record(a.replaceState);record(box.getAnimations().length);record(getComputedStyle(box).opacity);a.play();await a.ready;record(a.replaceState);record(box.getAnimations().length);record(getComputedStyle(box).opacity);a.pause();a.currentTime=500;a.persist();record(a.replaceState);record(box.getAnimations().length);record(getComputedStyle(box).opacity);a.finished.catch(()=>{});a.cancel();record(a.replaceState);a.play();a.pause();a.currentTime=500;record(a.replaceState);record(getComputedStyle(box).opacity);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "removed",
+        "1",
+        "removed",
+        "0",
+        "1",
+        "removed",
+        "0",
+        "1",
+        "persisted",
+        "1",
+        "0.2",
+        "persisted",
+        "persisted",
+        "0.2"
+      ]
+    },
+    {
+      "name": "animation replacement persisted effects cover older",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);a.persist();a.finish();b.finish();await nextRender();record(a.replaceState);record(b.replaceState);record(box.getAnimations().length);const c=make([{opacity:.2},{opacity:.4}]);c.persist();c.finish();await nextRender();record(b.replaceState);record(c.replaceState);record(box.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "persisted",
+        "active",
+        "2",
+        "removed",
+        "persisted",
+        "2"
+      ]
+    },
+    {
+      "name": "animation replacement collective coverage",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1,translate:'10px'},{opacity:.3,translate:'30px'}]),b=make([{opacity:.5},{opacity:.7}]);a.finish();b.finish();await nextRender();record(a.replaceState);const c=make([{translate:'50px'},{translate:'70px'}]);c.finish();await nextRender();record(a.replaceState);record(b.replaceState);record(c.replaceState);record(box.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "active",
+        "removed",
+        "active",
+        "active",
+        "2"
+      ]
+    },
+    {
+      "name": "animation replacement additive removal and commit",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};box.style.opacity='.1';const a=make([{opacity:.1},{opacity:.2}]),b=make([{opacity:.3},{opacity:.4}],{composite:'add'});a.finish();b.finish();record(getComputedStyle(box).opacity);await nextRender();record(a.replaceState);record(getComputedStyle(box).opacity);a.commitStyles();record(box.style.opacity);record(getComputedStyle(box).opacity);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "0.6",
+        "removed",
+        "0.5",
+        "0.2",
+        "0.6"
+      ]
+    },
+    {
+      "name": "animation replacement disconnected target",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const leaf=document.getElementById('leaf'),a=make([{opacity:.1},{opacity:.3}],{},leaf),b=make([{opacity:.5},{opacity:.7}],{},leaf);leaf.remove();a.finish();b.finish();await nextRender();record(a.replaceState);record(leaf.getAnimations().length);box.append(leaf);await nextRender();record(a.replaceState);record(leaf.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "removed",
+        "0",
+        "removed",
+        "1"
+      ],
+      "engineExpected": [
+        "active",
+        "2",
+        "removed",
+        "1"
+      ],
+      "normativeDifference": "Web Animations 1 section 5.5.2 requires the effect target to be a document descendant before automatic removal. Chromium removes the disconnected target; the raw browser output is preserved."
+    },
+    {
+      "name": "animation replacement unfilled and null timeline",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}],{fill:'none'}),b=make([{opacity:.5},{opacity:.7}]);a.finish();b.finish();await nextRender();record(a.replaceState);record(box.getAnimations().length);const c=make([{opacity:.1},{opacity:.3}],{timeline:null});c.currentTime=1000;const d=make([{opacity:.2},{opacity:.4}]);d.finish();await nextRender();record(c.replaceState);record(b.replaceState);record(box.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "active",
+        "1",
+        "active",
+        "removed",
+        "2"
+      ]
+    },
+    {
+      "name": "animation replacement empty effect covered",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([]),b=make([{opacity:.5},{opacity:.7}]);a.finish();b.finish();await nextRender();record(a.replaceState);record(b.replaceState);record(box.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "removed",
+        "active",
+        "1"
+      ]
+    },
+    {
+      "name": "animation replacement shorthand physical channels",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{margin:'1px'},{margin:'3px'}]),b=make([{marginTop:'5px',marginRight:'5px',marginBottom:'5px'},{marginTop:'7px',marginRight:'7px',marginBottom:'7px'}]);a.finish();b.finish();await nextRender();record(a.replaceState);const c=make([{marginLeft:'5px'},{marginLeft:'7px'}]);c.finish();await nextRender();record(a.replaceState);record(box.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "active",
+        "removed",
+        "2"
+      ]
+    },
+    {
+      "name": "animation replacement removed effect replacement",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);a.finish();b.finish();await nextRender();a.effect=new KeyframeEffect(box,[{translate:'20px'},{translate:'40px'}],{duration:1000,fill:'both'});record(a.replaceState);record(getComputedStyle(box).translate);a.persist();record(a.replaceState);record(getComputedStyle(box).translate);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "removed",
+        "none",
+        "persisted",
+        "40px"
+      ]
+    },
+    {
+      "name": "animation replacement CSS owning controller protected",
+      "css": "@keyframes move{from{opacity:.1}to{opacity:.3}}",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};box.style.animation='move 1s both';const a=box.getAnimations()[0];a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);a.finish();const b=make([{opacity:.5},{opacity:.7}]);b.finish();await nextRender();record(a.replaceState);record(b.replaceState);record(box.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "active",
+        "active",
+        "2"
+      ]
+    },
+    {
+      "name": "animation replacement solitary empty effect",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([]);a.finish();await nextRender();record(a.replaceState);record(box.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "active",
+        "1"
+      ],
+      "engineExpected": [
+        "removed",
+        "0"
+      ],
+      "normativeDifference": "Web Animations 1 section 5.5.2 quantifies over all targeted properties, so a connected replaceable effect with no properties satisfies the covering condition vacuously. Chromium retains that solitary empty effect; the raw browser output is preserved."
+    },
+    {
+      "name": "animation replacement reentrant remove persist commit",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);const finished=a.finished,ready=a.ready;let removed=0;a.onremove=e=>{removed++;record(e instanceof AnimationPlaybackEvent);record(e.currentTime);record(e.timelineTime!==null);record(a.replaceState);a.commitStyles();a.persist();b.cancel();record(a.replaceState);record(box.getAnimations().length);record(box.style.opacity);record(getComputedStyle(box).opacity);};a.finish();b.finish();await nextRender();await nextRender();record(removed);record(a.finished===finished);record(a.ready===ready);record(a.playState);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "true",
+        "1000",
+        "true",
+        "removed",
+        "persisted",
+        "1",
+        "0.3",
+        "0.3",
+        "1",
+        "true",
+        "true",
+        "finished"
+      ]
+    },
+    {
+      "name": "animation replacement canceled coverer",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);let removed=0;a.onremove=()=>removed++;a.finish();b.finish();b.cancel();await nextRender();record(a.replaceState);record(removed);record(getComputedStyle(box).opacity);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "active",
+        "0",
+        "0.3"
+      ]
+    },
+    {
+      "name": "animation replacement paused endpoint coverer",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);a.finish();b.pause();b.currentTime=1000;await nextRender();record(a.replaceState);record(b.playState);record(box.getAnimations().length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "active",
+        "paused",
+        "2"
+      ]
+    },
+    {
+      "name": "animation replacement removed reverse and retarget",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);a.finish();b.finish();await nextRender();b.cancel();a.reverse();await a.ready;a.pause();a.currentTime=400;record(a.replaceState);record(getComputedStyle(box).opacity);const leaf=document.getElementById('leaf');a.effect.target=leaf;record(a.replaceState);record(getComputedStyle(leaf).opacity);a.persist();record(getComputedStyle(leaf).opacity);record(box.getAnimations({subtree:true}).length);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "removed",
+        "1",
+        "removed",
+        "1",
+        "0.18",
+        "1"
+      ]
+    },
+    {
+      "name": "animation replacement reversed filled coverer",
+      "css": "",
+      "source": "const box=document.getElementById('box'),output=[],all=[];const record=x=>output.push(String(x));const nextRender=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const make=(frames,opts={},target=box)=>{const a=target.animate(frames,{duration:1000,fill:'both',...opts});a.finished.catch(()=>{});a.ready.catch(()=>{});all.push(a);return a;};const a=make([{opacity:.1},{opacity:.3}]),b=make([{opacity:.5},{opacity:.7}]);a.finish();b.playbackRate=-1;b.finish();await nextRender();record(a.replaceState);record(b.replaceState);record(getComputedStyle(box).opacity);for(const a of all){a.finished.catch(()=>{});a.ready.catch(()=>{});a.cancel();}return output;",
+      "asynchronous": true,
+      "expected": [
+        "removed",
+        "active",
+        "0.5"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-18T15:53:24.591Z",
+  "browser": "Chrome/155.0.8059.80",
+  "reference": "https://wicg.github.io/scheduling-apis/",
+  "standard": {
+    "documentDate": "30 May 2025",
+    "snapshot": "build/engine-expansion-20261018/scheduler-standard.html",
+    "sha256": "be7e46913e5b11ebe1b71504e6901b95e5fb468db23660c2e404700a0e99f948"
+  },
+  "scope": "Strict intra-Scheduler priority and continuation ordering, Promise inheritance, IDL failures, dynamic events and abort; no UA task-source/native compositor timing guarantee",
+  "records": [
+    {
+      "name": "priorities",
+      "source": "var log=[];var c=new TaskController({priority:'background'});var jobs=[];jobs.push(scheduler.postTask(()=>log.push('dynamic'),{signal:c.signal}));jobs.push(scheduler.postTask(()=>log.push('visible')));jobs.push(scheduler.postTask(()=>log.push('blocking'),{priority:'user-blocking'}));c.setPriority('user-blocking');Promise.all(jobs).then(()=>{globalThis.result=log.join('|')});",
+      "result": "dynamic|blocking|visible"
+    },
+    {
+      "name": "yield-through-await",
+      "source": "var log=[];var c=new TaskController({priority:'background'});var jobs=[];jobs.push(scheduler.postTask(async()=>{log.push('start');await Promise.resolve();await scheduler.yield();log.push('resume');await scheduler.yield();log.push('again')},{signal:c.signal}));jobs.push(scheduler.postTask(()=>log.push('peer'),{priority:'background'}));Promise.all(jobs).then(()=>{globalThis.result=log.join('|')});",
+      "result": "start|resume|again|peer"
+    },
+    {
+      "name": "then-context",
+      "source": "var log=[];var c=new TaskController({priority:'background'});var jobs=[];jobs.push(scheduler.postTask(()=>Promise.resolve().then(()=>scheduler.yield()).then(()=>log.push('continued')),{signal:c.signal}));jobs.push(scheduler.postTask(()=>log.push('blocking'),{priority:'user-blocking'}));jobs.push(scheduler.postTask(()=>log.push('peer'),{priority:'background'}));Promise.all(jobs).then(()=>{globalThis.result=log.join('|')});",
+      "result": "blocking|continued|peer"
+    },
+    {
+      "name": "invalid-options",
+      "source": "var log=[];var jobs=[];for(const x of [{delay:-1},{delay:Infinity},{delay:1n},{priority:'bad'},{signal:null},4])jobs.push(scheduler.postTask(()=>{},x).then(()=>log.push('resolved'),e=>log.push(e.name)));Promise.all(jobs).then(()=>{globalThis.result=log.join('|')});",
+      "result": "TypeError|TypeError|TypeError|TypeError|TypeError|TypeError"
+    },
+    {
+      "name": "priority-events",
+      "source": "var log=[],c=new TaskController({priority:'background'}),d=TaskSignal.any([],{priority:c.signal});d.onprioritychange=e=>log.push('child:'+e.previousPriority+':'+d.priority);c.signal.onprioritychange=e=>{log.push('root:'+e.previousPriority+':'+c.signal.priority);try{c.setPriority('background')}catch(x){log.push(x.name)}};c.setPriority('user-blocking');c.setPriority('user-blocking');globalThis.result=log.join('|');",
+      "result": "root:background:user-blocking|NotAllowedError|child:background:user-blocking"
+    },
+    {
+      "name": "abort-after-start",
+      "source": "var log=[],c=new TaskController();var release;var entered=new Promise(r=>release=r);var a=scheduler.postTask(async()=>{log.push('start');await entered;await scheduler.yield();log.push('forbidden')},{signal:c.signal}).catch(e=>log.push('abort:'+e));scheduler.postTask(()=>{c.abort('reason');release()},{priority:'background'});a.then(()=>{globalThis.result=log.join('|')});",
+      "result": "start|abort:reason"
+    },
+    {
+      "name": "event-conversion-order",
+      "source": "var log=[];try{new TaskPriorityChangeEvent({toString(){log.push('type');return 'priority'}},4)}catch(e){log.push(e.name)}try{new TaskPriorityChangeEvent({toString(){throw 'type-error'}},4)}catch(e){log.push(e)}globalThis.result=log.join('|');",
+      "result": "type|TypeError|type-error"
+    },
+    {
+      "name": "abort-running-value",
+      "source": "var c=new TaskController();scheduler.postTask(()=>{c.abort('stopped');return 42},{signal:c.signal}).then(value=>globalThis.result='value:'+value,e=>globalThis.result='abort:'+e);",
+      "result": "abort:stopped"
+    },
+    {
+      "name": "abort-running-throw",
+      "source": "var c=new TaskController();scheduler.postTask(()=>{c.abort('stopped');throw 27},{signal:c.signal}).then(value=>globalThis.result='value:'+value,e=>globalThis.result='abort:'+e);",
+      "result": "abort:stopped"
+    },
+    {
+      "name": "returned-thenable-context",
+      "source": "var log=[],c=new TaskController();scheduler.postTask(()=>{Promise.resolve().then(()=>{c.abort('stopped');return {then(resolve){scheduler.yield().then(()=>{log.push('resolved');resolve()},e=>{log.push('abort:'+e);resolve()})}}}).then(()=>globalThis.result=log.join('|'))},{signal:c.signal}).catch(()=>{});",
+      "result": "abort:stopped"
+    },
+    {
+      "name": "scheduler-property",
+      "source": "var d=Object.getOwnPropertyDescriptor(globalThis,'scheduler');globalThis.result=JSON.stringify([typeof d.get,typeof d.set,d.enumerable,d.configurable,'writable' in d]);",
+      "result": "[\"function\",\"function\",true,true,false]"
+    },
+    {
+      "name": "scheduler-replaceable",
+      "source": "var d=Object.getOwnPropertyDescriptor(globalThis,'scheduler'),o={},out=[];for(var fn of [()=>d.get.call(o),()=>d.set.call(o,9)])try{fn();out.push('unexpected')}catch(e){out.push(e.name)}out.push(d.get.call(null)===scheduler);scheduler=17;var replaced=Object.getOwnPropertyDescriptor(globalThis,'scheduler');out.push(scheduler,replaced.value,replaced.writable,replaced.enumerable,replaced.configurable,Object.hasOwn(o,'scheduler'));globalThis.result=JSON.stringify(out);",
+      "result": "[\"TypeError\",\"TypeError\",true,17,17,true,true,true,false]"
+    }
+  ]
+}

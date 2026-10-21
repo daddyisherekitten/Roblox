@@ -1,0 +1,951 @@
+{
+  "browser": "Chrome/155.0.8059.40",
+  "captured": "2026-10-13",
+  "standard": "https://www.w3.org/TR/2026/WD-selectors-4-20260122/#matches",
+  "cases": [
+    {
+      "name": "Explicit namespace control for http://www.w3.org/1999/xhtml scope s body *|*:is(:scope,[data-leaf])",
+      "uri": "http://www.w3.org/1999/xhtml",
+      "namespaces": {
+        "": "http://www.w3.org/1999/xhtml",
+        "html": "http://www.w3.org/1999/xhtml",
+        "svg": "http://www.w3.org/2000/svg"
+      },
+      "css": "@namespace url(\"http://www.w3.org/1999/xhtml\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@namespace svg url(\"http://www.w3.org/2000/svg\");@scope (*|*[id=s]){*|*:is(*|*:scope,[data-leaf]){color:rgb(17,53,91)}}",
+      "body": "*|*:is(*|*:scope,[data-leaf])",
+      "owner": "s",
+      "expected": {
+        "count": 4,
+        "type": "CSSScopeRule",
+        "start": "*|*[id=\"s\"]",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ss",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "normativeFor": "http://www.w3.org/1999/xhtml scope s body *|*:is(:scope,[data-leaf])",
+      "criterion": "Frozen Selectors4 Jan22 implicit logical subject exemption; explicit any-namespace universal has the same subject restriction and zero added specificity."
+    },
+    {
+      "name": "Explicit namespace control for http://www.w3.org/2000/svg scope h body *|*:is(:scope,[data-leaf])",
+      "uri": "http://www.w3.org/2000/svg",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml",
+        "svg": "http://www.w3.org/2000/svg"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@namespace svg url(\"http://www.w3.org/2000/svg\");@scope (*|*[id=h]){*|*:is(*|*:scope,[data-leaf]){color:rgb(17,53,91)}}",
+      "body": "*|*:is(*|*:scope,[data-leaf])",
+      "owner": "h",
+      "expected": {
+        "count": 4,
+        "type": "CSSScopeRule",
+        "start": "*|*[id=\"h\"]",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "normativeFor": "http://www.w3.org/2000/svg scope h body *|*:is(:scope,[data-leaf])",
+      "criterion": "Frozen Selectors4 Jan22 implicit logical subject exemption; explicit any-namespace universal has the same subject restriction and zero added specificity."
+    },
+    {
+      "name": "Explicit namespace control for empty scope h body *|*:is(:scope,[data-leaf])",
+      "uri": "",
+      "namespaces": {
+        "": "",
+        "html": "http://www.w3.org/1999/xhtml",
+        "svg": "http://www.w3.org/2000/svg"
+      },
+      "css": "@namespace url(\"\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@namespace svg url(\"http://www.w3.org/2000/svg\");@scope (*|*[id=h]){*|*:is(*|*:scope,[data-leaf]){color:rgb(17,53,91)}}",
+      "body": "*|*:is(*|*:scope,[data-leaf])",
+      "owner": "h",
+      "expected": {
+        "count": 4,
+        "type": "CSSScopeRule",
+        "start": "*|*[id=\"h\"]",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "normativeFor": "empty scope h body *|*:is(:scope,[data-leaf])",
+      "criterion": "Frozen Selectors4 Jan22 implicit logical subject exemption; explicit any-namespace universal has the same subject restriction and zero added specificity."
+    },
+    {
+      "name": "Explicit namespace control for empty scope s body *|*:is(:scope,[data-leaf])",
+      "uri": "",
+      "namespaces": {
+        "": "",
+        "html": "http://www.w3.org/1999/xhtml",
+        "svg": "http://www.w3.org/2000/svg"
+      },
+      "css": "@namespace url(\"\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@namespace svg url(\"http://www.w3.org/2000/svg\");@scope (*|*[id=s]){*|*:is(*|*:scope,[data-leaf]){color:rgb(17,53,91)}}",
+      "body": "*|*:is(*|*:scope,[data-leaf])",
+      "owner": "s",
+      "expected": {
+        "count": 4,
+        "type": "CSSScopeRule",
+        "start": "*|*[id=\"s\"]",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ss",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "sc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "normativeFor": "empty scope s body *|*:is(:scope,[data-leaf])",
+      "criterion": "Frozen Selectors4 Jan22 implicit logical subject exemption; explicit any-namespace universal has the same subject restriction and zero added specificity."
+    },
+    {
+      "name": "Explicit namespace control for http://www.w3.org/2000/svg authored-scope edge *|*:is([data-hit],:has(> :scope))",
+      "uri": "http://www.w3.org/2000/svg",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml",
+        "svg": "http://www.w3.org/2000/svg"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@namespace svg url(\"http://www.w3.org/2000/svg\");@scope (*|*[id=h]){*|*:is(*|*[data-hit],:has(> :scope)){color:rgb(17,53,91)}}",
+      "body": "*|*:is(*|*[data-hit],:has(> :scope))",
+      "owner": "h",
+      "expected": {
+        "count": 4,
+        "type": "CSSScopeRule",
+        "start": "*|*[id=\"h\"]",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "normativeFor": "http://www.w3.org/2000/svg authored-scope edge *|*:is([data-hit],:has(> :scope))",
+      "criterion": "Frozen Selectors4 Jan22 implicit logical subject exemption; explicit any-namespace universal has the same subject restriction and zero added specificity."
+    },
+    {
+      "name": "Explicit namespace control for http://www.w3.org/2000/svg authored-scope edge *|*:where([data-hit],:has(> :scope))",
+      "uri": "http://www.w3.org/2000/svg",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml",
+        "svg": "http://www.w3.org/2000/svg"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@namespace svg url(\"http://www.w3.org/2000/svg\");@scope (*|*[id=h]){*|*:where(*|*[data-hit],:has(> :scope)){color:rgb(17,53,91)}}",
+      "body": "*|*:where(*|*[data-hit],:has(> :scope))",
+      "owner": "h",
+      "expected": {
+        "count": 4,
+        "type": "CSSScopeRule",
+        "start": "*|*[id=\"h\"]",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "normativeFor": "http://www.w3.org/2000/svg authored-scope edge *|*:where([data-hit],:has(> :scope))",
+      "criterion": "Frozen Selectors4 Jan22 implicit logical subject exemption; explicit any-namespace universal has the same subject restriction and zero added specificity."
+    },
+    {
+      "name": "Explicit namespace control for http://www.w3.org/2000/svg authored-scope edge *|*:is([data-hit],:scope:unsupported())",
+      "uri": "http://www.w3.org/2000/svg",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml",
+        "svg": "http://www.w3.org/2000/svg"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@namespace svg url(\"http://www.w3.org/2000/svg\");@scope (*|*[id=h]){*|*:is(*|*[data-hit],:scope:unsupported()){color:rgb(17,53,91)}}",
+      "body": "*|*:is(*|*[data-hit],:scope:unsupported())",
+      "owner": "h",
+      "expected": {
+        "count": 4,
+        "type": "CSSScopeRule",
+        "start": "*|*[id=\"h\"]",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "normativeFor": "http://www.w3.org/2000/svg authored-scope edge *|*:is([data-hit],:scope:unsupported())",
+      "criterion": "Frozen Selectors4 Jan22 implicit logical subject exemption; explicit any-namespace universal has the same subject restriction and zero added specificity."
+    },
+    {
+      "name": "Explicit namespace control for http://www.w3.org/2000/svg authored-scope edge *|*:where([data-hit],:scope:unsupported())",
+      "uri": "http://www.w3.org/2000/svg",
+      "namespaces": {
+        "": "http://www.w3.org/2000/svg",
+        "html": "http://www.w3.org/1999/xhtml",
+        "svg": "http://www.w3.org/2000/svg"
+      },
+      "css": "@namespace url(\"http://www.w3.org/2000/svg\");@namespace html url(\"http://www.w3.org/1999/xhtml\");@namespace svg url(\"http://www.w3.org/2000/svg\");@scope (*|*[id=h]){*|*:where(*|*[data-hit],:scope:unsupported()){color:rgb(17,53,91)}}",
+      "body": "*|*:where(*|*[data-hit],:scope:unsupported())",
+      "owner": "h",
+      "expected": {
+        "count": 4,
+        "type": "CSSScopeRule",
+        "start": "*|*[id=\"h\"]",
+        "end": null,
+        "colors": [
+          [
+            "h",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hh",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hs",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hz",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hc",
+            "rgb(17, 53, 91)"
+          ],
+          [
+            "hsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "s",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ss",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "sc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ssib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "z",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zh",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "zsib",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "c",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "ch",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cs",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cz",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "cc",
+            "rgb(3, 7, 11)"
+          ],
+          [
+            "csib",
+            "rgb(3, 7, 11)"
+          ]
+        ]
+      },
+      "normativeFor": "http://www.w3.org/2000/svg authored-scope edge *|*:where([data-hit],:scope:unsupported())",
+      "criterion": "Frozen Selectors4 Jan22 implicit logical subject exemption; explicit any-namespace universal has the same subject restriction and zero added specificity."
+    }
+  ]
+}

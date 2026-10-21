@@ -1,0 +1,311 @@
+{
+  "html": "<!doctype html><html><head><title>Expanded resource paths</title><style>html,body{margin:0;padding:0}#photo{display:inline;width:20px;height:10px}#drawing{display:inline;width:20px;height:10px}#sound{display:inline;width:140px;height:40px}#movie{display:inline;width:120px;height:60px}#caption{display:block;width:60px;height:20px;padding:0;border:0}#other{display:block;width:40px;height:20px;padding:0;border:0}#foreign-inline,#plain-inline{display:inline}</style></head><body><script></script></body></html>",
+  "source": "function expandedResourcesSetup(first,second,sound){\n const H='http://www.w3.org/1999/xhtml',F='urn:foreign';\n function make(ns,name,id){const n=document.createElementNS(ns,name);n.id=id;return n;}\n const photo=make(H,'h:img','photo');photo.src=first;photo.alt='First image';\n const drawing=make(H,'h:canvas','drawing');drawing.width=2;drawing.height=2;\n const audio=make(H,'h:audio','sound');audio.controls=true;\n const badSource=make(F,'source','foreign-source');badSource.setAttribute('src',second);badSource.setAttribute('type','audio/wav');\n const plainSource=make(null,'source','plain-source');plainSource.setAttribute('src',second);plainSource.setAttribute('type','audio/wav');\n const realSource=make(H,'h:source','real-source');realSource.src=sound;realSource.type='audio/wav';audio.append(badSource,plainSource,realSource);\n const movie=make(H,'h:video','movie');movie.setAttribute('controls','');movie.setAttribute('src',sound);movie.setAttribute('poster',first);\n const badTrack=make(F,'track','foreign-track');badTrack.setAttribute('kind','captions');\n const plainTrack=make(null,'track','plain-track');plainTrack.setAttribute('kind','captions');\n const track=make(H,'h:track','real-track');track.setAttribute('kind','captions');track.setAttribute('label','Native');movie.append(badTrack,plainTrack,track);\n const caption=make(H,'h:button','caption');caption.textContent='First';\n const other=make(H,'h:input','other');other.type='button';other.value='First';\n const foreignInline=make(F,'img','foreign-inline');foreignInline.textContent='Foreign';\n const plainInline=make(null,'img','plain-inline');plainInline.textContent='Plain';\n document.body.append(photo,drawing,audio,movie,caption,other,foreignInline,plainInline);\n window.resources={photo,drawing,audio,movie,caption,other,foreignInline,plainInline,second,realSource,track};\n window.resizeRecords=[];window.resourceObserver=new ResizeObserver(entries=>{for(const e of entries)resizeRecords.push([e.target.id,e.contentRect.width,e.contentRect.height]);});\n for(const n of [photo,drawing,audio,movie,caption,other,foreignInline,plainInline])resourceObserver.observe(n);\n return [audio.tagName,track.localName,track.prefix,realSource.localName,realSource.prefix,photo.localName,photo.prefix];\n}\nfunction expandedResourceRects(){return ['photo','drawing','sound','movie','caption','other'].map(id=>{const n=document.getElementById(id),r=n.getBoundingClientRect();return[id,r.width,r.height,getComputedStyle(n).display];});}\nfunction expandedResourceDraw(){const c=resources.drawing.getContext('2d');c.clearRect(0,0,2,2);c.drawImage(resources.photo,0,0);return Array.from(c.getImageData(0,0,1,1).data);}\nfunction expandedResourceUpdate(){resources.caption.textContent='Next';resources.other.setAttribute('value','Next');resources.photo.src=resources.second;return [resources.caption.textContent,resources.other.value];}\nfunction expandedResourceForeignAttributes(){resources.photo.setAttributeNS('urn:foreign','src','ignored.png');resources.audio.setAttributeNS('urn:foreign','controls','');return [resources.photo.getAttribute('src')===resources.second,resources.audio.controls];}\nfunction expandedResourceDirectText(){resources.caption.firstChild.data='Direct';return resources.caption.textContent;}\nfunction expandedResourceEdges(mode){return [resources.photo,resources.drawing,resources.audio,resources.movie].map(n=>{n.style.cssText='display:inline;width:20px;height:10px;padding:3px 5px;border:2px solid black;margin:7px 11px;box-sizing:'+ (mode==='border'?'border-box':'content-box')+';transform:'+(mode==='scaled'?'translate(4px,6px) scale(2)':'none');const r=n.getBoundingClientRect();return[n.id,r.width,r.height];});}\n",
+  "assets": {
+    "first": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4AWL6z8DwHwAAAP//A3ONEwAAAAZJREFUAwAFCgIByRpMngAAAABJRU5ErkJggg==",
+    "second": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAD0lEQVR4AWJiYPj/H4QBAAAA//92SiVVAAAABklEQVQDAA4NA/9YSjNAAAAAAElFTkSuQmCC",
+    "sound": "data:audio/wav;base64,UklGRkQDAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YSADAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA=="
+  },
+  "setup": [
+    "H:AUDIO",
+    "track",
+    "h",
+    "source",
+    "h",
+    "img",
+    "h"
+  ],
+  "rects": [
+    [
+      "photo",
+      20,
+      10,
+      "inline"
+    ],
+    [
+      "drawing",
+      20,
+      10,
+      "inline"
+    ],
+    [
+      "sound",
+      140,
+      40,
+      "inline"
+    ],
+    [
+      "movie",
+      120,
+      60,
+      "inline"
+    ],
+    [
+      "caption",
+      60,
+      20,
+      "block"
+    ],
+    [
+      "other",
+      40,
+      20,
+      "block"
+    ]
+  ],
+  "first": [
+    255,
+    0,
+    0,
+    255
+  ],
+  "trackControl": [
+    0,
+    1,
+    "Native"
+  ],
+  "initialResize": [
+    [
+      "caption",
+      60,
+      20
+    ],
+    [
+      "drawing",
+      20,
+      10
+    ],
+    [
+      "foreign-inline",
+      0,
+      0
+    ],
+    [
+      "movie",
+      120,
+      60
+    ],
+    [
+      "other",
+      40,
+      20
+    ],
+    [
+      "photo",
+      20,
+      10
+    ],
+    [
+      "plain-inline",
+      0,
+      0
+    ],
+    [
+      "sound",
+      140,
+      40
+    ]
+  ],
+  "update": [
+    "Next",
+    "Next"
+  ],
+  "second": [
+    0,
+    0,
+    255,
+    255
+  ],
+  "foreign": [
+    true,
+    true
+  ],
+  "natural": [
+    true,
+    2,
+    1
+  ],
+  "visibility": [
+    [
+      0,
+      0,
+      false,
+      "none"
+    ],
+    [
+      140,
+      40,
+      true,
+      "inline"
+    ]
+  ],
+  "directText": "Direct",
+  "directTextJson": "\"Direct\"",
+  "edges": [
+    {
+      "mode": "plain",
+      "rects": [
+        [
+          "photo",
+          34,
+          20
+        ],
+        [
+          "drawing",
+          34,
+          20
+        ],
+        [
+          "sound",
+          34,
+          20
+        ],
+        [
+          "movie",
+          34,
+          20
+        ]
+      ],
+      "resize": [
+        [
+          "photo",
+          20,
+          10
+        ],
+        [
+          "drawing",
+          20,
+          10
+        ],
+        [
+          "sound",
+          20,
+          10
+        ],
+        [
+          "movie",
+          20,
+          10
+        ]
+      ],
+      "rectsJson": "[[\"photo\",34,20],[\"drawing\",34,20],[\"sound\",34,20],[\"movie\",34,20]]",
+      "resizeJson": "[[\"photo\",20,10],[\"drawing\",20,10],[\"sound\",20,10],[\"movie\",20,10]]"
+    },
+    {
+      "mode": "scaled",
+      "rects": [
+        [
+          "photo",
+          68,
+          40
+        ],
+        [
+          "drawing",
+          68,
+          40
+        ],
+        [
+          "sound",
+          68,
+          40
+        ],
+        [
+          "movie",
+          68,
+          40
+        ]
+      ],
+      "resize": [
+        [
+          "photo",
+          20,
+          10
+        ],
+        [
+          "drawing",
+          20,
+          10
+        ],
+        [
+          "sound",
+          20,
+          10
+        ],
+        [
+          "movie",
+          20,
+          10
+        ]
+      ],
+      "rectsJson": "[[\"photo\",68,40],[\"drawing\",68,40],[\"sound\",68,40],[\"movie\",68,40]]",
+      "resizeJson": "[[\"photo\",20,10],[\"drawing\",20,10],[\"sound\",20,10],[\"movie\",20,10]]"
+    },
+    {
+      "mode": "border",
+      "rects": [
+        [
+          "photo",
+          20,
+          10
+        ],
+        [
+          "drawing",
+          20,
+          10
+        ],
+        [
+          "sound",
+          20,
+          10
+        ],
+        [
+          "movie",
+          20,
+          10
+        ]
+      ],
+      "resize": [
+        [
+          "photo",
+          6,
+          0
+        ],
+        [
+          "drawing",
+          6,
+          0
+        ],
+        [
+          "sound",
+          6,
+          0
+        ],
+        [
+          "movie",
+          6,
+          0
+        ]
+      ],
+      "rectsJson": "[[\"photo\",20,10],[\"drawing\",20,10],[\"sound\",20,10],[\"movie\",20,10]]",
+      "resizeJson": "[[\"photo\",6,0],[\"drawing\",6,0],[\"sound\",6,0],[\"movie\",6,0]]"
+    }
+  ],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "references": [
+    "https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element",
+    "https://html.spec.whatwg.org/multipage/media.html#the-audio-element",
+    "https://drafts.csswg.org/cssom-view/#dom-element-getboundingclientrect",
+    "https://drafts.csswg.org/resize-observer/#calculate-box-size"
+  ],
+  "assetsJson": "\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4AWL6z8DwHwAAAP//A3ONEwAAAAZJREFUAwAFCgIByRpMngAAAABJRU5ErkJggg==\",\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAD0lEQVR4AWJiYPj/H4QBAAAA//92SiVVAAAABklEQVQDAA4NA/9YSjNAAAAAAElFTkSuQmCC\",\"data:audio/wav;base64,UklGRkQDAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YSADAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==\"",
+  "setupJson": "[\"H:AUDIO\",\"track\",\"h\",\"source\",\"h\",\"img\",\"h\"]",
+  "rectsJson": "[[\"photo\",20,10,\"inline\"],[\"drawing\",20,10,\"inline\"],[\"sound\",140,40,\"inline\"],[\"movie\",120,60,\"inline\"],[\"caption\",60,20,\"block\"],[\"other\",40,20,\"block\"]]",
+  "firstJson": "[255,0,0,255]",
+  "resizeJson": "[[\"caption\",60,20],[\"drawing\",20,10],[\"foreign-inline\",0,0],[\"movie\",120,60],[\"other\",40,20],[\"photo\",20,10],[\"plain-inline\",0,0],[\"sound\",140,40]]",
+  "updateJson": "[\"Next\",\"Next\"]",
+  "secondJson": "[0,0,255,255]",
+  "foreignJson": "[true,true]",
+  "naturalJson": "[true,2,1]",
+  "offJson": "[0,0,false,\"none\"]",
+  "onJson": "[140,40,true,\"inline\"]"
+}

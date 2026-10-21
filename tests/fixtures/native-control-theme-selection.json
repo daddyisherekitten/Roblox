@@ -1,0 +1,136 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "date": "2026-10-08",
+  "method": "Chromium CDP real primary mouse presses/releases; screenshot center pixels for dark accent states",
+  "profile": "Windows/Chromium native controls; free-box caret node is an approximation in Roblox",
+  "selection": [
+    {
+      "target": "#blank",
+      "result": "collapse",
+      "rangeCount": 1,
+      "anchor": "DIV",
+      "offset": 0
+    },
+    {
+      "target": "#button",
+      "result": "preserve",
+      "rangeCount": 1,
+      "anchor": "P",
+      "offset": 0
+    },
+    {
+      "target": "#field",
+      "result": "collapse",
+      "rangeCount": 1,
+      "anchor": "BODY",
+      "offset": 3
+    },
+    {
+      "target": "#radio",
+      "result": "preserve",
+      "rangeCount": 1,
+      "anchor": "P",
+      "offset": 0
+    },
+    {
+      "target": "#link",
+      "result": "preserve",
+      "rangeCount": 1,
+      "anchor": "P",
+      "offset": 0
+    },
+    {
+      "target": "#none",
+      "result": "preserve",
+      "rangeCount": 1,
+      "anchor": "P",
+      "offset": 0
+    },
+    {
+      "target": "body",
+      "result": "collapse",
+      "rangeCount": 1,
+      "anchor": "#text",
+      "offset": 6
+    },
+    {
+      "target": "#summary",
+      "result": "collapse",
+      "rangeCount": 1,
+      "anchor": "#text",
+      "offset": 7
+    },
+    {
+      "target": "#date",
+      "result": "collapse",
+      "rangeCount": 1,
+      "anchor": "BODY",
+      "offset": 10
+    },
+    {
+      "target": "#number",
+      "result": "collapse",
+      "rangeCount": 1,
+      "anchor": "BODY",
+      "offset": 11
+    },
+    {
+      "target": "#range",
+      "result": "preserve",
+      "rangeCount": 1,
+      "anchor": "P",
+      "offset": 0
+    },
+    {
+      "target": "#check",
+      "result": "preserve",
+      "rangeCount": 1,
+      "anchor": "P",
+      "offset": 0
+    },
+    {
+      "target": "#textarea",
+      "result": "collapse",
+      "rangeCount": 1,
+      "anchor": "BODY",
+      "offset": 15
+    }
+  ],
+  "dark": {
+    "field": [
+      59,
+      59,
+      59
+    ],
+    "accent": [
+      153,
+      200,
+      255
+    ],
+    "radioHover": [
+      209,
+      230,
+      255
+    ],
+    "radioPressed": [
+      97,
+      169,
+      255
+    ],
+    "disabledRadioCenterObserved": [
+      117,
+      117,
+      117
+    ],
+    "disabledTogglePalette": [
+      118,
+      118,
+      118
+    ],
+    "checkboxMark": [
+      59,
+      59,
+      59
+    ]
+  }
+}

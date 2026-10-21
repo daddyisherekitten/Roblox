@@ -1,0 +1,25 @@
+{
+  "name": "FontComparison",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "HTMLEngine": {
+        "$path": "src/HTMLEngine",
+        "Examples": { "$className": "Folder", "FontComparison": { "$path": "examples/FontComparison" } }
+      }
+    },
+    "StarterGui": {
+      "$properties": {
+        "ClipsDescendantsSupportsRotation": "Enabled"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Fonts": {
+          "$className": "Folder",
+          "FontComparisonDemo": { "$path": "examples/FontComparison.client.luau" }
+        }
+      }
+    }
+  }
+}

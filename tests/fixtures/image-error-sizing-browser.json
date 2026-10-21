@@ -1,0 +1,20 @@
+[
+  {"name":"inline-attributes","width":70.234375,"height":20},
+  {"name":"inline-css","width":308,"height":28},
+  {"name":"inline-block-attributes","width":60,"height":40},
+  {"name":"block-attributes","width":60,"height":40},
+  {"name":"block-auto","width":400,"height":20},
+  {"name":"block-responsive-attributes","width":400,"height":200},
+  {"name":"block-responsive-ratio","width":400,"height":200},
+  {"name":"block-css-ratio","width":120,"height":60},
+  {"name":"block-ratio-auto-width","width":400,"height":200},
+  {"name":"block-ratio-box-sizing","width":120,"height":60},
+  {"name":"inline-empty-alt","width":60,"height":40},
+  {"name":"block-empty-alt","width":400,"height":200},
+  {"name":"block-no-alt","width":120,"height":60},
+  {"name":"inline-css-ratio","width":70.234375,"height":20},
+  {"name":"inline-min-size","width":100,"height":60},
+  {"name":"inline-max-size","width":30,"height":10},
+  {"name":"inline-fixed-size","width":70.234375,"height":20},
+  {"name":"inline-block-auto","width":70.234375,"height":20}
+]

@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Image crop and alpha float reference</title>
+<style>
+body { margin:20px;font:12px Arial;background:white; }
+.crop {display:inline-block;width:100px;height:80px;margin-right:10px;object-fit:contain;object-view-box:inset(10% 20% 30% 40%);background:#ccc}
+.auto {height:auto;width:auto}
+.shape {float:left;width:80px;height:40px;padding:2px;border:1px solid black;margin:4px;shape-outside:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="40" viewBox="0 0 8 4"%3E%3Crect x="1" y="0" width="1" height="1" opacity="0.5019607843"/%3E%3Crect x="4" y="1" width="1" height="1"/%3E%3Crect x="5" y="2" width="1" height="1"/%3E%3Crect x="1" y="3" width="1" height="1"/%3E%3C/svg%3E');shape-image-threshold:.5}
+.flow {width:300px;display:flow-root;font:7px/10px Arial;}
+.flow span {display:inline-block;width:1px;height:1px;vertical-align:top;background:red}
+</style>
+<p>Image crop: only part of the original two-color image is visible.</p>
+<img id="crop" class="crop" src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="100"%3E%3Crect width="100" height="100" fill="blue"/%3E%3Crect x="100" width="100" height="100" fill="orange"/%3E%3C/svg%3E'>
+<img id="auto" class="crop auto" src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="100"%3E%3Crect width="100" height="100" fill="blue"/%3E%3Crect x="100" width="100" height="100" fill="orange"/%3E%3C/svg%3E'>
+<img id="raster" class="crop" src="object-view-box-source.png"><img id="raster-auto" class="crop auto" src="object-view-box-source.png">
+<p>Alpha float: marker positions are measured per complete line band.</p>
+<div id="flow" class="flow"><div class="shape"></div><span id="l0"></span><br><span id="l1"></span><br><span id="l2"></span><br><span id="l3"></span><br><span id="l4"></span><br><span id="l5"></span></div>

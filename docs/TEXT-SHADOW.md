@@ -1,0 +1,21 @@
+# Textschatten
+
+`text-shadow` rendert scharfe Textkopien mit physischem Versatz hinter dem jeweiligen Wort und seinen Betonungszeichen. Das begrenzte Profil unterstützt horizontale, vertikale und sideways Textprojektionen sowie dynamische Listen und ursprüngliche Inline-Effektscopes.
+
+```css
+text-shadow: 2px 3px 0px rgba(0, 0, 0, 0.4);
+text-shadow: -1px 1px #9ab8e6, 2px 3px rgba(0, 0, 0, 0.4);
+text-shadow: none;
+```
+
+Unterstützt: bis zu 16 kommagetrennte Schatten, zwei signierte 0/px-Offsets, optionaler Blur-Wert ausschließlich 0/0px, Farbe vor oder nach der Längengruppe. Farben entsprechen box-shadow einschließlich currentcolor, transparent, Alpha-Hex und kommagetrenntem rgb/rgba. Ausgelassene Farbe verwendet currentcolor am gerenderten Text. Die Eigenschaft wird vererbt; ein Kind kann die Schatten mit none entfernen. CSS-Regeln, Inline-Styles und !important verwenden die bestehende Cascade.
+
+CSS/BoxShadow.parse teilt die bereits vorhandene Längen-/Farb-/Kommalisten-Auswertung mit einem begrenzten Textmodus: höchstens drei Längen, kein inset, kein Spread, kein Blur größer null. Nicht unterstützte Deklarationen erzeugen eine Diagnose und überschreiben keine vorherige gültige Deklaration. Box-shadow behält seinen bisherigen Umfang.
+
+Rendering/TextShadows erzeugt nur für sichtbare Schatten zusätzliche TextLabels. Normale Wörter bekommen dafür einen Frame mit separatem Vordergrundtext. Nachträglich hinzugefügte Schatten behalten das ursprüngliche Quell-/Hit-GUI als Elternobjekt und ergänzen einen erhaltenen Vordergrund. Bei letter-spacing werden die vorhandenen Grapheme kopiert. Alle Kopien übernehmen die fertig gemessene Schrift, Größe, Position und Ausdehnung; keine eigenen Messungen, Preload-Ziele oder Layout-Einträge. Der erste CSS-Schatten liegt vor den folgenden, alle liegen hinter dem Text. Dynamische Listen-/Alphaänderungen behalten die bereits erzeugten Slots und blenden entfernte Schichten aus. Ein tatsächlich anderer ursprünglicher Inline-Effektscope zerlegt nur seinen betroffenen Wortfluss neu; benachbarte Wörter und Controls bleiben erhalten. Native GUI-Objekte und zusätzliche Vordergründe werden beim Reflow wiederverwendet und beim Entfernen des Besitzers mit aufgeräumt. Keine Render-Schleife; anfangs vollständig transparente Schatten erzeugen keine Kopien.
+
+Grenzen: kein weicher Blur, keine Schatten für Unter-/Über-/Durchstriche, Listenmarker oder Bild-alt. Die Zeichenkopien werden unabhängig zusammengesetzt; überlappende halbtransparente Zeichen können vom Browser abweichen. Die Stapelung erfolgt je Wort. Bei großem Versatz kann ein späteres Wort mit seinem Schatten früheren Text überdecken. Eine gemeinsame Schattenebene für die gesamte Zeile fehlt weiter. Schatten verändern weder Layout noch Scrollausdehnung; Eltern-Clipping gilt weiterhin. Bei N Schatten entstehen je Wort bzw. Graphem N zusätzliche Labels. Die vorgesehene Obergrenze ist 16 Schichten je vorhandener Form; Seitenweite Raster-/Textbudgets und fehlende Glyphen sind damit nicht nachgewiesen.
+
+Tests/TextShadows prüft CSS-Werte und Fehler, Cascade/Vererbung/none, Farbe/Alpha/Reihenfolge, Schriftgewicht/Kursiv, Grapheme, Wortgrenzen, Inline-Hintergründe, identische Textmessungsanzahl und Geometrie sowie Wiederverwendung beim Umbruch. `tests/VerticalShadows.luau` prüft zusätzlich 240 physische Projektionen, Bidi-/Glyphenparität, dynamische none→Liste→none/transparent→Liste-Änderungen, Quellregistrierung, Wiederverwendung und vollständigen Abbau. `scripts/capture-vertical-shadow-reference.cjs` bewahrt unabhängige schwarze Vordergrund-/Schatten-Screenshots und rohe Ink-Grenzen. 96 native Paintfälle entsprechen physischem Versatz; 144 Chromium-Fälle drehen ihn mit der sideways Fläche. Die Engine folgt [CSS Writing Modes 4 §7.6](https://www.w3.org/TR/css-writing-modes-4/#physical-only), das physische text-shadow-Offsets verlangt; die Rohabweichung wird nicht als Browsergleichheit gezählt. Native Ersatzfont-/Roblox-Pixelgleichheit ist damit nicht belegt.
+
+Referenz: [CSS Text Decoration 3 – Text Shadows](https://www.w3.org/TR/css-text-decor-3/#text-shadow-property). Vollständiges CSS umfasst auch Schatten der Textdekorationen; dieses Profil beschränkt sich auf Glyphen-/Betonungszeichenkopien. Der aktuelle C05-Gesamtstand steht im [Textprofil](HTML-SUPPORT.md#weitere-schritte).

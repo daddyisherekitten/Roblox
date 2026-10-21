@@ -1,0 +1,102 @@
+src/HTMLEngine/CSS/CounterStyles.luau:12:15-20: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/CSS/CounterStyles.luau:17:16-21: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/CSS/CounterStyles.luau:25:19-24: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/CSS/RegisteredProperties.luau:46:29-34: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/CSS/RegisteredProperties.luau:48:41-46: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/CSS/ScopeRules.luau:9:15-20: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/CSS/ScrollValues.luau:51:10-13: (W0) LocalShadow: Variable 'name' shadows previous declaration at line 41
+src/HTMLEngine/CSS/Stylesheet.luau:269:14-21: (W0) LocalShadow: Variable 'prepared' shadows previous declaration at line 264
+src/HTMLEngine/CSS/Stylesheet.luau:297:12-15: (W0) LocalShadow: Variable 'part' shadows previous declaration at line 259
+src/HTMLEngine/Controls/FormModel.luau:177:65-73: (W0) DuplicateCondition: Condition has already been checked on column 6
+src/HTMLEngine/Controls/View.luau:181:3-100: (W0) MultiLineStatement: Statement spans multiple lines; use indentation to silence
+src/HTMLEngine/Controls/View.luau:437:11-12: (W0) LocalUnused: Variable 'br' is never used; prefix with '_' to silence
+src/HTMLEngine/Controls/View.luau:451:14-16: (W0) LocalShadow: Variable 'top' shadows previous declaration at line 439
+src/HTMLEngine/HTML/ScriptData.luau:18:10-15: (W0) LocalShadow: Variable 'script' shadows a global variable used at line 2
+src/HTMLEngine/HTML/WebVTT.luau:38:9-13: (W0) LocalShadow: Variable 'index' shadows previous declaration at line 22
+src/HTMLEngine/Input/MediaRuntime.luau:421:9-14: (W0) LocalUnused: Variable 'object' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/AudioElements.luau:262:10-57: (W0) MultiLineStatement: Statement spans multiple lines; use indentation to silence
+src/HTMLEngine/JavaScript/BigInt.luau:53:28-28: (W0) LocalUnused: Variable 'N' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/BigInt.luau:118:10-34: (W0) MultiLineStatement: Statement spans multiple lines; use indentation to silence
+src/HTMLEngine/JavaScript/Collections.luau:11:46-48: (W0) LocalUnused: Variable 'set' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/DOM.luau:714:11-16: (W0) LocalShadow: Variable 'method' shadows previous declaration at line 705
+src/HTMLEngine/JavaScript/DOMCanvasPaths.luau:8:28-28: (W0) LocalUnused: Variable 'N' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/DOMControls.luau:138:11-25: (W0) MultiLineStatement: Statement spans multiple lines; use indentation to silence
+src/HTMLEngine/JavaScript/DOMControls.luau:244:9-14: (W0) LocalShadow: Variable 'custom' shadows previous declaration at line 210
+src/HTMLEngine/JavaScript/DOMControls.luau:299:32-38: (W0) LocalShadow: Variable 'handled' shadows previous declaration at line 272
+src/HTMLEngine/JavaScript/FontLoading.luau:11:36-41: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/FontLoading.luau:41:16-21: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/FormData.luau:117:185-190: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/FormData.luau:118:13-18: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/FormData.luau:122:64-69: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/FormData.luau:122:148-153: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/FormData.luau:123:48-53: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/FormData.luau:128:14-19: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/FormDataDOM.luau:44:11-21: (W0) MultiLineStatement: Statement spans multiple lines; use indentation to silence
+src/HTMLEngine/JavaScript/GeometryTransformParser.luau:16:30-36: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/HostEvents.luau:562:11-16: (W0) MultiLineStatement: Statement spans multiple lines; use indentation to silence
+src/HTMLEngine/JavaScript/Intl.luau:37:52-53: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/Intl.luau:37:61-62: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/Intl.luau:37:70-71: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/Intl.luau:37:80-81: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/IntlDateTime.luau:9:13-13: (W0) LocalUnused: Variable 'N' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/IntlNumberRounding.luau:7:35-41: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/IntlNumberRounding.luau:10:37-43: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/IntlNumberRounding.luau:14:35-41: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/IntlNumberRounding.luau:23:5-11: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/IntlNumberRounding.luau:23:54-60: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LayoutObservers.luau:106:45-48: (W0) LocalShadow: Variable 'data' shadows previous declaration at line 105
+src/HTMLEngine/JavaScript/Lexer.luau:46:10-16: (W0) LocalShadow: Variable 'context' shadows previous declaration at line 28
+src/HTMLEngine/JavaScript/Lexer.luau:49:10-16: (W0) LocalShadow: Variable 'context' shadows previous declaration at line 28
+src/HTMLEngine/JavaScript/Lexer.luau:52:10-16: (W0) LocalShadow: Variable 'context' shadows previous declaration at line 28
+src/HTMLEngine/JavaScript/Lexer.luau:61:31-37: (W0) LocalShadow: Variable 'context' shadows previous declaration at line 28
+src/HTMLEngine/JavaScript/LibraryDate.luau:25:8-9: (W0) LocalUnused: Variable 'VM' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/LibraryDate.luau:78:10-10: (W0) LocalShadow: Variable 'h' shadows previous declaration at line 64
+src/HTMLEngine/JavaScript/LibraryDate.luau:78:12-12: (W0) LocalShadow: Variable 'm' shadows previous declaration at line 64
+src/HTMLEngine/JavaScript/LibraryDate.luau:83:15-18: (W0) LocalShadow: Variable 'sign' shadows previous declaration at line 64
+src/HTMLEngine/JavaScript/LibraryDate.luau:83:20-21: (W0) LocalShadow: Variable 'zh' shadows previous declaration at line 64
+src/HTMLEngine/JavaScript/LibraryDate.luau:83:23-24: (W0) LocalShadow: Variable 'zm' shadows previous declaration at line 64
+src/HTMLEngine/JavaScript/LibraryJSON.luau:12:12-14: (W0) LocalUnused: Variable 'set' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/LibraryNumbers.luau:26:17-24: (W0) LocalUnused: Variable 'exponent' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/LibraryNumbers.luau:32:27-32: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryNumbers.luau:32:43-48: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryNumbers.luau:51:16-22: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryNumbers.luau:51:65-71: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryNumbers.luau:56:5-12: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryNumbers.luau:56:55-62: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryNumbers.luau:69:30-36: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryURL.luau:7:46-48: (W0) LocalUnused: Variable 'set' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/LibraryURL.luau:16:12-17: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryURL.luau:19:93-98: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryURL.luau:160:69-73: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/LibraryURL.luau:226:10-29: (W0) MultiLineStatement: Statement spans multiple lines; use indentation to silence
+src/HTMLEngine/JavaScript/LibraryURLHost.luau:46:12-18: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/Modules.luau:22:96-101: (W0) TableOperations: Using '#' on a table without an array part is likely a bug
+src/HTMLEngine/JavaScript/Modules.luau:409:4-63: (W0) MultiLineStatement: Statement spans multiple lines; use indentation to silence
+src/HTMLEngine/JavaScript/NetworkData.luau:304:12-16: (W0) LocalShadow: Variable 'bytes' shadows previous declaration at line 275
+src/HTMLEngine/JavaScript/ObjectModel.luau:274:10-16: (W0) LocalShadow: Variable 'handler' shadows previous declaration at line 269
+src/HTMLEngine/JavaScript/RegExp.luau:15:9-13: (W0) LocalShadow: Variable 'value' shadows previous declaration at line 13
+src/HTMLEngine/JavaScript/RegExpMatcher.luau:109:15-21: (W0) LocalUnused: Variable 'nextPos' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/SelectionNavigation.luau:90:15-20: (W0) LocalUnused: Variable 'result' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/StandardLibrary.luau:647:8-13: (W0) LocalUnused: Variable 'digits' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/TransformStreams.luau:33:9-10: (W0) LocalUnused: Variable 'ok' is never used; prefix with '_' to silence
+src/HTMLEngine/JavaScript/VM.luau:551:26-30: (W0) LocalShadow: Variable 'scope' shadows previous declaration at line 534
+src/HTMLEngine/JavaScript/VM.luau:796:11-15: (W0) LocalShadow: Variable 'state' shadows previous declaration at line 782
+src/HTMLEngine/JavaScript/WritableStreams.luau:32:29-93: (W0) UnbalancedAssignment: Assigning 4 values to 5 variables initializes extra variables with nil; add 'nil' to value list to silence
+src/HTMLEngine/Layout/BlockLayout.luau:550:9-9: (W0) LocalShadow: Variable 'x' shadows previous declaration at line 276
+src/HTMLEngine/Layout/BlockLayout.luau:550:11-11: (W0) LocalShadow: Variable 'y' shadows previous declaration at line 276
+src/HTMLEngine/Layout/FlexLayout.luau:313:11-17: (W0) LocalUnused: Variable 'ignored' is never used; prefix with '_' to silence
+src/HTMLEngine/Layout/MasonryLayout.luau:54:11-11: (W0) LocalUnused: Variable 'w' is never used; prefix with '_' to silence
+src/HTMLEngine/Layout/PositionedLayout.luau:148:11-20: (W0) LocalShadow: Variable 'containing' shadows previous declaration at line 116
+src/HTMLEngine/Layout/TableLayout.luau:173:8-9: (W0) LocalShadow: Variable 'lo' shadows previous declaration at line 170
+src/HTMLEngine/Layout/TableLayout.luau:296:12-12: (W0) LocalShadow: Variable 'r' shadows previous declaration at line 286
+src/HTMLEngine/Layout/WordFlow.luau:153:12-15: (W0) LocalShadow: Variable 'left' shadows previous declaration at line 141
+src/HTMLEngine/Layout/WordFlow.luau:153:18-22: (W0) LocalShadow: Variable 'right' shadows previous declaration at line 141
+src/HTMLEngine/Rendering/BackgroundImages.luau:115:100-109: (W0) SameLineStatement: A new statement is on the same line; add semi-colon on previous statement to silence
+src/HTMLEngine/Rendering/BorderShapePixels.luau:9:10-10: (W0) LocalUnused: Variable 'r' is never used; prefix with '_' to silence
+src/HTMLEngine/Rendering/BorderShapePixels.luau:9:12-12: (W0) LocalUnused: Variable 'b' is never used; prefix with '_' to silence
+src/HTMLEngine/Rendering/BorderShapePixels.luau:9:14-14: (W0) LocalUnused: Variable 'l' is never used; prefix with '_' to silence
+src/HTMLEngine/Rendering/HTMLAnimations.luau:760:15-22: (W0) LocalUnused: Variable 'finished' is never used; prefix with '_' to silence
+src/HTMLEngine/Rendering/IFrameBox.luau:52:12-13: (W0) LocalUnused: Variable 'br' is never used; prefix with '_' to silence
+src/HTMLEngine/Rendering/IFrameBox.luau:52:16-17: (W0) LocalUnused: Variable 'bb' is never used; prefix with '_' to silence
+src/HTMLEngine/SVG/Raster.luau:140:45-50: (W0) LocalShadow: Variable 'region' shadows previous declaration at line 134
+src/HTMLEngine/SVG/Style.luau:52:88-92: (W0) LocalUnused: Variable 'state' is never used; prefix with '_' to silence

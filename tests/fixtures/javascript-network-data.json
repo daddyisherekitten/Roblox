@@ -1,0 +1,870 @@
+[
+  {
+    "name": "ArrayBuffer shared views and copies",
+    "group": "network",
+    "source": "const buffer=new ArrayBuffer(8);const a=new Uint8Array(buffer);a.set([1,2,3,4]);const b=a.subarray(1,3);b[0]=9;const copy=a.slice(0,3);copy[0]=7;record(a.join(\",\"));record(copy.join(\",\"));record(b.byteOffset);record(b.buffer===buffer);record(ArrayBuffer.isView(b));record(ArrayBuffer.isView(buffer));",
+    "expected": [
+      "1,9,3,4,0,0,0,0",
+      "7,9,3",
+      "1",
+      "true",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "TypedArray conversion clamping and overlapping set",
+    "group": "network",
+    "source": "const c=new Uint8ClampedArray([0.5,1.5,2.5,-7,999,NaN]);record(c.join(\",\"));const a=new Uint8Array([1,2,3,4]);a.set(a.subarray(0,3),1);record(a.join(\",\"));record(new Int8Array([255,128,257]).join(\",\"));record(new Uint32Array([-1])[0]);",
+    "expected": [
+      "0,2,2,0,255,0",
+      "1,1,2,3",
+      "-1,-128,1",
+      "4294967295"
+    ]
+  },
+  {
+    "name": "DataView endian and floating values",
+    "group": "network",
+    "source": "const b=new ArrayBuffer(16);const d=new DataView(b,2,12);d.setUint16(0,0x1234);d.setInt16(2,-7,true);d.setFloat64(4,Math.PI,true);record(new Uint8Array(b).slice(2,6).join(\",\"));record(d.getUint16(0));record(d.getInt16(2,true));record(d.getFloat64(4,true)===Math.PI);try{d.getUint32(10);}catch(e){record(e.name);}",
+    "expected": [
+      "18,52,249,255",
+      "4660",
+      "-7",
+      "true",
+      "RangeError"
+    ]
+  },
+  {
+    "name": "TypedArray iteration maps and numeric descriptors",
+    "group": "network",
+    "source": "const a=Uint16Array.from([1,2,3],function(v,i){return v+i;});record(Array.from(a).join(\",\"));record(a.map(function(v){return v*2;}).join(\",\"));record(a.filter(function(v){return v>1;}).join(\",\"));const d=Object.getOwnPropertyDescriptor(a,\"0\");record(d.writable&&d.enumerable&&d.configurable);Object.defineProperty(a,\"0\",{value:8});record(a[0]);try{Object.defineProperty(a,\"0\",{writable:false});}catch(e){record(e.name);}record(delete a[0]);",
+    "expected": [
+      "1,3,5",
+      "2,6,10",
+      "3,5",
+      "true",
+      "8",
+      "TypeError",
+      "false"
+    ]
+  },
+  {
+    "name": "TypedArray offset bounds and ArrayBuffer slice",
+    "group": "network",
+    "source": "try{new Uint16Array(new ArrayBuffer(3));}catch(e){record(e.name);}try{new Uint32Array(new ArrayBuffer(8),2);}catch(e){record(e.name);}const b=new Uint8Array([1,2,3,4]).buffer.slice(-3,-1);record(new Uint8Array(b).join(\",\"));record(new Uint8Array(3).fill(5).reverse().join(\",\"));",
+    "expected": [
+      "RangeError",
+      "RangeError",
+      "2,3",
+      "5,5,5"
+    ]
+  },
+  {
+    "name": "TextEncoder UTF8 and encodeInto scalar boundaries",
+    "group": "network",
+    "source": "const e=new TextEncoder();record(e.encoding);record(e.encode(\"Aé😀\").join(\",\"));const a=new Uint8Array(4);const r=e.encodeInto(\"A😀\",a);record(r.read);record(r.written);record(a.join(\",\"));record(e.encode(\"\\uD800\").join(\",\"));",
+    "expected": [
+      "utf-8",
+      "65,195,169,240,159,152,128",
+      "1",
+      "1",
+      "65,0,0,0",
+      "239,191,189"
+    ]
+  },
+  {
+    "name": "TextDecoder stream BOM and invalid bytes",
+    "group": "network",
+    "source": "const d=new TextDecoder();record(d.decode(new Uint8Array([239,187]),{stream:true}));record(d.decode(new Uint8Array([191,65,240,159]),{stream:true}));record(d.decode(new Uint8Array([152,128])));record(d.decode(new Uint8Array([0xE0,0x80,65])));try{new TextDecoder(\"utf-8\",{fatal:true}).decode(new Uint8Array([255]));}catch(e){record(e.name);}",
+    "expected": [
+      "",
+      "A",
+      "😀",
+      "��A",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "TextDecoder UTF16 and windows1252",
+    "group": "network",
+    "source": "const d=new TextDecoder(\"utf-16le\");record(d.decode(new Uint8Array([255,254,65,0,61,216]),{stream:true}));record(d.decode(new Uint8Array([0,222])));record(new TextDecoder(\"ascii\").decode(new Uint8Array([128,233])));record(new TextDecoder(\"utf-8\",{ignoreBOM:true}).decode(new Uint8Array([239,187,191,65])).charCodeAt(0));",
+    "expected": [
+      "A",
+      "😀",
+      "€é",
+      "65279"
+    ]
+  },
+  {
+    "name": "Blob snapshots typed views and slices",
+    "group": "network",
+    "source": "const a=new Uint8Array([65,66,67]);const b=new Blob([a.subarray(1),\"é\"],{type:\"TEXT/PLAIN\"});a[1]=90;record(b.size);record(b.type);b.text().then(function(v){record(v);});b.slice(-2).bytes().then(function(v){record(v.join(\",\"));});",
+    "expected": [
+      "4",
+      "text/plain",
+      "BCé",
+      "195,169"
+    ]
+  },
+  {
+    "name": "File metadata and Blob inheritance",
+    "group": "network",
+    "source": "const file=new File([\"data\"],\"report.txt\",{type:\"TEXT/PLAIN\",lastModified:1234});record(file.name);record(file.lastModified);record(file.size);record(file instanceof Blob);record(file.webkitRelativePath);file.text().then(record);",
+    "expected": [
+      "report.txt",
+      "1234",
+      "4",
+      "true",
+      "",
+      "data"
+    ]
+  },
+  {
+    "name": "Headers sorted combination and validation",
+    "group": "network",
+    "source": "const h=new Headers([[\"Z\",\" one \"],[\"a\",\"2\"],[\"z\",\"two\"],[\"set-cookie\",\"x=1\"],[\"set-cookie\",\"y=2\"]]);record(h.get(\"Z\"));record(h.getSetCookie().join(\"|\"));record(Array.from(h.keys()).join(\",\"));h.set(\"z\",\"three\");record(h.get(\"z\"));try{h.append(\"bad name\",\"v\");}catch(e){record(e.name);}try{h.set(\"x\",\"a\\nb\");}catch(e){record(e.name);}",
+    "expected": [
+      "one, two",
+      "x=1|y=2",
+      "a,set-cookie,set-cookie,z",
+      "three",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Headers live iteration and ByteString value",
+    "group": "network",
+    "source": "const h=new Headers({a:\"1\",c:\"3\"});h.forEach(function(v,k){record(k+v);if(k===\"a\")h.set(\"b\",\"2\");});h.set(\"x\",\"é\");record(h.get(\"x\"));try{h.set(\"x\",\"😀\");}catch(e){record(e.name);}",
+    "expected": [
+      "a1",
+      "b2",
+      "c3",
+      "é",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Response one-shot body and clone",
+    "group": "network",
+    "source": "const r=new Response(\"hello\",{status:201,headers:{\"x-a\":\"b\"}});const copy=r.clone();record(r.ok);record(r.status);record(r.headers.get(\"content-type\"));record(r.bodyUsed);r.text().then(function(v){record(v);record(r.bodyUsed);return r.text();}).catch(function(e){record(e.name);return copy.text();}).then(function(v){record(\"clone:\"+v);});",
+    "expected": [
+      "true",
+      "201",
+      "text/plain;charset=UTF-8",
+      "false",
+      "hello",
+      "true",
+      "TypeError",
+      "clone:hello"
+    ]
+  },
+  {
+    "name": "Response JSON and null bodies",
+    "group": "network",
+    "source": "const r=Response.json({a:2});record(r.headers.get(\"content-type\"));const empty=new Response(null,{status:204});record(empty.body===null);try{new Response(\"x\",{status:204});}catch(e){record(e.name);}r.json().then(function(value){record(value.a);return empty.text();}).then(function(value){record(value);record(empty.bodyUsed);});",
+    "expected": [
+      "application/json",
+      "true",
+      "TypeError",
+      "2",
+      "",
+      "false"
+    ]
+  },
+  {
+    "name": "Response error redirect and immutable headers",
+    "group": "network",
+    "source": "const e=Response.error();record(e.status);record(e.type);record(e.ok);try{e.headers.set(\"x\",\"1\");}catch(error){record(error.name);}const r=Response.redirect(\"https://example.com/next\",307);record(r.status);record(r.headers.get(\"location\"));try{Response.redirect(\"https://example.com\",200);}catch(error){record(error.name);}",
+    "expected": [
+      "0",
+      "error",
+      "false",
+      "TypeError",
+      "307",
+      "https://example.com/next",
+      "RangeError"
+    ]
+  },
+  {
+    "name": "Request URL methods headers and signal following",
+    "group": "network",
+    "source": "const c=new AbortController();const r=new Request(\"https://example.com/a\",{method:\"post\",body:\"x\",headers:{\"x-test\":\"yes\",\"cookie\":\"hidden\"},signal:c.signal});record(r.method);record(r.url);record(r.headers.get(\"content-type\"));record(r.headers.get(\"cookie\"));record(r.signal===c.signal);c.abort(\"stop\");record(r.signal.reason);r.text().then(record);",
+    "expected": [
+      "POST",
+      "https://example.com/a",
+      "text/plain;charset=UTF-8",
+      "null",
+      "false",
+      "stop",
+      "x"
+    ]
+  },
+  {
+    "name": "Request constructor rejects invalid combinations",
+    "group": "network",
+    "source": "try{new Request(\"https://example.com\",{body:\"x\"});}catch(e){record(e.name);}try{new Request(\"https://user:pw@example.com\");}catch(e){record(e.name);}try{new Request(\"https://example.com\",{method:\"TRACE\"});}catch(e){record(e.name);}try{new Request(\"https://example.com\",{cache:\"only-if-cached\"});}catch(e){record(e.name);}",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "ReadableStream enqueue close read and locks",
+    "group": "network",
+    "source": "const stream=new ReadableStream({start:function(c){c.enqueue(\"a\");c.enqueue(\"b\");c.close();}});const r=stream.getReader();record(stream.locked);r.read().then(function(v){record(v.value);return r.read();}).then(function(v){record(v.value);return r.read();}).then(function(v){record(v.done);r.releaseLock();record(stream.locked);});",
+    "expected": [
+      "true",
+      "a",
+      "b",
+      "true",
+      "false"
+    ]
+  },
+  {
+    "name": "ReadableStream pull and cancellation",
+    "group": "network",
+    "source": "let count=0;const stream=new ReadableStream({pull:function(c){count++;c.enqueue(count);},cancel:function(reason){record(\"cancel:\"+reason);}});const r=stream.getReader();r.read().then(function(v){record(v.value);return r.cancel(\"done\");}).then(function(){return r.read();}).then(function(v){record(v.done);});",
+    "expected": [
+      "1",
+      "cancel:done",
+      "true"
+    ]
+  },
+  {
+    "name": "ReadableStream error and released pending read",
+    "group": "network",
+    "source": "let control;const stream=new ReadableStream({start:function(c){control=c;}});const r=stream.getReader();r.read().catch(function(e){record(e);});control.error(\"boom\");r.closed.catch(function(e){record(\"closed:\"+e);});const pending=new ReadableStream();const p=pending.getReader();p.read().catch(function(e){record(e.name);});p.releaseLock();record(pending.locked);",
+    "expected": [
+      "false",
+      "boom",
+      "closed:boom",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Response consumes stream byte chunks",
+    "group": "network",
+    "source": "const response=new Response(new ReadableStream({start:function(c){c.enqueue(new Uint8Array([65,66]));c.enqueue(new Uint8Array([67]));c.close();}}));const bad=new Response(new ReadableStream({start:function(c){c.enqueue(\"wrong\");c.close();}}));response.text().then(function(value){record(value);record(response.bodyUsed);return bad.text();}).catch(function(e){record(e.name);});",
+    "expected": [
+      "ABC",
+      "true",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Stream tee supplies both branches",
+    "group": "network",
+    "source": "const stream=new ReadableStream({start:function(c){c.enqueue(1);c.enqueue(2);c.close();}});const pair=stream.tee();const a=pair[0].getReader();const b=pair[1].getReader();Promise.all([a.read(),b.read()]).then(function(values){record(values[0].value);record(values[1].value);return Promise.all([a.read(),b.read()]);}).then(function(values){record(values[0].value);record(values[1].value);});",
+    "expected": [
+      "1",
+      "1",
+      "2",
+      "2"
+    ]
+  },
+  {
+    "name": "Request transfer locks and disturbs source body",
+    "group": "network",
+    "source": "const a=new Request(\"https://example.com\",{method:\"POST\",body:\"hello\"});const b=new Request(a);record(a.bodyUsed);record(a.body.locked);record(b.bodyUsed);b.text().then(record);",
+    "expected": [
+      "true",
+      "true",
+      "false",
+      "hello"
+    ]
+  },
+  {
+    "name": "Request clone gets an independent following signal",
+    "group": "network",
+    "source": "const c=new AbortController();const a=new Request(\"https://example.com\",{signal:c.signal});const b=a.clone();record(a.signal===b.signal);c.abort(\"done\");record(a.signal.reason);record(b.signal.reason);",
+    "expected": [
+      "false",
+      "done",
+      "done"
+    ]
+  },
+  {
+    "name": "no-cors request header safelist",
+    "group": "network",
+    "source": "const r=new Request(\"https://example.com\",{mode:\"no-cors\",method:\"POST\",headers:{\"x-custom\":\"drop\",\"accept\":\"text/html\",\"content-type\":\"application/json\"},body:\"x\"});record(r.headers.get(\"x-custom\"));record(r.headers.get(\"accept\"));record(r.headers.get(\"content-type\"));r.headers.set(\"content-type\",\"text/plain\");record(r.headers.get(\"content-type\"));r.headers.append(\"x-extra\",\"drop\");record(r.headers.has(\"x-extra\"));",
+    "expected": [
+      "null",
+      "text/html",
+      "text/plain;charset=UTF-8",
+      "text/plain",
+      "false"
+    ]
+  },
+  {
+    "name": "Native body and encoding algorithms ignore replaced global helpers",
+    "group": "network",
+    "source": "const oldString=String;String=function(){return \"wrong\";};record(new TextDecoder().decode(new TextEncoder().encode(12)));String=oldString;const r=new Response(\"{\\\"x\\\":2}\");JSON.parse=function(){return {x:9};};r.json().then(function(v){record(v.x);});",
+    "expected": [
+      "12",
+      "2"
+    ]
+  },
+  {
+    "name": "TextDecoder trailing incomplete and UTF16 invalid units",
+    "group": "network",
+    "source": "record(new TextDecoder().decode(new Uint8Array([240,159])));record(new TextDecoder(\"utf-16le\").decode(new Uint8Array([0,216,65,0,7])));const d=new TextDecoder(\"utf-8\",{fatal:true});try{d.decode(new Uint8Array([255]));}catch(e){record(e.name);}record(d.decode(new Uint8Array([65])));",
+    "expected": [
+      "�",
+      "�A�",
+      "TypeError",
+      "A"
+    ]
+  },
+  {
+    "name": "Stream size errors reject pending reads and close promise",
+    "group": "network",
+    "source": "let control;const s=new ReadableStream({start:function(c){control=c;}},{size:function(){return -1;}});try{control.enqueue(\"x\");}catch(e){record(e.name);}const r=s.getReader();r.read().catch(function(e){record(e.name);});r.closed.catch(function(e){record(e.name);});",
+    "expected": [
+      "RangeError",
+      "RangeError",
+      "RangeError"
+    ]
+  },
+  {
+    "name": "Reader release pending request allows a new reader",
+    "group": "network",
+    "source": "let control;const s=new ReadableStream({start:function(c){control=c;}});const first=s.getReader();first.read().catch(function(e){record(e.name);});first.releaseLock();const second=s.getReader();second.read().then(function(v){record(v.value);});control.enqueue(\"next\");control.close();",
+    "expected": [
+      "TypeError",
+      "next"
+    ]
+  },
+  {
+    "name": "Tee cancellation cancels source only when both branches cancel",
+    "group": "network",
+    "source": "const s=new ReadableStream({cancel:function(reasons){record(reasons.join(\",\"));}});const pair=s.tee();pair[0].cancel(\"a\").then(function(){record(\"first done\");});record(\"one canceled\");pair[1].cancel(\"b\").then(function(){record(\"second done\");});",
+    "expected": [
+      "one canceled",
+      "a,b",
+      "first done",
+      "second done"
+    ]
+  },
+  {
+    "name": "Body rejects locked stream and bad JSON",
+    "group": "network",
+    "source": "const r=new Response(\"bad\");const reader=r.body.getReader();r.text().catch(function(e){record(e.name);reader.releaseLock();return r.json();}).catch(function(e){record(e.name);});",
+    "expected": [
+      "TypeError",
+      "SyntaxError"
+    ]
+  },
+  {
+    "name": "Binary view read-only properties and nonfinite integer conversion",
+    "group": "network",
+    "source": "const a=new Uint8Array([Infinity,NaN,-Infinity]);record(a.join(\",\"));a.length=7;record(a.length);try{(function(){\"use strict\";a.byteOffset=2;})();}catch(e){record(e.name);}record(ArrayBuffer.isView(new DataView(a.buffer)));",
+    "expected": [
+      "0,0,0",
+      "3",
+      "TypeError",
+      "true"
+    ]
+  },
+  {
+    "name": "Writable ordered writes desiredSize close and lock release",
+    "source": "(async function(){const values=[];const s=new WritableStream({write:function(v){values.push(v);},close:function(){values.push('close');}});const w=s.getWriter();record(s.locked);record(w.desiredSize);const a=w.write('a'),b=w.write('b');record(w.desiredSize);await Promise.all([a,b]);record(w.desiredSize);await w.close();record(values.join(','));record(w.desiredSize);w.releaseLock();record(s.locked);})();",
+    "expected": [
+      "true",
+      "1",
+      "-1",
+      "1",
+      "a,b,close",
+      "0",
+      "false"
+    ]
+  },
+  {
+    "name": "Writable backpressure ready and pending abort",
+    "source": "(async function(){let release,started;const signalReady=new Promise(function(r){started=r;});const events=[];const s=new WritableStream({write:function(v,c){events.push(v);record(c.signal.aborted);started();return new Promise(function(r){release=r;});},abort:function(reason){events.push('abort:'+reason);}});const w=s.getWriter();const pending=w.write('write');await signalReady;record(w.desiredSize);let ready=false;w.ready.then(function(){ready=true;},function(){});record(ready);const stopped=w.abort('stop');w.closed.catch(function(){});release();await pending;await stopped;record(events.join(','));record(w.desiredSize===null);})();",
+    "expected": [
+      "false",
+      "0",
+      "false",
+      "write,abort:stop",
+      "true"
+    ]
+  },
+  {
+    "name": "Writable error rejects queued writes and closed",
+    "source": "(async function(){const w=new WritableStream({write:function(){throw 'sink';}}).getWriter();const values=await Promise.allSettled([w.write(1),w.write(2),w.closed]);record(values.map(function(x){return x.reason;}).join(','));try{await w.write(3);}catch(e){record(e);}w.releaseLock();try{await w.write(4);}catch(e){record(e.name);}})();",
+    "expected": [
+      "sink,sink,sink",
+      "sink",
+      "TypeError"
+    ]
+  },
+  {
+    "name": "Readable pipeTo forwards chunks and closes destination",
+    "source": "(async function(){const values=[];const r=new ReadableStream({start:function(c){c.enqueue(1);c.enqueue(2);c.close();}});const w=new WritableStream({write:function(v){values.push(v);},close:function(){values.push('closed');}});const p=r.pipeTo(w);record(r.locked&&w.locked);await p;record(values.join(','));record(r.locked||w.locked);})();",
+    "expected": [
+      "true",
+      "1,2,closed",
+      "false"
+    ]
+  },
+  {
+    "name": "PipeTo error propagation and prevent flags",
+    "source": "(async function(){let canceled,aborted,closed=false;const r=new ReadableStream({start:function(c){c.enqueue(1);},cancel:function(v){canceled=v;}});try{await r.pipeTo(new WritableStream({write:function(){throw 'write failed';}}));}catch(e){record(e);}record(canceled);const bad=new ReadableStream({start:function(c){c.error('read failed');}});try{await bad.pipeTo(new WritableStream({abort:function(v){aborted=v;}}));}catch(e){record(e);}record(aborted);await new ReadableStream({start:function(c){c.close();}}).pipeTo(new WritableStream({close:function(){closed=true;}}),{preventClose:true});record(closed);})();",
+    "expected": [
+      "write failed",
+      "write failed",
+      "read failed",
+      "read failed",
+      "false"
+    ]
+  },
+  {
+    "name": "PipeTo AbortSignal propagates reason and releases locks",
+    "source": "(async function(){let canceled,aborted;const c=new AbortController();const r=new ReadableStream({cancel:function(v){canceled=v;}});const w=new WritableStream({abort:function(v){aborted=v;}});const p=r.pipeTo(w,{signal:c.signal});c.abort('stop');try{await p;}catch(e){record(e);}record(canceled);record(aborted);record(r.locked||w.locked);})();",
+    "expected": [
+      "stop",
+      "stop",
+      "stop",
+      "false"
+    ]
+  },
+  {
+    "name": "Transform pipeThrough and flush",
+    "source": "(async function(){const r=new ReadableStream({start:function(c){c.enqueue('a');c.enqueue('b');c.close();}});const t=new TransformStream({transform:function(v,c){c.enqueue(v.toUpperCase());},flush:function(c){c.enqueue('!');}});const values=[];await r.pipeThrough(t).pipeTo(new WritableStream({write:function(v){values.push(v);}}));record(values.join(''));record(t.readable.locked||t.writable.locked);})();",
+    "expected": [
+      "AB!",
+      "false"
+    ]
+  },
+  {
+    "name": "Transform backpressure waits for read demand",
+    "source": "(async function(){let count=0;const t=new TransformStream({transform:function(v,c){count++;c.enqueue(v+1);}});const w=t.writable.getWriter();const pending=w.write(4);record(count);const reader=t.readable.getReader();const value=await reader.read();await pending;record(value.value);record(count);await w.close();record((await reader.read()).done);})();",
+    "expected": [
+      "0",
+      "5",
+      "1",
+      "true"
+    ]
+  },
+  {
+    "name": "Transform errors reject both ends",
+    "source": "(async function(){const t=new TransformStream({transform:function(){throw 'transform failed';}});const w=t.writable.getWriter(),r=t.readable.getReader();const result=await Promise.allSettled([w.write(1),r.read()]);record(result.map(function(x){return x.reason;}).join(','));})();",
+    "expected": [
+      "transform failed,transform failed"
+    ]
+  },
+  {
+    "name": "Readable async iterator cancel and preventCancel",
+    "source": "(async function(){let reason;const r=new ReadableStream({start:function(c){c.enqueue(1);c.enqueue(2);},cancel:function(x){reason=x;}});const i=r.values();record(i[Symbol.iterator]===undefined);record((await i.next()).value);record((await i.return('done')).value);record(reason);record(r.locked);const other=new ReadableStream({start:function(c){c.enqueue(7);}});const j=other.values({preventCancel:true});await j.return();const reader=other.getReader();record((await reader.read()).value);reader.releaseLock();})();",
+    "expected": [
+      "true",
+      "1",
+      "done",
+      "done",
+      "false",
+      "7"
+    ]
+  },
+  {
+    "name": "Count and byte length queue strategies",
+    "source": "const a=new CountQueuingStrategy({highWaterMark:3});record(a.highWaterMark);record(a.size('anything'));const b=new ByteLengthQueuingStrategy({highWaterMark:9});record(b.highWaterMark);record(b.size(new Uint8Array(4)));",
+    "expected": [
+      "3",
+      "1",
+      "9",
+      "4"
+    ]
+  },
+  {
+    "name": "FormData ordered duplicate entries and replacement",
+    "source": "const f=new FormData();f.append('x','one');f.append('y','two');f.append('x','three');record(Array.from(f).map(function(p){return p.join('=');}).join('|'));record(f.getAll('x').join(','));f.set('x','last');record(Array.from(f.keys()).join(','));record(f.get('x'));f.delete('x');record(f.has('x'));record(f.get('x'));record(Object.prototype.toString.call(f));",
+    "expected": [
+      "x=one|y=two|x=three",
+      "one,three",
+      "x,y",
+      "last",
+      "false",
+      "null",
+      "[object FormData]"
+    ]
+  },
+  {
+    "name": "FormData string coercion and live iteration",
+    "source": "const f=new FormData(undefined);f.append(12,null);f.append('u',undefined);f.append('s',String.fromCharCode(0xd800));record(f.get('12'));record(f.get('u'));record(f.get('s').charCodeAt(0));const i=f.entries();record(i.next().value.join(':'));f.append('later','v');record(Array.from(i).map(function(p){return p[0];}).join(','));const values=[];const g=new FormData();g.append('a','1');g.forEach(function(v,k,own){values.push(k+v);record(own===g&&this.tag==='ok');if(k==='a')g.append('b','2');},{tag:'ok'});record(values.join(','));",
+    "expected": [
+      "null",
+      "undefined",
+      "65533",
+      "12:null",
+      "u,s,later",
+      "true",
+      "true",
+      "a1,b2"
+    ]
+  },
+  {
+    "name": "FormData Blob and File entry semantics",
+    "source": "(async function(){const f=new FormData();const b=new Blob(['abc'],{type:'text/plain'});const original=new File(['x'],'original.txt',{lastModified:123,type:'text/plain'});f.append('blob',b);f.append('file',original);f.append('renamed',original,'other.txt');record(f.get('blob') instanceof File);record(f.get('blob').name);record(f.get('file')===original);record(f.get('renamed')===original);record(f.get('renamed').name);record(f.get('renamed').lastModified);record(await f.get('blob').text());try{f.append('x','text','f.txt');}catch(e){record(e.name);}try{f.set('x','text',undefined);}catch(e){record(e.name);}})();",
+    "expected": [
+      "true",
+      "blob",
+      "true",
+      "false",
+      "other.txt",
+      "123",
+      "abc",
+      "TypeError",
+      "TypeError"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FormData validates argument counts and receivers",
+    "source": "for(const run of [function(){FormData();},function(){new FormData().append('a');},function(){new FormData().get();},function(){FormData.prototype.append.call({},'a','b');},function(){new FormData().append(Symbol('k'),'v');}]){try{run();}catch(e){record(e.name);}}record(Object.getOwnPropertyNames(FormData.prototype.append).slice(0,2).join(','));",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "length,name"
+    ]
+  },
+  {
+    "name": "Multipart FormData Response roundtrip and body usage",
+    "source": "(async function(){const f=new FormData();f.append('a','one');f.append('a','two');f.append('file',new File(['payload'],'a.txt',{type:'text/plain'}));const r=new Response(f);record(r.headers.get('content-type').startsWith('multipart/form-data; boundary='));const other=r.clone();const out=await r.formData();record(out.getAll('a').join(','));record(out.get('file').name);record(out.get('file').type);record(await out.get('file').text());record(r.bodyUsed);try{await r.formData();}catch(e){record(e.name);}const text=await other.text();record(text.includes('Content-Disposition: form-data; name=\"file\"; filename=\"a.txt\"'));})();",
+    "expected": [
+      "true",
+      "one,two",
+      "a.txt",
+      "text/plain",
+      "payload",
+      "true",
+      "TypeError",
+      "true"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FormData URL encoded body duplicates and decoding",
+    "source": "(async function(){const f=await new Response('a=one&a=two+words&utf=%E2%82%AC&bad=%FF&empty',{headers:{'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}}).formData();record(f.getAll('a').join('|'));record(f.get('utf'));record(f.get('bad').charCodeAt(0));record(f.get('empty'));})();",
+    "expected": [
+      "one|two words",
+      "€",
+      "65533",
+      ""
+    ],
+    "wait": true
+  },
+  {
+    "name": "FormData multipart normalization and header escaping",
+    "source": "(async function(){const f=new FormData();f.append('a\\nb\"','x\\ny\\rz\\r\\nq');f.append('file',new Blob(['x']),'a\"b\\nc.txt');const r=new Response(f);const text=await r.clone().text();record(text.includes('name=\"a%0D%0Ab%22\"'));record(text.includes('filename=\"a%22b%0Ac.txt\"'));const out=await r.formData();record(Array.from(out.keys()).join('|'));record(JSON.stringify(out.get(Array.from(out.keys())[0])));record(out.get('file').name);})();",
+    "expected": [
+      "true",
+      "true",
+      "a%0D%0Ab%22|file",
+      "\"x\\r\\ny\\r\\nz\\r\\nq\"",
+      "a%22b%0Ac.txt"
+    ],
+    "wait": true
+  },
+  {
+    "name": "Multipart parser accepts quoted boundary and preserves bytes",
+    "source": "(async function(){const body='--abc\\r\\nContent-Disposition: form-data; name=\"file\"; filename=\"dir/test.bin\"\\r\\nContent-Type: application/octet-stream\\r\\n\\r\\na'+String.fromCharCode(0)+'b\\r\\n--abc--\\r\\n';const f=await new Response(body,{headers:{'Content-Type':'multipart/form-data; boundary=\"abc\"'}}).formData();const file=f.get('file');record(file.name);record(file.type);record(Array.from(new Uint8Array(await file.arrayBuffer())).join(','));})();",
+    "expected": [
+      "dir/test.bin",
+      "application/octet-stream",
+      "97,0,98"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FormData parser rejects incompatible and malformed bodies",
+    "source": "(async function(){for(const args of [['x',{}],['x',{headers:{'Content-Type':'multipart/form-data'}}],['--a\\r\\nBad\\r\\n\\r\\nx\\r\\n--a--',{headers:{'Content-Type':'multipart/form-data; boundary=a'}}]]){try{await new Response(args[0],args[1]).formData();}catch(e){record(e.name);}}})();",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ],
+    "wait": true
+  },
+  {
+    "name": "WebIDL iterators resume at the same index after append",
+    "source": "for(const data of [new FormData(),new Headers()]){const i=data.entries();record(i.next().done);data.append('a','1');data.append('b','2');const item=i.next();record(item.done);record(item.value.join(','));}",
+    "expected": [
+      "true",
+      "false",
+      "a,1",
+      "true",
+      "false",
+      "a,1"
+    ]
+  },
+  {
+    "name": "Typed array primitive constructor brands and metadata",
+    "source": "for(const run of [function(){new Uint8Array(Symbol('x'));},function(){new Uint8Array(1n);},function(){Uint8Array.prototype.at.call(new DataView(new ArrayBuffer(2)),0);}])try{run();}catch(e){record(e.name);}record(Object.getOwnPropertyNames(Uint8Array.prototype.slice).slice(0,2).join(','));",
+    "expected": [
+      "TypeError",
+      "TypeError",
+      "TypeError",
+      "length,name"
+    ]
+  },
+  {
+    "name": "Stream promise methods reject wrong receivers asynchronously",
+    "source": "(async function(){for(const pair of [[ReadableStream.prototype.cancel,{}],[ReadableStreamDefaultReader.prototype.read,{}],[WritableStream.prototype.abort,{}],[WritableStreamDefaultWriter.prototype.write,{}]]){let p;try{p=pair[0].call(pair[1]);record(p instanceof Promise);}catch(e){record('sync');}if(p)try{await p;}catch(e){record(e.name);}}const w=new WritableStream({start:function(c){c.error('stored');}});await Promise.resolve();try{await w.close();}catch(e){record(e.name);}})();",
+    "expected": [
+      "true",
+      "TypeError",
+      "true",
+      "TypeError",
+      "true",
+      "TypeError",
+      "true",
+      "TypeError",
+      "TypeError"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FileReader states and progress event lifecycle",
+    "source": "(async function(){const r=new FileReader();record(r.readyState);record(r.result);record(r instanceof EventTarget);const order=[];for(const name of ['loadstart','progress','load','loadend'])r.addEventListener(name,function(e){order.push(e.type);record(e instanceof ProgressEvent&&e.target===r);});const done=new Promise(function(resolve){r.onloadend=resolve;});r.readAsText(new Blob(['hello']));record(r.readyState);record(r.result);await done;record(order.join(','));record(r.readyState);record(r.result);record(r.error);record([r.EMPTY,r.LOADING,r.DONE].join(','));})();",
+    "expected": [
+      "0",
+      "null",
+      "true",
+      "1",
+      "null",
+      "true",
+      "true",
+      "true",
+      "true",
+      "loadstart,progress,load,loadend",
+      "2",
+      "hello",
+      "null",
+      "0,1,2"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FileReader arraybuffer dataURL and binary strings",
+    "source": "(async function(){const r=new FileReader();function read(method,blob){return new Promise(function(resolve,reject){r.onload=function(){resolve(r.result);};r.onerror=reject;r[method](blob);});}const b=new Blob([new Uint8Array([0,255,65])],{type:'application/octet-stream'});record(Array.from(new Uint8Array(await read('readAsArrayBuffer',b))).join(','));record(await read('readAsDataURL',b));record((await read('readAsBinaryString',b)).split('').map(function(c){return c.charCodeAt(0);}).join(','));})();",
+    "expected": [
+      "0,255,65",
+      "data:application/octet-stream;base64,AP9B",
+      "0,255,65"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FileReader abort is synchronous and prevents late load",
+    "source": "(async function(){const r=new FileReader();const order=[];r.onabort=function(){order.push('abort');};r.onloadend=function(){order.push('end');};r.onload=function(){order.push('bad');};r.readAsText(new Blob(['x']));try{r.readAsText(new Blob(['y']));}catch(e){record(e.name);}r.abort();record(order.join(','));record(r.readyState);record(r.result);await Promise.resolve();record(order.join(','));})();",
+    "expected": [
+      "InvalidStateError",
+      "abort,end",
+      "2",
+      "null",
+      "abort,end"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FileReader load handler may begin a new read",
+    "source": "(async function(){const r=new FileReader();const order=[];const done=new Promise(function(resolve){r.onloadend=function(){order.push('end'+r.readyState);if(r.result==='b')resolve();};});r.onload=function(){order.push(r.result);if(r.result==='a')r.readAsText(new Blob(['b']));};r.readAsText(new Blob(['a']));await done;record(order.join(','));})();",
+    "expected": [
+      "a,b,end2"
+    ],
+    "wait": true,
+    "browserExpected": [
+      "a,end1,b,end2"
+    ],
+    "browserDifference": "Chromium fires prior loadend during new read; File API read operation step 5 suppresses it while loading."
+  },
+  {
+    "name": "FileReader labels and BOM override",
+    "source": "(async function(){function read(blob,label){return new Promise(function(resolve,reject){const r=new FileReader();r.onload=function(){resolve(r.result);};r.onerror=reject;r.readAsText(blob,label);});}record(await read(new Blob([new Uint8Array([0x80])],{type:'text/plain;charset=windows-1252'}),'windows-1252'));record(await read(new Blob([new Uint8Array([255,254,65,0])]),'utf-8'));record(await read(new Blob(['fallback']),'not-an-encoding'));})();",
+    "expected": [
+      "€",
+      "A",
+      "fallback"
+    ],
+    "wait": true
+  },
+  {
+    "name": "ProgressEvent constructor and FileReader validation",
+    "source": "const e=new ProgressEvent('p',{loaded:3.5,total:8.5,lengthComputable:true});record(e.loaded);record(e.total);record(e.lengthComputable);record(e instanceof Event);for(const run of [function(){new FileReader().readAsText('x');},function(){FileReader();},function(){new FileList();}])try{run();}catch(err){record(err.name);}",
+    "expected": [
+      "3.5",
+      "8.5",
+      "true",
+      "true",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ],
+    "wait": false
+  },
+  {
+    "name": "Object URLs fetch immutable bytes and revoke",
+    "source": "(async function(){const b=new Blob(['payload'],{type:'text/plain'});const u=URL.createObjectURL(b);record(u.startsWith('blob:'));const r=await fetch(u);record(r.status);record(r.headers.get('content-type'));record(r.headers.get('content-length'));record(await r.text());URL.revokeObjectURL(u);URL.revokeObjectURL(u);try{await fetch(u);}catch(e){record(e.name);}try{URL.createObjectURL({});}catch(e){record(e.name);}})();",
+    "expected": [
+      "true",
+      "200",
+      "text/plain",
+      "7",
+      "payload",
+      "TypeError",
+      "TypeError"
+    ],
+    "wait": true
+  },
+  {
+    "name": "Object URL fragments and pre-revocation fetch snapshots",
+    "source": "(async function(){const u=URL.createObjectURL(new Blob(['x']));const pending=fetch(u);URL.revokeObjectURL(u);record(await(await pending).text());const v=URL.createObjectURL(new Blob(['y']));URL.revokeObjectURL(v+'#fragment');record(await(await fetch(v+'#fragment')).text());URL.revokeObjectURL(v);})();",
+    "expected": [
+      "x",
+      "y"
+    ],
+    "wait": true
+  },
+  {
+    "name": "TextEncoderStream preserves split surrogate pairs",
+    "source": "(async function(){const e=new TextEncoderStream();record(e.encoding);record(e.readable instanceof ReadableStream&&e.writable instanceof WritableStream);const values=[];await new ReadableStream({start:function(c){c.enqueue('A'+String.fromCharCode(0xd83d));c.enqueue(String.fromCharCode(0xde00)+'B');c.enqueue(String.fromCharCode(0xd800));c.close();}}).pipeThrough(e).pipeTo(new WritableStream({write:function(chunk){values.push(...chunk);}}));record(values.join(','));})();",
+    "expected": [
+      "utf-8",
+      "true",
+      "65,240,159,152,128,66,239,191,189"
+    ],
+    "wait": true
+  },
+  {
+    "name": "TextDecoderStream decodes chunk boundaries and flush",
+    "source": "(async function(){const d=new TextDecoderStream('utf-8');record(d.encoding);record(d.fatal);record(d.ignoreBOM);const values=[];await new ReadableStream({start:function(c){c.enqueue(new Uint8Array([0xef,0xbb]));c.enqueue(new Uint8Array([0xbf,0xe2]));c.enqueue(new Uint8Array([0x82,0xac,0xe2]));c.close();}}).pipeThrough(d).pipeTo(new WritableStream({write:function(chunk){values.push(chunk);}}));record(values.join(''));})();",
+    "expected": [
+      "utf-8",
+      "false",
+      "false",
+      "€�"
+    ],
+    "wait": true
+  },
+  {
+    "name": "TextDecoderStream fatal decode errors both streams",
+    "source": "(async function(){const d=new TextDecoderStream('utf-8',{fatal:true});record(d.fatal);try{await new ReadableStream({start:function(c){c.enqueue(new Uint8Array([255]));c.close();}}).pipeThrough(d).pipeTo(new WritableStream());}catch(e){record(e.name);}})();",
+    "expected": [
+      "true",
+      "TypeError"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FileList native indexed properties and branding",
+    "source": "const a=new File(['a'],'a.txt',{lastModified:1}),b=new File(['b'],'b.txt',{lastModified:2});const files=makeFileList([a,b]);record(files.constructor===FileList);record(Object.prototype.toString.call(files));record(files instanceof FileList);record(files.length);record(files[0]===a&&files.item(1)===b);record(files.item(5));record(Array.from(files).map(function(f){return f.name;}).join(','));record(Object.keys(files).join(','));const d=Object.getOwnPropertyDescriptor(files,'0');record([d.writable,d.enumerable,d.configurable].join(','));record(Reflect.set(files,'0',b));record(Reflect.deleteProperty(files,'0'));files.note='ok';record(files.note);record(files.length);try{files.item();}catch(e){record(e.name);}record(Reflect.preventExtensions(files));record(Object.isExtensible(files));record(Reflect.defineProperty(files,'0',{value:b}));record(FileList.prototype[Symbol.iterator]===Array.prototype.values);record(FileList.prototype[Symbol.iterator].call({0:'x',length:1}).next().value);",
+    "expected": [
+      "true",
+      "[object FileList]",
+      "true",
+      "2",
+      "true",
+      "null",
+      "a.txt,b.txt",
+      "0,1",
+      "false,true,true",
+      "false",
+      "false",
+      "ok",
+      "2",
+      "TypeError",
+      "false",
+      "true",
+      "false",
+      "true",
+      "x"
+    ],
+    "browserExpected": [
+      "true",
+      "[object FileList]",
+      "true",
+      "2",
+      "true",
+      "null",
+      "a.txt,b.txt",
+      "0,1",
+      "false,true,true",
+      "true",
+      "false",
+      "ok",
+      "2",
+      "TypeError",
+      "false",
+      "true",
+      "true",
+      "true",
+      "x"
+    ],
+    "browserDifference": "Chromium Reflect.set and Reflect.defineProperty report true for read-only indices; Web IDL legacy platform object Set/DefineOwnProperty return false without an indexed setter."
+  },
+  {
+    "name": "Object URL byte ranges",
+    "source": "(async function(){const u=URL.createObjectURL(new Blob(['abcdef'],{type:'text/plain'}));for(const range of ['bytes=2-4','bytes=-2','bytes=3-','bytes=1-99','bytes=-99']){const r=await fetch(u,{headers:{Range:range}});record(r.status+'|'+r.headers.get('content-range')+'|'+await r.text());}for(const range of ['bytes=6-','bytes=3-2','bytes=0-1,3-4'])try{await fetch(u,{headers:{Range:range}});record('ok');}catch(e){record(e.name);}URL.revokeObjectURL(u);})();",
+    "expected": [
+      "206|bytes 2-4/6|cde",
+      "206|bytes 4-5/6|ef",
+      "206|bytes 3-5/6|def",
+      "206|bytes 1-5/6|bcdef",
+      "206|bytes 0-5/6|abcdef",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ],
+    "wait": true,
+    "browserExpected": [
+      "206|bytes 2-4/6|cde",
+      "206|bytes 4-5/6|ef",
+      "206|bytes 3-5/6|def",
+      "206|bytes 1-5/6|bcdef",
+      "206|bytes 0-5/6|abcdef",
+      "TypeError",
+      "ok",
+      "TypeError"
+    ],
+    "browserDifference": "Chromium ignores a reversed Range and returns 200; Fetch scheme-fetch single range parsing requires a network error."
+  },
+  {
+    "name": "Native file codecs ignore prototype monkeypatches",
+    "source": "(async function(){TextDecoder.prototype.decode=function(){throw Error('patched decode');};TextEncoder.prototype.encode=function(){throw Error('patched encode');};record(await new Promise(function(resolve,reject){const r=new FileReader();r.onload=function(){resolve(r.result);};r.onerror=reject;r.readAsText(new Blob(['native']));}));const output=[];await new ReadableStream({start:function(c){c.enqueue('ok');c.close();}}).pipeThrough(new TextEncoderStream()).pipeThrough(new TextDecoderStream()).pipeTo(new WritableStream({write:function(v){output.push(v);}}));record(output.join(''));})();",
+    "expected": [
+      "native",
+      "ok"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FileReader abort from loadstart and ProgressEvent primitive dictionaries",
+    "source": "(async function(){const events=[];const r=new FileReader();const done=new Promise(function(resolve){r.onloadstart=function(){events.push('start');r.abort();};r.onabort=function(){events.push('abort');};r.onloadend=function(){events.push('end');resolve();};r.onload=function(){events.push('bad');};});r.readAsText(new Blob(['x']));await done;record(events.join(','));for(const value of [Symbol('x'),1n,5])try{new ProgressEvent('x',value);}catch(e){record(e.name);}})();",
+    "expected": [
+      "start,abort,end",
+      "TypeError",
+      "TypeError",
+      "TypeError"
+    ],
+    "wait": true
+  },
+  {
+    "name": "FileReader byte progress and trusted events",
+    "source": "(async function(){const r=new FileReader();for(const name of ['loadstart','progress','load','loadend'])r.addEventListener(name,function(e){record([e.type,e.lengthComputable,e.loaded,e.total,e.isTrusted,e.bubbles,e.cancelable].join('|'));});const done=new Promise(function(resolve){r.onloadend=resolve;});r.readAsText(new Blob(['hello']));await done;const a=new FileReader();a.onabort=function(e){record([e.type,e.lengthComputable,e.loaded,e.total].join('|'));};a.readAsText(new Blob(['a']));a.abort();})();",
+    "expected": [
+      "loadstart|true|0|5|true|false|false",
+      "progress|true|5|5|true|false|false",
+      "load|true|5|5|true|false|false",
+      "loadend|true|5|5|true|false|false",
+      "abort|false|0|0"
+    ],
+    "wait": true
+  }
+]

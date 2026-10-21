@@ -1,0 +1,79 @@
+{
+  "browser": "Chrome/154.0.8037.98",
+  "captured": "2026-10-10",
+  "standard": "https://html.spec.whatwg.org/multipage/dom.html#dom-document-forms",
+  "cases": [
+    {
+      "name": "document images filter and same object",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const list=document.images;return JSON.stringify([list===document.images,list instanceof HTMLCollection,Object.prototype.toString.call(list),Array.from(list,n=>n.id),list.item(-1),list.item(999),list.namedItem('missing'),document.plugins===document.embeds]);})()",
+      "expected": "[true,true,\"[object HTMLCollection]\",[\"img\"],null,null,null,true]"
+    },
+    {
+      "name": "document embeds filter and same object",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const list=document.embeds;return JSON.stringify([list===document.embeds,list instanceof HTMLCollection,Object.prototype.toString.call(list),Array.from(list,n=>n.id),list.item(-1),list.item(999),list.namedItem('missing'),document.plugins===document.embeds]);})()",
+      "expected": "[true,true,\"[object HTMLCollection]\",[\"embed\"],null,null,null,true]"
+    },
+    {
+      "name": "document plugins filter and same object",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const list=document.plugins;return JSON.stringify([list===document.plugins,list instanceof HTMLCollection,Object.prototype.toString.call(list),Array.from(list,n=>n.id),list.item(-1),list.item(999),list.namedItem('missing'),document.plugins===document.embeds]);})()",
+      "expected": "[true,true,\"[object HTMLCollection]\",[\"embed\"],null,null,null,true]"
+    },
+    {
+      "name": "document links filter and same object",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const list=document.links;return JSON.stringify([list===document.links,list instanceof HTMLCollection,Object.prototype.toString.call(list),Array.from(list,n=>n.id),list.item(-1),list.item(999),list.namedItem('missing'),document.plugins===document.embeds]);})()",
+      "expected": "[true,true,\"[object HTMLCollection]\",[\"link\",\"area\"],null,null,null,true]"
+    },
+    {
+      "name": "document forms filter and same object",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const list=document.forms;return JSON.stringify([list===document.forms,list instanceof HTMLCollection,Object.prototype.toString.call(list),Array.from(list,n=>n.id),list.item(-1),list.item(999),list.namedItem('missing'),document.plugins===document.embeds]);})()",
+      "expected": "[true,true,\"[object HTMLCollection]\",[\"form\"],null,null,null,true]"
+    },
+    {
+      "name": "document scripts filter and same object",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const list=document.scripts;return JSON.stringify([list===document.scripts,list instanceof HTMLCollection,Object.prototype.toString.call(list),Array.from(list,n=>n.id),list.item(-1),list.item(999),list.namedItem('missing'),document.plugins===document.embeds]);})()",
+      "expected": "[true,true,\"[object HTMLCollection]\",[\"script\"],null,null,null,true]"
+    },
+    {
+      "name": "images live order names and item conversion",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const list=document.images,out=[],record=()=>out.push([Array.from(list,n=>n.id),Object.keys(list),Object.getOwnPropertyNames(list),list.namedItem('picture')?.id||null]);record();const img=document.getElementById('img'),other=document.createElement('img');other.id='second';other.name='picture';document.body.prepend(other);record();other.id='renamed';other.name='changed';record();out.push(['item',list.item({valueOf(){other.remove();return 0;}}).id]);record();for(const value of [Symbol(),1n])try{list.item(value);}catch(err){out.push(['item error',err.name]);}try{list.namedItem(Symbol());}catch(err){out.push(['name error',err.name]);}return JSON.stringify(out);})()",
+      "expected": "[[[\"img\"],[\"0\"],[\"0\",\"img\",\"picture\"],\"img\"],[[\"second\",\"img\"],[\"0\",\"1\"],[\"0\",\"1\",\"second\",\"picture\",\"img\"],\"second\"],[[\"renamed\",\"img\"],[\"0\",\"1\"],[\"0\",\"1\",\"renamed\",\"changed\",\"img\",\"picture\"],\"img\"],[\"item\",\"img\"],[[\"img\"],[\"0\"],[\"0\",\"img\",\"picture\"],\"img\"],[\"item error\",\"TypeError\"],[\"item error\",\"TypeError\"],[\"name error\",\"TypeError\"]]"
+    },
+    {
+      "name": "links live href filter own namespace and retained view",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const list=document.links,out=[],record=()=>out.push(Array.from(list,n=>n.id)),link=document.getElementById('link'),other=document.getElementById('noLink');record();link.removeAttribute('href');record();other.setAttribute('href','');record();other.setAttribute('href','#x');record();link.setAttributeNS('urn:x','x:href','#not-html');record();link.setAttribute('href','#real');record();other.remove();record();return JSON.stringify(out);})()",
+      "expected": "[[\"link\",\"area\"],[\"area\"],[\"noLink\",\"area\"],[\"noLink\",\"area\"],[\"noLink\",\"area\"],[\"link\",\"noLink\",\"area\"],[\"link\",\"area\"]]"
+    },
+    {
+      "name": "collections document trees exclude shadow and template",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const out=[],forms=document.forms,host=document.createElement('div');document.body.append(host);host.attachShadow({mode:'open'}).innerHTML='<form id=shadowForm></form><img id=shadowImage>';const record=()=>out.push([Array.from(forms,n=>n.id),Array.from(document.images,n=>n.id)]);record();const template=document.querySelector('template');document.body.append(template.content);record();const other=document.implementation.createHTMLDocument('other');other.body.append(other.adoptNode(document.getElementById('form')));record();out.push(Array.from(other.forms,n=>n.id));out.push(forms===document.forms);return JSON.stringify(out);})()",
+      "expected": "[[[\"form\"],[\"img\"]],[[\"form\",\"templateForm\"],[\"img\",\"inTemplate\"]],[[\"templateForm\"],[\"img\",\"inTemplate\"]],[\"form\"],true]"
+    },
+    {
+      "name": "XML collections filter HTML namespace and local name",
+      "html": "<!doctype html>",
+      "action": "(()=>{const d=document.implementation.createDocument('urn:root','root'),out=[];for(const [uri,name,id]of [['http://www.w3.org/1999/xhtml','x:form','htmlForm'],['urn:other','form','otherForm'],['','form','nullForm'],['http://www.w3.org/1999/xhtml','FORM','upperForm'],['http://www.w3.org/1999/xhtml','img','htmlImage'],['http://www.w3.org/2000/svg','image','svgImage'],['http://www.w3.org/1999/xhtml','script','htmlScript'],['http://www.w3.org/2000/svg','script','svgScript']]){const e=d.createElementNS(uri,name);e.setAttribute('id',id);d.documentElement.append(e);}for(const key of [\"images\",\"embeds\",\"plugins\",\"links\",\"forms\",\"scripts\"])out.push([key,Array.from(d[key],n=>n.id)]);return JSON.stringify(out);})()",
+      "expected": "[[\"images\",[\"htmlImage\"]],[\"embeds\",[]],[\"plugins\",[]],[\"links\",[]],[\"forms\",[\"htmlForm\"]],[\"scripts\",[\"htmlScript\"]]]"
+    },
+    {
+      "name": "document collection descriptors brands and readonly",
+      "html": "<!doctype html><img id=img name=picture><embed id=embed name=plugin><a id=link href=\"\"><a id=noLink name=anchor></a><map><area id=area href=\"#\"></map><form id=form name=contact></form><script id=script type=application/json>{}</script><svg><image id=svgImage></image><script id=svgScript type=application/json></script></svg><template><img id=inTemplate><form id=templateForm></form></template>",
+      "action": "(()=>{const out=[];for(const key of [\"images\",\"embeds\",\"plugins\",\"links\",\"forms\",\"scripts\"]){const d=Object.getOwnPropertyDescriptor(Document.prototype,key);out.push([key,typeof d.get,typeof d.set,d.enumerable,d.configurable,d.get.length,d.get.name,d.get.call(document)===document[key]]);for(const value of [{},null,document.body])try{d.get.call(value);}catch(err){out.push(err.name);}try{(()=>{'use strict';document[key]=4;})();}catch(err){out.push(err.name);}}return JSON.stringify(out);})()",
+      "expected": "[[\"images\",\"function\",\"undefined\",true,true,0,\"get images\",true],\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\",[\"embeds\",\"function\",\"undefined\",true,true,0,\"get embeds\",true],\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\",[\"plugins\",\"function\",\"undefined\",true,true,0,\"get plugins\",true],\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\",[\"links\",\"function\",\"undefined\",true,true,0,\"get links\",true],\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\",[\"forms\",\"function\",\"undefined\",true,true,0,\"get forms\",true],\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\",[\"scripts\",\"function\",\"undefined\",true,true,0,\"get scripts\",true],\"TypeError\",\"TypeError\",\"TypeError\",\"TypeError\"]"
+    },
+    {
+      "name": "document names may shadow collection prototype access",
+      "html": "<!doctype html><form id=collision name=forms></form>",
+      "action": "(()=>{const form=document.getElementById('collision'),getter=Object.getOwnPropertyDescriptor(Document.prototype,'forms').get,list=getter.call(document),out=[document.forms===form,list.length,list[0]===form];form.name='other';out.push(document.forms===list);Object.defineProperty(document,'forms',{value:'expando',configurable:true});out.push(document.forms);out.push(getter.call(document)===list);delete document.forms;out.push(document.forms===list);return JSON.stringify(out);})()",
+      "expected": "[true,1,true,true,\"expando\",true,true]"
+    }
+  ]
+}

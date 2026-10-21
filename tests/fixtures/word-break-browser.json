@@ -1,0 +1,2110 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-18T03:59:49.818Z",
+  "browser": "Chrome/155.0.8059.80",
+  "specs": [
+    "https://drafts.csswg.org/css-text-3/#word-break-property",
+    "https://drafts.csswg.org/css-text-4/#word-break-property"
+  ],
+  "scope": "ASCII line boundaries and min/max-content under all three overflow-wrap values; no complete word-break/CJK claim",
+  "records": [
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEFGHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEFGHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEFGHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 9.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 4,
+      "maximum": 7,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 4,
+      "maximum": 7,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 4,
+      "maximum": 7,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 4,
+      "maximum": 7,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 4,
+      "maximum": 7,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 4,
+      "maximum": 7,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AAB",
+        "BBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AABB",
+        "BB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AABBB",
+        "B"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AAB",
+        "BBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AABB",
+        "BB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AABBB",
+        "B"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AAB",
+        "BBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AABB",
+        "BB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AABBB",
+        "B"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA BBBB",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "BBBB"
+      ],
+      "minimum": 1,
+      "maximum": 7,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDEFGHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDEFGHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDEFGHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 9.997159090909092,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AAA",
+        "BCDE",
+        "FGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AAAB",
+        "CDEFG",
+        "HIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AAABC",
+        "DEFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AAA",
+        "BCDE",
+        "FGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AAAB",
+        "CDEFG",
+        "HIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AAABC",
+        "DEFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AAA",
+        "BCDE",
+        "FGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AAAB",
+        "CDEFG",
+        "HIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AAABC",
+        "DEFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AA ABCDEFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "AA",
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 12.997159090909092,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEFGHIJ"
+      ],
+      "minimum": 10,
+      "maximum": 10,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEFGHIJ"
+      ],
+      "minimum": 10,
+      "maximum": 10,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEFGHIJ"
+      ],
+      "minimum": 10,
+      "maximum": 10,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 10,
+      "maximum": 10,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 10,
+      "maximum": 10,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 10,
+      "maximum": 10,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCDE",
+        "FGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "AB<span>CDEFGH</span>IJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCDEF",
+        "GHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 10,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 6,
+      "maximum": 6,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 6,
+      "maximum": 6,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 6,
+      "maximum": 6,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 6,
+      "maximum": 6,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHI",
+        "J"
+      ],
+      "minimum": 6,
+      "maximum": 6,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 6,
+      "maximum": 6,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "normal",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "normal",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-all",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-all",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "normal",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "normal"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "break-word",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "break-word"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 4,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGH",
+        "IJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 5,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHI",
+        "J"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    },
+    {
+      "html": "ABCD<br>EFGHIJ",
+      "wordBreak": "break-word",
+      "overflowWrap": "anywhere",
+      "columns": 6,
+      "advance": 5.5,
+      "lines": [
+        "ABCD",
+        "EFGHIJ"
+      ],
+      "minimum": 1,
+      "maximum": 6,
+      "computedWordBreak": "break-word",
+      "computedOverflowWrap": "anywhere"
+    }
+  ],
+  "supports": true,
+  "standardSnapshots": [
+    {
+      "url": "https://drafts.csswg.org/css-text-3/#word-break-property",
+      "capturedAt": "2026-10-18T15:31:45.665Z",
+      "snapshot": "build/engine-expansion-20261018/word-break-standard-0.html",
+      "sha256": "3286b3ec2a14b0edc9b932a9d2281e4e8b498c5cd89ef153dc429395d822fe87"
+    },
+    {
+      "url": "https://drafts.csswg.org/css-text-4/#word-break-property",
+      "capturedAt": "2026-10-18T15:31:45.871Z",
+      "snapshot": "build/engine-expansion-20261018/word-break-standard-1.html",
+      "sha256": "3f8f61c2be3924c33f113d11ed6adf8acde2062cf0ff6ee0057893c97b473a63"
+    }
+  ]
+}

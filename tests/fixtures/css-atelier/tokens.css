@@ -1,0 +1,2 @@
+/* A real imported stylesheet. It is intentionally tiny so its effect is clear. */
+:root { --imported-color: #dc654c; }

@@ -1,0 +1,287 @@
+{
+  "html": "<!doctype html><style>body{margin:0}input,button,textarea,select{font-family:Arial}</style><body><script>globalThis.expandedReady=true;</script></body>",
+  "source": "function htmlExpandedHostChecks(){\n  const H='http://www.w3.org/1999/xhtml',records=[];\n  function make(name,attrs){const n=document.createElementNS(H,'h:'+name);for(const key of Object.keys(attrs||{}))n.setAttribute(key,attrs[key]);return n;}\n  function run(name,fn){try{records.push({name:name,value:fn()});}catch(error){records.push({name:name,value:{error:error.name}});}}\n  run('prefixed-shadow-host',()=>{const h=make('div'),r=h.attachShadow({mode:'open'});return [h.shadowRoot===r,r.host===h,h.localName,h.prefix];});\n  for(const ns of [null,'urn:foreign'])run('foreign-shadow-'+String(ns),()=>{const h=document.createElementNS(ns,'div');try{Element.prototype.attachShadow.call(h,{mode:'open'});return 'accepted';}catch(error){return error.name;}});\n  run('prefixed-slot-assignment',()=>{const h=make('div'),r=h.attachShadow({mode:'open'}),s=make('slot'),n=make('span');r.append(s);h.append(n);return [s.constructor.name,s.assignedNodes()[0]===n,n.assignedSlot===s];});\n  run('prefixed-manual-slot',()=>{const h=make('div'),r=h.attachShadow({mode:'open',slotAssignment:'manual'}),s=make('slot'),n=make('span');r.append(s);h.append(n);s.assign(n);return s.assignedNodes()[0]===n;});\n  run('prefixed-slot-dynamic',()=>{const h=make('div'),r=h.attachShadow({mode:'open'}),s=make('slot',{name:'one'}),t=make('slot',{name:'two'}),n=make('input',{slot:'one'});r.append(s,t);h.append(n);const first=n.assignedSlot===s;n.slot='two';return [first,n.assignedSlot===t,s.assignedNodes().length,t.assignedNodes()[0]===n];});\n  run('prefixed-slot-flatten-fallback',()=>{const h=make('div'),r=h.attachShadow({mode:'open'}),s=make('slot'),nested=make('slot',{name:'nested'}),text=document.createTextNode('fallback');nested.append(text);s.append(nested);r.append(s);return [s.assignedNodes().length,s.assignedNodes({flatten:true})[0]===text];});\n  run('prefixed-shadow-clone',()=>{const h=make('div'),r=h.attachShadow({mode:'open',clonable:true}),s=make('slot');r.append(s);const c=h.cloneNode(true);return [c.shadowRoot!==null,c.shadowRoot.host===c,c.shadowRoot.firstChild.localName,c.shadowRoot.firstChild.prefix];});\n  for(const name of ['div','span','table','tbody','tr','td','input','button','textarea','select','a','x-expanded-unregistered'])run('display-'+name,()=>{const h=make(name);document.body.append(h);const value=getComputedStyle(h).display;h.remove();return value;});\n  for(const ns of [null,'urn:foreign'])run('foreign-display-'+String(ns),()=>{const h=document.createElementNS(ns,'div');document.body.append(h);const value=getComputedStyle(h).display;h.remove();return value;});\n  for(const name of ['svg','math'])run('HTML-unknown-'+name,()=>{const h=make(name);document.body.append(h);const value=[h.constructor.name,getComputedStyle(h).display];h.remove();return value;});\n  run('summary-UA-contexts',()=>{const d=make('details'),s=make('summary'),second=make('summary'),outside=make('summary');d.append(s,second);document.body.append(d,outside);const before=[getComputedStyle(s).display,getComputedStyle(s).listStyleType,getComputedStyle(second).display,getComputedStyle(outside).display];d.open=true;before.push(getComputedStyle(s).listStyleType);d.remove();outside.remove();return before;});\n  run('prefixed-bidi-direction',()=>{const h=make('bdi');h.textContent='שלום';document.body.append(h);const value=[getComputedStyle(h).direction,getComputedStyle(h).unicodeBidi];h.remove();return value;});\n  run('prefixed-bdo-direction',()=>{const h=make('bdo',{dir:'rtl'});document.body.append(h);const value=[getComputedStyle(h).direction,getComputedStyle(h).unicodeBidi];h.remove();return value;});\n  run('prefixed-input-auto-direction',()=>{const h=make('input',{dir:'auto'});h.value='שלום';document.body.append(h);const first=getComputedStyle(h).direction;h.value='English';const value=[first,getComputedStyle(h).direction,h.getAttribute('value')];h.remove();return value;});\n  run('prefixed-auto-excludes-bdi',()=>{const h=make('div',{dir:'auto'}),b=make('bdi');b.textContent='שלום';h.append(b,document.createTextNode('English'));document.body.append(h);const value=[getComputedStyle(h).direction,getComputedStyle(b).direction];h.remove();return value;});\n  return records;\n}\nfunction htmlExpandedMountedSetup(){\n  const H='http://www.w3.org/1999/xhtml';function make(name,id,style){const n=document.createElementNS(H,'h:'+name);n.id=id;if(style)n.setAttribute('style',style);return n;}\n  const panel=make('div','expanded-panel','width:240px;box-sizing:border-box;padding:10px;border:2px solid #123456'),inside=make('div','expanded-inside','height:20px'),edit=make('input','expanded-edit','display:block;width:100px;height:30px;box-sizing:border-box;padding:0;border:1px solid black;margin:0');edit.value='typed';panel.append(inside,edit);\n  const after=make('div','expanded-after','height:12px'),host=make('div','expanded-host','width:160px'),light=make('div','expanded-light','height:24px');light.slot='one';host.append(light);const shadow=host.attachShadow({mode:'open'}),surface=make('div','expanded-shadow-surface','height:18px'),slot=make('slot','expanded-slot','display:block');slot.name='one';shadow.append(surface,slot);\n  document.body.append(panel,after,host);\n  return [panel,inside,edit,after,host,light,surface].map(n=>{const r=n.getBoundingClientRect();return {id:n.id,rect:[r.x,r.y,r.width,r.height],display:getComputedStyle(n).display};});\n}\n",
+  "records": [
+    {
+      "name": "prefixed-shadow-host",
+      "value": [
+        true,
+        true,
+        "div",
+        "h"
+      ],
+      "json": "[true,true,\"div\",\"h\"]"
+    },
+    {
+      "name": "foreign-shadow-null",
+      "value": "accepted",
+      "json": "\"accepted\""
+    },
+    {
+      "name": "foreign-shadow-urn:foreign",
+      "value": "accepted",
+      "json": "\"accepted\""
+    },
+    {
+      "name": "prefixed-slot-assignment",
+      "value": [
+        "HTMLSlotElement",
+        true,
+        true
+      ],
+      "json": "[\"HTMLSlotElement\",true,true]"
+    },
+    {
+      "name": "prefixed-manual-slot",
+      "value": true,
+      "json": "true"
+    },
+    {
+      "name": "prefixed-slot-dynamic",
+      "value": [
+        true,
+        true,
+        0,
+        true
+      ],
+      "json": "[true,true,0,true]"
+    },
+    {
+      "name": "prefixed-slot-flatten-fallback",
+      "value": [
+        0,
+        true
+      ],
+      "json": "[0,true]"
+    },
+    {
+      "name": "prefixed-shadow-clone",
+      "value": [
+        true,
+        true,
+        "slot",
+        "h"
+      ],
+      "json": "[true,true,\"slot\",\"h\"]"
+    },
+    {
+      "name": "display-div",
+      "value": "block",
+      "json": "\"block\""
+    },
+    {
+      "name": "display-span",
+      "value": "inline",
+      "json": "\"inline\""
+    },
+    {
+      "name": "display-table",
+      "value": "table",
+      "json": "\"table\""
+    },
+    {
+      "name": "display-tbody",
+      "value": "table-row-group",
+      "json": "\"table-row-group\""
+    },
+    {
+      "name": "display-tr",
+      "value": "table-row",
+      "json": "\"table-row\""
+    },
+    {
+      "name": "display-td",
+      "value": "table-cell",
+      "json": "\"table-cell\""
+    },
+    {
+      "name": "display-input",
+      "value": "inline-block",
+      "json": "\"inline-block\""
+    },
+    {
+      "name": "display-button",
+      "value": "inline-block",
+      "json": "\"inline-block\""
+    },
+    {
+      "name": "display-textarea",
+      "value": "inline-block",
+      "json": "\"inline-block\""
+    },
+    {
+      "name": "display-select",
+      "value": "inline-block",
+      "json": "\"inline-block\""
+    },
+    {
+      "name": "display-a",
+      "value": "inline",
+      "json": "\"inline\""
+    },
+    {
+      "name": "display-x-expanded-unregistered",
+      "value": "inline",
+      "json": "\"inline\""
+    },
+    {
+      "name": "foreign-display-null",
+      "value": "inline",
+      "json": "\"inline\""
+    },
+    {
+      "name": "foreign-display-urn:foreign",
+      "value": "inline",
+      "json": "\"inline\""
+    },
+    {
+      "name": "HTML-unknown-svg",
+      "value": [
+        "HTMLUnknownElement",
+        "inline"
+      ],
+      "json": "[\"HTMLUnknownElement\",\"inline\"]"
+    },
+    {
+      "name": "HTML-unknown-math",
+      "value": [
+        "HTMLUnknownElement",
+        "inline"
+      ],
+      "json": "[\"HTMLUnknownElement\",\"inline\"]"
+    },
+    {
+      "name": "summary-UA-contexts",
+      "value": [
+        "list-item",
+        "disclosure-closed",
+        "block",
+        "block",
+        "disclosure-open"
+      ],
+      "json": "[\"list-item\",\"disclosure-closed\",\"block\",\"block\",\"disclosure-open\"]"
+    },
+    {
+      "name": "prefixed-bidi-direction",
+      "value": [
+        "rtl",
+        "isolate"
+      ],
+      "json": "[\"rtl\",\"isolate\"]"
+    },
+    {
+      "name": "prefixed-bdo-direction",
+      "value": [
+        "rtl",
+        "isolate-override"
+      ],
+      "json": "[\"rtl\",\"isolate-override\"]"
+    },
+    {
+      "name": "prefixed-input-auto-direction",
+      "value": [
+        "rtl",
+        "ltr",
+        null
+      ],
+      "json": "[\"rtl\",\"ltr\",null]"
+    },
+    {
+      "name": "prefixed-auto-excludes-bdi",
+      "value": [
+        "ltr",
+        "rtl"
+      ],
+      "json": "[\"ltr\",\"rtl\"]"
+    }
+  ],
+  "mounted": [
+    {
+      "id": "expanded-panel",
+      "rect": [
+        0,
+        0,
+        240,
+        74
+      ],
+      "display": "block"
+    },
+    {
+      "id": "expanded-inside",
+      "rect": [
+        12,
+        12,
+        216,
+        20
+      ],
+      "display": "block"
+    },
+    {
+      "id": "expanded-edit",
+      "rect": [
+        12,
+        32,
+        100,
+        30
+      ],
+      "display": "block"
+    },
+    {
+      "id": "expanded-after",
+      "rect": [
+        0,
+        74,
+        800,
+        12
+      ],
+      "display": "block"
+    },
+    {
+      "id": "expanded-host",
+      "rect": [
+        0,
+        86,
+        160,
+        42
+      ],
+      "display": "block"
+    },
+    {
+      "id": "expanded-light",
+      "rect": [
+        0,
+        104,
+        160,
+        24
+      ],
+      "display": "block"
+    },
+    {
+      "id": "expanded-shadow-surface",
+      "rect": [
+        0,
+        86,
+        160,
+        18
+      ],
+      "display": "block"
+    }
+  ],
+  "normative": {
+    "foreign-shadow-null": {
+      "json": "\"NotSupportedError\"",
+      "reason": "DOM attach a shadow root step 1 requires the HTML namespace"
+    },
+    "foreign-shadow-urn:foreign": {
+      "json": "\"NotSupportedError\"",
+      "reason": "DOM attach a shadow root step 1 requires the HTML namespace"
+    }
+  },
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "references": [
+    "https://html.spec.whatwg.org/multipage/infrastructure.html#xml-compatibility",
+    "https://html.spec.whatwg.org/multipage/rendering.html#the-details-and-summary-elements",
+    "https://dom.spec.whatwg.org/#dom-element-attachshadow",
+    "https://html.spec.whatwg.org/multipage/dom.html#the-directionality"
+  ]
+}
